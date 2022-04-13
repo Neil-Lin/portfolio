@@ -1,5 +1,8 @@
 <template>
-  <div>
-    <slot />
+  <div class="wrapper">
+    <List/>
+    <main class="container">
+      <slot />
+    </main>
   </div>
 </template>

@@ -1,14 +1,10 @@
 <template>
-  <button @click="enableCustomLayout">Update layout</button>
+  <div>
+    <h2>Index</h2>
+  </div>
 </template>
 
 <script setup>
-  const route = useRoute()
-
-  function enableCustomLayout () {
-    route.meta.layout = "custom"
-  }
-
   definePageMeta({
     layout: "default",
   });
