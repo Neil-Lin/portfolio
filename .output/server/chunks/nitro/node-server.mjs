@@ -285,12 +285,12 @@ function renderHTMLError(error) {
 }
 
 const _ab2c5e = () => import('./static.mjs');
-const _c7f6ab = () => import('../handlers/renderer.mjs');
+const _184b24 = () => import('../handlers/renderer.mjs');
 
 const handlers = [
   { route: '', handler: _ab2c5e, lazy: true, method: undefined },
-  { route: '/__nuxt_error', handler: _c7f6ab, lazy: true, method: undefined },
-  { route: '/**', handler: _c7f6ab, lazy: true, method: undefined }
+  { route: '/__nuxt_error', handler: _184b24, lazy: true, method: undefined },
+  { route: '/**', handler: _184b24, lazy: true, method: undefined }
 ];
 
 function createNitroApp() {

@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,a as s}from"./entry-0484b9d1.mjs";const c={},o={class:"page page--detail"},_=s("h2",null,"Vital CRM",-1),n=[_];function r(d,i){return a(),t("div",o,n)}var f=e(c,[["render",r]]);export{f as default};

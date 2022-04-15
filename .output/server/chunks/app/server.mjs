@@ -2932,7 +2932,7 @@ const preload = defineNuxtPlugin((nuxtApp) => {
   });
 });
 const components = {};
-function componentsPlugin_cb28295e(nuxtApp) {
+function componentsPlugin_71d4b758(nuxtApp) {
   for (const name in components) {
     nuxtApp.vueApp.component(name, components[name]);
     nuxtApp.vueApp.component("Lazy" + name, components[name]);
@@ -3226,7 +3226,7 @@ var renderHeadToString = (head) => {
     }
   };
 };
-const vueuseHead_31c3671c = defineNuxtPlugin((nuxtApp) => {
+const vueuseHead_783b51ba = defineNuxtPlugin((nuxtApp) => {
   const head = createHead();
   nuxtApp.vueApp.use(head);
   nuxtApp.hooks.hookOnce("app:mounted", () => {
@@ -3454,7 +3454,7 @@ const metaMixin = {
     useHead(source);
   }
 };
-const plugin_1f02d710 = defineNuxtPlugin((nuxtApp) => {
+const plugin_900e95d2 = defineNuxtPlugin((nuxtApp) => {
   useHead(metaConfig.globalMeta);
   nuxtApp.vueApp.mixin(metaMixin);
   for (const name in Components) {
@@ -3523,7 +3523,7 @@ const routes = [
   {
     name: "index",
     path: "/",
-    file: "/Users/neil/Documents/Code/github/portfolio/portfolio/pages/index.vue",
+    file: "/Users/neil/Documents/Code/github/portfolio/pages/index.vue",
     children: [],
     meta: meta$1,
     component: () => Promise.resolve().then(function() {
@@ -3533,7 +3533,7 @@ const routes = [
   {
     name: "vitalcrm",
     path: "/vitalcrm",
-    file: "/Users/neil/Documents/Code/github/portfolio/portfolio/pages/vitalcrm/index.vue",
+    file: "/Users/neil/Documents/Code/github/portfolio/pages/vitalcrm/index.vue",
     children: [],
     meta,
     component: () => Promise.resolve().then(function() {
@@ -3545,7 +3545,7 @@ const configRouterOptions = {};
 const routerOptions = __spreadValues({}, configRouterOptions);
 const globalMiddleware = [];
 const namedMiddleware = {};
-const router_f07d6798 = defineNuxtPlugin((nuxtApp) => {
+const router_0d872f0d = defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("NuxtPage", NuxtPage);
   nuxtApp.vueApp.component("NuxtNestedPage", NuxtPage);
   nuxtApp.vueApp.component("NuxtChild", NuxtPage);
@@ -3655,10 +3655,10 @@ const router_f07d6798 = defineNuxtPlugin((nuxtApp) => {
 });
 const _plugins = [
   preload,
-  componentsPlugin_cb28295e,
-  vueuseHead_31c3671c,
-  plugin_1f02d710,
-  router_f07d6798
+  componentsPlugin_71d4b758,
+  vueuseHead_783b51ba,
+  plugin_900e95d2,
+  router_0d872f0d
 ];
 const _sfc_main$9 = {
   __ssrInlineRender: true,

@@ -6,6 +6,6 @@ export default defineNuxtConfig({
     '@/assets/scss/style.scss',
   ],
   router: {
-    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/portfolio/output/' : '/'
+    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/portfolio/.output/' : '/'
   }
 })
