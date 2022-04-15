@@ -1,6 +1,6 @@
 {
   "node_modules/nuxt3/dist/app/entry.mjs": {
-    "file": "entry-0484b9d1.mjs",
+    "file": "entry-4cd04b6a.mjs",
     "src": "node_modules/nuxt3/dist/app/entry.mjs",
     "isEntry": true,
     "dynamicImports": [
@@ -13,7 +13,7 @@
     ]
   },
   "pages/index.vue": {
-    "file": "index-cd0aea24.mjs",
+    "file": "index-662ea4cb.mjs",
     "src": "pages/index.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -21,7 +21,7 @@
     ]
   },
   "pages/vitalcrm/index.vue": {
-    "file": "index-fce902f5.mjs",
+    "file": "index-3e02e6fc.mjs",
     "src": "pages/vitalcrm/index.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -29,7 +29,7 @@
     ]
   },
   "layouts/default.vue": {
-    "file": "default-a714951c.mjs",
+    "file": "default-f225b5e2.mjs",
     "src": "layouts/default.vue",
     "isDynamicEntry": true,
     "imports": [
