@@ -3,10 +3,13 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
-    "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.mjs",
+    "generate": "nuxt generate",
+    "deploy": "push-dir --dir=dist master=gh-pages --cleanup"
   },
   "devDependencies": {
     "nuxt3": "latest",
+    "push-dir": "^0.4.1",
     "sass": "^1.50.0"
   }
 }
