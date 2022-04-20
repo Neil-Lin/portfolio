@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{318:function(e,t,n){"use strict";n.r(t);var r=n(87),c=Object(r.b)({middleware:[function(e){(0,e.redirect)("/works/vitalcrm")}]}),l=n(38),component=Object(l.a)(c,(function(){var e=this.$createElement;return(this._self._c||e)("div")}),[],!1,null,null,null);t.default=component.exports}}]);
