@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/works/vitaluikit", {data:[{}],fetch:{},mutations:void 0});
