@@ -38,7 +38,7 @@ useHead({
     {
       hid: 'og:image',
       property: 'og:image',
-      content: runtimeConfig.public.baseUrl + '/images/social-media.png'
+      content: runtimeConfig.public.baseUrl + 'images/social-media.png'
     },
 
     // twitter
@@ -53,7 +53,7 @@ useHead({
     {
       hid: 'twitter:image',
       name: 'twitter:image',
-      content: runtimeConfig.public.baseUrl + '/images/social-media.png'
+      content: runtimeConfig.public.baseUrl + 'images/social-media.png'
     }
 
     // 在手機上，加入主畫面的名稱
