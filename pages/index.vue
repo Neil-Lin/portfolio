@@ -10,13 +10,13 @@
       :::
     </nuxt-link>
     <h2>{{ pageTitle }}</h2>
-    <theEmptyContent>Empty</theEmptyContent>
+    <div>使用 Nuxt3 建立網站中...</div>
   </main>
 </template>
 
 <script setup lang="ts">
 const runtimeConfig = useRuntimeConfig()
-const pageTitle = ref('Home Page')
+const pageTitle = ref('Coming soon')
 
 useHead({
   title: pageTitle,

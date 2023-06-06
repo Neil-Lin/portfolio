@@ -31,51 +31,15 @@
               <li>
                 <nuxt-link to="/sitemap" title="前往網站導覽">網站導覽</nuxt-link>
               </li>
-              <li>
-                <nuxt-link to="/" title="XXX">XXX</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/" title="XXX">XXX</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/" title="XXX">XXX</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/" title="XXX">XXX</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/" title="XXX">XXX</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/" title="XXX">XXX</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/" title="XXX">XXX</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/" title="XXX">XXX</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/" title="XXX">XXX</nuxt-link>
-              </li>
             </ul>
           </nav>
-          <nav class="sub-menu" aria-label="次要選單">
+          <!-- <nav class="sub-menu" aria-label="次要選單">
             <ul>
               <li>
                 <nuxt-link to="/" title="XXX">XXX2</nuxt-link>
               </li>
-              <li>
-                <nuxt-link to="/" title="XXX">XXX2</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/" title="XXX">XXX2</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/" title="XXX">XXX2</nuxt-link>
-              </li>
             </ul>
-          </nav>
+          </nav> -->
         </div>
       </div>
     </div>
