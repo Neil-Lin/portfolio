@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/works/vitalcrm-app", {data:[{}],fetch:{},mutations:void 0});
