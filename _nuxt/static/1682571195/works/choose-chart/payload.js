@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/works/choose-chart", {data:[{}],fetch:{},mutations:void 0});
