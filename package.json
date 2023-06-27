@@ -1,8 +1,8 @@
 {
-  "name": "neil-portfolio",
-  "version": "2.0.0",
-  "description": "Neil 的作品集",
-  "author": "Neil Lin",
+  "name": "@yasai/paprika",
+  "version": "3.0.0",
+  "description": "A Nuxt3 template of Piman",
+  "author": "Blue Planet Inc.",
   "private": true,
   "scripts": {
     "build": "nuxt build",

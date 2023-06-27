@@ -1,183 +1,53 @@
 <template>
   <header>
-    <nuxt-link id="ak-jump" to="#ak-container" title="跳至主要內容">跳至主要內容</nuxt-link>
-    <h1 class="visually-hidden">Website Name</h1>
-    <div class="header-container">
-      <div class="logo">
-        <nuxt-link to="/" title="前往首頁">
-          <picture>
-            <!-- <source media="(min-width: 768px)" srcset="/favicon.ico" /> -->
-            <img class="logo-img" src="/favicon.ico" alt="" />
-          </picture>
-        </nuxt-link>
-      </div>
-      <div class="menubar">
-        <button class="btn-open-mobile-menu" @click="handleToggleMobileMenuBtn">選單</button>
-        <div :class="['menu', mobileMenuStatus ? 'menu--open' : '']">
-          <button class="btn-close-mobile-menu" @click="handleCloseMobileMenuBtn">關閉選單</button>
-          <nav class="main-menu" aria-label="主要選單">
-            <ul>
-              <li>
-                <nuxt-link
-                  id="ak-header"
-                  to="#ak-header"
-                  title="上方功能區塊"
-                  accesskey="U"
-                  name="ak-header"
-                >
-                  :::
-                </nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/sitemap" title="前往網站導覽">網站導覽</nuxt-link>
-              </li>
-            </ul>
-          </nav>
-          <!-- <nav class="sub-menu" aria-label="次要選單">
-            <ul>
-              <li>
-                <nuxt-link to="/" title="XXX">XXX2</nuxt-link>
-              </li>
-            </ul>
-          </nav> -->
+    <nuxt-link id="ak-header" to="#ak-header" title="上方功能區塊" accesskey="U" name="ak-header"
+      >:::</nuxt-link
+    >
+    <div> Hi, I'm Neil! </div>
+    <article>
+      <section>
+        <p>我是一位熱愛通用設計的 UI/UX designer。</p>
+        <p>
+          擅長 UI Design、UX Design、Vue/Nuxt
+          切版、無障礙網頁設計、資料視覺化與設計管理。現在主要致力於在網頁設計實現 "Design for All"
+          的通用設計理念。
+        </p>
+        <p>
+          <nuxt-link to="/about" title="前往 關於我的技能">關於我的技能</nuxt-link>
+        </p>
+        <div class="contact">
+          <a
+            role="button"
+            href="https://medium.com/@neil-lin"
+            title="前往 Medium(另開視窗)"
+            target="_blank"
+            ref="noreferrer noopener"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+              <title>Medium</title>
+              <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+              <path
+                d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z"
+              />
+            </svg>
+          </a>
+          <a
+            role="button"
+            href="https://dribbble.com/Neil_lin"
+            title="前往 Dribbble(另開視窗)"
+            target="_blank"
+            ref="noreferrer noopener"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <title>Dribbble</title>
+              <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+              <path
+                d="M256 8C119.252 8 8 119.252 8 256s111.252 248 248 248 248-111.252 248-248S392.748 8 256 8zm163.97 114.366c29.503 36.046 47.369 81.957 47.835 131.955-6.984-1.477-77.018-15.682-147.502-6.818-5.752-14.041-11.181-26.393-18.617-41.614 78.321-31.977 113.818-77.482 118.284-83.523zM396.421 97.87c-3.81 5.427-35.697 48.286-111.021 76.519-34.712-63.776-73.185-116.168-79.04-124.008 67.176-16.193 137.966 1.27 190.061 47.489zm-230.48-33.25c5.585 7.659 43.438 60.116 78.537 122.509-99.087 26.313-186.36 25.934-195.834 25.809C62.38 147.205 106.678 92.573 165.941 64.62zM44.17 256.323c0-2.166.043-4.322.108-6.473 9.268.19 111.92 1.513 217.706-30.146 6.064 11.868 11.857 23.915 17.174 35.949-76.599 21.575-146.194 83.527-180.531 142.306C64.794 360.405 44.17 310.73 44.17 256.323zm81.807 167.113c22.127-45.233 82.178-103.622 167.579-132.756 29.74 77.283 42.039 142.053 45.189 160.638-68.112 29.013-150.015 21.053-212.768-27.882zm248.38 8.489c-2.171-12.886-13.446-74.897-41.152-151.033 66.38-10.626 124.7 6.768 131.947 9.055-9.442 58.941-43.273 109.844-90.795 141.978z"
+              />
+            </svg>
+          </a>
         </div>
-      </div>
-    </div>
+      </section>
+    </article>
   </header>
 </template>
-
-<script setup lang="ts">
-const mobileMenuStatus = ref<boolean>(false)
-const handleToggleMobileMenuBtn = () => {
-  mobileMenuStatus.value = !mobileMenuStatus.value
-}
-const handleCloseMobileMenuBtn = () => {
-  mobileMenuStatus.value = false
-}
-</script>
-
-<style scoped>
-header {
-  position: sticky;
-  top: 0;
-  background-color: oklch(var(--header-bg) / 90%);
-  border-bottom: 1px solid oklch(var(--border-color) / 30%);
-  backdrop-filter: blur(0.25rem);
-  z-index: 1;
-  & #ak-jump {
-    position: absolute;
-    top: -1px;
-    left: 0;
-    font-size: 0.875rem;
-    color: transparent;
-    z-index: -1;
-    &:focus-within {
-      color: oklab(var(--color-white));
-      background-color: oklab(var(--color-black));
-      z-index: inherit;
-    }
-  }
-  & .header-container {
-    display: flex;
-    align-items: center;
-  }
-  & .btn-mobile {
-    display: none;
-    @media screen and (max-width: 768px) {
-      display: block;
-    }
-  }
-  & .logo {
-    padding: 0 1rem 0 2rem;
-    @media screen and (max-width: 768px) {
-      padding: 0 1rem;
-    }
-    & a {
-      display: inline-block;
-    }
-  }
-
-  & .menubar {
-    flex: 1;
-    white-space: nowrap;
-    overflow: auto;
-    background:
-      linear-gradient(to right, oklch(var(--header-bg) / 90%) 30%,  oklch(var(--color-black) / 0%)),
-      linear-gradient(to right, oklch(var(--color-black) / 0%), oklch(var(--header-bg) / 90%) 70%),
-      radial-gradient(farthest-side at 0 50%, oklch(var(--color-black) / 20%), transparent),
-      radial-gradient(farthest-side at 100% 50%, oklch(var(--color-black) / 20%), transparent);
-    background-position: left center, right center, left center, right center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
-
-    /* Opera doesn't support this in the shorthand */
-    background-attachment: local, local, scroll, scroll;
-    @media screen and (max-width: 768px) {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 0.75rem 1rem;
-    }
-  }
-  & .btn-open-mobile-menu {
-    display: none;
-    @media screen and (max-width: 768px) {
-      display: block;
-    }
-  }
-  & .btn-close-mobile-menu {
-    display: none;
-    background-color: red;
-    @media screen and (max-width: 768px) {
-      display: block;
-    }
-  }
-  & .menu {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1rem 0 1rem 2rem;
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
-    & ul {
-      display: flex;
-      gap: 1.5rem;
-      @media screen and (max-width: 768px) {
-        flex-direction: column;
-      }
-    }
-    & a {
-      display: inline-block;
-    }
-  }
-  .menu--open {
-    @media screen and (max-width: 768px) {
-      display: block;
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 300px;
-      height: 100dvh;
-      background-color: oklch(var(--menubar-mobile-bg));
-      box-shadow: var(--box-shadow);
-      padding: 1rem;
-      overflow: auto;
-      scroll-behavior: smooth;
-      overscroll-behavior: contain;
-      -webkit-overflow-scrolling: touch;
-    }
-  }
-  & .sub-menu {
-    padding-right: 2rem;
-    @media screen and (max-width: 768px) {
-      padding-right: 0;
-      padding-top: 1rem;
-      padding-bottom: 2rem;
-    }
-  }
-}
-</style>

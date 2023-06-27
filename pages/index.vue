@@ -1,22 +1,17 @@
 <template>
   <main class="page page--index">
-    <nuxt-link
-      id="ak-container"
-      to="#ak-container"
-      title="中央內容區塊"
-      accesskey="C"
-      name="ak-container"
-    >
-      :::
-    </nuxt-link>
-    <h2>{{ pageTitle }}</h2>
-    <div>使用 Nuxt3 建立網站中...</div>
+    <div class="page-aside">
+      <thePortfolioList />
+    </div>
+    <div class="page-container">
+      <h2 class="visually-hidden">{{ pageTitle }}</h2>
+    </div>
   </main>
 </template>
 
 <script setup lang="ts">
 const runtimeConfig = useRuntimeConfig()
-const pageTitle = ref('Coming soon')
+const pageTitle = ref('首頁')
 
 useHead({
   title: pageTitle,
