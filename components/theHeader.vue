@@ -70,9 +70,10 @@
 .intro {
   container-type: inline-size;
   container-name: intro;
-  padding: 1rem 0 ;
+  padding: 1rem 0;
+  text-align: center;
   & a {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
   }
@@ -105,7 +106,6 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
     justify-content: space-around;
     align-items: center;
     & a {

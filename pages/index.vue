@@ -1,18 +1,8 @@
 <template>
   <main class="page page--index">
     <div class="page-aside">
-      <thePortfolioList />
+      <theAside />
     </div>
-    <nuxt-link
-      id="ak-container"
-      to="#ak-container"
-      title="中央內容區塊"
-      accesskey="C"
-      name="ak-container"
-      class="visually-hidden"
-    >
-      :::
-    </nuxt-link>
     <h2 class="visually-hidden">{{ pageTitle }}</h2>
   </main>
 </template>

@@ -65,3 +65,16 @@ a[role="button"] {
     transform: rotate(360deg);
   }
 }
+
+
+/*************************
+  Tag
+*************************/
+.tag {
+  font-size: 0.75rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 1.25rem;
+  border: 1px solid oklch(var(--border-color));
+  display: inline-block;
+  vertical-align: middle;
+}

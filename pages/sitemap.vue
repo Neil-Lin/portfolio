@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="page-aside">
-      <thePortfolioList />
+      <theAside />
     </div>
     <main class="page-container">
       <nuxt-link
@@ -19,12 +19,11 @@
           <h3>網站區塊與快捷鍵</h3>
           <p>
             本網站依無障礙網頁設計原則建置，網站的主要內容分為三大區塊：<br />
-            1. 頁首區塊、2. 主要選單、3.主要內容、4.頁尾區塊。<br /><br />
+            1. 頁首區塊、2.主要內容、3.頁尾區塊。<br /><br />
             本網站的快速鍵(Accesskey)設定如下：
           </p>
           <p>
             <kbd>Alt</kbd>+<kbd>U</kbd>：頁首區塊，個人介紹。<br />
-            <kbd>Alt</kbd>+<kbd>M</kbd>：主要選單。<br />
             <kbd>Alt</kbd>+<kbd>C</kbd>：主要內容。<br />
             <kbd>Alt</kbd>+<kbd>Z</kbd>：頁尾區塊，含 copyright。<br />
           </p>
