@@ -3,51 +3,134 @@
     <nuxt-link id="ak-header" to="#ak-header" title="上方功能區塊" accesskey="U" name="ak-header"
       >:::</nuxt-link
     >
-    <div> Hi, I'm Neil! </div>
+    <div class="intro">
+      <nuxt-link to="/" title="回首頁">
+        <img src="images/avatar.webp" alt="Neil 的大頭照" />
+        <div class="text">您好，我是 Neil！</div>
+      </nuxt-link>
+    </div>
     <article>
       <section>
         <p>我是一位熱愛通用設計的 UI/UX designer。</p>
         <p>
-          擅長 UI Design、UX Design、Vue/Nuxt
+          擅長 UI、UX、Vue/Nuxt
           切版、無障礙網頁設計、資料視覺化與設計管理。現在主要致力於在網頁設計實現 "Design for All"
           的通用設計理念。
         </p>
-        <p>
-          <nuxt-link to="/about" title="前往 關於我的技能">關於我的技能</nuxt-link>
-        </p>
-        <div class="contact">
-          <a
-            role="button"
-            href="https://medium.com/@neil-lin"
-            title="前往 Medium(另開視窗)"
-            target="_blank"
-            ref="noreferrer noopener"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-              <title>Medium</title>
-              <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-              <path
-                d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z"
-              />
-            </svg>
-          </a>
-          <a
-            role="button"
-            href="https://dribbble.com/Neil_lin"
-            title="前往 Dribbble(另開視窗)"
-            target="_blank"
-            ref="noreferrer noopener"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-              <title>Dribbble</title>
-              <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-              <path
-                d="M256 8C119.252 8 8 119.252 8 256s111.252 248 248 248 248-111.252 248-248S392.748 8 256 8zm163.97 114.366c29.503 36.046 47.369 81.957 47.835 131.955-6.984-1.477-77.018-15.682-147.502-6.818-5.752-14.041-11.181-26.393-18.617-41.614 78.321-31.977 113.818-77.482 118.284-83.523zM396.421 97.87c-3.81 5.427-35.697 48.286-111.021 76.519-34.712-63.776-73.185-116.168-79.04-124.008 67.176-16.193 137.966 1.27 190.061 47.489zm-230.48-33.25c5.585 7.659 43.438 60.116 78.537 122.509-99.087 26.313-186.36 25.934-195.834 25.809C62.38 147.205 106.678 92.573 165.941 64.62zM44.17 256.323c0-2.166.043-4.322.108-6.473 9.268.19 111.92 1.513 217.706-30.146 6.064 11.868 11.857 23.915 17.174 35.949-76.599 21.575-146.194 83.527-180.531 142.306C64.794 360.405 44.17 310.73 44.17 256.323zm81.807 167.113c22.127-45.233 82.178-103.622 167.579-132.756 29.74 77.283 42.039 142.053 45.189 160.638-68.112 29.013-150.015 21.053-212.768-27.882zm248.38 8.489c-2.171-12.886-13.446-74.897-41.152-151.033 66.38-10.626 124.7 6.768 131.947 9.055-9.442 58.941-43.273 109.844-90.795 141.978z"
-              />
-            </svg>
-          </a>
-        </div>
+        <nav class="sub-menu" aria-label="次要選單">
+          <ul>
+            <li>
+              <nuxt-link role="button" to="/sitemap" title="前往 網站導覽">網站導覽</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link role="button" to="/about" title="前往 我的能力">我的能力</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link
+                role="button"
+                to="https://medium.com/@neil-lin"
+                title="前往 Medium(另開視窗)"
+                target="_blank"
+                ref="noreferrer noopener"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                  <!-- <title>Medium</title> -->
+                  <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                  <path
+                    d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z"
+                  />
+                </svg>
+              </nuxt-link>
+            </li>
+            <li>
+              <nuxt-link
+                role="button"
+                to="https://dribbble.com/Neil_lin"
+                title="前往 Dribbble(另開視窗)"
+                target="_blank"
+                ref="noreferrer noopener"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <!-- <title>Dribbble</title> -->
+                  <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                  <path
+                    d="M256 8C119.252 8 8 119.252 8 256s111.252 248 248 248 248-111.252 248-248S392.748 8 256 8zm163.97 114.366c29.503 36.046 47.369 81.957 47.835 131.955-6.984-1.477-77.018-15.682-147.502-6.818-5.752-14.041-11.181-26.393-18.617-41.614 78.321-31.977 113.818-77.482 118.284-83.523zM396.421 97.87c-3.81 5.427-35.697 48.286-111.021 76.519-34.712-63.776-73.185-116.168-79.04-124.008 67.176-16.193 137.966 1.27 190.061 47.489zm-230.48-33.25c5.585 7.659 43.438 60.116 78.537 122.509-99.087 26.313-186.36 25.934-195.834 25.809C62.38 147.205 106.678 92.573 165.941 64.62zM44.17 256.323c0-2.166.043-4.322.108-6.473 9.268.19 111.92 1.513 217.706-30.146 6.064 11.868 11.857 23.915 17.174 35.949-76.599 21.575-146.194 83.527-180.531 142.306C64.794 360.405 44.17 310.73 44.17 256.323zm81.807 167.113c22.127-45.233 82.178-103.622 167.579-132.756 29.74 77.283 42.039 142.053 45.189 160.638-68.112 29.013-150.015 21.053-212.768-27.882zm248.38 8.489c-2.171-12.886-13.446-74.897-41.152-151.033 66.38-10.626 124.7 6.768 131.947 9.055-9.442 58.941-43.273 109.844-90.795 141.978z"
+                  />
+                </svg>
+              </nuxt-link>
+            </li>
+          </ul>
+        </nav>
       </section>
     </article>
   </header>
 </template>
+
+<style scoped>
+.intro {
+  container-type: inline-size;
+  container-name: intro;
+  padding: 1rem 0 ;
+  & a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  & img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: oklch(var(--color-white));
+    border: 1px solid oklch(var(--border-color));
+    @container intro (max-width: 320px) {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+  & .text {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: oklch(var(--color-black));
+    padding-left: 1.5rem;
+    @container intro (max-width: 320px) {
+      font-size: 1.25rem;
+      padding-left: 1rem;
+    }
+  }
+}
+.sub-menu {
+  container-type: inline-size;
+  container-name: sub-menu;
+  > ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-around;
+    align-items: center;
+    & a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      text-align: center;
+      text-wrap: balance;
+      @container sub-menu (max-width: 320px) {
+        width: 3rem;
+        height: 3rem;
+        font-size: 0.75rem;
+      }
+    }
+    & svg {
+      width: 2rem;
+      height: 2rem;
+      @container sub-menu (max-width: 320px) {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+}
+</style>

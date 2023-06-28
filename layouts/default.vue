@@ -4,6 +4,7 @@
       您的瀏覽器不支援 JavaScript 功能，若網頁功能無法正常使用時，請開啟瀏覽器 JavaScript 狀態。
       Your browser does not support JavaScript!
     </noscript>
+    <h1 class="visually-hidden">Neil 的作品集</h1>
     <nuxt-link id="ak-jump" to="#ak-container" title="跳至主要內容">跳至主要內容</nuxt-link>
     <slot />
   </div>

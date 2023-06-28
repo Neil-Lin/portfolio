@@ -12,10 +12,10 @@
 使用 Cascade Layers 輔助權重區別。  
 @layer reset, ui, vendor, variations, utilities, print;  
 基本概念為絕對不能被覆蓋掉的樣式放後面圖層。  
-
 一般被視為 global 的 css，請寫入 ui.css 或 @import 到 ui layer。  
+或是延伸成：@layer reset, theme, global, layout, vendor, variations, components, utilities, print;  
 
-Component 一般來說是不應該被更動且獨立的，所以 Component 的 css 應該被放入到 /component 自己的檔案或資料夾裡，非必要請不要建立一個 component 的＠layer。  
+但 Component 一般來說是不應該被更動且獨立的，所以 Component 的 css 應該被放入到 /components 自己的檔案或資料夾裡，建議非必要請不要建立一個 components 的＠layer。  
 另外請注意寫在 Component 的 CSS Variables 需有預設值，以防沒有設定 CSS Variables，  
 也就是說，Component 的 CSS Variables 預設值，避免再使用 CSS Variables 代替，才能達到獨立性。  
 例如：請謝 color: var(--color, red); 不要寫 color: var(--color, var(--color-default));  

@@ -1,28 +1,37 @@
 <template>
-  <main class="page">
+  <div class="page">
     <div class="page-aside">
       <thePortfolioList />
     </div>
-    <div class="page-container">
+    <main class="page-container">
+      <nuxt-link
+        id="ak-container"
+        to="#ak-container"
+        title="中央內容區塊"
+        accesskey="C"
+        name="ak-container"
+      >
+        :::
+      </nuxt-link>
       <h2>{{ pageTitle }}</h2>
       <article>
         <section>
           <h3>網站區塊與快捷鍵</h3>
           <p>
             本網站依無障礙網頁設計原則建置，網站的主要內容分為三大區塊：<br />
-            1. 上方功能區塊、2. 中央內容區塊、3.下方功能區塊。<br /><br />
+            1. 頁首區塊、2. 主要選單、3.主要內容、4.頁尾區塊。<br /><br />
             本網站的快速鍵(Accesskey)設定如下：
           </p>
           <p>
-            <kbd>Alt</kbd>+<kbd>U</kbd>：上方功能區塊，包括整合檢索頁面、主題專區頁面等。<br />
-            <kbd>Alt</kbd>+<kbd>S</kbd>：搜尋資料。<br />
-            <kbd>Alt</kbd>+<kbd>C</kbd>：中央內容區塊，為本網站主要內容區。<br />
-            <kbd>Alt</kbd>+<kbd>Z</kbd>：下方功能區塊。<br />
+            <kbd>Alt</kbd>+<kbd>U</kbd>：頁首區塊，個人介紹。<br />
+            <kbd>Alt</kbd>+<kbd>M</kbd>：主要選單。<br />
+            <kbd>Alt</kbd>+<kbd>C</kbd>：主要內容。<br />
+            <kbd>Alt</kbd>+<kbd>Z</kbd>：頁尾區塊，含 copyright。<br />
           </p>
           <p>
             如果您的瀏覽器是
             Firefox，快速鍵的使用方法為<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>快速鍵字母</kbd>，例如
-            <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> 會跳至網頁中央區塊，以此類推。<br />
+            <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> 會跳至網頁主要內容，以此類推。<br />
           </p>
           <p>
             另外，如果您是 MAC 用戶，快速鍵的使用方法為<kbd>Control</kbd>+<kbd>Option</kbd>+<kbd
@@ -54,8 +63,8 @@
                 <td colspan="2"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>快速鍵字母</kbd></td>
                 <td>
                   Firefox 57 版本以上: <kbd>Control</kbd> + <kbd>Option</kbd> +
-                  <kbd>快速鍵字母</kbd> 或 <kbd>Control</kbd> + <kbd>Alt</kbd> + <kbd>快速鍵字母</kbd
-                  ><br />
+                  <kbd>快速鍵字母</kbd> 或 <kbd>Control</kbd> + <kbd>Alt</kbd> +
+                  <kbd>快速鍵字母</kbd><br />
                   Firefox 14 版本以上: <kbd>Control</kbd> + <kbd>Alt</kbd> + <kbd>快速鍵字母</kbd
                   ><br />
                   Firefox 13 版本以下: <kbd>Control</kbd> + <kbd>快速鍵字母</kbd>
@@ -92,16 +101,14 @@
             <kbd>←</kbd> <kbd>→</kbd> 或 <kbd>↑</kbd> <kbd>↓</kbd>：按左右鍵或上下鍵移動標籤順序。
           </p>
           <p>
-            <kbd>Tab</kbd
-            >：停留於該標籤後，可利用<kbd>Tab</kbd>鍵跳至內容瀏覽該筆資料，遇到單選按鈕(radio)時請配合使用<kbd
-              >←</kbd
-            >
-            <kbd>→</kbd> 或 <kbd>↑</kbd> <kbd>↓</kbd>鍵移動項目順序。
+            <kbd>Tab</kbd>：停留於該標籤後，可利用
+            <kbd>Tab</kbd> 鍵跳至內容瀏覽該筆資料，遇到單選按鈕(radio)時請配合使用 <kbd>←</kbd>
+            <kbd>→</kbd> 或 <kbd>↑</kbd> <kbd>↓</kbd> 鍵移動項目順序。
           </p>
           <p>
-            <kbd>Tab</kbd> + <kbd>Shift</kbd>：按 <kbd>Tab</kbd> +
-            <kbd>Shift</kbd>可往回跳至上一筆資料；當跳回至標籤項目時您可繼續利用<kbd>←</kbd>
-            <kbd>→</kbd> 或 <kbd>↑</kbd> <kbd>↓</kbd>鍵移動標籤順序。
+            <kbd>Shift</kbd> + <kbd>Tab</kbd>：按 <kbd>Shift</kbd> +
+            <kbd>Tab</kbd> 可往回跳至上一筆資料；當跳回至標籤項目時您可繼續利用 <kbd>←</kbd>
+            <kbd>→</kbd> 或 <kbd>↑</kbd> <kbd>↓</kbd> 鍵移動標籤順序。
           </p>
         </section>
         <section>
@@ -113,8 +120,8 @@
           </ul>
         </section>
       </article>
-    </div>
-  </main>
+    </main>
+  </div>
 </template>
 
 <script setup lang="ts">

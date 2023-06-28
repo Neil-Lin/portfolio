@@ -17,6 +17,8 @@ body {
 
 .wrapper {
   overflow-x: hidden;
+  /* background: color image attachment repeat poition / size */
+  background: oklch(var(--wrapper-bg)) url('~/assets/images/sitename.svg') fixed no-repeat  center bottom 10% / contain;
 }
 
 h1,
@@ -30,26 +32,32 @@ h6 {
 
 h1 {
   font-size: 4rem;
+  margin-bottom: 1.5rem;
 }
 
 h2 {
   font-size: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 h3 {
   font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 h4 {
   font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 h5 {
   font-size: 0.875rem;
+  margin-bottom: 1rem;
 }
 
 h6 {
   font-size: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 a {
@@ -111,6 +119,7 @@ kbd {
   border-radius: 0.25rem;
   box-shadow: 0 0.25rem 0.5rem oklch(var(--color-black) / 0.15);
   font-family: var(--font-family);
+  background-color: oklch(var(--color-white));
 }
 
 figcaption {
@@ -183,11 +192,15 @@ figcaption {
   Page
 *************************/
 
+section {
+  margin-bottom: 1.5rem;
+}
+
 .page {
   width: 100%;
   max-width: var(--breakpoint-1600);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0;
   display: flex;
   justify-content: center;
   @media screen and (max-width: 768px) {
@@ -195,13 +208,16 @@ figcaption {
   }
   &.page--index {
     & .page-aside {
-      max-width: 60ch;
+      width: 60ch;
+      max-width: var(--breakpoint-768);
       padding-right: 0;
       & .port-list-blcok {
         position: initial;
         top: initial;
         overflow: inherit;
         max-height: inherit;
+        padding-right: 0;
+        padding-left: 0;
       }
     }
     & .page-container {
@@ -211,23 +227,22 @@ figcaption {
 }
 
 .page-aside {
-  max-width: 40ch;
+  width: 40ch;
+  max-width: var(--breakpoint-320);
 }
 
 .page-container {
   flex: 1; 
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem;
 }
 
 .port-list-blcok {
   position: sticky;
   top: 0;
   overflow: auto;
+  overscroll-behavior: contain;
   max-height: 100dvh;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-right: 2rem;
+  padding: 2rem;
 }
 
 #ak-jump {
