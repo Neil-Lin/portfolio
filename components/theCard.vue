@@ -12,7 +12,7 @@
     <div class="card-des">{{ cardDes }}</div>
     <ul class="tag-list" v-if="cardTags.length != 0">
       <li v-for="(item, idx) in cardTags" :key="idx">
-        <span class="tag tag--primary">{{ item }}</span>
+        <span class="tag">{{ item }}</span>
       </li>
     </ul>
   </nuxt-link>
@@ -25,7 +25,7 @@
     <div class="card-des">{{ cardDes }}</div>
     <ul class="tag-list" v-if="cardTags.length != 0">
       <li v-for="(item, idx) in cardTags" :key="idx">
-        <span class="tag tag--primary">{{ item }}</span>
+        <span class="tag">{{ item }}</span>
       </li>
     </ul>
   </div>
@@ -73,6 +73,7 @@ const props = defineProps({
   text-decoration: none;
   &[aria-current='page'] {
     position: relative;
+    box-shadow: 0 0 0 0.25rem oklch(var(--color-primary));
     &:before {
       content: '正在觀看';
       position: absolute;

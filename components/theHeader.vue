@@ -5,7 +5,7 @@
     >
     <div class="intro">
       <nuxt-link to="/" title="回首頁">
-        <img src="images/avatar.webp" alt="Neil 的大頭照" />
+        <img src="/images/avatar.webp" alt="Neil 的大頭照" />
         <div class="text">您好，我是 Neil！</div>
       </nuxt-link>
     </div>

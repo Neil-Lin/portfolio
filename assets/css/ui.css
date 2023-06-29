@@ -128,19 +128,11 @@ kbd {
   background-color: oklch(var(--color-white));
 }
 
-figcaption {
-  display: block;
-  text-align: center;
-  font-size: 0.75em;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
 article {
-  figure {
+  & figure {
     margin-bottom: 2rem;
   }
-  img {
+  & img {
     width: 100%;
     max-width: 100%;
     height: auto;
@@ -150,6 +142,14 @@ article {
 
 section {
   margin-bottom: 1.5rem;
+}
+
+figcaption {
+  display: block;
+  text-align: center;
+  font-size: 0.75em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 
@@ -234,9 +234,15 @@ section {
 
 .flex-list {
   display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
   margin-bottom: 2rem;
+  &>div {
+    max-width: 80ch;
+  }
+  /* 
   margin-left: -0.5rem;
-  width: calc(100% + 1rem);
+  width: calc(100% + 1rem); 
   @media screen and (max-width: 768px) {
     flex-wrap: wrap;
   }
@@ -252,20 +258,19 @@ section {
       flex: 1 0 50%;
       margin-bottom: 1rem;
     }
-  }
+  }*/
   & .flex-list-title {
     font-size: 1.125rem;
     font-weight: bold;
-    margin-bottom: 1rem;
   }
-  ol {
+  & ol {
     list-style-type: decimal;
     margin: 1em;
     padding: 1em;
   }
-  ul {
+  & ul {
     list-style-type: disc;
-    padding: 1em;
+    padding: 0 1em 1em 1em;
   }
 }
 

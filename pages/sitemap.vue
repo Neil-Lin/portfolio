@@ -4,15 +4,7 @@
       <theAside />
     </div>
     <main class="page-container">
-      <nuxt-link
-        id="ak-container"
-        to="#ak-container"
-        title="中央內容區塊"
-        accesskey="C"
-        name="ak-container"
-      >
-        :::
-      </nuxt-link>
+      <akContainer />
       <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`"/>
       <h2>{{ pageTitle }}</h2>
       <article>

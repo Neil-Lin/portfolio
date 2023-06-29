@@ -4,15 +4,7 @@
       <theAside />
     </div>
     <main class="page-container">
-      <nuxt-link
-        id="ak-container"
-        to="#ak-container"
-        title="中央內容區塊"
-        accesskey="C"
-        name="ak-container"
-      >
-        :::
-      </nuxt-link>
+      <akContainer />
       <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
       <h2>{{ pageTitle }}</h2>
       <article>
@@ -27,7 +19,7 @@
         <section>
           <div class="flex-list">
             <div>
-              <div class="flex-list-title">程式</div>
+              <h4 class="flex-list-title">程式</h4>
               <ul>
                 <li>HTML5</li>
                 <li>CSS/SCSS</li>
@@ -37,7 +29,7 @@
               </ul>
             </div>
             <div>
-              <div class="flex-list-title">推廣</div>
+              <h4 class="flex-list-title">推廣</h4>
               <ul>
                 <li>
                   <nuxt-link
@@ -57,7 +49,7 @@
               </ul>
             </div>
             <div>
-              <div class="flex-list-title">常用工具</div>
+              <h4 class="flex-list-title">常用工具</h4>
               <ul>
                 <li>Figma</li>
                 <li>VScode</li>
