@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="page-aside">
+    <div :class="['page-aside', mobileMenuStatus ? 'page-aside--open' : '']">
       <button class="btn-close-mobile-menu" @click="handleCloseMobileMenuBtn">關閉選單</button>
       <theAside />
     </div>
@@ -9,7 +9,7 @@
         <span>選單</span>
       </button>
       <akContainer />
-      <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`"/>
+      <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
       <h2>{{ pageTitle }}</h2>
       <article>
         <section>
@@ -164,4 +164,12 @@ useHead({
     }
   ]
 })
+
+const mobileMenuStatus = ref<boolean>(false)
+const handleToggleMobileMenuBtn = () => {
+  mobileMenuStatus.value = !mobileMenuStatus.value
+}
+const handleCloseMobileMenuBtn = () => {
+  mobileMenuStatus.value = false
+}
 </script>

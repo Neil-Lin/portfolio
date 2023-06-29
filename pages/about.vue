@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="page-aside">
+    <div :class="['page-aside', mobileMenuStatus ? 'page-aside--open' : '']">
       <button class="btn-close-mobile-menu" @click="handleCloseMobileMenuBtn">關閉選單</button>
       <theAside />
     </div>
@@ -110,4 +110,12 @@ useHead({
     }
   ]
 })
+
+const mobileMenuStatus = ref<boolean>(false)
+const handleToggleMobileMenuBtn = () => {
+  mobileMenuStatus.value = !mobileMenuStatus.value
+}
+const handleCloseMobileMenuBtn = () => {
+  mobileMenuStatus.value = false
+}
 </script>
