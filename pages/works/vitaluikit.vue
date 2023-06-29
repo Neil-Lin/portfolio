@@ -1,5 +1,5 @@
 <template>
-  <main class="page-container">
+  <div>
     <akContainer />
     <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
     <h2>{{ pageTitle }}</h2>
@@ -128,7 +128,7 @@
         </div>
       </section>
     </article>
-  </main>
+  </div>
 </template>
 
 <script setup lang="ts">

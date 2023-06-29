@@ -1,9 +1,13 @@
 <template>
   <div class="page">
     <div class="page-aside">
+      <button class="btn-close-mobile-menu" @click="handleCloseMobileMenuBtn">關閉選單</button>
       <theAside />
     </div>
     <main class="page-container">
+      <button class="btn-open-mobile-menu" @click="handleToggleMobileMenuBtn">
+        <span>選單</span>
+      </button>
       <akContainer />
       <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
       <h2>{{ pageTitle }}</h2>

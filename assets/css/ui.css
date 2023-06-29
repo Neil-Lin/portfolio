@@ -18,7 +18,7 @@ body {
 .wrapper {
   overflow-x: hidden;
   /* background: color image attachment repeat poition / size */
-  background: oklch(var(--wrapper-bg)) url('~/assets/images/sitename.svg') fixed no-repeat center
+  background: oklch(var(--wrapper-bg)) url('/images/sitename.svg') fixed no-repeat center
     bottom 10% / contain;
 }
 
@@ -169,6 +169,19 @@ figcaption {
   Page
 *************************/
 
+[class^="btn"] {
+  background-color: oklch(var(--color-primary));
+  color: oklch(var(--color-white));
+  padding: 0.75rem 1.25rem;
+  border-radius: 2rem;
+  &:hover {
+    background-color: oklch(var(--color-primary) / 80%);
+  }
+  &:focus-within {
+    box-shadow: 0 0 0 4px oklch(var(--outline-color));
+  }
+}
+
 [id^='ak-'] {
   text-decoration: none;
 }
@@ -271,6 +284,10 @@ figcaption {
       width: 60ch;
       max-width: var(--breakpoint-768);
       padding-right: 0;
+      position: inherit;
+      transform: translate3d(0, 0, 0);
+      box-shadow: none;
+      background-color: transparent;
       & .port-list-blcok {
         position: initial;
         top: initial;
@@ -289,11 +306,53 @@ figcaption {
 .page-aside {
   width: 40ch;
   max-width: var(--breakpoint-320);
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 35ch;
+    height: 100dvh;
+    z-index: 1;
+    background-color: oklch(var(--color-white));
+    box-shadow: var(--box-shadow);
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 300ms ease-in;
+    &.page-aside--open {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  & .btn-close-mobile-menu {
+    display: none;
+    box-shadow: var(--box-shadow);
+    &:focus-within {
+      box-shadow: var(--box-shadow), 0 0 0 4px oklch(var(--outline-color));
+    }
+    @media screen and (max-width: 768px) {
+      display: block;
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+      z-index: 1;
+    }
+  }
 }
 
 .page-container {
   flex: 1;
   padding: 2rem;
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
+}
+
+.btn-open-mobile-menu {
+  display: none;
+  position: sticky;
+  top: 1rem;
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
 }
 
 .port-list-blcok {
@@ -303,4 +362,7 @@ figcaption {
   overscroll-behavior: contain;
   max-height: 100dvh;
   padding: 2rem;
+  @media screen and (max-width: 768px) {
+    padding: 1rem;
+  }
 }
