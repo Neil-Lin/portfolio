@@ -23,27 +23,3 @@ const props = defineProps({
   }
 })
 </script>
-
-<style scoped>
-.breadcrumb {
-  padding: 1rem 0;
-  & ul {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  & li {
-    &:not(:last-of-type) {
-      &:after {
-        content: '/';
-        margin-left: 0.5rem;
-      }
-    }
-    &:last-of-type {
-      & a {
-        color: oklch(var(--color-black));
-      }
-    }
-  }
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <nav aria-label="主要選單">
+  <nav aria-label="主要選單" class="card-list">
     <ul>
       <li v-for="(item, idx) in workList" :key="idx">
         <theCard
@@ -28,9 +28,3 @@ function sortByStartYear(a: any, b: any) {
   return new Date(a.StartYear).getTime() - new Date(b.startYear).getTime()
 }
 </script>
-
-<style scoped>
-li {
-  margin-bottom: 1rem;
-}
-</style>

@@ -2,7 +2,7 @@ export const works  = [
   {
     code: 'Piman',
     image: {
-      path: '/images/piman-thumbnail.webp',
+      path: '/portfolio/images/piman-thumbnail.webp',
       alt: 'Piman - 無障礙 UI 框架'
     },
     name: 'Piman - 無障礙 UI 框架',
@@ -16,7 +16,7 @@ export const works  = [
   {
     code: 'choose',
     image: {
-      path: '/images/choose-chart-thumbnail.webp',
+      path: '/portfolio/images/choose-chart-thumbnail.webp',
       alt: 'Choose 蛛思-資料視覺化'
     },
     name: 'Choose 蛛思-資料視覺化',
@@ -30,7 +30,7 @@ export const works  = [
   {
     code: 'scout',
     image: {
-      path: '/images/scout-thumbnail.webp',
+      path: '/portfolio/images/scout-thumbnail.webp',
       alt: 'ΣCOUT 實告'
     },
     name: 'ΣCOUT 實告',
@@ -44,7 +44,7 @@ export const works  = [
   {
     code: 'bpgcms',
     image: {
-      path: '/images/bpgcms-thumbnail.webp',
+      path: '/portfolio/images/bpgcms-thumbnail.webp',
       alt: '通用後台系統模版'
     },
     name: 'BPGCMS 通用後台系統模版',
@@ -59,7 +59,7 @@ export const works  = [
   {
     code: 'vitalcrm-web',
     image: {
-      path: '/images/vitalcrm-web-thumbnail.webp',
+      path: '/portfolio/images/vitalcrm-web-thumbnail.webp',
       alt: 'Vital CRM New Web 縮圖'
     },
     name: 'Vital CRM Web',
@@ -74,7 +74,7 @@ export const works  = [
   {
     code: 'vitalttc',
     image: {
-      path: '/images/ttc-thumbnail.webp',
+      path: '/portfolio/images/ttc-thumbnail.webp',
       alt: 'image description'
     },
     name: 'Vital TTC 物聯客',
@@ -89,7 +89,7 @@ export const works  = [
   {
     code: 'vitalsespsurvey',
     image: {
-      path: '/images/vitalsespsurvey-thumbnail.webp',
+      path: '/portfolio/images/vitalsespsurvey-thumbnail.webp',
       alt: 'Vitals ESP Survey thumbnail'
     },
     name: 'Vitals ESP Survey',
@@ -103,7 +103,7 @@ export const works  = [
   {
     code: 'vitaluikit',
     image: {
-      path: '/images/vitaluikit-thumbnail.webp',
+      path: '/portfolio/images/vitaluikit-thumbnail.webp',
       alt: 'Vital UI Kit thumbnail'
     },
     name: 'Vital UI Kit',
@@ -117,7 +117,7 @@ export const works  = [
   {
     code: 'mpos',
     image: {
-      path: '/images/KSI-mpos-thumbnail.webp',
+      path: '/portfolio/images/KSI-mpos-thumbnail.webp',
       alt: 'KSI mPOS thumbnail'
     },
     name: 'KSI mPOS',
@@ -131,7 +131,7 @@ export const works  = [
   {
     code: 'vitalcrm-app',
     image: {
-      path: '/images/vitalcrm-app.webp',
+      path: '/portfolio/images/vitalcrm-app.webp',
       alt: 'Vital CRM APP thumbnail'
     },
     name: 'Vital CRM APP',
