@@ -13,12 +13,11 @@
       <section>
         <h3>概要</h3>
         <p>
-          👉
           近年來「以使用者為中心」的概念已深植人心，而這股力量也開始擴散至無障礙網頁設計領域，藉由不斷改善網頁的親和力，期望能達成通用設計的核心概念：Design
           for All。
         </p>
         <p>
-          👉 Piman
+          Piman
           正是為此而生，從人們日常生活常頻繁接觸的網頁開始著手改善，所以首要任務便是推廣開發者使用
           Piman
           開發政府機關網站，進而應用在產品、官網等地方，如此企業可善盡社會責任，也可與國際趨勢接軌。
@@ -204,7 +203,7 @@
 <script setup lang="ts">
 const runtimeConfig = useRuntimeConfig()
 const pageTitle = ref('Piman 無障礙 UI 框架')
-const pageDescription = ref('暸解 Piman 無障礙 UI 框架作品')
+const pageDescription = ref('Piman 是一款聚焦於無障礙網頁設計、基於 Vue 的開源 UI Frameworework。')
 const route = useRoute()
 
 useHead({

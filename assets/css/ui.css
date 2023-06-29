@@ -147,9 +147,10 @@ section {
 figcaption {
   display: block;
   text-align: center;
-  font-size: 0.75em;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  max-width: 80ch;
+  margin: 0.5rem auto;
+  text-wrap: balance;
 }
 
 
@@ -237,28 +238,9 @@ figcaption {
   gap: 2rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
-  &>div {
+  /* &>div {
     max-width: 80ch;
-  }
-  /* 
-  margin-left: -0.5rem;
-  width: calc(100% + 1rem); 
-  @media screen and (max-width: 768px) {
-    flex-wrap: wrap;
-  }
-  &.flex-list--col {
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-    }
-  }
-  &>div {
-    flex: 1;
-    padding: 0.5rem;
-    @media screen and (max-width: 768px) {
-      flex: 1 0 50%;
-      margin-bottom: 1rem;
-    }
-  }*/
+  } */
   & .flex-list-title {
     font-size: 1.125rem;
     font-weight: bold;

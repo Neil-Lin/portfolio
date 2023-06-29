@@ -10,7 +10,7 @@
     </div>
     <div class="card-title">{{ cardTitle }}</div>
     <div class="card-des">{{ cardDes }}</div>
-    <ul class="tag-list" v-if="cardTags.length != 0">
+    <ul v-if="cardTags.length != 0" class="tag-list">
       <li v-for="(item, idx) in cardTags" :key="idx">
         <span class="tag">{{ item }}</span>
       </li>
@@ -23,7 +23,7 @@
     </div>
     <div class="card-title">{{ cardTitle }}</div>
     <div class="card-des">{{ cardDes }}</div>
-    <ul class="tag-list" v-if="cardTags.length != 0">
+    <ul v-if="cardTags.length != 0" class="tag-list">
       <li v-for="(item, idx) in cardTags" :key="idx">
         <span class="tag">{{ item }}</span>
       </li>
@@ -53,9 +53,9 @@ const props = defineProps({
     type: String,
     required: true
   },
-  // eslint-disable-next-line vue/require-default-prop
   cardTags: {
-    type: Array
+    type: Array,
+    required: true
   },
   cardDisabled: {
     type: Boolean
@@ -83,12 +83,13 @@ const props = defineProps({
       padding: 0.25rem 1rem;
       border-radius: 1.25rem;
       color: oklch(var(--color-white));
-      background: linear-gradient(
+      /* background: linear-gradient(
         90deg,
         oklch(var(--color-primary)),
         oklch(var(--color-primary) / 20%),
         oklch(var(--color-primary))
-      );
+      ); */
+      background-color: oklch(var(--color-primary));
       background-size: 200% 200%;
       animation: now-wating-badge 5000ms ease infinite;
     }
