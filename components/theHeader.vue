@@ -23,7 +23,7 @@
               <nuxt-link role="button" to="/sitemap" title="前往 網站導覽">網站導覽</nuxt-link>
             </li>
             <li>
-              <nuxt-link role="button" to="/about" title="前往 我的能力">我的能力</nuxt-link>
+              <nuxt-link role="button" to="/about" title="前往 我的技能">我的技能</nuxt-link>
             </li>
             <li>
               <nuxt-link
@@ -76,6 +76,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
   }
   & img {
     width: 4rem;

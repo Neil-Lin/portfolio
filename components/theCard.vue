@@ -70,6 +70,7 @@ const props = defineProps({
   border: 1px solid oklch(var(--border-color));
   border-radius: 0.25rem;
   background-color: oklch(var(--color-white));
+  text-decoration: none;
   &[aria-current='page'] {
     position: relative;
     &:before {

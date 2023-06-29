@@ -13,6 +13,7 @@
       >
         :::
       </nuxt-link>
+      <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`"/>
       <h2>{{ pageTitle }}</h2>
       <article>
         <section>
