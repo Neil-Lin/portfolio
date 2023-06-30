@@ -65,20 +65,40 @@ useHead({
   ],
   link: [
     // favicon
-    { rel: 'shortcut icon', type: 'image/x-icon', href: '/portfolio/favicon.ico' }
-    // { rel: 'apple-touch-icon-precomposed', sizes: '32x32', href: '/images/favicon/favicon-32.png' },
-    // { rel: 'apple-touch-icon-precomposed', sizes: '128x128', href: '/images/favicon/favicon-128.png' },
-    // { rel: 'apple-touch-icon-precomposed', sizes: '152x152', href: '/images/favicon/favicon-152.png' },
-    // { rel: 'apple-touch-icon-precomposed', sizes: '167x167', href: '/images/favicon/favicon-167.png' },
-    // { rel: 'apple-touch-icon-precomposed', sizes: '180x180', href: '/images/favicon/favicon-180.png' },
-    // { rel: 'apple-touch-icon-precomposed', sizes: '192x192', href: '/images/favicon/favicon-192.png' },
-    // { rel: 'apple-touch-icon-precomposed', sizes: '196x196', href: '/images/favicon/favicon-196.png' },
+    { rel: 'shortcut icon', type: 'image/x-icon', href: '/portfolio/favicon.ico' },
+    { rel: 'apple-touch-icon-precomposed', sizes: '32x32', href: '/portfolio/favicon-32.png' },
+    { rel: 'apple-touch-icon-precomposed', sizes: '128x128', href: '/portfolio/favicon-128.png' },
+    { rel: 'apple-touch-icon-precomposed', sizes: '152x152', href: '/portfolio/favicon-152.png' },
+    { rel: 'apple-touch-icon-precomposed', sizes: '167x167', href: '/portfolio/favicon-167.png' },
+    { rel: 'apple-touch-icon-precomposed', sizes: '180x180', href: '/portfolio/favicon-180.png' },
+    { rel: 'apple-touch-icon-precomposed', sizes: '192x192', href: '/portfolio/favicon-192.png' },
+    { rel: 'apple-touch-icon-precomposed', sizes: '196x196', href: '/portfolio/favicon-196.png' },
 
     // splash
-    // { rel: 'apple-touch-startup-image', href: '/images/splash/splash-640x1136.png', media: '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)' },
-    // { rel: 'apple-touch-startup-image', href: '/images/splash/splash-750x1334.png', media: '(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)' },
-    // { rel: 'apple-touch-startup-image', href: '/images/splash/splash-1125x2436.png', media: '(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)' },
-    // { rel: 'apple-touch-startup-image', href: '/images/splash/splash-1242x2208.png', media: '(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)' },
+    {
+      rel: 'apple-touch-startup-image',
+      href: '/portfolio/images/splash/splash-640x1136.png',
+      media:
+        '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)'
+    },
+    {
+      rel: 'apple-touch-startup-image',
+      href: '/portfolio/images/splash/splash-750x1334.png',
+      media:
+        '(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)'
+    },
+    {
+      rel: 'apple-touch-startup-image',
+      href: '/portfolio/images/splash/splash-1125x2436.png',
+      media:
+        '(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)'
+    },
+    {
+      rel: 'apple-touch-startup-image',
+      href: '/portfolio/images/splash/splash-1242x2208.png',
+      media:
+        '(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)'
+    }
 
     // font
     // { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
