@@ -12,13 +12,15 @@
 使用 Cascade Layers 輔助權重區別。  
 @layer reset, ui, vendor, variations, utilities, print;  
 基本概念為絕對不能被覆蓋掉的樣式放後面圖層。  
-一般被視為 global 的 css，請寫入 ui.css 或 @import 到 ui layer。  
-或是延伸成：@layer reset, theme, global, layout, vendor, variations, components, utilities, print;  
 
-但 Component 一般來說是不應該被更動且獨立的，所以 Component 的 css 應該被放入到 /components 自己的檔案或資料夾裡，建議非必要請不要建立一個 components 的＠layer。  
+一般被視為 global 的 css，請寫入 ui.css 或 @import 到 ui layer。  
+
+Component 一般來說是不應該被更動且獨立的，所以 Component 的 css 應該被放入到 /component 自己的檔案或資料夾裡，非必要請不要建立一個 component 的＠layer。  
+除非是打包時，Component 裡的 CSS 沒有應用到，這時才把它搬到 ＠layer。  
+
 另外請注意寫在 Component 的 CSS Variables 需有預設值，以防沒有設定 CSS Variables，  
 也就是說，Component 的 CSS Variables 預設值，避免再使用 CSS Variables 代替，才能達到獨立性。  
-例如：請謝 color: var(--color, red); 不要寫 color: var(--color, var(--color-default));  
+例如：請寫 color: var(--color, red); 不要寫 color: var(--color, var(--color-default));  
 
 如果不想修改原始檔但想方便覆蓋第三方的 css，請建立一個檔案並 @import 放入 vendor layer 中，  
 如果需要修改原始檔，則請複製貼上 第三方 css 至 vendor.css 裡修改。  
@@ -33,7 +35,7 @@ print 因為是獨立且不可被覆蓋，所以也是放後面。
 # 顏色
 
 使用 CSS4 的 oklch(x% x.x x.x / x%)，可以使用的色域更廣，也對 a11y 更好。  
-若瀏覽器支援 CSS5，則可能可以進一步使用 oklch(from x% x.x x.x l c h / x%) 計算與變化顏色， 
+若瀏覽器支援 CSS5，則可能可以進一步使用 oklch(from x% x.x x.x l c h / x%) 計算與變化顏色（將需要調整的數值，取代 l、c、h 字母的），   
 以及在 oklch 裡使用 HEX，例如 oklch(#bbb)，  
 可以更方便統一管理顏色（到時需要更改 CSS 顏色變數值以及寫法修正），  
 建議在 Component 裡的 CSS Variables 預設值，也使用 CSS Variables 方式管理，  
