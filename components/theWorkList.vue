@@ -17,14 +17,5 @@
 </template>
 
 <script setup lang="ts">
-import { works } from '@/assets/data/works'
-const workList = works.sort(sortByStartYear)
-
-// function sortByModifyYear(a:any, b:any) {
-//   return new Date(b.modifyYear).getTime() - new Date(a.modifyYear).getTime();
-// }
-
-function sortByStartYear(a: any, b: any) {
-  return new Date(a.StartYear).getTime() - new Date(b.startYear).getTime()
-}
+const { workList } = useWorkList()
 </script>

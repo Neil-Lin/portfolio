@@ -38,7 +38,7 @@
                 <li>
                   <nuxt-link
                     to="https://ithelp.ithome.com.tw/users/20152260/ironman/5614"
-                    title="前往 iT 邦幫忙 2022 iThome 鐵人賽自我挑戰組，無障礙網頁設計大叔日記系列"
+                    title="前往 iT 邦幫忙 2022 iThome 鐵人賽自我挑戰組，無障礙網頁設計大叔日記系列(另開視窗)"
                     target="_blank"
                     ref="noreferrer noopener"
                   >
@@ -111,11 +111,5 @@ useHead({
   ]
 })
 
-const mobileMenuStatus = ref<boolean>(false)
-const handleToggleMobileMenuBtn = () => {
-  mobileMenuStatus.value = !mobileMenuStatus.value
-}
-const handleCloseMobileMenuBtn = () => {
-  mobileMenuStatus.value = false
-}
+const { mobileMenuStatus, handleToggleMobileMenuBtn, handleCloseMobileMenuBtn } = useMobileMenuBtn()
 </script>

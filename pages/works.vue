@@ -14,11 +14,5 @@
 </template>
 
 <script setup lang="ts">
-const mobileMenuStatus = ref<boolean>(false)
-const handleToggleMobileMenuBtn = () => {
-  mobileMenuStatus.value = !mobileMenuStatus.value
-}
-const handleCloseMobileMenuBtn = () => {
-  mobileMenuStatus.value = false
-}
+const { mobileMenuStatus, handleToggleMobileMenuBtn, handleCloseMobileMenuBtn } = useMobileMenuBtn()
 </script>
