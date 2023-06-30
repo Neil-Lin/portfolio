@@ -3,6 +3,50 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/portfolio/'
   },
+  modules: ['@vite-pwa/nuxt'],
+  pwa: {
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'Neil 的作品集',
+      short_name: 'Neil Portfolio',
+      description: 'Neil 的作品集',
+      theme_color: '#6042a0',
+      icons: [
+        {
+          src: '/portfolio/favicon-32.png',
+          sizes: '32x32',
+          type: 'image/png'
+        },
+        {
+          src: '/portfolio/favicon-64.png',
+          sizes: '64x64',
+          type: 'image/png'
+        },
+        {
+          src: '/portfolio/favicon-144.png',
+          sizes: '144x144',
+          type: 'image/png'
+        },
+        {
+          src: '/portfolio/favicon-192.png',
+          sizes: '192x192',
+          type: 'image/png'
+        },
+        {
+          src: '/portfolio/favicon-512.png',
+          sizes: '512x512',
+          type: 'image/png'
+        }
+      ]
+    },
+    workbox: {
+      navigateFallback: '/'
+    },
+    devOptions: {
+      enabled: true,
+      type: 'module'
+    }
+  },
   runtimeConfig: {
     public: {
       baseUrl: process.env.BASE_URL || 'http://localhost:3000',
