@@ -108,8 +108,7 @@ useHead({
     //   href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap'
     // }
   ],
-  // script: [
-  // ],
+  script: [{ src: '/portfolio/js/clarity.js' }],
   bodyAttrs: {
     class: 'wrapper'
   },
