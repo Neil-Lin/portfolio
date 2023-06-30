@@ -1,0 +1,1 @@
+import{_ as n}from"./nuxt-link.c8b831d6.js";import{_ as o}from"./_plugin-vue_export-helper.c27b6911.js";import{o as e,c,w as _,l as a}from"./entry.72d8790f.js";const r={};function s(i,m){const t=n;return e(),c(t,{id:"ak-container",to:"#ak-container",title:"中央內容區塊",accesskey:"C",name:"ak-container"},{default:_(()=>[a(" ::: ")]),_:1})}const k=o(r,[["render",s]]);export{k as _};
