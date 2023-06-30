@@ -68,7 +68,7 @@
             此作品集是以 Nuxt3 切版，Github Page 建置，可在
             <nuxt-link
               to="https://github.com/Neil-Lin/portfolio"
-              title="前往 Neil 作品集 Github 頁面"
+              title="前往 Neil 作品集 Github 頁面(另開視窗)"
               target="_blank"
               ref="noreferrer noopener"
             >
