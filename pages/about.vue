@@ -63,6 +63,20 @@
             </div>
           </div>
         </section>
+        <section>
+          <p>
+            此作品集是以 Nuxt3 切版，Github Page 建置，可在
+            <nuxt-link
+              to="https://github.com/Neil-Lin/portfolio"
+              title="前往 Neil 作品集 Github 頁面"
+              target="_blank"
+              ref="noreferrer noopener"
+            >
+              Github
+            </nuxt-link>
+            查看原始碼。
+          </p>
+        </section>
       </article>
     </main>
   </div>
