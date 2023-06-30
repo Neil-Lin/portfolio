@@ -305,7 +305,7 @@ figcaption {
 
 .page-aside {
   width: 40ch;
-  max-width: var(--breakpoint-320);
+  max-width: var(--breakpoint-375);
   @media screen and (max-width: 768px) {
     position: fixed;
     top: 0;
