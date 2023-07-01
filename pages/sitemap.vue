@@ -109,42 +109,44 @@
         </section>
         <section>
           <h3>網站地圖</h3>
-          <ul>
-            <li>
-              <nuxt-link to="/" title="前往首頁">首頁</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link to="/sitemap" title="前往網站導覽">網站導覽</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link to="/about" title="前往我的技能">我的技能</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link
-                to="https://medium.com/@neil-lin"
-                title="前往 Medium(另開視窗)"
-                target="_blank"
-                ref="noreferrer noopener"
-              >
-                Medium
-              </nuxt-link>
-            </li>
-            <li>
-              <nuxt-link
-                to="https://dribbble.com/Neil_lin"
-                title="前往 Dribbble(另開視窗)"
-                target="_blank"
-                ref="noreferrer noopener"
-              >
-                Dribbble
-              </nuxt-link>
-            </li>
-            <template v-for="(item, idx) in workList" :key="idx">
-              <li v-if="item.disabled !== true">
-                <nuxt-link :to="item.link" :title="`前往${item.name}`">{{ item.name }}</nuxt-link>
+          <div class="flex-list">
+            <ol>
+              <li>
+                <nuxt-link to="/" title="前往首頁">首頁</nuxt-link>
               </li>
-            </template>
-          </ul>
+              <li>
+                <nuxt-link to="/sitemap" title="前往網站導覽">網站導覽</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="/about" title="前往我的技能">我的技能</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link
+                  to="https://medium.com/@neil-lin"
+                  title="前往 Medium(另開視窗)"
+                  target="_blank"
+                  ref="noreferrer noopener"
+                >
+                  Medium
+                </nuxt-link>
+              </li>
+              <li>
+                <nuxt-link
+                  to="https://dribbble.com/Neil_lin"
+                  title="前往 Dribbble(另開視窗)"
+                  target="_blank"
+                  ref="noreferrer noopener"
+                >
+                  Dribbble
+                </nuxt-link>
+              </li>
+              <template v-for="(item, idx) in workList" :key="idx">
+                <li v-if="item.disabled !== true">
+                  <nuxt-link :to="item.link" :title="`前往${item.name}`">{{ item.name }}</nuxt-link>
+                </li>
+              </template>
+            </ol>
+          </div>
         </section>
       </article>
     </main>

@@ -263,10 +263,16 @@ figcaption {
     list-style-type: decimal;
     margin: 1em;
     padding: 1em;
+    & li {
+      padding: 0.25rem 0;
+    }
   }
   & ul {
     list-style-type: disc;
     padding: 0 1em 1em 1em;
+    & li {
+      padding: 0.25rem 0;
+    }
   }
 }
 
@@ -365,5 +371,8 @@ figcaption {
   padding: 2rem;
   @media screen and (width <= 768px) {
     padding: 1rem;
+  }
+  & li {
+    margin-bottom: 1rem;
   }
 }
