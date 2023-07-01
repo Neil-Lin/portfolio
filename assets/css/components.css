@@ -125,7 +125,7 @@ footer {
   & .text {
     font-size: 1.875rem;
     font-weight: bold;
-    color: oklch(var(--color-black));
+    color: oklch(var(--wrapper-color));
     padding-left: 1.5rem;
     @container intro (width <= 375px) {
       font-size: 1.25rem;
