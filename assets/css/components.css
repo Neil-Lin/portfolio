@@ -14,7 +14,7 @@
     }
     &:last-of-type {
       & a {
-        color: oklch(var(--color-black));
+        color: oklch(var(--breadcrumb-color));
       }
     }
   }
@@ -25,7 +25,7 @@
   padding: 1rem;
   border: 1px solid oklch(var(--border-color));
   border-radius: 0.25rem;
-  background-color: oklch(var(--color-white));
+  background-color: oklch(var(--card-bg));
   text-decoration: none;
   &[aria-current='page'] {
     position: relative;
@@ -66,10 +66,10 @@
     margin-bottom: 1rem;
     font-size: 1.125rem;
     font-weight: bold;
-    color: oklch(var(--color-black));
+    color: oklch(var(--card-title-color));
   }
   .card-des {
-    color: gray;
+    color: oklch(var(--card-des-color));
   }
   &.card--disabled {
     opacity: 0.5;

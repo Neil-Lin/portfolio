@@ -16,10 +16,14 @@ body {
 }
 
 .wrapper {
+  color: oklch(var(--wrapper-color));
   overflow-x: hidden;
   /* background: color image attachment repeat poition / size */
   background: oklch(var(--wrapper-bg)) url('/images/sitename.svg') fixed no-repeat center
     bottom 10% / contain;
+  @media (prefers-color-scheme: dark) {
+      background-image: url('/images/sitename-dark.svg');
+  }
 }
 
 h1,
@@ -62,7 +66,7 @@ h6 {
 }
 
 a {
-  color: oklch(var(--color-primary));
+  color: oklch(var(--link-color));
   transition: opacity 160ms ease-in;
   text-decoration: underline;
   text-decoration-skip-ink: auto;
@@ -93,12 +97,12 @@ table {
   border-top: 1px solid oklch(var(--border-color));
   border-left: 1px solid oklch(var(--border-color));
   width: 100%;
-  background-color: oklab(var(--color-white));
+  background-color: oklab(var(--table-bg));
   & th {
     padding: 0.5rem 1rem;
     font-weight: bold;
     border-right: 1px solid oklch(var(--border-color));
-    background-color: oklch(var(--color-primary-light));
+    background-color: oklch(var(--color-primary-modified));
     word-break: break-word;
     @media screen and (width <= 768px) {
       padding: 0.25rem 0.5rem;
@@ -121,12 +125,12 @@ kbd {
   display: inline-block;
   vertical-align: top;
   margin: 0 0.125rem 0.5rem;
-  border: 1px solid oklch(var(--color-black));
+  border: 1px solid oklch(var(--border-color));
   padding: 0 0.5rem;
   border-radius: 0.25rem;
   box-shadow: 0 0.25rem 0.5rem oklch(var(--color-black) / 0.15);
   font-family: var(--font-family);
-  background-color: oklch(var(--color-white));
+  /* background-color: oklch(var(--color-white)); */
 }
 
 article {
@@ -320,7 +324,7 @@ figcaption {
     width: 35ch;
     height: 100dvh;
     z-index: 1;
-    background-color: oklch(var(--color-white));
+    background-color: oklch(var(--menubar-mobile-bg));
     box-shadow: var(--box-shadow);
     transform: translate3d(-100%, 0, 0);
     transition: transform 300ms ease-in;
