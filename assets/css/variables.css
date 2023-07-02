@@ -78,6 +78,9 @@
 
     /* Breadcrumbs */
     --breadcrumb-color: var(--color-black);
+
+    /* noscript */
+    --noscript-bg: var(--color-white);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -94,7 +97,7 @@
     --color-success: 79.21% 0.153 117.53;
     --color-warning: 70% 0.222 41.29;
     --color-danger: 56.18% 0.227 24.35;
-    --color-visited: 80% 0 0;
+    --color-visited: 85% 0 0;
 
     /* Outline */
     --outline-color: 83% 0.17 82.04;
@@ -140,5 +143,8 @@
 
     /* Breadcrumbs */
     --breadcrumb-color: var(--wrapper-color);
+
+    /* noscript */
+    --noscript-bg: var(--color-primary-modified);
   }
 }
