@@ -39,15 +39,14 @@
       padding: 0.25rem 1rem;
       border-radius: 1.25rem;
       color: oklch(var(--color-white));
-      /* background: linear-gradient(
+      background: linear-gradient(
         90deg,
         oklch(var(--color-primary)),
-        oklch(var(--color-primary) / 20%),
+        oklch(var(--color-primary) / 70%),
         oklch(var(--color-primary))
-      ); */
-      background-color: oklch(var(--color-primary));
+      );
       background-size: 200% 200%;
-      animation: now-wating-badge 5000ms ease infinite;
+      animation: now-watching-badge 5000ms linear infinite;
     }
   }
   .card-hero {
