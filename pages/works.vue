@@ -1,12 +1,12 @@
 <template>
   <div class="page">
     <div :class="['page-aside', mobileMenuStatus ? 'page-aside--open' : '']">
-      <button class="btn-close-mobile-menu" @click="handleCloseMobileMenuBtn">關閉選單</button>
+      <button class="btn-close-mobile-menu" @click="handleCloseMobileMenuBtn">{{ $t('action.closeMenu') }}</button>
       <theAside @closeMobileMenu="mobileMenuStatus = false"/>
     </div>
     <main class="page-container">
       <button class="btn-open-mobile-menu" @click="handleToggleMobileMenuBtn">
-        <span>選單</span>
+        <span>{{ $t('name.menu') }}</span>
       </button>
       <NuxtPage />
     </main>

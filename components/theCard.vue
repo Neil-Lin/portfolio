@@ -1,8 +1,8 @@
 <template>
   <nuxt-link
     class="card"
-    :to="cardLink"
-    :title="'觀看 ' + `${cardTitle}`"
+    :to="localePath(cardLink)"
+    :title=" $t('action.goTo') + `${cardTitle}`"
     v-if="cardDisabled != true"
   >
     <div class="card-hero">
@@ -32,6 +32,7 @@
 </template>
 
 <script setup lang="ts">
+const localePath = useLocalePath()
 const props = defineProps({
   cardHeroImagePath: {
     type: String,

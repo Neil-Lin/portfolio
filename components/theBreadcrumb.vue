@@ -2,16 +2,17 @@
   <nav aria-label="breadcrumb" class="breadcrumb">
     <ul>
       <li>
-        <nuxt-link to="/">首頁</nuxt-link>
+        <nuxt-link :to="localePath('/')">{{ $t('name.home') }}</nuxt-link>
       </li>
       <li>
-        <nuxt-link :to="pageLink">{{ pageTitle }}</nuxt-link>
+        <nuxt-link :to="localePath(pageLink)">{{ pageTitle }}</nuxt-link>
       </li>
     </ul>
   </nav>
 </template>
 
 <script setup lang="ts">
+const localePath = useLocalePath()
 const props = defineProps({
   pageTitle: {
     type: String,

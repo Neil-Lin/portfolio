@@ -1,12 +1,12 @@
 <template>
   <div class="page">
     <div :class="['page-aside', mobileMenuStatus ? 'page-aside--open' : '']">
-      <button class="btn-close-mobile-menu" @click="handleCloseMobileMenuBtn">關閉選單</button>
+      <button class="btn-close-mobile-menu" @click="handleCloseMobileMenuBtn">{{ $t('action.closeMenu') }}</button>
       <theAside />
     </div>
     <main class="page-container">
       <button class="btn-open-mobile-menu" @click="handleToggleMobileMenuBtn">
-        <span>選單</span>
+        <span>{{ $t('name.menu') }}</span>
       </button>
       <akContainer />
       <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
@@ -38,7 +38,7 @@
                 <li>
                   <nuxt-link
                     to="https://ithelp.ithome.com.tw/users/20152260/ironman/5614"
-                    title="前往 iT 邦幫忙 2022 iThome 鐵人賽自我挑戰組，無障礙網頁設計大叔日記系列(另開視窗)"
+                    :title="$t('action.goTo') + $t('des.ithomeA11y') + $t('action.openWindow')"
                     target="_blank"
                     ref="noreferrer noopener"
                   >
@@ -68,7 +68,7 @@
             此作品集是以 Nuxt3 切版，Github Page 建置，可在
             <nuxt-link
               to="https://github.com/Neil-Lin/portfolio"
-              title="前往 Neil 作品集 Github 頁面(另開視窗)"
+              :title="$t('action.goTo') + 'Github' +  $t('action.openWindow')"
               target="_blank"
               ref="noreferrer noopener"
             >
@@ -83,9 +83,10 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
 const runtimeConfig = useRuntimeConfig()
-const pageTitle = ref('我的技能')
-const pageDescription = ref('暸解  Neil 的網頁設計技能')
+const pageTitle = ref(t('mainMenu.about'))
+const pageDescription = ref(t('des.about'))
 const route = useRoute()
 
 useHead({
@@ -100,7 +101,7 @@ useHead({
     {
       hid: 'og:title',
       property: 'og:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      content: pageTitle.value + ' - ' + t('website.name')
     },
     {
       hid: 'og:description',
@@ -115,7 +116,7 @@ useHead({
     {
       hid: 'twitter:title',
       name: 'twitter:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      content: pageTitle.value + ' - ' + t('website.name')
     },
     {
       hid: 'twitter:description',

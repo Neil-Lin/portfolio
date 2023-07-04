@@ -2,7 +2,7 @@
   <div class="port-list-blcok">
     <theHeader />
     <akContainer v-if="route.path === '/'" />
-    <nav aria-label="主要選單" class="card-list" v-if="workList.length != 0">
+    <nav :aria-label="$t('mainMenu.mainMenu')" class="card-list" v-if="workList.length != 0">
       <ul>
         <li v-for="(item, idx) in workList" :key="idx" @click="$emit('closeMobileMenu')">
           <theCard
@@ -12,12 +12,13 @@
             :cardHeroImagePath="item.image.path"
             :cardHeroImageAlt="item.image.alt"
             :cardTags="item.tags"
+            :cardTime="item.time"
             :cardDisabled="item.disabled"
           />
         </li>
       </ul>
     </nav>
-    <theEmptyContent v-else>目前沒有作品</theEmptyContent>
+    <theEmptyContent v-else>{{ $t('des.noData') }}</theEmptyContent>
     <theFooter />
   </div>
 </template>

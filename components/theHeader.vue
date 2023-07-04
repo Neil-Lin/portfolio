@@ -1,35 +1,42 @@
 <template>
   <header>
-    <nuxt-link id="ak-header" to="#ak-header" title="上方功能區塊" accesskey="U" name="ak-header"
-      >:::</nuxt-link
-    >
+    <div>
+      <nuxt-link id="ak-header" to="#ak-header" :title="$t('shortcut.header')" accesskey="U" name="ak-header">:::</nuxt-link>
+      <theLangSwitcher />
+    </div>
     <div class="intro">
-      <nuxt-link to="/" title="回首頁">
-        <img src="/images/avatar.webp" alt="Neil 的大頭照" />
-        <div class="text">您好，我是 Neil！</div>
+      <nuxt-link :to="localePath('/')" :title="$t('action.goToHomePage')">
+        <img src="/images/avatar.webp" :alt="$t('name.avatar')" />
+        <div class="text">{{ $t('intro.greet', { shortTime: "早安" }) }}</div>
       </nuxt-link>
     </div>
     <article>
       <section>
-        <p>我是一位熱愛通用設計的 UI/UX designer。</p>
-        <p>
-          擅長 UI、UX、Vue/Nuxt
-          切版、無障礙網頁設計、資料視覺化與設計管理。現在主要致力於在網頁設計實現 "Design for All"
-          的通用設計理念。
-        </p>
-        <nav class="sub-menu" aria-label="次要選單">
+        <p>{{ $t('intro.des1') }}</p>
+        <p>{{ $t('intro.des2') }}</p>
+        <nav class="sub-menu" :aria-label="$t('subMenu.subMenu')">
           <ul>
             <li>
-              <nuxt-link role="button" to="/sitemap" title="前往 網站導覽">網站導覽</nuxt-link>
+              <nuxt-link
+                role="button"
+                :to="localePath('/sitemap')"
+                :title="$t('action.goTo') + $t('mainMenu.sitemap')"
+                >{{ $t('mainMenu.sitemap') }}</nuxt-link
+              >
             </li>
             <li>
-              <nuxt-link role="button" to="/about" title="前往 我的技能">我的技能</nuxt-link>
+              <nuxt-link
+                role="button"
+                :to="localePath('/about')"
+                :title="$t('action.goTo') + $t('mainMenu.about')"
+                >{{ $t('mainMenu.about') }}</nuxt-link
+              >
             </li>
             <li>
               <nuxt-link
                 role="button"
                 to="https://medium.com/@neil-lin"
-                title="前往 Medium(另開視窗)"
+                :title="$t('action.goTo') + 'Medium' + $t('action.openWindow')"
                 target="_blank"
                 ref="noreferrer noopener"
               >
@@ -46,7 +53,7 @@
               <nuxt-link
                 role="button"
                 to="https://dribbble.com/Neil_lin"
-                title="前往 Dribbble(另開視窗)"
+                :title="$t('action.goTo') + 'Dribbble' + $t('action.openWindow')"
                 target="_blank"
                 ref="noreferrer noopener"
               >
@@ -65,3 +72,8 @@
     </article>
   </header>
 </template>
+
+<script setup lang="ts">
+// can delete
+const localePath = useLocalePath()
+</script>

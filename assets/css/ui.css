@@ -93,6 +93,17 @@ p {
   margin-bottom: 2rem;
 }
 
+select {
+  cursor: pointer;
+  border: 1px solid oklch(var(--border-color));
+  padding: 0.25rem 1rem 0.5rem 0.25rem;
+  border-radius: 0.25rem;
+  appearance: auto;
+  &:focus {
+    box-shadow: 0 0 0 3px oklch(var(--outline-color));
+  }
+}
+
 table {
   border-top: 1px solid oklch(var(--border-color));
   border-left: 1px solid oklch(var(--border-color));
@@ -249,6 +260,9 @@ figcaption {
     margin: 0 auto;
     animation: spin 2s linear infinite;
   }
+}
+
+.lang-switcher {
 }
 
 .flex-list {

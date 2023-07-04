@@ -1,11 +1,11 @@
-export const works = [
+export const worksEn = [
   {
     code: 'Piman',
     image: {
       path: '/portfolio/images/piman-thumbnail.webp',
       alt: 'Piman - 無障礙 UI 框架'
     },
-    name: 'Piman - 無障礙 UI 框架',
+    name: 'Piman - aaaaaa',
     link: '/works/piman',
     overview: 'Piman 是一款聚焦於無障礙網頁設計、基於 Vue 的開源 UI Frameworework。',
     startYear: 2021,

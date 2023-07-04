@@ -2,7 +2,7 @@
   <nuxt-link
     id="ak-container"
     to="#ak-container"
-    title="中央內容區塊"
+    :title="$t('shortcut.mainContent')"
     accesskey="C"
     name="ak-container"
   >

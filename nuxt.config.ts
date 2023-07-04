@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     baseURL: '/portfolio/',
     pageTransition: { name: 'page', mode: 'out-in' }
   },
-  modules: ['@vite-pwa/nuxt'],
+  modules: ['@vite-pwa/nuxt', '@nuxtjs/i18n'],
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
@@ -48,17 +48,48 @@ export default defineNuxtConfig({
       type: 'module'
     }
   },
+  routeRules: {
+    "/": { redirect: "/portfolio/zh-Hant-TW" },
+  },
+  i18n: {
+    vueI18n: "./i18n.config.ts",
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    locales: [
+      {
+        code: 'zh-Hant-TW',
+        iso: 'zh-Hant-TW',
+        dir: "ltr",
+        name: '繁體',
+        file: 'zh-Hant-TW.ts'
+      },
+      {
+        code: 'en',
+        iso: 'en-US',
+        dir: "ltr",
+        name: 'EN',
+        file: 'en-US.ts'
+      }
+    ],
+    lazy: true,
+    langDir: 'lang',
+    strategy: 'prefix',
+    defaultLocale: 'zh-Hant-TW',
+    detectBrowserLanguage: false
+    // detectBrowserLanguage: {
+      // useCookie: true,
+      // alwaysRedirect: true,
+      // cookieCrossOrigin: true
+    // }
+  },
   runtimeConfig: {
     public: {
       baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-      websiteName: process.env.WEBSITE_NAME || '網站名稱',
-      websiteDescription: process.env.WEBSITE_DESCRIPTION || '網站描述'
     }
   },
   typescript: {
     typeCheck: true
   },
   devtools: {
-    enabled: true
+    enabled: false
   }
 })

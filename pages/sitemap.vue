@@ -1,12 +1,12 @@
 <template>
   <div class="page">
     <div :class="['page-aside', mobileMenuStatus ? 'page-aside--open' : '']">
-      <button class="btn-close-mobile-menu" @click="handleCloseMobileMenuBtn">關閉選單</button>
+      <button class="btn-close-mobile-menu" @click="handleCloseMobileMenuBtn">{{ $t('action.closeMenu') }}</button>
       <theAside />
     </div>
     <main class="page-container">
       <button class="btn-open-mobile-menu" @click="handleToggleMobileMenuBtn">
-        <span>選單</span>
+        <span>{{ $t('name.menu') }}</span>
       </button>
       <akContainer />
       <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
@@ -40,7 +40,7 @@
               各作業系統與瀏覽器快速鍵參考表：
               <nuxt-link
                 to="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey"
-                title="另開視窗 各作業系統與瀏覽器快捷鍵參考表來源網頁"
+                :title="$t('action.goTo') + $t('des.a11yrefrerence') + $t('action.openWindow')"
                 target="_blank"
                 rel="noreferrer noopener"
               >
@@ -112,18 +112,18 @@
           <div class="flex-list">
             <ol>
               <li>
-                <nuxt-link to="/" title="前往首頁">首頁</nuxt-link>
+                <nuxt-link :to="localePath('/')" :title="$t('action.goTo') + $t('action.goToHomePage')">{{ $t('name.home') }}</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/sitemap" title="前往網站導覽">網站導覽</nuxt-link>
+                <nuxt-link :to="localePath('/sitemap')" :title="$t('action.goTo') + $t('mainMenu.sitemap')">{{ $t('mainMenu.sitemap') }}</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/about" title="前往我的技能">我的技能</nuxt-link>
+                <nuxt-link :to="localePath('/about')" :title="$t('action.goTo') + $t('mainMenu.about')">{{ $t('mainMenu.about') }}</nuxt-link>
               </li>
               <li>
                 <nuxt-link
                   to="https://medium.com/@neil-lin"
-                  title="前往 Medium(另開視窗)"
+                  :title="$t('action.goTo') + 'Medium' + $t('action.openWindow')"
                   target="_blank"
                   ref="noreferrer noopener"
                 >
@@ -133,7 +133,7 @@
               <li>
                 <nuxt-link
                   to="https://dribbble.com/Neil_lin"
-                  title="前往 Dribbble(另開視窗)"
+                  :title="$t('action.goTo') + 'Dribbble' + $t('action.openWindow')"
                   target="_blank"
                   ref="noreferrer noopener"
                 >
@@ -142,7 +142,7 @@
               </li>
               <template v-for="(item, idx) in workList" :key="idx">
                 <li v-if="item.disabled !== true">
-                  <nuxt-link :to="item.link" :title="`前往${item.name}`">{{ item.name }}</nuxt-link>
+                  <nuxt-link :to="item.link" :title="$t('action.goTo') + `${item.name}`">{{ item.name }}</nuxt-link>
                 </li>
               </template>
             </ol>
@@ -154,11 +154,11 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+const localePath = useLocalePath()
 const runtimeConfig = useRuntimeConfig()
-const pageTitle = ref('網站導覽')
-const pageDescription = ref(
-  '提供' + runtimeConfig.public.websiteName + '的網站區塊、快捷鍵和網站地圖'
-)
+const pageTitle = ref(t('mainMenu.sitemap'))
+const pageDescription = ref(t('des.sitemap'))
 const route = useRoute()
 
 useHead({
@@ -173,7 +173,7 @@ useHead({
     {
       hid: 'og:title',
       property: 'og:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      content: pageTitle.value + ' - ' + t('website.name')
     },
     {
       hid: 'og:description',
@@ -188,7 +188,7 @@ useHead({
     {
       hid: 'twitter:title',
       name: 'twitter:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      content: pageTitle.value + ' - ' + t('website.name')
     },
     {
       hid: 'twitter:description',

@@ -97,6 +97,12 @@
 
 footer {
   text-align: center;
+  & #ak-footer {
+    display: block;
+  }
+  & a {
+    margin: 0 1rem;
+  }
 }
 
 .intro {
@@ -167,4 +173,9 @@ footer {
       }
     }
   }
+}
+
+.lang-switcher {
+  display: inline-block;
+  vertical-align: middle;
 }
