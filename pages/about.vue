@@ -2,18 +2,18 @@
   <div class="page">
     <div :class="['page-aside', mobileMenuStatus ? 'page-aside--open' : '']">
       <button class="btn-close-mobile-menu" @click="handleCloseMobileMenuBtn">{{ $t('action.closeMenu') }}</button>
-      <theAside />
+      <TheAside />
     </div>
     <main class="page-container">
       <button class="btn-open-mobile-menu" @click="handleToggleMobileMenuBtn">
         <span>{{ $t('name.menu') }}</span>
       </button>
-      <akContainer />
-      <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
+      <AkContainer />
+      <TheBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
       <h2>{{ pageTitle }}</h2>
       <article>
         <section>
-          <h3>簡介</h3>
+          <h3>{{ $t('name.intro') }}</h3>
           <p>
             2013 踏入網頁設計領域，執行政府專案、企業專案、公司產品開發維護等各類型 Web 與 App
             設計與切版。近年深感無障礙網頁設計的重要性，遂開始專注在網頁的「通用設計」領域。
@@ -23,7 +23,7 @@
         <section>
           <div class="flex-list">
             <div>
-              <h4 class="flex-list-title">程式</h4>
+              <h4 class="flex-list-title">{{ $t('name.programming') }}</h4>
               <ul>
                 <li>HTML5</li>
                 <li>CSS/SCSS</li>
@@ -33,7 +33,7 @@
               </ul>
             </div>
             <div>
-              <h4 class="flex-list-title">推廣</h4>
+              <h4 class="flex-list-title">{{ $t('name.promote') }}</h4>
               <ul>
                 <li>
                   <nuxt-link
@@ -53,7 +53,7 @@
               </ul>
             </div>
             <div>
-              <h4 class="flex-list-title">常用工具</h4>
+              <h4 class="flex-list-title">{{ $t('name.tools') }}</h4>
               <ul>
                 <li>Figma</li>
                 <li>VScode</li>
@@ -64,7 +64,18 @@
           </div>
         </section>
         <section>
-          <p>
+          <i18n-t keypath="page.about.para" tag="p">
+            <nuxt-link
+              to="https://github.com/Neil-Lin/portfolio"
+              :title="$t('action.goTo') + 'Github' +  $t('action.openWindow')"
+              target="_blank"
+              ref="noreferrer noopener"
+            >
+              {{ $t('page.about.link') }}
+            </nuxt-link>
+          </i18n-t>
+          
+          <!-- <p>
             此作品集是以 Nuxt3 切版，Github Page 建置，可在
             <nuxt-link
               to="https://github.com/Neil-Lin/portfolio"
@@ -75,7 +86,7 @@
               Github
             </nuxt-link>
             查看原始碼。
-          </p>
+          </p> -->
         </section>
       </article>
     </main>
@@ -88,7 +99,6 @@ const runtimeConfig = useRuntimeConfig()
 const pageTitle = ref(t('mainMenu.about'))
 const pageDescription = ref(t('des.about'))
 const route = useRoute()
-
 useHead({
   title: pageTitle,
   meta: [

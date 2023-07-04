@@ -6,7 +6,7 @@
     <Meta name="author" content="Neil" />
     <Meta name="copyright" content="copyright" />
     <Meta name="format-detection" content="telephone=no" />
-    <Meta hid="description" property="description" :content="$t('intro.des2')" />
+    <Meta hid="description" name="description" :content="$t('intro.des2')" />
     
     <Meta hid="og:url" property="og:url" :content="runtimeConfig.public.baseUrl" />
     <Meta hid="og:title" property="og:title" :content="$t('website.name')" />
@@ -70,7 +70,12 @@ useHead({
     return pageTitle
       ? `${pageTitle} - ` + t('website.name')
       : t('website.name')
-  }
+  },
+  htmlAttrs: {
+    lang: head.value.htmlAttrs!.lang
+  },
+  link: [...(head.value.link || [])],
+  meta: [...(head.value.meta || [])]
 })
 </script>
 

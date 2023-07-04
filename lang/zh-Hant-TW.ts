@@ -22,7 +22,10 @@ export default {
     tools: "工具",
     roles: "角色",
     target: "目標",
-    summary: "概要"
+    summary: "概要",
+    intro: "簡介",
+    programming: "程式",
+    promote: "推動"
   },
   des: {
     noData: "目前沒有資料。",
@@ -59,6 +62,12 @@ export default {
     header: "上方功能區塊",
     mainContent: "中央內容區塊",
     footer: "下方功能區塊"
+  },
+  page: {
+    about: {
+      para: "這個網站是使用 Nuxt3 建立並在 GitHub Pages 上托管的。您可以在 {0} 上查看原始碼。" ,
+      link: 'Github'
+    }
   }
 }
 

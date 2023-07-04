@@ -22,7 +22,10 @@ export default {
     tools: "Tools",
     roles: "Roles",
     target: "Target",
-    summary: "Summary"
+    summary: "Summary",
+    intro: "Intro",
+    programming: "Programming",
+    promote: "Promote"
   },
   des: {
     noData: "There is no data now.",
@@ -59,5 +62,11 @@ export default {
     header: "header",
     mainContent: "main content",
     footer: "footer"
+  },
+  page: {
+    about: {
+      para: "This website is built using Nuxt3 and hosted on GitHub Pages. You can view the source code on {0}." ,
+      link: 'Github'
+    }
   }
 }
