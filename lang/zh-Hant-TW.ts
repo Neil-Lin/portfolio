@@ -9,14 +9,28 @@ export default {
     ui: "UI",
     ux: "UX",
     webLayout: "切版",
-    menu: "選單" 
+    menu: "選單",
+    openSourceGuideline: "開源軟體指南",
+    modaA11y: "無障礙網路空間服務網",
+    piman: "Piman 無障礙 UI 框架",
+    relatedLink: "相關連結",
+    website: "網站",
+    output: "產出",
+    learn: "學習領域知識",
+    observe: "觀察類似產品介面",
+    process: "過程",
+    tools: "工具",
+    roles: "角色",
+    target: "目標",
+    summary: "概要"
   },
   des: {
     noData: "目前沒有資料。",
     sitemap: "提供網站導覽的網站區塊、快捷鍵和網站地圖",
     about: "暸解  Neil 的網頁設計技能",
     a11yrefrerence: "各作業系統與瀏覽器快捷鍵參考表來源網頁",
-    ithomeA11y: "iT 邦幫忙 2022 iThome 鐵人賽自我挑戰組，無障礙網頁設計大叔日記系列"
+    ithomeA11y: "iT 邦幫忙 2022 iThome 鐵人賽自我挑戰組，無障礙網頁設計大叔日記系列",
+    piman: "Piman 是一款聚焦於無障礙網頁設計、基於 Vue 的開源 UI Frameworework。"
   },
   mainMenu: {
     mainMenu: "主要選單",

@@ -9,14 +9,28 @@ export default {
     ui: "UI",
     ux: "UX",
     webLayout: "Layout",
-    menu: "Menu" 
+    menu: "Menu",
+    openSourceGuideline: "open source guideline",
+    modaA11y: "Taiwan moda a11y",
+    piman: "Piman A11Y UI Framework",
+    relatedLink: "Links",
+    website: "Website",
+    output: "Output",
+    learn: "Learn",
+    observe: "Observe",
+    process: "Process",
+    tools: "Tools",
+    roles: "Roles",
+    target: "Target",
+    summary: "Summary"
   },
   des: {
     noData: "There is no data now.",
     sitemap: "sitemap and shortcut",
     about: "Neil's Skill",
     a11yrefrerence: "OS and browser shortcut",
-    ithomeA11y: 'iThome blog'
+    ithomeA11y: 'iThome blog',
+    piman: "Piman is a A11Y UI Frameworework based on Vue."
   },
   mainMenu: {
     mainMenu: "Menu",
