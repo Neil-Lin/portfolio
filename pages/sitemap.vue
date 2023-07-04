@@ -22,7 +22,7 @@
           <p>
             <kbd>Alt</kbd>+<kbd>U</kbd>：頁首區塊，個人介紹。<br />
             <kbd>Alt</kbd>+<kbd>C</kbd>：主要內容。<br />
-            <kbd>Alt</kbd>+<kbd>Z</kbd>：頁尾區塊，含 copyright。<br />
+            <kbd>Alt</kbd>+<kbd>Z</kbd>：頁尾區塊，含語言切換。<br />
           </p>
           <p>
             如果您的瀏覽器是

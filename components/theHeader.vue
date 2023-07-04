@@ -2,7 +2,7 @@
   <header>
     <div>
       <nuxt-link id="ak-header" to="#ak-header" :title="$t('shortcut.header')" accesskey="U" name="ak-header">:::</nuxt-link>
-      <theLangSwitcher />
+      <!-- <theLangSwitcher /> -->
     </div>
     <div class="intro">
       <nuxt-link :to="localePath('/')" :title="$t('action.goToHomePage')">
