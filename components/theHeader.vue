@@ -21,16 +21,18 @@
                 role="button"
                 :to="localePath('/sitemap')"
                 :title="$t('action.goTo') + $t('mainMenu.sitemap')"
-                >{{ $t('mainMenu.sitemap') }}</nuxt-link
               >
+                {{ $t('mainMenu.sitemap') }}
+              </nuxt-link>
             </li>
             <li>
               <nuxt-link
                 role="button"
                 :to="localePath('/about')"
                 :title="$t('action.goTo') + $t('mainMenu.about')"
-                >{{ $t('mainMenu.about') }}</nuxt-link
               >
+                {{ $t('mainMenu.about') }}
+              </nuxt-link>
             </li>
             <li>
               <nuxt-link

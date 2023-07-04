@@ -142,7 +142,7 @@
               </li>
               <template v-for="(item, idx) in workList" :key="idx">
                 <li v-if="item.disabled !== true">
-                  <nuxt-link :to="item.link" :title="$t('action.goTo') + `${item.name}`">{{ item.name }}</nuxt-link>
+                  <nuxt-link :to="localePath(item.link)" :title="$t('action.goTo') + `${item.name}`">{{ item.name }}</nuxt-link>
                 </li>
               </template>
             </ol>
