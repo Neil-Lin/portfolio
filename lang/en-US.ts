@@ -10,7 +10,7 @@ export default {
     ux: "UX",
     webLayout: "Layout",
     menu: "menu",
-    openSourceGuideline: "open source guideline",
+    openSourceGuideline: "Open Source Guideline",
     modaA11y: "Taiwan moda a11y",
     piman: "piman A11Y UI Framework",
     relatedLink: "links",
@@ -83,6 +83,9 @@ export default {
       p3: "If you are using Firefox as your browser, the method for using the Accesskeys is {firefoxKeyExample}. For example, {firefoxKeyExample2} will navigate to the main content of the webpage, and so on. {n}{n}Additionally, if you are a Mac user, the method for using the Accesskeys is {macKeyExample}.If none of the above methods work, it is recommended to check if there are any custom keybindings or settings that may be affecting the use of Accesskeys.",
       tableCaption: "Quick Key Reference Table for Different Operating Systems and Browsers: {link}",
       p4: "※ When the project tabs on this website cannot be clicked using a mouse, you can navigate the information using the following keyboard shortcuts.{n}{n} {keyLeftRight} or {keyUpDown}: Move the tab order by pressing the left/right or up/down arrow keys.{n}{n}{keyTab}: After hovering over the tab, you can use the {keyTab} key to jump to the content and browse the data. When encountering radio buttons, please use the {keyLeftRight} or {keyUpDown} keys to move through the options in the desired order.{n}{n} {keyShiftTab}: Pressing {keyShiftTab} allows you to navigate back to the previous data entry. When you return to the tab items, you can continue using the {keyLeftRight} or {keyUpDown} keys to move through the tab order."
+    },
+    piman: {
+      p1: "In recent years, the concept of user-centric design has become deeply ingrained, and this mindset has started to spread to the field of accessible web design. By continuously improving the user-friendliness of web pages, the core concept of universal design, \"Design for All\", can be achieved.{0}{0}Piman was created with this purpose in mind, starting with the improvement of web pages that people encounter frequently in their daily lives. Therefore, the primary task is to promote the use of Piman by developers in the development of government agency websites, and subsequently apply it to products, official websites, and other areas. In doing so, businesses can fulfill their social responsibilities and align with international trends."
     }
   }
 }

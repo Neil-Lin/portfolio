@@ -74,7 +74,6 @@ export default defineNuxtConfig({
     langDir: 'lang',
     strategy: 'prefix',
     defaultLocale: 'zh-Hant-TW',
-    // detectBrowserLanguage: false
     detectBrowserLanguage: {
       useCookie: true,
       alwaysRedirect: true,

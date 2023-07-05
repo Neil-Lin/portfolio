@@ -34,20 +34,21 @@ h5,
 h6 {
   font-weight: bold;
   text-transform: capitalize;
+  color: oklch(var(--title-color));
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: clamp(2rem, calc(100cqw / 40), 4rem);
   margin-bottom: 1.5rem;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, calc(100cqw / 40), 3rem);
   margin-bottom: 1.5rem;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: clamp(1.25rem, calc(100cqw / 40), 2rem);
   margin-bottom: 1rem;
 }
 
@@ -89,9 +90,26 @@ a {
   }
 }
 
+a[role="button"] {
+  background-color: oklch(var(--color-primary));
+  padding: 0.5rem;
+  color: oklch(var(--color-white));
+  & svg path {
+    fill: oklch(var(--color-white));
+  }
+  &[aria-current="page"] {
+    box-shadow: 0 0 0 3px oklch(var(--outline-color));
+  }
+}
+
 p {
   max-width: 80ch;
   margin-bottom: 2rem;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
 }
 
 select {

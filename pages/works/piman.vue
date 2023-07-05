@@ -12,16 +12,9 @@
       </section>
       <section>
         <h3>{{ $t('name.summary') }}</h3>
-        <p>
-          近年來「以使用者為中心」的概念已深植人心，而這股力量也開始擴散至無障礙網頁設計領域，藉由不斷改善網頁的親和力，期望能達成通用設計的核心概念：Design
-          for All。
-        </p>
-        <p>
-          Piman
-          正是為此而生，從人們日常生活常頻繁接觸的網頁開始著手改善，所以首要任務便是推廣開發者使用
-          Piman
-          開發政府機關網站，進而應用在產品、官網等地方，如此企業可善盡社會責任，也可與國際趨勢接軌。
-        </p>
+        <i18n-t keypath="page.piman.p1" tag="p">
+          <br />
+        </i18n-t>
         <div class="flex-list">
           <div>
             <h4 class="flex-list-title">{{ $t('name.target') }}</h4>
@@ -59,7 +52,7 @@
             <ul>
               <li>IBM Carbon</li>
               <li>Bootstrap 5</li>
-              <li>Vital ui kit</li>
+              <li>Vital Ui Kit</li>
               <li>Material Design 3</li>
             </ul>
           </div>
@@ -135,11 +128,11 @@
               <li>
                 <nuxt-link
                   to="https://vitaluikit.com/"
-                  :title="$t('action.goTo') + 'Vital ui kit' + $t('action.openWindow')"
+                  :title="$t('action.goTo') + 'Vital UI Kit' + $t('action.openWindow')"
                   target="_blank"
                   ref="noreferrer noopener"
                 >
-                  Vital ui kit
+                  Vital UI Kit
                 </nuxt-link>
               </li>
               <li>

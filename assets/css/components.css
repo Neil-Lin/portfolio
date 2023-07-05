@@ -32,7 +32,7 @@
     position: relative;
     box-shadow: 0 0 0 0.25rem oklch(var(--color-primary));
     &:before {
-      content: '正在觀看';
+      content: '👀';
       position: absolute;
       top: 0.5rem;
       left: 0.5rem;
@@ -131,7 +131,7 @@ footer {
   & .text {
     font-size: 1.875rem;
     font-weight: bold;
-    color: oklch(var(--wrapper-color));
+    color: oklch(var(--intro-color));
     padding-left: 1.5rem;
     @container intro (width <= 375px) {
       font-size: 1.25rem;
@@ -155,14 +155,17 @@ footer {
       display: flex;
       justify-content: center;
       align-items: center;
-      box-sizing: content-box;
-      width: 6ch;
-      height: 6ch;
+      padding: 0;
+      width: 5rem;
+      height: 5rem;
       border-radius: 50%;
       text-align: center;
       text-wrap: balance;
       text-transform: capitalize;
+      word-break: break-word;
       @container submenu (width <= 375px) {
+        width: 4rem;
+        height: 4rem;
         font-size: 0.875rem;
       }
     }
@@ -180,4 +183,13 @@ footer {
 .lang-switcher {
   display: inline-block;
   vertical-align: middle;
+  & span {
+    margin-right: 0.5rem;
+  }
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

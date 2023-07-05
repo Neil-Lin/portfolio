@@ -2,6 +2,7 @@
   /* Base Colors(oklch) */
   --color-black: 24.78% 0 0;
   --color-white: 100% 0 0;
+  --color-gray: 40% 0 0;
 
   /* Breakpint */
   --breakpoint-375: 375px;
@@ -48,7 +49,8 @@
 
     /* Body */
     --wrapper-bg: 98.51% 0 0;
-    --wrapper-color: var(--color-black);
+    --wrapper-color: var(--color-gray);
+    --title-color: var(--color-black);
 
     /* Header */
     --header-bg: var(--color-white);
@@ -81,6 +83,9 @@
 
     /* noscript */
     --noscript-bg: var(--color-white);
+
+     /* intro */
+     --intro-color: var(--color-black);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -114,6 +119,7 @@
     /* Body */
     --wrapper-bg: var(--color-black);
     --wrapper-color: 85% 0 0;
+    --title-color: var(--wrapper-color);
 
     /* Header */
     --header-bg: var(--color-white);
@@ -146,5 +152,8 @@
 
     /* noscript */
     --noscript-bg: var(--color-primary-modified);
+
+    /* intro */
+    --intro-color: var(--wrapper-color);
   }
 }

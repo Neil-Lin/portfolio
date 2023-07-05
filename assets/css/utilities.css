@@ -20,23 +20,6 @@
 
 
 /*************************
-  Link
-*************************/
-
-a[role="button"] {
-  background-color: oklch(var(--color-primary));
-  padding: 0.5rem;
-  color: oklch(var(--color-white));
-  & svg path {
-    fill: oklch(var(--color-white));
-  }
-  &[aria-current="page"] {
-    box-shadow: 0 0 0 3px oklch(var(--outline-color));
-  }
-}
-
-
-/*************************
   A11y
 *************************/
 
