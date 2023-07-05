@@ -48,9 +48,9 @@ export default defineNuxtConfig({
       type: 'module'
     }
   },
-  routeRules: {
-    "/": { redirect: "/portfolio/zh-Hant-TW" },
-  },
+  // routeRules: {
+  //   "/": { redirect: "/portfolio/zh-Hant-TW" },
+  // },
   i18n: {
     vueI18n: "./i18n.config.ts",
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
@@ -72,7 +72,7 @@ export default defineNuxtConfig({
     ],
     lazy: true,
     langDir: 'lang',
-    strategy: 'prefix',
+    // strategy: 'prefix',
     defaultLocale: 'zh-Hant-TW',
     detectBrowserLanguage: {
       useCookie: true,
