@@ -14,11 +14,9 @@
       <article>
         <section>
           <h3>{{ $t('name.intro') }}</h3>
-          <p>
-            2013 踏入網頁設計領域，執行政府專案、企業專案、公司產品開發維護等各類型 Web 與 App
-            設計與切版。近年深感無障礙網頁設計的重要性，遂開始專注在網頁的「通用設計」領域。
-          </p>
-          <p>設計理念始終遵循 「 win-win 」 、達成「平衡」的結果。</p>
+          <i18n-t keypath="page.about.p1" tag="p">
+            <br />
+          </i18n-t>
         </section>
         <section>
           <div class="flex-list">
@@ -64,29 +62,18 @@
           </div>
         </section>
         <section>
-          <i18n-t keypath="page.about.para" tag="p">
-            <nuxt-link
-              to="https://github.com/Neil-Lin/portfolio"
-              :title="$t('action.goTo') + 'Github' +  $t('action.openWindow')"
-              target="_blank"
-              ref="noreferrer noopener"
-            >
-              {{ $t('page.about.link') }}
-            </nuxt-link>
+          <i18n-t keypath="page.about.p2" tag="p">
+            <template #link>
+              <nuxt-link
+                to="https://github.com/Neil-Lin/portfolio"
+                :title="$t('action.goTo') + 'Github' +  $t('action.openWindow')"
+                target="_blank"
+                ref="noreferrer noopener"
+              >
+                Github
+              </nuxt-link>
+            </template>
           </i18n-t>
-          
-          <!-- <p>
-            此作品集是以 Nuxt3 切版，Github Page 建置，可在
-            <nuxt-link
-              to="https://github.com/Neil-Lin/portfolio"
-              :title="$t('action.goTo') + 'Github' +  $t('action.openWindow')"
-              target="_blank"
-              ref="noreferrer noopener"
-            >
-              Github
-            </nuxt-link>
-            查看原始碼。
-          </p> -->
         </section>
       </article>
     </main>

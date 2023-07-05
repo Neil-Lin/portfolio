@@ -25,7 +25,16 @@ export default {
     summary: "概要",
     intro: "簡介",
     programming: "程式",
-    promote: "推動"
+    promote: "推動",
+    websiteBlocksAndShortcutKeys: "網站區塊與快捷鍵",
+    sitemap: "網站地圖",
+    browser: "瀏覽器",
+    os: "作業系統",
+    shortcutLetter: "快速鍵字母",
+    versionAbove: "版本以上",
+    versionBelow: "版本以下",
+    or: "或",
+    source: "參考來源"
   },
   des: {
     noData: "目前沒有資料。",
@@ -65,8 +74,15 @@ export default {
   },
   page: {
     about: {
-      para: "這個網站是使用 Nuxt3 建立並在 GitHub Pages 上托管的。您可以在 {0} 上查看原始碼。" ,
-      link: 'Github'
+      p1: "2013 踏入網頁設計領域，執行政府專案、企業專案、公司產品開發維護等各類型 Web 與 App 設計與切版。{0}{0}近年深感無障礙網頁設計的重要性，遂開始專注在網頁的「通用設計」領域。{0}{0}設計理念始終遵循 「 win-win 」 、達成「平衡」的結果。",
+      p2: "這個網站是使用 Nuxt3 建立並在 GitHub Pages 上托管的。您可以在 {link} 上查看原始碼。" ,
+    },
+    sitemap: {
+      p1: "本網站依無障礙網頁設計原則建置，網站的主要內容分為三大區塊：{0}{0}1. 頁首區塊、2.主要內容、3.頁尾區塊{0}{0}本網站的快速鍵(Accesskey)設定如下：",
+      p2: "{keyU}：頁首區塊，個人介紹。{n}{keyC}：主要內容。{n}{keyZ}：頁尾區塊，含語言切換。{n}",
+      p3: "如果您的瀏覽器是 Firefox，快速鍵的使用方法為 {firefoxKeyExample}，例如 {firefoxKeyExample2} 會跳至網頁主要內容，以此類推。{n}{n}另外，如果您是 MAC 用戶，快速鍵的使用方法為 {macKeyExample}。{n}{n}若以上方式皆無法使用，建議可以檢查是不是有自訂的快速鍵影響。",
+      tableCaption: "各作業系統與瀏覽器快速鍵參考表： {link}",
+      p4: "※ 當本網站項目頁籤無法以滑鼠點選時，您可利用以下鍵盤操作方式瀏覽資料：{n}{n} {keyLeftRight} 或 {keyUpDown}：按左右鍵或上下鍵移動標籤順序。{n}{n}{keyTab}： 停留於該標籤後，可利用 {keyTab} 鍵跳至內容瀏覽該筆資料，遇到單選按鈕(radio)時請配合使用 {keyLeftRight} 或 {keyUpDown} 鍵移動項目順序。{n}{n} {keyShiftTab}： 按 {keyShiftTab} 可往回跳至上一筆資料；當跳回至標籤項目時您可繼續利用 {keyLeftRight} 或 {keyUpDown} 鍵移動標籤順序。"
     }
   }
 }

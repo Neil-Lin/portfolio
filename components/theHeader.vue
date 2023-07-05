@@ -6,14 +6,14 @@
     <div class="intro">
       <nuxt-link :to="localePath('/')" :title="$t('action.goToHomePage')">
         <img src="/images/avatar.webp" :alt="$t('name.avatar')" />
-        <div class="text">{{ $t('intro.greet', { shortTime: "早安" }) }}</div>
+        <div class="text">{{ $t('intro.greet', { shortTime: "Hi" }) }}</div>
       </nuxt-link>
     </div>
     <article>
       <section>
         <p>{{ $t('intro.des1') }}</p>
         <p>{{ $t('intro.des2') }}</p>
-        <nav class="sub-menu" :aria-label="$t('subMenu.subMenu')">
+        <nav class="submenu" :aria-label="$t('subMenu.subMenu')">
           <ul>
             <li>
               <nuxt-link

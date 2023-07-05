@@ -1,4 +1,5 @@
 export default defineI18nConfig(() => ({
   legacy: false,
-  fallbackLocale: 'zh-Hant-TW'
+  locale: 'zh-Hant-TW',
+  fallbackLocale: ['en', 'zh-Hant-TW']
 }))

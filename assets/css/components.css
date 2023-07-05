@@ -6,6 +6,7 @@
     gap: 0.5rem;
   }
   & li {
+    text-transform: capitalize;
     &:not(:last-of-type) {
       &:after {
         content: '/';
@@ -138,16 +139,16 @@ footer {
     }
   }
 }
-.sub-menu {
+.submenu {
   container-type: inline-size;
-  container-name: sub-menu;
+  container-name: submenu;
   > ul {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    @container sub-menu (width <= 375px) {
+    @container submenu (width <= 375px) {
       justify-content: space-between;
     }
     & a {
@@ -160,14 +161,15 @@ footer {
       border-radius: 50%;
       text-align: center;
       text-wrap: balance;
-      @container sub-menu (width <= 375px) {
+      text-transform: capitalize;
+      @container submenu (width <= 375px) {
         font-size: 0.875rem;
       }
     }
     & svg {
       width: 2rem;
       height: 2rem;
-      @container sub-menu (width <= 375px) {
+      @container submenu (width <= 375px) {
         width: 1.5rem;
         height: 1.5rem;
       }
