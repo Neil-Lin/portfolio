@@ -101,6 +101,14 @@ footer {
   & #ak-footer {
     display: block;
   }
+  & .lang-list {
+    display: inline-block;
+   & li {
+      display: inline-block;
+      vertical-align: middle;
+      margin-bottom: 0;
+    }
+  }
   & a {
     margin: 0 1rem;
   }

@@ -59,14 +59,14 @@ export default defineNuxtConfig({
         code: 'zh-Hant-TW',
         iso: 'zh-Hant-TW',
         dir: "ltr",
-        name: '繁體',
+        name: '繁體中文',
         file: 'zh-Hant-TW.ts'
       },
       {
         code: 'en',
         iso: 'en-US',
         dir: "ltr",
-        name: 'EN',
+        name: 'English',
         file: 'en-US.ts'
       }
     ],
