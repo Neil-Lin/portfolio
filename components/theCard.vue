@@ -6,7 +6,7 @@
     v-if="cardDisabled != true"
   >
     <div class="card-hero">
-      <img :src="cardHeroImagePath" alt="" />
+      <img :src="cardHeroImagePath" alt="" loading="lazy" />
     </div>
     <div class="card-title">{{ cardTitle }}</div>
     <div class="card-des">{{ cardDes }}</div>
@@ -19,7 +19,7 @@
 
   <div class="card card--disabled" v-else>
     <div class="card-hero">
-      <img :src="cardHeroImagePath" alt="" />
+      <img :src="cardHeroImagePath" alt="" loading="lazy" />
     </div>
     <div class="card-title">{{ cardTitle }}</div>
     <div class="card-des">{{ cardDes }}</div>

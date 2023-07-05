@@ -97,11 +97,11 @@
           <div>
             <h4 class="flex-list-title">產出</h4>
             <figure>
-              <img src="/images/vitaluikit-sketch.webp" alt="Sketch App檔案示意圖" />
+              <img src="/images/vitaluikit-sketch.webp" alt="Sketch App檔案示意圖" loading="lazy" />
               <figcaption>Sketch App檔案示意圖</figcaption>
             </figure>
             <figure>
-              <img src="/images/vitaluikit-docs.webp" alt="文件示意圖" />
+              <img src="/images/vitaluikit-docs.webp" alt="文件示意圖" loading="lazy" />
               <figcaption>使用 Fabricator 建立文件</figcaption>
             </figure>
           </div>

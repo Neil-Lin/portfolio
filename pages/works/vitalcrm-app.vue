@@ -85,12 +85,12 @@
             <h4 class="flex-list-title">研究</h4>
             <p>研究當時各種行動裝置尺寸、使用者操作模式以及可觸及範圍，作為日後設計版面之依據。</p>
             <figure>
-              <img src="/images/device-situation.webp" alt="裝置與手勢" />
+              <img src="/images/device-situation.webp" alt="裝置與手勢" loading="lazy" />
               <figcaption>裝置與手勢</figcaption>
             </figure>
             <p>同一時間進行 Functional Map、UI Flow 以及 Wireframe</p>
             <figure>
-              <img src="/images/vitalcrm-app-wireframe.webp" alt="functional map 和 wireframe" />
+              <img src="/images/vitalcrm-app-wireframe.webp" alt="functional map 和 wireframe" loading="lazy" />
               <figcaption>functional map 和 wireframe</figcaption>
             </figure>
           </div>
@@ -106,7 +106,7 @@
               <li>資訊量龐大，不作無謂裝飾，聚焦於資訊呈現簡單易懂。</li>
             </ol>
             <figure>
-              <img src="/images/vitalcrm-design-mobile.webp" alt="Vital CRM APP" />
+              <img src="/images/vitalcrm-design-mobile.webp" alt="Vital CRM APP" loading="lazy" />
               <figcaption>
                 Vital CRM APP
                 重點截圖，使用手機通常使用單手/握，所以重要操作置於中央與下方（列表、功能按鈕以及快捷按鈕），次要操作（搜尋、選單以及修改）放置於較上方，且均符合當時作業系統版本的
@@ -115,7 +115,7 @@
               </figcaption>
             </figure>
             <figure>
-              <img src="/images/vitalcrm-design-tablet.webp" alt="Vital CRM APP (Tablet)" />
+              <img src="/images/vitalcrm-design-tablet.webp" alt="Vital CRM APP (Tablet)" loading="lazy" />
               <figcaption>
                 Vital CRM APP (Tablet)
                 重點截圖，平板打橫可操作範圍較直式的區域廣。另外，因為中央區域會變得比較難按到，所以會把需要專注且較花時間的操作，放在靠近中央區域（因為此時操作情境偏向較常使用單手/點/放置平穩的模式），例如：編輯客戶資料。如果只是瀏覽資訊，情境會變成雙手/握/拇指滑動，會盡量靠近兩側可滑動區域。

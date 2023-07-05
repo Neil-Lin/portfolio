@@ -73,19 +73,19 @@
             <div class="flex-list">
               <div>
                 <figure>
-                  <img src="/images/scout-landingpage-dark.webp" alt="Landing Page(dark)" />
+                  <img src="/images/scout-landingpage-dark.webp" alt="Landing Page(dark)" loading="lazy" />
                   <figcaption>Landing Page(dark)</figcaption>
                 </figure>
               </div>
               <div>
                 <figure>
-                  <img src="/images/scout-landingpage-light.webp" alt="Landing Page(light)" />
+                  <img src="/images/scout-landingpage-light.webp" alt="Landing Page(light)" loading="lazy" />
                   <figcaption>Landing Page(light)</figcaption>
                 </figure>
               </div>
             </div>
             <figure>
-              <img src="/images/scout-404.webp" alt="ΣCOUT 404 page" />
+              <img src="/images/scout-404.webp" alt="ΣCOUT 404 page" loading="lazy" />
               <figcaption>ΣCOUT 404 page</figcaption>
             </figure>
           </div>

@@ -60,24 +60,26 @@
             <h4 class="flex-list-title">產出</h4>
             <p>熱詞影響力診斷圖(以下資料僅為模擬設計圖，非真實數據)</p>
             <figure>
-              <img src="/images/choose-chart-hotkeywords.webp" alt="熱詞影響力診斷圖" />
+              <img src="/images/choose-chart-hotkeywords.webp" alt="熱詞影響力診斷圖" loading="lazy" />
               <figcaption>熱詞影響力診斷圖</figcaption>
             </figure>
             <figure>
               <img
                 src="/images/choose-chart-hotkeywords-hover.webp"
                 alt="熱詞影響力診斷圖-目標相關性"
+                loading="lazy"
               />
               <figcaption>熱詞影響力診斷圖-目標相關性</figcaption>
             </figure>
             <figure>
-              <img src="/images/choose-chart-hotkeywords-detail.webp" alt="熱詞影響力診斷圖-分類" />
+              <img src="/images/choose-chart-hotkeywords-detail.webp" alt="熱詞影響力診斷圖-分類" loading="lazy" />
               <figcaption>熱詞影響力診斷圖-分類</figcaption>
             </figure>
             <figure>
               <img
                 src="/images/choose-chart-hotkeywords-detail-hover.webp"
                 alt="熱詞影響力診斷圖-分類項目相關性"
+                loading="lazy"
               />
               <figcaption>熱詞影響力診斷圖-分類項目相關性</figcaption>
             </figure>

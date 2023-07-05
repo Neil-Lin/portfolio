@@ -106,6 +106,7 @@
               <img
                 src="/images/vitalsespsurvey-wireframe-dashboard.webp"
                 alt="Vitals ESP Survey Dashboard"
+                loading="lazy"
               />
               <figcaption>
                 Vitals ESP Survey Dashboard<br />
@@ -116,6 +117,7 @@
               <img
                 src="/images/vitalsespsurvey-wireframe-edit.webp"
                 alt="Vitals ESP Survey 問卷編輯"
+                loading="lazy"
               />
               <figcaption>
                 Vitals ESP Survey 問卷編輯<br />
@@ -128,6 +130,7 @@
                   <img
                     src="/images/vitalsespsurvey-wireframe-result1.webp"
                     alt="Vitals ESP Survey 資料視覺化總覽"
+                    loading="lazy"
                   />
                   <figcaption>Vitals ESP Survey 資料視覺化總覽</figcaption>
                 </figure>
@@ -137,6 +140,7 @@
                   <img
                     src="/images/vitalsespsurvey-wireframe-result2.webp"
                     alt="Vitals ESP Survey 資料視覺化問卷細部統計"
+                    loading="lazy"
                   />
                   <figcaption>Vitals ESP Survey 資料視覺化問卷細部統計</figcaption>
                 </figure>
@@ -148,6 +152,7 @@
                   <img
                     src="/images/vitalsespsurvey-wireframe-list1.webp"
                     alt="Vitals ESP Survey 列表一"
+                    loading="lazy"
                   />
                   <figcaption>Vitals ESP Survey 列表一</figcaption>
                 </figure>
@@ -157,6 +162,7 @@
                   <img
                     src="/images/vitalsespsurvey-wireframe-list2.webp"
                     alt="Vitals ESP Survey 列表二"
+                    loading="lazy"
                   />
                   <figcaption>Vitals ESP Survey 列表二</figcaption>
                 </figure>
@@ -166,6 +172,7 @@
               <img
                 src="/images/vitalsespsurvey-mockup.webp"
                 alt="Vitals ESP Survey 編輯問卷設計稿"
+                loading="lazy"
               />
               <figcaption>Vitals ESP Survey 編輯問卷設計稿</figcaption>
             </figure>

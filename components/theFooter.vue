@@ -3,12 +3,12 @@
     <nuxt-link id="ak-footer" to="#ak-footer" :title="$t('shortcut.footer')" accesskey="Z" name="ak-footer">
       :::
     </nuxt-link>
-    <ul v-if="supportedLocales.length != 0" class="lang-list">
-      <li v-for="loc in supportedLocales" :key="loc.code">
+    <template v-if="supportedLocales.length != 0">
+      <span v-for="loc in supportedLocales" :key="loc.code">
         <nuxt-link :to="switchLocalePath(loc.code)">{{ loc.name }}</nuxt-link>
-      </li>
-    </ul>
-    2023 &copy; copyright
+      </span>
+    </template>
+    <span>2023 &copy; copyright</span>
   </footer>
 </template>
 

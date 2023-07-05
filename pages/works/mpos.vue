@@ -55,7 +55,7 @@
           <li>有哪些硬體設備？</li>
         </ol>
         <figure>
-          <img src="/images/KSI-mpos-domain-knowhow.webp" alt="學習領域知識" />
+          <img src="/images/KSI-mpos-domain-knowhow.webp" alt="學習領域知識" loading="lazy" />
           <figcaption>學習領域知識</figcaption>
         </figure>
         <div class="flex-list">
@@ -82,22 +82,22 @@
             <h4 class="flex-list-title">研究</h4>
             <p>研究當時適合當餐飲業用的平板，作為日後設計版面之依據。</p>
             <figure>
-              <img src="/images/device-situation-tablet.webp" alt="裝置與手勢" />
+              <img src="/images/device-situation-tablet.webp" alt="裝置與手勢" loading="lazy" />
               <figcaption>裝置與手勢</figcaption>
             </figure>
             <p>跨公司、跨團隊遠端溝通，一步步解析尋找舊版未被提及的痛點</p>
             <figure>
-              <img src="/images/KSI-mpos-pain.webp" alt="挖掘痛點" />
+              <img src="/images/KSI-mpos-pain.webp" alt="挖掘痛點" loading="lazy" />
               <figcaption>挖掘痛點</figcaption>
             </figure>
             <p>因應新需求找出新操作模式，幫助使用者快速找出歷史紀錄</p>
             <figure>
-              <img src="/images/KSI-mpos-discuss.webp" alt="發想新操作模式" />
+              <img src="/images/KSI-mpos-discuss.webp" alt="發想新操作模式" loading="lazy" />
               <figcaption>發想新操作模式</figcaption>
             </figure>
             <p>Wireframe</p>
             <figure>
-              <img src="/images/KSI-mpos-wireframe.webp" alt="wireframe" />
+              <img src="/images/KSI-mpos-wireframe.webp" alt="wireframe" loading="lazy" />
               <figcaption>藉由 Wireframe 密集討論，找出最符合情境、最有效率的方案。</figcaption>
             </figure>
           </div>
@@ -111,7 +111,7 @@
               <li>與視覺設計師合作，設計出即便是在前場混亂的情況，也要能即時掌握資訊。</li>
             </ol>
             <figure>
-              <img src="/images/KSI-mpos-mockup.webp" alt="設計稿" />
+              <img src="/images/KSI-mpos-mockup.webp" alt="設計稿" loading="lazy" />
               <figcaption>設計稿</figcaption>
             </figure>
           </div>
