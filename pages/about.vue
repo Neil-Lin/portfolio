@@ -14,7 +14,7 @@
       <article>
         <section>
           <h3>{{ $t('name.intro') }}</h3>
-          <i18n-t keypath="page.about.p1" tag="p">
+          <i18n-t keypath="page.about.p1" tag="p" scope="global">
             <br />
           </i18n-t>
         </section>
@@ -62,7 +62,7 @@
           </div>
         </section>
         <section>
-          <i18n-t keypath="page.about.p2" tag="p">
+          <i18n-t keypath="page.about.p2" tag="p" scope="global">
             <template #link>
               <nuxt-link
                 to="https://github.com/Neil-Lin/portfolio"

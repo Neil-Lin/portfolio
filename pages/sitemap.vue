@@ -14,8 +14,8 @@
       <article>
         <section>
           <h3>{{ $t('name.websiteBlocksAndShortcutKeys') }}</h3>
-          <i18n-t keypath="page.sitemap.p1" tag="p"><br /></i18n-t>
-          <i18n-t keypath="page.sitemap.p2" tag="p">
+          <i18n-t keypath="page.sitemap.p1" tag="p" scope="global"><br /></i18n-t>
+          <i18n-t keypath="page.sitemap.p2" tag="p" scope="global">
             <template #n>
               <br />
             </template>
@@ -29,7 +29,7 @@
               <kbd>Alt</kbd>+<kbd>Z</kbd>
             </template>
           </i18n-t>
-          <i18n-t keypath="page.sitemap.p3" tag="p">
+          <i18n-t keypath="page.sitemap.p3" tag="p" scope="global">
             <template #n>
               <br />
             </template>
@@ -44,7 +44,7 @@
             </template>
           </i18n-t>
           <table>
-            <i18n-t keypath="page.sitemap.tableCaption" tag="caption">
+            <i18n-t keypath="page.sitemap.tableCaption" tag="caption" scope="global">
               <template #link>
                 <nuxt-link
                   to="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey"
@@ -101,7 +101,7 @@
               </tr>
             </tbody>
           </table>
-          <i18n-t keypath="page.sitemap.p4" tag="p">
+          <i18n-t keypath="page.sitemap.p4" tag="p" scope="global">
             <template #n>
               <br />
             </template>

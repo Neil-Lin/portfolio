@@ -12,7 +12,7 @@
       </section>
       <section>
         <h3>{{ $t('name.summary') }}</h3>
-        <i18n-t keypath="page.piman.p1" tag="p">
+        <i18n-t keypath="page.piman.p1" tag="p" scope="global">
           <br />
         </i18n-t>
         <div class="flex-list">
