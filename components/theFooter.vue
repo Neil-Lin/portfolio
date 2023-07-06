@@ -8,7 +8,7 @@
         <nuxt-link :to="switchLocalePath(loc.code)">{{ loc.name }}</nuxt-link>
       </span>
     </template>
-    <span>2023 &copy; copyright</span>
+    <span>&copy; 2023 copyright</span>
   </footer>
 </template>
 

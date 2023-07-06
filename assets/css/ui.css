@@ -338,7 +338,7 @@ figcaption {
       transform: translate3d(0, 0, 0);
       box-shadow: none;
       background-color: transparent;
-      & .port-list-blcok {
+      & .card-list-block {
         position: initial;
         top: initial;
         overflow: inherit;
@@ -369,6 +369,9 @@ figcaption {
     transition: transform 300ms ease-in;
     &.page-aside--open {
       transform: translate3d(0, 0, 0);
+      & .card-list-block {
+        padding-bottom: 6rem;
+      }
     }
   }
   & .btn-close-mobile-menu {
@@ -405,7 +408,7 @@ figcaption {
   }
 }
 
-.port-list-blcok {
+.card-list-block {
   position: sticky;
   top: 0;
   overflow: auto;

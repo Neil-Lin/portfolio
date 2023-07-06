@@ -1,5 +1,5 @@
 <template>
-  <div class="port-list-blcok">
+  <div class="card-list-block">
     <theHeader />
     <akContainer v-if="route.path === '/'" />
     <nav :aria-label="$t('mainMenu.mainMenu')" class="card-list" v-if="workList.length != 0">
