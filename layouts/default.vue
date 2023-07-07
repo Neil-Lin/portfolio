@@ -35,15 +35,18 @@
 
     <!-- https://github.com/elegantapp/pwa-asset-generator/issues/71 -->
     <!-- Deprecated media feature device-width -->
-    <!-- <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" /> -->
-    <!-- <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" /> -->
-    <!-- <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" /> -->
-    <!-- <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-1242x2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" /> -->
+    <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-1242x2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
 
     <!-- <Link rel="preconnect" href="https://fonts.googleapis.com" /> -->
     <!-- <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" /> -->
     <!-- <Link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swapm" /> -->
  
+    <!-- https://github.com/nuxt/nuxt/issues/19752 -->
+    <!-- Nuxt3  I don't think there's anything Nuxt can action related to this issue -->
+
     <Script src="'/portfolio/js/clarity.js" />
     <Body class="wrapper">
       <div class="layout">
