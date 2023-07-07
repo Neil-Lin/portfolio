@@ -48,12 +48,12 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(1.25rem, calc(100cqw / 40), 2rem);
+  font-size: clamp(1.5rem, calc(100cqw / 40), 1.625rem);
   margin-bottom: 1rem;
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   margin-bottom: 1rem;
 }
 
@@ -287,7 +287,11 @@ figcaption {
   }
 }
 
-.lang-switcher {
+.table-scroll-h {
+  overflow: auto;
+  & table {
+    min-width: var(--breakpoint-768);
+  }
 }
 
 .flex-list {
@@ -298,10 +302,10 @@ figcaption {
   /* &>div {
     max-width: 80ch;
   } */
-  & .flex-list-title {
+  /* & .flex-list-title {
     font-size: 1.125rem;
     font-weight: bold;
-  }
+  } */
   & ol {
     list-style-type: decimal;
     margin: 1em;
@@ -323,21 +327,27 @@ figcaption {
   width: 100%;
   max-width: var(--breakpoint-1600);
   margin: 0 auto;
-  padding: 0;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-areas: "aside main";
+  grid-template-columns: max(40ch) minmax(0, 1fr) ;
   @media screen and (width <= 768px) {
-    padding: 1rem;
+    grid-template-areas: "main";
+    grid-template-columns: minmax(0, 1fr);
   }
   &.page--index {
+    grid-template-areas: "aside";
+    grid-template-columns: minmax(0, 60ch);
+    justify-content: center;
     & .page-aside {
-      width: 60ch;
-      max-width: var(--breakpoint-768);
       padding-right: 0;
       position: inherit;
       transform: translate3d(0, 0, 0);
       box-shadow: none;
       background-color: transparent;
+      @media screen and (width <= 768px) {
+        max-width: initial;
+        padding: 0 1rem;
+      }
       & .card-list-block {
         position: initial;
         top: initial;
@@ -347,20 +357,15 @@ figcaption {
         padding-left: 0;
       }
     }
-    & .page-container {
-      flex: initial;
-    }
   }
 }
 
 .page-aside {
-  width: 40ch;
-  max-width: var(--breakpoint-375);
   @media screen and (width <= 768px) {
+    max-width: var(--breakpoint-320);
     position: fixed;
     top: 0;
     left: 0;
-    width: 35ch;
     height: 100dvh;
     z-index: 1;
     background-color: oklch(var(--menubar-mobile-bg));
@@ -392,10 +397,9 @@ figcaption {
 }
 
 .page-container {
-  flex: 1;
   padding: 2rem;
   @media screen and (width <= 768px) {
-    padding: 0;
+    padding: 1rem;
   }
 }
 

@@ -43,64 +43,66 @@
               <kbd>Control</kbd>+<kbd>Option</kbd>+<kbd>{{ $t('name.shortcutLetter') }}</kbd>
             </template>
           </i18n-t>
-          <table>
-            <i18n-t keypath="page.sitemap.tableCaption" tag="caption" scope="global">
-              <template #link>
-                <nuxt-link
-                  to="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey"
-                  :title="$t('action.goTo') + $t('des.a11yrefrerence') + $t('action.openWindow')"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  {{ $t('name.source') }}
-                </nuxt-link>
-              </template>
-            </i18n-t>
-            <tbody>
-              <tr>
-                <th scope="col">{{ $t('browser') }}/{{ $t('os') }}</th>
-                <th scope="col">Windows</th>
-                <th scope="col">Linux</th>
-                <th scope="col">Mac</th>
-              </tr>
-              <tr>
-                <th scope="row">Firefox</th>
-                <td colspan="2"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd></td>
-                <td>
-                  Firefox 57 {{ $t('name.versionAbove') }}: <kbd>Control</kbd> + <kbd>Option</kbd> +
-                  <kbd>{{ $t('name.shortcutLetter') }}</kbd> {{ $t('name.or') }} <kbd>Control</kbd> + <kbd>Alt</kbd> +
-                  <kbd>{{ $t('name.shortcutLetter') }}</kbd><br />
-                  Firefox 14 {{ $t('name.versionAbove') }}: <kbd>Control</kbd> + <kbd>Alt</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd
-                  ><br />
-                  Firefox 13 {{ $t('name.versionBelow') }}: <kbd>Control</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">Internet Explorer</th>
-                <td rowspan="3">
-                  <kbd>Alt</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd><br />
-                  <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd>
-                </td>
-                <td colspan="2"></td>
-              </tr>
-              <tr>
-                <th scope="row">Edge</th>
-                <td></td>
-                <td rowspan="3">
-                  <kbd>Control</kbd> + <kbd>Option</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd><br />
-                  <kbd>Control</kbd> + <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">Google Chrome</th>
-                <td><kbd>Alt</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd></td>
-              </tr>
-              <tr>
-                <th scope="row">Safari</th>
-                <td colspan="2"></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-scroll-h">
+            <table>
+              <i18n-t keypath="page.sitemap.tableCaption" tag="caption" scope="global">
+                <template #link>
+                  <nuxt-link
+                    to="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey"
+                    :title="$t('action.goTo') + $t('des.a11yrefrerence') + $t('action.openWindow')"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    {{ $t('name.source') }}
+                  </nuxt-link>
+                </template>
+              </i18n-t>
+              <tbody>
+                <tr>
+                  <th scope="col">{{ $t('browser') }}/{{ $t('os') }}</th>
+                  <th scope="col">Windows</th>
+                  <th scope="col">Linux</th>
+                  <th scope="col">Mac</th>
+                </tr>
+                <tr>
+                  <th scope="row">Firefox</th>
+                  <td colspan="2"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd></td>
+                  <td>
+                    Firefox 57 {{ $t('name.versionAbove') }}: <kbd>Control</kbd> + <kbd>Option</kbd> +
+                    <kbd>{{ $t('name.shortcutLetter') }}</kbd> {{ $t('name.or') }} <kbd>Control</kbd> + <kbd>Alt</kbd> +
+                    <kbd>{{ $t('name.shortcutLetter') }}</kbd><br />
+                    Firefox 14 {{ $t('name.versionAbove') }}: <kbd>Control</kbd> + <kbd>Alt</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd
+                    ><br />
+                    Firefox 13 {{ $t('name.versionBelow') }}: <kbd>Control</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Internet Explorer</th>
+                  <td rowspan="3">
+                    <kbd>Alt</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd><br />
+                    <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd>
+                  </td>
+                  <td colspan="2"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Edge</th>
+                  <td></td>
+                  <td rowspan="3">
+                    <kbd>Control</kbd> + <kbd>Option</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd><br />
+                    <kbd>Control</kbd> + <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Google Chrome</th>
+                  <td><kbd>Alt</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd></td>
+                </tr>
+                <tr>
+                  <th scope="row">Safari</th>
+                  <td colspan="2"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <i18n-t keypath="page.sitemap.p4" tag="p" scope="global">
             <template #n>
               <br />
