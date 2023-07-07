@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <nuxt-link id="ak-footer" to="#ak-footer" :title="$t('shortcut.footer')" accesskey="Z" name="ak-footer">
+    <nuxt-link id="ak-footer" to="#ak-footer" :title="$t('shortcut.footer')" accesskey="Z">
       :::
     </nuxt-link>
     <template v-if="supportedLocales.length != 0">

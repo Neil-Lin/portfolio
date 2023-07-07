@@ -4,7 +4,6 @@
     to="#ak-container"
     :title="$t('shortcut.mainContent')"
     accesskey="C"
-    name="ak-container"
   >
     :::
   </nuxt-link>
