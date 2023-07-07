@@ -407,6 +407,7 @@ figcaption {
   display: none;
   position: sticky;
   top: 1rem;
+  text-transform: capitalize;
   @media screen and (width <= 768px) {
     display: block;
   }
