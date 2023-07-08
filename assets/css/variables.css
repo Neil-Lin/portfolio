@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+
 :root {
   /* Base Colors(oklch) */
   --color-black: 24.78% 0 0;
@@ -17,7 +19,7 @@
 
   /* Font */
   --font-size-base: 1rem;
-  --font-family: 'helvetica', 'Arial', sans-serif;
+  --font-family: system-ui, Helvetica, Arial, 'Noto Sans TC', sans-serif;
 
 
   @media (prefers-color-scheme: light) {

@@ -3,7 +3,7 @@
 *************************/
 
 * {
-  line-height: 1.5;
+  line-height: 1.875;
   letter-spacing: 0.14rem;
   word-spacing: 0.16rem;
 }
@@ -103,7 +103,7 @@ a[role="button"] {
 }
 
 p {
-  max-width: 80ch;
+  max-width: 60ch;
   margin-bottom: 2rem;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -189,7 +189,7 @@ figcaption {
   display: block;
   text-align: center;
   font-size: 0.875rem;
-  max-width: 80ch;
+  max-width: 60ch;
   margin: 0.5rem auto;
   text-wrap: balance;
 }
