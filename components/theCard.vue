@@ -1,33 +1,41 @@
 <template>
-  <nuxt-link
+  <div
     class="card"
-    :to="localePath(cardLink)"
-    :title=" $t('action.goTo') + `${cardTitle}`"
     v-if="cardDisabled != true"
   >
+    <div class="card-text">
+      <nuxt-link
+        class="card-title"
+        :to="localePath(cardLink)"
+        :title=" $t('action.goTo') + `${cardTitle}`"
+      >
+        {{ cardTitle }}
+      </nuxt-link>
+      <div class="card-des">{{ cardDes }}</div>
+      <ul v-if="cardTags.length != 0" class="tag-list">
+        <li v-for="(item, idx) in cardTags" :key="idx">
+          <span class="tag">{{ item }}</span>
+        </li>
+      </ul>
+    </div>
     <div class="card-hero">
       <img :src="cardHeroImagePath" alt="" loading="lazy" />
     </div>
-    <div class="card-title">{{ cardTitle }}</div>
-    <div class="card-des">{{ cardDes }}</div>
-    <ul v-if="cardTags.length != 0" class="tag-list">
-      <li v-for="(item, idx) in cardTags" :key="idx">
-        <span class="tag">{{ item }}</span>
-      </li>
-    </ul>
-  </nuxt-link>
+  </div>
 
   <div class="card card--disabled" v-else>
+    <div class="card-text">
+      <div class="card-title">{{ cardTitle }}</div>
+      <div class="card-des">{{ cardDes }}</div>
+      <ul v-if="cardTags.length != 0" class="tag-list">
+        <li v-for="(item, idx) in cardTags" :key="idx">
+          <span class="tag">{{ item }}</span>
+        </li>
+      </ul>
+    </div>
     <div class="card-hero">
       <img :src="cardHeroImagePath" alt="" loading="lazy" />
     </div>
-    <div class="card-title">{{ cardTitle }}</div>
-    <div class="card-des">{{ cardDes }}</div>
-    <ul v-if="cardTags.length != 0" class="tag-list">
-      <li v-for="(item, idx) in cardTags" :key="idx">
-        <span class="tag">{{ item }}</span>
-      </li>
-    </ul>
   </div>
 </template>
 

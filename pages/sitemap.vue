@@ -212,9 +212,8 @@ const checkScrollable = ref()
 const tabIndex = ref()
 
 onMounted(() => {
-  checkTabAble
+  checkTabAble()
   window.addEventListener('resize', checkTabAble)
-  
 });
 const checkTabAble = () => {
   if (

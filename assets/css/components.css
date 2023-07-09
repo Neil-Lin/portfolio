@@ -22,34 +22,13 @@
 }
 
 .card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
   border: 1px solid oklch(var(--border-color));
   border-radius: 0.25rem;
   background-color: oklch(var(--card-bg));
   text-decoration: none;
-  &[aria-current='page'] {
-    position: relative;
-    box-shadow: 0 0 0 0.25rem oklch(var(--color-primary));
-    &:before {
-      content: '👀';
-      position: absolute;
-      top: 0.5rem;
-      left: 0.5rem;
-      font-size: 0.75rem;
-      padding: 0.25rem 1rem;
-      border-radius: 1.25rem;
-      color: oklch(var(--color-white));
-      background: linear-gradient(
-        90deg,
-        oklch(var(--color-primary)),
-        oklch(var(--color-primary) / 70%),
-        oklch(var(--color-primary))
-      );
-      background-size: 200% 200%;
-      animation: now-watching-badge 5000ms linear infinite;
-    }
-  }
   .card-hero {
     & img {
       width: 100%;
@@ -61,12 +40,69 @@
       object-position: center top;
     }
   }
+  .card-text {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 60ch;
+    order: 1;
+    &> * + * {
+      margin-top: 1rem;
+    }
+    &:last-child {
+      margin-top: auto;
+    }
+    :nth-last-child(2) {
+      margin-bottom: 0.75rem;
+    }
+  }
   .card-title {
     margin-top: 1rem;
-    margin-bottom: 1rem;
     font-size: 1.125rem;
     font-weight: bold;
     color: oklch(var(--card-title-color));
+    &:focus-within {
+      outline: none;
+      box-shadow: none;
+    }
+    &:hover {
+      opacity: 1;
+      &:after {
+        box-shadow: 0 0 0 0.25rem oklch(var(--outline-color));
+      }
+    }
+    &[aria-current='page'] {
+      &:before {
+        content: '👀';
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        font-size: 0.75rem;
+        padding: 0.25rem 1rem;
+        border-radius: 1.25rem;
+        color: oklch(var(--color-white));
+        background: linear-gradient(
+          90deg,
+          oklch(var(--color-primary)),
+          oklch(var(--color-primary) / 70%),
+          oklch(var(--color-primary))
+        );
+        background-size: 200% 200%;
+        animation: now-watching-badge 5000ms linear infinite;
+      }
+      &:after {
+        box-shadow: 0 0 0 0.25rem oklch(var(--color-primary));
+      }
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.25rem;
+    }
   }
   .card-des {
     color: oklch(var(--card-des-color));
@@ -79,7 +115,6 @@
   .tag-list {
     display: flex;
     flex-wrap: wrap;
-    padding-top: 1rem;
     & > li {
       margin-right: 0.5rem;
     }
