@@ -10,6 +10,7 @@
       </button>
       <akContainer />
       <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
+      <h1>{{ pageTitle }}</h1>
       <h2>{{ pageTitle }}</h2>
       <article>
         <section>

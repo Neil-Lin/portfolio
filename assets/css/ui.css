@@ -13,6 +13,11 @@ body {
   font-size: var(--font-size-base, 1rem);
   font-family: var(--font-family);
   scroll-behavior: smooth;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
 
 .wrapper {
@@ -38,17 +43,17 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(2rem, calc(100cqw / 40), 4rem);
+  font-size: clamp(2.5rem, calc(100cqw / 30), 4rem);
   margin-bottom: 1.5rem;
 }
 
 h2 {
-  font-size: clamp(1.5rem, calc(100cqw / 40), 3rem);
+  font-size: clamp(2rem, calc(100cqw / 40), 3rem);
   margin-bottom: 1.5rem;
 }
 
 h3 {
-  font-size: clamp(1.5rem, calc(100cqw / 40), 1.625rem);
+  font-size: clamp(1.5rem, calc(100cqw / 50), 1.625rem);
   margin-bottom: 1rem;
 }
 
@@ -109,7 +114,6 @@ p {
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
-  word-break: break-word;
 }
 
 select {
@@ -139,7 +143,6 @@ table {
     font-weight: bold;
     border-right: 1px solid oklch(var(--border-color));
     background-color: oklch(var(--color-primary-modified));
-    word-break: break-word;
     @media screen and (width <= 768px) {
       padding: 0.25rem 0.5rem;
     }
@@ -150,7 +153,6 @@ table {
   & td {
     border-right: 1px solid oklch(var(--border-color));
     padding: 0.5rem 1rem;
-    word-break: break-word;
     @media screen and (width <= 768px) {
       padding: 0.25rem 0.5rem;
     }
@@ -319,6 +321,7 @@ figcaption {
     padding: 0 1em 1em 1em;
     & li {
       padding: 0.25rem 0;
+      max-width: 60ch;
     }
   }
 }
@@ -362,7 +365,7 @@ figcaption {
 
 .page-aside {
   @media screen and (width <= 768px) {
-    max-width: var(--breakpoint-320);
+    max-width: var(--breakpoint-375);
     position: fixed;
     top: 0;
     left: 0;
@@ -378,6 +381,9 @@ figcaption {
         padding-bottom: 6rem;
       }
     }
+  }
+  @media screen and (width <= 375px) {
+    max-width: 95dvw;
   }
   & .btn-close-mobile-menu {
     display: none;
