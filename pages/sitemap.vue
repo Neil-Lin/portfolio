@@ -44,20 +44,16 @@
               <kbd>Control</kbd>+<kbd>Option</kbd>+<kbd>{{ $t('name.shortcutLetter') }}</kbd>
             </template>
           </i18n-t>
-          <div class="table-scroll-h">
+          <div class="table-scroll-h" :tabindex="tabIndex" role="group" aria-labelledby="caption" ref="checkScrollable">
             <table>
-              <i18n-t keypath="page.sitemap.tableCaption" tag="caption" scope="global">
-                <template #link>
-                  <nuxt-link
-                    to="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey"
-                    :title="$t('action.goTo') + $t('des.a11yrefrerence') + $t('action.openWindow')"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    {{ $t('name.source') }}
-                  </nuxt-link>
-                </template>
-              </i18n-t>
+              <caption id="caption">
+                <nuxt-link to="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey"
+                  :title="$t('action.goTo') + $t('des.a11yrefrerence') + $t('action.openWindow')" target="_blank"
+                  rel="noreferrer noopener">
+                  <span>{{ $t('page.sitemap.tableCaption') }}</span>
+                </nuxt-link>
+                <small v-show="tabIndex === 0">({{ $t('action.scrollHorizontalToSeeMore') }})</small>
+              </caption>
               <tbody>
                 <tr>
                   <th scope="col">{{ $t('browser') }}/{{ $t('os') }}</th>
@@ -72,9 +68,10 @@
                     Firefox 57 {{ $t('name.versionAbove') }}: <kbd>Control</kbd> + <kbd>Option</kbd> +
                     <kbd>{{ $t('name.shortcutLetter') }}</kbd> {{ $t('name.or') }} <kbd>Control</kbd> + <kbd>Alt</kbd> +
                     <kbd>{{ $t('name.shortcutLetter') }}</kbd><br />
-                    Firefox 14 {{ $t('name.versionAbove') }}: <kbd>Control</kbd> + <kbd>Alt</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd
-                    ><br />
-                    Firefox 13 {{ $t('name.versionBelow') }}: <kbd>Control</kbd> + <kbd>{{ $t('name.shortcutLetter') }}</kbd>
+                    Firefox 14 {{ $t('name.versionAbove') }}: <kbd>Control</kbd> + <kbd>Alt</kbd> + <kbd>{{
+                      $t('name.shortcutLetter') }}</kbd><br />
+                    Firefox 13 {{ $t('name.versionBelow') }}: <kbd>Control</kbd> + <kbd>{{ $t('name.shortcutLetter')
+                    }}</kbd>
                   </td>
                 </tr>
                 <tr>
@@ -127,37 +124,35 @@
           <div class="flex-list">
             <ol>
               <li>
-                <nuxt-link :to="localePath('/')" :title="$t('action.goTo') + $t('action.goToHomePage')">{{ $t('name.home') }}</nuxt-link>
+                <nuxt-link :to="localePath('/')" :title="$t('action.goTo') + $t('action.goToHomePage')">{{ $t('name.home')
+                }}</nuxt-link>
               </li>
               <li>
-                <nuxt-link :to="localePath('/sitemap')" :title="$t('action.goTo') + $t('mainMenu.sitemap')">{{ $t('mainMenu.sitemap') }}</nuxt-link>
+                <nuxt-link :to="localePath('/sitemap')" :title="$t('action.goTo') + $t('mainMenu.sitemap')">{{
+                  $t('mainMenu.sitemap') }}</nuxt-link>
               </li>
               <li>
-                <nuxt-link :to="localePath('/about')" :title="$t('action.goTo') + $t('mainMenu.about')">{{ $t('mainMenu.about') }}</nuxt-link>
+                <nuxt-link :to="localePath('/about')" :title="$t('action.goTo') + $t('mainMenu.about')">{{
+                  $t('mainMenu.about') }}</nuxt-link>
               </li>
               <li>
-                <nuxt-link
-                  to="https://medium.com/@neil-lin"
-                  :title="$t('action.goTo') + 'Medium' + $t('action.openWindow')"
-                  target="_blank"
-                  ref="noreferrer noopener"
-                >
+                <nuxt-link to="https://medium.com/@neil-lin"
+                  :title="$t('action.goTo') + 'Medium' + $t('action.openWindow')" target="_blank"
+                  ref="noreferrer noopener">
                   Medium
                 </nuxt-link>
               </li>
               <li>
-                <nuxt-link
-                  to="https://dribbble.com/Neil_lin"
-                  :title="$t('action.goTo') + 'Dribbble' + $t('action.openWindow')"
-                  target="_blank"
-                  ref="noreferrer noopener"
-                >
+                <nuxt-link to="https://dribbble.com/Neil_lin"
+                  :title="$t('action.goTo') + 'Dribbble' + $t('action.openWindow')" target="_blank"
+                  ref="noreferrer noopener">
                   Dribbble
                 </nuxt-link>
               </li>
               <template v-for="(item, idx) in workList" :key="idx">
                 <li v-if="item.disabled !== true">
-                  <nuxt-link :to="localePath(item.link)" :title="$t('action.goTo') + `${item.name}`">{{ item.name }}</nuxt-link>
+                  <nuxt-link :to="localePath(item.link)" :title="$t('action.goTo') + `${item.name}`">{{ item.name
+                  }}</nuxt-link>
                 </li>
               </template>
             </ol>
@@ -169,6 +164,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 const { t } = useI18n()
 const localePath = useLocalePath()
 const runtimeConfig = useRuntimeConfig()
@@ -212,8 +208,25 @@ useHead({
     }
   ]
 })
+const checkScrollable = ref()
+const tabIndex = ref()
 
+onMounted(() => {
+  checkTabAble
+  window.addEventListener('resize', checkTabAble)
+  
+});
+const checkTabAble = () => {
+  if (
+    checkScrollable.value.scrollWidth > 0 &&
+    checkScrollable.value.scrollWidth > checkScrollable.value.clientWidth
+  ) {
+    tabIndex.value = 0;
+  }
+  else {
+    tabIndex.value = null;
+  }
+}
 const { mobileMenuStatus, handleToggleMobileMenuBtn, handleCloseMobileMenuBtn } = useMobileMenuBtn()
-
 const { workList } = useWorkList()
 </script>
