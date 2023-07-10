@@ -34,7 +34,8 @@ export default {
     versionAbove: "版本以上",
     versionBelow: "版本以下",
     or: "或",
-    source: "參考來源"
+    source: "參考來源",
+    tag: "標籤"
   },
   des: {
     noData: "目前沒有資料。",

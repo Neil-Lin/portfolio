@@ -34,7 +34,8 @@ export default {
     versionAbove: "above",
     versionBelow: "below",
     or: "or",
-    source: "source"
+    source: "source",
+    tag: "tag"
   },
   des: {
     noData: "There is no data now.",

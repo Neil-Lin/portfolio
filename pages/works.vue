@@ -8,7 +8,7 @@
       <button class="btn-open-mobile-menu" @click="handleToggleMobileMenuBtn">
         <span>{{ $t('name.menu') }}</span>
       </button>
-      <NuxtPage />
+      <NuxtPage :key="$route.fullPath"/>
     </main>
   </div>
 </template>

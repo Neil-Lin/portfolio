@@ -28,7 +28,7 @@
   border: 1px solid oklch(var(--border-color));
   border-radius: 0.25rem;
   background-color: oklch(var(--card-bg));
-  text-decoration: none;
+  
   .card-hero {
     & img {
       width: 100%;
@@ -52,7 +52,7 @@
     &:last-child {
       margin-top: auto;
     }
-    :nth-last-child(2) {
+    &:nth-last-child(2) {
       margin-bottom: 0.75rem;
     }
   }
@@ -61,6 +61,7 @@
     font-size: 1.125rem;
     font-weight: bold;
     color: oklch(var(--card-title-color));
+    text-decoration: none;
     &:focus-within {
       outline: none;
       box-shadow: none;
@@ -116,7 +117,8 @@
     display: flex;
     flex-wrap: wrap;
     & > li {
-      margin-right: 0.5rem;
+      margin-right: 0.25rem;
+      margin-bottom: 0.25rem;
     }
   }
 }
@@ -148,7 +150,7 @@ footer {
 .intro {
   container-type: inline-size;
   container-name: intro;
-  padding: 1rem 0;
+  padding: 3rem 0 1rem;
   text-align: center;
   & a {
     display: inline-flex;

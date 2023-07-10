@@ -9,7 +9,7 @@ export const works = [
     link: '/works/piman',
     overview: 'Piman 是一款聚焦於無障礙網頁設計、基於 Vue 的開源 UI Frameworework。',
     startYear: 2021,
-    tags: ['UI', 'UX', '切版', 'open source', '2021 - Today'],
+    tags: ['UI', 'UX', '切版', 'Open Source', '2021 - Today'],
     relatedLink: '',
     modifyYear: 2022
   },

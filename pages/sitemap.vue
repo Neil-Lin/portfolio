@@ -10,7 +10,6 @@
       </button>
       <akContainer />
       <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
-      <h1>{{ pageTitle }}</h1>
       <h2>{{ pageTitle }}</h2>
       <article>
         <section>
@@ -56,7 +55,7 @@
               </caption>
               <tbody>
                 <tr>
-                  <th scope="col">{{ $t('browser') }}/{{ $t('os') }}</th>
+                  <th scope="col">{{ $t('name.browser') }}/{{ $t('name.os') }}</th>
                   <th scope="col">Windows</th>
                   <th scope="col">Linux</th>
                   <th scope="col">Mac</th>
@@ -164,7 +163,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 const { t } = useI18n()
 const localePath = useLocalePath()
 const runtimeConfig = useRuntimeConfig()
@@ -208,17 +207,12 @@ useHead({
     }
   ]
 })
-const checkScrollable = ref()
+const checkScrollable = ref<HTMLElement | null>(null)
 const tabIndex = ref()
-
-onMounted(() => {
-  checkTabAble()
-  window.addEventListener('resize', checkTabAble)
-});
 const checkTabAble = () => {
   if (
-    checkScrollable.value.scrollWidth > 0 &&
-    checkScrollable.value.scrollWidth > checkScrollable.value.clientWidth
+    checkScrollable.value!['scrollWidth'] > 0 &&
+    checkScrollable.value!['scrollWidth']  > checkScrollable.value!['clientWidth'] 
   ) {
     tabIndex.value = 0;
   }
@@ -226,6 +220,12 @@ const checkTabAble = () => {
     tabIndex.value = null;
   }
 }
+onMounted(() => {
+  checkTabAble()
+  window.addEventListener('resize', checkTabAble)
+})
+
+
 const { mobileMenuStatus, handleToggleMobileMenuBtn, handleCloseMobileMenuBtn } = useMobileMenuBtn()
 const { workList } = useWorkList()
 </script>
