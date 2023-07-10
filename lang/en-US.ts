@@ -58,7 +58,8 @@ export default {
     goTo: "Go to ",
     openWindow: "(open another Window)",
     closeMenu: "Close Menu",
-    scrollHorizontalToSeeMore: "scroll horizontal to see more"
+    scrollHorizontalToSeeMore: "scroll horizontal to see more",
+    backToTop: "back to top"
   },
   intro: {
     greet: "{shortTime}, I'm Neil!",

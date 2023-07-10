@@ -58,6 +58,14 @@
         <nuxt-link id="ak-jump" to="#ak-container" :title="$t('shortcut.skipToContent')">{{ $t('shortcut.skipToContent') }}</nuxt-link>
         <slot />
       </div>
+      <button
+        v-show="scrollDistance > 300"
+        class="btn-back-to-top"
+        @click="scrollToTop"
+      >
+        <span class="visually-hidden">{{ $t('action.backToTop') }}</span>
+        🔝
+      </button>
     </Body>
   </Html>
 </template>
@@ -82,6 +90,19 @@ useHead({
   link: [...(head.value.link || [])],
   meta: [...(head.value.meta || [])]
 })
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', elementOffset);
+})
+
+const { scrollDistance, elementOffset } = useDetectScrollY()
 </script>
 
 <style>

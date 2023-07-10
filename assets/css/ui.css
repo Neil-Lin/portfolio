@@ -18,6 +18,9 @@ body {
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+  scroll-timeline: --squareTimeline y;
+  /* Firefox supports the older "vertical" syntax */
+  scroll-timeline: --squareTimeline vertical;
 }
 
 .wrapper {
@@ -92,6 +95,16 @@ a {
   }
   &[role="button"] {
     text-decoration: none;
+    &[target="_blank"] {
+      &:after {
+        display: none;
+      }
+    }
+  }
+  &[target="_blank"] {
+    &:after {
+      content: '\2197';
+    }
   }
 }
 
@@ -343,6 +356,7 @@ figcaption {
       transform: translate3d(0, 0, 0);
       box-shadow: none;
       background-color: transparent;
+      z-index: 0;
       @media screen and (width <= 768px) {
         max-width: initial;
         padding: 0 1rem;
@@ -413,6 +427,20 @@ figcaption {
   @media screen and (width <= 768px) {
     display: block;
   }
+}
+
+.btn-back-to-top {
+  position: fixed;
+  bottom: 2dvh;
+  right: 2dvw;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  text-align: center;
+  padding: 0;
+  font-size: 2rem;
+  color: transparent;  
+  text-shadow: 0 0 0 oklch(var(--color-white));
 }
 
 .card-list-block {

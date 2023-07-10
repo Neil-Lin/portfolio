@@ -163,7 +163,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
 const { t } = useI18n()
 const localePath = useLocalePath()
 const runtimeConfig = useRuntimeConfig()
