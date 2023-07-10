@@ -109,11 +109,7 @@ a[role="button"] {
 
 p {
   max-width: 60ch;
-  margin-bottom: 2rem;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
+  margin-bottom: 2rem4
 }
 
 select {
