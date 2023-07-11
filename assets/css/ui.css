@@ -18,9 +18,11 @@ body {
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
-  scroll-timeline: --squareTimeline y;
-  /* Firefox supports the older "vertical" syntax */
-  scroll-timeline: --squareTimeline vertical;
+
+}
+
+html {
+  scroll-timeline: --page-scroll block;
 }
 
 .wrapper {
@@ -414,6 +416,26 @@ figcaption {
 
 .page-container {
   padding: 2rem;
+  @supports not (scroll-timeline: works) {
+    &:before {
+      content: '';
+      display: block;
+      animation: grow-progress auto linear;
+      animation-timeline: --page-scroll;
+      position: sticky;
+      z-index: 1;
+      top: 0;
+      margin-left: -2rem;
+      width: calc(100% + 4rem);
+      height: 0.25rem;
+      transform-origin: 0 50%;
+      background: oklch(var(--color-primary));
+      @media screen and (width <= 768px) {
+        margin-left: -1rem;
+        width: calc(100% + 2rem);
+      }
+    }
+  }
   @media screen and (width <= 768px) {
     padding: 1rem;
   }
@@ -453,7 +475,12 @@ figcaption {
   @media screen and (width <= 768px) {
     padding: 1rem;
   }
-  & li {
+}
+
+.card-list {
+  & > ul > li {
+    animation: ease-out fade-exit;
+		animation-timeline: view();
     margin-bottom: 1rem;
     position: relative;
   }
