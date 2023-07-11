@@ -57,7 +57,8 @@ export default {
     openWindow: '(另開視窗)',
     closeMenu: "關閉選單",
     scrollHorizontalToSeeMore: "橫向捲動顯示更多資訊",
-    backToTop: "回頁面頂端"
+    backToTop: "回頁面頂端",
+    switch: "切換為 "
   },
   intro: {
     greet: "{shortTime}，我是 Neil！",

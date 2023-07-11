@@ -2,10 +2,10 @@
   <nav aria-label="breadcrumb" class="breadcrumb">
     <ul>
       <li>
-        <nuxt-link :to="localePath('/')">{{ $t('name.home') }}</nuxt-link>
+        <nuxt-link :to="localePath('/')" :title="$t('action.goToHomePage')">{{ $t('name.home') }}</nuxt-link>
       </li>
       <li>
-        <nuxt-link :to="localePath(pageLink)">{{ pageTitle }}</nuxt-link>
+        <nuxt-link :to="localePath(pageLink)" :title="$t('action.goTo') + pageTitle">{{ pageTitle }}</nuxt-link>
       </li>
     </ul>
   </nav>

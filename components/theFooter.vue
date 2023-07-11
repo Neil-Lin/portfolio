@@ -5,7 +5,7 @@
     </nuxt-link>
     <template v-if="supportedLocales.length != 0">
       <span v-for="loc in supportedLocales" :key="loc.code">
-        <nuxt-link :to="switchLocalePath(loc.code)">{{ loc.name }}</nuxt-link>
+        <nuxt-link :to="switchLocalePath(loc.code)" :title="$t('action.switch') + loc.name">{{ loc.name }}</nuxt-link>
       </span>
     </template>
     <span>&copy; 2023 copyright</span>

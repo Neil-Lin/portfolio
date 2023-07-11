@@ -57,7 +57,8 @@ export default {
     openWindow: "(open another Window)",
     closeMenu: "Close Menu",
     scrollHorizontalToSeeMore: "scroll horizontal to see more",
-    backToTop: "back to top"
+    backToTop: "back to top",
+    switch: "switch to "
   },
   intro: {
     greet: "{shortTime}, I'm Neil!",
