@@ -67,7 +67,7 @@
             </ul>
             <p>{{ $t('page.choose.p4') }}</p>
             <figure>
-              <img src="/images/choose-chart-hotkeywords.webp" :alt="$t('page.choose.5')" loading="lazy" />
+              <img src="/images/choose-chart-hotkeywords.webp" :alt="$t('page.choose.p5')" loading="lazy" />
               <figcaption>{{ $t('page.choose.p5') }}</figcaption>
             </figure>
             <figure>
