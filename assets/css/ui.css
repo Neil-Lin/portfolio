@@ -416,8 +416,6 @@ figcaption {
 
 .page-container {
   padding: 2rem;
-
- 
   @supports (scroll-timeline: --works) {
     &:before {
       content: '';
@@ -433,15 +431,15 @@ figcaption {
       height: 0.25rem;
       transform-origin: 0 50%;
       background: oklch(var(--color-primary));
-      @media screen and (width <= 768px) {
-        margin-left: -1rem;
-        width: calc(100% + 2rem);
-      }
     }
   }
 
   @media screen and (width <= 768px) {
     padding: 1rem;
+    &::before {
+      margin-left: -1rem;
+      width: calc(100% + 2rem);
+    }
   }
 }
 
