@@ -416,9 +416,12 @@ figcaption {
 
 .page-container {
   padding: 2rem;
-  @supports not (scroll-timeline: works) {
+
+ 
+  @supports (scroll-timeline: --works) {
     &:before {
       content: '';
+      opacity: 0;
       display: block;
       animation: grow-progress auto linear;
       animation-timeline: --page-scroll;
@@ -436,6 +439,7 @@ figcaption {
       }
     }
   }
+
   @media screen and (width <= 768px) {
     padding: 1rem;
   }
