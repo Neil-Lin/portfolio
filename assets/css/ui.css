@@ -393,7 +393,7 @@ figcaption {
     }
   }
   @media screen and (width <= 375px) {
-    max-width: 95dvw;
+    max-width: 90dvw;
   }
   & .btn-close-mobile-menu {
     display: none;
