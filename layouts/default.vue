@@ -88,7 +88,7 @@ useHead({
   },
   link: [...(head.value.link || [])],
   script: [
-    { src: '/js/clarity.js' }
+    { src: '/portfolio/js/clarity.js' }
   ],
   meta: [...(head.value.meta || [])]
 })
