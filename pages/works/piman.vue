@@ -7,7 +7,7 @@
       <section>
         <figure>
           <img src="/images/piman-thumbnail.webp" alt="Piman thumbnail" />
-          <figcaption>Piman 簡介</figcaption>
+          <figcaption>Piman {{ $t('name.intro') }}</figcaption>
         </figure>
       </section>
       <section>
@@ -19,27 +19,25 @@
           <div>
             <h4 class="flex-list-title">{{ $t('name.target') }}</h4>
             <ul>
-              <li>達成網頁的「通用設計」</li>
-              <li>開源</li>
-              <li>建立設計系統</li>
+              <li v-for="(item, index) in $tm('page.piman.target')" :key="index">
+                {{ $rt(item) }}
+              </li>
             </ul>
           </div>
           <div>
             <h4 class="flex-list-title">{{ $t('name.roles') }}</h4>
             <ul>
-              <li>PM</li>
-              <li>UI Designer</li>
-              <li>UX Designer</li>
-              <li>切版</li>
+              <li v-for="(item, index) in $tm('page.piman.roles')" :key="index">
+                {{ $rt(item) }}
+              </li>
             </ul>
           </div>
           <div>
             <h4 class="flex-list-title">{{ $t('name.tools') }}</h4>
             <ul>
-              <li>Figma</li>
-              <li>Github</li>
-              <li>npm</li>
-              <li>Notion</li>
+              <li v-for="(item, index) in $tm('page.piman.tools')" :key="index">
+                {{ $rt(item) }}
+              </li>
             </ul>
           </div>
         </div>
@@ -59,33 +57,30 @@
           <div>
             <h4 class="flex-list-title">{{ $t('name.learn') }}</h4>
             <ul>
-              <li>以前只是為了通過無障礙網頁設計標章，透過此專案專研無障礙網頁知識與技術</li>
-              <li>開源軟體前、後所需要具備的知識</li>
-              <li>如何從無障礙網頁設計技巧擴大到網頁的「通用設計」的觀念</li>
+              <li v-for="(item, index) in $tm('page.piman.learn')" :key="index">
+                {{ $rt(item) }}
+              </li>
             </ul>
           </div>
           <div>
             <h4 class="flex-list-title">{{ $t('name.output') }}</h4>
             <ul>
-              <li>設計系統</li>
-              <li>設計文件</li>
-              <li>前端開發文件</li>
-              <li>Figma</li>
-              <li>Nuxt template</li>
-              <li>Codesandbox</li>
+              <li v-for="(item, index) in $tm('page.piman.output')" :key="index">
+                {{ $rt(item) }}
+              </li>
             </ul>
-            <p>
-              所有皆可至
-              <nuxt-link
-                to="https://piman.cc"
-                :title="$t('action.goTo') + 'Piman' + $t('action.openWindow')"
-                target="_blank"
-                ref="noreferrer noopener"
-              >
-                Piman
-              </nuxt-link>
-              觀看。
-            </p>
+            <i18n-t keypath="page.piman.p2" tag="p" scope="global">
+              <template #link>
+                <nuxt-link
+                  to="https://piman.cc"
+                  :title="$t('action.goTo') + 'Piman' + $t('action.openWindow')"
+                  target="_blank"
+                  ref="noreferrer noopener"
+                >
+                  Piman
+                </nuxt-link>
+              </template>
+            </i18n-t>
           </div>
         </div>
       </section>

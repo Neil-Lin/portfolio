@@ -88,7 +88,38 @@ export default {
       p4: "※ When the project tabs on this website cannot be clicked using a mouse, you can navigate the information using the following keyboard shortcuts.{n}{n} {keyLeftRight} or {keyUpDown}: Move the tab order by pressing the left/right or up/down arrow keys.{n}{n}{keyTab}: After hovering over the tab, you can use the {keyTab} key to jump to the content and browse the data. When encountering radio buttons, please use the {keyLeftRight} or {keyUpDown} keys to move through the options in the desired order.{n}{n} {keyShiftTab}: Pressing {keyShiftTab} allows you to navigate back to the previous data entry. When you return to the tab items, you can continue using the {keyLeftRight} or {keyUpDown} keys to move through the tab order."
     },
     piman: {
-      p1: "In recent years, the concept of user-centric design has become deeply ingrained, and this mindset has started to spread to the field of accessible web design. By continuously improving the user-friendliness of web pages, the core concept of universal design, \"Design for All\", can be achieved.{0}{0}Piman was created with this purpose in mind, starting with the improvement of web pages that people encounter frequently in their daily lives. Therefore, the primary task is to promote the use of Piman by developers in the development of government agency websites, and subsequently apply it to products, official websites, and other areas. In doing so, businesses can fulfill their social responsibilities and align with international trends."
+      p1: "In recent years, the concept of user-centric design has become deeply ingrained, and this mindset has started to spread to the field of accessible web design. By continuously improving the user-friendliness of web pages, the core concept of universal design, \"Design for All\", can be achieved.{0}{0}Piman was created with this purpose in mind, starting with the improvement of web pages that people encounter frequently in their daily lives. Therefore, the primary task is to promote the use of Piman by developers in the development of government agency websites, and subsequently apply it to products, official websites, and other areas. In doing so, businesses can fulfill their social responsibilities and align with international trends.",
+      target: {
+        t1: "Achieving universal design for web pages.",
+        t2: "Open Source",
+        t3: "Design System"
+      },
+      roles: {
+        r1: "PM",
+        r2: "UI Designer",
+        r3: "UX Designer",
+        r4: "Layout",
+      },
+      tools: {
+        t1: "Figma",
+        t2: "Github",
+        t3: "npm",
+        t4: "Notion"
+      },
+      learn: {
+        l1: "Through this project, we aim to delve deeper into the knowledge and techniques of accessible web design.",
+        l2: "The knowledge required for development of open-source software.",
+        l3: "Universal Design"
+      },
+      output: {
+        o1: "Design System",
+        o2: "Design Document",
+        o3: "Develop Document",
+        o4: "Figma",
+        o5: "Nuxt Template",
+        o6: "Codesandbox"
+      },
+      p2: "{link} Website"
     }
   }
 }

@@ -3,13 +3,13 @@ export const worksEn = [
     code: 'Piman',
     image: {
       path: '/portfolio/images/piman-thumbnail.webp',
-      alt: 'Piman - 無障礙 UI 框架'
+      alt: 'Piman - A11Y UI Framework'
     },
-    name: 'Piman - aaaaaa',
+    name: 'Piman - A11Y UI Framework',
     link: '/works/piman',
-    overview: 'Piman 是一款聚焦於無障礙網頁設計、基於 Vue 的開源 UI Frameworework。',
+    overview: 'Piman is an open-source UI framework based on Vue, with a focus on accessible web design',
     startYear: 2021,
-    tags: ['UI', 'UX', '切版', 'Open Source', '2021 - Today'],
+    tags: ['UI', 'UX', 'Layout', 'Open Source', '2021 - Today'],
     relatedLink: '',
     modifyYear: 2022
   },
@@ -17,11 +17,11 @@ export const worksEn = [
     code: 'choose',
     image: {
       path: '/portfolio/images/choose-chart-thumbnail.webp',
-      alt: 'Choose 蛛思-資料視覺化'
+      alt: 'Choose - Data Visualization'
     },
-    name: 'Choose 蛛思-資料視覺化',
+    name: 'Choose - Data Visualization',
     link: '/works/choose-chart',
-    overview: '藍星球資訊獨家開發圖表 - Choose蛛思 - 資料視覺化',
+    overview: ' Choose - Data Visualization',
     startYear: 2021,
     tags: ['UI', 'UX', 'Chart', 'Data Visualization', '2021 - Today'],
     relatedLink: 'https://choose.blueplanet.com.tw/lab',
@@ -31,13 +31,13 @@ export const worksEn = [
     code: 'scout',
     image: {
       path: '/portfolio/images/scout-thumbnail.webp',
-      alt: 'ΣCOUT 實告'
+      alt: 'ΣCOUT'
     },
-    name: 'ΣCOUT 實告',
+    name: 'ΣCOUT',
     link: '/works/scout',
-    overview: 'ΣCOUT 實告為國內首創第一個商業履歷查詢服務。',
+    overview: 'ΣCOUT - The first-ever domestic commercial resume searching service in the country',
     startYear: 2020,
-    tags: ['UI', '切版', 'Chart', 'Data Visualization', '2020 - Today'],
+    tags: ['UI', 'Layout', 'Chart', 'Data Visualization', '2020 - Today'],
     relatedLink: 'https://scout.blueplanet.com.tw/',
     modifyYear: 2022
   },
@@ -45,13 +45,13 @@ export const worksEn = [
     code: 'bpgcms',
     image: {
       path: '/portfolio/images/bpgcms-thumbnail.webp',
-      alt: '通用後台系統模版'
+      alt: 'General Back-end Template by Blue Planet Inc.'
     },
-    name: 'BPGCMS 通用後台系統模版',
+    name: 'BPGCMS Back-end Template',
     link: '/works/bpgcms',
     overview: '',
     startYear: 2019,
-    tags: ['UX', 'UI', '切版', '2019'],
+    tags: ['UX', 'UI', 'Layout', '2019'],
     relatedLink: '',
     modifyYear: 2019,
     disabled: true
@@ -60,11 +60,11 @@ export const worksEn = [
     code: 'vitalcrm-web',
     image: {
       path: '/portfolio/images/vitalcrm-web-thumbnail.webp',
-      alt: 'Vital CRM New Web 縮圖'
+      alt: 'Vital CRM New Web'
     },
     name: 'Vital CRM Web',
     link: '/works/vitalcrm-web',
-    overview: '業績提升、增加回購率及熟客經營最佳首選。',
+    overview: 'Achieving performance growth, increasing repurchase rates, and cultivating loyal customers - the ultimate choice.',
     startYear: 2018,
     tags: ['UX', '2018'],
     relatedLink: 'https://www.gsscloud.com/tw/vital/crm',
@@ -77,11 +77,11 @@ export const worksEn = [
       path: '/portfolio/images/ttc-thumbnail.webp',
       alt: 'image description'
     },
-    name: 'Vital TTC 物聯客',
+    name: 'Vital TTC',
     link: '/works/vitalttc',
-    overview: '以不同回饋、獎勵與會員分級機制，達到刺激消費並留住忠誠顧客。 ',
+    overview: 'By implementing diverse feedback, rewards, and a membership tier system, we aim to stimulate consumer spending and retain loyal customers. ',
     startYear: 2018,
-    tags: ['UX', 'UI', '切版', '2018'],
+    tags: ['UX', 'UI', 'Layout', '2018'],
     relatedLink: 'https://www.gsscloud.com/tw/vital/ttc',
     modifyYear: 2018,
     disabled: true
@@ -95,7 +95,7 @@ export const worksEn = [
     name: 'Vitals ESP Survey',
     link: '/works/vitalsespsurvey',
     overview:
-      '提供多樣化、有效率的線上問卷調查工具，提供內部滿意度、課後問卷、意見徵求，以及外部活動滿意度調查問卷。',
+      'We provide a diverse and efficient online survey tool that caters to various needs, including internal satisfaction surveys, post-event questionnaires, soliciting feedback, and external event satisfaction surveys.',
     startYear: 2017,
     tags: ['UX', '2017'],
     relatedLink: 'https://www.vitalsesp.com/survey.html',
@@ -105,13 +105,13 @@ export const worksEn = [
     code: 'vitaluikit',
     image: {
       path: '/portfolio/images/vitaluikit-thumbnail.webp',
-      alt: 'Vital UI Kit thumbnail'
+      alt: 'Vital UI Kit'
     },
     name: 'Vital UI Kit',
     link: '/works/vitaluikit',
-    overview: '一個優雅且容易客製化的前端 UI 框架。',
+    overview: 'An elegant and easily customizable front-end UI framework.',
     startYear: 2016,
-    tags: ['UX', '切版', '2016'],
+    tags: ['UX', 'Layout', '2016'],
     relatedLink: 'https://vitaluikit.com/',
     modifyYear: 2018
   },
@@ -123,7 +123,7 @@ export const worksEn = [
     },
     name: 'KSI mPOS',
     link: '/works/mpos',
-    overview: '行動版餐飲 POS 系統，無論你人在哪裡，都能不受限的利用平板為顧客服務。',
+    overview: 'A mobile-friendly restaurant POS system that allows you to serve customers using a tablet from anywhere, without limitations.',
     startYear: 2016,
     tags: ['UI', 'UX', '2016'],
     relatedLink: 'https://pos.ksi.com.tw/Home/MPOS',
@@ -133,13 +133,13 @@ export const worksEn = [
     code: 'vitalcrm-app',
     image: {
       path: '/portfolio/images/vitalcrm-app.webp',
-      alt: 'Vital CRM APP thumbnail'
+      alt: 'Vital CRM APP'
     },
     name: 'Vital CRM APP',
     link: '/works/vitalcrm-app',
-    overview: '業績提升、增加回購率及熟客經營最佳首選。',
+    overview: 'Achieving performance growth, increasing repurchase rates, and cultivating loyal customers - the ultimate choice.',
     startYear: 2014,
-    tags: ['UI', 'UX', '切版', '2014'],
+    tags: ['UI', 'UX', 'Layout', '2014'],
     relatedLink: 'https://www.gsscloud.com/tw/vital/crm',
     modifyYear: 2014
   }
