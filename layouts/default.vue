@@ -47,7 +47,6 @@
     <!-- https://github.com/nuxt/nuxt/issues/19752 -->
     <!-- Nuxt3  I don't think there's anything Nuxt can action related to this issue -->
 
-    <Script src="'/portfolio/js/clarity.js" />
     <Body class="wrapper">
       <div class="layout">
         <noscript class="noscript">
@@ -88,6 +87,9 @@ useHead({
     lang: head.value.htmlAttrs!.lang
   },
   link: [...(head.value.link || [])],
+  script: [
+    { src: '/js/clarity.js' }
+  ],
   meta: [...(head.value.meta || [])]
 })
 
