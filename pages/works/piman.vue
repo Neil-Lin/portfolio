@@ -7,7 +7,7 @@
       <section>
         <figure>
           <img src="/images/piman-thumbnail.webp" alt="Piman thumbnail" />
-          <figcaption>Piman {{ $t('name.intro') }}</figcaption>
+          <figcaption>{{ pageTitle }} {{ $t('name.intro') }}</figcaption>
         </figure>
       </section>
       <section>
@@ -48,10 +48,9 @@
           <div>
             <h4 class="flex-list-title">{{ $t('name.observe') }}</h4>
             <ul>
-              <li>IBM Carbon</li>
-              <li>Bootstrap 5</li>
-              <li>Vital Ui Kit</li>
-              <li>Material Design 3</li>
+              <li v-for="(item, index) in $tm('page.piman.observe')" :key="index">
+                {{ $rt(item) }}
+              </li>
             </ul>
           </div>
           <div>
@@ -191,8 +190,8 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const runtimeConfig = useRuntimeConfig()
-const pageTitle = ref(t('name.piman'))
-const pageDescription = ref(t('des.piman'))
+const pageTitle = ref(t('page.piman.title'))
+const pageDescription = ref(t('page.piman.des'))
 const route = useRoute()
 
 useHead({

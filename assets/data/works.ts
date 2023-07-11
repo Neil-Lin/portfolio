@@ -17,11 +17,11 @@ export const works = [
     code: 'choose',
     image: {
       path: '/portfolio/images/choose-chart-thumbnail.webp',
-      alt: 'Choose 蛛思-資料視覺化'
+      alt: 'Choose 蛛思：資料視覺化'
     },
-    name: 'Choose 蛛思-資料視覺化',
+    name: 'Choose 蛛思：資料視覺化',
     link: '/works/choose-chart',
-    overview: '藍星球資訊獨家開發圖表 - Choose蛛思 - 資料視覺化',
+    overview: '藍星球資訊獨家開發圖表 - Choose 蛛思：資料視覺化',
     startYear: 2021,
     tags: ['UI', 'UX', 'Chart', 'Data Visualization', '2021 - Today'],
     relatedLink: 'https://choose.blueplanet.com.tw/lab',

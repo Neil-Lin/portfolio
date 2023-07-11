@@ -19,9 +19,9 @@ export const worksEn = [
       path: '/portfolio/images/choose-chart-thumbnail.webp',
       alt: 'Choose - Data Visualization'
     },
-    name: 'Choose - Data Visualization',
+    name: 'Choose: Data Visualization',
     link: '/works/choose-chart',
-    overview: ' Choose - Data Visualization',
+    overview: ' Choose: Data Visualization',
     startYear: 2021,
     tags: ['UI', 'UX', 'Chart', 'Data Visualization', '2021 - Today'],
     relatedLink: 'https://choose.blueplanet.com.tw/lab',

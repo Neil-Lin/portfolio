@@ -6,95 +6,102 @@
     <article>
       <section>
         <figure>
-          <img src="/images/choose-chart-thumbnail.webp" alt="Choose 蛛思介紹頁" />
-          <figcaption>Choose 蛛思介紹頁</figcaption>
+          <img src="/images/choose-chart-thumbnail.webp" alt="Choose" />
+          <figcaption>{{ pageTitle }} {{ $t('name.intro') }}</figcaption>
         </figure>
       </section>
       <section>
-        <h3>概要</h3>
-        <p>
-          蛛思輿情分析平台，網羅海量新聞、社群資料，成為您最貼心的小助手，協助您：觀測特定主題的關鍵趨勢、進行活動與企劃的概
-          念發想，以及即時處理公關危機。可供公關、行銷、品牌顧問、媒體代理商、廣告代理商等相關業者使用。
-        </p>
-        <p>本篇僅介紹 Choose 蛛思輿情分析的資料視覺化</p>
+        <h3>{{ $t('name.summary') }}</h3>
+        <i18n-t keypath="page.choose.p1" tag="p" scope="global">
+          <br />
+        </i18n-t>
+        <i18n-t keypath="page.choose.p2" tag="p" scope="global">
+          <br />
+        </i18n-t>
         <div class="flex-list">
           <div>
-            <h4 class="flex-list-title">目標</h4>
+            <h4 class="flex-list-title">{{ $t('name.target') }}</h4>
             <ul>
-              <li>快速掌握目標內容與五大面向</li>
-              <li>快速掌握五大面向項目與目標內容相關程度</li>
-              <li>快速掌握項目內容間的相關程度</li>
-              <li>資料視覺化圖表</li>
+              <li v-for="(item, index) in $tm('page.choose.target')" :key="index">
+                {{ $rt(item) }}
+              </li>
             </ul>
           </div>
           <div>
-            <h4 class="flex-list-title">角色</h4>
+            <h4 class="flex-list-title">{{ $t('name.roles') }}</h4>
             <ul>
-              <li>UI Designer</li>
-              <li>UX Designer</li>
+              <li v-for="(item, index) in $tm('page.choose.roles')" :key="index">
+                {{ $rt(item) }}
+              </li>
             </ul>
           </div>
           <div>
-            <h4 class="flex-list-title">工具</h4>
+            <h4 class="flex-list-title">{{ $t('name.tools') }}</h4>
             <ul>
-              <li>Figma</li>
+              <li v-for="(item, index) in $tm('page.choose.tools')" :key="index">
+                {{ $rt(item) }}
+              </li>
             </ul>
           </div>
         </div>
       </section>
       <section>
-        <h3>一、熱詞影響力診斷圖</h3>
+        <h3>{{ $t('page.choose.p3') }}</h3>
         <div class="flex-list">
           <div>
-            <h4 class="flex-list-title">學習領域知識</h4>
+            <h4 class="flex-list-title">{{ $t('name.learn') }}</h4>
             <ul>
-              <li>什麼是輿情分析？</li>
-              <li>什麼是資料視覺化？</li>
-              <li>目標資料有什麼內容？</li>
-              <li>觀察分析競品圖表</li>
+              <li v-for="(item, index) in $tm('page.choose.learn')" :key="index">
+                {{ $rt(item) }}
+              </li>
             </ul>
           </div>
         </div>
         <div class="flex-list">
           <div>
-            <h4 class="flex-list-title">產出</h4>
-            <p>熱詞影響力診斷圖(以下資料僅為模擬設計圖，非真實數據)</p>
+            <h4 class="flex-list-title">{{ $t('name.output') }}</h4>
+            <ul>
+              <li v-for="(item, index) in $tm('page.choose.output')" :key="index">
+                {{ $rt(item) }}
+              </li>
+            </ul>
+            <p>{{ $t('page.choose.p4') }}</p>
             <figure>
-              <img src="/images/choose-chart-hotkeywords.webp" alt="熱詞影響力診斷圖" loading="lazy" />
-              <figcaption>熱詞影響力診斷圖</figcaption>
+              <img src="/images/choose-chart-hotkeywords.webp" :alt="$t('page.choose.5')" loading="lazy" />
+              <figcaption>{{ $t('page.choose.p5') }}</figcaption>
             </figure>
             <figure>
               <img
                 src="/images/choose-chart-hotkeywords-hover.webp"
-                alt="熱詞影響力診斷圖-目標相關性"
+                :alt="$t('page.choose.p6')"
                 loading="lazy"
               />
-              <figcaption>熱詞影響力診斷圖-目標相關性</figcaption>
+              <figcaption>{{ $t('page.choose.p6') }}</figcaption>
             </figure>
             <figure>
-              <img src="/images/choose-chart-hotkeywords-detail.webp" alt="熱詞影響力診斷圖-分類" loading="lazy" />
-              <figcaption>熱詞影響力診斷圖-分類</figcaption>
+              <img src="/images/choose-chart-hotkeywords-detail.webp" :alt="$t('page.choose.p7')" loading="lazy" />
+              <figcaption>{{ $t('page.choose.p7') }}</figcaption>
             </figure>
             <figure>
               <img
                 src="/images/choose-chart-hotkeywords-detail-hover.webp"
-                alt="熱詞影響力診斷圖-分類項目相關性"
+                :alt="$t('page.choose.p8')"
                 loading="lazy"
               />
-              <figcaption>熱詞影響力診斷圖-分類項目相關性</figcaption>
+              <figcaption>{{ $t('page.choose.p8') }}</figcaption>
             </figure>
           </div>
         </div>
-        <h3>二、主題、項目與聲量比較圖</h3>
+        <h3>{{ $t('page.choose.p9') }}</h3>
         <p>coming soon...</p>
-        <h3>三、詞彙萃取圖</h3>
+        <h3>{{ $t('page.choose.p10') }}</h3>
         <p>coming soon...</p>
       </section>
       <section>
-        <h3>相關連結</h3>
+        <h3>{{ $t('name.relatedLink') }}</h3>
         <div class="flex-list">
           <div>
-            <h4 class="flex-list-title">網站</h4>
+            <h4 class="flex-list-title">{{ $t('name.website') }}</h4>
             <ol>
               <li>
                 <nuxt-link
@@ -103,7 +110,7 @@
                   target="_blank"
                   ref="noreferrer noopener"
                 >
-                  Choose 蛛思介紹頁
+                  Choose Intro 蛛思介紹頁
                 </nuxt-link>
               </li>
               <li>
@@ -113,7 +120,7 @@
                   target="_blank"
                   ref="noreferrer noopener"
                 >
-                  Choose 蛛思蛛思熱詞影響力診斷體驗
+                  Choose Chart Demo 蛛思蛛思熱詞影響力診斷體驗
                 </nuxt-link>
               </li>
             </ol>
@@ -125,9 +132,10 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
 const runtimeConfig = useRuntimeConfig()
-const pageTitle = ref('Choose 蛛思 - 資料視覺化')
-const pageDescription = ref('蛛思輿情分析平台，網羅海量新聞、社群資料，成為您最貼心的小助手，協助您：觀測特定主題的關鍵趨勢、進行活動與企劃的概 念發想，以及即時處理公關危機。可供公關、行銷、品牌顧問、媒體代理商、廣告代理商等相關業者使用。')
+const pageTitle = ref(t('page.choose.title'))
+const pageDescription = ref(t('page.choose.des'))
 const route = useRoute()
 
 useHead({

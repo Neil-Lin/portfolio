@@ -12,7 +12,6 @@ export default {
     menu: "選單",
     openSourceGuideline: "開源軟體指南",
     modaA11y: "無障礙網路空間服務網",
-    piman: "Piman 無障礙 UI 框架",
     relatedLink: "相關連結",
     website: "網站",
     output: "產出",
@@ -43,7 +42,6 @@ export default {
     about: "暸解  Neil 的網頁設計技能",
     a11yrefrerence: "mozilla 開發頁面參考 accesskey",
     ithomeA11y: "iT 邦幫忙 2022 iThome 鐵人賽自我挑戰組，無障礙網頁設計大叔日記系列",
-    piman: "Piman 是一款聚焦於無障礙網頁設計、基於 Vue 的開源 UI Frameworework。"
   },
   mainMenu: {
     mainMenu: "主要選單",
@@ -88,6 +86,8 @@ export default {
       p4: "※ 當本網站項目頁籤無法以滑鼠點選時，您可利用以下鍵盤操作方式瀏覽資料：{n}{n} {keyLeftRight} 或 {keyUpDown}：按左右鍵或上下鍵移動標籤順序。{n}{n}{keyTab}： 停留於該標籤後，可利用 {keyTab} 鍵跳至內容瀏覽該筆資料，遇到單選按鈕(radio)時請配合使用 {keyLeftRight} 或 {keyUpDown} 鍵移動項目順序。{n}{n} {keyShiftTab}： 按 {keyShiftTab} 可往回跳至上一筆資料；當跳回至標籤項目時您可繼續利用 {keyLeftRight} 或 {keyUpDown} 鍵移動標籤順序。"
     },
     piman: {
+      title: "Piman 無障礙 UI 框架",
+      des: "Piman 是一款聚焦於無障礙網頁設計、基於 Vue 的開源 UI Frameworework。",
       p1: "近年來「以使用者為中心」的概念已深植人心，而這股力量也開始擴散至無障礙網頁設計領域，藉由不斷改善網頁的親和力，期望能達成通用設計的核心概念：Design for All。{0}{0}Piman 正是為此而生，從人們日常生活常頻繁接觸的網頁開始著手改善，所以首要任務便是推廣開發者使用 Piman 開發政府機關網站，進而應用在產品、官網等地方，如此企業可善盡社會責任，也可與國際趨勢接軌。",
       target: {
         t1: "達成網頁的「通用設計」",
@@ -106,6 +106,12 @@ export default {
         t3: "npm",
         t4: "Notion"
       },
+      observe: {
+        o1: "IBM Carbon",
+        o2: "Bootstrap 5",
+        o3: "Vital Ui Kit",
+        o4: "Material Design 3"
+      },
       learn: {
         l1: "以前只是為了通過無障礙網頁設計標章，透過此專案專研無障礙網頁知識與技術",
         l2: "開源軟體前、後所需要具備的知識",
@@ -120,6 +126,39 @@ export default {
         o6: "Codesandbox"
       },
       p2: "所有皆可至 {link} 觀看"
+    },
+    choose: {
+      title: "Choose 蛛思：資料視覺化",
+      des: "蛛思輿情分析平台，最有質感的輿情分析平台。",
+      p1: "蛛思輿情分析平台，網羅海量新聞、社群資料，成為您最貼心的小助手，協助您：觀測特定主題的關鍵趨勢、進行活動與企劃的概念發想，以及即時處理公關危機。可供公關、行銷、品牌顧問、媒體代理商、廣告代理商等相關業者使用。",
+      p2: "本篇僅介紹 Choose 蛛思輿情分析的資料視覺化",
+      target: {
+        t1: "快速掌握目標內容與五大面向",
+        t2: "快速掌握五大面向項目與目標內容相關程度",
+        t3: "快速掌握項目內容間的相關程度",
+        t4: "資料視覺化圖表"
+      },
+      roles: {
+        r2: "UI Designer",
+        r3: "UX Designer",
+      },
+      tools: {
+        t1: "Figma",
+      },
+      learn: {
+        l1: "什麼是輿情分析？",
+        l2: "什麼是資料視覺化？",
+        l3: "目標資料有什麼內容？",
+        l4: "觀察分析競品圖表"
+      },
+      p3: "一、熱詞影響力診斷圖",
+      p4: "熱詞影響力診斷圖(以下資料僅為模擬設計圖，非真實數據)",
+      p5: "熱詞影響力診斷圖",
+      p6: "熱詞影響力診斷圖-目標相關性",
+      p7: "熱詞影響力診斷圖-分類",
+      p8: "熱詞影響力診斷圖-分類項目相關性",
+      p9: "二、主題、項目與聲量比較圖",
+      p10: "三、詞彙萃取圖"
     }
   }
 }
