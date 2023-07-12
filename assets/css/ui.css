@@ -130,7 +130,7 @@ p {
 select {
   cursor: pointer;
   border: 1px solid oklch(var(--border-color));
-  padding: 0.5rem 1.5rem 0.5rem 0.75rem;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
   border-radius: 0.25rem;
   background-image: url('/images/angle-down-solid.svg');
   background-repeat: no-repeat;
@@ -387,15 +387,19 @@ figcaption {
     box-shadow: var(--box-shadow);
     transform: translate3d(-100%, 0, 0);
     transition: transform 300ms ease-in;
-    &.page-aside--open {
-      transform: translate3d(0, 0, 0);
-      & .card-list-block {
-        padding-bottom: 6rem;
-      }
-    }
   }
   @media screen and (width <= 375px) {
     max-width: 90dvw;
+  }
+  &.page-aside--open {
+    @media screen and (width <= 768px) {
+      transform: translate3d(0, 0, 0);
+    }
+    & .card-list-block {
+      @media screen and (width <= 768px) {
+        padding-bottom: 6rem;
+      }
+    }
   }
   & .btn-close-mobile-menu {
     display: none;
@@ -416,24 +420,26 @@ figcaption {
 
 .page-container {
   padding: 2rem;
-  @supports (scroll-timeline: --works) {
-    &:before {
-      content: '';
-      opacity: 0;
-      display: block;
-      animation: grow-progress auto linear;
-      animation-timeline: --page-scroll;
-      position: sticky;
-      z-index: 1;
-      top: 0;
-      margin-left: -2rem;
-      width: calc(100% + 4rem);
-      height: 0.25rem;
-      transform-origin: 0 50%;
-      background: oklch(var(--color-primary));
-    }
+  &:before {
+    content: '';
+    opacity: 0;
+    display: block;
+    /* 此處不要寫簡寫的 animation，因為 animation-timeline 就算寫在後面，打包出來後也會被覆蓋，不知道為什麼。 */
+    animation-name: grow-progress;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-direction: alternate;
+    animation-timeline: --page-scroll;
+    /* or using animation-timeline: scroll(); and delete html{scroll-timeline}*/
+    transform-origin: 0 50%;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    margin-left: -2rem;
+    width: calc(100% + 4rem);
+    height: 0.25rem;
+    transform-origin: 0 50%;
+    background: oklch(var(--color-primary));
   }
-
   @media screen and (width <= 768px) {
     padding: 1rem;
     &::before {
