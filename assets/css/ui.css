@@ -485,15 +485,14 @@ figcaption {
   }
 }
 
-.card-list {
-  & > ul > li {
-    animation-name: fade-exit;
-    animation-timing-function: ease-out;
-    animation-duration: 1ms; /* requires this to apply the animation */
-		animation-timeline: view();
-    margin-bottom: 1rem;
-    position: relative;
-  }
+.card-item {
+  animation-name: fade-exit;
+  animation-timing-function: ease-out;
+  animation-duration: 1ms; /* requires this to apply the animation */
+  animation-timeline: view();
+  animation-fill-mode: both; /* must have */
+  margin-bottom: 1rem;
+  position: relative;
 }
 
 .page-enter-active,

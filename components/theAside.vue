@@ -4,7 +4,7 @@
     <akContainer v-if="route.path === '/' || '/en'" />
     <nav :aria-label="$t('mainMenu.mainMenu')" class="card-list" v-if="workList.length != 0">
       <ul>
-        <li v-for="(item, idx) in workList" :key="idx" @click="$emit('closeMobileMenu')">
+        <li v-for="(item, idx) in workList" :key="idx" class="card-item" @click="$emit('closeMobileMenu')">
           <theCard
             :cardLink="item.link"
             :cardTitle="item.name"
