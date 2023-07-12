@@ -71,21 +71,15 @@
 }
 
 @keyframes fade-exit {
-  /* entry 0%  {
-    transform: scale(1);
-  }
-  entry 100%  {
-    transform: scale(1);
-  } */
-  exit 0% {
+  0% {
     opacity: 1;
     transform: scale(1);
   }
-  exit 55% {
+  55% {
     opacity: 1;
     transform: scale(1);
   }
-  exit 100% {
+  100% {
     opacity: 0;
     transform: scale(0.95);
   }
