@@ -426,7 +426,8 @@ figcaption {
     display: block;
     /* 此處不要寫簡寫的 animation，因為 animation-timeline 就算寫在後面，打包出來後也會被覆蓋，不知道為什麼。 */
     animation-name: grow-progress;
-    animation-duration: 1ms; /* requires this to apply the animation */
+    /* requires this to apply the animation */
+    animation-duration: 1ms;
     animation-direction: alternate;
     animation-timeline: --page-scroll;
     /* or using animation-timeline: scroll(); and delete html{scroll-timeline}*/
@@ -486,11 +487,15 @@ figcaption {
 }
 
 .card-item {
-  animation-name: fade-exit;
-  animation-timing-function: ease-out;
-  animation-duration: 1ms; /* requires this to apply the animation */
-  animation-timeline: view();
-  animation-fill-mode: both; /* must have */
+  @supports (animation-timeline: work) {
+    animation-name: fade-exit;
+    animation-timing-function: ease-out;
+    /* requires this to apply the animation */
+    animation-duration: 1ms; 
+    animation-timeline: view();
+    /* must have */
+    animation-fill-mode: both;
+  }
   margin-bottom: 1rem;
   position: relative;
 }
