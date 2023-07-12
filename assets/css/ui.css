@@ -426,7 +426,7 @@ figcaption {
     display: block;
     /* 此處不要寫簡寫的 animation，因為 animation-timeline 就算寫在後面，打包出來後也會被覆蓋，不知道為什麼。 */
     animation-name: grow-progress;
-    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-duration: 1ms; /* requires this to apply the animation */
     animation-direction: alternate;
     animation-timeline: --page-scroll;
     /* or using animation-timeline: scroll(); and delete html{scroll-timeline}*/
@@ -487,7 +487,9 @@ figcaption {
 
 .card-list {
   & > ul > li {
-    animation: ease-out fade-exit;
+    animation-name: fade-exit;
+    animation-timing-function: ease-out;
+    animation-duration: 1ms; /* requires this to apply the animation */
 		animation-timeline: view();
     margin-bottom: 1rem;
     position: relative;
