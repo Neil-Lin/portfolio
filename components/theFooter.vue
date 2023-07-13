@@ -1,8 +1,8 @@
 <template>
   <footer>
-    <nuxt-link id="ak-footer" to="#ak-footer" :title="$t('shortcut.footer')" accesskey="Z">
+    <a id="ak-footer" href="#ak-footer" :title="$t('shortcut.footer')" accesskey="Z">
       :::
-    </nuxt-link>
+    </a>
     <template v-if="supportedLocales.length != 0">
       <span v-for="loc in supportedLocales" :key="loc.code">
         <nuxt-link :to="switchLocalePath(loc.code)" :title="$t('action.switch') + loc.name">{{ loc.name }}</nuxt-link>

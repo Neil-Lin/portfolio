@@ -54,7 +54,7 @@
           Your browser does not support JavaScript!
         </noscript>
         <h1 class="visually-hidden">{{ $t('website.name') }}</h1>
-        <nuxt-link id="ak-jump" to="#ak-container" :title="$t('shortcut.skipToContent')">{{ $t('shortcut.skipToContent') }}</nuxt-link>
+        <a id="ak-jump" href="#ak-container" :title="$t('shortcut.skipToContent')">{{ $t('shortcut.skipToContent') }}</a>
         <slot />
       </div>
       <button

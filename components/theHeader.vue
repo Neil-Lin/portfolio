@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="toolbar">
-      <nuxt-link id="ak-header" to="#ak-header" :title="$t('shortcut.header')" accesskey="U">:::</nuxt-link>
+      <a id="ak-header" href="#ak-header" :title="$t('shortcut.header')" accesskey="U">:::</a>
       <theLangSwitcher />
     </div>
     <div class="intro">

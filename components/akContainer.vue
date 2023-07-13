@@ -1,10 +1,10 @@
 <template>
-  <nuxt-link
+  <a
     id="ak-container"
-    to="#ak-container"
+    href="#ak-container"
     :title="$t('shortcut.mainContent')"
     accesskey="C"
   >
     :::
-  </nuxt-link>
+</a>
 </template>
