@@ -1,7 +1,7 @@
 <template>
   <div class="card-list-block">
     <theHeader />
-    <akContainer v-if="route.path === '/' || route.path === '/en'" />{{ route.path }}
+    <akContainer v-if="route.path === '/' || route.path === '/en'" />
     <nav :aria-label="$t('mainMenu.mainMenu')" class="card-list" v-if="workList.length != 0">
       <ul>
         <li v-for="(item, idx) in workList" :key="idx" class="card-item" @click="$emit('closeMobileMenu')">
