@@ -12,8 +12,9 @@
         {{ cardTitle }}
       </nuxt-link>
       <div class="card-des">{{ cardDes }}</div>
-      <ul v-if="cardTags.length != 0" class="tag-list" :aria-label="$t('name.tag')">
+      <ul v-if="cardTags.length != 0" class="tag-list">
         <li v-for="(item, idx) in cardTags" :key="idx">
+          <span class="visually-hidden">{{ $t('name.tag') }}</span>
           <span class="tag">{{ item }}</span>
         </li>
       </ul>

@@ -97,7 +97,4 @@
   border: 1px solid oklch(var(--border-color));
   display: inline-block;
   vertical-align: middle;
-  &:before {
-    content: '#'
-  }
 }

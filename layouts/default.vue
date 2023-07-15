@@ -58,6 +58,7 @@
         <slot />
       </div>
       <button
+        type="button"
         v-show="scrollDistance > 300"
         class="btn-back-to-top"
         @click="scrollToTop"

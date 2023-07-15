@@ -110,18 +110,6 @@ a {
   }
 }
 
-a[role="button"] {
-  background-color: oklch(var(--color-primary));
-  padding: 0.5rem;
-  color: oklch(var(--color-white));
-  & svg path {
-    fill: oklch(var(--color-white));
-  }
-  &[aria-current="page"] {
-    box-shadow: 0 0 0 3px oklch(var(--outline-color));
-  }
-}
-
 p {
   max-width: 60ch;
   margin-bottom: 2rem;
@@ -333,6 +321,24 @@ figcaption {
     & li {
       padding: 0.25rem 0;
       max-width: 60ch;
+    }
+  }
+}
+
+a.btn-submenu {
+  text-decoration: none;
+  background-color: oklch(var(--color-primary));
+  padding: 0.5rem;
+  color: oklch(var(--color-white));
+  & svg path {
+    fill: oklch(var(--color-white));
+  }
+  &[aria-current="page"] {
+    box-shadow: 0 0 0 3px oklch(var(--outline-color));
+  }
+  &[target="_blank"] {
+    &:after {
+      display: none;
     }
   }
 }
