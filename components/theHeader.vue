@@ -80,6 +80,6 @@ const localePath = useLocalePath()
 
 <style scoped>
 .margin-bottom {
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 </style>
