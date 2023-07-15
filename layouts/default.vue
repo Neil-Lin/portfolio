@@ -93,18 +93,7 @@ useHead({
   meta: [...(head.value.meta || [])]
 })
 
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-
-onMounted(() => {
-  window.addEventListener('scroll', elementOffset);
-})
-
-const { scrollDistance, elementOffset } = useDetectScrollY()
+const { scrollToTop, scrollDistance } = useScrollToTop()
 </script>
 
 <style>
