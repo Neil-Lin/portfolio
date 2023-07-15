@@ -10,6 +10,21 @@ export default defineNuxtConfig({
     manifest: {
       name: 'Neil 的作品集',
       short_name: 'Neil Portfolio',
+      shortcuts : [
+        {
+          name: 'About 我的技能',
+          url: '/portfolio/about',
+          description: 'List of events planned for today'
+        },
+        {
+          "name": "Medium",
+          "url": "https://medium.com/@neil-lin"
+        },
+        {
+          "name": "Dribbble",
+          "url": "https://dribbble.com/Neil_lin"
+        }
+      ],
       description: 'Neil 的作品集',
       theme_color: '#6042a0',
       icons: [
@@ -37,6 +52,20 @@ export default defineNuxtConfig({
           src: '/portfolio/favicon-512.png',
           sizes: '512x512',
           type: 'image/png'
+        }
+      ],
+      screenshots: [
+        {
+          src: '/portfolio/images/splash/splash-640x1136.png',
+          type: 'image/png',
+          sizes: '640x1136',
+          label: 'Portfolio'
+        },
+        {
+          src: '/portfolio/images/splash/splash-1242x2208.png',
+          type: 'image/png',
+          sizes: '1242x2208',
+          label: 'Portfolio'
         }
       ]
     },
@@ -74,12 +103,12 @@ export default defineNuxtConfig({
     langDir: 'lang',
     // strategy: 'prefix',
     defaultLocale: 'zh-Hant-TW',
-    detectBrowserLanguage: false
-    // detectBrowserLanguage: {
-    //   useCookie: true,
-    //   alwaysRedirect: true,
-    //   cookieCrossOrigin: true
-    // }
+    // detectBrowserLanguage: false
+    detectBrowserLanguage: {
+      useCookie: true,
+      alwaysRedirect: true,
+      cookieCrossOrigin: true
+    }
   },
   htmlValidator: {
     usePrettier: true

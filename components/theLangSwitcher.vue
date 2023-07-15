@@ -1,8 +1,8 @@
 <template>
   <div class="lang-switcher">
     <span><span id="lang-text" class="visually-hidden">{{ $t('name.language') }}</span>🌐</span>
-    <select aria-labelledby="lang-text" :value="locale" @change="onLocaleChanged">
-      <option v-for="loc in supportedLocales" :key="loc.code" :value="loc.code">
+    <select aria-labelledby="lang-text" @change="onLocaleChanged">
+      <option v-for="loc in supportedLocales" :key="loc.code" :value="loc.code" :selected="locale === loc.code">
         {{ loc.name }}
       </option>
     </select>

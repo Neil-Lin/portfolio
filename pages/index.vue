@@ -1,9 +1,9 @@
 <template>
   <main class="page page--index">
+    <h2 class="visually-hidden">{{ pageTitle }}</h2>
     <div class="page-aside">
       <theAside />
     </div>
-    <h2 class="visually-hidden">{{ pageTitle }}</h2>
   </main>
 </template>
 

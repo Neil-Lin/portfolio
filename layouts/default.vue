@@ -35,10 +35,11 @@
 
     <!-- https://github.com/elegantapp/pwa-asset-generator/issues/71 -->
     <!-- Deprecated media feature device-width -->
-    <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <!-- Android using manifest.json -->
+    <!-- <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
     <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
     <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
-    <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-1242x2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <Link rel="apple-touch-startup-image" href="/portfolio/images/splash/splash-1242x2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" /> -->
 
     <!-- <Link rel="preconnect" href="https://fonts.googleapis.com" /> -->
     <!-- <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" /> -->
