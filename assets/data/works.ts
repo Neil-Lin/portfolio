@@ -132,7 +132,7 @@ export const works = [
   {
     code: 'vitalcrm-app',
     image: {
-      path: '/portfolio/images/vitalcrm-app.webp',
+      path: '/portfolio/images/vitalcrm-app-thumbnail.webp',
       alt: 'Vital CRM APP thumbnail'
     },
     name: 'Vital CRM APP',
