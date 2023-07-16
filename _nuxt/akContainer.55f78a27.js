@@ -1,1 +1,0 @@
-import{_ as e}from"./_plugin-vue_export-helper.c27b6911.js";import{o as n,c as o}from"./entry.554eb2f0.js";const c={},r=["title"];function _(t,a){return n(),o("a",{id:"ak-container",href:"#ak-container",title:t.$t("shortcut.mainContent"),accesskey:"C"}," ::: ",8,r)}const m=e(c,[["render",_]]);export{m as _};
