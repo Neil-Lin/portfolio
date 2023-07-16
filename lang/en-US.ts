@@ -34,7 +34,7 @@ export default {
     versionBelow: "below",
     or: "or",
     source: "source",
-    tag: "tag"
+    tag: "tag",
   },
   des: {
     noData: "There is no data now.",
@@ -58,10 +58,13 @@ export default {
     closeMenu: "Close Menu",
     scrollHorizontalToSeeMore: "scroll horizontal to see more",
     backToTop: "back to top",
-    switch: "switch to "
+    switch: "switch to ",
+    afternoon: "Good Afternoon, ",
+    morning: "Good Morning, ",
+    evening: "Good Evening, "
   },
   intro: {
-    greet: "{shortTime}, I'm Neil!",
+    greet: "I'm Neil. 👋",
     des1: "I am a UI/UX designer who is passionate about universal design.",
     des2: "I specialize in UI, UX, Vue/Nuxt front-end development, digital accessibility, data visualization, and design management. Currently, my main focus is on implementing the \"Design for All\" concept of universal design in web design. ",
   },

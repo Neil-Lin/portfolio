@@ -7,7 +7,10 @@
     <div class="intro">
       <nuxt-link :to="localePath('/')" :title="$t('action.goToHomePage')">
         <img src="/images/avatar.webp" :alt="$t('name.avatar')" />
-        <div class="text">{{ $t('intro.greet', { shortTime: "Hi" }) }}</div>
+        <div class="text">
+         {{ formatAMPM(new Date) }}
+          {{ $t('intro.greet')}}
+        </div>
       </nuxt-link>
     </div>
     <div class="margin-bottom">
@@ -74,8 +77,22 @@
 </template>
 
 <script setup lang="ts">
-// can delete
+import { ref } from 'vue';
+const { locale, locales, t } = useI18n()
 const localePath = useLocalePath()
+const ampm = ref('')
+const formatAMPM = (date:any) => {
+  let hours = date.getHours();
+  let ampm;
+  if (hours < 12 && hours > 5 ) {
+    ampm = t('action.morning');
+  } else if (hours >= 12 && hours < 20) {
+    ampm = t('action.afternoon');
+  } else {
+    ampm = t('action.evening');
+  }
+  return ampm;
+};
 </script>
 
 <style scoped>

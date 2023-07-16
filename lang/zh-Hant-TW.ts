@@ -58,10 +58,13 @@ export default {
     closeMenu: "關閉選單",
     scrollHorizontalToSeeMore: "橫向捲動顯示更多資訊",
     backToTop: "回頁面頂端",
-    switch: "切換為 "
+    switch: "切換為 ",
+    afternoon: "午安，",
+    morning: "早安，",
+    evening: "晚安，"
   },
   intro: {
-    greet: "{shortTime}，我是 Neil！",
+    greet: "我是 Neil 👋",
     des1: "我是一位熱愛通用設計的 UI/UX designer。",
     des2: "擅長 UI、UX、Vue/Nuxt 切版、無障礙網頁設計、資料視覺化與設計管理。現在主要致力於在網頁設計實現 『Design for All』 的通用設計理念。",
   },
