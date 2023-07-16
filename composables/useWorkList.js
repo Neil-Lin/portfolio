@@ -1,7 +1,6 @@
 import { works } from '@/assets/data/works'
 import { worksEn } from '@/assets/data/worksEn'
-const sortByStartYear = (a, b) => new Date(a.StartYear).getTime() - new Date(b.startYear).getTime();
-
+const sortByStartYear = (a, b) => new Date(b.startYear).getTime() - new Date(a.startYear).getTime();
 
 export default function () {
   const { locale } = useI18n()
