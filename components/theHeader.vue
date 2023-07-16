@@ -77,7 +77,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 const { locale, locales, t } = useI18n()
 const localePath = useLocalePath()
 const ampm = ref('')

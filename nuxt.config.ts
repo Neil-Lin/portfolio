@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     baseURL: '/portfolio/',
     pageTransition: { name: 'page', mode: 'out-in' }
   },
-  modules: ['@vite-pwa/nuxt', '@nuxtjs/i18n', '@nuxtjs/html-validator', 'nuxt-time'],
+  modules: ['@vite-pwa/nuxt', '@nuxtjs/i18n', '@nuxtjs/html-validator'],
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
