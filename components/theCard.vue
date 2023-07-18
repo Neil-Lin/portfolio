@@ -1,20 +1,17 @@
 <template>
-  <div
-    class="card"
-    v-if="cardDisabled != true"
-  >
+  <div class="card" v-if="cardDisabled != true">
     <div class="card-text">
       <nuxt-link
         class="card-title"
         :to="localePath(cardLink)"
-        :title=" $t('action.goTo') + `${cardTitle}`"
+        :title="$t('action.goTo') + `${cardTitle}`"
       >
         {{ cardTitle }}
       </nuxt-link>
       <div class="card-des">{{ cardDes }}</div>
       <ul v-if="cardTags.length != 0" class="tag-list">
         <li v-for="(item, idx) in cardTags" :key="idx">
-          <span class="visually-hidden">{{ $t('name.tag') }}</span>
+          <span class="visually-hidden">{{ $t("name.tag") }}</span>
           <span class="tag">{{ item }}</span>
         </li>
       </ul>
@@ -41,34 +38,34 @@
 </template>
 
 <script setup lang="ts">
-const localePath = useLocalePath()
-const props = defineProps({
+const localePath = useLocalePath();
+defineProps({
   cardHeroImagePath: {
     type: String,
-    required: true
+    required: true,
   },
   cardHeroImageAlt: {
     type: String,
-    required: true
+    required: true,
   },
   cardTitle: {
     type: String,
-    required: true
+    required: true,
   },
   cardLink: {
     type: String,
-    required: true
+    required: true,
   },
   cardDes: {
     type: String,
-    required: true
+    required: true,
   },
   cardTags: {
     type: Array,
-    required: true
+    required: true,
   },
   cardDisabled: {
-    type: Boolean
-  }
-})
+    type: Boolean,
+  },
+});
 </script>

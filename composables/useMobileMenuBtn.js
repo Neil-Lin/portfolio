@@ -1,14 +1,14 @@
 export default function () {
-  const mobileMenuStatus = ref(false)
+  const mobileMenuStatus = ref(false);
   const handleToggleMobileMenuBtn = () => {
-    mobileMenuStatus.value = !mobileMenuStatus.value
-  }
+    mobileMenuStatus.value = !mobileMenuStatus.value;
+  };
   const handleCloseMobileMenuBtn = () => {
-    mobileMenuStatus.value = false
-  }
+    mobileMenuStatus.value = false;
+  };
   return {
     mobileMenuStatus,
     handleToggleMobileMenuBtn,
-    handleCloseMobileMenuBtn
-  }
+    handleCloseMobileMenuBtn,
+  };
 }

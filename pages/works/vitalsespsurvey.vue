@@ -6,7 +6,10 @@
     <article>
       <section>
         <figure>
-          <img src="/images/vitalsespsurvey-thumbnail.webp" alt="Vitals ESP Survey 簡介" />
+          <img
+            src="/images/vitalsespsurvey-thumbnail.webp"
+            alt="Vitals ESP Survey 簡介"
+          />
           <figcaption>Vitals ESP Survey 簡介</figcaption>
         </figure>
       </section>
@@ -142,7 +145,9 @@
                     alt="Vitals ESP Survey 資料視覺化問卷細部統計"
                     loading="lazy"
                   />
-                  <figcaption>Vitals ESP Survey 資料視覺化問卷細部統計</figcaption>
+                  <figcaption>
+                    Vitals ESP Survey 資料視覺化問卷細部統計
+                  </figcaption>
                 </figure>
               </div>
             </div>
@@ -204,45 +209,51 @@
 </template>
 
 <script setup lang="ts">
-const runtimeConfig = useRuntimeConfig()
-const pageTitle = ref('Vitals ESP Survey')
-const pageDescription = ref('提供多樣化、有效率的線上問卷調查工具，提供內部滿意度、課後問卷、意見徵求，以及外部活動滿意度調查問卷，並且可將分析結果回存 Vitals ESP，作為組織知識保存與分享。可製作不同型式問卷，包含單選、多選、詳答、矩陣、跳題以及題組方式，此外亦支援行動裝置填寫問卷與查看問卷結果。')
-const route = useRoute()
+const runtimeConfig = useRuntimeConfig();
+const pageTitle = ref("Vitals ESP Survey");
+const pageDescription = ref(
+  "提供多樣化、有效率的線上問卷調查工具，提供內部滿意度、課後問卷、意見徵求，以及外部活動滿意度調查問卷，並且可將分析結果回存 Vitals ESP，作為組織知識保存與分享。可製作不同型式問卷，包含單選、多選、詳答、矩陣、跳題以及題組方式，此外亦支援行動裝置填寫問卷與查看問卷結果。"
+);
+const route = useRoute();
 
 useHead({
   title: pageTitle,
   meta: [
     {
-      hid: 'description',
-      name: 'description',
-      content: pageDescription.value
-    },
-    { hid: 'og:url', property: 'og:url', content: runtimeConfig.public.baseUrl + route.path },
-    {
-      hid: 'og:title',
-      property: 'og:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      hid: "description",
+      name: "description",
+      content: pageDescription.value,
     },
     {
-      hid: 'og:description',
-      property: 'og:description',
-      content: pageDescription.value
+      hid: "og:url",
+      property: "og:url",
+      content: runtimeConfig.public.baseUrl + route.path,
     },
     {
-      hid: 'twitter:url',
-      name: 'twitter:url',
-      content: runtimeConfig.public.baseUrl + route.path
+      hid: "og:title",
+      property: "og:title",
+      content: pageTitle.value + " - " + runtimeConfig.public.websiteName,
     },
     {
-      hid: 'twitter:title',
-      name: 'twitter:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      hid: "og:description",
+      property: "og:description",
+      content: pageDescription.value,
     },
     {
-      hid: 'twitter:description',
-      name: 'twitter:description',
-      content: pageDescription.value
-    }
-  ]
-})
+      hid: "twitter:url",
+      name: "twitter:url",
+      content: runtimeConfig.public.baseUrl + route.path,
+    },
+    {
+      hid: "twitter:title",
+      name: "twitter:title",
+      content: pageTitle.value + " - " + runtimeConfig.public.websiteName,
+    },
+    {
+      hid: "twitter:description",
+      name: "twitter:description",
+      content: pageDescription.value,
+    },
+  ],
+});
 </script>

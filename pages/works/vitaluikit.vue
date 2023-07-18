@@ -6,7 +6,10 @@
     <article>
       <section>
         <figure>
-          <img src="/images/vitaluikit-thumbnail.webp" alt="Vital UI Kit 簡介" />
+          <img
+            src="/images/vitaluikit-thumbnail.webp"
+            alt="Vital UI Kit 簡介"
+          />
           <figcaption>Vital UI Kit 簡介</figcaption>
         </figure>
       </section>
@@ -76,7 +79,9 @@
             <ol>
               <li>CJ / 26 / Front-end engineer</li>
               <li>痛點：產品間沒有共同設計語言以及浪費時間重工元件。</li>
-              <li>目標：專案初始化時，元件全部到定位、修改容易以及與其他套件兼容。</li>
+              <li>
+                目標：專案初始化時，元件全部到定位、修改容易以及與其他套件兼容。
+              </li>
             </ol>
           </div>
         </div>
@@ -85,7 +90,9 @@
             <h4 class="flex-list-title">研究</h4>
             <ol>
               <li>研究前述各大前端 UI 框架設計稿與切版如何搭配。</li>
-              <li>研究 Sketch App 設計稿管理與協作規則制定，例如參數設定等。</li>
+              <li>
+                研究 Sketch App 設計稿管理與協作規則制定，例如參數設定等。
+              </li>
               <li>研究 CSS 管理與命名規則。</li>
               <li>研究融合 設計稿 與 CSS 命名規則，方便一眼便知是哪個元件。</li>
               <li>研究以何種方式建立 Document 網站內容。</li>
@@ -97,11 +104,19 @@
           <div>
             <h4 class="flex-list-title">產出</h4>
             <figure>
-              <img src="/images/vitaluikit-sketch.webp" alt="Sketch App檔案示意圖" loading="lazy" />
+              <img
+                src="/images/vitaluikit-sketch.webp"
+                alt="Sketch App檔案示意圖"
+                loading="lazy"
+              />
               <figcaption>Sketch App檔案示意圖</figcaption>
             </figure>
             <figure>
-              <img src="/images/vitaluikit-docs.webp" alt="文件示意圖" loading="lazy" />
+              <img
+                src="/images/vitaluikit-docs.webp"
+                alt="文件示意圖"
+                loading="lazy"
+              />
               <figcaption>使用 Fabricator 建立文件</figcaption>
             </figure>
           </div>
@@ -132,45 +147,49 @@
 </template>
 
 <script setup lang="ts">
-const runtimeConfig = useRuntimeConfig()
-const pageTitle = ref('Vital UI Kit')
-const pageDescription = ref('一個優雅且容易客製化的前端 UI 框架。')
-const route = useRoute()
+const runtimeConfig = useRuntimeConfig();
+const pageTitle = ref("Vital UI Kit");
+const pageDescription = ref("一個優雅且容易客製化的前端 UI 框架。");
+const route = useRoute();
 
 useHead({
   title: pageTitle,
   meta: [
     {
-      hid: 'description',
-      name: 'description',
-      content: pageDescription.value
-    },
-    { hid: 'og:url', property: 'og:url', content: runtimeConfig.public.baseUrl + route.path },
-    {
-      hid: 'og:title',
-      property: 'og:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      hid: "description",
+      name: "description",
+      content: pageDescription.value,
     },
     {
-      hid: 'og:description',
-      property: 'og:description',
-      content: pageDescription.value
+      hid: "og:url",
+      property: "og:url",
+      content: runtimeConfig.public.baseUrl + route.path,
     },
     {
-      hid: 'twitter:url',
-      name: 'twitter:url',
-      content: runtimeConfig.public.baseUrl + route.path
+      hid: "og:title",
+      property: "og:title",
+      content: pageTitle.value + " - " + runtimeConfig.public.websiteName,
     },
     {
-      hid: 'twitter:title',
-      name: 'twitter:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      hid: "og:description",
+      property: "og:description",
+      content: pageDescription.value,
     },
     {
-      hid: 'twitter:description',
-      name: 'twitter:description',
-      content: pageDescription.value
-    }
-  ]
-})
+      hid: "twitter:url",
+      name: "twitter:url",
+      content: runtimeConfig.public.baseUrl + route.path,
+    },
+    {
+      hid: "twitter:title",
+      name: "twitter:title",
+      content: pageTitle.value + " - " + runtimeConfig.public.websiteName,
+    },
+    {
+      hid: "twitter:description",
+      name: "twitter:description",
+      content: pageDescription.value,
+    },
+  ],
+});
 </script>

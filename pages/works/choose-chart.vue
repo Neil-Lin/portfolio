@@ -7,11 +7,11 @@
       <section>
         <figure>
           <img src="/images/choose-chart-thumbnail.webp" alt="Choose" />
-          <figcaption>{{ pageTitle }} {{ $t('name.intro') }}</figcaption>
+          <figcaption>{{ pageTitle }} {{ $t("name.intro") }}</figcaption>
         </figure>
       </section>
       <section>
-        <h3>{{ $t('name.summary') }}</h3>
+        <h3>{{ $t("name.summary") }}</h3>
         <i18n-t keypath="page.choose.p1" tag="p" scope="global">
           <br />
         </i18n-t>
@@ -20,25 +20,34 @@
         </i18n-t>
         <div class="flex-list">
           <div>
-            <h4 class="flex-list-title">{{ $t('name.target') }}</h4>
+            <h4 class="flex-list-title">{{ $t("name.target") }}</h4>
             <ul>
-              <li v-for="(item, index) in $tm('page.choose.target')" :key="index">
+              <li
+                v-for="(item, index) in $tm('page.choose.target')"
+                :key="index"
+              >
                 {{ $rt(item) }}
               </li>
             </ul>
           </div>
           <div>
-            <h4 class="flex-list-title">{{ $t('name.roles') }}</h4>
+            <h4 class="flex-list-title">{{ $t("name.roles") }}</h4>
             <ul>
-              <li v-for="(item, index) in $tm('page.choose.roles')" :key="index">
+              <li
+                v-for="(item, index) in $tm('page.choose.roles')"
+                :key="index"
+              >
                 {{ $rt(item) }}
               </li>
             </ul>
           </div>
           <div>
-            <h4 class="flex-list-title">{{ $t('name.tools') }}</h4>
+            <h4 class="flex-list-title">{{ $t("name.tools") }}</h4>
             <ul>
-              <li v-for="(item, index) in $tm('page.choose.tools')" :key="index">
+              <li
+                v-for="(item, index) in $tm('page.choose.tools')"
+                :key="index"
+              >
                 {{ $rt(item) }}
               </li>
             </ul>
@@ -46,12 +55,15 @@
         </div>
       </section>
       <section>
-        <h3>{{ $t('page.choose.p3') }}</h3>
+        <h3>{{ $t("page.choose.p3") }}</h3>
         <div class="flex-list">
           <div>
-            <h4 class="flex-list-title">{{ $t('name.learn') }}</h4>
+            <h4 class="flex-list-title">{{ $t("name.learn") }}</h4>
             <ul>
-              <li v-for="(item, index) in $tm('page.choose.learn')" :key="index">
+              <li
+                v-for="(item, index) in $tm('page.choose.learn')"
+                :key="index"
+              >
                 {{ $rt(item) }}
               </li>
             </ul>
@@ -59,16 +71,23 @@
         </div>
         <div class="flex-list">
           <div>
-            <h4 class="flex-list-title">{{ $t('name.output') }}</h4>
+            <h4 class="flex-list-title">{{ $t("name.output") }}</h4>
             <ul>
-              <li v-for="(item, index) in $tm('page.choose.output')" :key="index">
+              <li
+                v-for="(item, index) in $tm('page.choose.output')"
+                :key="index"
+              >
                 {{ $rt(item) }}
               </li>
             </ul>
-            <p>{{ $t('page.choose.p4') }}</p>
+            <p>{{ $t("page.choose.p4") }}</p>
             <figure>
-              <img src="/images/choose-chart-hotkeywords.webp" :alt="$t('page.choose.p5')" loading="lazy" />
-              <figcaption>{{ $t('page.choose.p5') }}</figcaption>
+              <img
+                src="/images/choose-chart-hotkeywords.webp"
+                :alt="$t('page.choose.p5')"
+                loading="lazy"
+              />
+              <figcaption>{{ $t("page.choose.p5") }}</figcaption>
             </figure>
             <figure>
               <img
@@ -76,11 +95,15 @@
                 :alt="$t('page.choose.p6')"
                 loading="lazy"
               />
-              <figcaption>{{ $t('page.choose.p6') }}</figcaption>
+              <figcaption>{{ $t("page.choose.p6") }}</figcaption>
             </figure>
             <figure>
-              <img src="/images/choose-chart-hotkeywords-detail.webp" :alt="$t('page.choose.p7')" loading="lazy" />
-              <figcaption>{{ $t('page.choose.p7') }}</figcaption>
+              <img
+                src="/images/choose-chart-hotkeywords-detail.webp"
+                :alt="$t('page.choose.p7')"
+                loading="lazy"
+              />
+              <figcaption>{{ $t("page.choose.p7") }}</figcaption>
             </figure>
             <figure>
               <img
@@ -88,20 +111,20 @@
                 :alt="$t('page.choose.p8')"
                 loading="lazy"
               />
-              <figcaption>{{ $t('page.choose.p8') }}</figcaption>
+              <figcaption>{{ $t("page.choose.p8") }}</figcaption>
             </figure>
           </div>
         </div>
-        <h3>{{ $t('page.choose.p9') }}</h3>
+        <h3>{{ $t("page.choose.p9") }}</h3>
         <p>coming soon...</p>
-        <h3>{{ $t('page.choose.p10') }}</h3>
+        <h3>{{ $t("page.choose.p10") }}</h3>
         <p>coming soon...</p>
       </section>
       <section>
-        <h3>{{ $t('name.relatedLink') }}</h3>
+        <h3>{{ $t("name.relatedLink") }}</h3>
         <div class="flex-list">
           <div>
-            <h4 class="flex-list-title">{{ $t('name.website') }}</h4>
+            <h4 class="flex-list-title">{{ $t("name.website") }}</h4>
             <ol>
               <li>
                 <nuxt-link
@@ -132,46 +155,50 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
-const runtimeConfig = useRuntimeConfig()
-const pageTitle = ref(t('page.choose.title'))
-const pageDescription = ref(t('page.choose.des'))
-const route = useRoute()
+const { t } = useI18n();
+const runtimeConfig = useRuntimeConfig();
+const pageTitle = ref(t("page.choose.title"));
+const pageDescription = ref(t("page.choose.des"));
+const route = useRoute();
 
 useHead({
   title: pageTitle,
   meta: [
     {
-      hid: 'description',
-      name: 'description',
-      content: pageDescription.value
-    },
-    { hid: 'og:url', property: 'og:url', content: runtimeConfig.public.baseUrl + route.path },
-    {
-      hid: 'og:title',
-      property: 'og:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      hid: "description",
+      name: "description",
+      content: pageDescription.value,
     },
     {
-      hid: 'og:description',
-      property: 'og:description',
-      content: pageDescription.value
+      hid: "og:url",
+      property: "og:url",
+      content: runtimeConfig.public.baseUrl + route.path,
     },
     {
-      hid: 'twitter:url',
-      name: 'twitter:url',
-      content: runtimeConfig.public.baseUrl + route.path
+      hid: "og:title",
+      property: "og:title",
+      content: pageTitle.value + " - " + runtimeConfig.public.websiteName,
     },
     {
-      hid: 'twitter:title',
-      name: 'twitter:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      hid: "og:description",
+      property: "og:description",
+      content: pageDescription.value,
     },
     {
-      hid: 'twitter:description',
-      name: 'twitter:description',
-      content: pageDescription.value
-    }
-  ]
-})
+      hid: "twitter:url",
+      name: "twitter:url",
+      content: runtimeConfig.public.baseUrl + route.path,
+    },
+    {
+      hid: "twitter:title",
+      name: "twitter:title",
+      content: pageTitle.value + " - " + runtimeConfig.public.websiteName,
+    },
+    {
+      hid: "twitter:description",
+      name: "twitter:description",
+      content: pageDescription.value,
+    },
+  ],
+});
 </script>

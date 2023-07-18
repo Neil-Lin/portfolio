@@ -73,19 +73,31 @@
             <div class="flex-list">
               <div>
                 <figure>
-                  <img src="/images/scout-landingpage-dark.webp" alt="Landing Page(dark)" loading="lazy" />
+                  <img
+                    src="/images/scout-landingpage-dark.webp"
+                    alt="Landing Page(dark)"
+                    loading="lazy"
+                  />
                   <figcaption>Landing Page(dark)</figcaption>
                 </figure>
               </div>
               <div>
                 <figure>
-                  <img src="/images/scout-landingpage-light.webp" alt="Landing Page(light)" loading="lazy" />
+                  <img
+                    src="/images/scout-landingpage-light.webp"
+                    alt="Landing Page(light)"
+                    loading="lazy"
+                  />
                   <figcaption>Landing Page(light)</figcaption>
                 </figure>
               </div>
             </div>
             <figure>
-              <img src="/images/scout-404.webp" alt="ΣCOUT 404 page" loading="lazy" />
+              <img
+                src="/images/scout-404.webp"
+                alt="ΣCOUT 404 page"
+                loading="lazy"
+              />
               <figcaption>ΣCOUT 404 page</figcaption>
             </figure>
           </div>
@@ -116,47 +128,51 @@
 </template>
 
 <script setup lang="ts">
-const runtimeConfig = useRuntimeConfig()
-const pageTitle = ref('ΣCOUT 實告')
+const runtimeConfig = useRuntimeConfig();
+const pageTitle = ref("ΣCOUT 實告");
 const pageDescription = ref(
-  '國內首創商業履歷查詢服務，結合逾 300 種OPENDATA及網路公開資料來源，掌握全臺公司的商業實績，迅速偵測商業合作夥伴、競業對手之資訊，揭露商業價值以實相告。'
-)
-const route = useRoute()
+  "國內首創商業履歷查詢服務，結合逾 300 種OPENDATA及網路公開資料來源，掌握全臺公司的商業實績，迅速偵測商業合作夥伴、競業對手之資訊，揭露商業價值以實相告。"
+);
+const route = useRoute();
 
 useHead({
   title: pageTitle,
   meta: [
     {
-      hid: 'description',
-      name: 'description',
-      content: pageDescription.value
-    },
-    { hid: 'og:url', property: 'og:url', content: runtimeConfig.public.baseUrl + route.path },
-    {
-      hid: 'og:title',
-      property: 'og:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      hid: "description",
+      name: "description",
+      content: pageDescription.value,
     },
     {
-      hid: 'og:description',
-      property: 'og:description',
-      content: pageDescription.value
+      hid: "og:url",
+      property: "og:url",
+      content: runtimeConfig.public.baseUrl + route.path,
     },
     {
-      hid: 'twitter:url',
-      name: 'twitter:url',
-      content: runtimeConfig.public.baseUrl + route.path
+      hid: "og:title",
+      property: "og:title",
+      content: pageTitle.value + " - " + runtimeConfig.public.websiteName,
     },
     {
-      hid: 'twitter:title',
-      name: 'twitter:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      hid: "og:description",
+      property: "og:description",
+      content: pageDescription.value,
     },
     {
-      hid: 'twitter:description',
-      name: 'twitter:description',
-      content: pageDescription.value
-    }
-  ]
-})
+      hid: "twitter:url",
+      name: "twitter:url",
+      content: runtimeConfig.public.baseUrl + route.path,
+    },
+    {
+      hid: "twitter:title",
+      name: "twitter:title",
+      content: pageTitle.value + " - " + runtimeConfig.public.websiteName,
+    },
+    {
+      hid: "twitter:description",
+      name: "twitter:description",
+      content: pageDescription.value,
+    },
+  ],
+});
 </script>

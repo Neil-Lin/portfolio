@@ -8,10 +8,10 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
-const pageTitle = ref(t('name.home'))
+const { t } = useI18n();
+const pageTitle = ref(t("name.home"));
 
 useHead({
   title: pageTitle,
-})
+});
 </script>

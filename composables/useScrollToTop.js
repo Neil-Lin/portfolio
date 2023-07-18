@@ -2,15 +2,15 @@ export default function () {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
-  }
+  };
   onMounted(() => {
-    window.addEventListener('scroll', elementOffset);
-  })
-  const { scrollDistance, elementOffset } = useDetectScrollY()
+    window.addEventListener("scroll", elementOffset);
+  });
+  const { scrollDistance, elementOffset } = useDetectScrollY();
   return {
     scrollDistance,
-    scrollToTop
-  }
+    scrollToTop,
+  };
 }
