@@ -1,10 +1,12 @@
 <template>
   <div class="page">
-    <div :class="['page-aside', mobileMenuStatus ? 'page-aside--open' : '']">
+    <div
+      :class="['page-aside', store.mobileMenuStatus ? 'page-aside--open' : '']"
+    >
       <button
         type="button"
         class="btn-close-mobile-menu"
-        @click="handleCloseMobileMenuBtn"
+        @click="store.handleCloseMobileMenuBtn"
       >
         {{ $t("action.closeMenu") }}
       </button>
@@ -14,7 +16,7 @@
       <button
         type="button"
         class="btn-open-mobile-menu"
-        @click="handleToggleMobileMenuBtn"
+        @click="store.handleToggleMobileMenuBtn"
       >
         <span>{{ $t("name.menu") }}</span>
       </button>
@@ -165,22 +167,25 @@
                 <nuxt-link
                   :to="localePath('/')"
                   :title="$t('action.goTo') + $t('action.goToHomePage')"
-                  >{{ $t("name.home") }}</nuxt-link
                 >
+                  {{ $t("name.home") }}
+                </nuxt-link>
               </li>
               <li>
                 <nuxt-link
                   :to="localePath('/sitemap')"
                   :title="$t('action.goTo') + $t('mainMenu.sitemap')"
-                  >{{ $t("mainMenu.sitemap") }}</nuxt-link
                 >
+                  {{ $t("mainMenu.sitemap") }}
+                </nuxt-link>
               </li>
               <li>
                 <nuxt-link
                   :to="localePath('/about')"
                   :title="$t('action.goTo') + $t('mainMenu.about')"
-                  >{{ $t("mainMenu.about") }}</nuxt-link
                 >
+                  {{ $t("mainMenu.about") }}
+                </nuxt-link>
               </li>
               <li>
                 <nuxt-link
@@ -289,10 +294,6 @@ onMounted(() => {
   window.addEventListener("resize", checkTabAble);
 });
 
-const {
-  mobileMenuStatus,
-  handleToggleMobileMenuBtn,
-  handleCloseMobileMenuBtn,
-} = useMobileMenuBtn();
+const store = useMobileMenuStore();
 const { workList } = useWorkList();
 </script>

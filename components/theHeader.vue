@@ -30,6 +30,7 @@
               class="btn-submenu"
               :to="localePath('/sitemap')"
               :title="$t('action.goTo') + $t('mainMenu.sitemap')"
+              @click="store.handleCloseMobileMenuBtn"
             >
               {{ $t("mainMenu.sitemap") }}
             </nuxt-link>
@@ -39,6 +40,7 @@
               class="btn-submenu"
               :to="localePath('/about')"
               :title="$t('action.goTo') + $t('mainMenu.about')"
+              @click="store.handleCloseMobileMenuBtn"
             >
               {{ $t("mainMenu.about") }}
             </nuxt-link>
@@ -98,6 +100,7 @@ const formatAMPM = (date: any) => {
   }
   return ampm;
 };
+const store = useMobileMenuStore();
 </script>
 
 <style scoped>

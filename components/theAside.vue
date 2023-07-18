@@ -12,7 +12,7 @@
           v-for="(item, idx) in workList"
           :key="idx"
           class="card-item"
-          @click="$emit('closeMobileMenu')"
+          @click="store.handleCloseMobileMenuBtn"
         >
           <theCard
             :cardLink="item.link"
@@ -34,5 +34,6 @@
 
 <script setup lang="ts">
 const route = useRoute();
+const store = useMobileMenuStore();
 const { workList } = useWorkList();
 </script>

@@ -1,20 +1,22 @@
 <template>
   <div class="page">
-    <div :class="['page-aside', mobileMenuStatus ? 'page-aside--open' : '']">
+    <div
+      :class="['page-aside', store.mobileMenuStatus ? 'page-aside--open' : '']"
+    >
       <button
         type="button"
         class="btn-close-mobile-menu"
-        @click="handleCloseMobileMenuBtn"
+        @click="store.handleCloseMobileMenuBtn"
       >
         {{ $t("action.closeMenu") }}
       </button>
-      <theAside @closeMobileMenu="mobileMenuStatus = false" />
+      <theAside />
     </div>
     <main class="page-container">
       <button
         type="button"
         class="btn-open-mobile-menu"
-        @click="handleToggleMobileMenuBtn"
+        @click="store.handleToggleMobileMenuBtn"
       >
         <span>{{ $t("name.menu") }}</span>
       </button>
@@ -24,9 +26,5 @@
 </template>
 
 <script setup lang="ts">
-const {
-  mobileMenuStatus,
-  handleToggleMobileMenuBtn,
-  handleCloseMobileMenuBtn,
-} = useMobileMenuBtn();
+const store = useMobileMenuStore();
 </script>
