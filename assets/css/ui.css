@@ -18,7 +18,6 @@ body {
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
-
 }
 
 html {
@@ -29,10 +28,10 @@ html {
   color: oklch(var(--wrapper-color));
   overflow-x: hidden;
   /* background: color image attachment repeat poition / size */
-  background: oklch(var(--wrapper-bg)) url('/images/sitename.svg') fixed no-repeat center
-    bottom 10% / contain;
+  background: oklch(var(--wrapper-bg)) url("/images/sitename.svg") fixed
+    no-repeat center bottom 10% / contain;
   @media (prefers-color-scheme: dark) {
-      background-image: url('/images/sitename-dark.svg');
+    background-image: url("/images/sitename-dark.svg");
   }
 }
 
@@ -105,7 +104,7 @@ a {
   }
   &[target="_blank"] {
     &:after {
-      content: '\2197';
+      content: "\2197";
     }
   }
 }
@@ -120,12 +119,12 @@ select {
   border: 1px solid oklch(var(--border-color));
   padding: 0.5rem 2rem 0.5rem 0.75rem;
   border-radius: 0.25rem;
-  background-image: url('/images/angle-down-solid.svg');
+  background-image: url("/images/angle-down-solid.svg");
   background-repeat: no-repeat;
   background-position: right 0.5rem center;
   background-size: auto 40%;
   @media (prefers-color-scheme: dark) {
-    background-image: url('/images/angle-down-solid-white.svg');
+    background-image: url("/images/angle-down-solid-white.svg");
   }
   &:focus {
     box-shadow: 0 0 0 3px oklch(var(--outline-color));
@@ -195,7 +194,6 @@ figcaption {
   text-wrap: balance;
 }
 
-
 /*************************
   Layout
 *************************/
@@ -224,7 +222,7 @@ figcaption {
   }
 }
 
-[id^='ak-'] {
+[id^="ak-"] {
   text-decoration: none;
 }
 
@@ -349,7 +347,7 @@ a.btn-submenu {
   margin: 0 auto;
   display: grid;
   grid-template-areas: "aside main";
-  grid-template-columns: max(40ch) minmax(0, 1fr) ;
+  grid-template-columns: max(40ch) minmax(0, 1fr);
   @media screen and (width <= 768px) {
     grid-template-areas: "main";
     grid-template-columns: minmax(0, 1fr);
@@ -427,7 +425,7 @@ a.btn-submenu {
 .page-container {
   padding: 2rem;
   &:before {
-    content: '';
+    content: "";
     opacity: 0;
     display: block;
     /* 此處不要寫簡寫的 animation，因為 animation-timeline 就算寫在後面，打包出來後也會被覆蓋，不知道為什麼。 */
@@ -476,7 +474,7 @@ a.btn-submenu {
   text-align: center;
   padding: 0;
   font-size: 2rem;
-  color: transparent;  
+  color: transparent;
   text-shadow: 0 0 0 oklch(var(--color-white));
 }
 
@@ -497,7 +495,7 @@ a.btn-submenu {
     animation-name: fade-exit;
     animation-timing-function: ease-out;
     /* requires this to apply the animation */
-    animation-duration: 1ms; 
+    animation-duration: 1ms;
     animation-timeline: view();
     /* must have */
     animation-fill-mode: both;
@@ -506,7 +504,7 @@ a.btn-submenu {
   position: relative;
 }
 
-.page-enter-active,
+/* .page-enter-active,
 .page-leave-active {
   transition: all 0.2s;
 }
@@ -514,4 +512,4 @@ a.btn-submenu {
 .page-enter-from,
 .page-leave-to {
   opacity: 0.7;
-}
+} */

@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   app: {
     baseURL: '/portfolio/',
-    pageTransition: { name: 'page', mode: 'out-in' }
+    // pageTransition: { name: 'page', mode: 'out-in' }
   },
   modules: ['@vite-pwa/nuxt', '@nuxtjs/i18n', '@nuxtjs/html-validator'],
   pwa: {
