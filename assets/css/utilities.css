@@ -18,7 +18,6 @@
   color: oklch(var(--color-danger));
 }
 
-
 /*************************
   A11y
 *************************/
@@ -35,7 +34,6 @@
   border: 0 !important;
 }
 
-
 /*************************
   Keyframes
 *************************/
@@ -51,10 +49,10 @@
 
 @keyframes now-watching-badge {
   0% {
-      background-position: 0% 50%;
+    background-position: 0% 50%;
   }
   100% {
-      background-position: 200% 50%;
+    background-position: 200% 50%;
   }
 }
 
@@ -75,7 +73,7 @@
     opacity: 1;
     transform: scale(1);
   }
-  55% {
+  85% {
     opacity: 1;
     transform: scale(1);
   }
@@ -84,7 +82,6 @@
     transform: scale(0.95);
   }
 }
-
 
 /*************************
   Tag

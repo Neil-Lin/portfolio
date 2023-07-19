@@ -491,7 +491,7 @@ a.btn-submenu {
 }
 
 .card-item {
-  @supports (animation-timeline: work) {
+  @supports (animation-timeline: view()) {
     animation-name: fade-exit;
     animation-timing-function: ease-out;
     /* requires this to apply the animation */
