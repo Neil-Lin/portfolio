@@ -212,7 +212,7 @@
                 </nuxt-link>
               </li>
               <template v-for="(item, idx) in workList" :key="idx">
-                <li v-if="item.disabled !== true">
+                <li v-if="item.disabled != true">
                   <nuxt-link
                     :to="localePath(item.link)"
                     :title="$t('action.goTo') + `${item.name}`"
@@ -295,5 +295,8 @@ onMounted(() => {
 });
 
 const store = useMobileMenuStore();
-const { workList } = useWorkList();
+const { locale } = useI18n();
+const apiPath = locale.value === "en" ? "/api/works/enUS" : "/api/works/";
+const { data } = await useFetch(apiPath);
+const workList = ref(data);
 </script>

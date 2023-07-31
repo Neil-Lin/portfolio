@@ -10,25 +10,25 @@ export default defineEventHandler(async (_event) => {
       link: '/works/piman',
       overview: 'Piman 是一款聚焦於無障礙網頁設計、基於 Vue 的開源 UI Frameworework。',
       startYear: 2021,
-      tags: ['UI', 'UX', '切版', 'open source', '2021 - Today'],
+      tags: ['UI', 'UX', '切版', 'Open Source', '2021 - Today'],
       relatedLink: '',
       modifyYear: 2022,
-      time: '2021-12-13'
+      disabled: false
     },
     {
       code: 'choose',
       image: {
         path: '/portfolio/images/choose-chart-thumbnail.webp',
-        alt: 'Choose 蛛思-資料視覺化'
+        alt: 'Choose 蛛思：資料視覺化'
       },
-      name: 'Choose 蛛思-資料視覺化',
+      name: 'Choose 蛛思：資料視覺化',
       link: '/works/choose-chart',
-      overview: '藍星球資訊獨家開發圖表 - Choose蛛思 - 資料視覺化',
+      overview: '藍星球資訊獨家開發圖表 - Choose 蛛思：資料視覺化',
       startYear: 2021,
       tags: ['UI', 'UX', 'Chart', 'Data Visualization', '2021 - Today'],
       relatedLink: 'https://choose.blueplanet.com.tw/lab',
       modifyYear: 2022,
-      time: '2021-12-13'
+      disabled: false
     },
     {
       code: 'scout',
@@ -43,7 +43,7 @@ export default defineEventHandler(async (_event) => {
       tags: ['UI', '切版', 'Chart', 'Data Visualization', '2020 - Today'],
       relatedLink: 'https://scout.blueplanet.com.tw/',
       modifyYear: 2022,
-      time: '2021-12-13'
+      disabled: false
     },
     {
       code: 'bpgcms',
@@ -58,8 +58,7 @@ export default defineEventHandler(async (_event) => {
       tags: ['UX', 'UI', '切版', '2019'],
       relatedLink: '',
       modifyYear: 2019,
-      disabled: true,
-      time: '2021-12-13'
+      disabled: true
     },
     {
       code: 'vitalcrm-web',
@@ -74,8 +73,7 @@ export default defineEventHandler(async (_event) => {
       tags: ['UX', '2018'],
       relatedLink: 'https://www.gsscloud.com/tw/vital/crm',
       modifyYear: 2018,
-      disabled: true,
-      time: '2021-12-13'
+      disabled: true
     },
     {
       code: 'vitalttc',
@@ -90,8 +88,7 @@ export default defineEventHandler(async (_event) => {
       tags: ['UX', 'UI', '切版', '2018'],
       relatedLink: 'https://www.gsscloud.com/tw/vital/ttc',
       modifyYear: 2018,
-      disabled: true,
-      time: '2021-12-13'
+      disabled: true
     },
     {
       code: 'vitalsespsurvey',
@@ -107,7 +104,7 @@ export default defineEventHandler(async (_event) => {
       tags: ['UX', '2017'],
       relatedLink: 'https://www.vitalsesp.com/survey.html',
       modifyYear: 2018,
-      time: '2021-12-13'
+      disabled: false
     },
     {
       code: 'vitaluikit',
@@ -122,7 +119,7 @@ export default defineEventHandler(async (_event) => {
       tags: ['UX', '切版', '2016'],
       relatedLink: 'https://vitaluikit.com/',
       modifyYear: 2018,
-      time: '2021-12-13'
+      disabled: false
     },
     {
       code: 'mpos',
@@ -137,12 +134,12 @@ export default defineEventHandler(async (_event) => {
       tags: ['UI', 'UX', '2016'],
       relatedLink: 'https://pos.ksi.com.tw/Home/MPOS',
       modifyYear: 2018,
-      time: '2021-12-13'
+      disabled: false
     },
     {
       code: 'vitalcrm-app',
       image: {
-        path: '/portfolio/images/vitalcrm-app.webp',
+        path: '/portfolio/images/vitalcrm-app-thumbnail.webp',
         alt: 'Vital CRM APP thumbnail'
       },
       name: 'Vital CRM APP',
@@ -152,7 +149,7 @@ export default defineEventHandler(async (_event) => {
       tags: ['UI', 'UX', '切版', '2014'],
       relatedLink: 'https://www.gsscloud.com/tw/vital/crm',
       modifyYear: 2014,
-      time: '2021-12-13'
+      disabled: false
     }
   ]
 })

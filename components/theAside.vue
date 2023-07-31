@@ -1,11 +1,11 @@
 <template>
   <div class="card-list-block">
-    <theHeader />
-    <akContainer v-if="route.path === '/' || route.path === '/en'" />
+    <TheHeader />
+    <AkContainer v-if="route.path === '/' || route.path === '/en'" />
     <nav
       :aria-label="$t('mainMenu.mainMenu')"
       class="card-list"
-      v-if="workList.length != 0"
+      v-if="workList?.length != 0"
     >
       <ul>
         <li
@@ -14,26 +14,28 @@
           class="card-item"
           @click="store.handleCloseMobileMenuBtn"
         >
-          <theCard
+          <TheCard
             :cardLink="item.link"
             :cardTitle="item.name"
             :cardDes="item.overview"
             :cardHeroImagePath="item.image.path"
             :cardHeroImageAlt="item.image.alt"
             :cardTags="item.tags"
-            :cardTime="item.time"
             :cardDisabled="item.disabled"
           />
         </li>
       </ul>
     </nav>
-    <theEmptyContent v-else>{{ $t("des.noData") }}</theEmptyContent>
-    <theFooter />
+    <TheEmptyContent v-else>{{ $t("des.noData") }}</TheEmptyContent>
+    <TheFooter />
   </div>
 </template>
 
 <script setup lang="ts">
 const route = useRoute();
+const { locale } = useI18n();
 const store = useMobileMenuStore();
-const { workList } = useWorkList();
+const apiPath = locale.value === "en" ? "/api/works/enUS" : "/api/works/";
+const { data } = await useFetch(apiPath);
+const workList = ref(data);
 </script>
