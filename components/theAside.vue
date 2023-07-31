@@ -33,9 +33,6 @@
 
 <script setup lang="ts">
 const route = useRoute();
-const { locale } = useI18n();
 const store = useMobileMenuStore();
-const apiPath = locale.value === "en" ? "/api/works/enUS" : "/api/works/";
-const { data } = await useFetch(apiPath);
-const workList = ref(data);
+const { workList } = useWorkList();
 </script>

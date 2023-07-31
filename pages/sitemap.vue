@@ -295,8 +295,5 @@ onMounted(() => {
 });
 
 const store = useMobileMenuStore();
-const { locale } = useI18n();
-const apiPath = locale.value === "en" ? "/api/works/enUS" : "/api/works/";
-const { data } = await useFetch(apiPath);
-const workList = ref(data);
+const { workList } = useWorkList();
 </script>
