@@ -230,11 +230,13 @@
 
 <script setup lang="ts">
 const { t } = useI18n();
+const { locale } = useI18n();
 const localePath = useLocalePath();
 const runtimeConfig = useRuntimeConfig();
 const pageTitle = ref(t("mainMenu.sitemap"));
 const pageDescription = ref(t("des.sitemap"));
 const route = useRoute();
+const workList = ref();
 
 useHead({
   title: pageTitle,
@@ -292,8 +294,13 @@ const checkTabAble = () => {
 onMounted(() => {
   checkTabAble();
   window.addEventListener("resize", checkTabAble);
+  nextTick(async () => {
+    const apiPath =
+      locale.value === "en" ? "/data/enUS.json" : "/data/enZhHantTW.json";
+    const { data } = await useFetch(apiPath);
+    workList.value = data.value;
+  });
 });
 
 const store = useMobileMenuStore();
-const { workList } = useWorkList();
 </script>
