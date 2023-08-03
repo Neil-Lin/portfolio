@@ -138,6 +138,6 @@ export default defineNuxtConfig({
     typeCheck: true,
   },
   devtools: {
-    enabled: false,
+    enabled: true,
   },
 });
