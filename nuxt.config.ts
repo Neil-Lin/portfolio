@@ -1,5 +1,4 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
+const config:any = {
   app: {
     baseURL: "/portfolio/",
     // pageTransition: { name: 'page', mode: 'out-in' }
@@ -142,21 +141,30 @@ export default defineNuxtConfig({
       cert: './https/localhost+3.pem'
     }
   },
-  // CORS
+  // dev CORS
   // vite: {
   //   server: {
-  //     proxy: {
-  //       '/Path': {
-  //         target: 'https://Domain',
-  //         changeOrigin: true
-  //       }
-  //     }
+  //     proxy: {}
   //   }
   // },
+
   typescript: {
     typeCheck: true,
   },
   devtools: {
     enabled: true,
   },
-});
+}
+
+// if (process.env.NODE_ENV === 'development') {
+//   // dev CORS
+//   config.vite.server.proxy = {
+//     '/Path': {
+//       target: 'Domain',
+//       changeOrigin: true
+//     }
+//   }
+// }
+
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig(config);
