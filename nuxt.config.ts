@@ -142,6 +142,17 @@ export default defineNuxtConfig({
       cert: './https/localhost+3.pem'
     }
   },
+  // CORS
+  // vite: {
+  //   server: {
+  //     proxy: {
+  //       '/Path': {
+  //         target: 'https://Domain',
+  //         changeOrigin: true
+  //       }
+  //     }
+  //   }
+  // },
   typescript: {
     typeCheck: true,
   },
