@@ -136,6 +136,12 @@ export default defineNuxtConfig({
       websiteDescription: ''
     },
   },
+  devServer: {
+    https: {
+      key: './https/localhost+3-key.pem',
+      cert: './https/localhost+3.pem'
+    }
+  },
   typescript: {
     typeCheck: true,
   },
