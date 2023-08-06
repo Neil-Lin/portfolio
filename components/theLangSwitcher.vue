@@ -29,17 +29,18 @@ const { locale, locales } = useI18n();
 // Cast to avoid TypeScript errors in template
 const supportedLocales = locales.value as Array<LocaleObject>;
 
-const router = useRouter();
+// const router = useRouter();
 const switchLocalePath = useSwitchLocalePath();
 
 // When the visitor selects a new locale, route to
 // to the new locale's path e.g. /en-CA/foo → /ar-EG/foo
-function onLocaleChanged(event: Event) {
+async function onLocaleChanged(event: Event) {
   const target = event.target as HTMLInputElement;
 
   // switchLocalePath('ar-EG') will return Arabic equivalent
   // for the *current* URL path e.g. if we're at /en-CA/about,
   // switchLocalePath('ar-EG') will return '/ar-EG/about'
-  router.push({ path: switchLocalePath(target.value) });
+  // router.push({ path: switchLocalePath(target.value) });
+  await navigateTo({ path: switchLocalePath(target.value) });
 }
 </script>
