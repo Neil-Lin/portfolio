@@ -97,7 +97,7 @@ const config:any = {
   // },
   i18n: {
     vueI18n: "./i18n.config.ts",
-    baseUrl: process.env.BASE_URL || "http://localhost:3000",
+    baseUrl: process.env.BASE_URL || "https://localhost:3000",
     locales: [
       {
         code: "zh-Hant-TW",
