@@ -169,7 +169,7 @@ kbd {
   /* background-color: oklch(var(--color-white)); */
 }
 
-.page-container {
+.page-content {
   & figure {
     margin-bottom: 2rem;
   }

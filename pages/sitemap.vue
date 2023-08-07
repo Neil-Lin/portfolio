@@ -23,7 +23,7 @@
       <akContainer />
       <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
       <h2>{{ pageTitle }}</h2>
-      <div class="page-container">
+      <div class="page-content">
         <section>
           <h3>{{ $t("name.websiteBlocksAndShortcutKeys") }}</h3>
           <i18n-t keypath="page.sitemap.p1" tag="p" scope="global"

@@ -3,7 +3,7 @@
     <akContainer />
     <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
     <h2>{{ pageTitle }}</h2>
-    <div class="page-container">
+    <div class="page-content">
       <section>
         <figure>
           <img
