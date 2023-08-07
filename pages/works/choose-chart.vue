@@ -3,7 +3,7 @@
     <akContainer />
     <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
     <h2>{{ pageTitle }}</h2>
-    <article>
+    <div class="page-container">
       <section>
         <figure>
           <img src="/images/choose-chart-thumbnail.webp" alt="Choose" />
@@ -150,7 +150,7 @@
           </div>
         </div>
       </section>
-    </article>
+    </div>
   </div>
 </template>
 

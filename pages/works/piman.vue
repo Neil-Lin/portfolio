@@ -3,7 +3,7 @@
     <akContainer />
     <theBreadcrumb :page-title="pageTitle" :page-link="`${route.path}`" />
     <h2>{{ pageTitle }}</h2>
-    <article>
+    <div class="page-container">
       <section>
         <figure>
           <img src="/images/piman-thumbnail.webp" alt="Piman thumbnail" />
@@ -220,7 +220,7 @@
           </div>
         </div>
       </section>
-    </article>
+    </div>
   </div>
 </template>
 
