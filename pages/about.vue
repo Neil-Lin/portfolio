@@ -61,7 +61,7 @@
                 </li>
                 <li>Data visualization</li>
                 <li>DesignOps/Design System</li>
-                <li>OKR/GCSM</li>
+                <li>OKR/OGSM</li>
                 <li>Scrum</li>
                 <li>SEO</li>
               </ul>
