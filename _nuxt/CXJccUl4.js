@@ -1,0 +1,1 @@
+import{_ as e}from"./DlAUqK2U.js";import{o as n,c as o}from"./DSrdDlvM.js";const c={},r=["title"];function _(t,a){return n(),o("a",{id:"ak-container",href:"#ak-container",title:t.$t("shortcut.mainContent"),accesskey:"C"}," ::: ",8,r)}const m=e(c,[["render",_]]);export{m as _};
