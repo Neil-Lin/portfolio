@@ -23,8 +23,10 @@
 </template>
 
 <script setup lang="ts">
+import type { LocaleObject } from '@nuxtjs/i18n';
+
 const switchLocalePath = useSwitchLocalePath();
-import { LocaleObject } from "@nuxtjs/i18n/dist/runtime/composables";
+// import type { LocaleObject } from "@nuxtjs/i18n/dist/runtime/composables";
 // Get active locale and supported locales
 const { locales } = useI18n();
 // Cast to avoid TypeScript errors in template

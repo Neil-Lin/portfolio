@@ -22,7 +22,7 @@
 <script setup lang="ts">
 // https://phrase.com/blog/posts/nuxt-js-tutorial-i18n/
 // Used for type casting
-import { LocaleObject } from "@nuxtjs/i18n/dist/runtime/composables";
+import type { LocaleObject } from '@nuxtjs/i18n';
 
 // Get active locale and supported locales
 const { locale, locales } = useI18n();
