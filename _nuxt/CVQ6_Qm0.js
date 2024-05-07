@@ -1,0 +1,1 @@
+import{f as t,r as o,m as a,o as s,c}from"./LFP3Ht_2.js";const r=["title"],u=t({__name:"akContainer",setup(i){const e=o(null);return a(()=>{e.value&&e.value.focus()}),(n,f)=>(s(),c("a",{ref_key:"focusableLink",ref:e,id:"ak-container",href:"#ak-container",title:n.$t("shortcut.mainContent"),accesskey:"C"}," ::: ",8,r))}});export{u as _};
