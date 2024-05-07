@@ -80,7 +80,7 @@
             <i18n-t keypath="page.piman.p2" tag="p" scope="global">
               <template #link>
                 <nuxt-link
-                  to="https://piman.cc"
+                  to="https://bpio.gitbook.io/piman"
                   :title="$t('action.goTo') + 'Piman' + $t('action.openWindow')"
                   target="_blank"
                   ref="noreferrer noopener"
@@ -190,7 +190,7 @@
               </li>
               <li>
                 <nuxt-link
-                  to="https://piman.cc"
+                  to="https://bpio.gitbook.io/piman"
                   :title="
                     $t('action.goTo') +
                     'Piman Official Website' +
