@@ -17,7 +17,7 @@
       </ul>
     </div>
     <div class="card-hero">
-      <img :src="cardHeroImagePath" alt="" loading="lazy" />
+      <img :src="'/portfolio/' + cardHeroImagePath" alt="" loading="lazy" />
     </div>
   </div>
 
@@ -32,7 +32,7 @@
       </ul>
     </div>
     <div class="card-hero">
-      <img :src="cardHeroImagePath" alt="" loading="lazy" />
+      <img :src="'/portfolio/' + cardHeroImagePath" alt="" loading="lazy" />
     </div>
   </div>
 </template>

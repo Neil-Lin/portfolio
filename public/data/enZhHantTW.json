@@ -2,7 +2,7 @@
   {
     "code": "Piman",
     "image": {
-      "path": "/portfolio/images/piman-thumbnail.webp",
+      "path": "/images/piman-thumbnail.webp",
       "alt": "Piman - 無障礙 UI 框架"
     },
     "name": "Piman - 無障礙 UI 框架",
@@ -17,7 +17,7 @@
   {
     "code": "choose",
     "image": {
-      "path": "/portfolio/images/choose-chart-thumbnail.webp",
+      "path": "/images/choose-chart-thumbnail.webp",
       "alt": "Choose 蛛思：資料視覺化"
     },
     "name": "Choose 蛛思：資料視覺化",
@@ -32,7 +32,7 @@
   {
     "code": "scout",
     "image": {
-      "path": "/portfolio/images/scout-thumbnail.webp",
+      "path": "/images/scout-thumbnail.webp",
       "alt": "ΣCOUT 實告"
     },
     "name": "ΣCOUT 實告",
@@ -47,7 +47,7 @@
   {
     "code": "bpgcms",
     "image": {
-      "path": "/portfolio/images/bpgcms-thumbnail.webp",
+      "path": "/images/bpgcms-thumbnail.webp",
       "alt": "通用後台系統模版"
     },
     "name": "BPGCMS 通用後台系統模版",
@@ -62,7 +62,7 @@
   {
     "code": "vitalcrm-web",
     "image": {
-      "path": "/portfolio/images/vitalcrm-web-thumbnail.webp",
+      "path": "/images/vitalcrm-web-thumbnail.webp",
       "alt": "Vital CRM New Web 縮圖"
     },
     "name": "Vital CRM Web",
@@ -77,7 +77,7 @@
   {
     "code": "vitalttc",
     "image": {
-      "path": "/portfolio/images/ttc-thumbnail.webp",
+      "path": "/images/ttc-thumbnail.webp",
       "alt": "image description"
     },
     "name": "Vital TTC 物聯客",
@@ -92,7 +92,7 @@
   {
     "code": "vitalsespsurvey",
     "image": {
-      "path": "/portfolio/images/vitalsespsurvey-thumbnail.webp",
+      "path": "/images/vitalsespsurvey-thumbnail.webp",
       "alt": "Vitals ESP Survey thumbnail"
     },
     "name": "Vitals ESP Survey",
@@ -107,7 +107,7 @@
   {
     "code": "vitaluikit",
     "image": {
-      "path": "/portfolio/images/vitaluikit-thumbnail.webp",
+      "path": "/images/vitaluikit-thumbnail.webp",
       "alt": "Vital UI Kit thumbnail"
     },
     "name": "Vital UI Kit",
@@ -122,7 +122,7 @@
   {
     "code": "mpos",
     "image": {
-      "path": "/portfolio/images/KSI-mpos-thumbnail.webp",
+      "path": "/images/KSI-mpos-thumbnail.webp",
       "alt": "KSI mPOS thumbnail"
     },
     "name": "KSI mPOS",
@@ -137,7 +137,7 @@
   {
     "code": "vitalcrm-app",
     "image": {
-      "path": "/portfolio/images/vitalcrm-app-thumbnail.webp",
+      "path": "/images/vitalcrm-app-thumbnail.webp",
       "alt": "Vital CRM APP thumbnail"
     },
     "name": "Vital CRM APP",
