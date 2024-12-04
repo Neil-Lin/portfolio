@@ -1,1 +1,0 @@
-import{f as t,r as o,l as a,o as s,c}from"./C7Edwgt_.js";const r=["title"],u=t({__name:"akContainer",setup(i){const e=o(null);return a(()=>{e.value&&e.value.focus()}),(n,f)=>(s(),c("a",{ref_key:"focusableLink",ref:e,id:"ak-container",href:"#ak-container",title:n.$t("shortcut.mainContent"),accesskey:"C"}," ::: ",8,r))}});export{u as _};
