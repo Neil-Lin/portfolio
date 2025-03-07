@@ -1,0 +1,278 @@
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  .loading-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    @media screen and (width <= 768px) {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+  }
+  .loader {
+    border: 1rem solid oklch(var(--loader-bg));
+    box-shadow:
+      0.25rem 0.25rem 2rem oklch(var(--loader-box-shadow-color) / 0.15),
+      inset 0 0.25rem 1rem oklch(var(--loader-box-shadow-color) / 0.15);
+    border-radius: 50%;
+    border-top: 1rem solid oklch(var(--loader-border-color));
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto;
+    animation: spin 2s linear infinite;
+  }
+}
+
+.noscript {
+  position: fixed;
+  top: 1rem;
+  left: calc(50% - 150px);
+  width: 300px;
+  background-color: oklch(var(--noscript-bg));
+  border-radius: 0.25rem;
+  padding: 1rem;
+  box-shadow: 0 0.25rem 1rem oklch(var(--noscript-box-shadow-color) / 0.15);
+  z-index: 9999;
+}
+
+.btn-back-to-top {
+  position: fixed;
+  bottom: 2dvh;
+  right: 2dvw;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  text-align: center;
+  padding: 0;
+  font-size: 2rem;
+  color: transparent;
+  text-shadow: 0 0 0 oklch(var(--color-white));
+}
+
+.group-list {
+  position: relative;
+  &.group-list--top {
+    margin-top: 2rem;
+  }
+  &.group-list--bottom-space {
+    padding-bottom: 2rem;
+    .group-year-present {
+      bottom: 0;
+    }
+  }
+  &.group-list--top-space {
+    padding-top: 2rem;
+  }
+}
+
+.group-year-present {
+  position: absolute;
+  left: -2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  transform: translate(-50%, 0);
+  color: oklch(var(--color-gray-900));
+  text-transform: capitalize;
+}
+
+.product-area {
+  position: relative;
+}
+
+.group-year {
+  position: absolute;
+  right: calc(100% + 4rem);
+  width: max-content;
+  font-size: 1.5rem;
+  font-weight: bold;
+  height: 100%;
+  @media screen and (width <= 1024px) {
+    writing-mode: sideways-lr;
+  }
+  @media screen and (width <= 768px) {
+    font-size: 1rem;
+    right: calc(100% + 3rem);
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    height: calc(100% - 0.5rem);
+    width: 1px;
+    background-color: oklch(var(--border-color));
+    right: -2rem;
+    @media screen and (width <= 768px) {
+      right: -1rem;
+    }
+  }
+  &:after {
+    position: absolute;
+    content: '';
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: oklch(var(--color-primary));
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+    right: -2rem;
+    @media screen and (width <= 768px) {
+      right: -1rem;
+    }
+  }
+  &.group-year--top {
+    top: -0.5rem;
+    @media screen and (width <= 1024px) {
+      text-align: right;
+    }
+    &:before {
+      top: 1.25rem;
+    }
+    &:after {
+      top: 1.375rem;
+    }
+  }
+  &.group-year--bottom {
+    bottom: -2.5rem;
+    display: flex;
+    align-items: flex-end;
+    &:before {
+      bottom: 1.25rem;
+    }
+    &:after {
+      bottom: 0;
+    }
+  }
+  
+ 
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  position: relative;
+  padding: 2rem 0 0;
+  .product-item {
+    flex-basis: calc(50% - 1rem);
+    @media screen and (width <= 1024px) {
+      flex-basis: 100%;
+    }
+    &:first-child {
+      flex-basis: 100%;
+      .product-img {
+        height: auto;
+      }
+    }
+    @supports (animation-timeline: view()) {
+      animation-name: fade-exit;
+      animation-timing-function: ease-out;
+      /* requires this to apply the animation */
+      animation-duration: 1ms;
+      animation-timeline: view();
+      /* must have */
+      animation-fill-mode: both;
+    }
+  }
+  .product-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .product-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1.5rem;
+    background-color: oklch(var(--color-white));
+    padding: 3rem;
+    border-radius: 1.5rem;
+    width: 100%;
+    text-decoration: none;
+    @media screen and (width <= 768px) {
+      padding: 1.25rem;
+    }
+    &.product-link--disabled {
+      pointer-events: none;
+      opacity: 0.4;
+    }
+  }
+  .product-title {
+    color: oklch(var(--color-primary));
+    margin-bottom: 0;
+  }
+  .product-intro {
+    font-size: 1.125rem;
+    p {
+      margin-bottom: 0;
+    }
+    @media screen and (width <= 768px) {
+      font-size: 1rem;
+    }
+  }
+  .product-img {
+    width: 100%;
+    height: 15dvh;
+    object-fit: cover;
+    border-radius: 1rem;
+    @media screen and (width <= 1920px) {
+      /* height: 10dvh; */
+    }
+  }
+  .product-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    @media screen and (width <= 768px) {
+      gap: 0.25rem;
+    }
+  }
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  @media screen and (width <= 1280px) {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  >div {
+    display: flex;
+    align-items: center;
+    @media screen and (width <= 1280px) {
+      flex-direction: column;
+    }
+    @media screen and (width <= 768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: calc(50% - 0.5rem);
+    }
+  }
+  select {
+    @media screen and (width <= 768px) {
+     width: 100%!important;
+    
+    }
+  }
+}
+
+.animation-fade-out {
+  @supports (animation-timeline: view()) {
+    animation-name: fade-exit;
+    animation-timing-function: ease-out;
+    /* requires this to apply the animation */
+    animation-duration: 1ms;
+    animation-timeline: view();
+    /* must have */
+    animation-fill-mode: both;
+  }
+}

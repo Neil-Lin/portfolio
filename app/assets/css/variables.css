@@ -1,0 +1,47 @@
+:root {
+  --color-black: 24.78% 0 0;
+  --color-white: 100% 0 0;
+  --color-gray-900: 30% 0 0;
+  --color-gray-700: 44.95% 0 0;
+  --breakpoint-320: 320px;
+  --breakpoint-375: 375px;
+  --breakpoint-560: 560px;
+  --breakpoint-768: 768px;
+  --breakpoint-960: 960px;
+  --breakpoint-1280: 1280px;
+  --breakpoint-1440: 1440px;
+  --breakpoint-1600: 1600px;
+  --breakpoint-1920: 1920px;
+  --font-size-base: 1.0625rem;
+  --font-family: system-ui,Helvetica,Arial,"Noto Sans TC",sans-serif;
+  --color-primary: 46.16% .146 294.72;
+  --color-primary-modified: 98.16% .05 294.72;
+  --color-success: 79.21% .153 117.53;
+  --color-warning: 70% .222 41.29;
+  --color-danger: 56.18% .227 24.35;
+  --color-visited: 30% .2 283.95;
+  --outline-color: 83% .17 82.04;
+  --border-color: 79.21% 0 0;
+  --link-color: var(--color-primary);
+  --box-shadow: 0 .75rem 1.125rem oklch(var(--color-black)/15%);
+  --wrapper-bg: 98.51% 0 0;
+  --wrapper-color: var(--color-gray);
+  --title-color: var(--color-black);
+  --header-bg: var(--color-white);
+  --skip-btn-color: var(--color-white);
+  --skip-btn-bg: var(--color-black);
+  --menubar-mobile-bg: var(--color-white);
+  --footer-bg: var(--color-black);
+  --footer-color: var(--color-white);
+  --footer-link-color: var(--color-white);
+  --footer-border-color: var(--border-color);
+  --empty-block-border-color: var(--color-primary);
+  --table-bg: var(--color-white);
+  --card-bg: var(--color-white);
+  --card-title-color: var(--color-black);
+  --card-des-color: 50% 0 0;
+  --breadcrumb-color: var(--color-black);
+  --noscript-bg: var(--color-white);
+  --intro-color: var(--color-black)
+}
+
