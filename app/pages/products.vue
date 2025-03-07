@@ -77,8 +77,9 @@
                   </h3>
                   <div class="product-content">
                     <img
-                      :src="product.heroImage[$i18n.locale][0]!.src"
-                      alt=""
+                      v-if="product.heroImage[$i18n.locale]?.[0]?.src"
+                      :src="`${runtimeConfig.public.baseUrl}${product.heroImage[$i18n.locale][0].src}`"
+                      :alt="`${product.name[$i18n.locale]}`"
                       class="product-img"
                     />
                     <div
@@ -130,7 +131,7 @@
                   </h3>
                   <div class="product-content">
                     <img
-                      :src="product.heroImage[$i18n.locale][0]!.src"
+                      :src="`${runtimeConfig.public.baseUrl}${product.heroImage[$i18n.locale][0]!.src}`"
                       alt=""
                       class="product-img"
                     />

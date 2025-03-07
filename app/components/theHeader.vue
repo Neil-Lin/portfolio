@@ -17,7 +17,7 @@
 
         <div class="logo">
           <nuxt-link :to="localePath('/')" :title="$t('action.goToHomePage')">
-            <img src="/images/avatar.webp" :alt="$t('words.avatar')" />
+            <img src="@/assets/images/avatar.webp" :alt="$t('words.avatar')" />
             <div class="slogan intro">
               <span>{{ formatAMPM(new Date()) }}</span>
               <span>{{ $t("intro.greet") }}</span>
