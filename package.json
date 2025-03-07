@@ -13,7 +13,7 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint --ext .ts,.js,.vue .",
     "lint:fix": "eslint . --fix",
-    "deploy": "gh-pages -d dist -t true",
+    "deploy": "gh-pages -d dist",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,html,css,scss,json,md}\""
   },
   "dependencies": {
