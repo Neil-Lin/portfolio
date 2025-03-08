@@ -19,7 +19,7 @@
           </nuxt-link>
         </span>
       </template>
-      <span>&copy; copyright</span>
+      <span>&copy; Neil</span>
     </div>
   </footer>
 </template>
