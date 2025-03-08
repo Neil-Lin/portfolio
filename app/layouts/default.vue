@@ -65,7 +65,11 @@
     <Meta name="apple-mobile-web-app-title" :content="$t('website.name')" />
     <Meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-    <Link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <Link
+      rel="shortcut icon"
+      type="image/x-icon"
+      :href="`${runtimeConfig.public.baseUrl}/favicon.ico`"
+    />
     <Link rel="preconnect" href="https://fonts.googleapis.com" />
     <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
     <Link
@@ -112,7 +116,7 @@ useHead({
       : t("website.name");
   },
   link: [...(head.value.link || [])],
-  script: [{ src: "/js/clarity.js" }],
+  script: [{ src: runtimeConfig.public.baseUrl + "/js/clarity.js" }],
   meta: [...(head.value.meta || [])],
 });
 
