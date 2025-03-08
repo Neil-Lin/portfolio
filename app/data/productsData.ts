@@ -921,13 +921,13 @@ export const productsData = [
       "zh-Hant-TW": [
         {
           src: "/images/mpos-thumbnail.webp",
-          figcaption: "Vital CRM 客戶關係管理系統 App",
+          figcaption: "POS 系統示意圖",
         },
       ],
       en: [
         {
           src: "/images/mpos-thumbnail.webp",
-          figcaption: "Vital CRM App",
+          figcaption: "POS System",
         },
       ],
     },

@@ -65,6 +65,7 @@ export default {
     sitemap: "網站導覽",
     about: "關於我",
     products: "產品",
+    projects: "專案",
     blog: "部落格",
   },
   subMenu: {
@@ -111,7 +112,7 @@ export default {
     },
     sitemap: {
       p1: "本網站依無障礙網頁設計原則建置，網站的主要內容分為三大區塊：{0}{0}1. 頁首區塊、2.主要內容、3.頁尾區塊{0}{0}本網站的快速鍵(Accesskey)設定如下：",
-      p2: "{keyU}：頁首區塊，個人介紹。{n}{keyC}：主要內容。{n}{keyZ}：頁尾區塊，含語言切換。{n}",
+      p2: "{keyU}：頁首區塊，選單，含語言切換。{n}{keyC}：主要內容。{n}{keyZ}：頁尾區塊，含語言切換。{n}",
       p3: "如果您的瀏覽器是 Firefox，快速鍵的使用方法為 {firefoxKeyExample}，例如 {firefoxKeyExample2} 會跳至網頁主要內容，以此類推。{n}{n}另外，如果您是 MAC 用戶，快速鍵的使用方法為 {macKeyExample}。{n}{n}若以上方式皆無法使用，建議可以檢查是不是有自訂的快速鍵影響。",
       tableCaption: "各作業系統與瀏覽器快速鍵參考表",
       p4: "※ 當本網站項目頁籤無法以滑鼠點選時，您可利用以下鍵盤操作方式瀏覽資料：{n}{n} {keyLeftRight} 或 {keyUpDown}：按左右鍵或上下鍵移動標籤順序。{n}{n}{keyTab}： 停留於該標籤後，可利用 {keyTab} 鍵跳至內容瀏覽該筆資料，遇到單選按鈕(radio)時請配合使用 {keyLeftRight} 或 {keyUpDown} 鍵移動項目順序。{n}{n} {keyShiftTab}： 按 {keyShiftTab} 可往回跳至上一筆資料；當跳回至標籤項目時您可繼續利用 {keyLeftRight} 或 {keyUpDown} 鍵移動標籤順序。",

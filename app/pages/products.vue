@@ -35,7 +35,7 @@
         </div>
         <!-- 分組後的產品列表 -->
         <div
-          v-if="groupedProducts.length > 0"
+          v-if="groupedlist.length > 0"
           :class="[
             'group-list',
             sortOrder === 'desc'
@@ -46,15 +46,15 @@
         >
           <div class="group-year-present">{{ $t("words.today") }}</div>
           <div
-            v-for="group in groupedProducts"
+            v-for="group in groupedlist"
             :key="group.year"
-            class="product-area"
+            class="portfolio-area"
           >
-            <ul class="product-list">
+            <ul class="portfolio-list">
               <li
                 v-for="product in group.products"
                 :key="product.id"
-                class="product-item animation-fade-out"
+                class="portfolio-item animation-fade-out"
               >
                 <nuxt-link
                   v-if="product.clickable"
@@ -70,26 +70,26 @@
                     },
                   }"
                   :title="`${product.name![$i18n.locale]}`"
-                  class="product-link"
+                  class="portfolio-link"
                 >
-                  <h3 class="product-title">
+                  <h3 class="portfolio-title">
                     {{ product.name[$i18n.locale] }}
                   </h3>
-                  <div class="product-content">
+                  <div class="portfolio-content">
                     <img
                       v-if="product.heroImage[$i18n.locale]?.[0]?.src"
                       :src="`${runtimeConfig.public.baseUrl}${product.heroImage[$i18n.locale][0].src}`"
                       :alt="`${product.name[$i18n.locale]}`"
-                      class="product-img"
+                      class="portfolio-img"
                     />
                     <div
                       v-if="product.intro![$i18n.locale]"
-                      class="product-intro"
+                      class="portfolio-intro"
                     >
                       <p>{{ product.intro![$i18n.locale] }}</p>
                     </div>
                   </div>
-                  <div class="product-footer">
+                  <div class="portfolio-footer">
                     <span class="visually-hidden">相關標籤：</span>
                     <span class="tag">
                       <span class="visually-hidden">執行起始時間：</span>
@@ -125,24 +125,24 @@
                     </span>
                   </div>
                 </nuxt-link>
-                <div v-else class="product-link product-link--disabled">
-                  <h3 class="product-title">
+                <div v-else class="portfolio-link portfolio-link--disabled">
+                  <h3 class="portfolio-title">
                     {{ product.name[$i18n.locale] }}
                   </h3>
-                  <div class="product-content">
+                  <div class="portfolio-content">
                     <img
                       :src="`${runtimeConfig.public.baseUrl}${product.heroImage[$i18n.locale][0]!.src}`"
                       alt=""
-                      class="product-img"
+                      class="portfolio-img"
                     />
                     <div
                       v-if="product.intro![$i18n.locale]"
-                      class="product-intro"
+                      class="portfolio-intro"
                     >
                       <p>{{ product.intro![$i18n.locale] }}</p>
                     </div>
                   </div>
-                  <div class="product-footer">
+                  <div class="portfolio-footer">
                     <span class="visually-hidden">相關標籤：</span>
                     <span class="tag">
                       <span class="visually-hidden">執行起始時間：</span>
@@ -197,7 +197,7 @@
       <template v-if="route.params.name && isModal">
         <!-- 當 query.dialog 為 true 時，顯示列表與 dialog -->
         <!-- <template v-if="isModal"> -->
-        <dialog ref="productDialog" @cancel.prevent="closeProduct">
+        <dialog ref="lightBox" @cancel.prevent="closeProduct">
           <button
             type="button"
             class="btn btn--close-dialog"
@@ -224,7 +224,7 @@ const router = useRouter();
 const route = useRoute();
 const { locale } = useI18n();
 const localePath = useLocalePath();
-const productDialog = ref<HTMLDialogElement | null>(null);
+const lightBox = ref<HTMLDialogElement | null>(null);
 const products = ref(productsData);
 
 definePageMeta({
@@ -281,7 +281,7 @@ watch(
 );
 
 // 篩選產品 computed 屬性 (保留原有排序邏輯)
-const filteredProducts = computed(() => {
+const filteredList = computed(() => {
   return products.value
     .filter((p) => {
       const matchesRole =
@@ -303,10 +303,10 @@ const filteredProducts = computed(() => {
 });
 
 // 新增依據 yearRange.start 分組的 computed 屬性
-const groupedProducts = computed(() => {
+const groupedlist = computed(() => {
   const groups: { products: typeof products.value }[] = [];
 
-  filteredProducts.value.forEach((product) => {
+  filteredList.value.forEach((product) => {
     const year = product.yearRange.start;
     let group = groups.find((g) => g.year === year);
     if (!group) {
@@ -335,23 +335,9 @@ const formatYearRange = (yearRange: { start: number; end: number | null }) => {
     : `${yearRange.start} - ${yearRange.end}`;
 };
 
-// 點擊產品按鈕：帶入 encodedName 與 query.dialog 再導向
-const openProduct = async (product: { slug: string }) => {
-  const encodedName = encodeURIComponent(product.slug);
-  await router.push({
-    path: localePath(`/products/${encodedName}`),
-    query: {
-      dialog: "true",
-      role: selectedRole.value || undefined,
-      platform: selectedPlatform.value || undefined,
-      sortOrder: sortOrder.value || undefined,
-    },
-  });
-};
-
 // 關閉 dialog 時，導向至 "/products" 清除 encodedName 與 query 參數
 const closeProduct = async () => {
-  productDialog.value?.close();
+  lightBox.value?.close();
   await router.replace({
     path: localePath("/products"),
     query: {
@@ -367,7 +353,7 @@ watch(
   () => route.fullPath,
   () => {
     if (!isModal.value) {
-      productDialog.value?.close();
+      lightBox.value?.close();
     }
   }
 );
@@ -376,13 +362,13 @@ watch(
 watch(isModal, async (modal) => {
   if (modal) {
     await nextTick();
-    productDialog.value?.showModal();
+    lightBox.value?.showModal();
   }
 });
 
 onMounted(() => {
   if (isModal.value) {
-    productDialog.value?.showModal();
+    lightBox.value?.showModal();
   }
 });
 

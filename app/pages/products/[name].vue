@@ -1,5 +1,5 @@
 <template>
-  <div v-if="product && product.clickable === true" class="product-detail">
+  <div v-if="product && product.clickable === true" class="portfolio-detail">
     <h2 v-if="product.name">{{ product.name[$i18n.locale] }}</h2>
 
     <figure v-if="product.heroImage[$i18n.locale][0]!.src" class="hero-img">
@@ -220,7 +220,7 @@ useHead({
 </script>
 
 <style scoped>
-.product-detail {
+.portfolio-detail {
   max-width: 1440px;
   margin: 0 auto;
   padding: 2rem;

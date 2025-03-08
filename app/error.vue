@@ -10,7 +10,7 @@
         </p>
       </div>
       <div v-else>
-        <p>{{ t("error.message") }}</p>
+        <p>{{ error.message }}</p>
       </div>
     </main>
   </NuxtLayout>

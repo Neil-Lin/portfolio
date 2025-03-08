@@ -80,6 +80,10 @@ const mainMenuList = computed(() => [
     title: t("mainMenu.products"),
   },
   {
+    link: "/projects",
+    title: t("mainMenu.projects"),
+  },
+  {
     link: "/blog",
     title: t("mainMenu.blog"),
   },
