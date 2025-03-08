@@ -225,7 +225,7 @@ useHead({
   margin: 0 auto;
   padding: 2rem;
   @media screen and (width <= 768px) {
-    padding: 1rem;
+    padding: 0;
   }
   .hero-img {
     img {
