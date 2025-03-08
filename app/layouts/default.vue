@@ -37,7 +37,7 @@
     <Meta
       hid="og:image"
       property="og:image"
-      :content="runtimeConfig.public.baseUrl + '/images/social-media.png'"
+      content="https://neil-lin.github.io/portfolio/images/social-media.png"
     />
     <Meta name="twitter:card" content="summary_large_image" />
     <Meta
@@ -58,17 +58,18 @@
     <Meta
       hid="twitter:image"
       name="twitter:image"
-      :content="runtimeConfig.public.baseUrl + '/images/social-media.png'"
+      content="https://neil-lin.github.io/portfolio/images/social-media.png"
     />
     <Meta name="mobile-web-app-capable" content="yes" />
     <Meta name="apple-touch-fullscreen" content="yes" />
     <Meta name="apple-mobile-web-app-title" :content="$t('website.name')" />
     <Meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
+    <Link rel="canonical" href="https://neil-lin.github.io/portfolio" />
     <Link
       rel="shortcut icon"
       type="image/x-icon"
-      :href="`${runtimeConfig.public.baseUrl}/favicon.ico`"
+      href="https://neil-lin.github.io/portfolio/favicon.ico"
     />
     <Link rel="preconnect" href="https://fonts.googleapis.com" />
     <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
