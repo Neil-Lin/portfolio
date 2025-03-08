@@ -129,7 +129,10 @@
       <div v-if="product.videos">
         <div v-for="(item, index) in product.videos[$i18n.locale]" :key="index">
           <video :title="item.title" controls>
-            <source :src="item.src" type="video/mp4" />
+            <source
+              :src="`${runtimeConfig.public.baseUrl}${item.src}`"
+              type="video/mp4"
+            />
             您的瀏覽器沒有支援 / Your browser does not support the video tag.
           </video>
         </div>
@@ -221,6 +224,9 @@ useHead({
   max-width: 1440px;
   margin: 0 auto;
   padding: 2rem;
+  @media screen and (width <= 768px) {
+    padding: 1rem;
+  }
   .hero-img {
     img {
       width: 100%;

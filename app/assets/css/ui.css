@@ -74,6 +74,9 @@ video {
 
 dialog {
   overscroll-behavior: contain;
+  @media screen and (width <= 768px) {
+    max-width: calc(100% - 1em - 6px);
+  }
 }
 
 a {

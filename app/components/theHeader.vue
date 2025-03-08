@@ -1,5 +1,5 @@
 <template>
-  <header :class="headerClass">
+  <header :class="[headerClass, isScrolled ? 'scrolled' : '']">
     <a id="ak-jump" href="#ak-container" :title="$t('shortcut.skipToContent')">
       {{ $t("shortcut.skipToContent") }}
     </a>
@@ -90,8 +90,38 @@ const headerClass = computed(() => {
   if (route.path === "/" || route.path === "/en") {
     return;
   } else {
-    return "collasped";
+    return "collapsed";
   }
+});
+
+const isScrolled = ref(false);
+let lastScrollPosition = 0; // 儲存最後的滾動位置
+const scrollUpThreshold = 10; // 向上滾動的閾值
+
+const handleScroll = () => {
+  const headerHeight =
+    document.querySelector("header")?.getBoundingClientRect().height || 0;
+  const currentScrollPosition = window.scrollY;
+
+  if (currentScrollPosition > headerHeight) {
+    // 若滾動超過 header 高度且向下滾動，isScrolled 設為 true
+    if (currentScrollPosition > lastScrollPosition) {
+      isScrolled.value = true;
+    } else if (lastScrollPosition - currentScrollPosition > scrollUpThreshold) {
+      // 向上滾動超過閾值，將 isScrolled 設為 false
+      isScrolled.value = false;
+    }
+  } else {
+    // 若滾動未超過 header 高度，則保持 isScrolled 為 false
+    isScrolled.value = false;
+  }
+
+  // 更新最後的滾動位置
+  lastScrollPosition = currentScrollPosition;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
 });
 </script>
 
@@ -100,13 +130,17 @@ header {
   width: 100%;
   margin: 0 auto;
   padding: 0 4rem 1.5rem;
+  transition: transform 120ms ease-in;
   @media screen and (width <= 768px) {
     padding: 0 0.5rem 1.5rem;
   }
-  &.collasped {
+  &.collapsed {
     position: sticky;
     top: 0;
     z-index: 1;
+    &.scrolled {
+      transform: translate3d(0, -100%, 0);
+    }
   }
 }
 
@@ -219,7 +253,7 @@ header {
       }
     }
   }
-  .collasped & {
+  .collapsed & {
     padding: 1rem;
     display: flex;
     justify-content: space-evenly;

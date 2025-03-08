@@ -1,5 +1,5 @@
 <template>
-  <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
+  <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir">
     <Meta charse="utf-8" />
     <Meta name="viewport" content="width=device-width, initial-scale=1" />
     <Meta
@@ -88,8 +88,8 @@
         <TheFooter />
       </div>
       <button
-        type="button"
         v-show="scrollDistance > 300"
+        type="button"
         class="btn-back-to-top"
         @click="scrollToTop"
       >
