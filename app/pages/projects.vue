@@ -9,8 +9,8 @@
       <!-- 🔽 篩選區塊 -->
       <div class="filters">
         <div>
-          <label for="sortOrder">{{ $t("words.sort") }}：</label>
-          <select id="sortOrder" v-model="sortOrder">
+          <label for="sortorder">{{ $t("words.sort") }}：</label>
+          <select id="sortorder" v-model="sortorder">
             <option value="desc">{{ $t("words.newToOld") }}</option>
             <option value="asc">{{ $t("words.oldToNew") }}</option>
           </select>
@@ -38,7 +38,7 @@
         v-if="groupedlist.length > 0"
         :class="[
           'group-list',
-          sortOrder === 'desc'
+          sortorder === 'desc'
             ? 'group-list--top-space'
             : 'group-list--bottom-space',
         ]"
@@ -181,7 +181,7 @@
           <div
             :class="[
               'group-year',
-              sortOrder === 'desc' ? 'group-year--bottom' : 'group-year--top',
+              sortorder === 'desc' ? 'group-year--bottom' : 'group-year--top',
             ]"
           >
             {{ group.year }}
@@ -194,7 +194,7 @@
 </template>
 
 <script setup lang="ts">
-import projectsData from "~/data/projectsData";
+import projectsData from "~~/data/projectsData";
 const { t } = useI18n();
 const router = useRouter();
 const route = useRoute();
@@ -206,8 +206,8 @@ definePageMeta({
 });
 
 // 新增排序狀態，預設為新到舊 (desc)
-const sortOrder = ref(
-  route.query.sortOrder ? String(route.query.sortOrder) : "desc"
+const sortorder = ref(
+  route.query.sortorder ? String(route.query.sortorder) : "desc"
 );
 
 // **從網址讀取篩選條件**
@@ -232,13 +232,13 @@ const updateQueryParams = () => {
     query: {
       role: selectedRole.value || undefined,
       platform: selectedPlatform.value || undefined,
-      sortOrder: sortOrder.value || undefined,
+      sortorder: sortorder.value || undefined,
     },
   });
 };
 
 // 🔥 監聽篩選條件變化，更新網址參數
-watch([selectedRole, selectedPlatform, sortOrder], updateQueryParams);
+watch([selectedRole, selectedPlatform, sortorder], updateQueryParams);
 
 // 🔥 監聽網址 `query` 變化，當使用者修改網址時，自動更新篩選條件
 watch(
@@ -246,7 +246,7 @@ watch(
   (query) => {
     selectedRole.value = query.role ? String(query.role) : "";
     selectedPlatform.value = query.platform ? String(query.platform) : "";
-    sortOrder.value = query.sortOrder ? String(query.sortOrder) : "desc";
+    sortorder.value = query.sortorder ? String(query.sortorder) : "desc";
   }
 );
 
@@ -264,7 +264,7 @@ const filteredList = computed(() => {
       return matchesRole && matchesPlatform;
     })
     .sort((a, b) => {
-      if (sortOrder.value === "asc") {
+      if (sortorder.value === "asc") {
         return a.yearRange.start - b.yearRange.start;
       } else {
         return b.yearRange.start - a.yearRange.start;
@@ -286,9 +286,9 @@ const groupedlist = computed(() => {
     group.projects.push(project);
   });
 
-  // 根據 sortOrder 排序分組，若為 asc 則由小到大，否則由大到小
+  // 根據 sortorder 排序分組，若為 asc 則由小到大，否則由大到小
   groups.sort((a, b) => {
-    if (sortOrder.value === "asc") {
+    if (sortorder.value === "asc") {
       return a.year - b.year;
     } else {
       return b.year - a.year;

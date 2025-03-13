@@ -191,7 +191,7 @@
 
 <script setup lang="ts">
 import { useRoute } from "vue-router";
-import productsData from "~/data/productsData";
+import productsData from "~~/data/productsData";
 const { t, locale } = useI18n();
 const localePath = useLocalePath();
 // const { country } = useUserLocation();
@@ -216,6 +216,43 @@ const product = computed(() => {
 
 useHead({
   title: product.value ? product.value.name[locale.value] : t("error.notFound"),
+  meta: [
+    {
+      hid: "description",
+      name: "description",
+      content: product.value.summary[locale.value],
+    },
+    {
+      hid: "og:url",
+      property: "og:url",
+      content: runtimeConfig.public.baseUrl + route.path,
+    },
+    {
+      hid: "og:title",
+      property: "og:title",
+      content: product.value.name[locale.value],
+    },
+    {
+      hid: "og:description",
+      property: "og:description",
+      content: product.value.summary[locale.value],
+    },
+    {
+      hid: "twitter:url",
+      name: "twitter:url",
+      content: runtimeConfig.public.baseUrl + route.path,
+    },
+    {
+      hid: "twitter:title",
+      name: "twitter:title",
+      content: product.value.name[locale.value],
+    },
+    {
+      hid: "twitter:description",
+      name: "twitter:description",
+      content: product.value.summary[locale.value],
+    },
+  ],
 });
 </script>
 

@@ -4,7 +4,7 @@ import zhHantTW from "./i18n/lang/zh-Hant-TW";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
-    baseURL: "/portfolio/",
+    baseURL: "/portfolio",
   },
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     // "@vite-pwa/nuxt",
     "@nuxtjs/i18n",
     "@nuxtjs/html-validator",
+    "@nuxtjs/seo",
   ],
 
   gtag: {
@@ -113,7 +114,6 @@ export default defineNuxtConfig({
 
   i18n: {
     vueI18n: "./i18n.config.ts",
-    baseUrl: "/",
     locales: [
       {
         code: "zh-Hant-TW",
@@ -150,9 +150,7 @@ export default defineNuxtConfig({
     env: "",
     baseUrl: process.env.NUXT_PUBLIC_BASE_URL || "http://localhost:3000",
     public: {
-      baseUrl:
-        process.env.NUXT_PUBLIC_BASE_URL ||
-        "https://neil-lin.github.io/portfolio",
+      baseUrl: process.env.NUXT_PUBLIC_BASE_URL || "http://localhost:3000",
       websiteName: {
         "zh-Hant-TW":
           process.env.NUXT_PUBLIC_WEBSITE_NAME_ZHHANTTW ||
@@ -165,5 +163,15 @@ export default defineNuxtConfig({
         en: process.env.NUXT_PUBLIC_WEBSITE_DES_EN || enUS.website.des,
       },
     },
+  },
+
+  robots: { robotsTxt: false },
+
+  site: {
+    url: process.env.NUXT_PUBLIC_BASE_URL || "http://localhost:3000",
+  },
+
+  sitemap: {
+    sources: ["/api/__sitemap__/urls"],
   },
 });
