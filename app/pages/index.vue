@@ -151,7 +151,7 @@ const experienceList = computed(() => [
 }
 
 .card {
-  background-color: oklch(var(--color-white));
+  background-color: oklch(var(--card-bg));
   border-radius: 1.5rem;
   padding: 3rem;
   position: relative;
@@ -217,7 +217,7 @@ const experienceList = computed(() => [
 
 ul,
 ol {
-  color: oklch(var(--color-gray-700));
+  color: oklch(var(--wrapper-color));
   list-style: inherit;
   padding-left: 20px;
 }

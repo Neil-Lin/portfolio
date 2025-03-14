@@ -80,7 +80,7 @@
   font-size: 1rem;
   font-weight: bold;
   transform: translate(-50%, 0);
-  color: oklch(var(--color-gray-900));
+  color: oklch(var(--wrapper-color));
   text-transform: capitalize;
 }
 
@@ -191,7 +191,7 @@
     flex-direction: column;
     height: 100%;
     gap: 1.5rem;
-    background-color: oklch(var(--color-white));
+    background-color: oklch(var(--card-bg));
     padding: 3rem;
     border-radius: 1.5rem;
     width: 100%;
@@ -208,7 +208,7 @@
     }
   }
   .portfolio-title {
-    color: oklch(var(--color-primary));
+    color: oklch(var(--portfolio-title-color));
     margin-bottom: 0;
   }
   .portfolio-intro {

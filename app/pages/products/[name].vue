@@ -297,7 +297,7 @@ section {
   ol {
     list-style: initial;
     padding-left: 20px;
-    color: oklch(var(--color-gray-700));
+    color: oklch(var(--wrapper-color));
     li {
       margin-bottom: 0.5rem;
     }

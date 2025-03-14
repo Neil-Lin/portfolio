@@ -37,9 +37,9 @@ footer {
     display: flex;
     gap: 1rem;
     justify-content: center;
-    color: oklch(var(--color-gray-700));
+    color: oklch(var(--footer-color));
     border-top: 1px solid oklch(var(--border-color) / 0.5);
-    background-color: oklch(var(--color-white));
+    background-color: oklch(var(--footer-bg));
     @media screen and (width <= 768px) {
       flex-direction: column;
     }

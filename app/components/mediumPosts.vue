@@ -66,7 +66,7 @@ const posts = computed<MediumPost[]>(() => {
 .blog-item {
   padding: 1.5rem;
   display: flex;
-  background-color: oklch(var(--color-white));
+  background-color: oklch(var(--card-bg));
   border-radius: 1.5rem;
   flex-direction: column;
   @supports (animation-timeline: view()) {

@@ -68,5 +68,5 @@
   font-size: .75rem;
   padding: .125rem .5rem;
   vertical-align: middle;
-  color: oklch(var(--color-gray-700));
+  color: oklch(var( --wrapper-color));
 }

@@ -115,7 +115,7 @@ a {
 
 p {
   max-width: 80ch;
-  color: oklch(var(--color-gray-700));
+  color: oklch(var(--wrapper-color));
   &+p {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -132,9 +132,12 @@ select {
   border-radius: .25rem;
   cursor: pointer;
   padding: .5rem 2rem .5rem .75rem;
-  background-color: oklch(var(--color-white));
+  background-color: oklch(var(--input-bg));
   width: max-content;
   outline: none;
+  @media (prefers-color-scheme: dark) {
+    background-image: url(@/assets/images/angle-down-solid-white.svg);
+  }
   &:focus-visible {
     box-shadow: 0 0 0 4px oklch(var(--outline-color));
   }
@@ -150,7 +153,7 @@ table {
     padding: 0.5rem 1rem;
     font-weight: bold;
     border-right: 1px solid oklch(var(--border-color));
-    background-color: oklch(var(--color-primary-modified));
+    background-color: oklch(var(--table-th-bg));
     @media screen and (width <= 768px) {
       padding: 0.25rem 0.5rem;
     }
@@ -198,6 +201,7 @@ figcaption {
   max-width: 80ch;
   margin: 0.5rem auto;
   text-wrap: balance;
+  color: oklch(var(--wrapper-color));
 }
 
 
@@ -226,7 +230,7 @@ button[class^="btn"],
   }
   &.router-link-active,
   &.router-link-exact-active {
-    background-color: oklch(var(--color-black));
+    background-color: oklch(var(--router-active-bg));
   }
 }
 
@@ -256,6 +260,9 @@ button[class^="btn"],
 .wrapper {
   color:oklch(var(--wrapper-color));
   background: oklch(var(--wrapper-bg)) url("@/assets/images/sitename.svg") fixed no-repeat center bottom 10% / contain;
+  @media (prefers-color-scheme: dark) {
+    background-image: url("@/assets/images/sitename-dark.svg");
+  }
 }
 
 .layout {

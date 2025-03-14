@@ -1,8 +1,10 @@
 :root {
+  --color-deep-black: 0% 0 0;
   --color-black: 24.78% 0 0;
   --color-white: 100% 0 0;
   --color-gray-900: 30% 0 0;
   --color-gray-700: 44.95% 0 0;
+  --color-gray-300: 80% 0 0;
   --breakpoint-320: 320px;
   --breakpoint-375: 375px;
   --breakpoint-560: 560px;
@@ -21,27 +23,68 @@
   --color-danger: 56.18% .227 24.35;
   --color-visited: 30% .2 283.95;
   --outline-color: 83% .17 82.04;
+
   --border-color: 79.21% 0 0;
   --link-color: var(--color-primary);
   --box-shadow: 0 .75rem 1.125rem oklch(var(--color-black)/15%);
+
   --wrapper-bg: 98.51% 0 0;
-  --wrapper-color: var(--color-gray);
+  --wrapper-color: var(--color-gray-700);
+
   --title-color: var(--color-black);
+
   --header-bg: var(--color-white);
+
   --skip-btn-color: var(--color-white);
   --skip-btn-bg: var(--color-black);
-  --menubar-mobile-bg: var(--color-white);
-  --footer-bg: var(--color-black);
-  --footer-color: var(--color-white);
-  --footer-link-color: var(--color-white);
-  --footer-border-color: var(--border-color);
+
+  --footer-bg: var(--color-white);
+  --footer-color: var(--color-black);
+
   --empty-block-border-color: var(--color-primary);
+
   --table-bg: var(--color-white);
+  --table-th-bg: var(--color-primary-modified);
+
   --card-bg: var(--color-white);
-  --card-title-color: var(--color-black);
-  --card-des-color: 50% 0 0;
-  --breadcrumb-color: var(--color-black);
-  --noscript-bg: var(--color-white);
-  --intro-color: var(--color-black)
+
+  --portfolio-title-color: var(--link-color);
+
+  --router-active-bg: var(--color-black);
+
+  --input-bg: var(--color-white);
+
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-visited: 80% 0 0;
+    --border-color: 35% 0 0;
+    --link-color: 95% 0 0;
+    --box-shadow: 0 0.75rem 1.125rem oklch(var(--color-white) / 15%);
+
+    --wrapper-bg: var(--color-black);
+    --wrapper-color: var(--color-gray-300);
+
+    --title-color: var(--wrapper-color);
+
+    --header-bg: var(--color-deep-black);
+
+    --footer-bg: var(--color-black);
+    --footer-color: var(--color-white);
+
+    --empty-block-border-color: var(--color-white);
+
+    --table-bg: var(--color-black);
+    --table-th-bg: var(--color-deep-black);
+
+    --card-bg: var(--color-deep-black);
+
+    --router-active-bg: var(--color-black);
+
+    --input-bg: var(--color-deep-black);
+  }
+}
+
 

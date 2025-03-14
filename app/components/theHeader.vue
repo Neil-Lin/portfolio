@@ -232,6 +232,9 @@ header {
         text-transform: capitalize;
         position: relative;
         &.router-link-active {
+          @media (prefers-color-scheme: dark) {
+            border: 2px solid oklch(var(--border-color));
+          }
           &:before {
             content: "👀";
             position: absolute;
@@ -262,6 +265,9 @@ header {
     display: flex;
     justify-content: space-evenly;
     box-shadow: var(--box-shadow);
+    @media (prefers-color-scheme: dark) {
+      box-shadow: none;
+    }
     @media screen and (width <= 1280px) {
       display: block;
       white-space: nowrap;
