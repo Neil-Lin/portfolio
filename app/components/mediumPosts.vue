@@ -49,7 +49,7 @@ const posts = computed<MediumPost[]>(() => {
         title: item.title,
         link: item.link,
         description:
-          item.description.replace(/<[^>]+>/g, "").substring(0, 80) + "...", // 移除 HTML 標籤並截取前 150 個字元
+          item.description.replace(/<[^>]+>/g, "").substring(0, 80) + "...", // 移除 HTML 標籤並截取前 80 個字元
       }));
   }
   return [];

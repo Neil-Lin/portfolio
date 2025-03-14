@@ -200,6 +200,9 @@ const router = useRouter();
 const route = useRoute();
 const { locale } = useI18n();
 const projects = ref(projectsData);
+const pageTitle = computed(() => t("words.projects"));
+const pageDescription = computed(() => t("words.careerWorks"));
+const runtimeConfig = useRuntimeConfig();
 
 definePageMeta({
   scrollToTop: false,
@@ -305,10 +308,47 @@ const formatYearRange = (yearRange: { start: number; end: number | null }) => {
     : `${yearRange.start} - ${yearRange.end}`;
 };
 
-// SEO
-const pageTitle = computed(() => t("words.projects"));
-const pageDescription = computed(() => t("words.careerWorks"));
-const runtimeConfig = useRuntimeConfig();
+// 🔥 設定 Schema.org 資料
+useSchemaOrg([
+  // 作品集列表 (ItemList)
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${runtimeConfig.public.baseUrl}${route.path}#projectsList`,
+    name: t("words.portfolio"),
+    description: pageDescription.value,
+    url: `${runtimeConfig.public.baseUrl}${route.path}`,
+    numberOfItems: projectsData.length,
+    itemListElement: projectsData.map((work, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${runtimeConfig.public.baseUrl}/projects/${work.slug}`,
+      item: {
+        "@type": "CreativeWork",
+        "@id": `${runtimeConfig.public.baseUrl}/projects/${work.slug}#creativework`,
+        name: work.name[locale.value],
+        description: work.intro?.[locale.value] || "",
+        image: work.heroImage?.[locale.value]?.[0]?.src
+          ? `${runtimeConfig.public.baseUrl}${work.heroImage[locale.value][0]?.src}`
+          : undefined, // 若無圖片則不顯示 `image` 欄位
+        creator: {
+          "@type": "Person",
+          name: "Neil",
+          url: runtimeConfig.public.baseUrl,
+        },
+        datePublished: work.yearRange.start,
+        dateModified: work.yearRange.end ?? new Date().getFullYear(),
+        url: `${runtimeConfig.public.baseUrl}/projects/${work.slug}`,
+        inLanguage: locale.value,
+        keywords: work.roles[locale.value].join(", "),
+        audience: {
+          "@type": "EducationalAudience",
+          educationalRole: "Designer, Developer",
+        },
+      },
+    })),
+  },
+]);
 
 useHead({
   title: pageTitle,

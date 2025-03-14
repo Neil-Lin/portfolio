@@ -219,13 +219,15 @@
 
 <script setup lang="ts">
 import productsData from "~~/data/productsData";
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const router = useRouter();
 const route = useRoute();
-const { locale } = useI18n();
 const localePath = useLocalePath();
 const lightBox = ref<HTMLDialogElement | null>(null);
 const products = ref(productsData);
+const runtimeConfig = useRuntimeConfig();
+const pageTitle = computed(() => t("words.products"));
+const pageDescription = computed(() => t("words.careerWorks"));
 
 definePageMeta({
   scrollToTop: false,
@@ -372,10 +374,45 @@ onMounted(() => {
   }
 });
 
-// SEO
-const pageTitle = computed(() => t("words.products"));
-const pageDescription = computed(() => t("words.careerWorks"));
-const runtimeConfig = useRuntimeConfig();
+// 🔥 設定 Schema.org 資料
+useSchemaOrg([
+  // 作品集列表 (ItemList)
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${runtimeConfig.public.baseUrl}${route.path}#productsList`,
+    name: t("words.portfolio"),
+    description: pageDescription.value,
+    url: `${runtimeConfig.public.baseUrl}${route.path}`,
+    numberOfItems: productsData.length,
+    itemListElement: productsData.map((work, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${runtimeConfig.public.baseUrl}/products/${work.slug}`,
+      item: {
+        "@type": "CreativeWork",
+        "@id": `${runtimeConfig.public.baseUrl}/products/${work.slug}#creativework`,
+        name: work.name[locale.value],
+        description: work.intro?.[locale.value] || "",
+        image: `${runtimeConfig.public.baseUrl}${work.heroImage[locale.value][0]?.src}`,
+        creator: {
+          "@type": "Person",
+          name: "Neil",
+          url: runtimeConfig.public.baseUrl,
+        },
+        datePublished: work.yearRange.start,
+        dateModified: work.yearRange.end ?? new Date().getFullYear(),
+        url: `${runtimeConfig.public.baseUrl}/products/${work.slug}`,
+        inLanguage: locale.value,
+        keywords: work.roles[locale.value].join(", "),
+        audience: {
+          "@type": "EducationalAudience",
+          educationalRole: "Designer, Developer",
+        },
+      },
+    })),
+  },
+]);
 
 useHead({
   title: pageTitle,
