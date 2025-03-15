@@ -17,7 +17,7 @@
             {{ post.title }}
           </nuxt-link>
         </h3>
-        <p>{{ post.description }}</p>
+        <p class="des">{{ post.description }}</p>
       </li>
     </ul>
   </div>
@@ -25,6 +25,7 @@
 
 <script setup lang="ts">
 interface MediumPost {
+  categories: string[];
   title: string;
   link: string;
   description: string;
@@ -37,19 +38,30 @@ const props = defineProps({
   },
 });
 
-const { data, pending, error } = await useFetch(
+const { data, pending, error } = await useFetch<{
+  status: string;
+  items: MediumPost[];
+}>(
   `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${props.username}`
 );
 
-const posts = computed<MediumPost[]>(() => {
+const stripHtml = (html: string) => {
+  if (import.meta.client) {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent || "";
+  } else {
+    return html.replace(/<\/?[^>]+(>|$)/g, ""); // 使用正則備用處理
+  }
+};
+
+const posts = computed(() => {
   if (data.value && data.value.status === "ok") {
     return data.value.items
-      .filter((item: { categories: string[] }) => item.categories.length > 0) // 排除非文章項目
-      .map((item: { title: string; link: string; description: string }) => ({
+      .filter((item) => item.categories.length > 0)
+      .map((item) => ({
         title: item.title,
         link: item.link,
-        description:
-          item.description.replace(/<[^>]+>/g, "").substring(0, 80) + "...", // 移除 HTML 標籤並截取前 80 個字元
+        description: stripHtml(item.description),
       }));
   }
   return [];
@@ -81,6 +93,13 @@ const posts = computed<MediumPost[]>(() => {
   a {
     text-decoration: none;
     text-wrap: pretty;
+  }
+  .des {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
   }
 }
 </style>
