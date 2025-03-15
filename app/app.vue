@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NuxtPwaAssets />
     <div v-if="loading" class="loading">
       <div class="loading-container">
         <div class="loader"></div>

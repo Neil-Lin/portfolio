@@ -4,7 +4,7 @@ import zhHantTW from "./i18n/lang/zh-Hant-TW";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
-    baseURL: "/portfolio",
+    baseURL: "/portfolio/",
   },
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/eslint",
     "nuxt-gtag",
-    // "@vite-pwa/nuxt",
+    "@vite-pwa/nuxt",
     "@nuxtjs/i18n",
     "@nuxtjs/html-validator",
     "@nuxtjs/seo",
@@ -25,92 +25,98 @@ export default defineNuxtConfig({
     id: "G-3JHEDXCEG0",
   },
 
-  // pwa: {
-  //   registerType: "autoUpdate",
-  //   manifest: {
-  //     id: "/",
-  //     start_url: "/",
-  //     name: "Neil 的作品集",
-  //     short_name: "Neil's Portfolio",
-  //     categories: [
-  //       "web design",
-  //       "accessibility",
-  //       "data visualization",
-  //       "UI",
-  //       "UX",
-  //     ],
-  //     shortcuts: [
-  //       {
-  //         name: "About 我的技能",
-  //         short_name: "About 關於",
-  //         url: "/about",
-  //         description: "List of events planned for today",
-  //         icons: [
-  //           {
-  //             src: "/favicon-96.png",
-  //             sizes: "96x96",
-  //             type: "image/png",
-  //           },
-  //         ],
-  //       },
-  //     ],
-  //     description: "Neil 的作品集",
-  //     theme_color: "#6042a0",
-  //     icons: [
-  //       {
-  //         src: "/favicon-32.png",
-  //         sizes: "32x32",
-  //         type: "image/png",
-  //       },
-  //       {
-  //         src: "/favicon-64.png",
-  //         sizes: "64x64",
-  //         type: "image/png",
-  //       },
-  //       {
-  //         src: "/favicon-96.png",
-  //         sizes: "96x96",
-  //         type: "image/png",
-  //       },
-  //       {
-  //         src: "/favicon-144.png",
-  //         sizes: "144x144",
-  //         type: "image/png",
-  //       },
-  //       {
-  //         src: "/favicon-192.png",
-  //         sizes: "192x192",
-  //         type: "image/png",
-  //       },
-  //       {
-  //         src: "/favicon-512.png",
-  //         sizes: "512x512",
-  //         type: "image/png",
-  //       },
-  //     ],
-  //     screenshots: [
-  //       {
-  //         src: "/images/splash/splash-640x1136.png",
-  //         type: "image/png",
-  //         sizes: "640x1136",
-  //         label: "Portfolio",
-  //       },
-  //       {
-  //         src: "/images/splash/splash-1242x2208.png",
-  //         type: "image/png",
-  //         sizes: "1242x2208",
-  //         label: "Portfolio",
-  //       },
-  //     ],
-  //   },
-  //   workbox: {
-  //     navigateFallback: "/",
-  //   },
-  //   devOptions: {
-  //     enabled: true,
-  //     type: "module",
-  //   },
-  // },
+  pwa: {
+    registerType: "autoUpdate",
+    manifest: {
+      id: "/",
+      start_url: process.env.NUXT_PUBLIC_BASE_URL,
+      name: "Neil 的作品集",
+      short_name: "Neil's Portfolio",
+      categories: [
+        "web design",
+        "accessibility",
+        "data visualization",
+        "UI",
+        "UX",
+      ],
+      shortcuts: [
+        {
+          name: "產品作品集",
+          short_name: "產品作品集",
+          url: process.env.NUXT_PUBLIC_BASE_URL + "/products",
+          description: "about products of portfolio",
+          icons: [
+            {
+              src: process.env.NUXT_PUBLIC_BASE_URL + "/favicon-96.png",
+              sizes: "96x96",
+              type: "image/png",
+            },
+          ],
+        },
+      ],
+      description: "Neil 的作品集",
+      theme_color: "#6042a0",
+      icons: [
+        {
+          src: process.env.NUXT_PUBLIC_BASE_URL + "/favicon-32.png",
+          sizes: "32x32",
+          type: "image/png",
+        },
+        {
+          src: process.env.NUXT_PUBLIC_BASE_URL + "/favicon-64.png",
+          sizes: "64x64",
+          type: "image/png",
+        },
+        {
+          src: process.env.NUXT_PUBLIC_BASE_URL + "/favicon-96.png",
+          sizes: "96x96",
+          type: "image/png",
+        },
+        {
+          src: process.env.NUXT_PUBLIC_BASE_URL + "/favicon-144.png",
+          sizes: "144x144",
+          type: "image/png",
+        },
+        {
+          src: process.env.NUXT_PUBLIC_BASE_URL + "/favicon-192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          src: process.env.NUXT_PUBLIC_BASE_URL + "/favicon-512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+      ],
+      screenshots: [
+        {
+          src:
+            process.env.NUXT_PUBLIC_BASE_URL +
+            "/images/splash/splash-640x1136.png",
+          type: "image/png",
+          sizes: "640x1136",
+          label: "Portfolio",
+        },
+        {
+          src:
+            process.env.NUXT_PUBLIC_BASE_URL +
+            "/images/splash/splash-1242x2208.png",
+          type: "image/png",
+          sizes: "1242x2208",
+          label: "Portfolio",
+        },
+      ],
+    },
+    workbox: {
+      cleanupOutdatedCaches: true,
+      navigateFallback: "/",
+    },
+    devOptions: {
+      enabled: false,
+      type: "module",
+      navigateFallbackAllowlist: [/^\/portfolio/, /^\/$/],
+    },
+  },
 
   i18n: {
     vueI18n: "./i18n.config.ts",
