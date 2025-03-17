@@ -1,338 +1,338 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/portfolio/__sitemap__/style.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio</loc>
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio" />
-        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/portfolio" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/portfolio/en" />
+        <loc>http://localhost:3000/portfolio</loc>
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio" />
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:3000/portfolio" />
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/portfolio/en" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/blog</loc>
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/blog" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/blog" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/blog" />
-        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/portfolio/blog" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/portfolio/en/blog" />
+        <loc>http://localhost:3000/portfolio/blog</loc>
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/blog" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/blog" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/blog" />
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:3000/portfolio/blog" />
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/portfolio/en/blog" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/en</loc>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/portfolio" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/portfolio/en" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio" />
+        <loc>http://localhost:3000/portfolio/en</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:3000/portfolio" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio" />
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/portfolio/en" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/portfolio</loc>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/portfolio" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/portfolio/en" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio" />
+        <loc>http://localhost:3000/portfolio/portfolio</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:3000/portfolio" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio" />
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/portfolio/en" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/products</loc>
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/products" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/products" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/products" />
-        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/portfolio/products" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/portfolio/en/products" />
+        <loc>http://localhost:3000/portfolio/products</loc>
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/products" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/products" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/products" />
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:3000/portfolio/products" />
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/portfolio/en/products" />
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/piman-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/piman-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/scout-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/scout-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/bpgcms-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/bpgcms-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vital-crm-new-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vital-crm-new-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/ttc-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/ttc-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitaluikit-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-app-thumbnail.webp</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/projects</loc>
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/projects" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/projects" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/projects" />
-        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/portfolio/projects" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/portfolio/en/projects" />
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/tycg-od-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/iofficeplus-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/taichung-od-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/report-website-issues-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/taipei-dashboard-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/moenv-od-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/daxiculture-thubnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/nmth-school-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/data-gov-tw-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/poinfo-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/luodongarchives-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/zhuzhan-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/228-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/nmth-portal-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/schema-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/1999taipei-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalcrm-app-thumbnail.webp</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/sitemap</loc>
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/sitemap" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/sitemap" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/sitemap" />
-        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/portfolio/sitemap" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/portfolio/en/sitemap" />
+        <loc>http://localhost:3000/portfolio/projects</loc>
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/projects" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/projects" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/projects" />
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:3000/portfolio/projects" />
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/portfolio/en/projects" />
+        <image:image>
+            <image:loc>http://localhost:3000/images/tycg-od-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/iofficeplus-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/taichung-od-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/report-website-issues-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/taipei-dashboard-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/moenv-od-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/daxiculture-thubnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/nmth-school-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/data-gov-tw-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/poinfo-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/luodongarchives-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/zhuzhan-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/228-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/nmth-portal-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/schema-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/1999taipei-thumbnail.webp</image:loc>
+        </image:image>
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/en/blog</loc>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/portfolio/blog" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/blog" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/portfolio/en/blog" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/blog" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/blog" />
+        <loc>http://localhost:3000/portfolio/sitemap</loc>
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/sitemap" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/sitemap" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/sitemap" />
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:3000/portfolio/sitemap" />
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/portfolio/en/sitemap" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/en/products</loc>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/piman-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/scout-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/bpgcms-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vital-crm-new-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/ttc-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-app-thumbnail.webp</image:loc>
-        </image:image>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/portfolio/products" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/products" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/portfolio/en/products" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/products" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/products" />
+        <loc>http://localhost:3000/portfolio/en/blog</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:3000/portfolio/blog" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/blog" />
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/portfolio/en/blog" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/blog" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/blog" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/en/projects</loc>
+        <loc>http://localhost:3000/portfolio/en/products</loc>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/tycg-od-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/piman-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/iofficeplus-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/taichung-od-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/scout-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/report-website-issues-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/bpgcms-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/taipei-dashboard-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vital-crm-new-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/moenv-od-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/ttc-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/daxiculture-thubnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/nmth-school-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitaluikit-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/data-gov-tw-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/poinfo-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalcrm-app-thumbnail.webp</image:loc>
         </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/luodongarchives-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/zhuzhan-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/228-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/nmth-portal-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/schema-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/1999taipei-thumbnail.webp</image:loc>
-        </image:image>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/portfolio/projects" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/projects" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/portfolio/en/projects" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/projects" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/projects" />
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:3000/portfolio/products" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/products" />
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/portfolio/en/products" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/products" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/products" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/en/sitemap</loc>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/portfolio/sitemap" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/sitemap" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/portfolio/en/sitemap" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/sitemap" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/sitemap" />
+        <loc>http://localhost:3000/portfolio/en/projects</loc>
+        <image:image>
+            <image:loc>http://localhost:3000/images/tycg-od-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/iofficeplus-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/taichung-od-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/report-website-issues-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/taipei-dashboard-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/moenv-od-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/daxiculture-thubnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/nmth-school-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/data-gov-tw-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/poinfo-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/luodongarchives-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/zhuzhan-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/228-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/nmth-portal-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/schema-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://localhost:3000/images/1999taipei-thumbnail.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:3000/portfolio/projects" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/projects" />
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/portfolio/en/projects" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/projects" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/projects" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/products/%25CE%25A3COUT</loc>
-        <lastmod>2025-03-15T16:30:20Z</lastmod>
+        <loc>http://localhost:3000/portfolio/en/sitemap</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:3000/portfolio/sitemap" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/sitemap" />
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/portfolio/en/sitemap" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/sitemap" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/sitemap" />
+    </url>
+    <url>
+        <loc>http://localhost:3000/portfolio/products/%25CE%25A3COUT</loc>
+        <lastmod>2025-03-17T05:00:24Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/products/%CE%A3COUT" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/products/%CE%A3COUT" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/products/%CE%A3COUT" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/products/%CE%A3COUT" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/products/%CE%A3COUT" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/products/%CE%A3COUT" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/products/bpgcms</loc>
-        <lastmod>2025-03-15T16:30:20Z</lastmod>
+        <loc>http://localhost:3000/portfolio/products/bpgcms</loc>
+        <lastmod>2025-03-17T05:00:24Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/products/bpgcms" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/products/bpgcms" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/products/bpgcms" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/products/bpgcms" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/products/bpgcms" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/products/bpgcms" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/products/choose-chart</loc>
-        <lastmod>2025-03-15T16:30:20Z</lastmod>
+        <loc>http://localhost:3000/portfolio/products/choose-chart</loc>
+        <lastmod>2025-03-17T05:00:24Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/products/choose-chart" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/products/choose-chart" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/products/choose-chart" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/products/choose-chart" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/products/choose-chart" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/products/choose-chart" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/products/mpos</loc>
-        <lastmod>2025-03-15T16:30:20Z</lastmod>
+        <loc>http://localhost:3000/portfolio/products/mpos</loc>
+        <lastmod>2025-03-17T05:00:24Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/products/mpos" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/products/mpos" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/products/mpos" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/products/mpos" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/products/mpos" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/products/mpos" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/products/piman</loc>
-        <lastmod>2025-03-15T16:30:20Z</lastmod>
+        <loc>http://localhost:3000/portfolio/products/piman</loc>
+        <lastmod>2025-03-17T05:00:24Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/products/piman" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/products/piman" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/products/piman" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/products/piman" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/products/piman" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/products/piman" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/products/vital-crm-app</loc>
-        <lastmod>2025-03-15T16:30:20Z</lastmod>
+        <loc>http://localhost:3000/portfolio/products/vital-crm-app</loc>
+        <lastmod>2025-03-17T05:00:24Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/products/vital-crm-app" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/products/vital-crm-app" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/products/vital-crm-app" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/products/vital-crm-app" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/products/vital-crm-app" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/products/vital-crm-app" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/products/vital-crm-new</loc>
-        <lastmod>2025-03-15T16:30:20Z</lastmod>
+        <loc>http://localhost:3000/portfolio/products/vital-crm-new</loc>
+        <lastmod>2025-03-17T05:00:24Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/products/vital-crm-new" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/products/vital-crm-new" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/products/vital-crm-new" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/products/vital-crm-new" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/products/vital-crm-new" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/products/vital-crm-new" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/products/vital-esp-survey</loc>
-        <lastmod>2025-03-15T16:30:20Z</lastmod>
+        <loc>http://localhost:3000/portfolio/products/vital-esp-survey</loc>
+        <lastmod>2025-03-17T05:00:24Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/products/vital-esp-survey" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/products/vital-esp-survey" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/products/vital-esp-survey" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/products/vital-esp-survey" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/products/vital-esp-survey" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/products/vital-esp-survey" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/products/vital-ttc</loc>
-        <lastmod>2025-03-15T16:30:20Z</lastmod>
+        <loc>http://localhost:3000/portfolio/products/vital-ttc</loc>
+        <lastmod>2025-03-17T05:00:24Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/products/vital-ttc" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/products/vital-ttc" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/products/vital-ttc" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/products/vital-ttc" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/products/vital-ttc" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/products/vital-ttc" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/portfolio/products/vital-ui-kit</loc>
-        <lastmod>2025-03-15T16:30:20Z</lastmod>
+        <loc>http://localhost:3000/portfolio/products/vital-ui-kit</loc>
+        <lastmod>2025-03-17T05:00:24Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/portfolio/products/vital-ui-kit" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/portfolio/products/vital-ui-kit" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/portfolio/en/products/vital-ui-kit" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/portfolio/products/vital-ui-kit" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/portfolio/products/vital-ui-kit" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/portfolio/en/products/vital-ui-kit" />
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.8 at 2025-03-15T16:30:20.759Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.8 at 2025-03-17T05:00:24.716Z -->
