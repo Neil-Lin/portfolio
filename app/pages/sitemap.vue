@@ -160,14 +160,6 @@
             </li>
             <li>
               <nuxt-link
-                :to="localePath('/projects')"
-                :title="$t('action.goTo') + $t('mainMenu.projects')"
-              >
-                {{ $t("mainMenu.projects") }}
-              </nuxt-link>
-            </li>
-            <li>
-              <nuxt-link
                 :to="localePath('/blog')"
                 :title="$t('action.goTo') + $t('mainMenu.blog')"
               >

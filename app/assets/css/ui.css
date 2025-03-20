@@ -286,10 +286,7 @@ button[class^="btn"],
   display: grid;
   grid-template-columns: repeat(12,  1fr);
   gap: 1.5rem;
-  max-width: 1440px;
-  @media screen and (width <= 768px) {
-    padding: 0 0.5rem 4rem 2rem;
-  }
+  /* overflow: hidden; */
 }
 
 .page--narrow {
