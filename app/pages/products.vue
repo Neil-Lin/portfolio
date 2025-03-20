@@ -372,6 +372,10 @@ onMounted(() => {
   if (isModal.value) {
     lightBox.value?.showModal();
   }
+  if (Object.keys(route.query).length > 0) {
+    // ⚠️ `replace()` 只保留純 `/products`，移除所有參數
+    router.replace(route.path);
+  }
 });
 
 // 🔥 設定 Schema.org 資料
@@ -484,7 +488,8 @@ const breadcrumbs = computed(() => {
 
 .group-list {
   @media screen and (width <= 768px) {
-    margin-left: 3rem;
+    margin-left: 0.75rem;
+    padding-right: 0.5rem;
   }
 }
 

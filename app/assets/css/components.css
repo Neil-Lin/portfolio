@@ -82,6 +82,9 @@
   transform: translate(-50%, 0);
   color: oklch(var(--wrapper-color));
   text-transform: capitalize;
+  @media screen and (width <= 768px) {
+    left: -0.5rem;
+  }
 }
 
 .portfolio-area {
@@ -100,7 +103,7 @@
   }
   @media screen and (width <= 768px) {
     font-size: 1rem;
-    right: calc(100% + 3rem);
+    right: calc(100% + 1rem);
   }
   &:before {
     content: '';
@@ -110,7 +113,7 @@
     background-color: oklch(var(--border-color));
     right: -2rem;
     @media screen and (width <= 768px) {
-      right: -1rem;
+      right: -0.5rem;
     }
   }
   &:after {
@@ -123,7 +126,7 @@
     transform: translate(50%, -50%);
     right: -2rem;
     @media screen and (width <= 768px) {
-      right: -1rem;
+      right: -0.5rem;
     }
   }
   &.group-year--top {
@@ -222,15 +225,9 @@
   }
   .portfolio-img {
     width: 100%;
-    height: 35dvh;
     object-fit: cover;
     border-radius: 1rem;
-    @media screen and (width <= 1280px) {
-      height: 25dvh;
-    }
-    @media screen and (width <= 768px) {
-      height: 15dvh;
-    }
+    aspect-ratio: 16/9;
   }
   .portfolio-footer {
     display: flex;
