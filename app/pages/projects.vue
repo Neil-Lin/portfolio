@@ -420,8 +420,7 @@ const breadcrumbs = computed(() => {
 
 .group-list {
   @media screen and (width <= 768px) {
-    margin-left: 0.75rem;
-    padding-right: 0.5rem;
+    margin-left: 3rem;
   }
 }
 

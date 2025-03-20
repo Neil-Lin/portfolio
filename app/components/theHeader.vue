@@ -272,7 +272,6 @@ header {
       display: block;
       white-space: nowrap;
       overflow: auto;
-      scrollbar-width: none;
     }
     .intro {
       display: none;
