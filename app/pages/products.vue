@@ -372,6 +372,9 @@ onMounted(() => {
   if (isModal.value) {
     lightBox.value?.showModal();
   }
+  if (Object.keys(route.query).length > 0) {
+    router.replace(route.path);
+  }
 });
 
 // 🔥 設定 Schema.org 資料

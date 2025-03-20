@@ -31,6 +31,7 @@ const props = defineProps({
     display: block;
     overflow: auto;
     white-space: nowrap;
+    scrollbar-width: none;
   }
   li {
     display: inline-block;
