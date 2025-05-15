@@ -5,13 +5,27 @@
       <div class="card animation-fade-out podcast">
         <akContainer />
         <div class="podcast-container">
-          <div>使用 Podcast 方式聆聽作品集內容(BY NotebookLM)</div>
+          <div>
+            <i18n-t
+              keypath="page.podcast.p1"
+              tag="span"
+              scope="global"
+            ></i18n-t>
+          </div>
           <figure>
             <figcaption class="visually-hidden">
-              使用 Podcast 方式聆聽作品集內容(BY NotebookLM)
+              <i18n-t
+                keypath="page.podcast.p1"
+                tag="span"
+                scope="global"
+              ></i18n-t>
             </figcaption>
             <div class="audio-container">
-              <audio controls src="/audio/podcast-portfolio.wav"></audio>
+              <audio
+                ref="audioRef"
+                controls
+                src="https://neil-lin.github.io/portfolio/audio/podcast-portfolio.wav"
+              ></audio>
             </div>
           </figure>
         </div>
@@ -127,6 +141,14 @@ const experienceList = computed(() => [
     years: "7",
   },
 ]);
+
+const audioRef = ref<HTMLAudioElement | null>(null);
+
+onMounted(() => {
+  if (audioRef.value) {
+    audioRef.value.playbackRate = 1.25;
+  }
+});
 </script>
 
 <style scoped>
