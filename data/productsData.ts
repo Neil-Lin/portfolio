@@ -1374,8 +1374,8 @@ export const productsData = [
           link: "https://github.com/Accesserty/UI-Kit",
         },
         {
-          title: "Accesserty ProductHunt",
-          link: "https://www.producthunt.com/products/accesserty",
+          title: "Accesserty Product Hunt",
+          link: "https://www.producthunt.com/posts/accesserty",
         },
       ],
       en: [
@@ -1392,8 +1392,8 @@ export const productsData = [
           link: "https://github.com/Accesserty/UI-Kit",
         },
         {
-          title: "Accesserty ProductHunt",
-          link: "https://www.producthunt.com/products/accesserty",
+          title: "Accesserty Product Hunt",
+          link: "https://www.producthunt.com/posts/accesserty",
         },
       ],
     },
