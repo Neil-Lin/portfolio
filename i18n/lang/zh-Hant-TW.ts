@@ -134,6 +134,9 @@ export default {
       links: "相關連結",
       website: "網站",
     },
+    podcast: {
+      p1: "使用 Podcast 方式聆聽作品集內容(BY NotebookLM)",
+    },
   },
   data: {
     nodata: "沒有找到符合的資訊，請嘗試使用不同條件試試。",

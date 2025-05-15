@@ -133,6 +133,9 @@ export default {
       links: "links",
       website: "website",
     },
+    podcast: {
+      p1: "Listen to portfolio content via Podcast (BY NotebookLM).",
+    },
   },
   data: {
     nodata: "No Data Here.",

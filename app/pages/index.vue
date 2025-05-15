@@ -2,8 +2,21 @@
   <main class="page page--index">
     <div class="page-container">
       <h2 class="visually-hidden">{{ pageTitle }}</h2>
-      <div class="card animation-fade-out intro">
+      <div class="card animation-fade-out podcast">
         <akContainer />
+        <div class="podcast-container">
+          <div>使用 Podcast 方式聆聽作品集內容(BY NotebookLM)</div>
+          <figure>
+            <figcaption class="visually-hidden">
+              使用 Podcast 方式聆聽作品集內容(BY NotebookLM)
+            </figcaption>
+            <div class="audio-container">
+              <audio controls src="/audio/podcast-portfolio.wav"></audio>
+            </div>
+          </figure>
+        </div>
+      </div>
+      <div class="card animation-fade-out intro">
         <h3>{{ t("words.intro") }}</h3>
         <i18n-t keypath="page.about.p1" tag="p" scope="global"><br /></i18n-t>
         <i18n-t keypath="page.about.p2" tag="p" scope="global">
@@ -126,16 +139,19 @@ const experienceList = computed(() => [
   display: grid;
   gap: 1.5rem;
   grid-template:
+    "l5 l5 l5 l5"
     "l1 l1 r1 r2"
     "l1 l1 r3 r4";
   @media screen and (width <= 1280px) {
     grid-template:
+      "l5 l5 l5 l5"
       "l1 l1 l1 l1"
       "r1 r1 r2 r2"
       "r3 r3 r4 r4";
   }
   @media screen and (width <= 768px) {
     grid-template:
+      "l5"
       "l1"
       "r1"
       "r2"
@@ -211,6 +227,30 @@ const experienceList = computed(() => [
       position: absolute;
       top: 0.5rem;
       left: -1.75rem;
+    }
+  }
+}
+
+.podcast {
+  position: relative;
+  grid-area: l5;
+  .podcast-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    @media screen and (width <= 768px) {
+      flex-direction: column;
+    }
+  }
+  .audio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .icon {
+    svg {
+      width: 1.5rem;
     }
   }
 }

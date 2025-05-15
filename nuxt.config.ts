@@ -30,7 +30,7 @@ export default defineNuxtConfig({
     manifest: {
       id: "/",
       start_url: process.env.NUXT_PUBLIC_BASE_URL,
-      name: "Neil 的作品集",
+      name: "Neil's Portfolio",
       short_name: "Neil's Portfolio",
       categories: [
         "web design",
@@ -41,8 +41,8 @@ export default defineNuxtConfig({
       ],
       shortcuts: [
         {
-          name: "產品作品集",
-          short_name: "產品作品集",
+          name: "products",
+          short_name: "products",
           url: process.env.NUXT_PUBLIC_BASE_URL + "/products",
           description: "about products of portfolio",
           icons: [
@@ -54,7 +54,7 @@ export default defineNuxtConfig({
           ],
         },
       ],
-      description: "Neil 的作品集",
+      description: "Neil's Portfolio",
       theme_color: "#6042a0",
       icons: [
         {
