@@ -150,7 +150,7 @@ const experienceList = computed(() => [
 const audioRef = ref<HTMLAudioElement | null>(null);
 
 onMounted(() => {
-  if (audioRef.value) {
+  if (audioRef.value && locale.value === "zh-Hant-TW") {
     audioRef.value.playbackRate = 1.25;
   }
 });
