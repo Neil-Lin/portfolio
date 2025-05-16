@@ -24,7 +24,11 @@
               <audio
                 ref="audioRef"
                 controls
-                src="https://neil-lin.github.io/portfolio/audio/podcast-portfolio.wav"
+                :src="
+                  locale === 'en'
+                    ? 'https://neil-lin.github.io/portfolio/audio/podcast-portfolio-en.wav'
+                    : 'https://neil-lin.github.io/portfolio/audio/podcast-portfolio-zh.wav'
+                "
               ></audio>
             </div>
           </figure>
@@ -104,6 +108,7 @@
 </template>
 
 <script setup lang="ts">
+const { locale } = useI18n();
 const { t } = useI18n();
 const pageTitle = ref(t("words.home"));
 
