@@ -6,7 +6,7 @@
       <h2>{{ pageTitle }}</h2>
       <p>{{ t("page.blog.hint") }}</p>
       <br />
-      <medium-posts username="@neil-lin" />
+      <medium-posts username="neil-lin" />
       <br />
       <nuxt-link
         to="https://neil-lin.medium.com/"
