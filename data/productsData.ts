@@ -371,7 +371,7 @@ export const productsData = [
   },
   {
     id: 3,
-    slug: "ΣCOUT",
+    slug: "scout",
     clickable: true,
     heroImage: {
       "zh-Hant-TW": [

@@ -11,7 +11,23 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-
+  nitro: {
+    prerender: {
+      routes: [
+        "/products/piman",
+        "/products/choose-chart",
+        "/products/scout",
+        // "/products/bpgcms",
+        // "/products/vital-crm-new",
+        // "/products/vital-ttc",
+        "/products/vital-esp-survey",
+        "/products/vital-ui-kit",
+        "/products/mpos",
+        "/products/vital-crm-app",
+        "/products/accesserty",
+      ],
+    },
+  },
   modules: [
     "@nuxt/eslint",
     "nuxt-gtag",
