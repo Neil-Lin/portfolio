@@ -251,17 +251,8 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/sitemap" />
     </url>
     <url>
-        <loc>https://neil-lin.github.io/portfolio/products/%25CE%25A3COUT</loc>
-        <lastmod>2025-05-24T14:00:09Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/%CE%A3COUT" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/%CE%A3COUT" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/%CE%A3COUT" />
-    </url>
-    <url>
         <loc>https://neil-lin.github.io/portfolio/products/accesserty</loc>
-        <lastmod>2025-05-24T14:00:09Z</lastmod>
+        <lastmod>2025-05-24T14:03:31Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/accesserty" />
@@ -287,7 +278,7 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/bpgcms</loc>
-        <lastmod>2025-05-24T14:00:09Z</lastmod>
+        <lastmod>2025-05-24T14:03:31Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/bpgcms" />
@@ -296,7 +287,7 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/choose-chart</loc>
-        <lastmod>2025-05-24T14:00:09Z</lastmod>
+        <lastmod>2025-05-24T14:03:31Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/choose-chart" />
@@ -322,7 +313,7 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/mpos</loc>
-        <lastmod>2025-05-24T14:00:09Z</lastmod>
+        <lastmod>2025-05-24T14:03:31Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/mpos" />
@@ -351,7 +342,7 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/piman</loc>
-        <lastmod>2025-05-24T14:00:09Z</lastmod>
+        <lastmod>2025-05-24T14:03:31Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/piman" />
@@ -373,8 +364,31 @@
         </image:image>
     </url>
     <url>
+        <loc>https://neil-lin.github.io/portfolio/products/scout</loc>
+        <lastmod>2025-05-24T14:03:31Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/scout" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/scout" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/scout" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/scout" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/scout" />
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-landingpage-light.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-landingpage-dark.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-404.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-crm-app</loc>
-        <lastmod>2025-05-24T14:00:09Z</lastmod>
+        <lastmod>2025-05-24T14:03:31Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-crm-app" />
@@ -397,7 +411,7 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-crm-new</loc>
-        <lastmod>2025-05-24T14:00:09Z</lastmod>
+        <lastmod>2025-05-24T14:03:31Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-crm-new" />
@@ -406,7 +420,7 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-esp-survey</loc>
-        <lastmod>2025-05-24T14:00:09Z</lastmod>
+        <lastmod>2025-05-24T14:03:31Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-esp-survey" />
@@ -438,7 +452,7 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-ttc</loc>
-        <lastmod>2025-05-24T14:00:09Z</lastmod>
+        <lastmod>2025-05-24T14:03:31Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-ttc" />
@@ -447,7 +461,7 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-ui-kit</loc>
-        <lastmod>2025-05-24T14:00:09Z</lastmod>
+        <lastmod>2025-05-24T14:03:31Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-ui-kit" />
@@ -558,6 +572,26 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/piman" />
     </url>
     <url>
+        <loc>https://neil-lin.github.io/portfolio/en/products/scout</loc>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-landingpage-light.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-landingpage-dark.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-404.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/scout" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/scout" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/scout" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/scout" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/scout" />
+    </url>
+    <url>
         <loc>https://neil-lin.github.io/portfolio/en/products/vital-crm-app</loc>
         <image:image>
             <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-app-thumbnail.webp</image:loc>
@@ -624,4 +658,4 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-ui-kit" />
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.8 at 2025-05-24T14:00:09.583Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.8 at 2025-05-24T14:03:31.364Z -->
