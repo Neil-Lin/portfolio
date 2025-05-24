@@ -252,7 +252,7 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/%25CE%25A3COUT</loc>
-        <lastmod>2025-05-24T11:37:11Z</lastmod>
+        <lastmod>2025-05-24T11:43:17Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/%CE%A3COUT" />
@@ -260,17 +260,54 @@
         <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/%CE%A3COUT" />
     </url>
     <url>
+        <loc>https://neil-lin.github.io/portfolio/products/%CE%A3COUT</loc>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-landingpage-light.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-landingpage-dark.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-404.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/ΣCOUT" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/ΣCOUT" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/ΣCOUT" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/ΣCOUT" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/ΣCOUT" />
+    </url>
+    <url>
         <loc>https://neil-lin.github.io/portfolio/products/accesserty</loc>
-        <lastmod>2025-05-24T11:37:11Z</lastmod>
+        <lastmod>2025-05-24T11:43:17Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/accesserty" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/accesserty" />
         <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/accesserty" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/accesserty" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/accesserty" />
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-flow.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-signal.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-devcheck.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-ui-kit.webp</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/bpgcms</loc>
-        <lastmod>2025-05-24T11:37:11Z</lastmod>
+        <lastmod>2025-05-24T11:43:17Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/bpgcms" />
@@ -279,43 +316,108 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/choose-chart</loc>
-        <lastmod>2025-05-24T11:37:11Z</lastmod>
+        <lastmod>2025-05-24T11:43:17Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/choose-chart" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/choose-chart" />
         <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/choose-chart" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/choose-chart" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/choose-chart" />
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords-hover.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords-detail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords-detail-hover.webp</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/mpos</loc>
-        <lastmod>2025-05-24T11:37:11Z</lastmod>
+        <lastmod>2025-05-24T11:43:17Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/mpos" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/mpos" />
         <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/mpos" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/mpos" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/mpos" />
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/device-situation-tablet.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-discuss.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-wireframe.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/mpos.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-all.webp</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/piman</loc>
-        <lastmod>2025-05-24T11:37:11Z</lastmod>
+        <lastmod>2025-05-24T11:43:17Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/piman" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/piman" />
         <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/piman" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/piman" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/piman" />
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/piman-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/piman-v3-design-system.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/piman-v3-button.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/piman-v3-backstage-template.webp</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-crm-app</loc>
-        <lastmod>2025-05-24T11:37:11Z</lastmod>
+        <lastmod>2025-05-24T11:43:17Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-crm-app" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/vital-crm-app" />
         <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/vital-crm-app" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/vital-crm-app" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/vital-crm-app" />
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-app-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-app-wireframe.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-design-mobile.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-design-tablet.webp</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-crm-new</loc>
-        <lastmod>2025-05-24T11:37:11Z</lastmod>
+        <lastmod>2025-05-24T11:43:17Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-crm-new" />
@@ -324,16 +426,39 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-esp-survey</loc>
-        <lastmod>2025-05-24T11:37:11Z</lastmod>
+        <lastmod>2025-05-24T11:43:17Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-esp-survey" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/vital-esp-survey" />
         <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/vital-esp-survey" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/vital-esp-survey" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/vital-esp-survey" />
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-dashboard.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-edit.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-list1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-list2.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-result1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-result2.webp</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-ttc</loc>
-        <lastmod>2025-05-24T11:37:11Z</lastmod>
+        <lastmod>2025-05-24T11:43:17Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-ttc" />
@@ -342,12 +467,201 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-ui-kit</loc>
-        <lastmod>2025-05-24T11:37:11Z</lastmod>
+        <lastmod>2025-05-24T11:43:17Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-ui-kit" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/vital-ui-kit" />
         <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/vital-ui-kit" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/vital-ui-kit" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/vital-ui-kit" />
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-docs.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-sketch.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://neil-lin.github.io/portfolio/en/products/%CE%A3COUT</loc>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-landingpage-light.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-landingpage-dark.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/scout-404.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/ΣCOUT" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/ΣCOUT" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/ΣCOUT" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/ΣCOUT" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/ΣCOUT" />
+    </url>
+    <url>
+        <loc>https://neil-lin.github.io/portfolio/en/products/accesserty</loc>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-flow.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-signal.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-devcheck.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-ui-kit.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/accesserty" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/accesserty" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/accesserty" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/accesserty" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/accesserty" />
+    </url>
+    <url>
+        <loc>https://neil-lin.github.io/portfolio/en/products/choose-chart</loc>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords-hover.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords-detail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords-detail-hover.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/choose-chart" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/choose-chart" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/choose-chart" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/choose-chart" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/choose-chart" />
+    </url>
+    <url>
+        <loc>https://neil-lin.github.io/portfolio/en/products/mpos</loc>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/device-situation-tablet.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-discuss.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-wireframe.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/mpos.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-all.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/mpos" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/mpos" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/mpos" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/mpos" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/mpos" />
+    </url>
+    <url>
+        <loc>https://neil-lin.github.io/portfolio/en/products/piman</loc>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/piman-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/piman-v3-design-system.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/piman-v3-button.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/piman-v3-backstage-template.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/piman" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/piman" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/piman" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/piman" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/piman" />
+    </url>
+    <url>
+        <loc>https://neil-lin.github.io/portfolio/en/products/vital-crm-app</loc>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-app-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-app-wireframe.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-design-mobile.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-design-tablet.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/vital-crm-app" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/vital-crm-app" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/vital-crm-app" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/vital-crm-app" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-crm-app" />
+    </url>
+    <url>
+        <loc>https://neil-lin.github.io/portfolio/en/products/vital-esp-survey</loc>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-dashboard.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-edit.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-list1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-list2.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-result1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-result2.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/vital-esp-survey" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/vital-esp-survey" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/vital-esp-survey" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/vital-esp-survey" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-esp-survey" />
+    </url>
+    <url>
+        <loc>https://neil-lin.github.io/portfolio/en/products/vital-ui-kit</loc>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-docs.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-sketch.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/vital-ui-kit" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/vital-ui-kit" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/vital-ui-kit" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://neil-lin.github.io/portfolio/en/products/vital-ui-kit" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-ui-kit" />
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.8 at 2025-05-24T11:37:11.668Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.8 at 2025-05-24T11:43:17.451Z -->
