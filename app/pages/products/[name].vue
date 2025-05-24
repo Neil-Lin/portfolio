@@ -220,7 +220,7 @@ useHead({
     {
       hid: "description",
       name: "description",
-      content: product.value.summary[locale.value],
+      content: product.value.intro[locale.value],
     },
     {
       hid: "og:url",
@@ -235,7 +235,7 @@ useHead({
     {
       hid: "og:description",
       property: "og:description",
-      content: product.value.summary[locale.value],
+      content: product.value.intro[locale.value],
     },
     {
       hid: "twitter:url",
@@ -250,7 +250,7 @@ useHead({
     {
       hid: "twitter:description",
       name: "twitter:description",
-      content: product.value.summary[locale.value],
+      content: product.value.intro[locale.value],
     },
   ],
 });
