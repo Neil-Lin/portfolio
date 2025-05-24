@@ -459,11 +459,13 @@ useHead({
 });
 
 const breadcrumbs = computed(() => {
-  if (route.params.name) {
+  const slug = route.params.name;
+  const product = productsData.find((p) => p.slug === slug);
+  if (slug && product) {
     return [
       { link: "/", title: t("action.goToHomePage") },
       { link: "/products", title: t("mainMenu.products") },
-      { title: route.params.name },
+      { title: product.name[locale.value] || slug },
     ];
   } else {
     return [
