@@ -5,12 +5,12 @@
     <ul v-else class="blog-list">
       <li
         v-for="article in articles"
-        :key="article.link"
+        :key="article.url"
         class="blog-item animation-fade-out"
       >
         <h3>
           <nuxt-link
-            :to="article.link"
+            :to="article.url"
             :title="`${$t('action.openWindow')} ${$t('action.goTo')} ${article.title}`"
             target="_blank"
           >
@@ -24,18 +24,18 @@
 </template>
 
 <script setup lang="ts">
-interface VocusPost {
-  id: string;
+interface Article {
   title: string;
-  link: string;
   abstract: string;
+  url: string;
 }
 
-const { data, pending, error } = await useFetch<{ articles: VocusPost[] }>(
-  "/api/vocus/articles"
-);
+const { data, pending, error } = await useFetch<Article[]>("/zh-blog.json", {
+  baseURL: useRuntimeConfig().app.baseURL,
+  server: false, // ⬅️ 加這個
+});
 
-const articles = computed(() => data.value?.articles ?? []);
+const articles = computed(() => data.value ?? []);
 </script>
 
 <style scoped>
