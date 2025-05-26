@@ -5,23 +5,38 @@
       <akContainer />
       <h2>{{ pageTitle }}</h2>
       <p>{{ t("page.blog.hint") }}</p>
-      <br />
-      <medium-posts username="neil-lin" />
-      <br />
-      <nuxt-link
-        to="https://neil-lin.medium.com/"
-        :title="`${$t('action.openWindow')} ${$t('action.goTo')} Medium`"
-        target="_blank"
-        class="btn"
-      >
-        {{ t("page.blog.forward") }}
-      </nuxt-link>
+      <div v-if="locale === 'en'">
+        <br />
+        <medium-posts username="neil-lin" />
+        <br />
+        <nuxt-link
+          to="https://neil-lin.medium.com/"
+          :title="`${$t('action.openWindow')} ${$t('action.goTo')} Medium`"
+          target="_blank"
+          class="btn"
+        >
+          {{ t("page.blog.forward") }}
+        </nuxt-link>
+      </div>
+      <div v-else>
+        <br />
+        <vocus-posts />
+        <br />
+        <nuxt-link
+          to="https://vocus.cc/user/@neil-lin"
+          :title="`${$t('action.openWindow')} ${$t('action.goTo')} 方格子`"
+          target="_blank"
+          class="btn"
+        >
+          {{ t("page.blog.forward") }}
+        </nuxt-link>
+      </div>
     </div>
   </main>
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const runtimeConfig = useRuntimeConfig();
 const pageTitle = ref(t("mainMenu.blog"));
 const pageDescription = ref(t("des.blog"));

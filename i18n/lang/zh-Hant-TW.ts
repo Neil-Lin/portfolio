@@ -118,7 +118,7 @@ export default {
       p4: "※ 當本網站項目頁籤無法以滑鼠點選時，您可利用以下鍵盤操作方式瀏覽資料：{n}{n} {keyLeftRight} 或 {keyUpDown}：按左右鍵或上下鍵移動標籤順序。{n}{n}{keyTab}： 停留於該標籤後，可利用 {keyTab} 鍵跳至內容瀏覽該筆資料，遇到單選按鈕(radio)時請配合使用 {keyLeftRight} 或 {keyUpDown} 鍵移動項目順序。{n}{n} {keyShiftTab}： 按 {keyShiftTab} 可往回跳至上一筆資料；當跳回至標籤項目時您可繼續利用 {keyLeftRight} 或 {keyUpDown} 鍵移動標籤順序。",
     },
     blog: {
-      hint: "摘錄近期 10 篇 Medium 文章",
+      hint: "摘錄近期 10 篇文章",
       forward: "前往部落格主頁",
     },
     detail: {
