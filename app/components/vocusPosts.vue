@@ -33,8 +33,7 @@ interface Article {
 const { data, pending, error } = await useFetch<Article[]>(
   "https://neil-lin.github.io/portfolio/zh-blog.json",
   {
-    baseURL: useRuntimeConfig().app.baseURL,
-    server: false, // ⬅️ 加這個
+    server: false, // client only
   }
 );
 
