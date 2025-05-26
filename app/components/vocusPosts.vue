@@ -30,10 +30,13 @@ interface Article {
   url: string;
 }
 
-const { data, pending, error } = await useFetch<Article[]>("/zh-blog.json", {
-  baseURL: useRuntimeConfig().app.baseURL,
-  server: false, // ⬅️ 加這個
-});
+const { data, pending, error } = await useFetch<Article[]>(
+  "https://neil-lin.github.io/portfolio/zh-blog.json",
+  {
+    baseURL: useRuntimeConfig().app.baseURL,
+    server: false, // ⬅️ 加這個
+  }
+);
 
 const articles = computed(() => data.value ?? []);
 </script>
