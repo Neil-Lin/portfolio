@@ -58,7 +58,7 @@ export default {
     a11yrefrerence: "mozilla 開發頁面參考 accesskey",
     ithomeA11y:
       "iT 邦幫忙 2022 iThome 鐵人賽自我挑戰組，無障礙網頁設計大叔日記系列",
-    blog: "最新 Medium 文章",
+    blog: "Neil 的方格子部落格文章",
   },
   mainMenu: {
     mainMenu: "主要選單",
