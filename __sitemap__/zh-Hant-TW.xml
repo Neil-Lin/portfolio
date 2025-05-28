@@ -40,37 +40,37 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products" />
         <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products" />
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/accesserty-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/piman-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/piman-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/scout-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/scout-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/bpgcms-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/bpgcms-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vital-crm-new-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vital-crm-new-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/ttc-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/ttc-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitaluikit-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-app-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalcrm-app-thumbnail.webp</image:loc>
         </image:image>
     </url>
     <url>
@@ -81,52 +81,52 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/projects" />
         <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/projects" />
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/tycg-od-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/tycg-od-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/iofficeplus-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/iofficeplus-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/taichung-od-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/taichung-od-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/report-website-issues-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/report-website-issues-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/taipei-dashboard-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/taipei-dashboard-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/moenv-od-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/moenv-od-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/daxiculture-thubnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/daxiculture-thubnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/nmth-school-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/nmth-school-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/data-gov-tw-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/data-gov-tw-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/poinfo-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/poinfo-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/luodongarchives-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/luodongarchives-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/zhuzhan-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/zhuzhan-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/228-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/228-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/nmth-portal-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/nmth-portal-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/schema-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/schema-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/1999taipei-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/1999taipei-thumbnail.webp</image:loc>
         </image:image>
     </url>
     <url>
@@ -148,37 +148,37 @@
     <url>
         <loc>https://neil-lin.github.io/portfolio/en/products</loc>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/accesserty-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/piman-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/piman-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/scout-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/scout-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/bpgcms-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/bpgcms-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vital-crm-new-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vital-crm-new-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/ttc-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/ttc-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitaluikit-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-app-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalcrm-app-thumbnail.webp</image:loc>
         </image:image>
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products" />
@@ -189,52 +189,52 @@
     <url>
         <loc>https://neil-lin.github.io/portfolio/en/projects</loc>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/tycg-od-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/tycg-od-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/iofficeplus-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/iofficeplus-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/taichung-od-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/taichung-od-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/report-website-issues-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/report-website-issues-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/taipei-dashboard-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/taipei-dashboard-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/moenv-od-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/moenv-od-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/daxiculture-thubnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/daxiculture-thubnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/nmth-school-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/nmth-school-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/data-gov-tw-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/data-gov-tw-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/poinfo-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/poinfo-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/luodongarchives-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/luodongarchives-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/zhuzhan-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/zhuzhan-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/228-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/228-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/nmth-portal-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/nmth-portal-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/schema-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/schema-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/1999taipei-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/1999taipei-thumbnail.webp</image:loc>
         </image:image>
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/projects" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/projects" />
@@ -252,7 +252,7 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/accesserty</loc>
-        <lastmod>2025-05-26T09:11:43Z</lastmod>
+        <lastmod>2025-05-28T16:11:18Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/accesserty" />
@@ -261,24 +261,24 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/accesserty" />
         <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/accesserty" />
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/accesserty-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-flow.webp</image:loc>
+            <image:loc>http://localhost:3000/images/accesserty-flow.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-signal.webp</image:loc>
+            <image:loc>http://localhost:3000/images/accesserty-signal.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-devcheck.webp</image:loc>
+            <image:loc>http://localhost:3000/images/accesserty-devcheck.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-ui-kit.webp</image:loc>
+            <image:loc>http://localhost:3000/images/accesserty-ui-kit.webp</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/bpgcms</loc>
-        <lastmod>2025-05-26T09:11:43Z</lastmod>
+        <lastmod>2025-05-28T16:11:18Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/bpgcms" />
@@ -287,7 +287,7 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/choose-chart</loc>
-        <lastmod>2025-05-26T09:11:43Z</lastmod>
+        <lastmod>2025-05-28T16:11:18Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/choose-chart" />
@@ -296,24 +296,24 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/choose-chart" />
         <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/choose-chart" />
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-hotkeywords.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords-hover.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-hotkeywords-hover.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords-detail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-hotkeywords-detail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords-detail-hover.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-hotkeywords-detail-hover.webp</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/mpos</loc>
-        <lastmod>2025-05-26T09:11:43Z</lastmod>
+        <lastmod>2025-05-28T16:11:18Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/mpos" />
@@ -322,27 +322,27 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/mpos" />
         <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/mpos" />
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/device-situation-tablet.webp</image:loc>
+            <image:loc>http://localhost:3000/images/device-situation-tablet.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-discuss.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos-discuss.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-wireframe.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos-wireframe.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-all.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos-all.webp</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/piman</loc>
-        <lastmod>2025-05-26T09:11:43Z</lastmod>
+        <lastmod>2025-05-28T16:11:18Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/piman" />
@@ -351,21 +351,21 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/piman" />
         <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/piman" />
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/piman-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/piman-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/piman-v3-design-system.webp</image:loc>
+            <image:loc>http://localhost:3000/images/piman-v3-design-system.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/piman-v3-button.webp</image:loc>
+            <image:loc>http://localhost:3000/images/piman-v3-button.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/piman-v3-backstage-template.webp</image:loc>
+            <image:loc>http://localhost:3000/images/piman-v3-backstage-template.webp</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/scout</loc>
-        <lastmod>2025-05-26T09:11:43Z</lastmod>
+        <lastmod>2025-05-28T16:11:18Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/scout" />
@@ -374,21 +374,21 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/scout" />
         <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/scout" />
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/scout-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/scout-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/scout-landingpage-light.webp</image:loc>
+            <image:loc>http://localhost:3000/images/scout-landingpage-light.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/scout-landingpage-dark.webp</image:loc>
+            <image:loc>http://localhost:3000/images/scout-landingpage-dark.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/scout-404.webp</image:loc>
+            <image:loc>http://localhost:3000/images/scout-404.webp</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-crm-app</loc>
-        <lastmod>2025-05-26T09:11:43Z</lastmod>
+        <lastmod>2025-05-28T16:11:18Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-crm-app" />
@@ -397,21 +397,21 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/vital-crm-app" />
         <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/vital-crm-app" />
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-app-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalcrm-app-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-app-wireframe.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalcrm-app-wireframe.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-design-mobile.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalcrm-design-mobile.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-design-tablet.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalcrm-design-tablet.webp</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-crm-new</loc>
-        <lastmod>2025-05-26T09:11:43Z</lastmod>
+        <lastmod>2025-05-28T16:11:18Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-crm-new" />
@@ -420,7 +420,7 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-esp-survey</loc>
-        <lastmod>2025-05-26T09:11:43Z</lastmod>
+        <lastmod>2025-05-28T16:11:18Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-esp-survey" />
@@ -429,30 +429,30 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/vital-esp-survey" />
         <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/vital-esp-survey" />
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-dashboard.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-wireframe-dashboard.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-edit.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-wireframe-edit.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-list1.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-wireframe-list1.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-list2.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-wireframe-list2.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-result1.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-wireframe-result1.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-result2.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-wireframe-result2.webp</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-ttc</loc>
-        <lastmod>2025-05-26T09:11:43Z</lastmod>
+        <lastmod>2025-05-28T16:11:18Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-ttc" />
@@ -461,7 +461,7 @@
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/products/vital-ui-kit</loc>
-        <lastmod>2025-05-26T09:11:43Z</lastmod>
+        <lastmod>2025-05-28T16:11:18Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-ui-kit" />
@@ -470,31 +470,31 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/vital-ui-kit" />
         <xhtml:link rel="alternate" hreflang="en" href="https://neil-lin.github.io/portfolio/en/products/vital-ui-kit" />
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitaluikit-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-docs.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitaluikit-docs.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-sketch.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitaluikit-sketch.webp</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://neil-lin.github.io/portfolio/en/products/accesserty</loc>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/accesserty-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-flow.webp</image:loc>
+            <image:loc>http://localhost:3000/images/accesserty-flow.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-signal.webp</image:loc>
+            <image:loc>http://localhost:3000/images/accesserty-signal.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-devcheck.webp</image:loc>
+            <image:loc>http://localhost:3000/images/accesserty-devcheck.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/accesserty-ui-kit.webp</image:loc>
+            <image:loc>http://localhost:3000/images/accesserty-ui-kit.webp</image:loc>
         </image:image>
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/accesserty" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/accesserty" />
@@ -505,19 +505,19 @@
     <url>
         <loc>https://neil-lin.github.io/portfolio/en/products/choose-chart</loc>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-hotkeywords.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords-hover.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-hotkeywords-hover.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords-detail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-hotkeywords-detail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/choose-chart-hotkeywords-detail-hover.webp</image:loc>
+            <image:loc>http://localhost:3000/images/choose-chart-hotkeywords-detail-hover.webp</image:loc>
         </image:image>
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/choose-chart" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/choose-chart" />
@@ -528,22 +528,22 @@
     <url>
         <loc>https://neil-lin.github.io/portfolio/en/products/mpos</loc>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/device-situation-tablet.webp</image:loc>
+            <image:loc>http://localhost:3000/images/device-situation-tablet.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-discuss.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos-discuss.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-wireframe.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos-wireframe.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/mpos-all.webp</image:loc>
+            <image:loc>http://localhost:3000/images/mpos-all.webp</image:loc>
         </image:image>
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/mpos" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/mpos" />
@@ -554,16 +554,16 @@
     <url>
         <loc>https://neil-lin.github.io/portfolio/en/products/piman</loc>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/piman-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/piman-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/piman-v3-design-system.webp</image:loc>
+            <image:loc>http://localhost:3000/images/piman-v3-design-system.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/piman-v3-button.webp</image:loc>
+            <image:loc>http://localhost:3000/images/piman-v3-button.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/piman-v3-backstage-template.webp</image:loc>
+            <image:loc>http://localhost:3000/images/piman-v3-backstage-template.webp</image:loc>
         </image:image>
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/piman" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/piman" />
@@ -574,16 +574,16 @@
     <url>
         <loc>https://neil-lin.github.io/portfolio/en/products/scout</loc>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/scout-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/scout-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/scout-landingpage-light.webp</image:loc>
+            <image:loc>http://localhost:3000/images/scout-landingpage-light.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/scout-landingpage-dark.webp</image:loc>
+            <image:loc>http://localhost:3000/images/scout-landingpage-dark.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/scout-404.webp</image:loc>
+            <image:loc>http://localhost:3000/images/scout-404.webp</image:loc>
         </image:image>
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/scout" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/scout" />
@@ -594,16 +594,16 @@
     <url>
         <loc>https://neil-lin.github.io/portfolio/en/products/vital-crm-app</loc>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-app-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalcrm-app-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-app-wireframe.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalcrm-app-wireframe.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-design-mobile.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalcrm-design-mobile.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalcrm-design-tablet.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalcrm-design-tablet.webp</image:loc>
         </image:image>
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/vital-crm-app" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/vital-crm-app" />
@@ -614,25 +614,25 @@
     <url>
         <loc>https://neil-lin.github.io/portfolio/en/products/vital-esp-survey</loc>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-dashboard.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-wireframe-dashboard.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-edit.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-wireframe-edit.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-list1.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-wireframe-list1.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-list2.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-wireframe-list2.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-result1.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-wireframe-result1.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitalsespsurvey-wireframe-result2.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitalsespsurvey-wireframe-result2.webp</image:loc>
         </image:image>
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/vital-esp-survey" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/vital-esp-survey" />
@@ -643,13 +643,13 @@
     <url>
         <loc>https://neil-lin.github.io/portfolio/en/products/vital-ui-kit</loc>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-thumbnail.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitaluikit-thumbnail.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-docs.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitaluikit-docs.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://neil-lin.github.io/portfolio/images/vitaluikit-sketch.webp</image:loc>
+            <image:loc>http://localhost:3000/images/vitaluikit-sketch.webp</image:loc>
         </image:image>
         <xhtml:link rel="alternate" hreflang="zh" href="https://neil-lin.github.io/portfolio/products/vital-ui-kit" />
         <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://neil-lin.github.io/portfolio/products/vital-ui-kit" />
@@ -658,4 +658,4 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://neil-lin.github.io/portfolio/products/vital-ui-kit" />
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.8 at 2025-05-26T09:11:43.216Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.8 at 2025-05-28T16:11:18.380Z -->
