@@ -142,13 +142,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/products/accesserty" />
         <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/en/products/accesserty" />
         <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/products/accesserty" />
-        <lastmod>2025-06-03T15:12:29Z</lastmod>
+        <lastmod>2025-06-03T15:49:03Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:3000/en/products/bpgcms</loc>
-        <lastmod>2025-06-03T15:12:29Z</lastmod>
+        <lastmod>2025-06-03T15:49:03Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/products/bpgcms" />
@@ -177,7 +177,7 @@
         <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/products/choose-chart" />
         <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/en/products/choose-chart" />
         <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/products/choose-chart" />
-        <lastmod>2025-06-03T15:12:29Z</lastmod>
+        <lastmod>2025-06-03T15:49:03Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -206,7 +206,7 @@
         <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/products/mpos" />
         <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/en/products/mpos" />
         <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/products/mpos" />
-        <lastmod>2025-06-03T15:12:29Z</lastmod>
+        <lastmod>2025-06-03T15:49:03Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -229,7 +229,7 @@
         <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/products/piman" />
         <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/en/products/piman" />
         <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/products/piman" />
-        <lastmod>2025-06-03T15:12:29Z</lastmod>
+        <lastmod>2025-06-03T15:49:03Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -252,7 +252,7 @@
         <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/products/scout" />
         <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/en/products/scout" />
         <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/products/scout" />
-        <lastmod>2025-06-03T15:12:29Z</lastmod>
+        <lastmod>2025-06-03T15:49:03Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -275,13 +275,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/products/vital-crm-app" />
         <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/en/products/vital-crm-app" />
         <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/products/vital-crm-app" />
-        <lastmod>2025-06-03T15:12:29Z</lastmod>
+        <lastmod>2025-06-03T15:49:03Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:3000/en/products/vital-crm-new</loc>
-        <lastmod>2025-06-03T15:12:29Z</lastmod>
+        <lastmod>2025-06-03T15:49:03Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/products/vital-crm-new" />
@@ -289,40 +289,8 @@
         <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/en/products/vital-crm-new" />
     </url>
     <url>
-        <loc>http://localhost:3000/en/products/vital-esp-survey</loc>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-thumbnail.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-wireframe-dashboard.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-wireframe-edit.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-wireframe-list1.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-wireframe-list2.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-wireframe-result1.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-wireframe-result2.webp</image:loc>
-        </image:image>
-        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:3000/products/vital-esp-survey" />
-        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/products/vital-esp-survey" />
-        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/products/vital-esp-survey" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/en/products/vital-esp-survey" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/products/vital-esp-survey" />
-        <lastmod>2025-06-03T15:12:29Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>http://localhost:3000/en/products/vital-ttc</loc>
-        <lastmod>2025-06-03T15:12:29Z</lastmod>
+        <lastmod>2025-06-03T15:49:03Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/products/vital-ttc" />
@@ -345,9 +313,41 @@
         <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/products/vital-ui-kit" />
         <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/en/products/vital-ui-kit" />
         <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/products/vital-ui-kit" />
-        <lastmod>2025-06-03T15:12:29Z</lastmod>
+        <lastmod>2025-06-03T15:49:03Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:3000/en/products/vitals-esp-survey</loc>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-thumbnail.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-wireframe-dashboard.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-wireframe-edit.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-wireframe-list1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-wireframe-list2.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-wireframe-result1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://neil-lin.github.io/images/vitalsespsurvey-wireframe-result2.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:3000/products/vitals-esp-survey" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="http://localhost:3000/products/vitals-esp-survey" />
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/products/vitals-esp-survey" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/en/products/vitals-esp-survey" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:3000/products/vitals-esp-survey" />
+        <lastmod>2025-06-03T15:49:03Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.8 at 2025-06-03T15:12:29.636Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.8 at 2025-06-03T15:49:03.020Z -->
