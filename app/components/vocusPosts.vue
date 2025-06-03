@@ -30,12 +30,9 @@ interface Article {
   url: string;
 }
 
-const { data, pending, error } = await useFetch<Article[]>(
-  "https://neil-lin.github.io/portfolio/zh-blog.json",
-  {
-    server: false, // client only
-  }
-);
+const { data, pending, error } = await useFetch<Article[]>("/zh-blog.json", {
+  server: false, // client only
+});
 
 const articles = computed(() => data.value ?? []);
 </script>

@@ -1269,8 +1269,8 @@ export const productsData = [
       ],
     },
     name: {
-      "zh-Hant-TW": "[Side Project] Accesserty 無障礙網頁解決方案",
-      en: "[Side Project] Accesserty website a11y solutions",
+      "zh-Hant-TW": "[Side Project] Accesserty",
+      en: "[Side Project] Accesserty",
     },
     intro: {
       "zh-Hant-TW": "讓每個人都能容易且自由地取得網頁資訊",

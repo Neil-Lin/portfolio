@@ -4,7 +4,7 @@ import zhHantTW from "./i18n/lang/zh-Hant-TW";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
-    baseURL: "/portfolio/",
+    baseURL: "/",
   },
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
@@ -74,49 +74,45 @@ export default defineNuxtConfig({
       theme_color: "#6042a0",
       icons: [
         {
-          src: process.env.NUXT_PUBLIC_BASE_URL + "/favicon-32.png",
+          src: "/favicon-32.png",
           sizes: "32x32",
           type: "image/png",
         },
         {
-          src: process.env.NUXT_PUBLIC_BASE_URL + "/favicon-64.png",
+          src: "/favicon-64.png",
           sizes: "64x64",
           type: "image/png",
         },
         {
-          src: process.env.NUXT_PUBLIC_BASE_URL + "/favicon-96.png",
+          src: "/favicon-96.png",
           sizes: "96x96",
           type: "image/png",
         },
         {
-          src: process.env.NUXT_PUBLIC_BASE_URL + "/favicon-144.png",
+          src: "/favicon-144.png",
           sizes: "144x144",
           type: "image/png",
         },
         {
-          src: process.env.NUXT_PUBLIC_BASE_URL + "/favicon-192.png",
+          src: "/favicon-192.png",
           sizes: "192x192",
           type: "image/png",
         },
         {
-          src: process.env.NUXT_PUBLIC_BASE_URL + "/favicon-512.png",
+          src: "/favicon-512.png",
           sizes: "512x512",
           type: "image/png",
         },
       ],
       screenshots: [
         {
-          src:
-            process.env.NUXT_PUBLIC_BASE_URL +
-            "/images/splash/splash-640x1136.png",
+          src: "/images/splash/splash-640x1136.png",
           type: "image/png",
           sizes: "640x1136",
           label: "Portfolio",
         },
         {
-          src:
-            process.env.NUXT_PUBLIC_BASE_URL +
-            "/images/splash/splash-1242x2208.png",
+          src: "/images/splash/splash-1242x2208.png",
           type: "image/png",
           sizes: "1242x2208",
           label: "Portfolio",
@@ -130,11 +126,12 @@ export default defineNuxtConfig({
     devOptions: {
       enabled: false,
       type: "module",
-      navigateFallbackAllowlist: [/^\/portfolio/, /^\/$/],
+      navigateFallbackAllowlist: [/^\/$/],
     },
   },
 
   i18n: {
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
     vueI18n: "./i18n.config.ts",
     locales: [
       {
