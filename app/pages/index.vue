@@ -26,8 +26,8 @@
                 controls
                 :src="
                   locale === 'en'
-                    ? 'https://neil-lin.github.io/portfolio/audio/podcast-portfolio-en.wav'
-                    : 'https://neil-lin.github.io/portfolio/audio/podcast-portfolio-zh.wav'
+                    ? '/audio/podcast-portfolio-en.wav'
+                    : '/audio/podcast-portfolio-zh.wav'
                 "
               ></audio>
             </div>
@@ -41,7 +41,7 @@
           <template #link>
             <nuxt-link
               ref="noreferrer noopener"
-              to="https://github.com/Neil-Lin/portfolio"
+              to="https://github.com/Neil-Lin/neil-lin.github.io"
               :title="$t('action.goTo') + 'Github' + $t('action.openWindow')"
               target="_blank"
             >

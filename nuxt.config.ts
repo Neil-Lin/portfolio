@@ -120,8 +120,8 @@ export default defineNuxtConfig({
       ],
     },
     workbox: {
+      navigateFallback: "/index.html",
       cleanupOutdatedCaches: true,
-      navigateFallback: "/",
     },
     devOptions: {
       enabled: false,
@@ -131,7 +131,7 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || "http://localhost:3000",
     vueI18n: "./i18n.config.ts",
     locales: [
       {
