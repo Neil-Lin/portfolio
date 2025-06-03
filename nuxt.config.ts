@@ -20,7 +20,7 @@ export default defineNuxtConfig({
         // "/products/bpgcms",
         // "/products/vital-crm-new",
         // "/products/vital-ttc",
-        "/products/vital-esp-survey",
+        "/products/vitals-esp-survey",
         "/products/vital-ui-kit",
         "/products/mpos",
         "/products/vital-crm-app",

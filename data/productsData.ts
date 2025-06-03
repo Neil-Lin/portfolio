@@ -601,7 +601,7 @@ export const productsData = [
   },
   {
     id: 7,
-    slug: "vital-esp-survey",
+    slug: "vitals-esp-survey",
     clickable: true,
     heroImage: {
       "zh-Hant-TW": [
