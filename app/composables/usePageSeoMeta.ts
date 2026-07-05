@@ -10,7 +10,7 @@ export function usePageSeoMeta(
   const resolvedUrl =
     url ??
     computed(() => {
-      const path = route.path === "/" ? "" : route.path;
+      const path = route.path.endsWith("/") ? route.path : `${route.path}/`;
       return runtimeConfig.public.baseUrl + path;
     });
 

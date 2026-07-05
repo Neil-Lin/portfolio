@@ -36,7 +36,7 @@ export async function buildBlogRss(
   const items = docs
     .map((doc) => {
       const slug = doc.stem.split("/").pop();
-      const link = `${base}${opts.pathPrefix}/blog/${slug}`;
+      const link = `${base}${opts.pathPrefix}/blog/${slug}/`;
       const pubDate = new Date(doc.updatedAt ?? doc.date).toUTCString();
       return `    <item>
       <title>${escapeXml(doc.title)}</title>
@@ -52,7 +52,7 @@ export async function buildBlogRss(
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${escapeXml(opts.title)}</title>
-    <link>${base}${opts.pathPrefix}/blog</link>
+    <link>${base}${opts.pathPrefix}/blog/</link>
     <description>${escapeXml(opts.description)}</description>
     <language>${opts.language}</language>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>

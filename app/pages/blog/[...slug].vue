@@ -95,7 +95,7 @@ const counterpartPath = computed(() => {
   if (!counterpart.value) return null;
   const cslug = counterpart.value.stem.split("/").pop();
   // 對照版在「另一語言」：目前是 en → 對照版是 zh（無前綴）；反之加 /en
-  return locale.value === "en" ? `/blog/${cslug}` : `/en/blog/${cslug}`;
+  return locale.value === "en" ? `/blog/${cslug}/` : `/en/blog/${cslug}/`;
 });
 
 // 相關文章：同 tag、同語言、排除自己
@@ -124,7 +124,7 @@ const related = computed(() => {
 const switchOverride = useLocaleSwitchTarget();
 watchEffect(() => {
   const otherCode = locale.value === "en" ? "zh-Hant-TW" : "en";
-  const fallback = otherCode === "en" ? "/en/blog" : "/blog";
+  const fallback = otherCode === "en" ? "/en/blog/" : "/blog/";
   switchOverride.value = { [otherCode]: counterpartPath.value ?? fallback };
 });
 onScopeDispose(() => {
@@ -144,6 +144,11 @@ const ogImageUrl = computed(() =>
   article.value?.ogImage
     ? (runtimeConfig.public.baseUrl as string) + article.value.ogImage
     : "",
+);
+const canonicalUrl = computed(
+  () =>
+    (runtimeConfig.public.baseUrl as string) +
+    (route.path.endsWith("/") ? route.path : `${route.path}/`),
 );
 
 usePageSeoMeta(pageTitle, pageDescription);
@@ -171,10 +176,10 @@ useSchemaOrg(
       "@type": "BlogPosting",
       headline: pageTitle.value,
       description: pageDescription.value,
-      url: runtimeConfig.public.baseUrl + route.path,
+      url: canonicalUrl.value,
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": runtimeConfig.public.baseUrl + route.path,
+        "@id": canonicalUrl.value,
       },
       datePublished: article.value?.date,
       dateModified: article.value?.updatedAt ?? article.value?.date,

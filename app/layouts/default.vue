@@ -76,8 +76,16 @@ useHead(
     titleTemplate: (pageTitle) =>
       pageTitle ? `${pageTitle} - ${t("website.name")}` : t("website.name"),
     // 文章頁（customHreflang）自管 canonical/hreflang，略過全站自動產生的版本，
-    // 避免單語言文章被標上指向 404 的 alternate
-    link: route.meta.customHreflang ? [] : [...(head.value.link || [])],
+    // 避免單語言文章被標上指向 404 的 alternate。
+    // 其餘頁面：i18n 的 useLocaleHead 不吃 site.trailingSlash，這裡統一把
+    // canonical / hreflang 的 href 補上尾斜線，對齊 Cloudflare Pages 的網址正規化。
+    link: route.meta.customHreflang
+      ? []
+      : (head.value.link || []).map((l) =>
+          typeof l.href === "string" && !l.href.endsWith("/")
+            ? { ...l, href: `${l.href}/` }
+            : l,
+        ),
     meta: [...(head.value.meta || [])],
   })),
 );

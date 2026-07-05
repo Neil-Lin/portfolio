@@ -20,10 +20,10 @@ function readBlogSlugs(dir: string): string[] {
 
 export function getBlogRoutes(rootDir: string = process.cwd()): string[] {
   const zh = readBlogSlugs(join(rootDir, "content/zh/blog")).map(
-    (slug) => `/blog/${slug}`,
+    (slug) => `/blog/${slug}/`,
   );
   const en = readBlogSlugs(join(rootDir, "content/en/blog")).map(
-    (slug) => `/en/blog/${slug}`,
+    (slug) => `/en/blog/${slug}/`,
   );
   return [...zh, ...en];
 }

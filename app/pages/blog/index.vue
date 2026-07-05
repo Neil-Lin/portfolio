@@ -36,7 +36,6 @@
 
 <script setup lang="ts">
 const { t, locale } = useI18n();
-const route = useRoute();
 const localePath = useLocalePath();
 const orgUrl = useOrgUrl();
 
@@ -99,7 +98,7 @@ useSchemaOrg(
       "@type": "CollectionPage",
       name: pageTitle.value,
       description: pageDescription.value,
-      url: orgUrl.value + route.path,
+      url: `${orgUrl.value}/blog/`,
       inLanguage: locale.value === "zh-Hant-TW" ? "zh-Hant-TW" : "en",
       isPartOf: { "@id": `${orgUrl.value}/#website` },
       mainEntity: { "@id": `${orgUrl.value}/blog#blog` },
@@ -108,14 +107,14 @@ useSchemaOrg(
       "@id": `${orgUrl.value}/blog#blog`,
       "@type": "Blog",
       name: pageTitle.value,
-      url: `${orgUrl.value}/blog`,
+      url: `${orgUrl.value}/blog/`,
       inLanguage: locale.value === "zh-Hant-TW" ? "zh-Hant-TW" : "en",
       publisher: { "@id": `${orgUrl.value}/#person` },
       blogPost: posts.value.map((post) => ({
         "@type": "BlogPosting",
         headline: post.title,
         description: post.description,
-        url: `${orgUrl.value}/blog/${post.slug}`,
+        url: `${orgUrl.value}/blog/${post.slug}/`,
         datePublished: post.date,
         author: { "@id": `${orgUrl.value}/#person` },
         publisher: { "@id": `${orgUrl.value}/#person` },

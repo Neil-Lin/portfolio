@@ -15,7 +15,8 @@ export function useArticleSeo(counterpartPath: Ref<string | null>) {
 
   useHead(
     computed(() => {
-      const selfHref = base + route.path;
+      const path = route.path.endsWith("/") ? route.path : `${route.path}/`;
+      const selfHref = base + path;
       const link: Record<string, string>[] = [
         { rel: "canonical", href: selfHref, key: "i18n-can" },
       ];

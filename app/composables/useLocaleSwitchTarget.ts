@@ -21,7 +21,7 @@ export function useLocaleSwitch() {
   const resolve = (code: LocaleCode) => {
     if (override.value?.[code]) return override.value[code];
     if (/^\/(en\/)?blog\/.+/.test(route.path)) {
-      return code === "en" ? "/en/blog" : "/blog";
+      return code === "en" ? "/en/blog/" : "/blog/";
     }
     return switchLocalePath(code);
   };

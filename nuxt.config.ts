@@ -17,7 +17,7 @@ const siteUrl = process.env.NUXT_PUBLIC_BASE_URL || fallbackBaseUrl;
 
 const dynamicRoutes = productsData
   .filter((p) => p.clickable)
-  .flatMap((p) => [`/products/${p.slug}`, `/en/products/${p.slug}`]);
+  .flatMap((p) => [`/products/${p.slug}/`, `/en/products/${p.slug}/`]);
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -227,22 +227,22 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: true,
   nitro: {
-    trailingSlash: false,
+    trailingSlash: true,
     prerender: {
       // 所有路由都由下方 routes 決定論式列出（含部落格文章），
       // 關閉 crawlLinks：文章內若有壞連結也不會連累整個 build 失敗
       crawlLinks: false,
       routes: [
         "/",
-        "/products",
-        "/projects",
-        "/blog",
-        "/sitemap",
-        "/en",
-        "/en/products",
-        "/en/projects",
-        "/en/blog",
-        "/en/sitemap",
+        "/products/",
+        "/projects/",
+        "/blog/",
+        "/sitemap/",
+        "/en/",
+        "/en/products/",
+        "/en/projects/",
+        "/en/blog/",
+        "/en/sitemap/",
         "/rss.xml",
         "/en/rss.xml",
         ...dynamicRoutes,
@@ -437,6 +437,8 @@ export default defineNuxtConfig({
     name: "Neil's portfolio",
     autoLastmod: true,
     cacheMaxAgeSecond: 3600,
+    // 全站帶尾斜線：對齊 Cloudflare Pages 對目錄式輸出的正規化（/foo → /foo/）
+    trailingSlash: true,
   },
 
   sitemap: {
