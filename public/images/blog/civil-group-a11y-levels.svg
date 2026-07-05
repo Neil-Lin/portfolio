@@ -1,0 +1,73 @@
+<svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" role="img" width="100%">
+<title>民間團體無障礙標章等級組成比例</title>
+<desc>橫向 100% 堆疊長條圖，八大分類依 AAA 等級佔比由高到低排序。一般企業 A26.1% AA52.2% AAA21.7%；金融服務業 A38.5% AA41.0% AAA20.5%；醫療照護 A52.4% AA33.3% AAA14.3%；教育機構 A36.8% AA62.3% AAA0.9%；財團法人公協會 A42.7% AA57.3% AAA0%；生活休閒場館 A82.9% AA17.1% AAA0%；輔具資源中心 A72.7% AA27.3% AAA0%；個人網站工作室 AA100% AAA0%。</desc>
+<rect x="0.5" y="0.5" width="759" height="469" rx="12" fill="#FBFAFF" stroke="#E6E3F5"/>
+<text x="24" y="32" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="14" font-weight="500" fill="#26215C">民間團體無障礙標章等級組成比例</text>
+<text x="24" y="50" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="11" fill="#6B6690">每條為 100%，依 AAA 等級佔比由高到低排序（n=608）</text>
+<text x="686" y="64" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="11" fill="#6B6690">AAA%</text>
+
+<text x="150" y="92" text-anchor="end" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#333">一般企業</text>
+<rect x="158" y="72" width="135.7" height="30" fill="#CECBF6"/>
+<rect x="293.7" y="72" width="271.4" height="30" fill="#534AB7"/>
+<rect x="565.1" y="72" width="112.8" height="30" fill="#26215C"/>
+<text x="225.9" y="91" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#26215C">26.1%</text>
+<text x="429.4" y="91" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#FFF">52.2%</text>
+<text x="686" y="91" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" font-weight="500" fill="#26215C">21.7%</text>
+
+<text x="150" y="137" text-anchor="end" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#333">金融服務業</text>
+<rect x="158" y="117" width="200.2" height="30" fill="#CECBF6"/>
+<rect x="358.2" y="117" width="213.2" height="30" fill="#534AB7"/>
+<rect x="571.4" y="117" width="106.6" height="30" fill="#26215C"/>
+<text x="258.1" y="136" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#26215C">38.5%</text>
+<text x="464.8" y="136" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#FFF">41.0%</text>
+<text x="686" y="136" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" font-weight="500" fill="#26215C">20.5%</text>
+
+<text x="150" y="182" text-anchor="end" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#333">醫療照護</text>
+<rect x="158" y="162" width="272.5" height="30" fill="#CECBF6"/>
+<rect x="430.5" y="162" width="173.2" height="30" fill="#534AB7"/>
+<rect x="603.6" y="162" width="74.4" height="30" fill="#26215C"/>
+<text x="294.3" y="181" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#26215C">52.4%</text>
+<text x="517.1" y="181" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#FFF">33.3%</text>
+<text x="686" y="181" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" font-weight="500" fill="#26215C">14.3%</text>
+
+<text x="150" y="227" text-anchor="end" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#333">教育機構</text>
+<rect x="158" y="207" width="191.4" height="30" fill="#CECBF6"/>
+<rect x="349.4" y="207" width="324" height="30" fill="#534AB7"/>
+<rect x="673.4" y="207" width="4.7" height="30" fill="#26215C"/>
+<text x="253.7" y="226" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#26215C">36.8%</text>
+<text x="511.4" y="226" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#FFF">62.3%</text>
+<text x="686" y="226" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" font-weight="500" fill="#26215C">0.9%</text>
+
+<text x="150" y="272" text-anchor="end" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#333">財團法人/公協會</text>
+<rect x="158" y="252" width="222" height="30" fill="#CECBF6"/>
+<rect x="380" y="252" width="298" height="30" fill="#534AB7"/>
+<text x="269" y="271" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#26215C">42.7%</text>
+<text x="529" y="271" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#FFF">57.3%</text>
+<text x="686" y="271" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" font-weight="500" fill="#9490B5">0%</text>
+
+<text x="150" y="317" text-anchor="end" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#333">生活休閒場館</text>
+<rect x="158" y="297" width="431.1" height="30" fill="#CECBF6"/>
+<rect x="589.1" y="297" width="88.9" height="30" fill="#534AB7"/>
+<text x="373.6" y="316" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#26215C">82.9%</text>
+<text x="633.6" y="316" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#FFF">17.1%</text>
+<text x="686" y="316" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" font-weight="500" fill="#9490B5">0%</text>
+
+<text x="150" y="362" text-anchor="end" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#333">輔具資源中心</text>
+<rect x="158" y="342" width="378" height="30" fill="#CECBF6"/>
+<rect x="536" y="342" width="142" height="30" fill="#534AB7"/>
+<text x="347" y="361" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#26215C">72.7%</text>
+<text x="607" y="361" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#FFF">27.3%</text>
+<text x="686" y="361" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" font-weight="500" fill="#9490B5">0%</text>
+
+<text x="150" y="407" text-anchor="end" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#333">個人網站/工作室</text>
+<rect x="158" y="387" width="520" height="30" fill="#534AB7"/>
+<text x="418" y="406" text-anchor="middle" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#FFF">100%</text>
+<text x="686" y="406" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" font-weight="500" fill="#9490B5">0%</text>
+
+<rect x="238" y="438" width="14" height="14" fill="#CECBF6"/>
+<text x="257" y="450" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#333">A 等級</text>
+<rect x="330" y="438" width="14" height="14" fill="#534AB7"/>
+<text x="349" y="450" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#333">AA 等級</text>
+<rect x="430" y="438" width="14" height="14" fill="#26215C"/>
+<text x="449" y="450" font-family="'Noto Sans TC',system-ui,sans-serif" font-size="12" fill="#333">AAA 等級</text>
+</svg>

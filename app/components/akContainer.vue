@@ -1,0 +1,11 @@
+<template>
+  <a
+    id="ak-container"
+    ref="focusableLink"
+    href="#ak-container"
+    :title="$t('shortcut.mainContent')"
+    accesskey="C"
+  >
+    :::
+  </a>
+</template>

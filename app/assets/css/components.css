@@ -1,0 +1,387 @@
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+
+  .loading-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+
+    @media screen and (width <=768px) {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+  }
+
+  .loader {
+    border: 1rem solid oklch(var(--loader-bg));
+    box-shadow:
+      0.25rem 0.25rem 2rem oklch(var(--loader-box-shadow-color) / 0.15),
+      inset 0 0.25rem 1rem oklch(var(--loader-box-shadow-color) / 0.15);
+    border-radius: 50%;
+    border-top: 1rem solid oklch(var(--loader-border-color));
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto;
+    animation: spin 2s linear infinite;
+  }
+}
+
+/* .noscript {
+  position: fixed;
+  top: 1rem;
+  left: calc(50% - 150px);
+  width: 300px;
+  background-color: oklch(var(--noscript-bg));
+  color: oklch(var(--noscript-color));
+  border-radius: 0.25rem;
+  padding: 1rem;
+  box-shadow: 0 0.25rem 1rem oklch(var(--noscript-box-shadow-color) / 0.15);
+  z-index: 9999;
+} */
+
+.btn-back-to-top {
+  position: fixed;
+  bottom: 2dvh;
+  right: 2dvw;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  text-align: center;
+  padding: 0;
+  font-size: 2rem;
+  color: transparent;
+  text-shadow: 0 0 0 oklch(var(--color-white));
+}
+
+.group-list {
+  position: relative;
+
+  &.group-list--top {
+    margin-top: 2rem;
+  }
+
+  &.group-list--bottom-space {
+    padding-bottom: 2rem;
+
+    .group-year-present {
+      bottom: 0;
+    }
+  }
+
+  &.group-list--top-space {
+    padding-top: 2rem;
+  }
+}
+
+.group-year-present {
+  position: absolute;
+  left: -2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  transform: translate(-50%, 0);
+  color: oklch(var(--wrapper-color));
+  text-transform: capitalize;
+}
+
+.portfolio-area {
+  position: relative;
+}
+
+.group-year {
+  position: absolute;
+  right: calc(100% + 4rem);
+  width: max-content;
+  font-size: 1.5rem;
+  font-weight: bold;
+  height: 100%;
+
+  @media screen and (width <=1024px) {
+    writing-mode: sideways-lr;
+  }
+
+  @media screen and (width <=768px) {
+    font-size: 1rem;
+    right: calc(100% + 3rem);
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: calc(100% - 0.5rem);
+    width: 1px;
+    background-color: oklch(var(--border-color));
+    right: calc(-2rem - 0.5px);
+
+    @media screen and (width <=768px) {
+      right: -1rem;
+    }
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: oklch(var(--color-primary));
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+    right: -2rem;
+
+    @media screen and (width <=768px) {
+      right: -1rem;
+    }
+  }
+
+  &.group-year--top {
+    top: -0.5rem;
+
+    @media screen and (width <=1024px) {
+      text-align: right;
+    }
+
+    &:before {
+      top: 1.25rem;
+    }
+
+    &:after {
+      top: 1.375rem;
+    }
+  }
+
+  &.group-year--bottom {
+    bottom: -2.5rem;
+    display: flex;
+    align-items: flex-end;
+
+    &:before {
+      bottom: 1.25rem;
+    }
+
+    &:after {
+      bottom: 0;
+    }
+  }
+
+
+}
+
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  position: relative;
+  padding: 2rem 0 0;
+
+  .portfolio-item {
+    contain: layout style;
+    contain-intrinsic-size: auto 346px;
+    flex-basis: calc(50% - 1rem);
+
+    @media screen and (width <=1024px) {
+      flex-basis: 100%;
+    }
+
+    @media screen and (width <=460px) {
+      contain-intrinsic-size: auto 200px;
+    }
+
+    &:first-child {
+      flex-basis: 100%;
+
+      .portfolio-img {
+        height: auto;
+      }
+    }
+
+    @supports (animation-timeline: view()) {
+      animation-name: fade-exit;
+      animation-timing-function: ease-out;
+      /* requires this to apply the animation */
+      animation-duration: 1ms;
+      animation-timeline: view();
+      /* must have */
+      animation-fill-mode: both;
+    }
+  }
+
+  .portfolio-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .portfolio-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1.5rem;
+    background-color: oklch(var(--card-bg));
+    padding: 3rem;
+    border-radius: 1.5rem;
+    width: 100%;
+    text-decoration: none;
+
+    @media screen and (width <=768px) {
+      padding: 1.25rem;
+    }
+
+    &:after {
+      display: none;
+    }
+
+    &:hover {
+      opacity: 1;
+
+      .portfolio-img {
+        transform: scale(1.01);
+        transition: transform 0.3s ease-in-out
+      }
+    }
+
+    .portfolio-img {
+      transition: transform 0.3s ease-in-out;
+      will-change: transform;
+    }
+
+    &.portfolio-link--disabled {
+      pointer-events: none;
+      opacity: 0.4;
+    }
+  }
+
+  .portfolio-title {
+    color: oklch(var(--portfolio-title-color));
+    margin-bottom: 0;
+  }
+
+  .portfolio-intro {
+    font-size: 1.125rem;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    @media screen and (width <=768px) {
+      font-size: 1rem;
+    }
+  }
+
+  .portfolio-img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    aspect-ratio: 16/9;
+  }
+
+  .portfolio-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    @media screen and (width <=768px) {
+      gap: 0.25rem;
+    }
+  }
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+
+  @media screen and (width <=1280px) {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  >div {
+    display: flex;
+    align-items: center;
+
+    @media screen and (width <=1280px) {
+      flex-direction: column;
+    }
+
+    @media screen and (width <=768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: calc(50% - 0.5rem);
+    }
+  }
+
+  select {
+    @media screen and (width <=768px) {
+      width: 100% !important;
+
+    }
+  }
+}
+
+.animation-fade-out {
+  @supports (animation-timeline: view()) {
+    animation-name: fade-exit;
+    animation-timing-function: ease-out;
+    /* requires this to apply the animation */
+    animation-duration: 1ms;
+    animation-timeline: view();
+    /* must have */
+    animation-fill-mode: both;
+  }
+}
+
+/* Dialog */
+dialog {
+  /* 1. 這是「關閉狀態」 (預設) */
+  opacity: 0;
+  transform: scale(0.95) translateY(10px);
+
+  /* 2. 關鍵：設定 transition */
+  /* display 和 overlay 必須加上 allow-discrete，讓瀏覽器知道要「等動畫跑完」再切換狀態 */
+  transition:
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out,
+    overlay 0.3s allow-discrete,
+    display 0.3s allow-discrete;
+
+  /* 3. 確保 backdrop 也有過渡 */
+  &::backdrop {
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 記得給顏色 */
+    transition:
+      opacity 0.3s ease-out,
+      display 0.3s allow-discrete,
+      overlay 0.3s allow-discrete;
+  }
+
+  /* 4. 這是「開啟狀態」 */
+  &[open] {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+
+    /* 5. 進場動畫的起始點 */
+    @starting-style {
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+    }
+
+    &::backdrop {
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+  }
+}

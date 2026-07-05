@@ -1,0 +1,25 @@
+# Neil Lin's Portfolio
+
+> A bilingual (Traditional Chinese / English) portfolio showcasing product design, UI/UX, accessibility, and data visualization work.
+
+## About
+
+Neil Lin is a product designer and front-end developer focused on web accessibility and user experience. This site presents his professional work and projects.
+
+## Sections
+
+- [Products](/products): Case studies of product design work including accessibility audits, design systems, and UI/UX
+- [Projects](/projects): Side projects and open-source contributions
+- [Blog](/blog): Self-hosted articles on frontend, design, and accessibility (RSS: /rss.xml; English: /en/rss.xml)
+- [Sitemap](/sitemap): Full site index
+
+## Localization
+
+- Traditional Chinese (default): https://neillin.com/
+- English: https://neillin.com/en/
+
+## Technical
+
+- Sitemap: https://neillin.com/sitemap_index.xml
+- Robots: https://neillin.com/robots.txt
+- This site supports content negotiation: send `Accept: text/markdown` to receive page content as Markdown.
