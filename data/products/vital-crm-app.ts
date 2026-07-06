@@ -151,7 +151,7 @@ export const vitalCrmApp: Product = {
       },
       {
         title: "Vital CRM",
-        link: "https://www.gsscloud.com/tw/vital/crm",
+        link: "https://www.gsscloud.com/tw/vital-crm",
       },
     ],
     en: [
@@ -165,7 +165,7 @@ export const vitalCrmApp: Product = {
       },
       {
         title: "Vital CRM",
-        link: "https://www.gsscloud.com/tw/vital/crm",
+        link: "https://www.gsscloud.com/tw/vital-crm",
       },
     ],
   },
