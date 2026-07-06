@@ -287,6 +287,9 @@ export default defineNuxtConfig({
   // 連結檢查只警告、不中斷 build：文章內單一壞連結不該擋住整個部署
   linkChecker: {
     failOnError: false,
+    // 內部連結刻意不帶尾斜線，交由 client 端 middleware 與 Cloudflare（308）補上，
+    // 故關閉此 inspection，避免每頁都對共用導覽列報 trailing-slash 警告。
+    skipInspections: ["trailing-slash"],
   },
 
   gtag: {
