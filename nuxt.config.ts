@@ -229,6 +229,10 @@ export default defineNuxtConfig({
   nitro: {
     trailingSlash: true,
     prerender: {
+      // 降低併發：OG 圖用 satori→resvg 在 build 期產生，每個 worker 會載入
+      // 7MB 的 Noto Sans TC 字型渲染中文標題，併發一高就會記憶體爆掉、
+      // 出現「Resvg worker terminated」讓整個 build 失敗。序列化產圖換取可靠度。
+      concurrency: 1,
       // 所有路由都由下方 routes 決定論式列出（含部落格文章），
       // 關閉 crawlLinks：文章內若有壞連結也不會連累整個 build 失敗
       crawlLinks: false,
