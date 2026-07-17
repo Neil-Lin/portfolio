@@ -91,9 +91,18 @@ const { data: counterpart } = await useAsyncData(
   { watch: [contentPath] },
 );
 
+// 防禦：path / stem 任一可用即可取出 slug，避免單一異常文件讓整頁 500
+const slugOf = (doc: { path?: string; stem?: string } | null | undefined) => {
+  const source = doc?.path ?? doc?.stem;
+  return typeof source === "string"
+    ? source.split("/").filter(Boolean).pop()
+    : undefined;
+};
+
 const counterpartPath = computed(() => {
   if (!counterpart.value) return null;
-  const cslug = counterpart.value.stem.split("/").pop();
+  const cslug = slugOf(counterpart.value);
+  if (!cslug) return null;
   // 對照版在「另一語言」：目前是 en → 對照版是 zh（無前綴）；反之加 /en
   return locale.value === "en" ? `/blog/${cslug}/` : `/en/blog/${cslug}/`;
 });
@@ -117,7 +126,8 @@ const related = computed(() => {
         (p.tags ?? []).some((tg: string) => tags.has(tg)),
     )
     .slice(0, 3)
-    .map((p) => ({ slug: p.stem.split("/").pop() as string, title: p.title }));
+    .map((p) => ({ slug: slugOf(p) ?? "", title: p.title }))
+    .filter((p) => p.slug);
 });
 
 // Option A：語言切換鈕目標

@@ -35,7 +35,13 @@ export async function buildBlogRss(
   const feedUrl = `${base}${opts.pathPrefix}/rss.xml`;
   const items = docs
     .map((doc) => {
-      const slug = doc.stem.split("/").pop();
+      // 防禦：path / stem 任一可用即可取出 slug，異常文件跳過而非讓整個 feed 500
+      const source = doc.path ?? doc.stem;
+      const slug =
+        typeof source === "string"
+          ? source.split("/").filter(Boolean).pop()
+          : undefined;
+      if (!slug) return null;
       const link = `${base}${opts.pathPrefix}/blog/${slug}/`;
       const pubDate = new Date(doc.updatedAt ?? doc.date).toUTCString();
       return `    <item>
@@ -46,6 +52,7 @@ export async function buildBlogRss(
       <description>${escapeXml(doc.description)}</description>
     </item>`;
     })
+    .filter((item): item is string => item !== null)
     .join("\n");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

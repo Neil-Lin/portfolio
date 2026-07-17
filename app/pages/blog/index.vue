@@ -69,14 +69,24 @@ const { data: rawPosts } = await useAsyncData(
 );
 
 const posts = computed(() =>
-  (rawPosts.value ?? []).map((p) => ({
-    path: p.path,
-    slug: p.stem.split("/").pop() as string,
-    title: p.title,
-    description: p.description,
-    date: p.date,
-    tags: p.tags ?? [],
-  })),
+  (rawPosts.value ?? [])
+    .map((p) => {
+      // 防禦：path / stem 任一可用即可取出 slug，異常文件跳過而非讓整頁 500
+      const source = p.path ?? p.stem;
+      const slug =
+        typeof source === "string"
+          ? source.split("/").filter(Boolean).pop()
+          : undefined;
+      return {
+        path: p.path,
+        slug: slug ?? "",
+        title: p.title,
+        description: p.description,
+        date: p.date,
+        tags: p.tags ?? [],
+      };
+    })
+    .filter((p) => p.slug),
 );
 
 const formatDate = (d: string) =>

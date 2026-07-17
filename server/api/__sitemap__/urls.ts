@@ -104,17 +104,28 @@ export default defineSitemapEventHandler(async (e) => {
     const docs = await queryCollection(e, collection)
       .where("draft", "=", false)
       .all();
-    return docs.map((doc): SitemapEntry => {
-      const slug = doc.stem.split("/").pop();
-      const lastmodSrc = doc.updatedAt ?? doc.date;
-      return {
-        loc: `${prefix}/${slug}`,
-        ...(lastmodSrc ? { lastmod: new Date(lastmodSrc).toISOString() } : {}),
-        _i18nTransform: false,
-        images: [],
-        videos: [],
-      };
-    });
+    return docs
+      .map((doc): SitemapEntry | null => {
+        // 防禦：path / stem 任一可用即可取出 slug。單一異常文件不該讓整個
+        // endpoint 500——那會使 sitemap 變成空的（Google 就拿不到任何網址）。
+        const source = doc.path ?? doc.stem;
+        const slug =
+          typeof source === "string"
+            ? source.split("/").filter(Boolean).pop()
+            : undefined;
+        if (!slug) return null;
+        const lastmodSrc = doc.updatedAt ?? doc.date;
+        return {
+          loc: `${prefix}/${slug}`,
+          ...(lastmodSrc
+            ? { lastmod: new Date(lastmodSrc).toISOString() }
+            : {}),
+          _i18nTransform: false,
+          images: [],
+          videos: [],
+        };
+      })
+      .filter((entry): entry is SitemapEntry => entry !== null);
   };
 
   const blogRoutes = [
