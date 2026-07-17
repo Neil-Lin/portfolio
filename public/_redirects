@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects
+# 實際的 sitemap 是 sitemap_index.xml；/sitemap.xml 是搜尋引擎與工具的慣例路徑，
+# 導過去以免 404（GSC 若提交的是 /sitemap.xml 會抓取失敗）。
+# 注意：CF Pages 不支援 Netlify 的 `!` 強制旗標，且勿在此加尾斜線正規化規則。
+/sitemap.xml  /sitemap_index.xml  301
