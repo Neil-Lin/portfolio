@@ -7,6 +7,15 @@
         <h2>{{ article.title }}</h2>
         <div class="article-meta">
           <time :datetime="article.date">{{ formatDate(article.date) }}</time>
+          <template v-if="showUpdatedAt">
+            <span class="meta-sep" aria-hidden="true">·</span>
+            <span class="updated">
+              {{ t("words.updateDay") }}
+              <time :datetime="article.updatedAt">{{
+                formatDate(article.updatedAt as string)
+              }}</time>
+            </span>
+          </template>
           <br />
           <div class="tags">
             <span v-for="tag in article.tags" :key="tag" class="tag">{{
@@ -140,6 +149,14 @@ watchEffect(() => {
 onScopeDispose(() => {
   switchOverride.value = null;
 });
+
+// 只在「有填 updatedAt 且與發布日不同」時才顯示更新日期，避免出現「發布 X · 更新 X」的冗贅。
+// 與 schema.org 的 dateModified 用同一份資料，確保人看到的與機器讀到的一致。
+const showUpdatedAt = computed(
+  () =>
+    !!article.value?.updatedAt &&
+    article.value.updatedAt !== article.value.date,
+);
 
 const formatDate = (d: string) =>
   new Date(d).toLocaleDateString(locale.value === "en" ? "en-GB" : "zh-TW", {

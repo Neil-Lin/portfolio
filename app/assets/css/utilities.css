@@ -70,3 +70,16 @@
   vertical-align: middle;
   color: oklch(var( --wrapper-color));
 }
+
+/*************************
+  Article meta（發布 / 更新日期）
+*************************/
+
+.article-meta {
+  font-size: .875rem;
+  color: oklch(var(--footer-color));
+
+  .meta-sep {
+    margin-inline: .375rem;
+  }
+}
