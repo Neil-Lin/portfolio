@@ -2,6 +2,7 @@
 title: 現代 CSS 技巧整理清單：60+ 特性、支援度與實驗優先序
 description: "一份可快速掃描的現代 CSS 技巧清單，依版面、選擇器、色彩、文字、動畫等分類，整理每個特性的用途、範例與瀏覽器支援度，並標出值得優先實驗的項目。"
 date: 2026-07-06
+updatedAt: 2026-07-17
 tags:
   - CSS
   - 前端開發
@@ -24,7 +25,7 @@ draft: false
 - ✅ = 我已實驗過
 - ⬜ = 尚未實驗
 
-**支援狀態**（截至 2026 年初，🟠 / 🔴 者變動快，上線前請再查 [caniuse](https://caniuse.com "另開新視窗"){target="_blank"} / MDN）
+**支援狀態**（截至 2026 年 7 月，🟠 / 🔴 者變動快，上線前請再查 [caniuse](https://caniuse.com "另開新視窗"){target="_blank"} / MDN）
 
 - 🟢 穩定 — 主流瀏覽器普遍可用，可放心進 production
 - 🟡 較新 — 多數瀏覽器已支援，建議加 fallback
@@ -90,6 +91,7 @@ draft: false
 | `font-variant-numeric: tabular-nums` | 等寬數字，計時器／價格／百分比等會跳動的數字必備（字型需支援） | `font-variant-numeric: tabular-nums;` | 🟢 | ⬜ |
 | `lh` 單位 | 以行高為單位設 margin／間距，跟著字級縮放 | `margin-bottom: 1.5lh;` | 🟡 | ⬜ |
 | `margin-trim` | 剪掉容器內首尾子元素的外距，免除 `:first/:last-child` 歸零（Safari 為主） | `margin-trim: block;` | 🟠 | ⬜ |
+| `text-fit` | 自動縮放文字大小以填滿容器寬度，做響應式大標題不必再手算或靠 JS（Chrome 150 新增） | `h1 { text-fit: auto; }` | 🟠 | ⬜ |
 
 ### E. 動畫與過渡（Animation & Transition）
 
@@ -155,9 +157,18 @@ draft: false
 | `object-view-box` | 直接在 CSS 擷取圖片的局部區域，免另存裁切檔 | `object-view-box: inset(10% 10% 10% 10%);` | 🟠 | ✅ |
 | 獨立 transform 屬性 | `translate`／`rotate`／`scale` 各自成屬性，好分開做動畫 | `rotate: 45deg; scale: 1.2;` | 🟢 | ⬜ |
 | `border-image` | 用切片圖做複雜邊框，省去傳統切版煩惱 | `border-image: url(frame.png) 30 round;` | 🟢 | ⬜ |
+| `background-clip: border-area` | 把背景裁切到「邊框筆畫所在的區域」（會依 `border-width`／`border-style` 計算、忽略 `border-color` 的透明度），可直接用漸層做邊框，免去 `border-image` 的迂迴（Chrome 150 新增） | `border: 3px solid transparent; background: linear-gradient(45deg, red, blue); background-clip: border-area;` | 🟠 | ⬜ |
 | `corner-shape` | 超越 `border-radius` 的圓角形狀（squircle／切角等），搭配 `border-radius` 使用 | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ⬜ |
 | 字型平滑（`-webkit-font-smoothing`） | 深色模式讓文字不刺眼的關鍵：macOS 上淺色文字在深底會因次像素抗鋸齒而變粗發光，改用 grayscale 抗鋸齒後變細、不刺眼；非標準，僅特定平台有效 | `-webkit-font-smoothing: antialiased;`（+ `-moz-osx-font-smoothing: grayscale;`） | 🟡 | ✅ |
 | `@when` / `@else` | CSS 的 if/else 條件塊；仍為提案，瀏覽器皆不可用 | `@when supports(...){} @else{}` | 🔴 | ✅ |
+
+### K. HTML 屬性（非 CSS，但與無障礙高度相關）
+
+這一區嚴格說不是 CSS，但它用宣告式寫法取代大量手寫的 JS 鍵盤操作邏輯、直接影響無障礙品質，所以一併記在同一份清單裡。
+
+| 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
+|---|---|---|---|---|
+| `focusgroup` | 讓複合元件（工具列、頁籤列、選單等）用宣告式就具備方向鍵導覽、保證的 Tab 停留點，以及「記住上次焦點」的行為——這正是 WAI-ARIA 鍵盤模式要求的做法，過去得自己手刻 roving tabindex（Chrome 150 新增） | `<div focusgroup>…</div>` | 🟠 | ⬜ |
 
 ### 建議優先補實驗的清單
 
@@ -179,4 +190,5 @@ draft: false
 - [MDN Web Docs — CSS](https://developer.mozilla.org/zh-TW/docs/Web/CSS "另開新視窗"){target="_blank"}
 - [web.dev — Learn CSS](https://web.dev/learn/css "另開新視窗"){target="_blank"}
 - [Chrome for Developers — CSS](https://developer.chrome.com/tag/css "另開新視窗"){target="_blank"}
+- [New in Chrome 150（`text-fit`、`background-clip: border-area`、`focusgroup`）](https://developer.chrome.com/blog/new-in-chrome-150 "另開新視窗"){target="_blank"}
 - [CSS-Tricks](https://css-tricks.com "另開新視窗"){target="_blank"}

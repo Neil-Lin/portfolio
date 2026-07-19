@@ -2,6 +2,7 @@
 title: "Modern CSS Techniques Cheat Sheet: 60+ Features, Support & What to Try Next"
 description: "A scannable checklist of modern CSS techniques—grouped by layout, selectors, color, typography, animation and more—with each feature's purpose, example, and browser support, plus which ones to experiment with first."
 date: 2026-07-06
+updatedAt: 2026-07-17
 tags:
   - CSS
   - Front-End
@@ -24,7 +25,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 - ✅ = I've experimented with it
 - ⬜ = Not yet
 
-**Support status** (as of early 2026; 🟠 / 🔴 move fast—re-check [caniuse](https://caniuse.com "opens in new window"){target="_blank"} / MDN before shipping)
+**Support status** (as of July 2026; 🟠 / 🔴 move fast—re-check [caniuse](https://caniuse.com "opens in new window"){target="_blank"} / MDN before shipping)
 
 - 🟢 Stable — broadly available across major browsers, safe for production
 - 🟡 Newer — supported in most browsers; add a fallback
@@ -90,6 +91,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 | `font-variant-numeric: tabular-nums` | Monospaced digits—essential for timers/prices/percentages that jitter (font must support it) | `font-variant-numeric: tabular-nums;` | 🟢 | ⬜ |
 | `lh` unit | Set margin/spacing in line-height units so they scale with font size | `margin-bottom: 1.5lh;` | 🟡 | ⬜ |
 | `margin-trim` | Trim margins of the first/last children in a container, avoiding `:first/:last-child` resets (Safari-first) | `margin-trim: block;` | 🟠 | ⬜ |
+| `text-fit` | Auto-scales font size so text exactly fills its container's width—responsive headlines without manual math or JS (new in Chrome 150) | `h1 { text-fit: auto; }` | 🟠 | ⬜ |
 
 ### E. Animation & Transition
 
@@ -155,9 +157,18 @@ This is my running checklist of modern CSS features—something I scan to decide
 | `object-view-box` | Crop a region of an image directly in CSS, no separate cropped file needed | `object-view-box: inset(10% 10% 10% 10%);` | 🟠 | ✅ |
 | Individual transform properties | `translate`/`rotate`/`scale` as their own properties, easier to animate separately | `rotate: 45deg; scale: 1.2;` | 🟢 | ⬜ |
 | `border-image` | Complex borders from a sliced image, avoiding traditional slicing | `border-image: url(frame.png) 30 round;` | 🟢 | ⬜ |
+| `background-clip: border-area` | Clips the background to the area painted by the border strokes (respecting `border-width`/`border-style`, ignoring `border-color` transparency), so gradient borders work natively instead of via `border-image` workarounds (new in Chrome 150) | `border: 3px solid transparent; background: linear-gradient(45deg, red, blue); background-clip: border-area;` | 🟠 | ⬜ |
 | `corner-shape` | Corner shapes beyond `border-radius` (squircle / notched, etc.), used together with `border-radius` | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ⬜ |
 | Font smoothing (`-webkit-font-smoothing`) | The key to non-harsh text in dark mode: on macOS, light text on a dark background looks bold and glowing due to subpixel antialiasing; grayscale antialiasing makes it thinner and gentler. Non-standard, works only on certain platforms | `-webkit-font-smoothing: antialiased;` (+ `-moz-osx-font-smoothing: grayscale;`) | 🟡 | ✅ |
 | `@when` / `@else` | CSS if/else conditional blocks; still a proposal, unusable in any browser | `@when supports(...){} @else{}` | 🔴 | ✅ |
+
+### K. HTML Attributes (Not CSS, but Closely Tied to Accessibility)
+
+Strictly speaking this section isn't CSS, but it replaces a pile of hand-written JS keyboard logic with a declarative attribute and directly affects accessibility quality — so it belongs in the same checklist.
+
+| Property / Feature | Main use & when to use | Example | Support | Tried |
+|---|---|---|---|---|
+| `focusgroup` | Declaratively gives composite widgets (toolbars, tab lists, menus) arrow-key navigation, a guaranteed tab stop, and last-focused memory — exactly the WAI-ARIA keyboard pattern you previously had to hand-roll with roving tabindex (new in Chrome 150) | `<div focusgroup>…</div>` | 🟠 | ⬜ |
 
 ### What to try next (recommended)
 
@@ -179,4 +190,5 @@ These are the ones I haven't checked off yet but are "stable 🟢 and high ROI,"
 - [MDN Web Docs — CSS](https://developer.mozilla.org/en-US/docs/Web/CSS "opens in new window"){target="_blank"}
 - [web.dev — Learn CSS](https://web.dev/learn/css "opens in new window"){target="_blank"}
 - [Chrome for Developers — CSS](https://developer.chrome.com/tag/css "opens in new window"){target="_blank"}
+- [New in Chrome 150 (`text-fit`, `background-clip: border-area`, `focusgroup`)](https://developer.chrome.com/blog/new-in-chrome-150 "opens in new window"){target="_blank"}
 - [CSS-Tricks](https://css-tricks.com "opens in new window"){target="_blank"}
