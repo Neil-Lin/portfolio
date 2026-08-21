@@ -2,7 +2,7 @@
 title: "Modern CSS Techniques Cheat Sheet: 60+ Features, Support & What to Try Next"
 description: "A scannable checklist of modern CSS techniques—grouped by layout, selectors, color, typography, animation and more—with each feature's purpose, example, and browser support, plus which ones to experiment with first."
 date: 2026-07-06
-updatedAt: 2026-07-20
+updatedAt: 2026-08-21
 tags:
   - CSS
   - Front-End
@@ -43,7 +43,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 | `@position-try` | Fallback for anchor positioning: auto-flip when there isn't enough room | `position-try-fallbacks: flip-block;` | 🟠 | ⬜ |
 | `reading-flow` / `reading-order` | When flex/grid visual order is reordered, fix keyboard and screen-reader reading order (an accessibility must) | `reading-flow: flex-visual;` / `reading-order: 1;` | 🟠 | ✅ |
 | Gap Decorations (`row-rule` / `column-rule` / `rule`) | Draw and style separators directly in grid/flex gaps—no more divider elements; plus fine-grain `rule-inset`/`rule-overlap`/`rule-visibility-items` (Chrome/Edge 149+) | `column-rule: 1px solid; row-rule: 1px solid;` or shorthand `rule: 1px solid;` | 🟡 | ⬜ |
-| `margin-inline` | Logical property; set both inline-axis margins at once (often `auto` to center) | `margin-inline: auto;` | 🟢 | ⬜ |
+| `margin-inline` | Logical property; set both inline-axis margins at once (often `auto` to center) | `margin-inline: auto;` | 🟢 | ✅ |
 
 ### B. Selectors
 
@@ -52,7 +52,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 | `:has()` | The "parent selector" / select by descendant or sibling state—a logic powerhouse | `.card:has(img){}` | 🟢 | ✅ |
 | `::part()` | Style a specific element inside a Web Component from the outside (needs Shadow DOM knowledge) | `my-el::part(label){}` | 🟢 | ✅ |
 | `:is()` / `:where()` | Group selectors; `:where()` has 0 specificity (lower than inline), `:is()` takes its highest-specificity member | `:is(h1,h2) :where(.x){}` | 🟢 | ✅ |
-| `nth-of` syntax | `:nth-child(An+B of S)`—count the nth item within a filtered subset | `:nth-child(2 of .active){}` | 🟢 | ⬜ |
+| `nth-of` syntax | `:nth-child(An+B of S)`—count the nth item within a filtered subset | `:nth-child(2 of .active){}` | 🟢 | ✅ |
 | `:placeholder-shown` | Style only while the placeholder is still showing (floating-label effect) | `input:placeholder-shown{}` | 🟢 | ✅ |
 | `:in-range` / `:out-of-range` | Style form values inside/outside their min/max range | `input:out-of-range{}` | 🟢 | ✅ |
 | `:user-valid` / `:user-invalid` | Show validation state only after the user has interacted—no angry red on load | `input:user-invalid{}` | 🟡 | ✅ |

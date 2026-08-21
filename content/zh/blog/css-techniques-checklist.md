@@ -2,7 +2,7 @@
 title: 現代 CSS 技巧整理清單：60+ 特性、支援度與實驗優先序
 description: "一份可快速掃描的現代 CSS 技巧清單，依版面、選擇器、色彩、文字、動畫等分類，整理每個特性的用途、範例與瀏覽器支援度，並標出值得優先實驗的項目。"
 date: 2026-07-06
-updatedAt: 2026-07-20
+updatedAt: 2026-08-21
 tags:
   - CSS
   - 前端開發
@@ -43,7 +43,7 @@ draft: false
 | `@position-try` | 錨定定位的 fallback：空間不足時自動翻面 | `position-try-fallbacks: flip-block;` | 🟠 | ⬜ |
 | `reading-flow` / `reading-order` | flex/grid 視覺順序被反轉時，修正鍵盤與報讀的閱讀順序（無障礙關鍵） | `reading-flow: flex-visual;` / `reading-order: 1;` | 🟠 | ✅ |
 | Gap Decorations（`row-rule` / `column-rule` / `rule`） | 直接在 grid/flex 的 gap 畫分隔線、控制樣式，不用再插 divider 元素；另有 `rule-inset`／`rule-overlap`／`rule-visibility-items` 等微調（Chrome/Edge 149 起） | `column-rule: 1px solid; row-rule: 1px solid;` 或簡寫 `rule: 1px solid;` | 🟡 | ⬜ |
-| `margin-inline` | 邏輯屬性，一次設定行向左右邊距（常用 `auto` 置中） | `margin-inline: auto;` | 🟢 | ⬜ |
+| `margin-inline` | 邏輯屬性，一次設定行向左右邊距（常用 `auto` 置中） | `margin-inline: auto;` | 🟢 | ✅ |
 
 ### B. 選擇器（Selectors）
 
@@ -52,7 +52,7 @@ draft: false
 | `:has()` | 「父選擇器」／依後代或相鄰狀態選取，邏輯判斷神器 | `.card:has(img){}` | 🟢 | ✅ |
 | `::part()` | 從外部樣式化 Web Component 內部指定元素（需懂 Shadow DOM） | `my-el::part(label){}` | 🟢 | ✅ |
 | `:is()` / `:where()` | 群組化選擇器；`:where()` 權重為 0（比 inline 還低），`:is()` 取最高權重成員 | `:is(h1,h2) :where(.x){}` | 🟢 | ✅ |
-| `nth-of` 語法 | `:nth-child(An+B of S)`，在符合條件的子集內數第幾個 | `:nth-child(2 of .active){}` | 🟢 | ⬜ |
+| `nth-of` 語法 | `:nth-child(An+B of S)`，在符合條件的子集內數第幾個 | `:nth-child(2 of .active){}` | 🟢 | ✅ |
 | `:placeholder-shown` | placeholder 還在顯示時才套樣式（浮動標籤效果） | `input:placeholder-shown{}` | 🟢 | ✅ |
 | `:in-range` / `:out-of-range` | 表單數值在 min/max 範圍內外時的樣式 | `input:out-of-range{}` | 🟢 | ✅ |
 | `:user-valid` / `:user-invalid` | 「使用者互動後」才顯示驗證狀態，不會一載入就爆紅 | `input:user-invalid{}` | 🟡 | ✅ |
