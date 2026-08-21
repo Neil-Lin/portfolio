@@ -69,6 +69,11 @@
   padding: .125rem .5rem;
   vertical-align: middle;
   color: oklch(var( --wrapper-color));
+  /* 裁掉字體上下自帶留白，讓文字在 chip 裡真正垂直置中；不支援的瀏覽器（Firefox）忽略即可 */
+  -webkit-text-box-trim: trim-both;
+  text-box-trim: trim-both;
+  -webkit-text-box-edge: cap alphabetic;
+  text-box-edge: cap alphabetic;
 }
 
 /*************************
@@ -82,4 +87,16 @@
   .meta-sep {
     margin-inline: .375rem;
   }
+}
+
+/*************************
+  Article 標題（裁掉字體上下留白，讓標題與上下留白更貼、對齊更準）
+  不支援的瀏覽器（Firefox）忽略即可，不影響排版。
+*************************/
+
+.article :is(h2, h3) {
+  -webkit-text-box-trim: trim-both;
+  text-box-trim: trim-both;
+  -webkit-text-box-edge: cap alphabetic;
+  text-box-edge: cap alphabetic;
 }

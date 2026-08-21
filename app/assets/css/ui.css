@@ -126,11 +126,11 @@ a {
 p {
   max-width: 80ch;
   color: oklch(var(--wrapper-color));
-  margin-bottom: 1.5rem;
-  &+p {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
+  /* 邏輯屬性：上 0、下一段間距。相鄰段落靠這個下邊距產生間隔（block 軸外距會合併，
+     不必再寫 p + p 的 margin-top，那會與上一段的下邊距合併、等於沒加）。
+     段距用 1lh＝一行高，隨字級自動縮放、貼齊行節奏；舊瀏覽器退回 1.5rem。 */
+  margin-block: 0 1.5rem;
+  margin-block: 0 1lh;
 }
 
 select {
