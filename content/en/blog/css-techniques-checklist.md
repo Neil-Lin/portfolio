@@ -127,7 +127,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
 | Cascade Layers `@layer` | Manage priority with layers to tame specificity in large projects | `@layer base, components, utilities;` | 🟢 | ✅ |
-| `@scope` | Scope styles to a block with an optional lower bound, similar to CSS Modules scoping | `@scope (.card) to (.content){}` | 🟡 | ⬜ |
+| `@scope` | Scope styles to a block with an optional lower bound, similar to CSS Modules scoping | `@scope (.card) to (.content){}` | 🟡 | ✅ |
 | `contain` | Declare inner layout/style independence to isolate reflow and boost performance | `contain: layout style;` | 🟢 | ✅ |
 | `contain-intrinsic-size` | With `content-visibility: auto`, give an estimated size first to avoid scroll jumps; switches to auto once cached | `contain-intrinsic-size: auto 100px;` | 🟢 | ✅ |
 | `scrollbar-gutter: stable` | Reserve the scrollbar gutter so content doesn't shift when the scrollbar appears | `scrollbar-gutter: stable;` | 🟡 | ⬜ |
