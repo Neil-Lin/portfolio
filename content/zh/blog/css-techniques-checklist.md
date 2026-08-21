@@ -30,7 +30,7 @@ draft: false
 - 🟢 穩定 — 主流瀏覽器普遍可用，可放心進 production
 - 🟡 較新 — 多數瀏覽器已支援，建議加 fallback
 - 🟠 實驗性 — 僅部分瀏覽器 / 需開旗標 / 剛上 Chrome
-- 🔴 提案中 — 目前無法在瀏覽器使用，或根本不是真的屬性 / 選擇器
+- 🔴 提案中 — 規格仍在提案階段，目前無法在瀏覽器使用
 
 ### A. 版面配置（Layout）
 
@@ -57,8 +57,6 @@ draft: false
 | `:in-range` / `:out-of-range` | 表單數值在 min/max 範圍內外時的樣式 | `input:out-of-range{}` | 🟢 | ✅ |
 | `:user-valid` / `:user-invalid` | 「使用者互動後」才顯示驗證狀態，不會一載入就爆紅 | `input:user-invalid{}` | 🟡 | ✅ |
 | `sibling-index()` / `sibling-count()` | 取得元素在同層中的索引與總數，可做交錯動畫、動態寬度 | `--i: sibling-index();` | 🟠 | ✅ |
-| `:snapped` | 想選「目前吸附」的 scroll-snap 項目；目前非真選擇器，多以 scroll-driven 動畫模擬 | （模擬，非正式） | 🔴 | ⬜ |
-| `nth-letter` | 想選第 n 個字母；無此選擇器，css-tricks 以技巧偽造 | （偽造，非正式） | 🔴 | ⬜ |
 | `:heading` | 一次選取所有標題；目前仍為提案 | `:heading{}` | 🔴 | ⬜ |
 | Carousel 選擇器組 | `::scroll-marker` / `scroll-marker-group` / `:target-current` 做原生輪播與 Scrollspy | `:target-current{}` | 🟠 | ⬜ |
 
@@ -72,7 +70,7 @@ draft: false
 | `accent-color` | 一行改掉 checkbox/radio/range 等系統元件主題色 | `accent-color: rebeccapurple;` | 🟢 | ✅ |
 | `light-dark()` | 同一屬性同時給亮／暗兩值，搭配 `color-scheme` 免寫 media query | `color: light-dark(#000, #fff);` | 🟢 | ✅ |
 | `font-palette` / `@font-palette-values` | 彩色字型（COLR）可自訂調色盤 | `@font-palette-values --p{...}` + `font-palette: --p;` | 🟡 | ✅ |
-| 漸層指定內插色彩空間 | `linear-gradient(in oklch …)` 讓漸層過渡更均勻不灰濁 | `background: linear-gradient(in oklch, #4ba3f7, #9d2398);` | 🟢 | ⬜ |
+| 漸層指定內插色彩空間 | `linear-gradient(in oklch …)` 讓漸層過渡更均勻不灰濁 | `background: linear-gradient(in oklch, #4ba3f7, #9d2398);` | 🟢 | ✅ |
 
 ### D. 文字排版（Typography）
 
@@ -88,7 +86,7 @@ draft: false
 | `text-box-trim` | 裁掉字體上下的多餘留白，做精準垂直對齊 | `text-box: trim-both cap alphabetic;` | 🟠 | ✅ |
 | `line-clamp`（`-webkit-line-clamp`） | 限制幾行後顯示「…」；新標準 `line-clamp` 逐步取代 webkit 寫法 | `-webkit-line-clamp: 3;`（需 `-webkit-box`） | 🟢 | ✅ |
 | `hanging-punctuation` | 行首／行尾標點懸掛到邊界外，對齊更整齊（Safari 為主） | `hanging-punctuation: first last;` | 🟠 | ⬜ |
-| `font-variant-numeric: tabular-nums` | 等寬數字，計時器／價格／百分比等會跳動的數字必備（字型需支援） | `font-variant-numeric: tabular-nums;` | 🟢 | ⬜ |
+| `font-variant-numeric: tabular-nums` | 等寬數字，計時器／價格／百分比等會跳動的數字必備（字型需支援） | `font-variant-numeric: tabular-nums;` | 🟢 | ✅ |
 | `lh` 單位 | 以行高為單位設 margin／間距，跟著字級縮放 | `margin-bottom: 1.5lh;` | 🟡 | ⬜ |
 | `margin-trim` | 剪掉容器內首尾子元素的外距，免除 `:first/:last-child` 歸零（Safari 為主） | `margin-trim: block;` | 🟠 | ⬜ |
 | `text-fit` | 自動縮放文字大小以填滿容器寬度，做響應式大標題不必再手算或靠 JS（Chrome 150 新增） | `h1 { text-fit: auto; }` | 🟠 | ⬜ |
@@ -119,7 +117,7 @@ draft: false
 | Media Query 範圍語法 | 用 `<=`／`>=` 寫斷點，免去 `min-width` 要配 `320.01px` 的痛 | `@media (width >= 320px){}` | 🟢 | ✅ |
 | `prefers-color-scheme` | 偵測深／淺色主題偏好 | `@media (prefers-color-scheme: dark){}` | 🟢 | ✅ |
 | `prefers-contrast` | 偵測使用者要更高／更低對比 | `@media (prefers-contrast: more){}` | 🟡 | ⬜ |
-| `forced-colors` | 高對比／強制色彩模式（Windows 高對比）下的調整 | `@media (forced-colors: active){}` | 🟢 | ⬜ |
+| `forced-colors` | 高對比／強制色彩模式（Windows 高對比）下的調整 | `@media (forced-colors: active){}` | 🟢 | ✅ |
 | `resolution` media | 依輸出裝置像素密度切換（如 Retina） | `@media (resolution >= 2dppx){}` | 🟢 | ✅ |
 | Style Queries `@container style()` | 依容器的自訂屬性值套樣式（如主題），元件變體超好用 | `@container style(--theme: dark){}` | 🟡 | ✅ |
 | Scroll-State Queries | 依容器捲動狀態（如 `stuck`、`snapped`）套樣式；可偵測 sticky 是否黏住 | `@container scroll-state(stuck: top){}` | 🟠 | ✅ |
@@ -141,7 +139,7 @@ draft: false
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
 | `round()` / `mod()` / `rem()` | CSS 內做進位取整、取餘，對齊網格／節奏 | `width: round(down, 15.5px, 4px);` | 🟡 | ⬜ |
-| 三角函式 `sin/cos/tan` | 圓形排列、波形、角度計算 | `width: calc(sin(30deg) * 100px);` | 🟢 | ⬜ |
+| 三角函式 `sin/cos/tan` | 圓形排列、波形、角度計算 | `width: calc(sin(30deg) * 100px);` | 🟢 | ✅ |
 | `calc-size()` / `interpolate-size` | 對 `auto`／`min-content` 等關鍵字做動畫過渡，如未知高度的 accordion 展開 | `interpolate-size: allow-keywords;` | 🟠 | ✅ |
 | `random()` | CSS 原生隨機值（散布、抖動效果） | `rotate: random(-5deg, 5deg);` | 🟠 | ✅ |
 | `if()` | 在屬性值中做條件判斷 | `display: if(style(--open: 1): block; else: none);` | 🟠 | ⬜ |
@@ -155,8 +153,8 @@ draft: false
 | `<img loading="lazy">` | 圖片延遲載入，改善首屏效能 | `<img loading="lazy">` | 🟢 | ✅ |
 | `overscroll-behavior: contain` | 區塊捲到底不再帶動外層捲軸（彈窗／側欄常用） | `overscroll-behavior: contain;` | 🟢 | ✅ |
 | `object-view-box` | 直接在 CSS 擷取圖片的局部區域，免另存裁切檔 | `object-view-box: inset(10% 10% 10% 10%);` | 🟠 | ✅ |
-| 獨立 transform 屬性 | `translate`／`rotate`／`scale` 各自成屬性，好分開做動畫 | `rotate: 45deg; scale: 1.2;` | 🟢 | ⬜ |
-| `border-image` | 用切片圖做複雜邊框，省去傳統切版煩惱 | `border-image: url(frame.png) 30 round;` | 🟢 | ⬜ |
+| 獨立 transform 屬性 | `translate`／`rotate`／`scale` 各自成屬性，好分開做動畫 | `rotate: 45deg; scale: 1.2;` | 🟢 | ✅ |
+| `border-image` | 用切片圖做複雜邊框，省去傳統切版煩惱 | `border-image: url(frame.png) 30 round;` | 🟢 | ✅ |
 | `background-clip: border-area` | 把背景裁切到「邊框筆畫所在的區域」（會依 `border-width`／`border-style` 計算、忽略 `border-color` 的透明度），可直接用漸層做邊框，免去 `border-image` 的迂迴（Chrome 150 新增） | `border: 3px solid transparent; background: linear-gradient(45deg, red, blue); background-clip: border-area;` | 🟠 | ⬜ |
 | `corner-shape` | 超越 `border-radius` 的圓角形狀（squircle／切角等），搭配 `border-radius` 使用 | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ⬜ |
 | 字型平滑（`-webkit-font-smoothing`） | 深色模式讓文字不刺眼的關鍵：macOS 上淺色文字在深底會因次像素抗鋸齒而變粗發光，改用 grayscale 抗鋸齒後變細、不刺眼；非標準，僅特定平台有效 | `-webkit-font-smoothing: antialiased;`（+ `-moz-osx-font-smoothing: grayscale;`） | 🟡 | ✅ |

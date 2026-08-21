@@ -30,7 +30,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 - 🟢 Stable — broadly available across major browsers, safe for production
 - 🟡 Newer — supported in most browsers; add a fallback
 - 🟠 Experimental — only some browsers / behind a flag / just landed in Chrome
-- 🔴 Proposed — not usable in browsers yet, or not actually a real property / selector
+- 🔴 Proposed — still at the proposal stage, not usable in browsers yet
 
 ### A. Layout
 
@@ -57,8 +57,6 @@ This is my running checklist of modern CSS features—something I scan to decide
 | `:in-range` / `:out-of-range` | Style form values inside/outside their min/max range | `input:out-of-range{}` | 🟢 | ✅ |
 | `:user-valid` / `:user-invalid` | Show validation state only after the user has interacted—no angry red on load | `input:user-invalid{}` | 🟡 | ✅ |
 | `sibling-index()` / `sibling-count()` | Get an element's index and total among siblings; enables staggered animation, dynamic widths | `--i: sibling-index();` | 🟠 | ✅ |
-| `:snapped` | Want to select the currently snapped scroll-snap item; not a real selector yet—usually faked with scroll-driven animation | (simulated, not official) | 🔴 | ⬜ |
-| `nth-letter` | Want to select the nth letter; no such selector—css-tricks fakes it with tricks | (faked, not official) | 🔴 | ⬜ |
 | `:heading` | Select all headings at once; still a proposal | `:heading{}` | 🔴 | ⬜ |
 | Carousel selectors | `::scroll-marker` / `scroll-marker-group` / `:target-current` for native carousels and scrollspy | `:target-current{}` | 🟠 | ⬜ |
 
@@ -72,7 +70,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 | `accent-color` | One line to re-theme checkbox/radio/range and other system controls | `accent-color: rebeccapurple;` | 🟢 | ✅ |
 | `light-dark()` | Give a property both a light and dark value at once; with `color-scheme` it skips the media query | `color: light-dark(#000, #fff);` | 🟢 | ✅ |
 | `font-palette` / `@font-palette-values` | Custom palettes for color (COLR) fonts | `@font-palette-values --p{...}` + `font-palette: --p;` | 🟡 | ✅ |
-| Gradient interpolation color space | `linear-gradient(in oklch …)` makes gradient transitions smoother and less muddy | `background: linear-gradient(in oklch, #4ba3f7, #9d2398);` | 🟢 | ⬜ |
+| Gradient interpolation color space | `linear-gradient(in oklch …)` makes gradient transitions smoother and less muddy | `background: linear-gradient(in oklch, #4ba3f7, #9d2398);` | 🟢 | ✅ |
 
 ### D. Typography
 
@@ -88,7 +86,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 | `text-box-trim` | Trim the extra space above/below a font for precise vertical alignment | `text-box: trim-both cap alphabetic;` | 🟠 | ✅ |
 | `line-clamp` (`-webkit-line-clamp`) | Show "…" after N lines; the new standard `line-clamp` is gradually replacing the webkit form | `-webkit-line-clamp: 3;` (needs `-webkit-box`) | 🟢 | ✅ |
 | `hanging-punctuation` | Hang leading/trailing punctuation outside the edge for tidier alignment (Safari-first) | `hanging-punctuation: first last;` | 🟠 | ⬜ |
-| `font-variant-numeric: tabular-nums` | Monospaced digits—essential for timers/prices/percentages that jitter (font must support it) | `font-variant-numeric: tabular-nums;` | 🟢 | ⬜ |
+| `font-variant-numeric: tabular-nums` | Monospaced digits—essential for timers/prices/percentages that jitter (font must support it) | `font-variant-numeric: tabular-nums;` | 🟢 | ✅ |
 | `lh` unit | Set margin/spacing in line-height units so they scale with font size | `margin-bottom: 1.5lh;` | 🟡 | ⬜ |
 | `margin-trim` | Trim margins of the first/last children in a container, avoiding `:first/:last-child` resets (Safari-first) | `margin-trim: block;` | 🟠 | ⬜ |
 | `text-fit` | Auto-scales font size so text exactly fills its container's width—responsive headlines without manual math or JS (new in Chrome 150) | `h1 { text-fit: auto; }` | 🟠 | ⬜ |
@@ -119,7 +117,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 | Media query range syntax | Write breakpoints with `<=`/`>=`, skipping the `min-width` + `320.01px` pain | `@media (width >= 320px){}` | 🟢 | ✅ |
 | `prefers-color-scheme` | Detect dark/light theme preference | `@media (prefers-color-scheme: dark){}` | 🟢 | ✅ |
 | `prefers-contrast` | Detect a request for more/less contrast | `@media (prefers-contrast: more){}` | 🟡 | ⬜ |
-| `forced-colors` | Adjust for high-contrast / forced-colors mode (Windows High Contrast) | `@media (forced-colors: active){}` | 🟢 | ⬜ |
+| `forced-colors` | Adjust for high-contrast / forced-colors mode (Windows High Contrast) | `@media (forced-colors: active){}` | 🟢 | ✅ |
 | `resolution` media | Switch by output device pixel density (e.g. Retina) | `@media (resolution >= 2dppx){}` | 🟢 | ✅ |
 | Style Queries `@container style()` | Style by a container's custom-property value (e.g. theme); great for component variants | `@container style(--theme: dark){}` | 🟡 | ✅ |
 | Scroll-State Queries | Style by a container's scroll state (e.g. `stuck`, `snapped`); can detect whether a sticky element is stuck | `@container scroll-state(stuck: top){}` | 🟠 | ✅ |
@@ -141,7 +139,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
 | `round()` / `mod()` / `rem()` | Rounding and remainders in CSS, to align to a grid/rhythm | `width: round(down, 15.5px, 4px);` | 🟡 | ⬜ |
-| Trig functions `sin/cos/tan` | Circular layouts, waveforms, angle math | `width: calc(sin(30deg) * 100px);` | 🟢 | ⬜ |
+| Trig functions `sin/cos/tan` | Circular layouts, waveforms, angle math | `width: calc(sin(30deg) * 100px);` | 🟢 | ✅ |
 | `calc-size()` / `interpolate-size` | Animate transitions to keywords like `auto`/`min-content`, e.g. an accordion expanding to an unknown height | `interpolate-size: allow-keywords;` | 🟠 | ✅ |
 | `random()` | Native random values in CSS (scatter, jitter effects) | `rotate: random(-5deg, 5deg);` | 🟠 | ✅ |
 | `if()` | Conditional logic inside a property value | `display: if(style(--open: 1): block; else: none);` | 🟠 | ⬜ |
@@ -155,8 +153,8 @@ This is my running checklist of modern CSS features—something I scan to decide
 | `<img loading="lazy">` | Lazy-load images to improve first-paint performance | `<img loading="lazy">` | 🟢 | ✅ |
 | `overscroll-behavior: contain` | Stop a scrolled-to-the-end block from scrolling the outer container (common for modals/sidebars) | `overscroll-behavior: contain;` | 🟢 | ✅ |
 | `object-view-box` | Crop a region of an image directly in CSS, no separate cropped file needed | `object-view-box: inset(10% 10% 10% 10%);` | 🟠 | ✅ |
-| Individual transform properties | `translate`/`rotate`/`scale` as their own properties, easier to animate separately | `rotate: 45deg; scale: 1.2;` | 🟢 | ⬜ |
-| `border-image` | Complex borders from a sliced image, avoiding traditional slicing | `border-image: url(frame.png) 30 round;` | 🟢 | ⬜ |
+| Individual transform properties | `translate`/`rotate`/`scale` as their own properties, easier to animate separately | `rotate: 45deg; scale: 1.2;` | 🟢 | ✅ |
+| `border-image` | Complex borders from a sliced image, avoiding traditional slicing | `border-image: url(frame.png) 30 round;` | 🟢 | ✅ |
 | `background-clip: border-area` | Clips the background to the area painted by the border strokes (respecting `border-width`/`border-style`, ignoring `border-color` transparency), so gradient borders work natively instead of via `border-image` workarounds (new in Chrome 150) | `border: 3px solid transparent; background: linear-gradient(45deg, red, blue); background-clip: border-area;` | 🟠 | ⬜ |
 | `corner-shape` | Corner shapes beyond `border-radius` (squircle / notched, etc.), used together with `border-radius` | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ⬜ |
 | Font smoothing (`-webkit-font-smoothing`) | The key to non-harsh text in dark mode: on macOS, light text on a dark background looks bold and glowing due to subpixel antialiasing; grayscale antialiasing makes it thinner and gentler. Non-standard, works only on certain platforms | `-webkit-font-smoothing: antialiased;` (+ `-moz-osx-font-smoothing: grayscale;`) | 🟡 | ✅ |
