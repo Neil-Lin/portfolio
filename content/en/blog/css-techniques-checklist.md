@@ -116,7 +116,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 |---|---|---|---|---|
 | Media query range syntax | Write breakpoints with `<=`/`>=`, skipping the `min-width` + `320.01px` pain | `@media (width >= 320px){}` | 🟢 | ✅ |
 | `prefers-color-scheme` | Detect dark/light theme preference | `@media (prefers-color-scheme: dark){}` | 🟢 | ✅ |
-| `prefers-contrast` | Detect a request for more/less contrast | `@media (prefers-contrast: more){}` | 🟡 | ⬜ |
+| `prefers-contrast` | Detect a request for more/less contrast | `@media (prefers-contrast: more){}` | 🟡 | ✅ |
 | `forced-colors` | Adjust for high-contrast / forced-colors mode (Windows High Contrast) | `@media (forced-colors: active){}` | 🟢 | ✅ |
 | `resolution` media | Switch by output device pixel density (e.g. Retina) | `@media (resolution >= 2dppx){}` | 🟢 | ✅ |
 | Style Queries `@container style()` | Style by a container's custom-property value (e.g. theme); great for component variants | `@container style(--theme: dark){}` | 🟡 | ✅ |

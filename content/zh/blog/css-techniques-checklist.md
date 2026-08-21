@@ -116,7 +116,7 @@ draft: false
 |---|---|---|---|---|
 | Media Query 範圍語法 | 用 `<=`／`>=` 寫斷點，免去 `min-width` 要配 `320.01px` 的痛 | `@media (width >= 320px){}` | 🟢 | ✅ |
 | `prefers-color-scheme` | 偵測深／淺色主題偏好 | `@media (prefers-color-scheme: dark){}` | 🟢 | ✅ |
-| `prefers-contrast` | 偵測使用者要更高／更低對比 | `@media (prefers-contrast: more){}` | 🟡 | ⬜ |
+| `prefers-contrast` | 偵測使用者要更高／更低對比 | `@media (prefers-contrast: more){}` | 🟡 | ✅ |
 | `forced-colors` | 高對比／強制色彩模式（Windows 高對比）下的調整 | `@media (forced-colors: active){}` | 🟢 | ✅ |
 | `resolution` media | 依輸出裝置像素密度切換（如 Retina） | `@media (resolution >= 2dppx){}` | 🟢 | ✅ |
 | Style Queries `@container style()` | 依容器的自訂屬性值套樣式（如主題），元件變體超好用 | `@container style(--theme: dark){}` | 🟡 | ✅ |

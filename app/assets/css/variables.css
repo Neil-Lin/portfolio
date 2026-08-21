@@ -100,3 +100,29 @@
     --pre-text-color: var(--color-white);
   }
 }
+
+/*
+  使用者要求「更高對比」時（macOS/iOS 增強對比、Windows 高對比等）加強對比。
+  純覆蓋 token 值，元件零改動；不寫也不影響一般模式，屬漸進增強。
+  1) 邊框加深、2) 焦點框加深加粗、3) 內文次要色衝 AAA、4) 連結色加深。
+*/
+@media (prefers-contrast: more) {
+  :root {
+    --border-color: var(--color-gray-700); /* 79% → 45%：卡片/表格/輸入框邊框現形 */
+    --outline-color: var(--color-primary); /* 淺琥珀 → 深紫：焦點框更明顯 */
+    --wrapper-color: var(--color-gray-900); /* 45% → 30%：內文次要色衝 AAA */
+    --link-color: 38% 0.17 294.72; /* 主色紫再加深，連結對比更強 */
+  }
+
+  :focus-visible {
+    outline-width: 3px; /* 焦點框加粗，鍵盤使用者更好定位 */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --border-color: 60% 0 0; /* 暗色：邊框提亮現形 */
+      --wrapper-color: var(--color-white); /* 內文提到純白，衝最高對比 */
+      --link-color: var(--color-white); /* 連結提到純白 */
+    }
+  }
+}
