@@ -2,7 +2,7 @@
 title: "Modern CSS Techniques Cheat Sheet: 60+ Features, Support & What to Try Next"
 description: "A scannable checklist of modern CSS techniques—grouped by layout, selectors, color, typography, animation and more—with each feature's purpose, example, and browser support, plus which ones to experiment with first."
 date: 2026-07-06
-updatedAt: 2026-07-17
+updatedAt: 2026-07-20
 tags:
   - CSS
   - Front-End
@@ -42,7 +42,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 | Anchor Positioning | Anchor one element's position to another (tooltip / popover / menu), replacing a lot of JS math | `anchor-name: --a;` + `top: anchor(--a bottom);` | 🟠 | ✅ |
 | `@position-try` | Fallback for anchor positioning: auto-flip when there isn't enough room | `position-try-fallbacks: flip-block;` | 🟠 | ⬜ |
 | `reading-flow` / `reading-order` | When flex/grid visual order is reordered, fix keyboard and screen-reader reading order (an accessibility must) | `reading-flow: flex-visual;` / `reading-order: 1;` | 🟠 | ✅ |
-| Gap Decorations / styleable gaps | Draw separators in grid/flex gaps and control their style | `column-rule: 1px solid;` (applied to the gap) | 🟠 | ⬜ |
+| Gap Decorations (`row-rule` / `column-rule` / `rule`) | Draw and style separators directly in grid/flex gaps—no more divider elements; plus fine-grain `rule-inset`/`rule-overlap`/`rule-visibility-items` (Chrome/Edge 149+) | `column-rule: 1px solid; row-rule: 1px solid;` or shorthand `rule: 1px solid;` | 🟡 | ⬜ |
 | `margin-inline` | Logical property; set both inline-axis margins at once (often `auto` to center) | `margin-inline: auto;` | 🟢 | ⬜ |
 
 ### B. Selectors
@@ -191,4 +191,5 @@ These are the ones I haven't checked off yet but are "stable 🟢 and high ROI,"
 - [web.dev — Learn CSS](https://web.dev/learn/css "opens in new window"){target="_blank"}
 - [Chrome for Developers — CSS](https://developer.chrome.com/tag/css "opens in new window"){target="_blank"}
 - [New in Chrome 150 (`text-fit`, `background-clip: border-area`, `focusgroup`)](https://developer.chrome.com/blog/new-in-chrome-150 "opens in new window"){target="_blank"}
+- [CSS Gap Decorations Now Available (`row-rule`/`column-rule`/`rule`, CSS-Tricks)](https://css-tricks.com/css-gap-decorations-now-available/ "opens in new window"){target="_blank"}
 - [CSS-Tricks](https://css-tricks.com "opens in new window"){target="_blank"}

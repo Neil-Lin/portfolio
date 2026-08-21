@@ -2,7 +2,7 @@
 title: 現代 CSS 技巧整理清單：60+ 特性、支援度與實驗優先序
 description: "一份可快速掃描的現代 CSS 技巧清單，依版面、選擇器、色彩、文字、動畫等分類，整理每個特性的用途、範例與瀏覽器支援度，並標出值得優先實驗的項目。"
 date: 2026-07-06
-updatedAt: 2026-07-17
+updatedAt: 2026-07-20
 tags:
   - CSS
   - 前端開發
@@ -42,7 +42,7 @@ draft: false
 | Anchor Positioning | 讓元素錨定到另一元素定位（tooltip / popover / 選單），取代大量 JS 計算 | `anchor-name: --a;` + `top: anchor(--a bottom);` | 🟠 | ✅ |
 | `@position-try` | 錨定定位的 fallback：空間不足時自動翻面 | `position-try-fallbacks: flip-block;` | 🟠 | ⬜ |
 | `reading-flow` / `reading-order` | flex/grid 視覺順序被反轉時，修正鍵盤與報讀的閱讀順序（無障礙關鍵） | `reading-flow: flex-visual;` / `reading-order: 1;` | 🟠 | ✅ |
-| Gap Decorations / 可樣式化 gap | 在 grid/flex 的 gap 畫分隔線、控制樣式 | `column-rule: 1px solid;`（套用到 gap） | 🟠 | ⬜ |
+| Gap Decorations（`row-rule` / `column-rule` / `rule`） | 直接在 grid/flex 的 gap 畫分隔線、控制樣式，不用再插 divider 元素；另有 `rule-inset`／`rule-overlap`／`rule-visibility-items` 等微調（Chrome/Edge 149 起） | `column-rule: 1px solid; row-rule: 1px solid;` 或簡寫 `rule: 1px solid;` | 🟡 | ⬜ |
 | `margin-inline` | 邏輯屬性，一次設定行向左右邊距（常用 `auto` 置中） | `margin-inline: auto;` | 🟢 | ⬜ |
 
 ### B. 選擇器（Selectors）
@@ -191,4 +191,5 @@ draft: false
 - [web.dev — Learn CSS](https://web.dev/learn/css "另開新視窗"){target="_blank"}
 - [Chrome for Developers — CSS](https://developer.chrome.com/tag/css "另開新視窗"){target="_blank"}
 - [New in Chrome 150（`text-fit`、`background-clip: border-area`、`focusgroup`）](https://developer.chrome.com/blog/new-in-chrome-150 "另開新視窗"){target="_blank"}
+- [CSS Gap Decorations Now Available（`row-rule`／`column-rule`／`rule`，CSS-Tricks）](https://css-tricks.com/css-gap-decorations-now-available/ "另開新視窗"){target="_blank"}
 - [CSS-Tricks](https://css-tricks.com "另開新視窗"){target="_blank"}
