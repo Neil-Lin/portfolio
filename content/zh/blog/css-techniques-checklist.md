@@ -130,7 +130,7 @@ draft: false
 | `@scope` | 樣式作用域限制在某區塊、可設下界，類似 CSS Modules 的作用域 | `@scope (.card) to (.content){}` | 🟡 | ✅ |
 | `contain` | 宣告內部排版／樣式獨立，隔離重排範圍以提升效能 | `contain: layout style;` | 🟢 | ✅ |
 | `contain-intrinsic-size` | 搭配 `content-visibility: auto`，先給預估尺寸避免捲動跳動，有 cache 後轉 auto | `contain-intrinsic-size: auto 100px;` | 🟢 | ✅ |
-| `scrollbar-gutter: stable` | 預留捲軸槽，避免捲軸出現時內容位移 | `scrollbar-gutter: stable;` | 🟡 | ⬜ |
+| `scrollbar-gutter: stable` | 預留捲軸槽，避免捲軸出現時內容位移 | `scrollbar-gutter: stable;` | 🟡 | ✅ |
 | `scrollbar-color` / `scrollbar-width` | 自訂捲軸顏色與粗細 | `scrollbar-color: #888 #eee;` | 🟡 | ✅ |
 | `@supports` | 特性偵測，做漸進增強與 fallback | `@supports (display: grid){}` | 🟢 | ✅ |
 

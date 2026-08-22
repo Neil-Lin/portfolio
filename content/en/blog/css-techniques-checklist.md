@@ -130,7 +130,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 | `@scope` | Scope styles to a block with an optional lower bound, similar to CSS Modules scoping | `@scope (.card) to (.content){}` | 🟡 | ✅ |
 | `contain` | Declare inner layout/style independence to isolate reflow and boost performance | `contain: layout style;` | 🟢 | ✅ |
 | `contain-intrinsic-size` | With `content-visibility: auto`, give an estimated size first to avoid scroll jumps; switches to auto once cached | `contain-intrinsic-size: auto 100px;` | 🟢 | ✅ |
-| `scrollbar-gutter: stable` | Reserve the scrollbar gutter so content doesn't shift when the scrollbar appears | `scrollbar-gutter: stable;` | 🟡 | ⬜ |
+| `scrollbar-gutter: stable` | Reserve the scrollbar gutter so content doesn't shift when the scrollbar appears | `scrollbar-gutter: stable;` | 🟡 | ✅ |
 | `scrollbar-color` / `scrollbar-width` | Customize scrollbar color and thickness | `scrollbar-color: #888 #eee;` | 🟡 | ✅ |
 | `@supports` | Feature detection for progressive enhancement and fallbacks | `@supports (display: grid){}` | 🟢 | ✅ |
 
