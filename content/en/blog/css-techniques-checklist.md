@@ -168,6 +168,7 @@ Strictly speaking this section isn't CSS, but it replaces a pile of hand-written
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
 | `focusgroup` | Declaratively gives composite widgets (toolbars, tab lists, menus) arrow-key navigation, a guaranteed tab stop, and last-focused memory — exactly the WAI-ARIA keyboard pattern you previously had to hand-roll with roving tabindex (new in Chrome 150) | `<div focusgroup>…</div>` | 🟠 | ⬜ |
+| Invoker Commands (`command` / `commandfor`) | Control a popover/dialog with declarative HTML buttons, no scripting. Landed stable: `show-modal`, `close`, `request-close`, `toggle-popover`, `show-popover`, `hide-popover` (Baseline 2025; more coming — media controls, copy text, etc.) | `<button command="show-modal" commandfor="dlg">Open</button>` | 🟡 | ⬜ |
 
 ### What to try next (recommended)
 
