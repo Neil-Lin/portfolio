@@ -30,14 +30,14 @@ export default defineNuxtConfig({
         dir: "ltr",
       },
       title: zhHantTW.website.name,
-      script: [
-        {
-          src: "https://accesserty.com/pulse.js",
-          defer: true,
-          // 這是您的專屬追蹤 ID
-          "data-client-id": "Partner_MJRBV4ZI_850",
-        },
-      ],
+      // script: [
+      //   {
+      //     src: "https://accesserty.com/pulse.js",
+      //     defer: true,
+      //     // 這是您的專屬追蹤 ID
+      //     "data-client-id": "Partner_MJRBV4ZI_850",
+      //   },
+      // ],
       // iOS 起始畫面（apple-touch-startup-image）；圖由 scripts/genSplash.mjs 產生
       link: [
         {
