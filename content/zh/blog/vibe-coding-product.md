@@ -469,3 +469,7 @@ P3 — LOW
 都讀到這邊了，別害羞了，免費來試試看嘛！
 
 [DahTahDoc](https://dahtahdoc.com "另開新視窗"){target="_blank"}
+
+### 延伸閱讀
+
+- [AI 很會研究，但它是可靠的研究者嗎？我乾脆直接問了它本人](/blog/ai-reliable-researcher/)

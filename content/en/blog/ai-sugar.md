@@ -105,3 +105,7 @@ But AI should not become a beautiful wrapper around an incomplete solution.
 Accessibility is not something that can simply be sprinkled onto a website after it is built.
 
 And it should never be treated as a marketing feature covered in AI sugar.
+
+### Related reading
+
+- [AI Is Great at Research — But Is It a Reliable Researcher?](/en/blog/ai-reliable-researcher/)
