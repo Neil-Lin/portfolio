@@ -15,6 +15,10 @@ const fallbackBaseUrl =
     : "http://localhost:3000";
 const siteUrl = process.env.NUXT_PUBLIC_BASE_URL || fallbackBaseUrl;
 
+// Google Tag Manager 容器 ID（GTM-XXXX）。GA4 改由 GTM 後台管理，不再用 nuxt-gtag 直連。
+// 值放在環境變數，未設定時不注入 GTM（本機開發預設不追蹤）。
+const gtmId = process.env.NUXT_PUBLIC_GTM_ID || "";
+
 const dynamicRoutes = productsData
   .filter((p) => p.clickable)
   .flatMap((p) => [`/products/${p.slug}/`, `/en/products/${p.slug}/`]);
@@ -30,6 +34,15 @@ export default defineNuxtConfig({
         dir: "ltr",
       },
       title: zhHantTW.website.name,
+      // Google Tag Manager（GTM 為主，GA4 於 GTM 後台掛載）。只有設定 gtmId 才注入。
+      script: gtmId
+        ? [
+            {
+              innerHTML: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');`,
+              tagPosition: "head",
+            },
+          ]
+        : [],
       // script: [
       //   {
       //     src: "https://accesserty.com/pulse.js",
@@ -256,7 +269,6 @@ export default defineNuxtConfig({
   },
   modules: [
     "@nuxt/eslint",
-    "nuxt-gtag",
     "@vite-pwa/nuxt",
     "@nuxtjs/i18n",
     "@nuxtjs/seo",
@@ -294,10 +306,6 @@ export default defineNuxtConfig({
     // 內部連結刻意不帶尾斜線，交由 client 端 middleware 與 Cloudflare（308）補上，
     // 故關閉此 inspection，避免每頁都對共用導覽列報 trailing-slash 警告。
     skipInspections: ["trailing-slash"],
-  },
-
-  gtag: {
-    id: process.env.NUXT_PUBLIC_GTAG_ID,
   },
 
   pwa: {
@@ -419,6 +427,7 @@ export default defineNuxtConfig({
         return `${year}-${month}-${day}`;
       })(),
       baseUrl: siteUrl,
+      gtmId,
       websiteName: {
         "zh-Hant-TW":
           process.env.NUXT_PUBLIC_WEBSITE_NAME_ZHHANTTW ||

@@ -44,6 +44,16 @@
     <!-- Nuxt3  I don't think there's anything Nuxt can action related to this issue -->
 
     <Body class="wrapper">
+      <!-- Google Tag Manager（noscript）：無 JS 時的備援，只有設定 gtmId 才輸出 -->
+      <noscript v-if="gtmId">
+        <iframe
+          :src="`https://www.googletagmanager.com/ns.html?id=${gtmId}`"
+          height="0"
+          width="0"
+          style="display: none; visibility: hidden"
+          title="Google Tag Manager"
+        ></iframe>
+      </noscript>
       <div class="layout">
         <!-- <noscript class="noscript">
           {{ $t("words.noscript") }}
@@ -70,6 +80,7 @@ const { t } = useI18n();
 const head = useLocaleHead();
 const orgUrl = useOrgUrl();
 const route = useRoute();
+const gtmId = useRuntimeConfig().public.gtmId;
 
 useHead(
   computed(() => ({

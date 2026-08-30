@@ -23,7 +23,6 @@
     "better-sqlite3": "^12.11.1",
     "nuxt": "^4.4.6",
     "nuxt-clarity-analytics": "^0.0.9",
-    "nuxt-gtag": "^4.1.0",
     "satori": "^0.26.0",
     "vue": "^3.5.18"
   },
