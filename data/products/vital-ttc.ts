@@ -7,13 +7,13 @@ export const vitalTtc: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/ttc-thumbnail.png",
+        src: "/images/ttc-thumbnail.webp",
         figcaption: "Vital TTC 物聯客",
       },
     ],
     en: [
       {
-        src: "/images/ttc-thumbnail.png",
+        src: "/images/ttc-thumbnail.webp",
         figcaption: "Vital TTC",
       },
     ],

@@ -7,13 +7,13 @@ export const workether: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/workether-thumbnail.png",
+        src: "/images/workether-thumbnail.webp",
         figcaption: "workether",
       },
     ],
     en: [
       {
-        src: "/images/workether-thumbnail.png",
+        src: "/images/workether-thumbnail.webp",
         figcaption: "workether",
       },
     ],

@@ -1,8 +1,8 @@
 <template>
   <main class="page page--narrow">
     <div class="page-container">
-      <theBreadcrumbs :list="breadCrumbsList" />
-      <akContainer />
+      <TheBreadcrumbs :list="breadCrumbsList" />
+      <AkContainer />
       <h2>{{ pageTitle }}</h2>
       <section>
         <h3>{{ $t("words.websiteBlocksAndShortcutKeys") }}</h3>
@@ -214,11 +214,6 @@ onUnmounted(() => {
 });
 
 useBreadcrumbSchema(breadCrumbsList);
-
-defineOgImage("CustomTemplate", {
-  title: pageTitle.value + " - " + t("website.name"),
-  description: pageDescription.value,
-});
 </script>
 
 <style scoped>

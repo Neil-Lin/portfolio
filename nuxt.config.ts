@@ -15,17 +15,15 @@ const fallbackBaseUrl =
     : "http://localhost:3000";
 const siteUrl = process.env.NUXT_PUBLIC_BASE_URL || fallbackBaseUrl;
 
-// Google Tag Manager 容器 ID（GTM-XXXX）。GA4 改由 GTM 後台管理，不再用 nuxt-gtag 直連。
-// 值放在環境變數，未設定時不注入 GTM（本機開發預設不追蹤）。
-const gtmId = process.env.NUXT_PUBLIC_GTM_ID || "";
-
 const dynamicRoutes = productsData
   .filter((p) => p.clickable)
   .flatMap((p) => [`/products/${p.slug}/`, `/en/products/${p.slug}/`]);
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ["~/assets/css/og-fonts.css"],
+  // OG 圖的中文字型改由 @nuxt/fonts 提供（nuxt-og-image 會自動納入其全部子集），
+  // 原本 og-fonts.css 為此掛了兩個 7.2MB 的 TTF，已移除。
+
   app: {
     baseURL: "/",
     head: {
@@ -34,15 +32,12 @@ export default defineNuxtConfig({
         dir: "ltr",
       },
       title: zhHantTW.website.name,
-      // Google Tag Manager（GTM 為主，GA4 於 GTM 後台掛載）。只有設定 gtmId 才注入。
-      script: gtmId
-        ? [
-            {
-              innerHTML: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');`,
-              tagPosition: "head",
-            },
-          ]
-        : [],
+      // ⚠️ 不要在這裡加 Google Tag Manager。
+      // GTM（GTM-KMCXG3T4）由 Cloudflare 的 Google Tag Gateway 在邊緣注入，
+      // 走第一方路徑 /tc10/（比 googletagmanager.com 更不容易被擋），GA4 掛在 GTM 後台。
+      // 邊緣注入只在真實文件導覽時發生，所以 curl 看不到——那不代表它沒運作。
+      // 程式端若再加一份，同一個容器會被載入兩次、事件重複計算。
+      // 要改追蹤設定請去 Cloudflare 後台，不是這裡。
       script: [
         {
           src: "https://accesserty.com/pulse.js",
@@ -236,11 +231,13 @@ export default defineNuxtConfig({
       ],
     },
   },
-  compatibilityDate: "2024-04-03",
+  compatibilityDate: "2026-09-06",
   devtools: { enabled: false },
   ssr: true,
   nitro: {
-    trailingSlash: true,
+    // 注意：Nitro 沒有 trailingSlash 這個選項（原本寫在這裡的那行是無效設定，
+    // typecheck 抓到後移除）。全站尾斜線由下方 site.trailingSlash、
+    // app/middleware/trailing-slash.global.ts 與 Cloudflare 的網址正規化共同負責。
     prerender: {
       // 降低併發：OG 圖用 satori→resvg 在 build 期產生，每個 worker 會載入
       // 7MB 的 Noto Sans TC 字型渲染中文標題，併發一高就會記憶體爆掉、
@@ -272,7 +269,6 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt",
     "@nuxtjs/i18n",
     "@nuxtjs/seo",
-    "nuxt-clarity-analytics",
     "@nuxt/fonts",
     "@nuxt/content",
   ],
@@ -411,10 +407,6 @@ export default defineNuxtConfig({
     // }
   },
 
-  htmlValidator: {
-    usePrettier: true,
-  },
-
   runtimeConfig: {
     env: "",
     baseUrl: siteUrl,
@@ -427,7 +419,6 @@ export default defineNuxtConfig({
         return `${year}-${month}-${day}`;
       })(),
       baseUrl: siteUrl,
-      gtmId,
       websiteName: {
         "zh-Hant-TW":
           process.env.NUXT_PUBLIC_WEBSITE_NAME_ZHHANTTW ||
@@ -475,8 +466,11 @@ export default defineNuxtConfig({
   fonts: {
     families: [
       {
+        // 不指定 src：交給 @nuxt/fonts 從供應商解析，取得依 unicode-range 切分的子集，
+        // 並在 build 期下載、由本站自行代管（不會在 runtime 連外）。
+        // 先前直接指向單一 5.4MB 的 variable woff2，沒有 unicode-range，
+        // 只要有一個字需要它就得整包下載。
         name: "Noto Sans TC",
-        src: "/fonts/NotoSansTC-VariableFont_wght.woff2",
         weights: [400, 700],
         global: true,
       },

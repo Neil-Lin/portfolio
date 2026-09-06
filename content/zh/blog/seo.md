@@ -19,7 +19,7 @@ draft: false
 ### 近三年台灣主要搜尋引擎(Desktop)：Google, Yahoo, Bing
 
 ::figure
-  ![搜尋引擎三年數據比較](/images/blog/8.png)
+  ![搜尋引擎三年數據比較](/images/blog/8.webp)
   ::figcaption
     Google Chrome 獨霸市場
   ::
@@ -226,7 +226,7 @@ JPEG 2000、JPEG XR 和 WebP 等圖片格式的壓縮效果通常優於 PNG 或 
 建議 SubFolder
 
 ::figure
-  ![Subdomain 與 SubFolder 比較圖表](/images/blog/9.png)
+  ![Subdomain 與 SubFolder 比較圖表](/images/blog/9.webp)
   ::figcaption
     SubFolder 表現較佳
   ::

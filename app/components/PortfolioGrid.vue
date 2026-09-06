@@ -34,7 +34,7 @@
       </div>
     </div>
   </div>
-  <emptyBlock v-else>{{ $t("data.nodata") }}</emptyBlock>
+  <EmptyBlock v-else>{{ $t("data.nodata") }}</EmptyBlock>
 </template>
 
 <script setup lang="ts" generic="T extends { id: number }">

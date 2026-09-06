@@ -7,13 +7,13 @@ export const chooseChart: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/choose-chart-thumbnail.png",
+        src: "/images/choose-chart-thumbnail.webp",
         figcaption: "Choose 蛛思：資料視覺化 簡介",
       },
     ],
     en: [
       {
-        src: "/images/choose-chart-thumbnail.png",
+        src: "/images/choose-chart-thumbnail.webp",
         figcaption: "Choose: Data Visualization intro",
       },
     ],

@@ -12,7 +12,7 @@ function readBlogSlugs(dir: string): string[] {
     .filter((f) => {
       const raw = readFileSync(join(dir, f), "utf-8");
       const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-      const isDraft = fm ? /^\s*draft:\s*true\s*$/m.test(fm[1]) : false;
+      const isDraft = /^\s*draft:\s*true\s*$/m.test(fm?.[1] ?? "");
       return !isDraft;
     })
     .map((f) => f.replace(/\.md$/, ""));

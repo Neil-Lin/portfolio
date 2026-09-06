@@ -254,7 +254,8 @@ useHead(
   })),
 );
 
-usePageSeoMeta(pageTitle, pageDescription);
+// 產品圖直接當 OG 圖
+usePageSeoMeta(pageTitle, pageDescription, { ogImage: false });
 
 useSeoMeta({
   ogImage: () => ogImageUrl.value,

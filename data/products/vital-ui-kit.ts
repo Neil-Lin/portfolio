@@ -7,13 +7,13 @@ export const vitalUiKit: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/vitaluikit-thumbnail.png",
+        src: "/images/vitaluikit-thumbnail.webp",
         figcaption: "Vital UI Kit",
       },
     ],
     en: [
       {
-        src: "/images/vitaluikit-thumbnail.png",
+        src: "/images/vitaluikit-thumbnail.webp",
         figcaption: "Vital UI Kit",
       },
     ],

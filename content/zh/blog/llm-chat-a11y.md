@@ -31,15 +31,15 @@ draft: false
 因為登入之後可能會因為資料的不同造成差異，所以要以未登入的狀態開始。
 
 ::figure
-  ![Gork](/images/blog/36.png)
+  ![Gork](/images/blog/36.webp)
 ::
 
 ::figure
-  ![ChatGPT](/images/blog/37.png)
+  ![ChatGPT](/images/blog/37.webp)
 ::
 
 ::figure
-  ![Gemini](/images/blog/38.png)
+  ![Gemini](/images/blog/38.webp)
 ::
 
 雖然三者首頁有不盡相同，但在聊天的主要視窗大致上是一樣的
@@ -53,7 +53,7 @@ draft: false
 - Recommendation：工具建議的做法
 
 ::figure
-  ![左起 ChatGPT、Gemini、Grok，以簡單的數字來看，Gemini 表現相較優異。](/images/blog/39.png)
+  ![左起 ChatGPT、Gemini、Grok，以簡單的數字來看，Gemini 表現相較優異。](/images/blog/39.webp)
 ::
 
 可以看到在總數上三者並無太大差別，但是在 Violation 方面，Gemini 就相較優異，至少有明顯在程式上處理無障礙，其中 Violation 的部分看起來都是 ```<svg>``` 沒有標記描述之類的。
@@ -79,7 +79,7 @@ draft: false
 - 其他問題
 
 ::figure
-  ![三者人工檢測檢核表](/images/blog/39.png)
+  ![三者人工檢測檢核表](/images/blog/39.webp)
 ::
 
 在人工檢測的部分，三者在顏色方面都差不多，保持著簡單的黑色簡單的介面，可惜的是都沒有設定 accesskey，不確定是不需要還是沒有設定。Landmark 也因為是簡單的介面，所以基本都只有 main 而已，感覺應該可以再拆分得更細緻一點。

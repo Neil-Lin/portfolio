@@ -3,7 +3,7 @@
     <div class="page-container">
       <h2 class="visually-hidden">{{ pageTitle }}</h2>
       <div class="card animation-fade-out intro">
-        <akContainer />
+        <AkContainer />
         <h3>{{ t("words.intro") }}</h3>
         <i18n-t keypath="page.about.p1" tag="p" scope="global"><br /></i18n-t>
         <i18n-t keypath="page.about.p2" tag="p" scope="global">
@@ -170,11 +170,6 @@ const experienceList = computed(() => [
     years: "7",
   },
 ]);
-
-defineOgImage("CustomTemplate", {
-  title: pageTitle.value + " - " + t("website.name"),
-  description: pageDescription.value,
-});
 </script>
 
 <style scoped>

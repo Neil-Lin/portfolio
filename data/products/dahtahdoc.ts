@@ -7,13 +7,13 @@ export const dahtahdoc: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/dahtahdoc-thumbnail.png",
+        src: "/images/dahtahdoc-thumbnail.webp",
         figcaption: "DahTahDoc - 專為文件協作溝通效率而生",
       },
     ],
     en: [
       {
-        src: "/images/dahtahdoc-thumbnail.png",
+        src: "/images/dahtahdoc-thumbnail.webp",
         figcaption:
           "DahTahDoc - Built for document collaboration and communication efficiency",
       },

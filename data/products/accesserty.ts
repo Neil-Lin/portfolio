@@ -7,13 +7,13 @@ export const accesserty: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/accesserty-thumbnail.png",
+        src: "/images/accesserty-thumbnail.webp",
         figcaption: "Accesserty 無障礙網頁解決方案",
       },
     ],
     en: [
       {
-        src: "/images/accesserty-thumbnail.png",
+        src: "/images/accesserty-thumbnail.webp",
         figcaption: "Accesserty website a11y solutions",
       },
     ],

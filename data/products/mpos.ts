@@ -7,13 +7,13 @@ export const mpos: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/mpos-thumbnail.png",
+        src: "/images/mpos-thumbnail.webp",
         figcaption: "POS 系統示意圖",
       },
     ],
     en: [
       {
-        src: "/images/mpos-thumbnail.png",
+        src: "/images/mpos-thumbnail.webp",
         figcaption: "POS System",
       },
     ],
@@ -184,13 +184,13 @@ export const mpos: Product = {
       {
         src: "/video/mpos-login.mp4",
         title: "登入",
-        thumbnail_loc: "https://neillin.com/images/mpos-thumbnail.png",
+        thumbnail_loc: "https://neillin.com/images/mpos-thumbnail.webp",
         description: "MPOS 登入畫面操作影片",
       },
       {
         src: "/video/mpos-main.mp4",
         title: "點餐系統",
-        thumbnail_loc: "https://neillin.com/images/mpos-thumbnail.png",
+        thumbnail_loc: "https://neillin.com/images/mpos-thumbnail.webp",
         description: "MPOS 點餐系統操作影片",
       },
     ],
@@ -198,13 +198,13 @@ export const mpos: Product = {
       {
         src: "/video/mpos-login.mp4",
         title: "Login",
-        thumbnail_loc: "https://neillin.com/images/mpos-thumbnail.png",
+        thumbnail_loc: "https://neillin.com/images/mpos-thumbnail.webp",
         description: "MPOS login screen operation video.",
       },
       {
         src: "/video/mpos-main.mp4",
         title: "Order",
-        thumbnail_loc: "https://neillin.com/images/mpos-thumbnail.png",
+        thumbnail_loc: "https://neillin.com/images/mpos-thumbnail.webp",
         description: "MPOS ordering system operation video.",
       },
     ],

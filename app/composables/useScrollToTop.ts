@@ -1,4 +1,4 @@
-export default function useScrollToTop() {
+export function useScrollToTop() {
   const { scrollDistance } = useDetectScrollY();
 
   const scrollToTop = () => {

@@ -3,7 +3,7 @@
     style="
       height: 630px;
       background-color: #fafafa;
-      font-family: &quot;Portfolio OG Noto Sans TC&quot;, sans-serif;
+      font-family: &quot;Noto Sans TC&quot;, sans-serif;
     "
   >
     <img

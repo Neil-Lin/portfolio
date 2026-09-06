@@ -1,8 +1,8 @@
 <template>
   <main class="page page--narrow">
     <div class="page-container">
-      <theBreadcrumbs :list="breadCrumbsList" />
-      <akContainer />
+      <TheBreadcrumbs :list="breadCrumbsList" />
+      <AkContainer />
       <article v-if="article" class="article">
         <h2>{{ article.title }}</h2>
         <div class="article-meta">
@@ -172,13 +172,12 @@ const ogImageUrl = computed(() =>
     ? (runtimeConfig.public.baseUrl as string) + article.value.ogImage
     : "",
 );
-const canonicalUrl = computed(
-  () =>
-    (runtimeConfig.public.baseUrl as string) +
-    (route.path.endsWith("/") ? route.path : `${route.path}/`),
+const canonicalUrl = computed(() =>
+  absoluteUrl(runtimeConfig.public.baseUrl as string, route.path),
 );
 
-usePageSeoMeta(pageTitle, pageDescription);
+// 文章有自訂 ogImage 時優先使用，否則於下方產生
+usePageSeoMeta(pageTitle, pageDescription, { ogImage: false });
 useArticleSeo(counterpartPath);
 
 useSeoMeta({

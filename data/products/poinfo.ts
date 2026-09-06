@@ -7,13 +7,13 @@ export const poinfo: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/poinfo-thumbnail.png",
+        src: "/images/poinfo-thumbnail.webp",
         figcaption: "Poinfo",
       },
     ],
     en: [
       {
-        src: "/images/poinfo-thumbnail.png",
+        src: "/images/poinfo-thumbnail.webp",
         figcaption: "Poinfo",
       },
     ],

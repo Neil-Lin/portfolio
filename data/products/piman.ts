@@ -7,13 +7,13 @@ export const piman: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/piman-thumbnail.png",
+        src: "/images/piman-thumbnail.webp",
         figcaption: "Piman 無障礙 UI 框架 簡介",
       },
     ],
     en: [
       {
-        src: "/images/piman-thumbnail.png",
+        src: "/images/piman-thumbnail.webp",
         figcaption: "Piman A11Y UI Framework",
       },
     ],

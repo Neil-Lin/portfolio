@@ -7,13 +7,13 @@ export const scout: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/scout-thumbnail.png",
+        src: "/images/scout-thumbnail.webp",
         figcaption: "ΣCOUT 實告 簡介",
       },
     ],
     en: [
       {
-        src: "/images/scout-thumbnail.png",
+        src: "/images/scout-thumbnail.webp",
         figcaption: "ΣCOUT intro",
       },
     ],

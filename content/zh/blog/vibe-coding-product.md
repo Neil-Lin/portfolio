@@ -183,11 +183,11 @@ draft: false
 截取LLM的最後整理結果：
 
 ::figure
-  ![權限與身份排列組合](/images/blog/45.png)
+  ![權限與身份排列組合](/images/blog/45.webp)
 ::
 
 ::figure
-  ![權限與身份排列組合：未受邀請的同事](/images/blog/46.png)
+  ![權限與身份排列組合：未受邀請的同事](/images/blog/46.webp)
 ::
 
 過程中還碰到了 Cache 問題，總之這裡真的花了超級多 token 和時間，有時候崩潰後檔案太亂了只好又重頭來。所以使用 LLM 一定要特別特別注意版控。

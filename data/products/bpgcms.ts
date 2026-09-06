@@ -7,13 +7,13 @@ export const bpgcms: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/bpgcms-thumbnail.png",
+        src: "/images/bpgcms-thumbnail.webp",
         figcaption: "通用後台系統模板",
       },
     ],
     en: [
       {
-        src: "/images/bpgcms-thumbnail.png",
+        src: "/images/bpgcms-thumbnail.webp",
         figcaption: "Content Management System Template",
       },
     ],

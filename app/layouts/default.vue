@@ -44,16 +44,6 @@
     <!-- Nuxt3  I don't think there's anything Nuxt can action related to this issue -->
 
     <Body class="wrapper">
-      <!-- Google Tag Manager（noscript）：無 JS 時的備援，只有設定 gtmId 才輸出 -->
-      <noscript v-if="gtmId">
-        <iframe
-          :src="`https://www.googletagmanager.com/ns.html?id=${gtmId}`"
-          height="0"
-          width="0"
-          style="display: none; visibility: hidden"
-          title="Google Tag Manager"
-        ></iframe>
-      </noscript>
       <div class="layout">
         <!-- <noscript class="noscript">
           {{ $t("words.noscript") }}
@@ -80,7 +70,6 @@ const { t } = useI18n();
 const head = useLocaleHead();
 const orgUrl = useOrgUrl();
 const route = useRoute();
-const gtmId = useRuntimeConfig().public.gtmId;
 
 useHead(
   computed(() => ({
@@ -93,8 +82,8 @@ useHead(
     link: route.meta.customHreflang
       ? []
       : (head.value.link || []).map((l) =>
-          typeof l.href === "string" && !l.href.endsWith("/")
-            ? { ...l, href: `${l.href}/` }
+          typeof l.href === "string"
+            ? { ...l, href: withTrailingSlash(l.href) }
             : l,
         ),
     meta: [...(head.value.meta || [])],
@@ -109,13 +98,13 @@ useSchemaOrg(
       "@id": `${orgUrl.value}/#website`,
       "@type": "WebSite",
       name: t("website.name"),
-      url: orgUrl.value,
+      url: withTrailingSlash(orgUrl.value),
     },
     {
       "@id": `${orgUrl.value}/#person`,
       "@type": "Person",
       name: "Neil Lin",
-      url: orgUrl.value,
+      url: withTrailingSlash(orgUrl.value),
       jobTitle: t("jobTitle.uiux"),
       sameAs: ["https://github.com/Neil-Lin"],
     },

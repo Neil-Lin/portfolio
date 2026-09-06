@@ -43,7 +43,7 @@ CUI 出現方式
 - 依附在應用程式裡：Microsoft 365 Copilot
 
 ::figure
-  ![Edge Copilot 的問答展示](/images/blog/30.png)
+  ![Edge Copilot 的問答展示](/images/blog/30.webp)
 ::
 
 ::figure

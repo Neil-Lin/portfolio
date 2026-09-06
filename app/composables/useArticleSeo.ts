@@ -1,4 +1,5 @@
 import type { Ref } from "vue";
+import type { ResolvableLink } from "@unhead/vue";
 
 /**
  * 文章頁的 canonical + 條件式 hreflang。
@@ -15,9 +16,8 @@ export function useArticleSeo(counterpartPath: Ref<string | null>) {
 
   useHead(
     computed(() => {
-      const path = route.path.endsWith("/") ? route.path : `${route.path}/`;
-      const selfHref = base + path;
-      const link: Record<string, string>[] = [
+      const selfHref = absoluteUrl(base, route.path);
+      const link: ResolvableLink[] = [
         { rel: "canonical", href: selfHref, key: "i18n-can" },
       ];
 

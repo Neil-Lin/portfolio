@@ -3,12 +3,11 @@
 // 讓網址列與 canonical / sitemap 一致。
 // SSR / prerender 的路由本就帶斜線（見 nuxt.config 的 prerender routes），故不受影響、不會迴圈。
 export default defineNuxtRouteMiddleware((to) => {
-  const path = to.path;
-  if (path === "/" || path.endsWith("/")) return;
-  // 略過看起來像檔案的路徑（含副檔名，如 /rss.xml、/favicon.ico、/_og/*.png）
-  if (/\.[^/]+$/.test(path)) return;
+  // withTrailingSlash 已處理「已有斜線」與「看起來像檔案」（/rss.xml、/favicon.ico）兩種略過情形
+  const normalized = withTrailingSlash(to.path);
+  if (normalized === to.path) return;
   return navigateTo(
-    { path: `${path}/`, query: to.query, hash: to.hash },
+    { path: normalized, query: to.query, hash: to.hash },
     { redirectCode: 308 },
   );
 });

@@ -1,8 +1,8 @@
 <template>
   <main class="page page--grid">
     <div class="page-container">
-      <theBreadcrumbs :list="breadCrumbsList" />
-      <akContainer />
+      <TheBreadcrumbs :list="breadCrumbsList" />
+      <AkContainer />
 
       <h2>{{ pageTitle }}</h2>
       <PortfolioFilters
@@ -131,11 +131,6 @@ const breadCrumbsList = computed(() => [
 ]);
 
 useBreadcrumbSchema(breadCrumbsList);
-
-defineOgImage("CustomTemplate", {
-  title: pageTitle.value + " - " + t("website.name"),
-  description: pageDescription.value,
-});
 </script>
 
 <style scoped>

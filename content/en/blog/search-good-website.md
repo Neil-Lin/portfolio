@@ -60,7 +60,7 @@ It’s not a rating — it’s a helper for decision-making
 Accesserty Signal is a lightweight Chrome extension that adds a simple badge to each Google search result:
 
 ::figure
-  ![Google search result list: Lighthouse Score](/images/blog/44.png)
+  ![Google search result list: Lighthouse Score](/images/blog/44.webp)
 ::
 
 This number comes from Lighthouse, a widely used accessibility audit tool.

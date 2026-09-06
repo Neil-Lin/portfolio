@@ -1,8 +1,8 @@
 <template>
   <main class="page page--grid">
     <div class="page-container">
-      <theBreadcrumbs :list="breadcrumbs" />
-      <akContainer />
+      <TheBreadcrumbs :list="breadcrumbs" />
+      <AkContainer />
 
       <template v-if="!route.params.name || isModal">
         <h2>{{ pageTitle }}</h2>
@@ -218,7 +218,10 @@ useSchemaOrg(
   ),
 );
 
-usePageSeoMeta(pageTitle, pageDescription);
+// 詳情頁（/products/:name）的 OG 圖由 [name].vue 自行處理
+usePageSeoMeta(pageTitle, pageDescription, {
+  ogImage: !route.params.name,
+});
 
 const slug = computed(() => {
   const name = route.params.name;
@@ -246,13 +249,6 @@ const breadcrumbs = computed(() => {
 useBreadcrumbSchema(
   computed(() => (route.params.name ? [] : breadcrumbs.value)),
 );
-
-if (!route.params.name) {
-  defineOgImage("CustomTemplate", {
-    title: pageTitle.value + " - " + t("website.name"),
-    description: pageDescription.value,
-  });
-}
 </script>
 
 <style scoped>

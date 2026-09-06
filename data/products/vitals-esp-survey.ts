@@ -7,13 +7,13 @@ export const vitalsEspSurvey: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/vitalsespsurvey-thumbnail.png",
+        src: "/images/vitalsespsurvey-thumbnail.webp",
         figcaption: "Vitals ESP 問卷模組",
       },
     ],
     en: [
       {
-        src: "/images/vitalsespsurvey-thumbnail.png",
+        src: "/images/vitalsespsurvey-thumbnail.webp",
         figcaption: "Vitals ESP Survey",
       },
     ],

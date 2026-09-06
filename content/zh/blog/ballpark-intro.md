@@ -96,7 +96,7 @@ draft: false
 問卷設計完後，下一個重點當然是收到回饋後的分析，畫面如下：
 
 ::figure
-  ![問券完成後的每題分析](/images/blog/16.png)
+  ![問券完成後的每題分析](/images/blog/16.webp)
   ::figcaption
     分析統計資料
   ::
@@ -114,7 +114,7 @@ draft: false
 點擊 Heatmap 後，會出現最常點擊、移動熱區以及兩者合併的圖，左下角還可以下載圖片。下方資料區還提供各種數據資訊。
 
 ::figure
-  ![Heatmap 儀表板](/images/blog/18.png)
+  ![Heatmap 儀表板](/images/blog/18.webp)
   ::figcaption
     Heatmap 的操作資訊
   ::
@@ -131,7 +131,7 @@ draft: false
 ### 既然重視體驗，當然也備好了 Template
 
 ::figure
-  ![範本列表](/images/blog/20.png)
+  ![範本列表](/images/blog/20.webp)
   ::figcaption
     ballpark 提供各式各樣的 template 供各種場景使用。
   ::
@@ -144,7 +144,7 @@ draft: false
 [產品路線圖](https://portal.productboard.com/ballpark/1-ballpark/tabs/1-short-term-1-6-months "另開新視窗"){target="_blank"}
 
 ::figure
-  ![ballpark 的路線圖](/images/blog/21.png)
+  ![ballpark 的路線圖](/images/blog/21.webp)
 ::
 
 ### 那…缺點呢？

@@ -7,13 +7,13 @@ export const vitalCrmNew: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/vital-crm-new-thumbnail.png",
+        src: "/images/vital-crm-new-thumbnail.webp",
         figcaption: "Vital CRM 客戶關係管理系統客戶列表設計",
       },
     ],
     en: [
       {
-        src: "/images/vital-crm-new-thumbnail.png",
+        src: "/images/vital-crm-new-thumbnail.webp",
         figcaption: "Vital CRM - Customer List",
       },
     ],

@@ -53,7 +53,7 @@ draft: false
 Accesserty Signal 是一個 Chrome Extension，它會在 Google 搜尋結果右側，顯示一個簡單的 badge：
 
 ::figure
-  ![Google 搜尋列表下顯示 Lighthouse 分數](/images/blog/44.png)
+  ![Google 搜尋列表下顯示 Lighthouse 分數](/images/blog/44.webp)
 ::
 
 這個數字來自於 Lighthouse 無障礙檢測（可解釋、可比對、標準化）。

@@ -1,8 +1,8 @@
 <template>
   <main class="page page--narrow">
     <div class="page-container">
-      <theBreadcrumbs :list="breadCrumbsList" />
-      <akContainer />
+      <TheBreadcrumbs :list="breadCrumbsList" />
+      <AkContainer />
       <h2>{{ pageTitle }}</h2>
       <p>{{ t("page.blog.hint") }}</p>
       <br />
@@ -29,7 +29,7 @@
           </div>
         </li>
       </ul>
-      <emptyBlock v-else>{{ $t("data.nodata") }}</emptyBlock>
+      <EmptyBlock v-else>{{ $t("data.nodata") }}</EmptyBlock>
     </div>
   </main>
 </template>
@@ -134,11 +134,6 @@ useSchemaOrg(
 );
 
 useBreadcrumbSchema(breadCrumbsList);
-
-defineOgImage("CustomTemplate", {
-  title: pageTitle.value + " - " + t("website.name"),
-  description: pageDescription.value,
-});
 </script>
 
 <style scoped>

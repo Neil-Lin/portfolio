@@ -7,13 +7,13 @@ export const twoPick1: Product = {
   schemaImage: {
     "zh-Hant-TW": [
       {
-        src: "/images/2pick1-thumbnail.png",
+        src: "/images/2pick1-thumbnail.webp",
         figcaption: "2Pick1",
       },
     ],
     en: [
       {
-        src: "/images/2pick1-thumbnail.png",
+        src: "/images/2pick1-thumbnail.webp",
         figcaption: "2Pick1",
       },
     ],
