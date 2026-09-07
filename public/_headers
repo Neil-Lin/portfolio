@@ -1,0 +1,32 @@
+# Cloudflare Pages headers
+#
+# Cloudflare Pages 對靜態資源的預設是 `max-age=14400, must-revalidate`（4 小時後重新驗證）。
+# 對「檔名含內容雜湊」的資源來說這太保守——內容一變檔名就變，舊網址永遠不會過期，
+# 因此可以安全地設成一年 immutable，讓回訪者完全不必發條件式請求。
+#
+# ⚠️ HTML 不要加長快取。HTML 網址是固定的，長快取會讓部署後的更新看不到，
+#    維持 Cloudflare 預設的 max-age=0, must-revalidate。
+
+# Nuxt 建置產物：檔名帶內容雜湊（如 /_nuxt/CiF0ZqTj.js）
+/_nuxt/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# @nuxt/fonts 下載的字型子集：檔名即內容雜湊
+/_fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# OG 圖：檔名由標題與描述編碼而成，內容變則檔名變
+/_og/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# i18n 語系檔：帶版本雜湊路徑
+/_i18n/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 以下是固定檔名、內容可能被替換的資源，因此不能用 immutable。
+# 給一天的快取（優於預設的 4 小時），更新後最多一天內生效。
+/images/*
+  Cache-Control: public, max-age=86400
+
+/video/*
+  Cache-Control: public, max-age=86400

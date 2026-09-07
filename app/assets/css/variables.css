@@ -17,7 +17,10 @@
   --breakpoint-1600: 1600px;
   --breakpoint-1920: 1920px;
   --font-size-base: 1.0625rem;
-  --font-family: system-ui, Helvetica, Arial, "Noto Sans TC", sans-serif;
+  /* Noto Sans TC 放最前面：中英文統一用同一套字型，跨平台外觀一致。
+     先前它排在第四位，導致 Latin 走 system-ui（各平台不同）、中文才走 Noto，
+     同一段文字裡兩種字型混排。後面幾個只是字型載入失敗時的保險。 */
+  --font-family: "Noto Sans TC", system-ui, Helvetica, Arial, sans-serif;
   --color-primary: 46.16% .146 294.72;
   --color-primary-modified: 98.16% .05 294.72;
   --color-success: 79.21% .153 117.53;
