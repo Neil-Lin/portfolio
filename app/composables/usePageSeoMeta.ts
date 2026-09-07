@@ -26,6 +26,10 @@ export function usePageSeoMeta(
 
   const socialTitle = computed(() => `${title.value} - ${t("website.name")}`);
 
+  // 不輸出 twitter:title / twitter:description / twitter:url：
+  // X 找不到 twitter:* 時會自動退回 og:*，這三個純粹是重複資料，
+  // 而 twitter:url 根本不是有效的 meta 名稱（unhead 會警告 Unknown meta name）。
+  // 只有 twitter:card 有實際作用（決定卡片版型），留在 layout。
   useHead(
     computed(() => ({
       title: title.value,
@@ -34,9 +38,6 @@ export function usePageSeoMeta(
         { property: "og:url", content: resolvedUrl.value },
         { property: "og:title", content: socialTitle.value },
         { property: "og:description", content: description.value },
-        { name: "twitter:url", content: resolvedUrl.value },
-        { name: "twitter:title", content: socialTitle.value },
-        { name: "twitter:description", content: description.value },
       ],
     })),
   );

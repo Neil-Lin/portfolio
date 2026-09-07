@@ -259,7 +259,7 @@ usePageSeoMeta(pageTitle, pageDescription, { ogImage: false });
 
 useSeoMeta({
   ogImage: () => ogImageUrl.value,
-  twitterImage: () => ogImageUrl.value,
+  // twitterImage 省略：X 會退回 og:image。twitterCard 保留，它決定卡片版型。
   twitterCard: "summary_large_image",
 });
 

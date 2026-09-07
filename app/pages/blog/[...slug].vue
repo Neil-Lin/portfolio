@@ -184,9 +184,8 @@ useSeoMeta({
   ogType: "article",
   articlePublishedTime: () => article.value?.date,
   articleModifiedTime: () => article.value?.updatedAt ?? article.value?.date,
-  ...(ogImageUrl.value
-    ? { ogImage: () => ogImageUrl.value, twitterImage: () => ogImageUrl.value }
-    : {}),
+  // twitterImage 省略：X 會退回 og:image
+  ...(ogImageUrl.value ? { ogImage: () => ogImageUrl.value } : {}),
 });
 
 if (!ogImageUrl.value) {

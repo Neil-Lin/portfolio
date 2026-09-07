@@ -24,9 +24,9 @@
     <Meta name="description" :content="$t('intro.des2')" />
     <Meta property="og:title" :content="$t('website.name')" />
     <Meta property="og:description" :content="$t('intro.des2')" />
+    <!-- 只保留 twitter:card：它決定卡片版型，X 仍會讀取。
+         title / description / image 交給 og:*，X 找不到 twitter:* 時會自動退回。 -->
     <Meta name="twitter:card" content="summary_large_image" />
-    <Meta name="twitter:title" :content="$t('website.name')" />
-    <Meta name="twitter:description" :content="$t('intro.des2')" />
     <Meta name="mobile-web-app-capable" content="yes" />
     <Meta name="apple-mobile-web-app-capable" content="yes" />
     <Meta name="apple-touch-fullscreen" content="yes" />
