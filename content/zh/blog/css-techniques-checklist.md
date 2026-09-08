@@ -1,10 +1,11 @@
 ---
-title: 現代 CSS 技巧整理清單：60+ 特性、支援度與實驗優先序
-description: "一份可快速掃描的現代 CSS 技巧清單，依版面、選擇器、色彩、文字、動畫等分類，整理每個特性的用途、範例與瀏覽器支援度，並標出值得優先實驗的項目。"
+title: 現代 CSS 與 HTML 技巧整理清單：95 個特性、支援度與實驗優先序
+description: "一份可快速掃描的現代 CSS 與 HTML 特性清單，依版面、選擇器、色彩、文字、動畫等分類，另收錄 `<geolocation>`、`focusgroup`、Invoker Commands 等宣告式 HTML 新特性，逐條整理用途、範例與瀏覽器支援度。"
 date: 2026-07-06
-updatedAt: 2026-08-21
+updatedAt: 2026-09-08
 tags:
   - CSS
+  - HTML
   - 前端開發
   - 網頁設計
   - 響應式設計
@@ -18,6 +19,8 @@ draft: false
 
 這是我自己在追蹤的現代 CSS 特性清單——用來快速掃描、決定接下來要補實驗哪些技巧。依用途分成版面、選擇器、色彩、文字排版、動畫、表單、響應式、封裝效能、函式數學等類別，每一條列出用途、範例與瀏覽器支援度，並標記我是否已經實驗過。
 
+最後一區（K）收的是 HTML 而不是 CSS。之所以放在同一份清單裡，是因為它們在做同一件事：**把過去得寫一堆 JS 才做得到的效果，變成宣告式的一行**——而且不少項目根本是配套的（`appearance: base-select` 與 `<selectedcontent>`、anchor positioning 與 popover、`reading-flow` 與 `focusgroup`），拆開反而不好用。
+
 ### 圖例說明
 
 **已實驗**
@@ -25,7 +28,7 @@ draft: false
 - ✅ = 我已實驗過
 - ⬜ = 尚未實驗
 
-**支援狀態**（截至 2026 年 7 月，🟠 / 🔴 者變動快，上線前請再查 [caniuse](https://caniuse.com "另開新視窗"){target="_blank"} / MDN）
+**支援狀態**（截至 2026 年 9 月，🟠 / 🔴 者變動快，上線前請再查 [caniuse](https://caniuse.com "另開新視窗"){target="_blank"} / MDN）
 
 - 🟢 穩定 — 主流瀏覽器普遍可用，可放心進 production
 - 🟡 較新 — 多數瀏覽器已支援，建議加 fallback
@@ -107,7 +110,7 @@ draft: false
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
 | `field-sizing: content` | 讓 input／textarea 依內容自動增長 | `field-sizing: content;` | 🟠 | ✅ |
-| 可自訂 `<select>`（`appearance: base-select`） | 原生下拉可完全自訂樣式，選項可放圖示／HTML | `select{ appearance: base-select; }` | 🟠 | ✅ |
+| 可自訂 `<select>`（`appearance: base-select`） | 原生下拉可完全自訂樣式，選項可放圖示／HTML；搭配 `::picker(select)`、`::picker-icon` 控制彈出層，並可用 `<selectedcontent>` 複製選中項目的內容。終於不必為了改樣式用 div 重刻 select——而重刻正是無障礙災難的常見來源（Chrome 先行，Safari 已跟上） | `select{ appearance: base-select; }` | 🟡 | ✅ |
 | `<selectlist>`（原 `<selectmenu>`） | 可高度自訂的下拉元件；已改名並整併進「可自訂 select」路線 | `<selectlist>…</selectlist>` | 🟠 | ✅ |
 | `::backdrop` | `dialog.showModal()` 或全螢幕時的背後遮罩層樣式 | `dialog::backdrop{}` | 🟢 | ✅ |
 
@@ -161,14 +164,40 @@ draft: false
 | 字型平滑（`-webkit-font-smoothing`） | 深色模式讓文字不刺眼的關鍵：macOS 上淺色文字在深底會因次像素抗鋸齒而變粗發光，改用 grayscale 抗鋸齒後變細、不刺眼；非標準，僅特定平台有效 | `-webkit-font-smoothing: antialiased;`（+ `-moz-osx-font-smoothing: grayscale;`） | 🟡 | ✅ |
 | `@when` / `@else` | CSS 的 if/else 條件塊；仍為提案，瀏覽器皆不可用 | `@when supports(...){} @else{}` | 🔴 | ✅ |
 
-### K. HTML 屬性（非 CSS，但與無障礙高度相關）
+### K. HTML 元素與屬性（非 CSS，但同屬「宣告式取代 JS」的趨勢）
 
-這一區嚴格說不是 CSS，但它用宣告式寫法取代大量手寫的 JS 鍵盤操作邏輯、直接影響無障礙品質，所以一併記在同一份清單裡。
+這一區嚴格說不是 CSS，但它們和現代 CSS 是同一個方向：**把過去得寫一堆 JS 才做得到的事，改成宣告式寫法**——而且多半直接影響無障礙品質，所以一併記在同一份清單裡。
+
+#### K-1. 新的 HTML 元素
+
+| 元素 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
+|---|---|---|---|---|
+| `<geolocation>` | 宣告式的定位請求按鈕，授權流程交給瀏覽器處理，並提供「使用者先前拒絕過」的恢復路徑（過去一旦被拒就沒救了）。不支援的瀏覽器會降級成 `<span>`，可漸進增強 | `<geolocation onlocation="fn(event)">` | 🟠 | ⬜ |
+| `<usermedia>` | 相機／麥克風的宣告式存取，直接把 `MediaStream` 交給頁面，不必自己呼叫 `getUserMedia()`。規劃中還有只要影像或只要聲音的 `<camera>`／`<microphone>` | `<usermedia>` | 🟠 | ⬜ |
+| `<install>` | PWA 安裝按鈕，文案與外觀由瀏覽器控制（使用者看到「安裝」就知道會發生什麼）。指定 `installurl` 可安裝其他網域的 app，能做成 app 目錄頁 | `<install installurl="…" manifestid="…">` | 🟠 | ⬜ |
+| `<model>` | 像 `<img>` 一樣嵌入可互動的 3D 模型（USDZ 格式），可用 `<source>` 提供多格式、用 `environmentmap` 指定環境光 | `<model src="a.usdz">` | 🟠 | ⬜ |
+
+#### K-2. 新的 HTML 屬性與行為
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
 | `focusgroup` | 讓複合元件（工具列、頁籤列、選單等）用宣告式就具備方向鍵導覽、保證的 Tab 停留點，以及「記住上次焦點」的行為——這正是 WAI-ARIA 鍵盤模式要求的做法，過去得自己手刻 roving tabindex（Chrome 150 新增） | `<div focusgroup>…</div>` | 🟠 | ⬜ |
 | Invoker Commands（`command` / `commandfor`） | 用宣告式 HTML 按鈕控制 popover／dialog，免寫 JS。已 stable 的指令：`show-modal`、`close`、`request-close`、`toggle-popover`、`show-popover`、`hide-popover`（Baseline 2025，未來會擴充到媒體控制、複製文字等） | `<button command="show-modal" commandfor="dlg">開啟</button>` | 🟡 | ⬜ |
+| Interest Invokers | 同一套 command 機制，但改用「hover／focus 表達興趣」觸發而非點擊——可以做出不寫 JS 的原生 tooltip | `<button interestfor="tip">` | 🟠 | ⬜ |
+| `hidden="until-found"` | 內容摺疊起來，但仍能被瀏覽器的頁內搜尋命中，命中時自動展開。長文的摺疊段落、FAQ 用這個才不會讓內容變成搜不到 | `<div hidden="until-found">` | 🟡 | ⬜ |
+| `popover="hint"` | 專給 tooltip 類的 popover：保有 light-dismiss，但只會關掉其他 hint，不會把主要的 popover 一起關掉 | `<div popover="hint">` | 🟡 | ⬜ |
+| `sizes="auto"` | 響應式圖片不用再自己算 `sizes`，交給瀏覽器；搭配 `srcset` 與 `loading="lazy"` 使用 | `<img srcset="…" sizes="auto">` | 🟡 | ⬜ |
+| 宣告式 Shadow DOM | 不寫 JS 就能建立 Shadow DOM，SSR 輸出可以直接帶著走 | `<template shadowrootmode="open">` | 🟢 | ⬜ |
+| `shadowrootreferencetarget` | 讓 Shadow DOM 外面的 `<label>`／`aria-*` 能指向內部真正的 input——解決 web component 長年的標籤關聯難題 | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ⬜ |
+| `<h1>` 巢狀尺寸修正 | UA 樣式表變更：`<h1>` 放在 `<section>` 裡不再被自動縮小，標題階層的視覺呈現終於可預期 | — | 🟢 | ⬜ |
+
+#### K-3. 提案／原型階段（先知道有這回事就好）
+
+| 功能 | 主要用途 | 支援 | 已實驗 |
+|---|---|---|---|
+| Declarative Partial Updates | HTML 串流式的局部更新，不換頁就注入內容；未來可能出現原生的 `<include>` 元素 | 🔴 | ⬜ |
+| `<persistentwidget>` | 同源頁面之間導覽時仍持續存在的嵌入內容（例如播放器不中斷） | 🔴 | ⬜ |
+| HTML-in-Canvas（`layoutsubtree`） | 在 canvas 上渲染可互動的 HTML | 🔴 | ⬜ |
 
 ### 建議優先補實驗的清單
 
@@ -192,4 +221,9 @@ draft: false
 - [Chrome for Developers — CSS](https://developer.chrome.com/tag/css "另開新視窗"){target="_blank"}
 - [New in Chrome 150（`text-fit`、`background-clip: border-area`、`focusgroup`）](https://developer.chrome.com/blog/new-in-chrome-150 "另開新視窗"){target="_blank"}
 - [CSS Gap Decorations Now Available（`row-rule`／`column-rule`／`rule`，CSS-Tricks）](https://css-tricks.com/css-gap-decorations-now-available/ "另開新視窗"){target="_blank"}
+- [New Things You Should Know About HTML Here in Mid 2026（本次 K 區新增項目的來源）](https://blog.master.dev/new-things-you-should-know-about-html-here-in-mid-2026 "另開新視窗"){target="_blank"}
+- [Chrome for Developers — `<geolocation>` 元素](https://developer.chrome.com/blog/geolocation-html-element "另開新視窗"){target="_blank"}
+- [Chrome for Developers — `<usermedia>` 元素](https://developer.chrome.com/blog/usermedia-html-element "另開新視窗"){target="_blank"}
+- [Chrome for Developers — `<install>` 元素（origin trial）](https://developer.chrome.com/blog/install-element-ot "另開新視窗"){target="_blank"}
+- [Apple WWDC26 — HTML Model 元素](https://developer.apple.com/videos/play/wwdc2026/215/ "另開新視窗"){target="_blank"}
 - [CSS-Tricks](https://css-tricks.com "另開新視窗"){target="_blank"}

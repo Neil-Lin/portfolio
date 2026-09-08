@@ -1,10 +1,11 @@
 ---
-title: "Modern CSS Techniques Cheat Sheet: 60+ Features, Support & What to Try Next"
-description: "A scannable checklist of modern CSS techniques—grouped by layout, selectors, color, typography, animation and more—with each feature's purpose, example, and browser support, plus which ones to experiment with first."
+title: "Modern CSS & HTML Cheat Sheet: 95 Features, Support & What to Try Next"
+description: "A scannable checklist of modern CSS and HTML features—grouped by layout, selectors, color, typography, animation and more, plus declarative HTML additions like `<geolocation>`, `focusgroup` and Invoker Commands—each with its purpose, an example, and browser support."
 date: 2026-07-06
-updatedAt: 2026-08-21
+updatedAt: 2026-09-08
 tags:
   - CSS
+  - HTML
   - Front-End
   - Web Development
   - Responsive Design
@@ -18,6 +19,8 @@ draft: false
 
 This is my running checklist of modern CSS features—something I scan to decide which techniques to experiment with next. It's grouped by purpose (layout, selectors, color, typography, animation, forms, responsive, performance, functions & math), and each entry lists what it's for, an example, and browser support, plus whether I've already tried it.
 
+The last section (K) is HTML rather than CSS. It lives in the same checklist because it's doing the same job: **turning things that used to need a pile of JavaScript into one declarative line**—and several entries are two halves of the same feature (`appearance: base-select` and `<selectedcontent>`, anchor positioning and popover, `reading-flow` and `focusgroup`), so splitting them apart would make the list harder to use, not easier.
+
 ### Legend
 
 **Tried it**
@@ -25,7 +28,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 - ✅ = I've experimented with it
 - ⬜ = Not yet
 
-**Support status** (as of July 2026; 🟠 / 🔴 move fast—re-check [caniuse](https://caniuse.com "opens in new window"){target="_blank"} / MDN before shipping)
+**Support status** (as of September 2026; 🟠 / 🔴 move fast—re-check [caniuse](https://caniuse.com "opens in new window"){target="_blank"} / MDN before shipping)
 
 - 🟢 Stable — broadly available across major browsers, safe for production
 - 🟡 Newer — supported in most browsers; add a fallback
@@ -107,7 +110,7 @@ This is my running checklist of modern CSS features—something I scan to decide
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
 | `field-sizing: content` | Let input/textarea grow automatically to fit their content | `field-sizing: content;` | 🟠 | ✅ |
-| Customizable `<select>` (`appearance: base-select`) | Fully style the native dropdown; options can hold icons/HTML | `select{ appearance: base-select; }` | 🟠 | ✅ |
+| Customizable `<select>` (`appearance: base-select`) | Fully style the native dropdown; options can hold icons/HTML. Pair it with `::picker(select)` and `::picker-icon` to style the popup, and `<selectedcontent>` to clone the chosen option. You finally don't have to rebuild a select out of divs just to style it — and rebuilding it is a classic source of accessibility disasters (Chrome first; Safari has caught up) | `select{ appearance: base-select; }` | 🟡 | ✅ |
 | `<selectlist>` (formerly `<selectmenu>`) | A highly customizable dropdown component; renamed and folded into the "customizable select" track | `<selectlist>…</selectlist>` | 🟠 | ✅ |
 | `::backdrop` | Style the layer behind `dialog.showModal()` or fullscreen | `dialog::backdrop{}` | 🟢 | ✅ |
 
@@ -161,14 +164,40 @@ This is my running checklist of modern CSS features—something I scan to decide
 | Font smoothing (`-webkit-font-smoothing`) | The key to non-harsh text in dark mode: on macOS, light text on a dark background looks bold and glowing due to subpixel antialiasing; grayscale antialiasing makes it thinner and gentler. Non-standard, works only on certain platforms | `-webkit-font-smoothing: antialiased;` (+ `-moz-osx-font-smoothing: grayscale;`) | 🟡 | ✅ |
 | `@when` / `@else` | CSS if/else conditional blocks; still a proposal, unusable in any browser | `@when supports(...){} @else{}` | 🔴 | ✅ |
 
-### K. HTML Attributes (Not CSS, but Closely Tied to Accessibility)
+### K. HTML Elements & Attributes (Not CSS, but the Same "Declarative Instead of JS" Trend)
 
-Strictly speaking this section isn't CSS, but it replaces a pile of hand-written JS keyboard logic with a declarative attribute and directly affects accessibility quality — so it belongs in the same checklist.
+Strictly speaking this section isn't CSS, but it points the same way modern CSS does: **taking things that used to need a pile of JavaScript and making them declarative** — and most of them affect accessibility quality directly, so they belong in the same checklist.
+
+#### K-1. New HTML elements
+
+| Element | Main use & when to use | Example | Support | Tried |
+|---|---|---|---|---|
+| `<geolocation>` | A declarative button for location requests: the browser owns the permission flow and — crucially — offers a recovery path for users who previously denied access (which used to be a dead end). Degrades to a `<span>` where unsupported, so it progressively enhances | `<geolocation onlocation="fn(event)">` | 🟠 | ⬜ |
+| `<usermedia>` | Declarative camera/microphone access that hands the page a `MediaStream` directly, with no `getUserMedia()` call of your own. Video-only `<camera>` and audio-only `<microphone>` variants are planned | `<usermedia>` | 🟠 | ⬜ |
+| `<install>` | An install button for PWAs whose label and appearance the browser controls (users who click "Install" aren't surprised by what happens next). Point `installurl` elsewhere to install apps from other origins — enough to build a catalogue page | `<install installurl="…" manifestid="…">` | 🟠 | ⬜ |
+| `<model>` | Embed an interactive 3D model (USDZ) as easily as an `<img>`; supply multiple formats via `<source>` and custom lighting via `environmentmap` | `<model src="a.usdz">` | 🟠 | ⬜ |
+
+#### K-2. New HTML attributes & behaviours
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
 | `focusgroup` | Declaratively gives composite widgets (toolbars, tab lists, menus) arrow-key navigation, a guaranteed tab stop, and last-focused memory — exactly the WAI-ARIA keyboard pattern you previously had to hand-roll with roving tabindex (new in Chrome 150) | `<div focusgroup>…</div>` | 🟠 | ⬜ |
 | Invoker Commands (`command` / `commandfor`) | Control a popover/dialog with declarative HTML buttons, no scripting. Landed stable: `show-modal`, `close`, `request-close`, `toggle-popover`, `show-popover`, `hide-popover` (Baseline 2025; more coming — media controls, copy text, etc.) | `<button command="show-modal" commandfor="dlg">Open</button>` | 🟡 | ⬜ |
+| Interest Invokers | The same command mechanism, but triggered by "showing interest" (hover/focus) rather than a click — enough to build a native tooltip with no JS | `<button interestfor="tip">` | 🟠 | ⬜ |
+| `hidden="until-found"` | Content stays collapsed but is still reachable by in-page search, and expands automatically when matched. The right way to collapse long-form sections and FAQs without making their content unfindable | `<div hidden="until-found">` | 🟡 | ⬜ |
+| `popover="hint"` | A popover category meant for tooltips: it keeps light-dismiss, but only closes other hints instead of tearing down your main popover with it | `<div popover="hint">` | 🟡 | ⬜ |
+| `sizes="auto"` | Stop hand-computing `sizes` for responsive images and let the browser work it out; pairs with `srcset` and `loading="lazy"` | `<img srcset="…" sizes="auto">` | 🟡 | ⬜ |
+| Declarative Shadow DOM | Build a shadow root with no JavaScript, so SSR output can carry it | `<template shadowrootmode="open">` | 🟢 | ⬜ |
+| `shadowrootreferencetarget` | Lets a `<label>` or `aria-*` outside the shadow root point at the real input inside it — the long-standing labelling problem for web components | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ⬜ |
+| `<h1>` nested sizing fix | UA stylesheet change: an `<h1>` inside a `<section>` is no longer shrunk automatically, so heading hierarchy finally renders predictably | — | 🟢 | ⬜ |
+
+#### K-3. Proposal / prototype stage (just worth knowing about)
+
+| Feature | Main use | Support | Tried |
+|---|---|---|---|
+| Declarative Partial Updates | Streaming partial HTML updates that inject content without a navigation; a native `<include>` element may follow | 🔴 | ⬜ |
+| `<persistentwidget>` | Embedded content that survives same-origin navigations (a player that doesn't stop, for instance) | 🔴 | ⬜ |
+| HTML-in-Canvas (`layoutsubtree`) | Render interactive HTML onto a canvas | 🔴 | ⬜ |
 
 ### What to try next (recommended)
 
@@ -192,4 +221,9 @@ These are the ones I haven't checked off yet but are "stable 🟢 and high ROI,"
 - [Chrome for Developers — CSS](https://developer.chrome.com/tag/css "opens in new window"){target="_blank"}
 - [New in Chrome 150 (`text-fit`, `background-clip: border-area`, `focusgroup`)](https://developer.chrome.com/blog/new-in-chrome-150 "opens in new window"){target="_blank"}
 - [CSS Gap Decorations Now Available (`row-rule`/`column-rule`/`rule`, CSS-Tricks)](https://css-tricks.com/css-gap-decorations-now-available/ "opens in new window"){target="_blank"}
+- [New Things You Should Know About HTML Here in Mid 2026 (source for the newly added section K entries)](https://blog.master.dev/new-things-you-should-know-about-html-here-in-mid-2026 "opens in new window"){target="_blank"}
+- [Chrome for Developers — the `<geolocation>` element](https://developer.chrome.com/blog/geolocation-html-element "opens in new window"){target="_blank"}
+- [Chrome for Developers — the `<usermedia>` element](https://developer.chrome.com/blog/usermedia-html-element "opens in new window"){target="_blank"}
+- [Chrome for Developers — the `<install>` element (origin trial)](https://developer.chrome.com/blog/install-element-ot "opens in new window"){target="_blank"}
+- [Apple WWDC26 — Get started with the HTML Model element](https://developer.apple.com/videos/play/wwdc2026/215/ "opens in new window"){target="_blank"}
 - [CSS-Tricks](https://css-tricks.com "opens in new window"){target="_blank"}
