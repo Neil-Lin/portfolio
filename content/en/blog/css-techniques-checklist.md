@@ -1,8 +1,8 @@
 ---
-title: "Modern CSS & HTML Cheat Sheet: 95 Features, Support & What to Try Next"
+title: "Modern CSS & HTML Cheat Sheet: 102 Features, Support & What to Try Next"
 description: "A scannable checklist of modern CSS and HTML features—grouped by layout, selectors, color, typography, animation and more, plus declarative HTML additions like `<geolocation>`, `focusgroup` and Invoker Commands—each with its purpose, an example, and browser support."
 date: 2026-07-06
-updatedAt: 2026-09-08
+updatedAt: 2026-09-17
 tags:
   - CSS
   - HTML
@@ -45,9 +45,10 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | Anchor Positioning | Anchor one element's position to another (tooltip / popover / menu), replacing a lot of JS math | `anchor-name: --a;` + `top: anchor(--a bottom);` | 🟠 | ✅ |
 | `@position-try` | Fallback for anchor positioning: auto-flip when there isn't enough room | `position-try-fallbacks: flip-block;` | 🟠 | ⬜ |
 | `reading-flow` / `reading-order` | When flex/grid visual order is reordered, fix keyboard and screen-reader reading order (an accessibility must) | `reading-flow: flex-visual;` / `reading-order: 1;` | 🟠 | ✅ |
-| Gap Decorations (`row-rule` / `column-rule` / `rule`) | Draw and style separators directly in grid/flex gaps—no more divider elements; plus fine-grain `rule-inset`/`rule-overlap`/`rule-visibility-items` (Chrome/Edge 149+) | `column-rule: 1px solid; row-rule: 1px solid;` or shorthand `rule: 1px solid;` | 🟡 | ✅ |
+| Gap Decorations (`row-rule` / `column-rule` / `rule`) | Draw and style separators directly in grid/flex gaps—no more divider elements; plus fine-grain `rule-inset`/`rule-overlap`/`rule-visibility-items` (Chrome/Edge 149+; not in other browsers yet) | `column-rule: 1px solid; row-rule: 1px solid;` or shorthand `rule: 1px solid;` | 🟠 | ✅ |
 | `margin-inline` | Logical property; set both inline-axis margins at once (often `auto` to center) | `margin-inline: auto;` | 🟢 | ✅ |
 | Two-value display | Write outer × inner display separately: `display: block flex` etc.; `flex` = `block flex`, `inline-flex` = `inline flex`. Clarifies display's two layers; single-value shorthands still fine day-to-day | `display: inline flex;` | 🟡 | ✅ |
+| `stretch` sizing keyword | Make a box fill its container's available space (margins included), replacing vendor-specific values like `-webkit-fill-available` | `width: stretch;` | 🟡 | ⬜ |
 
 ### B. Selectors
 
@@ -60,21 +61,23 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `:placeholder-shown` | Style only while the placeholder is still showing (floating-label effect) | `input:placeholder-shown{}` | 🟢 | ✅ |
 | `:in-range` / `:out-of-range` | Style form values inside/outside their min/max range | `input:out-of-range{}` | 🟢 | ✅ |
 | `:user-valid` / `:user-invalid` | Show validation state only after the user has interacted—no angry red on load | `input:user-invalid{}` | 🟡 | ✅ |
-| `sibling-index()` / `sibling-count()` | Get an element's index and total among siblings; enables staggered animation, dynamic widths | `--i: sibling-index();` | 🟠 | ✅ |
-| `:heading` | Select all headings at once; still a proposal | `:heading{}` | 🔴 | ⬜ |
+| `sibling-index()` / `sibling-count()` | Get an element's index and total among siblings; enables staggered animation, dynamic widths (Baseline 2026) | `--i: sibling-index();` | 🟡 | ✅ |
+| `:heading` | Select all headings at once; supported from Safari 27, not in other browsers yet | `:heading{}` | 🟠 | ⬜ |
 | Carousel selectors | `::scroll-marker` / `scroll-marker-group` / `:target-current` for native carousels and scrollspy | `:target-current{}` | 🟠 | ⬜ |
+| Media state pseudo-classes (`:playing` / `:paused` / `:muted`, etc.) | Style `<video>`/`<audio>` directly by playing, paused, muted or buffering state, so custom players no longer need JS to toggle classes (Baseline 2026) | `video:paused + .play-btn{}` | 🟡 | ⬜ |
 
 ### C. Color
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
 | New color functions (`oklch`-first) | `hwb/lab/lch/color()` for wider gamuts; I've settled on `oklch`, which supports the `oklch(from …)` relative syntax | `color: oklch(0.7 0.15 200 / 50%);` | 🟢 | ✅ |
-| `color-mix()` | Mix two colors (best done in `oklch` space) for hover variants and transparent overlays | `color-mix(in oklch, red 40%, blue);` | 🟢 | ✅ |
-| `contrast-color()` | Auto-pick a readable foreground color for a given background (compliance / readability) | `color: contrast-color(var(--bg));` | 🟠 | ⬜ |
+| `color-mix()` | Mix two or more colors (best done in `oklch` space) for hover variants and transparent overlays; mixing three or more is currently Firefox 150 and Safari 27 | `color-mix(in oklch, red 40%, blue);` | 🟢 | ✅ |
+| `contrast-color()` | Auto-pick a readable foreground color for a given background (compliance / readability; Baseline 2026) | `color: contrast-color(var(--bg));` | 🟡 | ⬜ |
 | `accent-color` | One line to re-theme checkbox/radio/range and other system controls | `accent-color: rebeccapurple;` | 🟢 | ✅ |
-| `light-dark()` | Give a property both a light and dark value at once; with `color-scheme` it skips the media query | `color: light-dark(#000, #fff);` | 🟢 | ✅ |
+| `light-dark()` | Give a property both a light and dark value at once; with `color-scheme` it skips the media query; it also accepts images (supported in all three major browsers) | `color: light-dark(#000, #fff);` | 🟢 | ✅ |
 | `font-palette` / `@font-palette-values` | Custom palettes for color (COLR) fonts | `@font-palette-values --p{...}` + `font-palette: --p;` | 🟡 | ✅ |
 | Gradient interpolation color space | `linear-gradient(in oklch …)` makes gradient transitions smoother and less muddy | `background: linear-gradient(in oklch, #4ba3f7, #9d2398);` | 🟢 | ✅ |
+| `alpha()` | Relative color function that changes only the opacity of an existing color, without rewriting the whole color value | `color: alpha(from var(--brand) / 50%);` | 🟡 | ⬜ |
 
 ### D. Typography
 
@@ -87,13 +90,14 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `ruby-align` | Alignment of ruby annotations (bopomofo / pinyin, etc.) | `ruby-align: center;` | 🟡 | ✅ |
 | `paint-order` | Control the paint order of text fill vs. stroke (for outlined text) | `paint-order: stroke fill;` | 🟢 | ✅ |
 | `box-decoration-break: clone` | On line/page breaks, apply border/radius/background to each fragment; especially nice for link focus | `box-decoration-break: clone;` | 🟡 | ✅ |
-| `text-box-trim` | Trim the extra space above/below a font for precise vertical alignment | `text-box: trim-both cap alphabetic;` | 🟠 | ✅ |
+| `text-box-trim` | Trim the extra space above/below a font for precise vertical alignment (Chrome and Safari; not in Firefox yet) | `text-box: trim-both cap alphabetic;` | 🟡 | ✅ |
 | `line-clamp` (`-webkit-line-clamp`) | Show "…" after N lines; the new standard `line-clamp` is gradually replacing the webkit form | `-webkit-line-clamp: 3;` (needs `-webkit-box`) | 🟢 | ✅ |
 | `hanging-punctuation` | Hang leading/trailing punctuation outside the edge for tidier alignment (Safari-first) | `hanging-punctuation: first last;` | 🟠 | ⬜ |
 | `font-variant-numeric: tabular-nums` | Monospaced digits—essential for timers/prices/percentages that jitter (font must support it) | `font-variant-numeric: tabular-nums;` | 🟢 | ✅ |
 | `lh` unit | Set margin/spacing in line-height units so they scale with font size | `margin-bottom: 1.5lh;` | 🟡 | ✅ |
 | `margin-trim` | Trim margins of the first/last children in a container, avoiding `:first/:last-child` resets (Safari-first) | `margin-trim: block;` | 🟠 | ⬜ |
 | `text-fit` | Auto-scales font size so text exactly fills its container's width—responsive headlines without manual math or JS (new in Chrome 150) | `h1 { text-fit: auto; }` | 🟠 | ⬜ |
+| `text-autospace` | Automatically adds proper spacing between CJK text and Latin letters or numbers, so you don't have to type the spaces by hand; Safari 27 adds the `insert` value | `text-autospace: normal;` | 🟡 | ⬜ |
 
 ### E. Animation & Transition
 
@@ -109,8 +113,8 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
-| `field-sizing: content` | Let input/textarea grow automatically to fit their content | `field-sizing: content;` | 🟠 | ✅ |
-| Customizable `<select>` (`appearance: base-select`) | Fully style the native dropdown; options can hold icons/HTML. Pair it with `::picker(select)` and `::picker-icon` to style the popup, and `<selectedcontent>` to clone the chosen option. You finally don't have to rebuild a select out of divs just to style it — and rebuilding it is a classic source of accessibility disasters (Chrome first; Safari has caught up) | `select{ appearance: base-select; }` | 🟡 | ✅ |
+| `field-sizing: content` | Let input/textarea grow automatically to fit their content (Baseline 2026) | `field-sizing: content;` | 🟡 | ✅ |
+| Customizable `<select>` (`appearance: base-select`) | Fully style the native dropdown; options can hold icons/HTML. Pair it with `::picker(select)` and `::picker-icon` to style the popup, and `<selectedcontent>` to clone the chosen option. You finally don't have to rebuild a select out of divs just to style it — and rebuilding it is a classic source of accessibility disasters (Chrome 135 and Safari 27; not in Firefox yet) | `select{ appearance: base-select; }` | 🟡 | ✅ |
 | `<selectlist>` (formerly `<selectmenu>`) | A highly customizable dropdown component; renamed and folded into the "customizable select" track | `<selectlist>…</selectlist>` | 🟠 | ✅ |
 | `::backdrop` | Style the layer behind `dialog.showModal()` or fullscreen | `dialog::backdrop{}` | 🟢 | ✅ |
 
@@ -148,6 +152,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `random()` | Native random values in CSS (scatter, jitter effects) | `rotate: random(-5deg, 5deg);` | 🟠 | ✅ |
 | `if()` | Conditional logic inside a property value | `display: if(style(--open: 1): block; else: none);` | 🟠 | ⬜ |
 | `@function` | Custom CSS functions / a mixin-like concept, with parameters and a return value | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ⬜ |
+| `progress()` | Returns where a value sits between two others as a 0–1 ratio, for styles that change continuously with size (Baseline 2026) | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ⬜ |
 
 ### J. Misc
 
@@ -163,6 +168,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `corner-shape` | Corner shapes beyond `border-radius` (squircle / notched, etc.), used together with `border-radius` | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ⬜ |
 | Font smoothing (`-webkit-font-smoothing`) | The key to non-harsh text in dark mode: on macOS, light text on a dark background looks bold and glowing due to subpixel antialiasing; grayscale antialiasing makes it thinner and gentler. Non-standard, works only on certain platforms | `-webkit-font-smoothing: antialiased;` (+ `-moz-osx-font-smoothing: grayscale;`) | 🟡 | ✅ |
 | `@when` / `@else` | CSS if/else conditional blocks; still a proposal, unusable in any browser | `@when supports(...){} @else{}` | 🔴 | ✅ |
+| Scroll anchoring (`overflow-anchor`) | When content loads or is inserted above the viewport, the browser keeps your reading position steady instead of jumping; on by default, opt out per element with `none`. Those jumps are especially disorienting for people with cognitive or motor disabilities (with Safari 27, all three engines support it) | `overflow-anchor: none;` | 🟡 | ⬜ |
 
 ### K. HTML Elements & Attributes (Not CSS, but the Same "Declarative Instead of JS" Trend)
 
@@ -186,10 +192,11 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 | Interest Invokers | The same command mechanism, but triggered by "showing interest" (hover/focus) rather than a click — enough to build a native tooltip with no JS | `<button interestfor="tip">` | 🟠 | ⬜ |
 | `hidden="until-found"` | Content stays collapsed but is still reachable by in-page search, and expands automatically when matched. The right way to collapse long-form sections and FAQs without making their content unfindable | `<div hidden="until-found">` | 🟡 | ⬜ |
 | `popover="hint"` | A popover category meant for tooltips: it keeps light-dismiss, but only closes other hints instead of tearing down your main popover with it | `<div popover="hint">` | 🟡 | ⬜ |
-| `sizes="auto"` | Stop hand-computing `sizes` for responsive images and let the browser work it out; pairs with `srcset` and `loading="lazy"` | `<img srcset="…" sizes="auto">` | 🟡 | ⬜ |
+| `sizes="auto"` | Stop hand-computing `sizes` for responsive images and let the browser work it out; pairs with `srcset` and `loading="lazy"` (now in Chrome, Firefox and Safari 27) | `<img srcset="…" sizes="auto">` | 🟡 | ⬜ |
 | Declarative Shadow DOM | Build a shadow root with no JavaScript, so SSR output can carry it | `<template shadowrootmode="open">` | 🟢 | ⬜ |
 | `shadowrootreferencetarget` | Lets a `<label>` or `aria-*` outside the shadow root point at the real input inside it — the long-standing labelling problem for web components | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ⬜ |
 | `<h1>` nested sizing fix | UA stylesheet change: an `<h1>` inside a `<section>` is no longer shrunk automatically, so heading hierarchy finally renders predictably | — | 🟢 | ⬜ |
+| `ariaNotify()` | Ask the screen reader to announce a message directly (e.g. "Added to cart"), replacing the old trick of hiding an `aria-live` region and stuffing text into it. It's a DOM API rather than an HTML attribute, but what it replaces is exactly that HTML-attribute pattern (Firefox 150 and Safari 27; not in Chrome yet) | `document.ariaNotify("Added to cart");` | 🟡 | ⬜ |
 
 #### K-3. Proposal / prototype stage (just worth knowing about)
 
@@ -226,4 +233,6 @@ These are the ones I haven't checked off yet but are "stable 🟢 and high ROI,"
 - [Chrome for Developers — the `<usermedia>` element](https://developer.chrome.com/blog/usermedia-html-element "opens in new window"){target="_blank"}
 - [Chrome for Developers — the `<install>` element (origin trial)](https://developer.chrome.com/blog/install-element-ot "opens in new window"){target="_blank"}
 - [Apple WWDC26 — Get started with the HTML Model element](https://developer.apple.com/videos/play/wwdc2026/215/ "opens in new window"){target="_blank"}
+- [Safari 27 Release Notes (Apple; one of the sources for this support update)](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes "opens in new window"){target="_blank"}
+- [Web platform features explorer (Baseline status lookup)](https://web-platform-dx.github.io/web-features-explorer/ "opens in new window"){target="_blank"}
 - [CSS-Tricks](https://css-tricks.com "opens in new window"){target="_blank"}

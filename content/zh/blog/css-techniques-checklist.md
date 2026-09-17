@@ -1,8 +1,8 @@
 ---
-title: 現代 CSS 與 HTML 技巧整理清單：95 個特性、支援度與實驗優先序
+title: 現代 CSS 與 HTML 技巧整理清單：102 個特性、支援度與實驗優先序
 description: "一份可快速掃描的現代 CSS 與 HTML 特性清單，依版面、選擇器、色彩、文字、動畫等分類，另收錄 `<geolocation>`、`focusgroup`、Invoker Commands 等宣告式 HTML 新特性，逐條整理用途、範例與瀏覽器支援度。"
 date: 2026-07-06
-updatedAt: 2026-09-08
+updatedAt: 2026-09-17
 tags:
   - CSS
   - HTML
@@ -45,9 +45,10 @@ draft: false
 | Anchor Positioning | 讓元素錨定到另一元素定位（tooltip / popover / 選單），取代大量 JS 計算 | `anchor-name: --a;` + `top: anchor(--a bottom);` | 🟠 | ✅ |
 | `@position-try` | 錨定定位的 fallback：空間不足時自動翻面 | `position-try-fallbacks: flip-block;` | 🟠 | ⬜ |
 | `reading-flow` / `reading-order` | flex/grid 視覺順序被反轉時，修正鍵盤與報讀的閱讀順序（無障礙關鍵） | `reading-flow: flex-visual;` / `reading-order: 1;` | 🟠 | ✅ |
-| Gap Decorations（`row-rule` / `column-rule` / `rule`） | 直接在 grid/flex 的 gap 畫分隔線、控制樣式，不用再插 divider 元素；另有 `rule-inset`／`rule-overlap`／`rule-visibility-items` 等微調（Chrome/Edge 149 起） | `column-rule: 1px solid; row-rule: 1px solid;` 或簡寫 `rule: 1px solid;` | 🟡 | ✅ |
+| Gap Decorations（`row-rule` / `column-rule` / `rule`） | 直接在 grid/flex 的 gap 畫分隔線、控制樣式，不用再插 divider 元素；另有 `rule-inset`／`rule-overlap`／`rule-visibility-items` 等微調（Chrome/Edge 149 起，其他瀏覽器尚未） | `column-rule: 1px solid; row-rule: 1px solid;` 或簡寫 `rule: 1px solid;` | 🟠 | ✅ |
 | `margin-inline` | 邏輯屬性，一次設定行向左右邊距（常用 `auto` 置中） | `margin-inline: auto;` | 🟢 | ✅ |
 | 多值 display（雙值語法） | 拆開寫「外部 × 內部」顯示：`display: block flex` 等；`flex`＝`block flex`、`inline-flex`＝`inline flex`。理解 display 的雙層本質，日常仍可續用單值縮寫 | `display: inline flex;` | 🟡 | ✅ |
+| `stretch` 尺寸關鍵字 | 讓元素撐滿容器可用空間（會算進 margin），取代 `-webkit-fill-available` 這類私有寫法 | `width: stretch;` | 🟡 | ⬜ |
 
 ### B. 選擇器（Selectors）
 
@@ -60,21 +61,23 @@ draft: false
 | `:placeholder-shown` | placeholder 還在顯示時才套樣式（浮動標籤效果） | `input:placeholder-shown{}` | 🟢 | ✅ |
 | `:in-range` / `:out-of-range` | 表單數值在 min/max 範圍內外時的樣式 | `input:out-of-range{}` | 🟢 | ✅ |
 | `:user-valid` / `:user-invalid` | 「使用者互動後」才顯示驗證狀態，不會一載入就爆紅 | `input:user-invalid{}` | 🟡 | ✅ |
-| `sibling-index()` / `sibling-count()` | 取得元素在同層中的索引與總數，可做交錯動畫、動態寬度 | `--i: sibling-index();` | 🟠 | ✅ |
-| `:heading` | 一次選取所有標題；目前仍為提案 | `:heading{}` | 🔴 | ⬜ |
+| `sibling-index()` / `sibling-count()` | 取得元素在同層中的索引與總數，可做交錯動畫、動態寬度（Baseline 2026） | `--i: sibling-index();` | 🟡 | ✅ |
+| `:heading` | 一次選取所有標題；Safari 27 起支援，其他瀏覽器尚未 | `:heading{}` | 🟠 | ⬜ |
 | Carousel 選擇器組 | `::scroll-marker` / `scroll-marker-group` / `:target-current` 做原生輪播與 Scrollspy | `:target-current{}` | 🟠 | ⬜ |
+| 媒體狀態偽類（`:playing` / `:paused` / `:muted` 等） | 依 `<video>`／`<audio>` 播放、暫停、靜音、緩衝的狀態直接套樣式，自訂播放器不必再用 JS 切 class（Baseline 2026） | `video:paused + .play-btn{}` | 🟡 | ⬜ |
 
 ### C. 色彩（Color）
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
 | 新色彩函式（`oklch` 為主） | `hwb/lab/lch/color()` 等更廣色域；我已選定 `oklch`，支援 `oklch(from …)` 相對語法 | `color: oklch(0.7 0.15 200 / 50%);` | 🟢 | ✅ |
-| `color-mix()` | 混合兩色（建議在 `oklch` 空間混），做 hover 變體、透明疊色 | `color-mix(in oklch, red 40%, blue);` | 🟢 | ✅ |
-| `contrast-color()` | 依背景自動產生可讀的前景色（合規／可讀性） | `color: contrast-color(var(--bg));` | 🟠 | ⬜ |
+| `color-mix()` | 混合兩種以上的顏色（建議在 `oklch` 空間混），做 hover 變體、透明疊色；一次混三色以上目前是 Firefox 150、Safari 27 | `color-mix(in oklch, red 40%, blue);` | 🟢 | ✅ |
+| `contrast-color()` | 依背景自動產生可讀的前景色（合規／可讀性；Baseline 2026） | `color: contrast-color(var(--bg));` | 🟡 | ⬜ |
 | `accent-color` | 一行改掉 checkbox/radio/range 等系統元件主題色 | `accent-color: rebeccapurple;` | 🟢 | ✅ |
-| `light-dark()` | 同一屬性同時給亮／暗兩值，搭配 `color-scheme` 免寫 media query | `color: light-dark(#000, #fff);` | 🟢 | ✅ |
+| `light-dark()` | 同一屬性同時給亮／暗兩值，搭配 `color-scheme` 免寫 media query；也可以放圖片（三大瀏覽器皆支援） | `color: light-dark(#000, #fff);` | 🟢 | ✅ |
 | `font-palette` / `@font-palette-values` | 彩色字型（COLR）可自訂調色盤 | `@font-palette-values --p{...}` + `font-palette: --p;` | 🟡 | ✅ |
 | 漸層指定內插色彩空間 | `linear-gradient(in oklch …)` 讓漸層過渡更均勻不灰濁 | `background: linear-gradient(in oklch, #4ba3f7, #9d2398);` | 🟢 | ✅ |
+| `alpha()` | 相對色彩函式，只調整既有顏色的透明度，不必拆開重寫整個色值 | `color: alpha(from var(--brand) / 50%);` | 🟡 | ⬜ |
 
 ### D. 文字排版（Typography）
 
@@ -87,13 +90,14 @@ draft: false
 | `ruby-align` | 注音／拼音等 ruby 註記的對齊方式 | `ruby-align: center;` | 🟡 | ✅ |
 | `paint-order` | 控制文字填色與外框繪製順序（做描邊字） | `paint-order: stroke fill;` | 🟢 | ✅ |
 | `box-decoration-break: clone` | 斷行／換頁時每段各自套用邊框圓角背景，連結 focus 特別有感 | `box-decoration-break: clone;` | 🟡 | ✅ |
-| `text-box-trim` | 裁掉字體上下的多餘留白，做精準垂直對齊 | `text-box: trim-both cap alphabetic;` | 🟠 | ✅ |
+| `text-box-trim` | 裁掉字體上下的多餘留白，做精準垂直對齊（Chrome、Safari 支援，Firefox 尚未） | `text-box: trim-both cap alphabetic;` | 🟡 | ✅ |
 | `line-clamp`（`-webkit-line-clamp`） | 限制幾行後顯示「…」；新標準 `line-clamp` 逐步取代 webkit 寫法 | `-webkit-line-clamp: 3;`（需 `-webkit-box`） | 🟢 | ✅ |
 | `hanging-punctuation` | 行首／行尾標點懸掛到邊界外，對齊更整齊（Safari 為主） | `hanging-punctuation: first last;` | 🟠 | ⬜ |
 | `font-variant-numeric: tabular-nums` | 等寬數字，計時器／價格／百分比等會跳動的數字必備（字型需支援） | `font-variant-numeric: tabular-nums;` | 🟢 | ✅ |
 | `lh` 單位 | 以行高為單位設 margin／間距，跟著字級縮放 | `margin-bottom: 1.5lh;` | 🟡 | ✅ |
 | `margin-trim` | 剪掉容器內首尾子元素的外距，免除 `:first/:last-child` 歸零（Safari 為主） | `margin-trim: block;` | 🟠 | ⬜ |
 | `text-fit` | 自動縮放文字大小以填滿容器寬度，做響應式大標題不必再手算或靠 JS（Chrome 150 新增） | `h1 { text-fit: auto; }` | 🟠 | ⬜ |
+| `text-autospace` | 在中文與英文／數字之間自動加入適當間距，不必再手動打空白；Safari 27 另加入 `insert` 值 | `text-autospace: normal;` | 🟡 | ⬜ |
 
 ### E. 動畫與過渡（Animation & Transition）
 
@@ -109,8 +113,8 @@ draft: false
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
-| `field-sizing: content` | 讓 input／textarea 依內容自動增長 | `field-sizing: content;` | 🟠 | ✅ |
-| 可自訂 `<select>`（`appearance: base-select`） | 原生下拉可完全自訂樣式，選項可放圖示／HTML；搭配 `::picker(select)`、`::picker-icon` 控制彈出層，並可用 `<selectedcontent>` 複製選中項目的內容。終於不必為了改樣式用 div 重刻 select——而重刻正是無障礙災難的常見來源（Chrome 先行，Safari 已跟上） | `select{ appearance: base-select; }` | 🟡 | ✅ |
+| `field-sizing: content` | 讓 input／textarea 依內容自動增長（Baseline 2026） | `field-sizing: content;` | 🟡 | ✅ |
+| 可自訂 `<select>`（`appearance: base-select`） | 原生下拉可完全自訂樣式，選項可放圖示／HTML；搭配 `::picker(select)`、`::picker-icon` 控制彈出層，並可用 `<selectedcontent>` 複製選中項目的內容。終於不必為了改樣式用 div 重刻 select——而重刻正是無障礙災難的常見來源（Chrome 135、Safari 27 支援，Firefox 尚未） | `select{ appearance: base-select; }` | 🟡 | ✅ |
 | `<selectlist>`（原 `<selectmenu>`） | 可高度自訂的下拉元件；已改名並整併進「可自訂 select」路線 | `<selectlist>…</selectlist>` | 🟠 | ✅ |
 | `::backdrop` | `dialog.showModal()` 或全螢幕時的背後遮罩層樣式 | `dialog::backdrop{}` | 🟢 | ✅ |
 
@@ -148,6 +152,7 @@ draft: false
 | `random()` | CSS 原生隨機值（散布、抖動效果） | `rotate: random(-5deg, 5deg);` | 🟠 | ✅ |
 | `if()` | 在屬性值中做條件判斷 | `display: if(style(--open: 1): block; else: none);` | 🟠 | ⬜ |
 | `@function` | 自訂 CSS 函式與 mixin 概念，可帶參數回傳值 | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ⬜ |
+| `progress()` | 算出一個值落在兩個值之間的比例（0–1），做隨尺寸連續變化的樣式（Baseline 2026） | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ⬜ |
 
 ### J. 其他實用屬性（Misc）
 
@@ -163,6 +168,7 @@ draft: false
 | `corner-shape` | 超越 `border-radius` 的圓角形狀（squircle／切角等），搭配 `border-radius` 使用 | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ⬜ |
 | 字型平滑（`-webkit-font-smoothing`） | 深色模式讓文字不刺眼的關鍵：macOS 上淺色文字在深底會因次像素抗鋸齒而變粗發光，改用 grayscale 抗鋸齒後變細、不刺眼；非標準，僅特定平台有效 | `-webkit-font-smoothing: antialiased;`（+ `-moz-osx-font-smoothing: grayscale;`） | 🟡 | ✅ |
 | `@when` / `@else` | CSS 的 if/else 條件塊；仍為提案，瀏覽器皆不可用 | `@when supports(...){} @else{}` | 🔴 | ✅ |
+| Scroll anchoring（`overflow-anchor`） | 上方內容載入或插入時，瀏覽器自動維持目前的閱讀位置、畫面不跳動；預設開啟，個別元素可用 `none` 關閉。畫面跳動對認知或動作障礙者特別困擾（Safari 27 補上後，三大引擎到齊） | `overflow-anchor: none;` | 🟡 | ⬜ |
 
 ### K. HTML 元素與屬性（非 CSS，但同屬「宣告式取代 JS」的趨勢）
 
@@ -186,10 +192,11 @@ draft: false
 | Interest Invokers | 同一套 command 機制，但改用「hover／focus 表達興趣」觸發而非點擊——可以做出不寫 JS 的原生 tooltip | `<button interestfor="tip">` | 🟠 | ⬜ |
 | `hidden="until-found"` | 內容摺疊起來，但仍能被瀏覽器的頁內搜尋命中，命中時自動展開。長文的摺疊段落、FAQ 用這個才不會讓內容變成搜不到 | `<div hidden="until-found">` | 🟡 | ⬜ |
 | `popover="hint"` | 專給 tooltip 類的 popover：保有 light-dismiss，但只會關掉其他 hint，不會把主要的 popover 一起關掉 | `<div popover="hint">` | 🟡 | ⬜ |
-| `sizes="auto"` | 響應式圖片不用再自己算 `sizes`，交給瀏覽器；搭配 `srcset` 與 `loading="lazy"` 使用 | `<img srcset="…" sizes="auto">` | 🟡 | ⬜ |
+| `sizes="auto"` | 響應式圖片不用再自己算 `sizes`，交給瀏覽器；搭配 `srcset` 與 `loading="lazy"` 使用（Chrome、Firefox、Safari 27 皆已支援） | `<img srcset="…" sizes="auto">` | 🟡 | ⬜ |
 | 宣告式 Shadow DOM | 不寫 JS 就能建立 Shadow DOM，SSR 輸出可以直接帶著走 | `<template shadowrootmode="open">` | 🟢 | ⬜ |
 | `shadowrootreferencetarget` | 讓 Shadow DOM 外面的 `<label>`／`aria-*` 能指向內部真正的 input——解決 web component 長年的標籤關聯難題 | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ⬜ |
 | `<h1>` 巢狀尺寸修正 | UA 樣式表變更：`<h1>` 放在 `<section>` 裡不再被自動縮小，標題階層的視覺呈現終於可預期 | — | 🟢 | ⬜ |
+| `ariaNotify()` | 直接請螢幕閱讀器念出一段訊息（例如「已加入購物車」），取代在頁面藏一個 `aria-live` 區塊再塞文字的舊做法。它是 DOM API 而不是 HTML 屬性，但它取代的正是那套 HTML 屬性寫法（Firefox 150、Safari 27；Chrome 尚未） | `document.ariaNotify("已加入購物車");` | 🟡 | ⬜ |
 
 #### K-3. 提案／原型階段（先知道有這回事就好）
 
@@ -226,4 +233,6 @@ draft: false
 - [Chrome for Developers — `<usermedia>` 元素](https://developer.chrome.com/blog/usermedia-html-element "另開新視窗"){target="_blank"}
 - [Chrome for Developers — `<install>` 元素（origin trial）](https://developer.chrome.com/blog/install-element-ot "另開新視窗"){target="_blank"}
 - [Apple WWDC26 — HTML Model 元素](https://developer.apple.com/videos/play/wwdc2026/215/ "另開新視窗"){target="_blank"}
+- [Safari 27 Release Notes（Apple，本次燈號更新依據之一）](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes "另開新視窗"){target="_blank"}
+- [Web platform features explorer（Baseline 狀態查詢）](https://web-platform-dx.github.io/web-features-explorer/ "另開新視窗"){target="_blank"}
 - [CSS-Tricks](https://css-tricks.com "另開新視窗"){target="_blank"}
