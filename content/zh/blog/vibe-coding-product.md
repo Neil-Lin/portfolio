@@ -20,6 +20,7 @@ tags:
   - AI工具
   - Antigravity
   - Gemini
+category: projects
 draft: false
 ---
 

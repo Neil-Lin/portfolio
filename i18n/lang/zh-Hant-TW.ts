@@ -112,6 +112,28 @@ export default {
     blog: {
       hint: "前端、設計與無障礙的開發筆記。",
       related: "相關文章",
+      searchLabel: "搜尋文章",
+      searchPlaceholder: "例如：popover、無障礙",
+      searchSubmit: "搜尋",
+      categoryLabel: "分類",
+      allCategories: "全部分類",
+      categories: {
+        accessibility: "無障礙",
+        frontend: "前端技術",
+        design: "設計與 AI",
+        projects: "作品與工具",
+      },
+      // 結果摘要（0 篇 | 1 篇 | 多篇）
+      summary: "沒有符合條件的文章 | 共 1 篇文章 | 共 {count} 篇文章",
+      pageInfo: "第 {page} / {total} 頁",
+      // 搜尋或切換分類後播報給報讀軟體
+      found: "沒有符合條件的文章 | 找到 1 篇文章 | 找到 {count} 篇文章",
+      clear: "清除搜尋與分類",
+      pagination: "文章分頁",
+      prev: "上一頁",
+      next: "下一頁",
+      pageN: "第 {page} 頁",
+      filterByCategory: "查看「{category}」分類的所有文章",
     },
     detail: {
       summary: "概要",

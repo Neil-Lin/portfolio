@@ -7,6 +7,7 @@ tags:
   - Chrome Extension
   - ProductHunt
   - Solo Founder
+category: projects
 draft: false
 ---
 

@@ -9,6 +9,7 @@ tags:
   - A11Y
   - Accessibility
   - ChromeExtension
+category: projects
 draft: false
 ---
 

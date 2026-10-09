@@ -9,6 +9,7 @@ tags:
   - Front-End
   - Browser Support
 translationKey: declarative-shadow-dom
+category: frontend
 draft: false
 ---
 

@@ -8,6 +8,7 @@ tags:
   - A11Y
   - Accessibility
   - DevTool
+category: projects
 draft: false
 ---
 

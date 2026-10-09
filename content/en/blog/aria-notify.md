@@ -9,6 +9,7 @@ tags:
   - Accessibility
   - Browser Support
 translationKey: aria-notify
+category: frontend
 draft: false
 ---
 

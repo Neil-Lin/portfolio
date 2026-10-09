@@ -6,6 +6,7 @@ tags:
   - A11Y
   - Accessibility
   - Testing
+category: accessibility
 draft: false
 ---
 

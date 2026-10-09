@@ -12,6 +12,7 @@ tags:
   - Accessibility
   - Browser Support
 translationKey: css-techniques-checklist
+category: frontend
 draft: false
 ---
 

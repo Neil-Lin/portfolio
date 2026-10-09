@@ -7,6 +7,7 @@ tags:
   - Accessibility
   - a11yjobs
   - WebDesign
+category: accessibility
 draft: false
 ---
 

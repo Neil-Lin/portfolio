@@ -111,6 +111,28 @@ export default {
     blog: {
       hint: "Notes on frontend, design, and accessibility.",
       related: "Related posts",
+      searchLabel: "Search posts",
+      searchPlaceholder: "e.g. popover, dialog",
+      searchSubmit: "Search",
+      categoryLabel: "Category",
+      allCategories: "All categories",
+      categories: {
+        accessibility: "Accessibility",
+        frontend: "Front-End",
+        design: "Design & AI",
+        projects: "Projects & Tools",
+      },
+      // Result summary (0 | 1 | many)
+      summary: "No matching posts | 1 post | {count} posts",
+      pageInfo: "Page {page} of {total}",
+      // Announced to screen readers after searching or changing the category
+      found: "No matching posts | Found 1 post | Found {count} posts",
+      clear: "Clear search and category",
+      pagination: "Post pages",
+      prev: "Previous",
+      next: "Next",
+      pageN: "Page {page}",
+      filterByCategory: "See all posts in {category}",
     },
     detail: {
       summary: "summary",

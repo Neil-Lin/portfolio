@@ -9,6 +9,7 @@ tags:
   - 前端開發
   - 瀏覽器支援
 translationKey: declarative-shadow-dom
+category: frontend
 draft: false
 ---
 

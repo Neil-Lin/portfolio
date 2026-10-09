@@ -9,6 +9,7 @@ tags:
   - Accessibility
   - Browser Support
 translationKey: hidden-until-found
+category: frontend
 draft: false
 ---
 

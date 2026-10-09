@@ -8,6 +8,7 @@ tags:
   - Accessibility
   - Browser Support
 translationKey: text-autospace
+category: frontend
 draft: false
 ---
 

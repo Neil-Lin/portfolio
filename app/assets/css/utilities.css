@@ -78,6 +78,19 @@
   text-box-edge: cap alphabetic;
 }
 
+/* 文章分類：可以點，點了會到部落格列表並套用該分類 */
+.tag.is-category {
+  border-color: oklch(var(--link-color));
+  color: oklch(var(--link-color));
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    background-color: oklch(var(--link-color));
+    color: oklch(var(--card-bg));
+  }
+}
+
 /*************************
   Article meta（發布 / 更新日期）
 *************************/

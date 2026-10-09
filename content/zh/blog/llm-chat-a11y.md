@@ -9,6 +9,7 @@ tags:
   - A11Y
   - Accessibility
   - LLM
+category: accessibility
 draft: false
 ---
 

@@ -9,6 +9,7 @@ tags:
   - Accessibility
   - Browser Support
 translationKey: dialog-modern-guide
+category: frontend
 draft: false
 ---
 

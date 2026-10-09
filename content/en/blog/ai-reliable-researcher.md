@@ -9,6 +9,7 @@ tags:
   - Product Research
   - AI Agent
 translationKey: ai-reliable-researcher
+category: design
 draft: false
 ---
 

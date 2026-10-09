@@ -9,6 +9,7 @@ tags:
   - Accessibility
   - Browser Support
 translationKey: popover-auto-manual-hint
+category: frontend
 draft: false
 ---
 

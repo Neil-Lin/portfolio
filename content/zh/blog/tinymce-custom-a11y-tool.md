@@ -9,6 +9,7 @@ tags:
   - A11Y
   - Accessibility
   - TinyMCE
+category: projects
 draft: false
 ---
 

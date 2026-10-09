@@ -11,6 +11,7 @@ tags:
   - 包容性設計
   - 測試
   - 檢測
+category: accessibility
 draft: false
 ---
 

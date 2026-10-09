@@ -7,6 +7,7 @@ tags:
   - LLM
   - Generative AI
   - Framer
+category: design
 draft: false
 ---
 

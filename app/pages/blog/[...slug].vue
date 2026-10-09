@@ -18,6 +18,21 @@
           </template>
           <br />
           <div class="tags">
+            <nuxt-link
+              v-if="article.category"
+              class="tag is-category"
+              :to="{
+                path: localePath('/blog'),
+                query: { category: article.category },
+              }"
+              :title="
+                t('page.blog.filterByCategory', {
+                  category: t(`page.blog.categories.${article.category}`),
+                })
+              "
+            >
+              {{ t(`page.blog.categories.${article.category}`) }}
+            </nuxt-link>
             <span v-for="tag in article.tags" :key="tag" class="tag">{{
               tag
             }}</span>

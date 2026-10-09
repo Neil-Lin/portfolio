@@ -6,6 +6,7 @@ tags:
   - Accessibility
   - A11Y
   - ForbesAccessibility
+category: accessibility
 draft: false
 ---
 

@@ -9,6 +9,7 @@ tags:
   - A11Y
   - AIAgent
   - LLM
+category: accessibility
 draft: false
 ---
 

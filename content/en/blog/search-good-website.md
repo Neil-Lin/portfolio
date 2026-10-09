@@ -8,6 +8,7 @@ tags:
   - A11Y
   - Accessibility
   - Usability
+category: design
 draft: false
 ---
 

@@ -8,6 +8,7 @@ tags:
   - icon
   - FontAwesome
   - Emoji
+category: accessibility
 draft: false
 ---
 

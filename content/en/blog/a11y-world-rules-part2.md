@@ -6,6 +6,7 @@ tags:
   - Accessibility
   - A11Y
   - AccessibilityBadge
+category: accessibility
 draft: false
 ---
 

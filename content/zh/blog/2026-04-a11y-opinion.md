@@ -10,6 +10,7 @@ tags:
   - A11Y
   - Accessibility
   - a11yjobs
+category: accessibility
 draft: false
 ---
 

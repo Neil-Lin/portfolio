@@ -10,6 +10,7 @@ tags:
   - 產品研究
   - AI Agent
 translationKey: ai-reliable-researcher
+category: design
 draft: false
 ---
 
