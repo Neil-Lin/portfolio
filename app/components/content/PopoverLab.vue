@@ -5,7 +5,8 @@
         :id="`${uid}-menu-btn`"
         type="button"
         class="popover-demo__trigger is-auto"
-        :popovertarget="`${uid}-menu`"
+        :commandfor="`${uid}-menu`"
+        command="toggle-popover"
         :style="`anchor-name: --${uid}-menu-btn`"
       >
         {{ text.menu }}
@@ -94,8 +95,8 @@
       <button
         type="button"
         class="popover-demo__close"
-        :popovertarget="`${uid}-toast`"
-        popovertargetaction="hide"
+        :commandfor="`${uid}-toast`"
+        command="hide-popover"
       >
         {{ text.close }}
       </button>

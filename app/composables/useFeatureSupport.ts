@@ -11,6 +11,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "Popover API",
     detect: () => "popover" in HTMLElement.prototype,
   },
+  command: {
+    name: "Invoker Commands",
+    detect: () => "commandForElement" in HTMLButtonElement.prototype,
+  },
   "popover-hint": {
     name: 'popover="hint"',
     detect: () => {

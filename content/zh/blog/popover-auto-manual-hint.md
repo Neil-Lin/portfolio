@@ -12,6 +12,10 @@ translationKey: popover-auto-manual-hint
 draft: false
 ---
 
+2026/10/09 更新：範例與程式碼改用 Invoker Commands（`command` / `commandfor`），原本的 `popovertarget` 寫法仍然有效。
+
+--
+
 > 話說在前頭：這篇是我自己練習 `popover="hint"` 的筆記，瀏覽器支援度變動很快，寫的當下正確不代表之後也正確，有講錯的地方歡迎指正。
 
 ### 前言
@@ -45,7 +49,7 @@ draft: false
 只寫 `popover` 不給值，就是 `auto`。同時只能開一個，點外面或按 Esc 就會關閉，很適合選單和下拉面板。
 
 ```html
-<button popovertarget="menu">開啟選單</button>
+<button commandfor="menu" command="toggle-popover">開啟選單</button>
 <div id="menu" popover>…</div>
 ```
 
@@ -53,6 +57,8 @@ draft: false
 ::
 
 試試看：先開 A 再開 B，A 會自己關掉；再點頁面空白處或按 Esc，B 也關了。
+
+按鈕用的是 Invoker Commands：`commandfor` 指定要控制誰，`command` 指定要做什麼。早期的寫法是 `popovertarget`，現在一樣有效，但它只能控制 popover；`command` 還能控制 `<dialog>`，所以我現在統一用 `command`。範例在不支援 Invoker Commands 的瀏覽器裡，會自動換回 `popovertarget`。
 
 重點是，這整個過程一行 JavaScript 都不用寫。以前要做到「點外面關閉」，還要自己監聽 document 的點擊、判斷點的是不是選單內部，現在一個屬性就搞定了。
 
@@ -62,7 +68,7 @@ draft: false
 
 ```html
 <div id="panel" popover="manual">
-  <button popovertarget="panel" popovertargetaction="hide">關閉</button>
+  <button commandfor="panel" command="hide-popover">關閉</button>
 </div>
 ```
 

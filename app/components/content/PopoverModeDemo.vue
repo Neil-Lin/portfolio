@@ -26,7 +26,8 @@
           :key="panel.id"
           type="button"
           class="popover-demo__trigger"
-          :popovertarget="panel.id"
+          :commandfor="panel.id"
+          command="toggle-popover"
           :style="`anchor-name: --${panel.btnId}`"
         >
           {{ panel.label }}
@@ -66,8 +67,8 @@
           v-if="mode === 'manual'"
           type="button"
           class="popover-demo__close"
-          :popovertarget="panel.id"
-          popovertargetaction="hide"
+          :commandfor="panel.id"
+          command="hide-popover"
         >
           {{ text.close }}
         </button>

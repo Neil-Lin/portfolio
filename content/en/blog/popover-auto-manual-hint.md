@@ -12,6 +12,10 @@ translationKey: popover-auto-manual-hint
 draft: false
 ---
 
+2026/10/09 update: the demos and code now use Invoker Commands (`command` / `commandfor`). The original `popovertarget` approach still works.
+
+--
+
 > Up front: these are my own notes from practicing `popover="hint"`. Browser support moves fast, so what's true as I write this may not stay true. If I've gotten something wrong, corrections welcome.
 
 ### Intro
@@ -45,7 +49,7 @@ The table is still a bit abstract, so let's go through them one at a time.
 Writing `popover` with no value gives you `auto`. Only one can be open at a time, and clicking outside or pressing Escape closes it, which makes it a natural fit for menus and dropdown panels.
 
 ```html
-<button popovertarget="menu">Open menu</button>
+<button commandfor="menu" command="toggle-popover">Open menu</button>
 <div id="menu" popover>…</div>
 ```
 
@@ -53,6 +57,8 @@ Writing `popover` with no value gives you `auto`. Only one can be open at a time
 ::
 
 Try it: open A, then B, and A closes on its own. Click an empty part of the page or press Escape, and B closes too.
+
+The buttons use Invoker Commands: `commandfor` says what to control and `command` says what to do. The older way is `popovertarget`, which still works but can only control popovers; `command` can also control `<dialog>`, so I now use `command` everywhere. In browsers without Invoker Commands, the demos automatically switch back to `popovertarget`.
 
 The nice part is that none of this needs a single line of JavaScript. "Close when clicking outside" used to mean listening for clicks on the document and checking whether they landed inside the menu. Now it's one attribute.
 
@@ -62,7 +68,7 @@ A `manual` popover doesn't close on an outside click or Escape, and it doesn't c
 
 ```html
 <div id="panel" popover="manual">
-  <button popovertarget="panel" popovertargetaction="hide">Close</button>
+  <button commandfor="panel" command="hide-popover">Close</button>
 </div>
 ```
 

@@ -55,6 +55,7 @@ onMounted(() => {
 const items = computed(() => [
   { name: "Popover API", ok: support.value?.popover },
   { name: 'popover="hint"', ok: support.value?.hint },
+  { name: "Invoker Commands", ok: support.value?.command },
   { name: "Anchor Positioning", ok: support.value?.anchor },
   { name: "interestfor", ok: support.value?.interest },
 ]);

@@ -6,6 +6,7 @@ import type { Ref } from "vue";
 export interface PopoverSupport {
   popover: boolean;
   hint: boolean;
+  command: boolean;
   anchor: boolean;
   interest: boolean;
 }
@@ -22,6 +23,7 @@ export function detectPopoverSupport(): PopoverSupport {
   return {
     popover,
     hint,
+    command: "commandForElement" in HTMLButtonElement.prototype,
     anchor: CSS.supports("position-area: bottom"),
     interest: "interestForElement" in HTMLButtonElement.prototype,
   };
@@ -153,6 +155,27 @@ export function usePopoverDemo(
 
     controller = new AbortController();
     const { signal } = controller;
+
+    // 不支援 Invoker Commands（Safari 26.2、Firefox 144 以前）時，換回原生的 popovertarget。
+    // 不自己用 JS 呼叫 togglePopover()：按鈕在 auto popover 外面，點擊會先觸發 light dismiss，
+    // 接著又被 toggle 打開；popovertarget 有內建處理這個情況。
+    if (!("commandForElement" in HTMLButtonElement.prototype)) {
+      const actions: Record<string, string> = {
+        "toggle-popover": "toggle",
+        "show-popover": "show",
+        "hide-popover": "hide",
+      };
+      el.querySelectorAll<HTMLButtonElement>("button[commandfor]").forEach(
+        (btn) => {
+          const action = actions[btn.getAttribute("command") ?? ""];
+          if (!action) return;
+          btn.setAttribute("popovertarget", btn.getAttribute("commandfor")!);
+          btn.setAttribute("popovertargetaction", action);
+          btn.removeAttribute("commandfor");
+          btn.removeAttribute("command");
+        },
+      );
+    }
 
     el.querySelectorAll<HTMLElement>("[popover]").forEach((pop) => {
       pop.addEventListener(
