@@ -66,6 +66,9 @@ const localePath = useLocalePath();
 const runtimeConfig = useRuntimeConfig();
 const orgUrl = useOrgUrl();
 
+// 程式碼區塊依順序編號，可存取名稱才不會重複（見 components/content/ProsePre.vue）
+provide("codeBlockCounter", { n: 0 });
+
 // 文章頁自管 hreflang/canonical（layout 會略過全站自動版本）
 definePageMeta({ customHreflang: true });
 

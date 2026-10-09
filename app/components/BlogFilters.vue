@@ -1,5 +1,15 @@
 <template>
   <form role="search" class="blog-filters" @submit.prevent="emit('submit')">
+    <!-- 快速鍵 Alt+S：跳到搜尋區塊（說明在網站導覽頁） -->
+    <a
+      id="ak-search"
+      href="#ak-search"
+      class="blog-filters__ak"
+      :title="t('shortcut.search')"
+      accesskey="S"
+    >
+      :::
+    </a>
     <div class="blog-filters__field is-search">
       <label :for="`${uid}-q`">{{ t("page.blog.searchLabel") }}</label>
       <div class="blog-filters__search">
@@ -62,6 +72,12 @@ const uid = useId();
   @media (width <= 40rem) {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+.blog-filters__ak {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-bottom: -0.5rem;
 }
 
 .blog-filters__field {

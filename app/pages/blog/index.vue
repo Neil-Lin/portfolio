@@ -49,6 +49,7 @@
             <nuxt-link
               v-if="post.category"
               class="tag is-category"
+              :aria-current="undefined"
               :to="{
                 query: buildQuery({ q: '', category: post.category, page: 1 }),
               }"

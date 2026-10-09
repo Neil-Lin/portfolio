@@ -20,9 +20,14 @@ const props = defineProps({
 });
 
 const { locale } = useI18n();
+// 文章頁會 provide 一個計數器，依出現順序替程式碼區塊編號：
+// role="region" 是地標，同一頁多個「程式碼區塊: css」會分不出來（axe landmark-unique）
+const counter = inject("codeBlockCounter", null);
+const index = counter ? ++counter.n : null;
 const ariaLabel = computed(() => {
   const base = locale.value === "en" ? "Code block" : "程式碼區塊";
-  return props.language ? `${base}: ${props.language}` : base;
+  const numbered = index ? `${base} ${index}` : base;
+  return props.language ? `${numbered}: ${props.language}` : numbered;
 });
 </script>
 

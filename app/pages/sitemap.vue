@@ -14,6 +14,7 @@
           <template #keyU> <kbd>Alt</kbd>+<kbd>U</kbd> </template>
           <template #keyC> <kbd>Alt</kbd>+<kbd>C</kbd> </template>
           <template #keyZ> <kbd>Alt</kbd>+<kbd>Z</kbd> </template>
+          <template #keyS> <kbd>Alt</kbd>+<kbd>S</kbd> </template>
         </i18n-t>
         <i18n-t keypath="page.sitemap.p3" tag="p" scope="global">
           <template #n>

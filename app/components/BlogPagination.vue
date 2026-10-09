@@ -2,7 +2,12 @@
   <nav class="blog-pagination" :aria-label="t('page.blog.pagination')">
     <ul>
       <li>
-        <nuxt-link v-if="page > 1" :to="to(page - 1)" rel="prev">
+        <nuxt-link
+          v-if="page > 1"
+          :to="to(page - 1)"
+          rel="prev"
+          :aria-current="undefined"
+        >
           <span aria-hidden="true">‹</span> {{ t("page.blog.prev") }}
         </nuxt-link>
       </li>
@@ -20,7 +25,12 @@
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link v-if="page < totalPages" :to="to(page + 1)" rel="next">
+        <nuxt-link
+          v-if="page < totalPages"
+          :to="to(page + 1)"
+          rel="next"
+          :aria-current="undefined"
+        >
           {{ t("page.blog.next") }} <span aria-hidden="true">›</span>
         </nuxt-link>
       </li>
@@ -39,6 +49,9 @@ const props = defineProps<{
 }>();
 
 const { t } = useI18n();
+
+// 注意：Vue Router 判斷「目前頁面」時不看網址參數，/blog?page=2 也算目前頁，
+// 會自動加上 aria-current="page"。所以每個連結都明確指定 aria-current，蓋掉自動的值。
 
 // 頁數不多時全部列出；多了就保留第一頁、最後一頁和目前頁前後各一頁，其餘用 … 代替
 const items = computed(() => {
@@ -85,8 +98,11 @@ const items = computed(() => {
   }
 
   a {
-    display: inline-grid;
-    place-items: center;
+    /* 「上一頁 ‹」是文字加一個 span，用 grid 會被拆成兩列，改用 flex 排同一行 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
     min-width: 2.75rem;
     min-height: 2.75rem;
     padding: 0.25rem 0.75rem;

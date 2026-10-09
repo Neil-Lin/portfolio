@@ -301,6 +301,11 @@ button[class^="btn"],
 }
 
 [id^="ak-"] {
+  /* 快速鍵錨點也是可點的目標，至少 24×24（WCAG 2.5.8） */
+  display: inline-block;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  text-align: center;
   text-decoration: none;
 }
 
