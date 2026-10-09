@@ -111,6 +111,39 @@ If the tooltips on the menu items were `auto`, step 3 would close the menu as so
 
 One small gotcha I only noticed while building this: with the menu open, pressing Show toast closes the menu first. That click lands outside the menu, so it triggers the `auto` light dismiss. It's exactly the right behavior, I just didn't see it coming, which is why the steps say to open the toast first.
 
+### One more trap: if you give a popover a display, hide it yourself
+
+I hit this one for real while testing the demo: after closing the menu, I moved the mouse over where the menu used to be, and a tooltip popped up.
+
+The cause was the `display: grid` I'd given the menu for layout:
+
+```css
+.menu {
+  display: grid;
+}
+```
+
+The browser normally applies `display: none` to a closed popover, but that rule lives in the browser's built-in stylesheet, which has the lowest priority. As soon as you write your own `display`, it wins. So the closed menu never actually disappeared. My other styles had only made it transparent, and the elements were still sitting in place:
+
+- Hovering the invisible items still triggered hover, which is why the tooltip appeared.
+- Worse, **keyboard users could Tab onto those invisible buttons**. I confirmed this with an automated test: before the fix, pressing Tab through the page landed focus on each item of the closed menu, one after another. For keyboard and screen reader users, that means interacting with a menu they can't see.
+
+The fix is simple. Put the hiding back yourself:
+
+```css
+.menu {
+  display: grid;
+}
+
+.menu:not(:popover-open) {
+  display: none;
+}
+```
+
+If you add a fade-out (a `transition` with `display` and `allow-discrete`), the element is still reachable for that brief fade. The demo adds one extra safeguard for that: if a tooltip's trigger sits inside a popover that isn't open, the tooltip doesn't show.
+
+The one-line takeaway: **whenever you give a popover a `display`, add `:not(:popover-open) { display: none; }` too.**
+
 ### Building tooltips with hint: you still own the accessibility
 
 This is the part I think matters most: `popover` only handles showing and hiding. **It adds no semantics for you.**
