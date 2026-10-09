@@ -1248,3 +1248,151 @@ dialog {
 .text-autospace-demo__hint {
   font-size: 0.875rem;
 }
+
+/*************************
+  Blog 互動範例：CSS 輪播 vs. Accesserty UI Kit
+  元件在 app/components/content/Carousel*.vue，兩個範例共用投影片樣式。
+  顏色都接站內變數，深色模式才看得到導覽點和按鈕。
+*************************/
+
+.carousel-demo {
+  --carousel-dot: oklch(var(--wrapper-color));
+  --carousel-current: oklch(var(--pd-c));
+  --carousel-button-bg: oklch(var(--pd-c));
+  --carousel-button-color: oklch(var(--card-bg));
+  --carousel-focus: oklch(var(--outline-color));
+  position: relative;
+  container-type: inline-size;
+}
+.carousel-demo__slide {
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  padding: 1rem;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 0.75rem;
+  background-color: oklch(var(--wrapper-bg));
+  h4 {
+    margin: 0;
+  }
+  button {
+    justify-self: start;
+    &[aria-pressed="true"] {
+      border-color: oklch(var(--pd-c));
+      color: oklch(var(--pd-c));
+      font-weight: 700;
+    }
+  }
+}
+
+/* ---- 原生 CSS 版 ---- */
+.carousel-native {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  anchor-name: --carousel-native;
+  > li {
+    flex: 0 0 100%;
+    min-inline-size: 0;
+    scroll-snap-align: start;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+/* 跟 UI Kit 一樣：輪播寬度 34rem 以上一次顯示兩張 */
+@container (min-width: 34rem) {
+  .carousel-native > li {
+    flex-basis: calc((100% - 1rem) / 2);
+  }
+}
+.carousel-demo__fallback {
+  font-size: 0.875rem;
+}
+@supports selector(::scroll-marker) {
+  .carousel-demo__fallback {
+    display: none;
+  }
+  .carousel-native {
+    scroll-marker-group: after;
+  }
+  .carousel-native::scroll-marker-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    min-block-size: 2.75rem;
+    margin-block-start: 0.75rem;
+  }
+  /* 畫面上是圓點，替代文字（斜線後面）才是報讀軟體唸的名稱 */
+  .carousel-native > li::scroll-marker {
+    content: "" / attr(data-title);
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      var(--carousel-dot) 0 0.35rem,
+      transparent 0.35rem
+    );
+    cursor: pointer;
+  }
+  .carousel-native > li::scroll-marker:target-current {
+    border: 2px solid var(--carousel-current);
+    background: radial-gradient(
+      circle,
+      var(--carousel-current) 0 0.35rem,
+      transparent 0.35rem
+    );
+  }
+  .carousel-native::scroll-button(*) {
+    position: absolute;
+    position-anchor: --carousel-native;
+    margin-block-start: 0.75rem;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--carousel-button-bg);
+    color: var(--carousel-button-color);
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+  .carousel-native::scroll-button(inline-start) {
+    content: "‹" / attr(data-prev);
+    position-area: bottom span-right;
+  }
+  .carousel-native::scroll-button(inline-end) {
+    content: "›" / attr(data-next);
+    position-area: bottom span-left;
+  }
+  .carousel-native::scroll-button(*):disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  .carousel-native > li::scroll-marker:focus-visible,
+  .carousel-native::scroll-button(*):focus-visible {
+    outline: 3px solid var(--carousel-focus);
+    outline-offset: 2px;
+  }
+}
+
+/* ---- Accesserty UI Kit 版：用元件提供的 CSS 變數接站內顏色 ---- */
+.carousel-au {
+  --au-carousel-dot-color: var(--carousel-dot);
+  --au-carousel-dot-current-color: var(--carousel-current);
+  --au-carousel-button-bg: var(--carousel-button-bg);
+  --au-carousel-button-text-color: var(--carousel-button-color);
+  --au-carousel-dot-focus-shadow-color: var(--carousel-focus);
+  --au-carousel-button-focus-shadow-color: var(--carousel-focus);
+}
+/* 元件 JavaScript 還沒載入前，先把投影片排成一般的清單 */
+au-carousel:not(:defined) {
+  display: grid;
+  gap: 1rem;
+}

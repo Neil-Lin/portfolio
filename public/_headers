@@ -30,3 +30,7 @@
 
 /video/*
   Cache-Control: public, max-age=86400
+
+# 第三方元件：路徑帶版本號，內容不會在同一個網址下改變
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable

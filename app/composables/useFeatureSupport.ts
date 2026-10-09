@@ -36,6 +36,12 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "text-autospace",
     detect: () => CSS.supports("text-autospace: normal"),
   },
+  "scroll-marker": {
+    name: "::scroll-marker / ::scroll-button()",
+    detect: () =>
+      CSS.supports("selector(::scroll-marker)") &&
+      CSS.supports("selector(::scroll-button(inline-end))"),
+  },
   interestfor: {
     name: "interestfor",
     detect: () => "interestForElement" in HTMLButtonElement.prototype,

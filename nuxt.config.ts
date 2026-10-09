@@ -21,6 +21,13 @@ const dynamicRoutes = productsData
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  // au- 開頭的是 Accesserty UI Kit 的 Web Component（部落格範例用），交給瀏覽器處理，不要當成 Vue 元件解析
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag.startsWith("au-"),
+    },
+  },
+
   // OG 圖的中文字型改由 @nuxt/fonts 提供（nuxt-og-image 會自動納入其全部子集），
   // 原本 og-fonts.css 為此掛了兩個 7.2MB 的 TTF，已移除。
 

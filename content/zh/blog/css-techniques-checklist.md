@@ -64,7 +64,7 @@ draft: false
 | `:user-valid` / `:user-invalid` | 「使用者互動後」才顯示驗證狀態，不會一載入就爆紅 | `input:user-invalid{}` | 🟡 | ✅ |
 | `sibling-index()` / `sibling-count()` | 取得元素在同層中的索引與總數，可做交錯動畫、動態寬度（Baseline 2026） | `--i: sibling-index();` | 🟡 | ✅ |
 | `:heading` | 一次選取所有標題；Safari 27 起支援，其他瀏覽器尚未 | `:heading{}` | 🟠 | ⬜ |
-| Carousel 選擇器組 | `::scroll-marker` / `scroll-marker-group` / `:target-current` 做原生輪播與 Scrollspy | `:target-current{}` | 🟠 | ⬜ |
+| Carousel 選擇器組 | `::scroll-marker` / `scroll-marker-group` / `:target-current` 做原生輪播與 Scrollspy | `:target-current{}` | 🟠 | ✅ |
 | 媒體狀態偽類（`:playing` / `:paused` / `:muted` 等） | 依 `<video>`／`<audio>` 播放、暫停、靜音、緩衝的狀態直接套樣式，自訂播放器不必再用 JS 切 class（Baseline 2026） | `video:paused + .play-btn{}` | 🟡 | ⬜ |
 
 ### C. 色彩（Color）

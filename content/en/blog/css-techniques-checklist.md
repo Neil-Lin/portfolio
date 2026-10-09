@@ -64,7 +64,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `:user-valid` / `:user-invalid` | Show validation state only after the user has interacted—no angry red on load | `input:user-invalid{}` | 🟡 | ✅ |
 | `sibling-index()` / `sibling-count()` | Get an element's index and total among siblings; enables staggered animation, dynamic widths (Baseline 2026) | `--i: sibling-index();` | 🟡 | ✅ |
 | `:heading` | Select all headings at once; supported from Safari 27, not in other browsers yet | `:heading{}` | 🟠 | ⬜ |
-| Carousel selectors | `::scroll-marker` / `scroll-marker-group` / `:target-current` for native carousels and scrollspy | `:target-current{}` | 🟠 | ⬜ |
+| Carousel selectors | `::scroll-marker` / `scroll-marker-group` / `:target-current` for native carousels and scrollspy | `:target-current{}` | 🟠 | ✅ |
 | Media state pseudo-classes (`:playing` / `:paused` / `:muted`, etc.) | Style `<video>`/`<audio>` directly by playing, paused, muted or buffering state, so custom players no longer need JS to toggle classes (Baseline 2026) | `video:paused + .play-btn{}` | 🟡 | ⬜ |
 
 ### C. Color
