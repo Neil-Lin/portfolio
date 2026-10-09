@@ -29,6 +29,17 @@ export function detectPopoverSupport(): PopoverSupport {
   };
 }
 
+// CloseWatcher 還沒進 TypeScript 內建型別，只宣告用到的部分
+interface CloseWatcherLike {
+  onclose: (() => void) | null;
+  destroy: () => void;
+}
+declare global {
+  interface Window {
+    CloseWatcher?: new () => CloseWatcherLike;
+  }
+}
+
 // 離開觸發按鈕後延遲關閉，讓滑鼠能移到提示上（WCAG 1.4.13 可移入）
 const HIDE_DELAY = 250;
 const GAP = 8;
@@ -152,6 +163,34 @@ export function usePopoverDemo(
     }
   }
 
+  // Chrome 154 實測：interestfor 打開的提示，按一次 Esc 會先因「失去興趣」關掉提示，
+  // 接著 popover 自己的 Esc 機制又關掉下一層的選單，焦點跑回選單按鈕。
+  // keydown 的 preventDefault() 擋不住第二步；提示打開時建一個 CloseWatcher，
+  // 第一次 Esc 就只會關提示（WCAG 1.4.13 不移動焦點即可關閉）。
+  function guardTooltipEscape(el: HTMLElement, signal: AbortSignal) {
+    if (typeof window.CloseWatcher !== "function") return;
+    const watchers = new Map<HTMLElement, CloseWatcherLike>();
+    el.querySelectorAll<HTMLElement>('[popover="hint"]').forEach((tip) => {
+      tip.addEventListener(
+        "toggle",
+        (e) => {
+          watchers.get(tip)?.destroy();
+          watchers.delete(tip);
+          if ((e as ToggleEvent).newState !== "open") return;
+          const watcher = new window.CloseWatcher!();
+          watcher.onclose = () => {
+            if (isOpen(tip)) tip.hidePopover();
+          };
+          watchers.set(tip, watcher);
+        },
+        { signal },
+      );
+    });
+    signal.addEventListener("abort", () => {
+      watchers.forEach((watcher) => watcher.destroy());
+    });
+  }
+
   onMounted(() => {
     const el = root.value;
     support.value = detectPopoverSupport();
@@ -196,6 +235,7 @@ export function usePopoverDemo(
     // 支援 interestfor 時，移入、聚焦、長按、延遲與 Esc 全交給瀏覽器，不必再接 JS
     if (support.value.interest) {
       tooltipMode.value = "native";
+      guardTooltipEscape(el, signal);
     } else {
       tooltipMode.value = "script";
       wireTooltips(el, signal, support.value.hint);

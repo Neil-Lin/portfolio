@@ -81,6 +81,15 @@ Here it is in action:
 ::carousel-native-demo
 ::
 
+A pitfall I hit while building the demo: `::scroll-marker-group` is a full-width row, so if you position the previous/next buttons at the two ends of that same row, the row covers them and mouse clicks don't reach them (the keyboard still works). Giving the buttons a `z-index` fixes it:
+
+```css
+.carousel::scroll-button(*) {
+  position: absolute;
+  z-index: 1;
+}
+```
+
 ### 2. What it becomes in the accessibility tree
 
 I read the accessibility tree of the demo above:

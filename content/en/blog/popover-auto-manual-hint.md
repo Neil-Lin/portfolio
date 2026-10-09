@@ -155,11 +155,37 @@ Suggested order:
 2. Press File menu to open the `auto` menu. The toast isn't affected, and both stay open.
 3. Hover a menu item or Tab to it. The tooltip appears, **and the menu stays open**.
 4. Move between items. The old tooltip closes, the new one opens, and the menu stays put.
-5. Press Escape once to close the tooltip, then again to close the menu. The toast stays until you press its own Close button.
+5. Press Escape once to close the tooltip, then again to close the menu. The toast stays until you press its own Close button. (Browsers that use `interestfor` have an exception; see "One Escape, two layers closed" below.)
 
 If the tooltips on the menu items were `auto`, step 3 would close the menu as soon as a tooltip opened. That's the whole reason `hint` exists.
 
 One small gotcha I only noticed while building this: with the menu open, pressing Show toast closes the menu first. That click lands outside the menu, so it triggers the `auto` light dismiss. It's exactly the right behavior, I just didn't see it coming, which is why the steps say to open the toast first.
+
+#### A pitfall found later: one Escape, two layers closed
+
+After publishing this post, I retested step 5 in Chrome 154 and found the result depends on how the tooltip was opened:
+
+| How the tooltip opened | First Escape |
+|---|---|
+| `interestfor` (keyboard focus or mouse hover) | Tooltip and menu **close together**; focus returns to the menu button |
+| Script calling `showPopover()` | Closes the tooltip only |
+| `interestfor`, plus a `CloseWatcher` created when the tooltip opens | Closes the tooltip only; focus stays on the menu item |
+
+Tracing the event order: a single Escape first triggers `interestfor`'s "lose interest", which closes the tooltip, and then the popover's own Escape handling closes the next layer down, the menu. Calling `preventDefault()` on `keydown` doesn't stop that second step; a `CloseWatcher` does.
+
+The first case conflicts with WCAG 1.4.13's "dismissible without moving focus": the user only wanted to close the tooltip, but the whole menu disappears and focus moves. So the demo now creates a `CloseWatcher` when the tooltip opens, making the first Escape close only the tooltip:
+
+```js
+tip.addEventListener("toggle", (event) => {
+  if (event.newState !== "open") return;
+  const watcher = new CloseWatcher();
+  watcher.onclose = () => tip.hidePopover();
+  // Clean up the watcher when the tooltip closes
+  tip.addEventListener("toggle", () => watcher.destroy(), { once: true });
+});
+```
+
+This looks more like a Chrome implementation issue. I haven't tested other browsers yet, and I'll update this if anything changes.
 
 ### One more trap: if you give a popover a `display`, hide it yourself
 

@@ -81,6 +81,15 @@ CSS 現在多了 `::scroll-marker` 和 `::scroll-button()`，不寫 JavaScript �
 ::carousel-native-demo
 ::
 
+做範例時踩到一個坑：`::scroll-marker-group` 是一整列的區塊，如果把上一張／下一張按鈕定位到同一列的左右兩邊，按鈕會被這一列蓋住，滑鼠點不到（鍵盤還是可以操作）。替按鈕加上 `z-index` 就好了：
+
+```css
+.carousel::scroll-button(*) {
+  position: absolute;
+  z-index: 1;
+}
+```
+
 ### 二、在無障礙樹裡變成什麼？
 
 我把上面這個範例的無障礙樹讀出來，整理如下：

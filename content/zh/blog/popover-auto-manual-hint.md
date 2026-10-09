@@ -155,11 +155,37 @@ button {
 2. 按「檔案選單」打開 `auto` 選單。toast 不受影響，兩個會同時開著。
 3. 滑鼠移到選單項目上，或用 Tab 聚焦。提示出現了，**而且選單沒有被關掉**。
 4. 在項目之間移來移去。舊提示關閉、新提示打開，選單一直都在。
-5. 按一次 Esc，先關掉提示；再按一次，關掉選單。toast 還是留著，要按它自己的「關閉」。
+5. 按一次 Esc，先關掉提示；再按一次，關掉選單。toast 還是留著，要按它自己的「關閉」。（用 `interestfor` 的瀏覽器有個例外，見下面的「Esc 一次關兩層」。）
 
 如果把選單項目上的提示換成 `auto`，第 3 步提示一打開，選單就會被關掉，這就是 `hint` 存在的原因。
 
 順帶一提，做這個範例的時候才發現一個小眉角：選單開著的時候去按「顯示 toast」，選單會先被關掉。因為那一下點擊落在選單外面，觸發了 `auto` 的 light dismiss。行為完全正確，只是一開始沒想到，所以步驟才會變成「先開 toast，再開選單」。
+
+#### 後來發現的坑：Esc 一次關兩層
+
+這篇寫完之後，我在 Chrome 154 又測了一次第 5 步，發現結果跟提示是怎麼打開的有關：
+
+| 提示的打開方式 | 第一次按 Esc |
+|---|---|
+| `interestfor`（鍵盤聚焦或滑鼠移入） | 提示和選單**一起關掉**，焦點回到選單按鈕 |
+| 程式呼叫 `showPopover()` | 只關提示 |
+| `interestfor`，提示打開時另外建立 `CloseWatcher` | 只關提示，焦點留在選單項目上 |
+
+追了一下事件順序：按一次 Esc，先觸發 `interestfor` 的「失去興趣」把提示關掉，接著 popover 自己的 Esc 關閉機制，又把下一層的選單也關了。在 `keydown` 呼叫 `preventDefault()` 擋不住第二步，`CloseWatcher` 才擋得住。
+
+第一種情況跟 WCAG 1.4.13「不移動焦點就能關閉」有衝突：使用者只是想關掉提示，結果整個選單不見，焦點也被移走了。所以範例現在的做法是，提示打開時建立一個 `CloseWatcher`，讓第一次 Esc 只關提示：
+
+```js
+tip.addEventListener("toggle", (event) => {
+  if (event.newState !== "open") return;
+  const watcher = new CloseWatcher();
+  watcher.onclose = () => tip.hidePopover();
+  // 提示關掉時，把 watcher 一起收掉
+  tip.addEventListener("toggle", () => watcher.destroy(), { once: true });
+});
+```
+
+這比較像是 Chrome 的實作問題，其他瀏覽器我還沒測，之後有變化會再更新。
 
 ### 再一個坑：幫 popover 寫了 `display`，要自己補回隱藏
 

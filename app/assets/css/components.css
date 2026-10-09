@@ -1352,6 +1352,8 @@ dialog {
   }
   .carousel-native::scroll-button(*) {
     position: absolute;
+    /* 導覽點群組是整列的，會蓋住兩側的按鈕讓它們點不到，按鈕要疊在上面 */
+    z-index: 1;
     position-anchor: --carousel-native;
     margin-block-start: 0.75rem;
     inline-size: 2.75rem;

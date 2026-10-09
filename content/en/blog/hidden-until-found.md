@@ -1,6 +1,6 @@
 ---
 title: 'Why Can''t Ctrl+F Find Collapsed Content? A Look at hidden="until-found"'
-description: "Content collapsed with hidden, like FAQs and accordions, can't be found by in-page search. hidden=\"until-found\" keeps content collapsed but findable by search and deep links, and expands it when found. This post compares four ways to collapse content with live demos, plus two traps I ran into while testing."
+description: "Content collapsed with hidden, like FAQs and accordions, can't be found by in-page search. hidden=\"until-found\" keeps content collapsed but findable by search and deep links, and expands it when found. This post compares four ways to collapse content with live demos, plus three traps I ran into while testing."
 date: 2026-10-09
 tags:
   - HTML
@@ -143,6 +143,26 @@ Two smaller details:
 - **The box is still there while collapsed**: `content-visibility: hidden` only skips painting the contents. The element's own padding, border and background remain. If your panel has padding, remove it while collapsed, or you'll get an empty strip.
 - **Mind the Shadow DOM in web components**: `beforematch` bubbles, but it doesn't cross out of a shadow root, so attach the listener to an element inside it.
 
+### Trap 3: adding `inert` while collapsed makes it unfindable
+
+Some components don't just hide content when collapsed; they also add `inert` so keyboards and screen readers can't reach it. The accordion and tree in my own UI Kit work that way, and that's exactly where adopting `until-found` got stuck.
+
+The problem is that `inert` content is excluded from find-in-page; that's how the HTML spec defines it. So `hidden="until-found"` plus `inert` is just as unfindable with Ctrl+F, which defeats the purpose. In practice, neither search nor links could find the content.
+
+I also tested `#id` deep links in Chromium 141: the panel does expand, but `inert` isn't removed, so nothing inside can be focused and screen readers can't read it. You can see it, but you can't use it.
+
+With `until-found` you don't need `inert` at all. In my tests, collapsed content is already out of the Tab order and out of the accessibility tree, which is everything `inert` was there to do:
+
+```html
+<!-- Don't do this -->
+<div hidden="until-found" inert>…</div>
+
+<!-- This is enough -->
+<div hidden="until-found">…</div>
+```
+
+If an existing component collapses with `inert`, remove `inert` from both the collapse and expand paths when you switch it to `until-found`.
+
 ### What happens without support?
 
 This time the fallback is safe. A browser that doesn't recognize `until-found` treats it as a plain `hidden`: the content stays hidden and simply can't be found by search, and nothing breaks. Compared with `popover="hint"`, which degrades to `manual` and can't even be dismissed, you can use this one confidently as a progressive enhancement.
@@ -171,6 +191,7 @@ In a few lines:
 - Collapsed isn't the same as gone. Content hidden with `hidden` doesn't exist as far as search is concerned.
 - `hidden="until-found"` keeps content collapsed but findable, expands it when found, and works with deep links too.
 - Listen for `beforematch` to sync `aria-expanded`, don't toggle with `el.hidden = !el.hidden`, and check that your CSS reset isn't overriding it.
+- Don't add `inert` while collapsed, or search still can't find it; `until-found` already keeps the content out of the Tab order and the accessibility tree.
 - Without support it falls back to a plain `hidden`, so it degrades safely.
 
 What this attribute fixes is the frustration of knowing something is on the page and still not being able to find it. The longer I work on accessibility, the more I see that many problems aren't about features that can't be built, but about information hidden where people can't reach it. This is a good example.

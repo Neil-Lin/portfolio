@@ -1,6 +1,6 @@
 ---
 title: '收合的內容，為什麼按 Ctrl+F 找不到？聊聊 hidden="until-found"'
-description: "FAQ、手風琴這類收合起來的內容，用 hidden 藏起來就搜尋不到。hidden=\"until-found\" 讓內容藏著也能被頁內搜尋與深層連結找到，找到時自動展開。這篇用可以直接操作的範例比較四種收合方式，也整理了實測時踩到的兩個坑。"
+description: "FAQ、手風琴這類收合起來的內容，用 hidden 藏起來就搜尋不到。hidden=\"until-found\" 讓內容藏著也能被頁內搜尋與深層連結找到，找到時自動展開。這篇用可以直接操作的範例比較四種收合方式，也整理了實測時踩到的三個坑。"
 date: 2026-10-09
 tags:
   - HTML
@@ -143,6 +143,26 @@ button.addEventListener("click", () => {
 - **收合時盒子還在**：`content-visibility: hidden` 只是不畫內容，元素本身的 padding、邊框、背景都還在。面板如果有 padding，收合時記得拿掉，不然會留下一條空框。
 - **Web Component 要注意 Shadow DOM**：`beforematch` 會冒泡，但不會穿出 Shadow DOM，監聽器要掛在 shadow root 裡面的元素上。
 
+### 坑三：收合時順手加了 `inert`，就找不到了
+
+有些元件收合時，除了把內容藏起來，還會加上 `inert`，確保鍵盤和報讀軟體碰不到裡面。我自己的 UI Kit 裡，手風琴和樹狀選單就是這樣寫的，導入 `until-found` 時就卡在這裡。
+
+問題是，`inert` 的內容會被排除在頁內搜尋之外，HTML 規範就是這樣定義的。所以 `hidden="until-found"` 再加上 `inert`，Ctrl+F 一樣找不到，等於白做。實際導入時，搜尋和連結都找不到內容。
+
+我另外在 Chromium 141 測了 `#id` 深層連結：面板雖然會展開，但 `inert` 沒有被拿掉，裡面的東西照樣無法聚焦，報讀軟體也讀不到，變成看得到卻用不了。
+
+其實用了 `until-found` 就不需要 `inert`。我實測收合中的內容本來就不在 Tab 順序裡，也不在無障礙樹裡，`inert` 想做到的事它已經做了：
+
+```html
+<!-- 不要這樣 -->
+<div hidden="until-found" inert>…</div>
+
+<!-- 這樣就好 -->
+<div hidden="until-found">…</div>
+```
+
+如果既有元件是用 `inert` 來收合，改用 `until-found` 時記得把收合和展開兩邊的 `inert` 都拿掉。
+
 ### 不支援的時候會怎樣？
 
 這次的降級是安全的。不認得 `until-found` 的瀏覽器會把它當成一般的 `hidden`：內容一樣藏著，只是搜尋不到，什麼都不會壞。跟 `popover="hint"` 不支援時退化成 `manual`、連關都關不掉相比，可以放心地當成漸進增強來用。
@@ -171,6 +191,7 @@ const supportsUntilFound = "onbeforematch" in HTMLElement.prototype;
 - 收合不等於消失。用 `hidden` 藏起來的內容，對搜尋來說就是不存在。
 - `hidden="until-found"` 讓內容藏著也找得到，找到時自動展開，深層連結也適用。
 - 記得監聽 `beforematch` 同步 `aria-expanded`，切換時別用 `el.hidden = !el.hidden`，也檢查一下 CSS reset 有沒有把它蓋掉。
+- 收合時不要再加 `inert`，不然一樣搜尋不到；`until-found` 本身就會把內容排除在 Tab 順序和無障礙樹之外。
 - 不支援時會退回一般的 `hidden`，降級安全，可以放心用。
 
 這個屬性解決的，是使用者「明明知道有、卻找不到」的那種挫折感。做無障礙久了會發現，很多問題不是功能做不到，而是資訊被藏到使用者碰不到的地方，這就是一個很好的例子。
