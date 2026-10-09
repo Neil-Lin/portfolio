@@ -163,7 +163,7 @@ Two more points:
 
 ### What happens without support?
 
-This is different from `hidden="until-found"`, which I looked at earlier, so it needs extra care.
+This is different from [`hidden="until-found"`](/en/blog/hidden-until-found/), which I looked at earlier, so it needs extra care.
 
 In a browser without support, `until-found` just falls back to a plain `hidden`: the content can't be found by search, but nothing breaks. A browser that doesn't recognize a popover value, though, treats it as **`manual`**. So in a browser without `hint` support, your tooltips **can't be closed with Escape or an outside click**, which fails the "dismissible" requirement above.
 
@@ -191,6 +191,7 @@ That's one more box ticked on my list. How do you build tooltips in your project
 
 ### Related reading
 
+- [Why Can't Ctrl+F Find Collapsed Content? A Look at hidden="until-found"](/en/blog/hidden-until-found/)
 - [Modern CSS & HTML Cheat Sheet: 102 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ### Related links

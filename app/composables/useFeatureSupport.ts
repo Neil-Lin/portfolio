@@ -1,0 +1,53 @@
+// 部落格互動範例共用：瀏覽器特性偵測清單。
+// 只能在 onMounted 後呼叫（SSR 沒有 document）。新文章要偵測新特性時，在這裡加一筆。
+
+export interface FeatureDetector {
+  name: string;
+  detect: () => boolean;
+}
+
+export const featureDetectors: Record<string, FeatureDetector> = {
+  popover: {
+    name: "Popover API",
+    detect: () => "popover" in HTMLElement.prototype,
+  },
+  "popover-hint": {
+    name: 'popover="hint"',
+    detect: () => {
+      if (!("popover" in HTMLElement.prototype)) return false;
+      const probe = document.createElement("div");
+      probe.popover = "hint";
+      return probe.popover === "hint";
+    },
+  },
+  anchor: {
+    name: "Anchor Positioning",
+    detect: () => CSS.supports("position-area: bottom"),
+  },
+  interestfor: {
+    name: "interestfor",
+    detect: () => "interestForElement" in HTMLButtonElement.prototype,
+  },
+  "until-found": {
+    // until-found 與 beforematch 事件同時推出，有事件處理器屬性即代表支援
+    name: 'hidden="until-found"',
+    detect: () => "onbeforematch" in HTMLElement.prototype,
+  },
+  "details-name": {
+    name: "<details name>",
+    detect: () =>
+      typeof HTMLDetailsElement !== "undefined" &&
+      "name" in HTMLDetailsElement.prototype,
+  },
+};
+
+export function detectFeatures(keys: string[]) {
+  return keys.map((key) => {
+    const detector = featureDetectors[key];
+    return {
+      key,
+      name: detector?.name ?? key,
+      ok: detector ? detector.detect() : false,
+    };
+  });
+}

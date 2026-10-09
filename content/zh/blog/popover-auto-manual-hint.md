@@ -163,7 +163,7 @@ WCAG 1.4.13「滑鼠移入或聚焦時出現的內容」有三項要求，`hint`
 
 ### 不支援的時候會怎樣？
 
-這點跟之前研究的 `hidden="until-found"` 不一樣，要特別小心。
+這點跟之前研究的 [`hidden="until-found"`](/blog/hidden-until-found/) 不一樣，要特別小心。
 
 `until-found` 在不支援的瀏覽器裡只是退回成一般的 `hidden`，頂多搜尋不到，不會壞掉；但瀏覽器遇到不認得的 popover 值，會把它當成 **`manual`**。也就是說，在不支援 `hint` 的瀏覽器裡，你的 tooltip **按 Esc 跟點外面都關不掉**，直接違反上面「可關閉」的要求。
 
@@ -191,6 +191,7 @@ const supportsHint = probe.popover === "hint";
 
 ### 延伸閱讀
 
+- [收合的內容，為什麼按 Ctrl+F 找不到？聊聊 hidden="until-found"](/blog/hidden-until-found/)
 - [現代 CSS 與 HTML 技巧整理清單：102 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 - [無障礙網頁設計學習與簡易要點](/blog/a11y-learning/)
 
