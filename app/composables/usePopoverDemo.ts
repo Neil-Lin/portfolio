@@ -65,8 +65,11 @@ export function usePopoverDemo(
   ) {
     const timers = new WeakMap<HTMLElement, ReturnType<typeof setTimeout>>();
 
-    const show = (tip: HTMLElement) => {
+    const show = (tip: HTMLElement, trigger: HTMLElement) => {
       clearTimeout(timers.get(tip));
+      // 觸發按鈕在關閉中（或淡出中）的 popover 裡，看不見就不顯示提示
+      const hiddenHost = trigger.closest<HTMLElement>("[popover]");
+      if (hiddenHost && !isOpen(hiddenHost)) return;
       if (!isOpen(tip)) tip.showPopover();
     };
     const hideSoon = (tip: HTMLElement, trigger: HTMLElement) => {
@@ -107,7 +110,7 @@ export function usePopoverDemo(
       trigger.addEventListener(
         "pointerenter",
         (e) => {
-          if (e.pointerType === "mouse") show(tip);
+          if (e.pointerType === "mouse") show(tip, trigger);
         },
         opts,
       );
@@ -116,7 +119,7 @@ export function usePopoverDemo(
         () => hideSoon(tip, trigger),
         opts,
       );
-      trigger.addEventListener("focus", () => show(tip), opts);
+      trigger.addEventListener("focus", () => show(tip, trigger), opts);
       trigger.addEventListener("blur", () => hideSoon(tip, trigger), opts);
       tip.addEventListener(
         "pointerenter",
