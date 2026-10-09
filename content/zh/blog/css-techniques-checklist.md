@@ -97,7 +97,7 @@ draft: false
 | `lh` 單位 | 以行高為單位設 margin／間距，跟著字級縮放 | `margin-bottom: 1.5lh;` | 🟡 | ✅ |
 | `margin-trim` | 剪掉容器內首尾子元素的外距，免除 `:first/:last-child` 歸零（Safari 為主） | `margin-trim: block;` | 🟠 | ⬜ |
 | `text-fit` | 自動縮放文字大小以填滿容器寬度，做響應式大標題不必再手算或靠 JS（Chrome 150 新增） | `h1 { text-fit: auto; }` | 🟠 | ⬜ |
-| `text-autospace` | 在中文與英文／數字之間自動加入適當間距，不必再手動打空白；Safari 27 另加入 `insert` 值 | `text-autospace: normal;` | 🟡 | ⬜ |
+| `text-autospace` | 在中文與英文／數字之間自動加入適當間距，不必再手動打空白；Safari 27 另加入 `insert` 值 | `text-autospace: normal;` | 🟡 | ✅ |
 
 ### E. 動畫與過渡（Animation & Transition）
 

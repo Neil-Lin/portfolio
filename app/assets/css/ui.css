@@ -15,6 +15,9 @@ html {
 html,
 body {
   scroll-padding-top: 4rem;
+  /* 中文與英文、數字之間自動補 1/8 em 間距；已手打空白的地方不會重複加。
+     說明文章：content/zh/blog/text-autospace.md（英文版同名） */
+  text-autospace: normal;
   font-size: var(--font-size-base, 1rem);
   font-family: var(--font-family);
   font-optical-sizing: auto;
@@ -244,6 +247,8 @@ figcaption {
 }
 
 pre {
+  /* 等寬字型裡也會補間距，程式碼的對齊會跑掉，所以程式碼區塊關掉 */
+  text-autospace: no-autospace;
   padding: 1rem;
   margin-bottom: 1rem;
   background: oklch(var(--pre-bg));

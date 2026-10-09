@@ -1188,3 +1188,63 @@ dialog {
     display: none;
   }
 }
+
+/*************************
+  Blog 互動範例：text-autospace
+  元件在 app/components/content/TextAutospaceCompare.vue。
+  全站已經開啟 text-autospace，關閉的格子要明確寫 no-autospace。
+*************************/
+
+.text-autospace-demo__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  @media (width < 40rem) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.text-autospace-demo__cell {
+  position: relative;
+  /* 量寬度用的不換行複本會超出格子，裁掉才不會讓手機版整頁橫向捲動 */
+  overflow: clip;
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 0.5rem;
+  text-align: start;
+  &.is-off {
+    text-autospace: no-autospace;
+  }
+  &.is-on {
+    text-autospace: normal;
+    border-color: oklch(var(--pd-c));
+  }
+  figcaption {
+    display: grid;
+    gap: 0.125rem;
+    margin: 0;
+    max-width: none;
+    text-align: start;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: inherit;
+  }
+}
+.text-autospace-demo__sample {
+  font-size: 1.375rem;
+  line-height: 1.6;
+}
+.text-autospace-demo__ruler {
+  position: absolute;
+  visibility: hidden;
+  white-space: nowrap;
+  font-size: 1.375rem;
+  pointer-events: none;
+}
+.text-autospace-demo__width,
+.text-autospace-demo__hint {
+  font-size: 0.875rem;
+}

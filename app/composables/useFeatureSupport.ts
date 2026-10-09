@@ -32,6 +32,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "position-try-fallbacks",
     detect: () => CSS.supports("position-try-fallbacks: flip-block"),
   },
+  "text-autospace": {
+    name: "text-autospace",
+    detect: () => CSS.supports("text-autospace: normal"),
+  },
   interestfor: {
     name: "interestfor",
     detect: () => "interestForElement" in HTMLButtonElement.prototype,
