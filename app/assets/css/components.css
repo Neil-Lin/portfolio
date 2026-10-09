@@ -385,3 +385,296 @@ dialog {
     }
   }
 }
+
+/*************************
+  Blog 互動範例：Popover（auto / manual / hint）
+  元件在 app/components/content/Popover*.vue，用於 popover-auto-manual-hint 文章。
+  每種模式一個色：auto 用主色紫、manual 琥珀、hint 青綠，深色模式提亮。
+*************************/
+
+.popover-support,
+.popover-demo,
+.popover-lab {
+  --pd-auto: var(--color-primary);
+  --pd-manual: 52% 0.13 60;
+  --pd-hint: 50% 0.1 185;
+  --pd-tip-bg: var(--color-black);
+  --pd-tip-color: var(--color-white);
+  --pd-yes: 50% 0.13 150;
+  --pd-no: var(--color-danger);
+  --pd-c: var(--pd-auto);
+
+  @media (prefers-color-scheme: dark) {
+    --pd-auto: 78% 0.1 294.72;
+    --pd-manual: 80% 0.11 75;
+    --pd-hint: 79% 0.09 185;
+    --pd-tip-bg: var(--color-white);
+    --pd-tip-color: var(--color-black);
+    --pd-yes: 78% 0.13 150;
+    --pd-no: 74% 0.14 28;
+  }
+
+  margin-block: 1.5rem;
+  padding: 1rem;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 0.5rem;
+  background-color: oklch(var(--card-bg));
+
+  p {
+    margin: 0;
+  }
+  ul,
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      margin: 0;
+    }
+  }
+}
+
+.popover-demo.is-manual,
+.popover-demo__pop.is-manual,
+.popover-demo__trigger.is-manual {
+  --pd-c: var(--pd-manual);
+}
+.popover-demo.is-hint {
+  --pd-c: var(--pd-hint);
+}
+
+/* 支援度 */
+.popover-support {
+  display: grid;
+  gap: 0.75rem;
+}
+.popover-support__title,
+.popover-demo__label,
+.popover-lab__log-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.popover-support__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid oklch(var(--border-color));
+    border-radius: 2rem;
+    font-size: 0.875rem;
+  }
+  .is-yes {
+    color: oklch(var(--pd-yes));
+    font-weight: 700;
+  }
+  .is-no {
+    color: oklch(var(--pd-no));
+    font-weight: 700;
+  }
+}
+.popover-support__notice {
+  font-size: 0.875rem;
+  padding: 0.75rem;
+  border-left: 0.25rem solid oklch(var(--pd-no));
+}
+
+/* 單一模式範例 */
+.popover-demo {
+  display: grid;
+  gap: 0.75rem;
+  border-top: 0.25rem solid oklch(var(--pd-c));
+}
+.popover-demo__controls,
+.popover-lab__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.popover-demo__trigger,
+.popover-demo__close,
+.popover-lab__menu button {
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  min-height: 2.5rem;
+  padding: 0.375rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid oklch(var(--border-color));
+  background-color: oklch(var(--card-bg));
+  color: inherit;
+}
+.popover-demo__trigger {
+  border-color: oklch(var(--pd-c));
+  color: oklch(var(--pd-c));
+  font-weight: 700;
+}
+.popover-demo__close {
+  min-height: 2rem;
+  padding: 0.125rem 0.75rem;
+  font-size: 0.875rem;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+.popover-demo__trigger.is-auto {
+  --pd-c: var(--pd-auto);
+}
+
+/* popover 本體（在 top layer，但 CSS 變數仍沿 DOM 繼承） */
+.popover-demo__pop {
+  margin: 0;
+  inset: auto;
+  max-width: min(20rem, calc(100vw - 2rem));
+  padding: 0.75rem 1rem;
+  border: 1px solid oklch(var(--border-color));
+  border-left: 0.25rem solid oklch(var(--pd-c));
+  border-radius: 0.5rem;
+  background-color: oklch(var(--card-bg));
+  color: oklch(var(--wrapper-color));
+  box-shadow: var(--box-shadow);
+  font-size: 0.9375rem;
+  opacity: 1;
+  transition:
+    opacity 0.15s ease,
+    display 0.15s allow-discrete,
+    overlay 0.15s allow-discrete;
+
+  &:not(:popover-open) {
+    opacity: 0;
+  }
+  @starting-style {
+    &:popover-open {
+      opacity: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &.is-manual,
+  &.popover-lab__toast {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    &:not(:popover-open) {
+      display: none;
+    }
+  }
+
+  &.is-tip {
+    padding: 0.375rem 0.625rem;
+    border: 0;
+    background-color: oklch(var(--pd-tip-bg));
+    color: oklch(var(--pd-tip-color));
+    box-shadow: none;
+    font-size: 0.875rem;
+  }
+}
+
+@supports (position-area: bottom) {
+  .popover-demo__pop.is-below {
+    position-area: bottom span-right;
+    margin-top: 0.5rem;
+    position-try-fallbacks: flip-block, flip-inline;
+  }
+  .popover-demo__pop.is-above {
+    position-area: top;
+    margin-bottom: 0.5rem;
+    position-try-fallbacks: flip-block;
+  }
+}
+
+/* 綜合實驗 */
+.popover-lab {
+  display: grid;
+  gap: 1rem;
+}
+.popover-lab__menu {
+  display: grid;
+  gap: 0.125rem;
+  min-width: 11rem;
+  padding: 0.375rem;
+  &:not(:popover-open) {
+    display: none;
+  }
+  button {
+    border: 0;
+    text-align: start;
+    width: 100%;
+    &:hover,
+    &:focus-visible {
+      background-color: oklch(var(--table-th-bg));
+    }
+  }
+}
+.popover-lab__toast {
+  position: fixed;
+  inset: auto 1rem calc(1rem + env(safe-area-inset-bottom, 0px)) auto;
+}
+.popover-lab__log-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.popover-lab__log {
+  display: grid;
+  gap: 0.125rem;
+  max-height: 16rem;
+  overflow: auto;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+  letter-spacing: normal;
+  li {
+    display: grid;
+    grid-template-columns: max-content 4.5rem minmax(0, 1fr);
+    white-space: nowrap;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    &:nth-child(odd) {
+      background-color: oklch(var(--table-th-bg));
+    }
+    > :last-child {
+      white-space: normal;
+    }
+    &.is-empty {
+      display: block;
+      white-space: normal;
+      font-family: var(--font-family);
+    }
+  }
+  .is-auto {
+    color: oklch(var(--pd-auto));
+  }
+  .is-manual {
+    color: oklch(var(--pd-manual));
+  }
+  .is-hint {
+    color: oklch(var(--pd-hint));
+  }
+}
+.popover-lab__time {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 列印：互動控制項沒有意義，改顯示提示文字 */
+.popover-demo__print {
+  display: none;
+}
+@media print {
+  .popover-demo__controls,
+  .popover-lab__controls,
+  .popover-lab__log-head,
+  .popover-lab__log {
+    display: none;
+  }
+  .popover-demo__print {
+    display: block;
+  }
+}

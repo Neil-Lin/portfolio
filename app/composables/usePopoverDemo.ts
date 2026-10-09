@@ -1,0 +1,177 @@
+import type { Ref } from "vue";
+
+// 部落格 popover 互動範例共用邏輯（content/*/blog/popover-auto-manual-hint.md）。
+// 只在 onMounted 後執行：SSR 沒有 document，預渲染出的 HTML 只含靜態按鈕。
+
+export interface PopoverSupport {
+  popover: boolean;
+  hint: boolean;
+  anchor: boolean;
+  interest: boolean;
+}
+
+export function detectPopoverSupport(): PopoverSupport {
+  const popover = "popover" in HTMLElement.prototype;
+  let hint = false;
+  if (popover) {
+    // 不認得的值會被當成 manual，讀回來就不會是 "hint"
+    const probe = document.createElement("div");
+    probe.popover = "hint";
+    hint = probe.popover === "hint";
+  }
+  return {
+    popover,
+    hint,
+    anchor: CSS.supports("position-area: bottom"),
+    interest: "interestForElement" in HTMLButtonElement.prototype,
+  };
+}
+
+// 離開觸發按鈕後延遲關閉，讓滑鼠能移到提示上（WCAG 1.4.13 可移入）
+const HIDE_DELAY = 250;
+const GAP = 8;
+
+const isOpen = (el: HTMLElement) => el.matches(":popover-open");
+
+export function usePopoverDemo(
+  root: Ref<HTMLElement | null>,
+  onToggle?: (pop: HTMLElement, open: boolean) => void,
+) {
+  const support = ref<PopoverSupport | null>(null);
+  let controller: AbortController | null = null;
+
+  // 不支援 Anchor Positioning 時，改用 JS 依 data-anchor 定位
+  function place(pop: HTMLElement) {
+    if (support.value?.anchor || !pop.dataset.anchor) return;
+    const anchor = document.getElementById(pop.dataset.anchor);
+    if (!anchor) return;
+    const r = anchor.getBoundingClientRect();
+    const w = pop.offsetWidth;
+    const h = pop.offsetHeight;
+    let top = pop.classList.contains("is-above")
+      ? r.top - h - GAP
+      : r.bottom + GAP;
+    if (top < GAP) top = r.bottom + GAP;
+    if (top + h > innerHeight - GAP) top = Math.max(GAP, r.top - h - GAP);
+    const left = Math.min(Math.max(GAP, r.left), innerWidth - w - GAP);
+    pop.style.top = `${top}px`;
+    pop.style.left = `${left}px`;
+  }
+
+  function wireTooltips(
+    el: HTMLElement,
+    signal: AbortSignal,
+    hasHint: boolean,
+  ) {
+    const timers = new WeakMap<HTMLElement, ReturnType<typeof setTimeout>>();
+
+    const show = (tip: HTMLElement) => {
+      clearTimeout(timers.get(tip));
+      if (!isOpen(tip)) tip.showPopover();
+    };
+    const hideSoon = (tip: HTMLElement, trigger: HTMLElement) => {
+      clearTimeout(timers.get(tip));
+      timers.set(
+        tip,
+        setTimeout(() => {
+          const keep =
+            tip.matches(":hover") ||
+            trigger.matches(":hover") ||
+            trigger === document.activeElement;
+          if (!keep && isOpen(tip)) tip.hidePopover();
+        }, HIDE_DELAY),
+      );
+    };
+
+    el.querySelectorAll<HTMLElement>("[data-tip]").forEach((trigger) => {
+      const tip = document.getElementById(trigger.dataset.tip ?? "");
+      if (!tip) return;
+      const opts = { signal };
+
+      if (!hasHint) {
+        // 不支援時瀏覽器會當成 manual；手動模擬「打開時只關其他 hint」
+        tip.addEventListener(
+          "beforetoggle",
+          (e) => {
+            if ((e as ToggleEvent).newState !== "open") return;
+            document
+              .querySelectorAll<HTMLElement>('[popover="hint"]')
+              .forEach((other) => {
+                if (other !== tip && isOpen(other)) other.hidePopover();
+              });
+          },
+          opts,
+        );
+      }
+
+      trigger.addEventListener(
+        "pointerenter",
+        (e) => {
+          if (e.pointerType === "mouse") show(tip);
+        },
+        opts,
+      );
+      trigger.addEventListener(
+        "pointerleave",
+        () => hideSoon(tip, trigger),
+        opts,
+      );
+      trigger.addEventListener("focus", () => show(tip), opts);
+      trigger.addEventListener("blur", () => hideSoon(tip, trigger), opts);
+      tip.addEventListener(
+        "pointerenter",
+        () => clearTimeout(timers.get(tip)),
+        opts,
+      );
+      tip.addEventListener("pointerleave", () => hideSoon(tip, trigger), opts);
+    });
+
+    if (!hasHint) {
+      // 補上 Esc 關閉，維持 WCAG 1.4.13 可關閉
+      document.addEventListener(
+        "keydown",
+        (e) => {
+          if (e.key !== "Escape") return;
+          el.querySelectorAll<HTMLElement>('[popover="hint"]').forEach(
+            (tip) => {
+              if (isOpen(tip)) tip.hidePopover();
+            },
+          );
+        },
+        { signal, capture: true },
+      );
+    }
+  }
+
+  onMounted(() => {
+    const el = root.value;
+    support.value = detectPopoverSupport();
+    if (!el || !support.value.popover) return;
+
+    controller = new AbortController();
+    const { signal } = controller;
+
+    el.querySelectorAll<HTMLElement>("[popover]").forEach((pop) => {
+      pop.addEventListener(
+        "toggle",
+        (e) => {
+          const open = (e as ToggleEvent).newState === "open";
+          if (open) place(pop);
+          onToggle?.(pop, open);
+        },
+        { signal },
+      );
+    });
+
+    wireTooltips(el, signal, support.value.hint);
+  });
+
+  onBeforeUnmount(() => controller?.abort());
+
+  return { support };
+}
+
+// 錨點名稱與 id 都要是合法的 CSS dashed-ident / HTML id
+export function usePopoverDemoId(prefix: string) {
+  return `${prefix}-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
+}
