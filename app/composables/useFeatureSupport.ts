@@ -42,6 +42,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
       CSS.supports("selector(::scroll-marker)") &&
       CSS.supports("selector(::scroll-button(inline-end))"),
   },
+  "overflow-anchor": {
+    name: "overflow-anchor",
+    detect: () => CSS.supports("overflow-anchor: none"),
+  },
   interestfor: {
     name: "interestfor",
     detect: () => "interestForElement" in HTMLButtonElement.prototype,

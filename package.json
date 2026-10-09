@@ -17,6 +17,7 @@
     "typecheck": "nuxt typecheck",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "images:sizes": "node scripts/imageSizes.mjs",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,html,css,scss,json,md}\""
   },
   "dependencies": {

@@ -1398,3 +1398,66 @@ au-carousel:not(:defined) {
   display: grid;
   gap: 1rem;
 }
+
+/*************************
+  Blog 互動範例：捲動錨定（overflow-anchor）
+  元件在 app/components/content/ScrollAnchorDemo.vue。
+*************************/
+
+.scroll-anchor-demo__options {
+  display: grid;
+  gap: 0.5rem;
+}
+.scroll-anchor-demo__box {
+  block-size: 18rem;
+  overflow-y: auto;
+  padding: 0.75rem;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 0.5rem;
+  background-color: oklch(var(--wrapper-bg));
+  &.is-off {
+    overflow-anchor: none;
+  }
+  &:focus-visible {
+    outline: 3px solid oklch(var(--outline-color));
+    outline-offset: 2px;
+  }
+}
+/* 晚到的內容和預留空間一樣高，勾「預留空間」時載入前後高度不變 */
+.scroll-anchor-demo__slot.is-reserved {
+  min-block-size: 10rem;
+  border-radius: 0.5rem;
+  background-color: oklch(var(--border-color) / 40%);
+}
+.scroll-anchor-demo__banner {
+  display: grid;
+  place-items: center;
+  block-size: 10rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: oklch(var(--table-th-bg));
+  text-align: center;
+}
+.dialog-demo .scroll-anchor-demo__para {
+  margin-block: 0.75rem;
+  &.is-target {
+    padding: 0.5rem 0.75rem;
+    border-inline-start: 4px solid oklch(var(--pd-c));
+    background-color: oklch(var(--pd-c) / 12%);
+    font-weight: 700;
+  }
+}
+.scroll-anchor-demo__readout {
+  font-weight: 700;
+  color: oklch(var(--pd-c));
+}
+@media print {
+  .scroll-anchor-demo__options,
+  .scroll-anchor-demo .dialog-demo__controls {
+    display: none;
+  }
+  .scroll-anchor-demo__box {
+    block-size: auto;
+    overflow: visible;
+  }
+}

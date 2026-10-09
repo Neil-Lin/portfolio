@@ -12,6 +12,13 @@ html {
   scroll-timeline: --page-scroll block;
 }
 
+/* 平滑捲動只給沒有設定「減少動態效果」的使用者（WCAG 2.3.3） */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 html,
 body {
   scroll-padding-top: 4rem;
@@ -23,7 +30,6 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  scroll-behavior: smooth;
   word-break: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;

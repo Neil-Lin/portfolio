@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { productsData } from "../data/productsData";
 import { projectsData } from "../data/projectsData";
@@ -24,6 +24,20 @@ export function validateContentData(rootDir: string = process.cwd()) {
     }
   };
 
+  // 產品頁的圖片會寫上 width / height（見 app/utils/imageSize.ts），尺寸清單要涵蓋它們
+  const sizesFile = join(rootDir, "data/imageSizes.json");
+  const sizes: Record<string, unknown> = existsSync(sizesFile)
+    ? JSON.parse(readFileSync(sizesFile, "utf8"))
+    : {};
+  const checkSize = (src: string | undefined, context: string) => {
+    if (!src || !src.startsWith("/") || src.endsWith(".svg")) return;
+    if (!sizes[src]) {
+      errors.push(
+        `${context}: ${src} 不在 data/imageSizes.json，請執行 npm run images:sizes`,
+      );
+    }
+  };
+
   const productSlugs = new Set<string>();
   for (const p of productsData) {
     if (productSlugs.has(p.slug)) {
@@ -35,12 +49,14 @@ export function validateContentData(rootDir: string = process.cwd()) {
       p.schemaImage[loc]?.forEach((m, i) =>
         checkPath(m.src, `products/${p.slug} schemaImage[${loc}][${i}]`),
       );
-      p.heroImage[loc]?.forEach((m, i) =>
-        checkPath(m.src, `products/${p.slug} heroImage[${loc}][${i}]`),
-      );
-      p.images?.[loc]?.forEach((m, i) =>
-        checkPath(m.src, `products/${p.slug} images[${loc}][${i}]`),
-      );
+      p.heroImage[loc]?.forEach((m, i) => {
+        checkPath(m.src, `products/${p.slug} heroImage[${loc}][${i}]`);
+        checkSize(m.src, `products/${p.slug} heroImage[${loc}][${i}]`);
+      });
+      p.images?.[loc]?.forEach((m, i) => {
+        checkPath(m.src, `products/${p.slug} images[${loc}][${i}]`);
+        checkSize(m.src, `products/${p.slug} images[${loc}][${i}]`);
+      });
       p.videos?.[loc]?.forEach((v, i) => {
         checkPath(v.src, `products/${p.slug} videos[${loc}][${i}].src`);
         checkPath(

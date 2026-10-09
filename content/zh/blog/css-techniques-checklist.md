@@ -169,7 +169,7 @@ draft: false
 | `corner-shape` | 超越 `border-radius` 的圓角形狀（squircle／切角等），搭配 `border-radius` 使用 | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ⬜ |
 | 字型平滑（`-webkit-font-smoothing`） | 深色模式讓文字不刺眼的關鍵：macOS 上淺色文字在深底會因次像素抗鋸齒而變粗發光，改用 grayscale 抗鋸齒後變細、不刺眼；非標準，僅特定平台有效 | `-webkit-font-smoothing: antialiased;`（+ `-moz-osx-font-smoothing: grayscale;`） | 🟡 | ✅ |
 | `@when` / `@else` | CSS 的 if/else 條件塊；仍為提案，瀏覽器皆不可用 | `@when supports(...){} @else{}` | 🔴 | ✅ |
-| Scroll anchoring（`overflow-anchor`） | 上方內容載入或插入時，瀏覽器自動維持目前的閱讀位置、畫面不跳動；預設開啟，個別元素可用 `none` 關閉。畫面跳動對認知或動作障礙者特別困擾（Safari 27 補上後，三大引擎到齊） | `overflow-anchor: none;` | 🟡 | ⬜ |
+| Scroll anchoring（`overflow-anchor`） | 上方內容載入或插入時，瀏覽器自動維持目前的閱讀位置、畫面不跳動；預設開啟，個別元素可用 `none` 關閉。畫面跳動對認知或動作障礙者特別困擾（Safari 27 補上後，三大引擎到齊） | `overflow-anchor: none;` | 🟡 | ✅ |
 
 ### K. HTML 元素與屬性（非 CSS，但同屬「宣告式取代 JS」的趨勢）
 

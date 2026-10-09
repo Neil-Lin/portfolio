@@ -6,6 +6,7 @@
       <img
         :src="`${product.heroImage[$i18n.locale][0]!.src}`"
         :alt="product.heroImage[$i18n.locale][0]!.figcaption"
+        v-bind="imageSize(product.heroImage[$i18n.locale][0]!.src)"
       />
       <figcaption>
         {{ product.heroImage[$i18n.locale][0]!.figcaption }}
@@ -142,6 +143,7 @@
           <img
             :src="`${item.src}`"
             :alt="item.figcaption"
+            v-bind="imageSize(item.src)"
             loading="lazy"
             decoding="async"
           />

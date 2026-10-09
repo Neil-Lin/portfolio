@@ -169,7 +169,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `corner-shape` | Corner shapes beyond `border-radius` (squircle / notched, etc.), used together with `border-radius` | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ⬜ |
 | Font smoothing (`-webkit-font-smoothing`) | The key to non-harsh text in dark mode: on macOS, light text on a dark background looks bold and glowing due to subpixel antialiasing; grayscale antialiasing makes it thinner and gentler. Non-standard, works only on certain platforms | `-webkit-font-smoothing: antialiased;` (+ `-moz-osx-font-smoothing: grayscale;`) | 🟡 | ✅ |
 | `@when` / `@else` | CSS if/else conditional blocks; still a proposal, unusable in any browser | `@when supports(...){} @else{}` | 🔴 | ✅ |
-| Scroll anchoring (`overflow-anchor`) | When content loads or is inserted above the viewport, the browser keeps your reading position steady instead of jumping; on by default, opt out per element with `none`. Those jumps are especially disorienting for people with cognitive or motor disabilities (with Safari 27, all three engines support it) | `overflow-anchor: none;` | 🟡 | ⬜ |
+| Scroll anchoring (`overflow-anchor`) | When content loads or is inserted above the viewport, the browser keeps your reading position steady instead of jumping; on by default, opt out per element with `none`. Those jumps are especially disorienting for people with cognitive or motor disabilities (with Safari 27, all three engines support it) | `overflow-anchor: none;` | 🟡 | ✅ |
 
 ### K. HTML Elements & Attributes (Not CSS, but the Same "Declarative Instead of JS" Trend)
 

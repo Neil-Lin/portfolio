@@ -1,0 +1,658 @@
+{
+  "/images/1999taipei-thumbnail.webp": [
+    1440,
+    936
+  ],
+  "/images/228-thumbnail.webp": [
+    1440,
+    936
+  ],
+  "/images/2pick1-categories.webp": [
+    2460,
+    4380
+  ],
+  "/images/2pick1-comment.webp": [
+    2460,
+    4380
+  ],
+  "/images/2pick1-home.webp": [
+    2460,
+    4380
+  ],
+  "/images/2pick1-profile.webp": [
+    2460,
+    4380
+  ],
+  "/images/2pick1-search.webp": [
+    2460,
+    4380
+  ],
+  "/images/2pick1-thumbnail.webp": [
+    1280,
+    960
+  ],
+  "/images/accesserty-devcheck.webp": [
+    1794,
+    1280
+  ],
+  "/images/accesserty-flow.webp": [
+    4098,
+    1552
+  ],
+  "/images/accesserty-signal.webp": [
+    1794,
+    1191
+  ],
+  "/images/accesserty-thumbnail.webp": [
+    1280,
+    685
+  ],
+  "/images/accesserty-ui-kit.webp": [
+    889,
+    1337
+  ],
+  "/images/apple-splash-1125x2436.png": [
+    1125,
+    2436
+  ],
+  "/images/apple-splash-1170x2532.png": [
+    1170,
+    2532
+  ],
+  "/images/apple-splash-1179x2556.png": [
+    1179,
+    2556
+  ],
+  "/images/apple-splash-1242x2208.png": [
+    1242,
+    2208
+  ],
+  "/images/apple-splash-1242x2688.png": [
+    1242,
+    2688
+  ],
+  "/images/apple-splash-1284x2778.png": [
+    1284,
+    2778
+  ],
+  "/images/apple-splash-1290x2796.png": [
+    1290,
+    2796
+  ],
+  "/images/apple-splash-1334x750.png": [
+    1334,
+    750
+  ],
+  "/images/apple-splash-1536x2048.png": [
+    1536,
+    2048
+  ],
+  "/images/apple-splash-1620x2160.png": [
+    1620,
+    2160
+  ],
+  "/images/apple-splash-1640x2360.png": [
+    1640,
+    2360
+  ],
+  "/images/apple-splash-1668x2224.png": [
+    1668,
+    2224
+  ],
+  "/images/apple-splash-1668x2388.png": [
+    1668,
+    2388
+  ],
+  "/images/apple-splash-1792x828.png": [
+    1792,
+    828
+  ],
+  "/images/apple-splash-2048x1536.png": [
+    2048,
+    1536
+  ],
+  "/images/apple-splash-2048x2732.png": [
+    2048,
+    2732
+  ],
+  "/images/apple-splash-2160x1620.png": [
+    2160,
+    1620
+  ],
+  "/images/apple-splash-2208x1242.png": [
+    2208,
+    1242
+  ],
+  "/images/apple-splash-2224x1668.png": [
+    2224,
+    1668
+  ],
+  "/images/apple-splash-2360x1640.png": [
+    2360,
+    1640
+  ],
+  "/images/apple-splash-2388x1668.png": [
+    2388,
+    1668
+  ],
+  "/images/apple-splash-2436x1125.png": [
+    2436,
+    1125
+  ],
+  "/images/apple-splash-2532x1170.png": [
+    2532,
+    1170
+  ],
+  "/images/apple-splash-2556x1179.png": [
+    2556,
+    1179
+  ],
+  "/images/apple-splash-2688x1242.png": [
+    2688,
+    1242
+  ],
+  "/images/apple-splash-2732x2048.png": [
+    2732,
+    2048
+  ],
+  "/images/apple-splash-2778x1284.png": [
+    2778,
+    1284
+  ],
+  "/images/apple-splash-2796x1290.png": [
+    2796,
+    1290
+  ],
+  "/images/apple-splash-750x1334.png": [
+    750,
+    1334
+  ],
+  "/images/apple-splash-828x1792.png": [
+    828,
+    1792
+  ],
+  "/images/blog/1.webp": [
+    1507,
+    736
+  ],
+  "/images/blog/10.webp": [
+    463,
+    238
+  ],
+  "/images/blog/11.webp": [
+    614,
+    920
+  ],
+  "/images/blog/12.webp": [
+    294,
+    716
+  ],
+  "/images/blog/13.webp": [
+    285,
+    740
+  ],
+  "/images/blog/14.webp": [
+    400,
+    372
+  ],
+  "/images/blog/15.webp": [
+    400,
+    472
+  ],
+  "/images/blog/16.webp": [
+    800,
+    3518
+  ],
+  "/images/blog/17.webp": [
+    725,
+    542
+  ],
+  "/images/blog/18.webp": [
+    800,
+    442
+  ],
+  "/images/blog/19.webp": [
+    740,
+    364
+  ],
+  "/images/blog/2.webp": [
+    800,
+    533
+  ],
+  "/images/blog/20.webp": [
+    800,
+    445
+  ],
+  "/images/blog/21.webp": [
+    800,
+    402
+  ],
+  "/images/blog/22.webp": [
+    400,
+    540
+  ],
+  "/images/blog/23.webp": [
+    740,
+    427
+  ],
+  "/images/blog/24.webp": [
+    740,
+    403
+  ],
+  "/images/blog/25.webp": [
+    740,
+    409
+  ],
+  "/images/blog/26.webp": [
+    740,
+    482
+  ],
+  "/images/blog/27.webp": [
+    1200,
+    93
+  ],
+  "/images/blog/28.webp": [
+    800,
+    425
+  ],
+  "/images/blog/29.webp": [
+    1200,
+    320
+  ],
+  "/images/blog/3.webp": [
+    800,
+    533
+  ],
+  "/images/blog/30.webp": [
+    800,
+    351
+  ],
+  "/images/blog/31.webp": [
+    740,
+    586
+  ],
+  "/images/blog/32.webp": [
+    740,
+    414
+  ],
+  "/images/blog/33.gif": [
+    592,
+    514
+  ],
+  "/images/blog/34.webp": [
+    740,
+    860
+  ],
+  "/images/blog/35.webp": [
+    740,
+    341
+  ],
+  "/images/blog/36.webp": [
+    400,
+    184
+  ],
+  "/images/blog/37.webp": [
+    400,
+    184
+  ],
+  "/images/blog/38.webp": [
+    400,
+    184
+  ],
+  "/images/blog/39.webp": [
+    1200,
+    274
+  ],
+  "/images/blog/4.webp": [
+    800,
+    533
+  ],
+  "/images/blog/40.png": [
+    1557,
+    400
+  ],
+  "/images/blog/41.webp": [
+    740,
+    435
+  ],
+  "/images/blog/42.webp": [
+    1200,
+    330
+  ],
+  "/images/blog/43.webp": [
+    740,
+    361
+  ],
+  "/images/blog/44.webp": [
+    705,
+    444
+  ],
+  "/images/blog/45.webp": [
+    1339,
+    652
+  ],
+  "/images/blog/46.webp": [
+    1337,
+    381
+  ],
+  "/images/blog/47.webp": [
+    1200,
+    629
+  ],
+  "/images/blog/48.webp": [
+    740,
+    1047
+  ],
+  "/images/blog/49.webp": [
+    1350,
+    1386
+  ],
+  "/images/blog/5.webp": [
+    800,
+    533
+  ],
+  "/images/blog/6.webp": [
+    800,
+    533
+  ],
+  "/images/blog/7.webp": [
+    800,
+    870
+  ],
+  "/images/blog/8.webp": [
+    800,
+    450
+  ],
+  "/images/blog/9.webp": [
+    670,
+    278
+  ],
+  "/images/bpgcms-thumbnail.webp": [
+    640,
+    400
+  ],
+  "/images/choose-chart-hotkeywords-detail-hover.webp": [
+    900,
+    1023
+  ],
+  "/images/choose-chart-hotkeywords-detail.webp": [
+    900,
+    1023
+  ],
+  "/images/choose-chart-hotkeywords-hover.webp": [
+    900,
+    1019
+  ],
+  "/images/choose-chart-hotkeywords.webp": [
+    900,
+    1023
+  ],
+  "/images/choose-chart-thumbnail.webp": [
+    1280,
+    482
+  ],
+  "/images/dahtahdoc-system.webp": [
+    2545,
+    1180
+  ],
+  "/images/dahtahdoc-thumbnail.webp": [
+    1253,
+    753
+  ],
+  "/images/data-gov-tw-thumbnail.webp": [
+    1440,
+    936
+  ],
+  "/images/daxiculture-thubnail.webp": [
+    1440,
+    936
+  ],
+  "/images/device-situation-tablet.webp": [
+    1767,
+    356
+  ],
+  "/images/dpp-thumbnail.webp": [
+    1424,
+    838
+  ],
+  "/images/gctf-thumbnail.webp": [
+    1423,
+    838
+  ],
+  "/images/iofficeplus-thumbnail.webp": [
+    1440,
+    936
+  ],
+  "/images/luodongarchives-thumbnail.webp": [
+    1440,
+    936
+  ],
+  "/images/moenv-od-thumbnail.webp": [
+    1440,
+    936
+  ],
+  "/images/mpos-all.webp": [
+    1440,
+    14419
+  ],
+  "/images/mpos-discuss.webp": [
+    3264,
+    2448
+  ],
+  "/images/mpos-mockup.webp": [
+    3903,
+    2236
+  ],
+  "/images/mpos-thumbnail.webp": [
+    1440,
+    885
+  ],
+  "/images/mpos-wireframe.webp": [
+    2720,
+    1572
+  ],
+  "/images/mpos.webp": [
+    2560,
+    1870
+  ],
+  "/images/nmth-portal-thumbnail.webp": [
+    1440,
+    936
+  ],
+  "/images/nmth-school-thumbnail.webp": [
+    1440,
+    936
+  ],
+  "/images/ntl-exbook-thumbnail.webp": [
+    1920,
+    1209
+  ],
+  "/images/piman-thumbnail.webp": [
+    1280,
+    800
+  ],
+  "/images/piman-v3-backstage-template.webp": [
+    1920,
+    1080
+  ],
+  "/images/piman-v3-button.webp": [
+    1595,
+    1216
+  ],
+  "/images/piman-v3-design-system.webp": [
+    1713,
+    1226
+  ],
+  "/images/poinfo-all-concept.webp": [
+    2640,
+    5456
+  ],
+  "/images/poinfo-thumbnail.webp": [
+    1100,
+    658
+  ],
+  "/images/report-website-issues-thumbnail.webp": [
+    1440,
+    936
+  ],
+  "/images/schema-thumbnail.webp": [
+    1440,
+    936
+  ],
+  "/images/scout-404.webp": [
+    1440,
+    720
+  ],
+  "/images/scout-landingpage-dark.webp": [
+    4066,
+    8592
+  ],
+  "/images/scout-landingpage-light.webp": [
+    4096,
+    8596
+  ],
+  "/images/scout-thumbnail.webp": [
+    1280,
+    639
+  ],
+  "/images/social-media.png": [
+    1200,
+    630
+  ],
+  "/images/splash/splash-1125x2436.png": [
+    1125,
+    2436
+  ],
+  "/images/splash/splash-1242x2208.png": [
+    1242,
+    2208
+  ],
+  "/images/splash/splash-640x1136.png": [
+    640,
+    1136
+  ],
+  "/images/splash/splash-750x1334.png": [
+    750,
+    1334
+  ],
+  "/images/taichung-od-thumbnail.webp": [
+    1440,
+    936
+  ],
+  "/images/taipei-dashboard-thumbnail.webp": [
+    1440,
+    936
+  ],
+  "/images/ttc-thumbnail.webp": [
+    1281,
+    681
+  ],
+  "/images/tycg-od-thumbnail.webp": [
+    1440,
+    936
+  ],
+  "/images/vital-crm-new-thumbnail.webp": [
+    1280,
+    676
+  ],
+  "/images/vitalcrm-app-thumbnail.webp": [
+    1270,
+    839
+  ],
+  "/images/vitalcrm-app-wireframe.webp": [
+    1209,
+    461
+  ],
+  "/images/vitalcrm-design-mobile.webp": [
+    1073,
+    1474
+  ],
+  "/images/vitalcrm-design-tablet.webp": [
+    2482,
+    2302
+  ],
+  "/images/vitalsespsurvey-thumbnail.webp": [
+    640,
+    364
+  ],
+  "/images/vitalsespsurvey-wireframe-dashboard.webp": [
+    1280,
+    1439
+  ],
+  "/images/vitalsespsurvey-wireframe-edit.webp": [
+    1280,
+    1668
+  ],
+  "/images/vitalsespsurvey-wireframe-list1.webp": [
+    1280,
+    676
+  ],
+  "/images/vitalsespsurvey-wireframe-list2.webp": [
+    1280,
+    676
+  ],
+  "/images/vitalsespsurvey-wireframe-result1.webp": [
+    1280,
+    1839
+  ],
+  "/images/vitalsespsurvey-wireframe-result2.webp": [
+    1280,
+    1839
+  ],
+  "/images/vitaluikit-docs.webp": [
+    1584,
+    1368
+  ],
+  "/images/vitaluikit-sketch.webp": [
+    2560,
+    1548
+  ],
+  "/images/vitaluikit-thumbnail.webp": [
+    1280,
+    685
+  ],
+  "/images/workether-mockup-chat-dark.webp": [
+    3840,
+    2400
+  ],
+  "/images/workether-mockup-chat-light.webp": [
+    3840,
+    2400
+  ],
+  "/images/workether-thumbnail.webp": [
+    1280,
+    800
+  ],
+  "/images/workether-wireframe-chat-list.webp": [
+    3840,
+    2400
+  ],
+  "/images/workether-wireframe-chat-single-expand.webp": [
+    1280,
+    800
+  ],
+  "/images/workether-wireframe-group-chat-setting.webp": [
+    3840,
+    2400
+  ],
+  "/images/workether-wireframe-task.webp": [
+    1280,
+    800
+  ],
+  "/images/wra-opendata-tumbnail.png": [
+    1280,
+    888
+  ],
+  "/images/wra-opendata-tumbnail.webp": [
+    1280,
+    888
+  ],
+  "/images/youth-taipei-thumbnail.webp": [
+    1280,
+    650
+  ],
+  "/images/zhuzhan-thumbnail.webp": [
+    1440,
+    936
+  ]
+}
