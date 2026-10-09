@@ -189,7 +189,7 @@ draft: false
 |---|---|---|---|---|
 | `focusgroup` | 讓複合元件（工具列、頁籤列、選單等）用宣告式就具備方向鍵導覽、保證的 Tab 停留點，以及「記住上次焦點」的行為——這正是 WAI-ARIA 鍵盤模式要求的做法，過去得自己手刻 roving tabindex（Chrome 150 新增） | `<div focusgroup>…</div>` | 🟠 | ⬜ |
 | Invoker Commands（`command` / `commandfor`） | 用宣告式 HTML 按鈕控制 popover／dialog，免寫 JS。已 stable 的指令：`show-modal`、`close`、`request-close`、`toggle-popover`、`show-popover`、`hide-popover`（Baseline 2025，未來會擴充到媒體控制、複製文字等） | `<button command="show-modal" commandfor="dlg">開啟</button>` | 🟡 | ✅ |
-| Interest Invokers | 同一套 command 機制，但改用「hover／focus 表達興趣」觸發而非點擊——可以做出不寫 JS 的原生 tooltip | `<button interestfor="tip">` | 🟠 | ⬜ |
+| Interest Invokers | 同一套 command 機制，但改用「hover／focus 表達興趣」觸發而非點擊——可以做出不寫 JS 的原生 tooltip | `<button interestfor="tip">` | 🟠 | ✅ |
 | `hidden="until-found"` | 內容摺疊起來，但仍能被瀏覽器的頁內搜尋命中，命中時自動展開。長文的摺疊段落、FAQ 用這個才不會讓內容變成搜不到 | `<div hidden="until-found">` | 🟡 | ✅ |
 | `popover="hint"` | 專給 tooltip 類的 popover：保有 light-dismiss，但只會關掉其他 hint，不會把主要的 popover 一起關掉 | `<div popover="hint">` | 🟡 | ✅ |
 | `sizes="auto"` | 響應式圖片不用再自己算 `sizes`，交給瀏覽器；搭配 `srcset` 與 `loading="lazy"` 使用（Chrome、Firefox、Safari 27 皆已支援） | `<img srcset="…" sizes="auto">` | 🟡 | ⬜ |
