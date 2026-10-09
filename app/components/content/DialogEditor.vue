@@ -116,6 +116,9 @@ const messages = {
     print: "此處為互動範例，請在網頁上操作。",
     cancelBlocked: "有未儲存的修改，preventDefault() 攔下關閉",
     cancelAllowed: "沒有修改，允許關閉",
+    announceSaved: "已儲存備註",
+    announceDiscarded: "已放棄修改",
+    announced: (msg: string, via: string) => `播報「${msg}」（${via}）`,
     closed: (v: string, focus: string) =>
       `returnValue = "${v}"，焦點回到：${focus}`,
   },
@@ -135,6 +138,9 @@ const messages = {
     print: "This is an interactive demo. Try it on the web page.",
     cancelBlocked: "unsaved changes, preventDefault() blocked the close",
     cancelAllowed: "no changes, close allowed",
+    announceSaved: "Note saved",
+    announceDiscarded: "Changes discarded",
+    announced: (msg: string, via: string) => `announced "${msg}" (${via})`,
     closed: (v: string, focus: string) =>
       `returnValue = "${v}", focus returned to: ${focus}`,
   },
@@ -177,14 +183,27 @@ function onClose() {
   else draft.value = saved.value;
   confirming.value = false;
   if (dialog.value) dialog.value.returnValue = "";
-  requestAnimationFrame(() =>
+  requestAnimationFrame(() => {
     add(
       "close",
       text.value.closed(
         value,
         describeFocus(document.activeElement, locale.value === "en"),
       ),
-    ),
-  );
+    );
+    // 對話框關掉後畫面上沒有任何「已儲存」的提示，用 ariaNotify() 告訴報讀軟體使用者
+    const message =
+      value === "save"
+        ? text.value.announceSaved
+        : value === "discard"
+          ? text.value.announceDiscarded
+          : "";
+    if (message && root.value) {
+      add(
+        "notify",
+        text.value.announced(message, announce(root.value, message)),
+      );
+    }
+  });
 }
 </script>

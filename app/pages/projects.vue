@@ -10,6 +10,7 @@
         v-model:role="selectedRole"
         v-model:platform="selectedPlatform"
         :roles="uniqueRoles"
+        :count="filteredList.length"
       />
 
       <PortfolioGrid :grouped-list="groupedList" :sortorder="sortorder">
@@ -58,6 +59,7 @@ const {
   selectedRole,
   selectedPlatform,
   uniqueRoles,
+  filteredList,
   groupedList,
   formatYearRange,
 } = usePortfolioFilter(projectsData);

@@ -49,6 +49,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
       typeof HTMLDialogElement !== "undefined" &&
       "requestClose" in HTMLDialogElement.prototype,
   },
+  "aria-notify": {
+    name: "ariaNotify()",
+    detect: () => "ariaNotify" in Element.prototype,
+  },
   "details-name": {
     name: "<details name>",
     detect: () =>

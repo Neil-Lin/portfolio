@@ -12,6 +12,10 @@ translationKey: dialog-modern-guide
 draft: false
 ---
 
+2026/10/09 更新：「編輯備註」範例在儲存、放棄修改後，會用 `ariaNotify()` 通知報讀軟體，說明寫在第五節。
+
+--
+
 > 話說在前頭：這篇的實測是在 Chromium 上做的，`closedby` 這類比較新的功能各瀏覽器支援狀況不一，寫的當下正確不代表之後也正確，有講錯的地方歡迎指正。
 
 ### 前言
@@ -159,6 +163,21 @@ editor.addEventListener("close", () => {
 
 表單原生的驗證（例如 `required`）也照樣有效，驗證不過就不會關閉。
 
+不過對話框一關，畫面上就沒有任何「已儲存」的提示了。看得到畫面的人知道對話框消失代表存好了，但報讀軟體的使用者只會聽到焦點回到「編輯備註」按鈕，不確定到底有沒有存成功。
+
+所以範例在關閉之後，會用 `ariaNotify()` 播報「已儲存備註」或「已放棄修改」，事件紀錄裡也看得到：
+
+```js
+editor.addEventListener("close", () => {
+  if (editor.returnValue === "save") {
+    saveNote();
+    openButton.ariaNotify("已儲存備註");
+  }
+});
+```
+
+`ariaNotify()` 是讓報讀軟體直接唸出一段訊息的新 API，用來取代藏一個 `aria-live` 區塊的舊做法。它的用法、支援度和不支援時的降級寫法，我另外整理在〈[讓報讀軟體開口說話：用 ariaNotify() 取代 aria-live](/blog/aria-notify/)〉。
+
 ### 六、無障礙要注意的地方
 
 原生 `<dialog>` 幫你做掉了很多事，但還有幾件要自己確認：
@@ -251,6 +270,7 @@ dialog {
 
 ### 延伸閱讀
 
+- [讓報讀軟體開口說話：用 ariaNotify() 取代 aria-live](/blog/aria-notify/)
 - [Popover 的 auto、manual、hint 到底差在哪？做個可以玩的範例來看看](/blog/popover-auto-manual-hint/)
 - [收合的內容，為什麼按 Ctrl+F 找不到？聊聊 hidden="until-found"](/blog/hidden-until-found/)
 - [現代 CSS 與 HTML 技巧整理清單：102 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)

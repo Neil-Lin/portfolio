@@ -196,7 +196,7 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 | Declarative Shadow DOM | Build a shadow root with no JavaScript, so SSR output can carry it | `<template shadowrootmode="open">` | 🟢 | ⬜ |
 | `shadowrootreferencetarget` | Lets a `<label>` or `aria-*` outside the shadow root point at the real input inside it — the long-standing labelling problem for web components | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ⬜ |
 | `<h1>` nested sizing fix | UA stylesheet change: an `<h1>` inside a `<section>` is no longer shrunk automatically, so heading hierarchy finally renders predictably | — | 🟢 | ⬜ |
-| `ariaNotify()` | Ask the screen reader to announce a message directly (e.g. "Added to cart"), replacing the old trick of hiding an `aria-live` region and stuffing text into it. It's a DOM API rather than an HTML attribute, but what it replaces is exactly that HTML-attribute pattern (Firefox 150 and Safari 27; not in Chrome yet) | `document.ariaNotify("Added to cart");` | 🟡 | ⬜ |
+| `ariaNotify()` | Ask the screen reader to announce a message directly (e.g. "Added to cart"), replacing the old trick of hiding an `aria-live` region and stuffing text into it. It's a DOM API rather than an HTML attribute, but what it replaces is exactly that HTML-attribute pattern (Chrome 141 and Firefox 150 onward; sources disagree on Safari, so test it yourself) | `document.ariaNotify("Added to cart");` | 🟡 | ✅ |
 
 #### K-3. Proposal / prototype stage (just worth knowing about)
 

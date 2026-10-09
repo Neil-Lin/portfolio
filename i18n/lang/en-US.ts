@@ -128,6 +128,9 @@ export default {
   },
   data: {
     nodata: "No Data Here.",
+    // Announced to screen readers after filtering or sorting (0 | 1 | many)
+    resultCount:
+      "No matching items | Updated, showing 1 item | Updated, showing {count} items",
   },
   error: {
     title: "Something Wrong...",

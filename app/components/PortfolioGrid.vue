@@ -7,7 +7,6 @@
         ? 'group-list--top-space'
         : 'group-list--bottom-space',
     ]"
-    aria-live="polite"
   >
     <div class="group-year-present">{{ $t("words.today") }}</div>
     <div

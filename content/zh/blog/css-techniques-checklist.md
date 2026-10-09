@@ -196,7 +196,7 @@ draft: false
 | 宣告式 Shadow DOM | 不寫 JS 就能建立 Shadow DOM，SSR 輸出可以直接帶著走 | `<template shadowrootmode="open">` | 🟢 | ⬜ |
 | `shadowrootreferencetarget` | 讓 Shadow DOM 外面的 `<label>`／`aria-*` 能指向內部真正的 input——解決 web component 長年的標籤關聯難題 | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ⬜ |
 | `<h1>` 巢狀尺寸修正 | UA 樣式表變更：`<h1>` 放在 `<section>` 裡不再被自動縮小，標題階層的視覺呈現終於可預期 | — | 🟢 | ⬜ |
-| `ariaNotify()` | 直接請螢幕閱讀器念出一段訊息（例如「已加入購物車」），取代在頁面藏一個 `aria-live` 區塊再塞文字的舊做法。它是 DOM API 而不是 HTML 屬性，但它取代的正是那套 HTML 屬性寫法（Firefox 150、Safari 27；Chrome 尚未） | `document.ariaNotify("已加入購物車");` | 🟡 | ⬜ |
+| `ariaNotify()` | 直接請螢幕閱讀器念出一段訊息（例如「已加入購物車」），取代在頁面藏一個 `aria-live` 區塊再塞文字的舊做法。它是 DOM API 而不是 HTML 屬性，但它取代的正是那套 HTML 屬性寫法（Chrome 141、Firefox 150 起；Safari 的資料互相矛盾，請以實測為準） | `document.ariaNotify("已加入購物車");` | 🟡 | ✅ |
 
 #### K-3. 提案／原型階段（先知道有這回事就好）
 

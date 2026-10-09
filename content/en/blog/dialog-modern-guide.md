@@ -12,6 +12,10 @@ translationKey: dialog-modern-guide
 draft: false
 ---
 
+2026/10/09 update: the "Edit note" demo now uses `ariaNotify()` to tell screen readers when a note is saved or changes are discarded. See section 5.
+
+--
+
 > Up front: my tests for this post were run in Chromium. Newer features like `closedby` have uneven support across browsers, so what's true as I write this may not stay true. If I've gotten something wrong, corrections welcome.
 
 ### Intro
@@ -159,6 +163,21 @@ editor.addEventListener("close", () => {
 
 Native form validation (such as `required`) still applies; if validation fails, the dialog stays open.
 
+Once the dialog closes, though, nothing on screen says "saved." Sighted users know the dialog disappearing means it worked, but screen reader users only hear focus land back on the "Edit note" button, with no confirmation that anything was saved.
+
+So after closing, the demo uses `ariaNotify()` to announce "Note saved" or "Changes discarded," which you can also see in the event log:
+
+```js
+editor.addEventListener("close", () => {
+  if (editor.returnValue === "save") {
+    saveNote();
+    openButton.ariaNotify("Note saved");
+  }
+});
+```
+
+`ariaNotify()` is a new API that asks the screen reader to speak a message directly, replacing the old trick of hiding an `aria-live` region. I've written up how to use it, its support, and a fallback for browsers without it in [Make Screen Readers Speak: Replacing aria-live with ariaNotify()](/en/blog/aria-notify/).
+
 ### 6. Accessibility checklist
 
 Native `<dialog>` handles a lot for you, but a few things are still yours to check:
@@ -251,6 +270,7 @@ Do you still have hand-rolled modals in your projects? I'd love to hear about it
 
 ### Related reading
 
+- [Make Screen Readers Speak: Replacing aria-live with ariaNotify()](/en/blog/aria-notify/)
 - [Popover auto, manual and hint: What's Actually the Difference? I Built Demos to Find Out](/en/blog/popover-auto-manual-hint/)
 - [Why Can't Ctrl+F Find Collapsed Content? A Look at hidden="until-found"](/en/blog/hidden-until-found/)
 - [Modern CSS & HTML Cheat Sheet: 102 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
