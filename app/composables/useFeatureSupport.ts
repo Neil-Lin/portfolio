@@ -28,6 +28,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "Anchor Positioning",
     detect: () => CSS.supports("position-area: bottom"),
   },
+  "position-try": {
+    name: "position-try-fallbacks",
+    detect: () => CSS.supports("position-try-fallbacks: flip-block"),
+  },
   interestfor: {
     name: "interestfor",
     detect: () => "interestForElement" in HTMLButtonElement.prototype,

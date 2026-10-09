@@ -43,7 +43,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `subgrid` | Lets a child grid inherit the parent's tracks and gaps, so alignment snaps to the parent's lines; great for aligning elements across cards | `grid-template-columns: subgrid;` | 🟢 | ✅ |
 | Container Queries | Responsive design based on the container's size (not the screen)—the key to true componentization | `container-type: inline-size;` + `@container (width > 400px){}` | 🟢 | ✅ |
 | Anchor Positioning | Anchor one element's position to another (tooltip / popover / menu), replacing a lot of JS math | `anchor-name: --a;` + `top: anchor(--a bottom);` | 🟠 | ✅ |
-| `@position-try` | Fallback for anchor positioning: auto-flip when there isn't enough room | `position-try-fallbacks: flip-block;` | 🟠 | ⬜ |
+| `@position-try` | Fallback for anchor positioning: auto-flip when there isn't enough room | `position-try-fallbacks: flip-block;` | 🟠 | ✅ |
 | `reading-flow` / `reading-order` | When flex/grid visual order is reordered, fix keyboard and screen-reader reading order (an accessibility must) | `reading-flow: flex-visual;` / `reading-order: 1;` | 🟠 | ✅ |
 | Gap Decorations (`row-rule` / `column-rule` / `rule`) | Draw and style separators directly in grid/flex gaps—no more divider elements; plus fine-grain `rule-inset`/`rule-overlap`/`rule-visibility-items` (Chrome/Edge 149+; not in other browsers yet) | `column-rule: 1px solid; row-rule: 1px solid;` or shorthand `rule: 1px solid;` | 🟠 | ✅ |
 | `margin-inline` | Logical property; set both inline-axis margins at once (often `auto` to center) | `margin-inline: auto;` | 🟢 | ✅ |
