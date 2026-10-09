@@ -37,6 +37,18 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: 'hidden="until-found"',
     detect: () => "onbeforematch" in HTMLElement.prototype,
   },
+  "dialog-closedby": {
+    name: "<dialog closedby>",
+    detect: () =>
+      typeof HTMLDialogElement !== "undefined" &&
+      "closedBy" in HTMLDialogElement.prototype,
+  },
+  "dialog-requestclose": {
+    name: "dialog.requestClose()",
+    detect: () =>
+      typeof HTMLDialogElement !== "undefined" &&
+      "requestClose" in HTMLDialogElement.prototype,
+  },
   "details-name": {
     name: "<details name>",
     detect: () =>

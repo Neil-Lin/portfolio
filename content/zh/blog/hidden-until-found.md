@@ -63,7 +63,7 @@ draft: false
 
 也就是說，它只負責「被找到時展開」。使用者自己點按鈕展開、收合，還是要你寫。
 
-### 常見問答範例：事件、深層連結與 aria-expanded
+### 常見問答範例：事件、深層連結與 `aria-expanded`
 
 下面是一個用 `until-found` 做的常見問答。每個答案收合時都是 `hidden="until-found"`，事件紀錄會列出 `beforematch` 什麼時候觸發：
 
@@ -86,7 +86,7 @@ panel.addEventListener("beforematch", () => {
 });
 ```
 
-### 坑一：`el.hidden = !el.hidden` 會悄悄把它變回一般的 hidden
+### 坑一：`el.hidden = !el.hidden` 會悄悄把它變回一般的 `hidden`
 
 這個坑是我寫範例時實測出來的。很多人切換顯示的寫法是這樣：
 

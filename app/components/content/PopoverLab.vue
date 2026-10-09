@@ -60,7 +60,7 @@
         :id="item.btnId"
         :key="item.id"
         type="button"
-        :data-tip="item.id"
+        :interestfor="item.id"
         :aria-describedby="item.id"
         :style="`anchor-name: --${item.btnId}`"
         @click="runAction(item.label)"

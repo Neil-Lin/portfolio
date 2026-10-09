@@ -12,7 +12,7 @@ translationKey: popover-auto-manual-hint
 draft: false
 ---
 
-2026/10/09 update: the demos and code now use Invoker Commands (`command` / `commandfor`). The original `popovertarget` approach still works.
+2026/10/09 update: the demos and code now use Invoker Commands (`command` / `commandfor`); the original `popovertarget` approach still works. I also added a section on replacing the trigger JavaScript with `interestfor`.
 
 --
 
@@ -44,7 +44,7 @@ The `popover` attribute really decides just two things:
 
 The table is still a bit abstract, so let's go through them one at a time.
 
-### auto: the default for menus
+### `auto`: the default for menus
 
 Writing `popover` with no value gives you `auto`. Only one can be open at a time, and clicking outside or pressing Escape closes it, which makes it a natural fit for menus and dropdown panels.
 
@@ -62,7 +62,7 @@ The buttons use Invoker Commands: `commandfor` says what to control and `command
 
 The nice part is that none of this needs a single line of JavaScript. "Close when clicking outside" used to mean listening for clicks on the document and checking whether they landed inside the menu. Now it's one attribute.
 
-### manual: entirely up to you
+### `manual`: entirely up to you
 
 A `manual` popover doesn't close on an outside click or Escape, and it doesn't close others, so several can be open at once. It suits things that should stay on screen, like a toast. The trade-off is that **you have to provide the way to close it**.
 
@@ -77,7 +77,7 @@ A `manual` popover doesn't close on an outside click or Escape, and it doesn't c
 
 Try it: open both A and B and they stay open together. Clicking outside or pressing Escape does nothing; only the Close button inside each panel works.
 
-### hint: finally, a value for tooltips
+### `hint`: finally, a value for tooltips
 
 Before `hint`, building a tooltip with popover left you two not-great options:
 
@@ -91,12 +91,55 @@ Before `hint`, building a tooltip with popover left you two not-great options:
 <div id="tip-save" popover="hint" role="tooltip">You can also press Ctrl+S</div>
 ```
 
-Tooltips usually appear on hover or keyboard focus rather than on click, so the demo uses a tiny bit of JavaScript to call `showPopover()` on `pointerenter` and `focus`. Once Interest Invokers (the `interestfor` attribute) are widely available, that JavaScript can go too.
+Tooltips usually appear on hover or keyboard focus rather than on click. The demo originally used JavaScript to call `showPopover()` on `pointerenter` and `focus`; now that can be handed to `interestfor`, and the next section compares the two.
 
 ::popover-mode-demo{mode="hint"}
 ::
 
 Try it: hover a button or Tab to it and the tooltip appears. Move from Save to Export formats and the first tooltip closes on its own. You can also move the pointer onto the tooltip without it disappearing.
+
+### Going further: replacing the trigger JavaScript with `interestfor`
+
+First, something I mixed up myself at the start: `popover="hint"` and `interestfor` aren't alternatives. They work at different levels.
+
+| | `popover="hint"` | `interestfor` |
+|---|---|---|
+| Decides | What kind of popover it is: whether it light-dismisses, and what it closes when opened | How it's triggered: hover, keyboard focus, touch long-press |
+| Replaces | Managing "tooltips close each other but leave the menu alone" yourself | The hover/focus listeners and delayed closing you used to write |
+| Support | Chrome 133+ | Chrome 142+; not yet in Firefox or Safari |
+
+So they're designed to be used together: `interestfor` handles the trigger, `hint` handles the behavior.
+
+**With a JavaScript trigger**, you handle pointer enter and leave, focus and blur, plus the WCAG-driven "wait a moment after leaving the button, and cancel if the pointer moves onto the tooltip" logic. In the demo that came to about 60 lines:
+
+```js
+trigger.addEventListener("pointerenter", () => show(tip));
+trigger.addEventListener("pointerleave", () => hideSoon(tip));
+trigger.addEventListener("focus", () => show(tip));
+trigger.addEventListener("blur", () => hideSoon(tip));
+tip.addEventListener("pointerenter", () => cancelHide(tip));
+tip.addEventListener("pointerleave", () => hideSoon(tip));
+// ...plus delay timers and checking whether the pointer is still on the tooltip
+```
+
+**With `interestfor`**, it's one attribute:
+
+```html
+<button interestfor="tip-save" aria-describedby="tip-save">Save</button>
+<div id="tip-save" popover="hint" role="tooltip">You can also press Ctrl+S</div>
+```
+
+Hover, focus, touch long-press, the delays, staying open while the pointer is on the tooltip, and Escape to dismiss are all handled by the browser. You can tune the delays in CSS:
+
+```css
+button {
+  interest-delay: 0.3s 0.5s; /* start delay, end delay */
+}
+```
+
+Against the WCAG 1.4.13 table earlier, "hoverable," which you used to add yourself, is now built in. The semantics are unchanged, though: I'd still write `role="tooltip"` and `aria-describedby` explicitly.
+
+The hint demo above now works exactly like this: browsers with `interestfor` use it natively, and only browsers without it get the JavaScript fallback. Below the demo it shows which one your browser is using, so try it in both Chrome and Safari to see the difference.
 
 ### Lab: all three together
 
@@ -117,7 +160,7 @@ If the tooltips on the menu items were `auto`, step 3 would close the menu as so
 
 One small gotcha I only noticed while building this: with the menu open, pressing Show toast closes the menu first. That click lands outside the menu, so it triggers the `auto` light dismiss. It's exactly the right behavior, I just didn't see it coming, which is why the steps say to open the toast first.
 
-### One more trap: if you give a popover a display, hide it yourself
+### One more trap: if you give a popover a `display`, hide it yourself
 
 I hit this one for real while testing the demo: after closing the menu, I moved the mouse over where the menu used to be, and a tooltip popped up.
 
@@ -150,7 +193,7 @@ If you add a fade-out (a `transition` with `display` and `allow-discrete`), the 
 
 The one-line takeaway: **whenever you give a popover a `display`, add `:not(:popover-open) { display: none; }` too.**
 
-### Building tooltips with hint: you still own the accessibility
+### Building tooltips with `hint`: you still own the accessibility
 
 This is the part I think matters most: `popover` only handles showing and hiding. **It adds no semantics for you.**
 

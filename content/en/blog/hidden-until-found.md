@@ -63,7 +63,7 @@ Here's the mechanism:
 
 In other words, it only handles "expand when found." Expanding and collapsing with your own button is still up to you.
 
-### An FAQ demo: events, deep links and aria-expanded
+### An FAQ demo: events, deep links and `aria-expanded`
 
 Below is an FAQ built with `until-found`. Each answer is `hidden="until-found"` while collapsed, and the event log shows when `beforematch` fires:
 
@@ -86,7 +86,7 @@ panel.addEventListener("beforematch", () => {
 });
 ```
 
-### Trap 1: `el.hidden = !el.hidden` quietly turns it back into a plain hidden
+### Trap 1: `el.hidden = !el.hidden` quietly turns it back into a plain `hidden`
 
 I found this one while testing the demos. A common way to toggle visibility looks like this:
 

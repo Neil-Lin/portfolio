@@ -12,7 +12,7 @@ translationKey: popover-auto-manual-hint
 draft: false
 ---
 
-2026/10/09 更新：範例與程式碼改用 Invoker Commands（`command` / `commandfor`），原本的 `popovertarget` 寫法仍然有效。
+2026/10/09 更新：範例與程式碼改用 Invoker Commands（`command` / `commandfor`），原本的 `popovertarget` 寫法仍然有效；另外新增「用 interestfor 取代觸發的 JavaScript」一節。
 
 --
 
@@ -44,7 +44,7 @@ draft: false
 
 光看表格應該還是有點抽象，下面一個一個來玩。
 
-### auto：選單用的預設值
+### `auto`：選單用的預設值
 
 只寫 `popover` 不給值，就是 `auto`。同時只能開一個，點外面或按 Esc 就會關閉，很適合選單和下拉面板。
 
@@ -62,7 +62,7 @@ draft: false
 
 重點是，這整個過程一行 JavaScript 都不用寫。以前要做到「點外面關閉」，還要自己監聽 document 的點擊、判斷點的是不是選單內部，現在一個屬性就搞定了。
 
-### manual：完全由你決定
+### `manual`：完全由你決定
 
 `manual` 不會因為點外面或按 Esc 就關閉，也不會去關別人，所以可以同時開很多個。適合 toast 通知這種要一直留在畫面上的東西，但相對的，**關閉的方式要自己給**。
 
@@ -77,7 +77,7 @@ draft: false
 
 試試看：A、B 都打開，兩個會同時存在；點外面、按 Esc 都沒反應，只能按面板裡的「關閉」。
 
-### hint：終於有給 tooltip 用的值了
+### `hint`：終於有給 tooltip 用的值了
 
 在 `hint` 出現之前，tooltip 要用 popover 做，只有兩個不太理想的選擇：
 
@@ -91,12 +91,55 @@ draft: false
 <div id="tip-save" popover="hint" role="tooltip">也可以按 Ctrl+S 儲存</div>
 ```
 
-另外，tooltip 通常是滑鼠移過去或鍵盤聚焦時出現，而不是用點的，所以範例用了一點點 JavaScript，在 `pointerenter`、`focus` 的時候呼叫 `showPopover()`。之後如果 Interest Invokers（`interestfor` 屬性）普及了，這段 JavaScript 也可以拿掉。
+另外，tooltip 通常是滑鼠移過去或鍵盤聚焦時出現，而不是用點的。原本範例用了一段 JavaScript 在 `pointerenter`、`focus` 的時候呼叫 `showPopover()`，現在可以交給 `interestfor`，下一節會比較兩種寫法。
 
 ::popover-mode-demo{mode="hint"}
 ::
 
 試試看：滑鼠移到按鈕上，或用 Tab 聚焦，提示就會出現；從「儲存」移到「匯出格式」，前一個提示會自動關掉；滑鼠也可以移到提示上面，提示不會消失。
+
+### 再進一步：用 `interestfor` 取代觸發的 JavaScript
+
+先釐清一件我自己一開始也搞混的事：`popover="hint"` 和 `interestfor` 不是二選一，而是兩個不同層次。
+
+| | `popover="hint"` | `interestfor` |
+|---|---|---|
+| 決定的是 | 它是哪一種 popover：會不會點外面關閉、打開時會關掉誰 | 怎麼觸發它：滑鼠移入、鍵盤聚焦、觸控長按 |
+| 取代的是 | 以前要自己管「提示互相關閉、不打擾選單」 | 以前要自己寫的 hover、focus 監聽和延遲關閉 |
+| 支援度 | Chrome 133 起 | Chrome 142 起，Firefox 與 Safari 還沒有 |
+
+所以它們本來就是設計來一起用的：`interestfor` 負責觸發，`hint` 負責行為。
+
+**原本用 JavaScript 觸發**，光是觸發的部分就要處理移入、移出、聚焦、失焦，還有「離開按鈕後延遲一下、移到提示上就取消」這段 WCAG 要求的邏輯，範例裡大約寫了 60 行：
+
+```js
+trigger.addEventListener("pointerenter", () => show(tip));
+trigger.addEventListener("pointerleave", () => hideSoon(tip));
+trigger.addEventListener("focus", () => show(tip));
+trigger.addEventListener("blur", () => hideSoon(tip));
+tip.addEventListener("pointerenter", () => cancelHide(tip));
+tip.addEventListener("pointerleave", () => hideSoon(tip));
+// ……再加上延遲計時器、判斷滑鼠是不是還在提示上
+```
+
+**改用 `interestfor`**，就是一個屬性：
+
+```html
+<button interestfor="tip-save" aria-describedby="tip-save">儲存</button>
+<div id="tip-save" popover="hint" role="tooltip">也可以按 Ctrl+S 儲存</div>
+```
+
+移入、聚焦、觸控長按、延遲、移到提示上不消失、按 Esc 取消，全部由瀏覽器處理。延遲時間也可以用 CSS 調整：
+
+```css
+button {
+  interest-delay: 0.3s 0.5s; /* 進入延遲、離開延遲 */
+}
+```
+
+對照前面 WCAG 1.4.13 的表格，原本要自己補的「可移入」也內建了。不過語意還是一樣：`role="tooltip"` 和 `aria-describedby` 我還是建議自己寫清楚。
+
+上面的 hint 範例現在就是這樣做的：支援 `interestfor` 的瀏覽器走原生，不支援的才接上 JavaScript 後備。範例下方會顯示你的瀏覽器目前用的是哪一種，可以用 Chrome 和 Safari 分別打開看看差別。
 
 ### 綜合實驗：三種一起用
 
@@ -117,7 +160,7 @@ draft: false
 
 順帶一提，做這個範例的時候才發現一個小眉角：選單開著的時候去按「顯示 toast」，選單會先被關掉。因為那一下點擊落在選單外面，觸發了 `auto` 的 light dismiss。行為完全正確，只是一開始沒想到，所以步驟才會變成「先開 toast，再開選單」。
 
-### 再一個坑：幫 popover 寫了 display，要自己補回隱藏
+### 再一個坑：幫 popover 寫了 `display`，要自己補回隱藏
 
 這個坑是我在測範例時實際踩到的：選單關掉之後，滑鼠滑過選單原本的位置，tooltip 竟然跳出來了。
 
@@ -150,7 +193,7 @@ draft: false
 
 一句話記住：**只要幫 popover 寫了 `display`，就要記得補 `:not(:popover-open) { display: none; }`。**
 
-### 用 hint 做 tooltip，無障礙還是要自己補
+### 用 `hint` 做 tooltip，無障礙還是要自己補
 
 這裡是我覺得最需要注意的地方：`popover` 只負責「顯示和隱藏」，**不會自動幫你加任何語意**。
 

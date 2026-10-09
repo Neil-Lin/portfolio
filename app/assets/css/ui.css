@@ -38,6 +38,11 @@ body {
   color: oklch(var(--title-color));
 }
 
+/* 標題裡的程式碼（屬性、方法名稱）大小寫有意義，不跟著 capitalize */
+:is(h1, h2, h3, h4, h5, h6) code {
+  text-transform: none;
+}
+
 h1 {
   font-size: clamp(2.25rem, calc(100cqw / 30), 4rem);
   margin-bottom: 1.5rem;

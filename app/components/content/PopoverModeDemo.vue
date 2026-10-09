@@ -12,7 +12,7 @@
           :key="tip.id"
           type="button"
           class="popover-demo__trigger"
-          :data-tip="tip.id"
+          :interestfor="tip.id"
           :aria-describedby="tip.id"
           :style="`anchor-name: --${tip.btnId}`"
         >
@@ -34,6 +34,13 @@
         </button>
       </template>
     </div>
+
+    <p v-if="mode === 'hint' && tooltipMode" class="popover-demo__mode">
+      {{ text.modeLabel }}
+      <strong>{{
+        tooltipMode === "native" ? text.modeNative : text.modeScript
+      }}</strong>
+    </p>
 
     <p class="popover-demo__print">{{ text.print }}</p>
 
@@ -84,7 +91,7 @@ const props = defineProps<{ mode: "auto" | "manual" | "hint" }>();
 
 const { locale } = useI18n();
 const root = ref<HTMLElement | null>(null);
-usePopoverDemo(root);
+const { tooltipMode } = usePopoverDemo(root);
 
 const uid = usePopoverDemoId("pd");
 
@@ -93,6 +100,9 @@ const messages = {
     live: "互動範例",
     close: "關閉",
     print: "此處為互動範例，請在網頁上操作。",
+    modeLabel: "目前的觸發方式：",
+    modeNative: "原生 interestfor（沒有用到 JavaScript）",
+    modeScript: "JavaScript 後備（瀏覽器不支援 interestfor）",
     open: (name: string) => `開啟面板 ${name}`,
     content: {
       auto: (name: string) =>
@@ -109,6 +119,10 @@ const messages = {
     live: "live demo",
     close: "Close",
     print: "This is an interactive demo. Try it on the web page.",
+    modeLabel: "Current trigger: ",
+    modeNative: "native interestfor (no JavaScript involved)",
+    modeScript:
+      "JavaScript fallback (this browser doesn't support interestfor)",
     open: (name: string) => `Open panel ${name}`,
     content: {
       auto: (name: string) =>

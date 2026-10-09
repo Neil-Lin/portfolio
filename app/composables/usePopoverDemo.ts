@@ -40,6 +40,8 @@ export function usePopoverDemo(
   onToggle?: (pop: HTMLElement, open: boolean) => void,
 ) {
   const support = ref<PopoverSupport | null>(null);
+  // tooltip 的觸發方式：原生 interestfor，或不支援時的 JavaScript 後備
+  const tooltipMode = ref<"native" | "script" | null>(null);
   let controller: AbortController | null = null;
 
   // 不支援 Anchor Positioning 時，改用 JS 依 data-anchor 定位
@@ -88,8 +90,10 @@ export function usePopoverDemo(
       );
     };
 
-    el.querySelectorAll<HTMLElement>("[data-tip]").forEach((trigger) => {
-      const tip = document.getElementById(trigger.dataset.tip ?? "");
+    el.querySelectorAll<HTMLElement>("[interestfor]").forEach((trigger) => {
+      const tip = document.getElementById(
+        trigger.getAttribute("interestfor") ?? "",
+      );
       if (!tip) return;
       const opts = { signal };
 
@@ -189,12 +193,18 @@ export function usePopoverDemo(
       );
     });
 
-    wireTooltips(el, signal, support.value.hint);
+    // 支援 interestfor 時，移入、聚焦、長按、延遲與 Esc 全交給瀏覽器，不必再接 JS
+    if (support.value.interest) {
+      tooltipMode.value = "native";
+    } else {
+      tooltipMode.value = "script";
+      wireTooltips(el, signal, support.value.hint);
+    }
   });
 
   onBeforeUnmount(() => controller?.abort());
 
-  return { support };
+  return { support, tooltipMode };
 }
 
 // 錨點名稱與 id 都要是合法的 CSS dashed-ident / HTML id
