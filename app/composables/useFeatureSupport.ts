@@ -53,6 +53,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "ariaNotify()",
     detect: () => "ariaNotify" in Element.prototype,
   },
+  dsd: {
+    name: "Declarative Shadow DOM",
+    detect: () => "shadowRootMode" in HTMLTemplateElement.prototype,
+  },
   "details-name": {
     name: "<details name>",
     detect: () =>
