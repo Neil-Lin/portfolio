@@ -9,7 +9,7 @@ tags:
   - 無障礙
   - 瀏覽器支援
 translationKey: popover-auto-manual-hint
-draft: true
+draft: false
 ---
 
 > 話說在前頭：這篇是我自己練習 `popover="hint"` 的筆記，瀏覽器支援度變動很快，寫的當下正確不代表之後也正確，有講錯的地方歡迎指正。

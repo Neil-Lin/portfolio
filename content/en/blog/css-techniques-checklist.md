@@ -2,7 +2,7 @@
 title: "Modern CSS & HTML Cheat Sheet: 102 Features, Support & What to Try Next"
 description: "A scannable checklist of modern CSS and HTML features—grouped by layout, selectors, color, typography, animation and more, plus declarative HTML additions like `<geolocation>`, `focusgroup` and Invoker Commands—each with its purpose, an example, and browser support."
 date: 2026-07-06
-updatedAt: 2026-09-17
+updatedAt: 2026-10-09
 tags:
   - CSS
   - HTML
@@ -191,7 +191,7 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 | Invoker Commands (`command` / `commandfor`) | Control a popover/dialog with declarative HTML buttons, no scripting. Landed stable: `show-modal`, `close`, `request-close`, `toggle-popover`, `show-popover`, `hide-popover` (Baseline 2025; more coming — media controls, copy text, etc.) | `<button command="show-modal" commandfor="dlg">Open</button>` | 🟡 | ⬜ |
 | Interest Invokers | The same command mechanism, but triggered by "showing interest" (hover/focus) rather than a click — enough to build a native tooltip with no JS | `<button interestfor="tip">` | 🟠 | ⬜ |
 | `hidden="until-found"` | Content stays collapsed but is still reachable by in-page search, and expands automatically when matched. The right way to collapse long-form sections and FAQs without making their content unfindable | `<div hidden="until-found">` | 🟡 | ⬜ |
-| `popover="hint"` | A popover category meant for tooltips: it keeps light-dismiss, but only closes other hints instead of tearing down your main popover with it | `<div popover="hint">` | 🟡 | ⬜ |
+| `popover="hint"` | A popover category meant for tooltips: it keeps light-dismiss, but only closes other hints instead of tearing down your main popover with it | `<div popover="hint">` | 🟡 | ✅ |
 | `sizes="auto"` | Stop hand-computing `sizes` for responsive images and let the browser work it out; pairs with `srcset` and `loading="lazy"` (now in Chrome, Firefox and Safari 27) | `<img srcset="…" sizes="auto">` | 🟡 | ⬜ |
 | Declarative Shadow DOM | Build a shadow root with no JavaScript, so SSR output can carry it | `<template shadowrootmode="open">` | 🟢 | ⬜ |
 | `shadowrootreferencetarget` | Lets a `<label>` or `aria-*` outside the shadow root point at the real input inside it — the long-standing labelling problem for web components | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ⬜ |

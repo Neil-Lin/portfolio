@@ -9,7 +9,7 @@ tags:
   - Accessibility
   - Browser Support
 translationKey: popover-auto-manual-hint
-draft: true
+draft: false
 ---
 
 > Up front: these are my own notes from practicing `popover="hint"`. Browser support moves fast, so what's true as I write this may not stay true. If I've gotten something wrong, corrections welcome.
