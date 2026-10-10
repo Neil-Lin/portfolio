@@ -149,7 +149,7 @@ Some components don't just hide content when collapsed; they also add `inert` so
 
 The problem is that `inert` content is excluded from find-in-page; that's how the HTML spec defines it. So `hidden="until-found"` plus `inert` is just as unfindable with Ctrl+F, which defeats the purpose. In practice, neither search nor links could find the content.
 
-I also tested `#id` deep links in Chromium 141: the panel does expand, but `inert` isn't removed, so nothing inside can be focused and screen readers can't read it. You can see it, but you can't use it.
+I also tested `#id` deep links in Chromium 141 and 153: the panel does expand, but `inert` isn't removed, so nothing inside can be focused and screen readers can't read it. You can see it, but you can't use it.
 
 With `until-found` you don't need `inert` at all. In my tests, collapsed content is already out of the Tab order and out of the accessibility tree, which is everything `inert` was there to do:
 

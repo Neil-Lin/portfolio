@@ -163,7 +163,7 @@ One small gotcha I only noticed while building this: with the menu open, pressin
 
 #### A pitfall found later: one Escape, two layers closed
 
-After publishing this post, I retested step 5 in Chrome 154 and found the result depends on how the tooltip was opened:
+After publishing this post, I retested step 5 in Chrome 154 (Chromium 153 behaves the same) and found the result depends on how the tooltip was opened:
 
 | How the tooltip opened | First Escape |
 |---|---|
@@ -185,7 +185,7 @@ tip.addEventListener("toggle", (event) => {
 });
 ```
 
-This looks more like a Chrome implementation issue. I haven't tested other browsers yet, and I'll update this if anything changes.
+I confirmed it in Chromium 153: removing the `CloseWatcher` from the demo reproduces "two layers closed", and with it in place the first Escape closes only the tooltip while focus stays on the menu item. This looks more like a Chrome implementation issue. I haven't tested other browsers yet, and I'll update this if anything changes.
 
 ### One more trap: if you give a popover a `display`, hide it yourself
 

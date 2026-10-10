@@ -54,7 +54,7 @@ html {
 
 `text-autospace` is inherited, so putting it on `html` covers the whole site. To switch it off for a section, use `no-autospace`.
 
-The spec has finer-grained values too, such as `ideograph-alpha` (only between Chinese and letters) and `ideograph-numeric` (only between Chinese and numbers). In my tests, though, Chromium only accepts `normal` and `no-autospace`; everything else is treated as invalid. Safari 27 adds an `insert` value, which I couldn't test.
+The spec has finer-grained values too, such as `ideograph-alpha` (only between Chinese and letters) and `ideograph-numeric` (only between Chinese and numbers). In my tests, though, Chromium (both 141 and 153) only accepts `normal` and `no-autospace`; everything else is treated as invalid. Safari 27 adds an `insert` value, which I couldn't test.
 
 ### 3. Tested: how wide, and where?
 

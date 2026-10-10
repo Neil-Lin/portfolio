@@ -13,7 +13,7 @@ translationKey: css-carousel-a11y
 draft: false
 ---
 
-> Up front: everything here was tested in Chromium 141, and the accessibility tree was read from the browser's accessibility API. How a screen reader actually announces it is best checked by turning one on yourself. If I've gotten something wrong, corrections welcome.
+> Up front: everything here was tested in Chromium 141 (and retested in Chromium 153 with the same results), and the accessibility tree was read from the browser's accessibility API. How a screen reader actually announces it is best checked by turning one on yourself. If I've gotten something wrong, corrections welcome.
 
 ### Intro
 

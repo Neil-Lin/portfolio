@@ -188,7 +188,7 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
-| `focusgroup` | Declaratively gives composite widgets (toolbars, tab lists, menus) arrow-key navigation, a guaranteed tab stop, and last-focused memory — exactly the WAI-ARIA keyboard pattern you previously had to hand-roll with roving tabindex (new in Chrome 150) | `<div focusgroup>…</div>` | 🟠 | ⬜ |
+| `focusgroup` | Declaratively gives composite widgets (toolbars, tab lists, menus) arrow-key navigation, a guaranteed tab stop, and last-focused memory — exactly the WAI-ARIA keyboard pattern you previously had to hand-roll with roving tabindex (new in Chrome 150; it needs a behavior type, a bare `focusgroup` does nothing, see [my test post](/en/blog/focusgroup/)) | `<div focusgroup="toolbar">…</div>` | 🟠 | ✅ |
 | Invoker Commands (`command` / `commandfor`) | Control a popover/dialog with declarative HTML buttons, no scripting. Landed stable: `show-modal`, `close`, `request-close`, `toggle-popover`, `show-popover`, `hide-popover` (Baseline 2025; more coming — media controls, copy text, etc.) | `<button command="show-modal" commandfor="dlg">Open</button>` | 🟡 | ✅ |
 | Interest Invokers | The same command mechanism, but triggered by "showing interest" (hover/focus) rather than a click — enough to build a native tooltip with no JS | `<button interestfor="tip">` | 🟠 | ✅ |
 | `hidden="until-found"` | Content stays collapsed but is still reachable by in-page search, and expands automatically when matched. The right way to collapse long-form sections and FAQs without making their content unfindable | `<div hidden="until-found">` | 🟡 | ✅ |

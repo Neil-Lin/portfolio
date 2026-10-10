@@ -46,6 +46,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "overflow-anchor",
     detect: () => CSS.supports("overflow-anchor: none"),
   },
+  focusgroup: {
+    name: "focusgroup",
+    detect: () => "focusGroup" in HTMLElement.prototype,
+  },
   interestfor: {
     name: "interestfor",
     detect: () => "interestForElement" in HTMLButtonElement.prototype,

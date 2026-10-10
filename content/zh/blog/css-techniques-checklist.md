@@ -188,7 +188,7 @@ draft: false
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
-| `focusgroup` | 讓複合元件（工具列、頁籤列、選單等）用宣告式就具備方向鍵導覽、保證的 Tab 停留點，以及「記住上次焦點」的行為——這正是 WAI-ARIA 鍵盤模式要求的做法，過去得自己手刻 roving tabindex（Chrome 150 新增） | `<div focusgroup>…</div>` | 🟠 | ⬜ |
+| `focusgroup` | 讓複合元件（工具列、頁籤列、選單等）用宣告式就具備方向鍵導覽、保證的 Tab 停留點，以及「記住上次焦點」的行為——這正是 WAI-ARIA 鍵盤模式要求的做法，過去得自己手刻 roving tabindex（Chrome 150 新增；要寫行為類型，只寫 `focusgroup` 沒有效果，見[實測文章](/blog/focusgroup/)） | `<div focusgroup="toolbar">…</div>` | 🟠 | ✅ |
 | Invoker Commands（`command` / `commandfor`） | 用宣告式 HTML 按鈕控制 popover／dialog，免寫 JS。已 stable 的指令：`show-modal`、`close`、`request-close`、`toggle-popover`、`show-popover`、`hide-popover`（Baseline 2025，未來會擴充到媒體控制、複製文字等） | `<button command="show-modal" commandfor="dlg">開啟</button>` | 🟡 | ✅ |
 | Interest Invokers | 同一套 command 機制，但改用「hover／focus 表達興趣」觸發而非點擊——可以做出不寫 JS 的原生 tooltip | `<button interestfor="tip">` | 🟠 | ✅ |
 | `hidden="until-found"` | 內容摺疊起來，但仍能被瀏覽器的頁內搜尋命中，命中時自動展開。長文的摺疊段落、FAQ 用這個才不會讓內容變成搜不到 | `<div hidden="until-found">` | 🟡 | ✅ |

@@ -54,7 +54,7 @@ html {
 
 `text-autospace` 會繼承，所以寫在 `html` 上，整個網站就都套用了。要關掉某個區塊，就寫 `no-autospace`。
 
-規格裡其實還有更細的值，例如只處理中文和英文之間的 `ideograph-alpha`、只處理中文和數字之間的 `ideograph-numeric`。但我實測 Chromium 只接受 `normal` 和 `no-autospace` 這兩個值，其他寫法都會被當成無效。Safari 27 另外加入了 `insert` 這個值，我這邊沒辦法測。
+規格裡其實還有更細的值，例如只處理中文和英文之間的 `ideograph-alpha`、只處理中文和數字之間的 `ideograph-numeric`。但我實測 Chromium（141 和 153 都一樣）只接受 `normal` 和 `no-autospace` 這兩個值，其他寫法都會被當成無效。Safari 27 另外加入了 `insert` 這個值，我這邊沒辦法測。
 
 ### 三、實測：間距有多寬？會加在哪裡？
 
