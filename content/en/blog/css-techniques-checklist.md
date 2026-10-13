@@ -76,7 +76,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 |---|---|---|---|---|
 | New color functions (`oklch`-first) | `hwb/lab/lch/color()` for wider gamuts; I've settled on `oklch`, which supports the `oklch(from …)` relative syntax | `color: oklch(0.7 0.15 200 / 50%);` | 🟢 | ✅ |
 | `color-mix()` | Mix two or more colors (best done in `oklch` space) for hover variants and transparent overlays; mixing three or more is currently Firefox 150 and Safari 27 | `color-mix(in oklch, red 40%, blue);` | 🟢 | ✅ |
-| `contrast-color()` | Auto-pick a readable foreground color for a given background (compliance / readability; Baseline 2026) | `color: contrast-color(var(--bg));` | 🟡 | ⬜ |
+| `contrast-color()` | Automatically picks a readable foreground for a background (Baseline 2026). It only returns black or white; in my Chromium 153 tests it uses the WCAG 2 formula to pick the higher-contrast one, which mathematically is always at least 4.58:1, so AA is guaranteed but AAA isn't, and it can't pick brand colors | `color: contrast-color(var(--bg));` | 🟡 | ✅ |
 | `accent-color` | One line to re-theme checkbox/radio/range and other system controls | `accent-color: rebeccapurple;` | 🟢 | ✅ |
 | `light-dark()` | Give a property both a light and dark value at once; with `color-scheme` it skips the media query; it also accepts images (supported in all three major browsers) | `color: light-dark(#000, #fff);` | 🟢 | ✅ |
 | `font-palette` / `@font-palette-values` | Custom palettes for color (COLR) fonts | `@font-palette-values --p{...}` + `font-palette: --p;` | 🟡 | ✅ |

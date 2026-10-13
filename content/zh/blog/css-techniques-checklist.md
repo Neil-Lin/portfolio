@@ -76,7 +76,7 @@ draft: false
 |---|---|---|---|---|
 | 新色彩函式（`oklch` 為主） | `hwb/lab/lch/color()` 等更廣色域；我已選定 `oklch`，支援 `oklch(from …)` 相對語法 | `color: oklch(0.7 0.15 200 / 50%);` | 🟢 | ✅ |
 | `color-mix()` | 混合兩種以上的顏色（建議在 `oklch` 空間混），做 hover 變體、透明疊色；一次混三色以上目前是 Firefox 150、Safari 27 | `color-mix(in oklch, red 40%, blue);` | 🟢 | ✅ |
-| `contrast-color()` | 依背景自動產生可讀的前景色（合規／可讀性；Baseline 2026） | `color: contrast-color(var(--bg));` | 🟡 | ⬜ |
+| `contrast-color()` | 依背景自動產生可讀的前景色（Baseline 2026）。只會回傳黑或白；我在 Chromium 153 實測它用 WCAG 2 公式挑對比較高的那個，數學上一定至少 4.58:1，保證 AA 但不保證 AAA，也不能選品牌色 | `color: contrast-color(var(--bg));` | 🟡 | ✅ |
 | `accent-color` | 一行改掉 checkbox/radio/range 等系統元件主題色 | `accent-color: rebeccapurple;` | 🟢 | ✅ |
 | `light-dark()` | 同一屬性同時給亮／暗兩值，搭配 `color-scheme` 免寫 media query；也可以放圖片（三大瀏覽器皆支援） | `color: light-dark(#000, #fff);` | 🟢 | ✅ |
 | `font-palette` / `@font-palette-values` | 彩色字型（COLR）可自訂調色盤 | `@font-palette-values --p{...}` + `font-palette: --p;` | 🟡 | ✅ |
