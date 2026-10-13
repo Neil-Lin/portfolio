@@ -51,7 +51,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | Two-value display | Write outer × inner display separately: `display: block flex` etc.; `flex` = `block flex`, `inline-flex` = `inline flex`. Clarifies display's two layers; single-value shorthands still fine day-to-day | `display: inline flex;` | 🟡 | ✅ |
 | `stretch` sizing keyword | Make a box fill its container's available space (margins included), replacing vendor-specific values like `-webkit-fill-available` | `width: stretch;` | 🟡 | ⬜ |
 | Single-axis scroll containers | Scroll in one direction and `clip` in the other, so `position: sticky` can be constrained by different scroll containers per axis (e.g. a sticky table header and first column); Chrome 156 Beta | `overflow: scroll clip;` | 🟠 | ⬜ |
-| `safe` / `unsafe` overflow alignment | When centered content doesn't fit, `safe` falls back to start alignment so content isn't pushed somewhere you can't see or scroll to; Safari 27.2 Beta adds pairing with `normal` and fixed-position support | `align-items: safe center;` | 🟡 | ⬜ |
+| `safe` / `unsafe` overflow alignment | When centered content doesn't fit, `safe` falls back to start alignment so content isn't pushed somewhere you can't see or scroll to; Safari 27.2 Beta adds pairing with `normal` and fixed-position support (see [my post testing it with zoom and keyboard focus](/en/blog/css-safe-alignment/)) | `align-items: safe center;` | 🟡 | ✅ |
 
 ### B. Selectors
 
@@ -222,15 +222,15 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 
 ### What to try next (recommended)
 
-These are the ones I haven't checked off yet but are "stable 🟢 and high ROI," so they're worth doing first:
+Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: the first few are 🟢 / 🟡 and ready for production; the last two are still 🟠, but they're valuable for accessibility, so I'll do them once they ship in stable.
 
-1. `margin-inline` and the individual transform properties (`translate`/`rotate`/`scale`)—an instant upgrade to everyday code.
-2. `nth-of` syntax (`:nth-child(… of …)`)—a sharp tool for picking subsets.
-3. `font-variant-numeric: tabular-nums`—add it to any number that jitters.
-4. Gradient `in oklch`—one line to make every gradient cleaner.
-5. `forced-colors` and `prefers-contrast`—round out accessibility detection (I've already done reduced-motion / color-scheme).
-6. Trig functions and `round()`/`mod()`—handy for circular layouts or aligning to a rhythm.
-7. `@scope` and `scrollbar-gutter: stable`—style scoping and scrollbar-shift issues in large projects.
+1. The nested `<h1>` size fix—a change to browser default styles, and a good reason to check whether your heading levels rely on default font sizes.
+2. `sizes="auto"`—with `loading="lazy"`, responsive images no longer need a hand-calculated `sizes`.
+3. The `stretch` sizing keyword—replaces vendor-specific values like `-webkit-fill-available`.
+4. `alpha()` and `revert-rule`—two small Baseline 2026 tools that upgrade everyday code.
+5. `progress()`—styles that change smoothly with size.
+6. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
+7. `shadowrootreferencetarget`—lets a `<label>` or `aria-*` outside a web component point to the element inside it.
 
 > **Note:** Most items marked 🟠 / 🔴 only landed in Chrome in 2025–2026 or are still proposals, and support changes every quarter. Before shipping to production, treat [caniuse.com](https://caniuse.com "opens in new window"){target="_blank"} and MDN as the source of truth, and remember to add an `@supports` fallback for new features.
 

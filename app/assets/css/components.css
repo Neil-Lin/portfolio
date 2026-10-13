@@ -1323,7 +1323,9 @@ dialog {
   }
   .carousel-native::scroll-marker-group {
     display: flex;
+    /* 投影片多、畫面窄時，導覽點放不下也不會把前面幾個推到捲不到的地方 */
     justify-content: center;
+    justify-content: safe center;
     align-items: center;
     gap: 0.25rem;
     min-block-size: 2.75rem;
@@ -1643,4 +1645,91 @@ au-carousel:not(:defined) {
 }
 .attr-rating__value {
   font-weight: 700;
+}
+
+/*************************
+  Blog 互動範例：溢位對齊 safe / unsafe
+  元件在 app/components/content/SafeAlignDemo.vue。
+  align-items／justify-content 由元件的 inline style 切換，這裡只放版面。
+*************************/
+
+.safe-align-demo__screen {
+  display: flex;
+  gap: 0.5rem;
+  overflow: auto;
+  padding: 0;
+  border: 2px dashed oklch(var(--border-color));
+  border-radius: 0.5rem;
+  background-color: oklch(var(--wrapper-bg));
+  &.is-card {
+    justify-content: center;
+    block-size: 22rem;
+  }
+  /* 模擬手機寬度，桌機上也看得到放不下的情況 */
+  &.is-chips {
+    inline-size: min(100%, 20rem);
+    padding-block: 0.75rem;
+  }
+  &:focus-visible {
+    outline: 3px solid oklch(var(--outline-color));
+    outline-offset: 2px;
+  }
+}
+.safe-align-demo__card {
+  flex: none;
+  display: grid;
+  gap: 0.5em;
+  inline-size: 18em;
+  max-inline-size: calc(100% - 1rem);
+  margin-block: 0.5rem;
+  padding: 0.75em 1em;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 0.5rem;
+  background-color: oklch(var(--card-bg));
+  font-size: 1rem;
+  p {
+    margin: 0;
+    line-height: 1.5;
+  }
+  .dialog-demo__close {
+    justify-self: start;
+    font-size: inherit;
+  }
+}
+.safe-align-demo__title {
+  font-size: 1.25em;
+  font-weight: 700;
+}
+.safe-align-demo__back,
+.safe-align-demo__chip {
+  flex: none;
+  justify-self: start;
+  min-block-size: 2.75rem;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 2rem;
+  background-color: oklch(var(--card-bg));
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  &:focus-visible {
+    outline: 3px solid oklch(var(--outline-color));
+    outline-offset: 2px;
+  }
+}
+.safe-align-demo__chip:first-child {
+  margin-inline-start: 0.5rem;
+}
+.safe-align-demo__chip:last-child {
+  margin-inline-end: 0.5rem;
+}
+@media print {
+  .safe-align-demo .position-try-demo__options,
+  .safe-align-demo .position-try-demo__range {
+    display: none;
+  }
+}
+.safe-align-demo .attr-demo__readout {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
 }

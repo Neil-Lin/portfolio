@@ -50,6 +50,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "focusgroup",
     detect: () => "focusGroup" in HTMLElement.prototype,
   },
+  "safe-align": {
+    name: "safe center",
+    detect: () => CSS.supports("align-items: safe center"),
+  },
   "attr-typed": {
     name: "attr() type()",
     detect: () => CSS.supports("width: attr(data-x type(<length>))"),
