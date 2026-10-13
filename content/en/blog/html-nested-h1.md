@@ -84,7 +84,7 @@ I used Playwright to list the `<h1>` on all 52 pages of this site. Nesting wasn'
 
 But the result made me stop: **every page had the same `<h1>`, a visually hidden site name, "Neil's portfolio"**. Post titles and page names (such as "Projects") were all `<h2>`.
 
-I did that on purpose. In an older post, [my accessibility study notes](/blog/a11y-learning/) (in Chinese), I wrote that the site logo should be the `<h1>` and the page title an `<h2>`. That was a very common approach at the time.
+I did that on purpose. In an older post, [my accessibility study notes](/blog/a11y-learning/) (in Chinese), I wrote that the site logo should be the `<h1>` and the page title an `<h2>`. That was a very common approach at the time (I've since updated that post).
 
 But the more common advice today is: **the `<h1>` should describe this page's main content**. Here's why:
 
