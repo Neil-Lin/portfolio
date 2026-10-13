@@ -16,7 +16,7 @@ draft: false
 
 --
 
-### 1. A familiar, frustrating scene
+## 1. A familiar, frustrating scene
 
 > You open Google, type in your query, and ten blue links appear.  
 > You click the first one — it’s full of ads, so you close it.  
@@ -25,7 +25,7 @@ draft: false
 > Eventually, you wonder:  
 > Am I just being too picky?  
 
-### 2. The problem isn’t “too much information” — it’s that we can’t see usability
+## 2. The problem isn’t “too much information” — it’s that we can’t see usability
 
 Most modern search engines rank results based on SEO, page speed, and content density. But what actually makes a site usable is deeply practical — and often subjective:
 
@@ -37,7 +37,7 @@ Most modern search engines rank results based on SEO, page speed, and content de
 These aren’t things we can evaluate from a link preview.
 We only find out after clicking — by spending time, patience, and emotional energy.
 
-### 3. What I wanted to change: Make experience visible before you click
+## 3. What I wanted to change: Make experience visible before you click
 
 That’s when I started wondering:
 
@@ -54,7 +54,7 @@ I just want to make user experience visible, at a glance.
 
 That’s where the idea for [Accesserty Signal](https://accesserty.com/signal/ "Open new window"){target="_blank"} began.
 
-### What is Signal?
+## What is Signal?
 
 It’s not a rating — it’s a helper for decision-making
 
@@ -71,7 +71,7 @@ It’s not a judgment.
 It’s not a curated “good websites only” list.
 It’s just a small clue to help users choose where to click.
 
-### Why I refused to make it a rating system
+## Why I refused to make it a rating system
 
 Because I didn’t want this to become another “score game.”
 
@@ -86,7 +86,7 @@ I wanted to avoid all of that.
 The accessibility score in Accesserty Signal is just a neutral indicator.
 Real improvement still depends on whether the website wants to improve.
 
-### It’s just the beginning — but it adds a little transparency
+## It’s just the beginning — but it adds a little transparency
 
 I know Accesserty Signal won’t change the web overnight.
 But it does one small thing:

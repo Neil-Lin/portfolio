@@ -15,7 +15,7 @@ draft: false
 
 > Up front: I tested the behavior in this post in Chromium; the Vue/Nuxt parts were tested with Vue's SSR and this site's Nuxt setup. Other frameworks may behave differently. If I've gotten something wrong, corrections welcome.
 
-### Intro
+## Intro
 
 Work with web components for a while and you'll hit this: the component "flashes" on screen.
 
@@ -28,7 +28,7 @@ First, here's what your browser supports:
 ::feature-support{features="dsd" notice="Your browser doesn't support Declarative Shadow DOM, so the declarative versions in the demos below will appear unstyled."}
 ::
 
-### 1. The problem: what happens with JavaScript off?
+## 1. The problem: what happens with JavaScript off?
 
 Both iframes below start with **JavaScript disabled** (blocked with the `sandbox` attribute). The left uses the traditional approach, the right uses the declarative one, and the card's HTML content is identical:
 
@@ -39,7 +39,7 @@ The left side is just two unstyled bits of text run together, because the shadow
 
 This is the "flash" people see on a slow connection, and what they see when JavaScript fails to load.
 
-### 2. The syntax: write the shadow root in HTML
+## 2. The syntax: write the shadow root in HTML
 
 The traditional way creates the shadow root in the component's JavaScript:
 
@@ -83,7 +83,7 @@ The `<template>` also takes these attributes:
 
 Support starts at Chrome / Edge 111, Firefox 123 and Safari 16.4, and it's been Baseline since February 2024, so it's safe to use.
 
-### 3. The key step: components should take over, not rebuild
+## 3. The key step: components should take over, not rebuild
 
 This is where converting an existing web component to Declarative Shadow DOM most often goes wrong.
 
@@ -114,7 +114,7 @@ class MyCard extends HTMLElement {
 
 I use `attachInternals().shadowRoot` rather than `this.shadowRoot` because the former **also returns `closed` shadow roots**, which I confirmed in testing too.
 
-### 4. Dynamic insertion: innerHTML won't do it
+## 4. Dynamic insertion: innerHTML won't do it
 
 If content is inserted with JavaScript, note that `innerHTML` doesn't process Declarative Shadow DOM; `<template shadowrootmode>` just becomes an ordinary template:
 
@@ -126,7 +126,7 @@ If content is inserted with JavaScript, note that `innerHTML` doesn't process De
 
 I found the `setHTMLUnsafe()` limit while testing: if the string starts directly with `<template shadowrootmode>` in the hope of making `el` itself the host, it won't work. An element inside the string has to be the host, as in `<my-card><template shadowrootmode>…</template></my-card>`.
 
-### 5. Be careful in Vue/Nuxt
+## 5. Be careful in Vue/Nuxt
 
 I assumed I could just write `<template shadowrootmode>` in a Vue template. Testing turned up three problems:
 
@@ -156,7 +156,7 @@ I verified this approach with Vue's SSR: no hydration warnings, the component to
 
 One caution: editing the HTML string with a regular expression only suits simple tags. With more components, you may need proper HTML parsing, or a tool built for web component SSR such as Lit SSR.
 
-### 6. Trade-offs
+## 6. Trade-offs
 
 Declarative Shadow DOM isn't free:
 
@@ -166,7 +166,7 @@ Declarative Shadow DOM isn't free:
 
 So my recommendation: Declarative Shadow DOM is worth it for **components above the fold, with important content, or that should work without JavaScript**. Purely interactive components that aren't visible on first load can stay as they are.
 
-### Conclusion
+## Conclusion
 
 In a few lines:
 
@@ -180,13 +180,13 @@ Writing these posts, I keep finding that the old idea of "make the HTML work fir
 
 Do you use web components in your projects? I'd love to hear about it.
 
-### Related reading
+## Related reading
 
 - [Make Screen Readers Speak: Replacing aria-live with ariaNotify()](/en/blog/aria-notify/)
 - [How to Write a Dialog Today: From showModal() to command and closedby](/en/blog/dialog-modern-guide/)
 - [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
-### Related links
+## Related links
 
 - [web.dev — Declarative Shadow DOM](https://web.dev/articles/declarative-shadow-dom "Open new window"){target="_blank"}
 - [MDN — HTMLTemplateElement.shadowRootMode](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement/shadowRootMode "Open new window"){target="_blank"}

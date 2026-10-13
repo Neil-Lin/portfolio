@@ -16,13 +16,13 @@ category: frontend
 draft: false
 ---
 
-### Intro
+## Intro
 
 This is my running checklist of modern CSS features—something I scan to decide which techniques to experiment with next. It's grouped by purpose (layout, selectors, color, typography, animation, forms, responsive, performance, functions & math), and each entry lists what it's for, an example, and browser support, plus whether I've already tried it.
 
 The last section (K) is HTML rather than CSS. It lives in the same checklist because it's doing the same job: **turning things that used to need a pile of JavaScript into one declarative line**—and several entries are two halves of the same feature (`appearance: base-select` and `<selectedcontent>`, anchor positioning and popover, `reading-flow` and `focusgroup`), so splitting them apart would make the list harder to use, not easier.
 
-### Legend
+## Legend
 
 **Tried it**
 
@@ -36,7 +36,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 - 🟠 Experimental — only some browsers / behind a flag / just landed in Chrome
 - 🔴 Proposed — still at the proposal stage, not usable in browsers yet
 
-### A. Layout
+## A. Layout
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
@@ -53,7 +53,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | Single-axis scroll containers | Scroll in one direction and `clip` in the other, so `position: sticky` can be constrained by different scroll containers per axis (e.g. a sticky table header and first column); Chrome 156 Beta | `overflow: scroll clip;` | 🟠 | ⬜ |
 | `safe` / `unsafe` overflow alignment | When centered content doesn't fit, `safe` falls back to start alignment so content isn't pushed somewhere you can't see or scroll to; Safari 27.2 Beta adds pairing with `normal` and fixed-position support (see [my post testing it with zoom and keyboard focus](/en/blog/css-safe-alignment/)) | `align-items: safe center;` | 🟡 | ✅ |
 
-### B. Selectors
+## B. Selectors
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
@@ -70,7 +70,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | Media state pseudo-classes (`:playing` / `:paused` / `:muted`, etc.) | Style `<video>`/`<audio>` directly by playing, paused, muted or buffering state, so custom players no longer need JS to toggle classes (Safari first, added in Chrome 156 Beta, not in Firefox yet) | `video:paused + .play-btn{}` | 🟠 | ⬜ |
 | `image-animation` / `:animated-image` | Control whether animated images such as GIF and APNG play, and select animated images; animated GIFs have always been hard to square with WCAG 2.2.2 Pause, Stop, Hide, so this is high-value for accessibility (Chrome 156 Beta) | `img:animated-image { image-animation: paused; }` | 🟠 | ⬜ |
 
-### C. Color
+## C. Color
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
@@ -83,7 +83,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | Gradient interpolation color space | `linear-gradient(in oklch …)` makes gradient transitions smoother and less muddy | `background: linear-gradient(in oklch, #4ba3f7, #9d2398);` | 🟢 | ✅ |
 | `alpha()` | Relative color function that changes only the opacity of an existing color, without rewriting the whole color value (Baseline 2026: Chrome 151, Firefox 155, Safari 27) | `color: alpha(from var(--brand) / 50%);` | 🟡 | ⬜ |
 
-### D. Typography
+## D. Typography
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
@@ -105,7 +105,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `text-autospace` | Automatically adds proper spacing between CJK text and Latin letters or numbers, so you don't have to type the spaces by hand; Safari 27 adds the `insert` value | `text-autospace: normal;` | 🟡 | ✅ |
 | `font-width` | The new canonical name for `font-stretch`, selecting condensed or expanded faces; the old name stays as an alias (Baseline 2026) | `font-width: 75%;` | 🟡 | ⬜ |
 
-### E. Animation & Transition
+## E. Animation & Transition
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
@@ -115,7 +115,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `backface-visibility` | Whether the back face shows during a 3D flip (card-flip effect) | `backface-visibility: hidden;` | 🟢 | ✅ |
 | `prefers-reduced-motion` | Detect the reduced-motion preference, an accessibility must; pairs with `prefers-color-scheme` for light/dark | `@media (prefers-reduced-motion: reduce){}` | 🟢 | ✅ |
 
-### F. Forms & Components
+## F. Forms & Components
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
@@ -124,7 +124,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `<selectlist>` (formerly `<selectmenu>`) | A highly customizable dropdown component; renamed and folded into the "customizable select" track | `<selectlist>…</selectlist>` | 🟠 | ✅ |
 | `::backdrop` | Style the layer behind `dialog.showModal()` or fullscreen | `dialog::backdrop{}` | 🟢 | ✅ |
 
-### G. Responsive & Preferences
+## G. Responsive & Preferences
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
@@ -136,7 +136,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | Style Queries `@container style()` | Style by a container's custom-property value (e.g. theme); great for component variants | `@container style(--theme: dark){}` | 🟡 | ✅ |
 | Scroll-State Queries | Style by a container's scroll state (e.g. `stuck`, `snapped`); can detect whether a sticky element is stuck | `@container scroll-state(stuck: top){}` | 🟠 | ✅ |
 
-### H. Encapsulation & Performance
+## H. Encapsulation & Performance
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
@@ -150,7 +150,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `@supports` | Feature detection for progressive enhancement and fallbacks | `@supports (display: grid){}` | 🟢 | ✅ |
 | `at-rule()` | Test inside `@supports` whether an at-rule such as `@scope` or `@position-try` is supported, instead of guessing indirectly (Firefox 157+) | `@supports at-rule(@scope){}` | 🟠 | ⬜ |
 
-### I. Functions & Math
+## I. Functions & Math
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
@@ -164,7 +164,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `attr()` in any property | `attr()` used to work only in `content`; now it can read an HTML attribute with a type and use it as the value of any property, such as a width or color (Chrome first, added in Firefox 155; see [my post on reading ARIA attributes with it](/en/blog/css-attr/)) | `width: attr(data-w type(<length>));` | 🟠 | ✅ |
 | `symbols()` | Define list markers directly in CSS without a separate `@counter-style` (Chrome 155 Beta) | `list-style: symbols(cyclic "◆" "◇");` | 🟠 | ⬜ |
 
-### J. Misc
+## J. Misc
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
@@ -183,11 +183,11 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `@when` / `@else` | CSS if/else conditional blocks; still a proposal, unusable in any browser | `@when supports(...){} @else{}` | 🔴 | ✅ |
 | Scroll anchoring (`overflow-anchor`) | When content loads or is inserted above the viewport, the browser keeps your reading position steady instead of jumping; on by default, opt out per element with `none`. Those jumps are especially disorienting for people with cognitive or motor disabilities (with Safari 27, all three engines support it) | `overflow-anchor: none;` | 🟡 | ✅ |
 
-### K. HTML Elements & Attributes (Not CSS, but the Same "Declarative Instead of JS" Trend)
+## K. HTML Elements & Attributes (Not CSS, but the Same "Declarative Instead of JS" Trend)
 
 Strictly speaking this section isn't CSS, but it points the same way modern CSS does: **taking things that used to need a pile of JavaScript and making them declarative** — and most of them affect accessibility quality directly, so they belong in the same checklist.
 
-#### K-1. New HTML elements
+### K-1. New HTML elements
 
 | Element | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
@@ -196,7 +196,7 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 | `<install>` | An install button for PWAs whose label and appearance the browser controls (users who click "Install" aren't surprised by what happens next). Point `installurl` elsewhere to install apps from other origins — enough to build a catalogue page | `<install installurl="…" manifestid="…">` | 🟠 | ⬜ |
 | `<model>` | Embed an interactive 3D model (USDZ) as easily as an `<img>`; supply multiple formats via `<source>` and custom lighting via `environmentmap` | `<model src="a.usdz">` | 🟠 | ⬜ |
 
-#### K-2. New HTML attributes & behaviours
+### K-2. New HTML attributes & behaviours
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
@@ -209,10 +209,10 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 | Declarative Shadow DOM | Build a shadow root with no JavaScript, so SSR output can carry it | `<template shadowrootmode="open">` | 🟢 | ✅ |
 | `Element.setHTML()` | A safe `innerHTML`: inserts markup while stripping `<script>`, event attributes and other dangerous markup (Sanitizer API); the counterpart to the `setHTMLUnsafe()` mentioned in my Declarative Shadow DOM post. Firefox 157 now sanitizes while parsing; check caniuse for other browsers | `el.setHTML(userInput);` | 🟠 | ⬜ |
 | `shadowrootreferencetarget` | Lets a `<label>` or `aria-*` outside the shadow root point at the real input inside it — the long-standing labelling problem for web components | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ⬜ |
-| `<h1>` nested sizing fix | UA stylesheet change: an `<h1>` inside a `<section>` is no longer shrunk automatically, so heading hierarchy finally renders predictably | — | 🟢 | ⬜ |
+| `<h1>` nested sizing fix | UA stylesheet change: an `<h1>` inside a `<section>` is no longer shrunk automatically, so heading hierarchy finally renders predictably (see [my post testing it and fixing my site's headings](/en/blog/html-nested-h1/)) | — | 🟢 | ✅ |
 | `ariaNotify()` | Ask the screen reader to announce a message directly (e.g. "Added to cart"), replacing the old trick of hiding an `aria-live` region and stuffing text into it. It's a DOM API rather than an HTML attribute, but what it replaces is exactly that HTML-attribute pattern (Chrome 141 and Firefox 150 onward; sources disagree on Safari, so test it yourself) | `document.ariaNotify("Added to cart");` | 🟡 | ✅ |
 
-#### K-3. Proposal / prototype stage (just worth knowing about)
+### K-3. Proposal / prototype stage (just worth knowing about)
 
 | Feature | Main use | Support | Tried |
 |---|---|---|---|
@@ -220,21 +220,20 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 | `<persistentwidget>` | Embedded content that survives same-origin navigations (a player that doesn't stop, for instance) | 🔴 | ⬜ |
 | HTML-in-Canvas (`layoutsubtree`) | Render interactive HTML onto a canvas | 🔴 | ⬜ |
 
-### What to try next (recommended)
+## What to try next (recommended)
 
 Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: the first few are 🟢 / 🟡 and ready for production; the last two are still 🟠, but they're valuable for accessibility, so I'll do them once they ship in stable.
 
-1. The nested `<h1>` size fix—a change to browser default styles, and a good reason to check whether your heading levels rely on default font sizes.
-2. `sizes="auto"`—with `loading="lazy"`, responsive images no longer need a hand-calculated `sizes`.
-3. The `stretch` sizing keyword—replaces vendor-specific values like `-webkit-fill-available`.
-4. `alpha()` and `revert-rule`—two small Baseline 2026 tools that upgrade everyday code.
-5. `progress()`—styles that change smoothly with size.
-6. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
-7. `shadowrootreferencetarget`—lets a `<label>` or `aria-*` outside a web component point to the element inside it.
+1. `sizes="auto"`—with `loading="lazy"`, responsive images no longer need a hand-calculated `sizes`.
+2. The `stretch` sizing keyword—replaces vendor-specific values like `-webkit-fill-available`.
+3. `alpha()` and `revert-rule`—two small Baseline 2026 tools that upgrade everyday code.
+4. `progress()`—styles that change smoothly with size.
+5. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
+6. `shadowrootreferencetarget`—lets a `<label>` or `aria-*` outside a web component point to the element inside it.
 
 > **Note:** Most items marked 🟠 / 🔴 only landed in Chrome in 2025–2026 or are still proposals, and support changes every quarter. Before shipping to production, treat [caniuse.com](https://caniuse.com "opens in new window"){target="_blank"} and MDN as the source of truth, and remember to add an `@supports` fallback for new features.
 
-### References
+## References
 
 - [Can I use (browser support lookup)](https://caniuse.com "opens in new window"){target="_blank"}
 - [MDN Web Docs — CSS](https://developer.mozilla.org/en-US/docs/Web/CSS "opens in new window"){target="_blank"}

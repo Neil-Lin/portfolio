@@ -9,7 +9,7 @@
 
     <div class="until-found-faq__list">
       <div v-for="(item, i) in items" :key="i" class="until-found-faq__item">
-        <h4 class="until-found-faq__question">
+        <h3 class="until-found-faq__question">
           <button
             :id="`${uid}-q${i}`"
             type="button"
@@ -20,7 +20,7 @@
             <span>{{ item.q }}</span>
             <code aria-hidden="true">aria-expanded="{{ open[i] }}"</code>
           </button>
-        </h4>
+        </h3>
         <div
           :id="`${uid}-a${i}`"
           class="until-found-faq__answer"

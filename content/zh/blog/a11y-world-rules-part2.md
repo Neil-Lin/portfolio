@@ -15,7 +15,7 @@ category: accessibility
 draft: false
 ---
 
-### 前言
+## 前言
 
 上一篇[《全球網頁無障礙制度設計：各國法規、公私部門執行工具與驅動力比較》](https://accesserty.com/blog "另開新視窗"){target="_blank"} 結尾預告下一篇要直接切入標章比較。但實際動手收集香港、卡達的標章資料時，卻卡在一個更基本的問題上——這些標章到底是「誰」發的？
 
@@ -23,15 +23,15 @@ draft: false
 
 這種「政府看起來有參與、但實際核發者是民間機構」的模糊地帶，如果不先弄清楚各國制度的地基，很容易在標章比較文裡把兩種完全不同性質的東西混為一談。於是這篇文章決定先把法域版圖再擴大八個——香港、義大利、卡達、挪威、丹麥、波蘭、愛爾蘭、芬蘭——把制度地基補完到二十四個法域，順便帶出這次意外發現的「主辦／協辦／顧問」分辨方法，再接標章比較。以下資料同樣可能有誤，歡迎專家指正。
 
-### 一、延續同一套機制詞彙，但多一個提醒
+## 一、延續同一套機制詞彙，但多一個提醒
 
 沿用上一篇的六種制度工具：①強制認證制、②自我聲明＋政府監測制、③採購／供應鏈槓桿制、④市場監督＋罰鍰制、⑤反歧視訴訟驅動制、⑥軟法／努力義務制。
 
 這批新增的八個法域裡，五個（義大利、丹麥、波蘭、愛爾蘭、芬蘭）延續上一篇「群組 C：歐盟雙指令型」的公式——公部門走 WAD（②自我聲明＋監測）、民間走 EAA（④市場監督＋罰鍰，2025/6/28 正式適用）；一個（挪威）延續「群組 D：非歐盟自成一套」；剩下兩個（香港、卡達）則是全新的類型——沒有專法、標準來自政策或民間機構，標章的核發者也不是政府本身。這正是本文額外要提醒的一點：**「政府協辦」不等於「政府認證」**，判斷一枚標章的公信力，要先看清楚主辦、協辦、顧問三個角色分別是誰。
 
-### 二、各法域制度檢視（延續前文分組）
+## 二、各法域制度檢視（延續前文分組）
 
-#### 群組 C 延伸：歐盟雙指令型（續五國）
+### 群組 C 延伸：歐盟雙指令型（續五國）
 
 這五國結構與上一篇的德、法、西、葡、奧、比、荷完全一致：公部門源自 WAD、走②自我聲明＋監測；民間源自 EAA、走④市場監督＋罰鍰，2025/6/28 起適用。差異一樣在監測牙齒與罰鍰金額，這次額外看到 EAA 上路後第一波實際執法分工資訊。
 
@@ -45,11 +45,11 @@ draft: false
 
 - **芬蘭**：《數位服務提供法》306/2019（2019/4/1 生效，轉置 WAD）。標準依 Traficom 監督頁面採 EN 301 549＋WCAG 2.1。範圍除公部門外，也涵蓋接受 50% 以上公費資助的私部門數位服務，以及電子身分認證／支付、水電運輸郵政等特定私部門服務。EAA 轉置法正確編號是《部分產品無障礙要求法》102/2023，配套政令 179/2023，2023/2/20 生效、2025/6/28 起適用（網路上常見的「568/2023」是錯誤編號，這裡特別註明避免以訛傳訛）。主管機關現為 Traficom（芬蘭運輸通訊局）數位無障礙監督部門，但這個職權是 2025/1/1 才從南芬蘭區域行政局（AVI）整併移交過來的，上一篇沒抓到這段沿革。沒有官方標章制度；罰則也不是「不明確」，而是有明確的最後手段——行政指導無效後，Traficom 可依《條件罰款法》（Uhkasakkolaki）科處金額依個案而定的 uhkasakko（強制罰金），EAA 部分則另有禁止令、強制稽核等更嚴格裁罰權。
 
-#### 群組 D 延伸：非歐盟／EEA 自成一套（續一國）
+### 群組 D 延伸：非歐盟／EEA 自成一套（續一國）
 
 - **挪威**：以《平等與反歧視法》（2017 年 51 號法）搭配《ICT 通用設計規則》落實「universell utforming av IKT」概念，公部門適用 48 項要求、私部門適用 35 項要求，均為最低要求，且公私部門用同一套規則，不像歐盟那樣拆成 WAD／EAA 兩軌。主管機關 Tilsynet for universell utforming av ikt，隸屬 Digitaliseringsdirektoratet（Digdir）。沒有第三方檢測機構制度、也沒有官方標章，主管機關直接抽樣檢查（人工＋半自動＋自動）。罰則機制是 tvangsmulkt（按日計算的強制罰）——法源其實是母法本身的第 36 條，而非子法規則的 §6、§7；正確流程是先依子法第 18 條（通用設計義務）、第 19a 條（文件義務）發出矯正令（pålegg），逾期未改善才依母法第 36 條課予 tvangsmulkt，上一篇的條號需要修正。公部門網站聲明自 2023/2/1 起強制上 uustatus.no 這個 Digdir 中央化平台，App 聲明的強制期限則是 2026/2/1——以今天的時間點來看，剛剛才生效不久。挪威身為 EEA 成員，未來是否會走向 WAD／EAA 對齊的路線，值得後續追蹤。
 
-#### 群組 E（新）：政策引導＋民間標章型（無專法）
+### 群組 E（新）：政策引導＋民間標章型（無專法）
 
 這一組是本次真正的新發現——沒有一部像臺灣《身心障礙者權益保障法》第 52-2 條那樣「明文要求取得認證標章」的專法，網頁無障礙義務來自一般性反歧視法或政策文件；而市面上看得到的標章，核發者其實是民間或半官方機構，不是政府本身。
 
@@ -57,7 +57,7 @@ draft: false
 
 - **卡達**：原本以為卡達的母法狀態「未公開確認」，查證後發現這個描述已經過時——原本適用的 2004 年第 2 號身心障礙者權益法，已於 2025/10/5 由埃米爾簽署《2025 年第 22 號法律》廢止並取代，2025/11/19 生效，第 23(2) 條明文要求銀行與金融機構提供無障礙數位服務，違反可處 QAR 50,000 罰款，其他違反規定最高 QAR 100,000，情節嚴重致死者可達 QAR 500,000 及／或最高 5 年徒刑，執法機關是社會發展與家庭部（MSDF）——這是這批八國裡唯一一個 2025 年才新增法定罰則的案例，值得特別標記。至於發標章的 Mada Assistive Technology Center Qatar，明確是「private institution for public benefit」，不是政府機構，其網站無障礙認證分 Accredited Websites／Mobile Apps／Kiosks & ATMs 三類公開名單。標準這裡有兩條線需要拆開講：卡達政府自己的數位服務依 Government Website & e-Services Framework 要求用 WCAG 2.0；Mada 自己核發的認證則採 WCAG 2.1——原始資料只寫「以 WCAG 2.1 為主要標準線索」，其實少了政府政策標準這一條。
 
-### 三、公私 × 機制定位矩陣（新增八法域）
+## 三、公私 × 機制定位矩陣（新增八法域）
 
 延續上一篇的矩陣代碼：① 強制認證、② 自我聲明＋監測、③ 採購／供應鏈槓桿、④ 市場監督＋罰鍰、⑤ 反歧視訴訟、⑥ 軟法／努力義務。
 
@@ -72,17 +72,17 @@ draft: false
 | 愛爾蘭 | ② NDA 法定監測（無直接罰鍰） | ④⑤ EAA（六機關分工，最高18個月徒刑＋私人訴權） |
 | 芬蘭 | ② Traficom 監督（2025 起，前身 AVI） | ④ EAA（uhkasakko 連續罰金＋禁止令） |
 
-### 四、本次最大的認知落差：「主辦」不等於「認證」
+## 四、本次最大的認知落差：「主辦」不等於「認證」
 
 上一篇的觀察四提到「有沒有官方標章 ≠ 制度強不強」，這次收集香港與卡達的資料後，想再往下補一層：**一枚標章看起來有政府背書，不代表核發者是政府**。
 
 香港 DARS 的頁面上會看到 DPO 的名字，很容易誤以為是政府主辦的官方認證；但實際主辦方是 HKIRC，DPO 只是協辦、EOC 只是顧問。卡達 Mada 的認證同樣掛著看似官方的網域與品牌形象，但它的法律身分是「private institution for public benefit」。這跟臺灣《身心障礙者權益保障法》第 52-2 條「政府機關須依法取得認證標章」的強制認證，或韓國 MSIT 指定三家機構核發官方品質標章，是完全不同層級的公信力——不是說民間標章沒有價值，DARS、Mada 累積的評選機制和公開名單其實相當扎實，只是判斷標章效力時，第一步應該先分清楚「誰主辦、誰協辦、誰只是掛名顧問」，而不是看到政府單位的名字就直接當成法定認證。這也是下一篇要逐一拆解各國標章時，會優先確認的第一個欄位。
 
-### 五、EAA 上路後的第一波市場監督樣本
+## 五、EAA 上路後的第一波市場監督樣本
 
 2025/6/28 是 EAA 民間義務的正式適用日，這次收錄的義大利、波蘭、愛爾蘭、芬蘭剛好是上路後第一批能查到具體執法細節的法域，罰則落差同樣很大：波蘭最高看年營業額 10%、義大利逾 5 億歐元營收企業最高罰營業額 5%、愛爾蘭走的是刑事路線（最高 18 個月徒刑、公司負責人可個別入罪）、芬蘭則是不設金額上限的個案裁量式 uhkasakko。同一條 EAA 指令，四個國家轉出四種完全不同的「牙齒」，這點跟上一篇對德、法、西、荷、奧、比觀察到的落差一致——歐盟只統一了標準（EN 301 549 → WCAG 2.1 AA），沒有統一執法力度。
 
-### 六、綜合觀察與趨勢更新
+## 六、綜合觀察與趨勢更新
 
 把新增的八個法域疊上前一篇的十六個，可以再補三點：
 
@@ -90,13 +90,13 @@ draft: false
 - **主辦者的性質，決定了標章的證明力層級。** 政府強制認證（臺、韓、印）＞政府政策要求＋民間自願標章（香港、卡達）＞單純民間自願標章（德、西、荷等國的 WACA、AENOR 等）。三者外觀都可能長得像「官方認可」，但法律效力天差地別。
 - **EAA 2025/6/28 上路，第一批執法差異已經浮現。** 波蘭、義大利、愛爾蘭、芬蘭的罰則走了四種不同路線，說明「同一條歐盟指令」在二十七個成員國手上會長出至少四種以上的執法版本，這個落差可能會隨著更多國家的執法紀錄公開而繼續擴大。
 
-### 下一篇預告：把每一枚標章拆開看
+## 下一篇預告：把每一枚標章拆開看
 
 這篇把制度地圖擴大到二十四個法域，也順手練出了一套辨認標章可信度的方法——先看主辦、協辦、顧問是誰，再看標準版本，最後看有沒有公開可查的名單與效期。下一篇會正式回到當初的計畫：把 DARS、Mada、WACA、AnySurfer、AENOR、Ilunion、Access for all、Drempelvrij、Selo 這些標章逐一攤開，比對是強制關卡還是自願獎章、分幾級、有沒有有效期限、查不查得到完整名單、設計長什麼樣。
 
-### Reference 列表
+## Reference 列表
 
-#### 香港
+### 香港
 
 [Digital Policy Office established today（香港政府新聞公報）](https://www.info.gov.hk/gia/general/202407/25/P2024072400394.htm "另開新視窗"){target="_blank"}
 
@@ -108,7 +108,7 @@ draft: false
 
 [DARS 2024-2025 Guide to Application（PDF，評審級別標準）](https://www.digital-accessibility.hk/wp-content/uploads/2024/01/DARS_Application_Guide-1.pdf "另開新視窗"){target="_blank"}
 
-#### 卡達
+### 卡達
 
 [Mada Digital Accessibility Portal — Accredited Websites](https://ictaccess.mada.org.qa/en/accredited-websites/ "另開新視窗"){target="_blank"}
 
@@ -120,7 +120,7 @@ draft: false
 
 [Qatar National e-Accessibility Policy 2011（PDF，MCIT）](https://www.mcit.gov.qa/sites/default/files/qatar_eaccessibility_policy_en_v4.pdf "另開新視窗"){target="_blank"}
 
-#### 義大利
+### 義大利
 
 [D.Lgs. 82/2022（EAA 轉化）](https://www.gazzettaufficiale.it/eli/id/2022/07/01/22G00089/SG "另開新視窗"){target="_blank"}
 
@@ -136,7 +136,7 @@ draft: false
 
 [MIMIT — 產品安全與市場監督](https://www.mimit.gov.it/it/mercato-e-consumatori/sicurezza-prodotti "另開新視窗"){target="_blank"}
 
-#### 挪威
+### 挪威
 
 [Likestillings- og diskrimineringsloven（母法全文，含 §36）](https://lovdata.no/dokument/NL/lov/2017-06-16-51 "另開新視窗"){target="_blank"}
 
@@ -148,7 +148,7 @@ draft: false
 
 [uustatus.no — 無障礙聲明中央平台](https://uustatus.no/nb "另開新視窗"){target="_blank"}
 
-#### 丹麥
+### 丹麥
 
 [Digitaliseringsstyrelsen — 深入監測說明](https://digst.dk/tilsyn/webtilgaengelighed/monitorering-og-tilsyn/dybdegaaende-monitoreringer/ "另開新視窗"){target="_blank"}
 
@@ -160,7 +160,7 @@ draft: false
 
 [WAS-Tool 官方入口](https://edit.was.digst.dk/da-DK "另開新視窗"){target="_blank"}
 
-#### 波蘭
+### 波蘭
 
 [Ustawa z dnia 4 kwietnia 2019 r.（ISAP 原文）](https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20190000848 "另開新視窗"){target="_blank"}
 
@@ -170,7 +170,7 @@ draft: false
 
 [波蘭數位化部 — 數位無障礙說明](https://www.gov.pl/web/cyfryzacja/dostepnosc-cyfrowa "另開新視窗"){target="_blank"}
 
-#### 愛爾蘭
+### 愛爾蘭
 
 [S.I. No. 358/2020 原文](https://www.irishstatutebook.ie/eli/2020/si/358/made/en/print "另開新視窗"){target="_blank"}
 
@@ -180,7 +180,7 @@ draft: false
 
 [DLA Piper — 愛爾蘭無障礙法規罰則細節](https://www.dlapiper.com/en-us/insights/publications/2025/10/navigating-the-irish-accessibility-regulations "另開新視窗"){target="_blank"}
 
-#### 芬蘭
+### 芬蘭
 
 [Traficom — 監督機關任務說明（含 uhkasakko）](https://www.saavutettavuusvaatimukset.fi/en/tasks-supervisory-authority-0 "另開新視窗"){target="_blank"}
 

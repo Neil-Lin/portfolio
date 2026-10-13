@@ -15,7 +15,7 @@
         class="carousel-demo__slide"
         :data-title="slide.title"
       >
-        <h4>{{ slide.title }}</h4>
+        <h3>{{ slide.title }}</h3>
         <p>{{ slide.body }}</p>
         <button
           type="button"

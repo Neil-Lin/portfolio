@@ -15,7 +15,7 @@ draft: false
 
 > 話說在前頭：文中的行為我都在 Chromium 上實測過，Vue／Nuxt 的部分是用 Vue 的 SSR 和這個網站的 Nuxt 實測的，其他框架的狀況可能不同，有講錯的地方歡迎指正。
 
-### 前言
+## 前言
 
 做 Web Component 一陣子之後，一定會遇到這個問題：元件在畫面上會「閃一下」。
 
@@ -28,7 +28,7 @@ draft: false
 ::feature-support{features="dsd" notice="你的瀏覽器不支援宣告式 Shadow DOM，下方範例的宣告式寫法會顯示成沒有樣式的狀態。"}
 ::
 
-### 一、先看問題：關掉 JavaScript 會怎樣？
+## 一、先看問題：關掉 JavaScript 會怎樣？
 
 下面兩個 iframe 一開始都**不允許執行 JavaScript**（用 `sandbox` 屬性擋掉）。左邊是傳統寫法，右邊是宣告式寫法，卡片的 HTML 內容一模一樣：
 
@@ -39,7 +39,7 @@ draft: false
 
 這就是一般使用者在網路慢的時候看到的「閃一下」，也是 JavaScript 載入失敗時會看到的畫面。
 
-### 二、寫法：把 shadow root 寫在 HTML 裡
+## 二、寫法：把 shadow root 寫在 HTML 裡
 
 傳統寫法是在元件的 JavaScript 裡建立 shadow root：
 
@@ -83,7 +83,7 @@ class MyCard extends HTMLElement {
 
 支援度方面，Chrome / Edge 111、Firefox 123、Safari 16.4 起支援，2024 年 2 月起成為 Baseline，可以放心使用。
 
-### 三、最重要的一步：元件要「接手」，不要重建
+## 三、最重要的一步：元件要「接手」，不要重建
 
 把現有的 Web Component 改成支援宣告式 Shadow DOM 時，最容易踩的坑在這裡。
 
@@ -114,7 +114,7 @@ class MyCard extends HTMLElement {
 
 這裡用 `attachInternals().shadowRoot` 而不是 `this.shadowRoot`，是因為前者**連 `closed` 模式的 shadow root 都拿得到**，我也實測確認過。
 
-### 四、動態插入：innerHTML 不行
+## 四、動態插入：innerHTML 不行
 
 如果內容是用 JavaScript 插進頁面的，要注意 `innerHTML` 不會處理宣告式 Shadow DOM，`<template shadowrootmode>` 只會變成一個普通的 template：
 
@@ -126,7 +126,7 @@ class MyCard extends HTMLElement {
 
 `setHTMLUnsafe()` 那個限制是我實測時發現的：如果字串最外層直接就是 `<template shadowrootmode>`，想讓 `el` 自己變成 host，是不會成功的；要像 `<my-card><template shadowrootmode>…</template></my-card>` 這樣，讓字串裡的元素當 host 才行。
 
-### 五、在 Vue／Nuxt 裡用要小心
+## 五、在 Vue／Nuxt 裡用要小心
 
 我原本以為在 Vue 的模板裡直接寫 `<template shadowrootmode>` 就好，實測之後發現三個問題：
 
@@ -156,7 +156,7 @@ export default defineNitroPlugin((nitroApp) => {
 
 要注意的是，這裡用正規表示式改 HTML 字串，只適合標籤很單純的情況；元件多了，可能會需要更完整的 HTML 解析，或是改用 Lit SSR 這類專門處理 Web Component SSR 的工具。
 
-### 六、取捨
+## 六、取捨
 
 宣告式 Shadow DOM 不是沒有代價：
 
@@ -166,7 +166,7 @@ export default defineNitroPlugin((nitroApp) => {
 
 所以我的建議是：**會出現在首屏、內容重要、或需要在沒有 JavaScript 時也能用的元件**，值得用宣告式 Shadow DOM；純互動、首屏看不到的元件，維持原本的寫法就好。
 
-### 結論
+## 結論
 
 整理成幾句話：
 
@@ -180,13 +180,13 @@ export default defineNitroPlugin((nitroApp) => {
 
 你的專案裡有在用 Web Component 嗎？歡迎一起討論！
 
-### 延伸閱讀
+## 延伸閱讀
 
 - [讓報讀軟體開口說話：用 ariaNotify() 取代 aria-live](/blog/aria-notify/)
 - [現在的 dialog 要怎麼寫？從 showModal() 到 command、closedby 一次整理](/blog/dialog-modern-guide/)
 - [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
-### 相關連結
+## 相關連結
 
 - [web.dev — 宣告式 Shadow DOM](https://web.dev/articles/declarative-shadow-dom?hl=zh-tw "另開新視窗"){target="_blank"}
 - [MDN — HTMLTemplateElement.shadowRootMode](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement/shadowRootMode "另開新視窗"){target="_blank"}

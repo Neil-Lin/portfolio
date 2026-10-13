@@ -1,10 +1,10 @@
 <template>
   <main class="page page--index">
     <div class="page-container">
-      <h2 class="visually-hidden">{{ pageTitle }}</h2>
+      <h1 class="visually-hidden">{{ $t("website.name") }}</h1>
       <div class="card animation-fade-out intro">
         <AkContainer />
-        <h3>{{ t("words.intro") }}</h3>
+        <h2>{{ t("words.intro") }}</h2>
         <i18n-t keypath="page.about.p1" tag="p" scope="global"><br /></i18n-t>
         <i18n-t keypath="page.about.p2" tag="p" scope="global">
           <template #link>
@@ -19,7 +19,7 @@
         </i18n-t>
       </div>
       <div class="card animation-fade-out programming">
-        <h3>{{ t("words.programming") }}</h3>
+        <h2>{{ t("words.programming") }}</h2>
         <ul>
           <li>HTML5</li>
           <li>CSS/SCSS</li>
@@ -29,7 +29,7 @@
         </ul>
       </div>
       <div class="card animation-fade-out promote">
-        <h3>{{ t("words.promote") }}</h3>
+        <h2>{{ t("words.promote") }}</h2>
         <ul>
           <li>
             <nuxt-link
@@ -48,7 +48,7 @@
         </ul>
       </div>
       <div class="card animation-fade-out tools">
-        <h3>{{ t("words.tools") }}</h3>
+        <h2>{{ t("words.tools") }}</h2>
         <ul>
           <li>Figma</li>
           <li>VScode</li>
@@ -57,7 +57,7 @@
         </ul>
       </div>
       <div class="card animation-fade-out experience">
-        <h3>{{ t("words.experience") }}</h3>
+        <h2>{{ t("words.experience") }}</h2>
         <ul>
           <li v-for="(item, index) in experienceList" :key="index">
             <div>
@@ -76,7 +76,7 @@
         class="card animation-fade-out news"
         aria-labelledby="latest-heading"
       >
-        <h3 id="latest-heading">{{ t("words.latestPosts") }}</h3>
+        <h2 id="latest-heading">{{ t("words.latestPosts") }}</h2>
         <ul class="news-list">
           <li v-for="post in latestPosts" :key="post.slug">
             <nuxt-link

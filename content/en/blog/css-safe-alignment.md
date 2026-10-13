@@ -14,7 +14,7 @@ draft: false
 
 > Up front: I tested the behavior in this post in Chromium 141 and 153, with the same results in both. Details may differ in other browsers, so check caniuse before shipping. If I've gotten something wrong, corrections welcome.
 
-### Intro
+## Intro
 
 Centering is probably one of the things we do most in CSS:
 
@@ -38,7 +38,7 @@ First, here's what your browser supports:
 ::feature-support{features="safe-align" notice="Your browser doesn't support the safe keyword, so choosing safe center in the demos below has no effect."}
 ::
 
-### 1. What the problem looks like
+## 1. What the problem looks like
 
 The dashed box below is a fixed-height screen with a centered sign-in card. The demo starts at 200% zoom:
 
@@ -52,7 +52,7 @@ Try this:
 3. Switch to `safe center`: the card now starts at the top, and everything can be scrolled to.
 4. Set the zoom back to 100%: when it fits, `center` and `safe center` look exactly the same, both centered.
 
-### 2. Why can't you scroll to it?
+## 2. Why can't you scroll to it?
 
 A scroll container only scrolls toward the "end": down and right. Content that overflows on the "start" side (top, left) falls outside the scrollable area.
 
@@ -63,7 +63,7 @@ My test: a 200px-wide scroll container holding a 300px-wide element, with `justi
 
 In other words, those 50px on the left were never part of the scrollable area. Even with the scrollbar all the way to the left, you can't see them.
 
-### 3. The fix: put safe in front of center
+## 3. The fix: put safe in front of center
 
 ```css
 .page {
@@ -93,7 +93,7 @@ Browsers that don't support `safe` treat the whole declaration as invalid. To be
 }
 ```
 
-### 4. The impact on keyboard users
+## 4. The impact on keyboard users
 
 To look at what step 2 of the demo shows, I also tested a full page: a 320×256 viewport (a 1280×1024 screen zoomed to 400%), with `body` using flex to center a sign-in form taller than the screen.
 
@@ -102,7 +102,7 @@ To look at what step 2 of the demo shows, I also tested a full page: a 320×256 
 
 For keyboard users, focus effectively disappears: they can't tell where they are, which fails WCAG 2.4.7 Focus Visible. For people who zoom in, the form's title and instructions simply vanish, and they have no way of knowing there's anything above.
 
-### 5. Same thing horizontally: a scrolling tag list
+## 5. Same thing horizontally: a scrolling tag list
 
 The horizontal case is common too: a row of tags that scrolls left and right, centered on wide screens with `justify-content: center`:
 
@@ -113,7 +113,7 @@ In my test, a 300px-wide container with 8 tags: with `center`, the first tag sit
 
 With `safe center`, it's still centered on wide screens where it fits, and on narrow screens it starts from the first tag and scrolls right normally.
 
-### 6. Tests: which methods break, and which are safe by default?
+## 6. Tests: which methods break, and which are safe by default?
 
 With just `center`, the result depends on the layout. I gave the container a fixed size and put an element bigger than it inside. Here's what I found:
 
@@ -137,7 +137,7 @@ The key points:
 - **`margin: auto` is already safe**: auto margins never go below 0, so when content doesn't fit it only overflows toward the end. If you need to support very old browsers, centering a flex item with `margin: auto` gives you the same result as `safe center`.
 - **The `translate(-50%)` trick is unsafe**: the old absolute-positioning centering technique gets cut off too when it doesn't fit.
 
-### 7. When should you add safe?
+## 7. When should you add safe?
 
 Not every `center` needs it. Content only overflows when **the container has a fixed size**:
 
@@ -149,7 +149,7 @@ If the container grows with its content or wraps with `flex-wrap: wrap`, it gets
 
 My recommendation: **whenever you center inside a fixed-size container, write `safe center`**. When it fits, the result is identical, so there's nothing to lose.
 
-### 8. Checking this site
+## 8. Checking this site
 
 I used Playwright to run 52 pages of this site through a 320×256 viewport (400% zoom), looking for any element centered with flex or grid whose content overflows on the start side.
 
@@ -160,7 +160,7 @@ I also looked at two places specifically:
 - **The loading screen**: full-screen, fixed height, centered both ways, the classic setup that breaks. But it only holds a 6rem spinner, which fits even at 400%, so I left it alone.
 - **The carousel dots**: in [my carousel post](/en/blog/css-carousel-a11y/), the `::scroll-marker-group` uses `justify-content: center` without wrapping. With 4 slides it fits, but that CSS is there for readers to borrow, and with more slides on a narrow screen the first few dots would become unreachable. So I added `safe center`.
 
-### Conclusion
+## Conclusion
 
 In a few lines:
 
@@ -174,13 +174,13 @@ One extra word stops a whole block of content from disappearing when people zoom
 
 Do your projects have a full-screen centered sign-in page or dialog? Zoom to 400% and take a look. There might be a piece missing at the top.
 
-### Related reading
+## Related reading
 
 - [Tooltip Getting Cut Off? Let the Browser Find a Spot with @position-try](/en/blog/position-try/)
 - [Page Jumps While You Read? A Look at Scroll Anchoring and overflow-anchor](/en/blog/scroll-anchoring/)
 - [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
-### Related links
+## Related links
 
 - [MDN — safe and unsafe in align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items#safe "Open new window"){target="_blank"}
 - [CSS Box Alignment Module Level 3 — Overflow Alignment](https://drafts.csswg.org/css-align-3/#overflow-values "Open new window"){target="_blank"}

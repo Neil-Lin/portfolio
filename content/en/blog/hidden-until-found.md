@@ -15,7 +15,7 @@ draft: false
 
 > Up front: these are my notes from practicing `hidden="until-found"`. My tests were run in Chromium, and support in other browsers changes quickly. If I've gotten something wrong, corrections welcome.
 
-### Intro
+## Intro
 
 In my [modern CSS & HTML cheat sheet](/en/blog/css-techniques-checklist), `hidden="until-found"` was another box I hadn't ticked. I mentioned it in my last post on [popover's auto, manual and hint](/en/blog/popover-auto-manual-hint), saying it "falls back more safely," so this time I wanted to check that properly.
 
@@ -28,7 +28,7 @@ Here's what your browser supports; the demos below rely on it:
 ::feature-support{features="until-found" notice="Your browser doesn't support until-found, so the until-found blocks in the demos fall back to a plain hidden. Not finding them by search is expected."}
 ::
 
-### Try it first: four ways to collapse content. Which can search find?
+## Try it first: four ways to collapse content. Which can search find?
 
 As before, let's play first. The four blocks below are collapsed four different ways, and each is labeled with a keyword to search for (each keyword only appears inside its own block). Press Ctrl+F and try them one by one:
 
@@ -46,7 +46,7 @@ What you should see:
 
 If you see something different, it's probably a browser support difference, and I'd love to hear about it.
 
-### How does it work?
+## How does it work?
 
 The markup is simple. Change the value of `hidden` to `until-found`:
 
@@ -64,7 +64,7 @@ Here's the mechanism:
 
 In other words, it only handles "expand when found." Expanding and collapsing with your own button is still up to you.
 
-### An FAQ demo: events, deep links and `aria-expanded`
+## An FAQ demo: events, deep links and `aria-expanded`
 
 Below is an FAQ built with `until-found`. Each answer is `hidden="until-found"` while collapsed, and the event log shows when `beforematch` fires:
 
@@ -87,7 +87,7 @@ panel.addEventListener("beforematch", () => {
 });
 ```
 
-### Trap 1: `el.hidden = !el.hidden` quietly turns it back into a plain `hidden`
+## Trap 1: `el.hidden = !el.hidden` quietly turns it back into a plain `hidden`
 
 I found this one while testing the demos. A common way to toggle visibility looks like this:
 
@@ -118,7 +118,7 @@ button.addEventListener("click", () => {
 });
 ```
 
-### Trap 2: a `[hidden]` rule in your CSS reset breaks it
+## Trap 2: a `[hidden]` rule in your CSS reset breaks it
 
 Plenty of CSS resets and projects include this line to make sure `hidden` always hides:
 
@@ -143,7 +143,7 @@ Two smaller details:
 - **The box is still there while collapsed**: `content-visibility: hidden` only skips painting the contents. The element's own padding, border and background remain. If your panel has padding, remove it while collapsed, or you'll get an empty strip.
 - **Mind the Shadow DOM in web components**: `beforematch` bubbles, but it doesn't cross out of a shadow root, so attach the listener to an element inside it.
 
-### Trap 3: adding `inert` while collapsed makes it unfindable
+## Trap 3: adding `inert` while collapsed makes it unfindable
 
 Some components don't just hide content when collapsed; they also add `inert` so keyboards and screen readers can't reach it. The accordion and tree in my own UI Kit work that way, and that's exactly where adopting `until-found` got stuck.
 
@@ -163,7 +163,7 @@ With `until-found` you don't need `inert` at all. In my tests, collapsed content
 
 If an existing component collapses with `inert`, remove `inert` from both the collapse and expand paths when you switch it to `until-found`.
 
-### What happens without support?
+## What happens without support?
 
 This time the fallback is safe. A browser that doesn't recognize `until-found` treats it as a plain `hidden`: the content stays hidden and simply can't be found by search, and nothing breaks. Compared with `popover="hint"`, which degrades to `manual` and can't even be dismissed, you can use this one confidently as a progressive enhancement.
 
@@ -175,7 +175,7 @@ const supportsUntilFound = "onbeforematch" in HTMLElement.prototype;
 
 Chromium-based browsers have supported `until-found` for a long time; Firefox and Safari are changing faster, so check [caniuse](https://caniuse.com "Open new window"){target="_blank"} before shipping.
 
-### What about `<details>`?
+## What about `<details>`?
 
 For a simple show/hide, native `<details>` also expands automatically when in-page search matches inside it (in Chromium-based browsers), and you don't have to build the button or state yourself.
 
@@ -184,7 +184,7 @@ Here's how I choose:
 - **A simple "show more"**: reach for `<details>` first; it's the least work.
 - **An accordion that needs a heading hierarchy and custom structure** (for example a heading wrapping a button that controls a panel via `aria-controls`), or an existing component that can't easily become `<details>`: use `hidden="until-found"`.
 
-### Conclusion
+## Conclusion
 
 In a few lines:
 
@@ -198,12 +198,12 @@ What this attribute fixes is the frustration of knowing something is on the page
 
 One more box ticked on my list. How much collapsed content does your site have? I'd love to hear about it.
 
-### Related reading
+## Related reading
 
 - [Popover auto, manual and hint: What's Actually the Difference? I Built Demos to Find Out](/en/blog/popover-auto-manual-hint/)
 - [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
-### Related links
+## Related links
 
 - [MDN — hidden global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden "Open new window"){target="_blank"}
 - [MDN — beforematch event](https://developer.mozilla.org/en-US/docs/Web/API/Element/beforematch_event "Open new window"){target="_blank"}

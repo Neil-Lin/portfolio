@@ -15,7 +15,7 @@ draft: false
 
 > Up front: what `ariaNotify()` produces is sound, not anything you can see. I tested the API's behavior in Chromium, but how (and whether) a screen reader speaks depends on the browser and screen reader combination, so the most reliable check is turning on a screen reader and listening yourself. If I've gotten something wrong, corrections welcome.
 
-### Intro
+## Intro
 
 This post started with my own site.
 
@@ -28,7 +28,7 @@ First, here's what your browser supports:
 ::feature-support{features="aria-notify" notice="Your browser doesn't support ariaNotify(), so the demo below falls back to aria-live automatically."}
 ::
 
-### 1. The old way: aria-live and its traps
+## 1. The old way: aria-live and its traps
 
 To have a screen reader announce status messages like "Saved" or "8 results found," this used to be the only option:
 
@@ -50,7 +50,7 @@ Everyone uses it, and it's famously unreliable:
 | Modals block it | With a modal open, the background is inert, so a live region there goes silent |
 | Too large a region is noisy | My site's case: wrap the whole list, and every update reads the lot |
 
-### 2. How to use ariaNotify()
+## 2. How to use ariaNotify()
 
 `ariaNotify()` asks the screen reader to speak a message directly, with no element on the page:
 
@@ -77,7 +77,7 @@ form.ariaNotify("Payment failed, please check your card number", { priority: "hi
 
 In my Chromium tests, `priority` accepts only these two values; anything else throws an error rather than failing silently.
 
-### 3. Try it
+## 3. Try it
 
 The demo has four scenarios: adding to cart repeatedly, a high-priority error, an English announcement sent from inside a `lang="en"` block, and an announcement from inside a modal. You can also check "Force the aria-live fallback" to compare the two approaches:
 
@@ -86,7 +86,7 @@ The demo has four scenarios: adding to cart repeatedly, a high-priority error, a
 
 If you can see the screen, the log below lists what was sent each time and whether it went through `ariaNotify` or a live region. The real effect still needs a screen reader; on a Mac, ⌘+F5 turns on VoiceOver.
 
-### 4. Element vs. document: it's about language
+## 4. Element vs. document: it's about language
 
 This is the point I think is easiest to miss, and it matters a lot on bilingual sites:
 
@@ -97,7 +97,7 @@ My site is bilingual. If an English announcement comes from an English block on 
 
 So my habit is to **prefer the element version** and send the announcement from the button or block that triggered it, so the language follows the content.
 
-### 5. Without support: a fallback
+## 5. Without support: a fallback
 
 `ariaNotify()` is supported from Chrome 141 and Firefox 150; the sources I found disagree about Safari, so test it yourself. Browsers without it still need a live region fallback. This is the code my site and the demo actually use:
 
@@ -140,7 +140,7 @@ This fallback handles each trap from section 1:
 - **Modals block it**: when a `<dialog>` is open, the region goes inside it.
 - **Visually hidden**: use visually-hidden rather than `hidden`, so screen readers can read it.
 
-### 6. What I changed on my site
+## 6. What I changed on my site
 
 Back to the products page. Before, the whole list was a live region:
 
@@ -163,7 +163,7 @@ The message depends on the count: "No matching items" when nothing matches, and 
 
 The "Edit note" demo in my [dialog post](/en/blog/dialog-modern-guide) uses the same `announce()`: once the dialog closes, nothing on screen says "saved," so it announces "Note saved."
 
-### 7. Things to watch out for
+## 7. Things to watch out for
 
 - **Don't flood people**: `ariaNotify()` can speak without any user interaction, which makes it easy to abuse. Use it only when people genuinely need to know and nothing else on screen tells them.
 - **`high` doesn't always jump the queue**: an NVDA issue reports that in Chrome 149 and Firefox 155, `high` didn't move ahead, and the spec doesn't mandate the order. Don't rely on `high` to convey sequence.
@@ -171,7 +171,7 @@ The "Edit note" demo in my [dialog post](/en/blog/dialog-modern-guide) uses the 
 - **It can be blocked inside iframes**: `Permissions-Policy` can disallow `aria-notify`, and blocked calls fail silently.
 - **Browser support doesn't guarantee screen reader support**: always test with VoiceOver or NVDA.
 
-### Conclusion
+## Conclusion
 
 In a few lines:
 
@@ -185,13 +185,13 @@ After all these years in accessibility, `aria-live` has always felt like the mos
 
 Where does your site use `aria-live`? I'd love to hear about it.
 
-### Related reading
+## Related reading
 
 - [How to Write a Dialog Today: From showModal() to command and closedby](/en/blog/dialog-modern-guide/)
 - [Why Can't Ctrl+F Find Collapsed Content? A Look at hidden="until-found"](/en/blog/hidden-until-found/)
 - [Popover auto, manual and hint: What's Actually the Difference? I Built Demos to Find Out](/en/blog/popover-auto-manual-hint/)
 
-### Related links
+## Related links
 
 - [MDN — Element.ariaNotify()](https://developer.mozilla.org/en-US/docs/Web/API/Element/ariaNotify "Open new window"){target="_blank"}
 - [MDN — Document.ariaNotify()](https://developer.mozilla.org/en-US/docs/Web/API/Document/ariaNotify "Open new window"){target="_blank"}

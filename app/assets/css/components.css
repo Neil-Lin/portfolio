@@ -931,7 +931,8 @@ dialog {
   }
   &.is-modal {
     background-color: oklch(var(--pd-c));
-    color: oklch(var(--color-white));
+    /* 深色模式的主色是淺紫色，白字對比不夠；用卡片底色，淺色模式是白、深色模式是深色 */
+    color: oklch(var(--card-bg));
   }
 }
 .dialog-demo__close.is-danger {
@@ -959,7 +960,7 @@ dialog {
   background-color: oklch(var(--card-bg));
   color: oklch(var(--wrapper-color));
   box-shadow: var(--box-shadow);
-  h4 {
+  h3 {
     margin: 0 0 0.75rem;
     font-size: 1.125rem;
     text-transform: none;
@@ -1272,7 +1273,7 @@ dialog {
   border: 1px solid oklch(var(--border-color));
   border-radius: 0.75rem;
   background-color: oklch(var(--wrapper-bg));
-  h4 {
+  h3 {
     margin: 0;
   }
   button {
@@ -1732,4 +1733,85 @@ au-carousel:not(:defined) {
 }
 .safe-align-demo .attr-demo__readout {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+}
+
+/*************************
+  Blog 互動範例：巢狀 h1 的預設字級
+  元件在 app/components/content/NestedH1Demo.vue。
+  範例區塊用 16px 當基準，h1 先還原成瀏覽器現在的預設值（2em），舊的那欄再疊上以前的 UA 樣式。
+*************************/
+
+.nested-h1-demo__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 0.75rem;
+}
+.nested-h1-demo__col {
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 0.5rem;
+  figcaption {
+    margin: 0;
+    max-width: none;
+    text-align: start;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: inherit;
+  }
+}
+.nested-h1-demo .nested-h1-demo__sample {
+  font-size: 16px;
+  line-height: 1.2;
+  :is(section, article, aside) {
+    padding: 0 0.5rem 0.25rem;
+    border: 1px dashed oklch(var(--border-color));
+    border-radius: 0.25rem;
+  }
+  h1 {
+    /* 蓋掉全站與文章裡的 h1 樣式，回到瀏覽器現在的預設值 */
+    font-size: 2em;
+    margin-block: 0.67em;
+    text-box: normal;
+    text-transform: none;
+  }
+}
+/* 以前瀏覽器內建的樣式：每多一層 section／article／aside／nav 就縮小一級 */
+.nested-h1-demo .is-old .nested-h1-demo__sample {
+  :is(article, aside, nav, section) h1 {
+    font-size: 1.5em;
+    margin-block: 0.83em;
+  }
+  :is(article, aside, nav, section) :is(article, aside, nav, section) h1 {
+    font-size: 1.17em;
+    margin-block: 1em;
+  }
+  :is(article, aside, nav, section) :is(article, aside, nav, section) :is(article, aside, nav, section) h1 {
+    font-size: 1em;
+    margin-block: 1.33em;
+  }
+}
+.nested-h1-demo__tag {
+  display: block;
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+.nested-h1-demo__table {
+  overflow-x: auto;
+  table {
+    width: 100%;
+  }
+  caption {
+    text-align: start;
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+}
+@media print {
+  .nested-h1-demo > label {
+    display: none;
+  }
 }

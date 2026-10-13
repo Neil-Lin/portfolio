@@ -10,9 +10,9 @@
         :class="`is-${item.key}`"
         :aria-labelledby="`${uid}-${item.key}-title`"
       >
-        <h4 :id="`${uid}-${item.key}-title`" class="until-found-compare__title">
+        <h3 :id="`${uid}-${item.key}-title`" class="until-found-compare__title">
           {{ item.title }}
-        </h4>
+        </h3>
         <code class="until-found-compare__code">{{ item.code }}</code>
         <!-- 關鍵字用 ::after 顯示：偽元素內容搜尋不到，才不會跟面板裡的字搶第一個符合結果；
              報讀軟體仍會唸出 CSS 產生的內容 -->

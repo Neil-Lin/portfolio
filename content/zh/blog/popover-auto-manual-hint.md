@@ -19,7 +19,7 @@ draft: false
 
 > 話說在前頭：這篇是我自己練習 `popover="hint"` 的筆記，瀏覽器支援度變動很快，寫的當下正確不代表之後也正確，有講錯的地方歡迎指正。
 
-### 前言
+## 前言
 
 在我的[現代 CSS 與 HTML 技巧整理清單](/blog/css-techniques-checklist)裡，`popover="hint"` 一直是那一格還沒打勾的。
 
@@ -30,7 +30,7 @@ draft: false
 ::popover-support
 ::
 
-### 三種值的差別
+## 三種值的差別
 
 `popover` 屬性其實只決定兩件事：
 
@@ -45,7 +45,7 @@ draft: false
 
 光看表格應該還是有點抽象，下面一個一個來玩。
 
-### `auto`：選單用的預設值
+## `auto`：選單用的預設值
 
 只寫 `popover` 不給值，就是 `auto`。同時只能開一個，點外面或按 Esc 就會關閉，很適合選單和下拉面板。
 
@@ -63,7 +63,7 @@ draft: false
 
 重點是，這整個過程一行 JavaScript 都不用寫。以前要做到「點外面關閉」，還要自己監聽 document 的點擊、判斷點的是不是選單內部，現在一個屬性就搞定了。
 
-### `manual`：完全由你決定
+## `manual`：完全由你決定
 
 `manual` 不會因為點外面或按 Esc 就關閉，也不會去關別人，所以可以同時開很多個。適合 toast 通知這種要一直留在畫面上的東西，但相對的，**關閉的方式要自己給**。
 
@@ -78,7 +78,7 @@ draft: false
 
 試試看：A、B 都打開，兩個會同時存在；點外面、按 Esc 都沒反應，只能按面板裡的「關閉」。
 
-### `hint`：終於有給 tooltip 用的值了
+## `hint`：終於有給 tooltip 用的值了
 
 在 `hint` 出現之前，tooltip 要用 popover 做，只有兩個不太理想的選擇：
 
@@ -99,7 +99,7 @@ draft: false
 
 試試看：滑鼠移到按鈕上，或用 Tab 聚焦，提示就會出現；從「儲存」移到「匯出格式」，前一個提示會自動關掉；滑鼠也可以移到提示上面，提示不會消失。
 
-### 再進一步：用 `interestfor` 取代觸發的 JavaScript
+## 再進一步：用 `interestfor` 取代觸發的 JavaScript
 
 先釐清一件我自己一開始也搞混的事：`popover="hint"` 和 `interestfor` 不是二選一，而是兩個不同層次。
 
@@ -142,7 +142,7 @@ button {
 
 上面的 hint 範例現在就是這樣做的：支援 `interestfor` 的瀏覽器走原生，不支援的才接上 JavaScript 後備。範例下方會顯示你的瀏覽器目前用的是哪一種，可以用 Chrome 和 Safari 分別打開看看差別。
 
-### 綜合實驗：三種一起用
+## 綜合實驗：三種一起用
 
 單獨看都還好理解，放在一起才看得出 `hint` 存在的意義。這個實驗有一個 `auto` 選單，每個項目都掛一個 `hint` 提示，再加一個 `manual` 的 toast 通知。下方的事件紀錄會即時列出每個 popover 的開關，誰把誰關掉一目瞭然。
 
@@ -161,7 +161,7 @@ button {
 
 順帶一提，做這個範例的時候才發現一個小眉角：選單開著的時候去按「顯示 toast」，選單會先被關掉。因為那一下點擊落在選單外面，觸發了 `auto` 的 light dismiss。行為完全正確，只是一開始沒想到，所以步驟才會變成「先開 toast，再開選單」。
 
-#### 後來發現的坑：Esc 一次關兩層
+### 後來發現的坑：Esc 一次關兩層
 
 這篇寫完之後，我在 Chrome 154 又測了一次第 5 步（Chromium 153 也一樣），發現結果跟提示是怎麼打開的有關：
 
@@ -187,7 +187,7 @@ tip.addEventListener("toggle", (event) => {
 
 我在 Chromium 153 確認過：範例拿掉 `CloseWatcher` 時會重現「一次關兩層」，加上之後第一次 Esc 只關提示，焦點留在選單項目上。這比較像是 Chrome 的實作問題，其他瀏覽器我還沒測，之後有變化會再更新。
 
-### 再一個坑：幫 popover 寫了 `display`，要自己補回隱藏
+## 再一個坑：幫 popover 寫了 `display`，要自己補回隱藏
 
 這個坑是我在測範例時實際踩到的：選單關掉之後，滑鼠滑過選單原本的位置，tooltip 竟然跳出來了。
 
@@ -220,7 +220,7 @@ tip.addEventListener("toggle", (event) => {
 
 一句話記住：**只要幫 popover 寫了 `display`，就要記得補 `:not(:popover-open) { display: none; }`。**
 
-### 用 `hint` 做 tooltip，無障礙還是要自己補
+## 用 `hint` 做 tooltip，無障礙還是要自己補
 
 這裡是我覺得最需要注意的地方：`popover` 只負責「顯示和隱藏」，**不會自動幫你加任何語意**。
 
@@ -237,7 +237,7 @@ WCAG 1.4.13「滑鼠移入或聚焦時出現的內容」有三項要求，`hint`
 - **語意要自己加**：提示加上 `role="tooltip"`，按鈕用 `aria-describedby` 指向它，報讀軟體才會把提示當成描述唸出來。
 - **提示裡面不要放可以互動的東西**：有連結或按鈕的內容就不算 tooltip 了，應該改用 `auto` 做成可以點開的小面板。
 
-### 不支援的時候會怎樣？
+## 不支援的時候會怎樣？
 
 這點跟之前研究的 [`hidden="until-found"`](/blog/hidden-until-found/) 不一樣，要特別小心。
 
@@ -253,7 +253,7 @@ const supportsHint = probe.popover === "hint";
 
 不支援的時候，可以退回用 `auto`，或像本文的範例一樣自己補上 Esc 關閉。`hint` 是從 Chrome 133 開始支援，其他瀏覽器的狀況變動很快，上線前還是以 [caniuse](https://caniuse.com "另開新視窗"){target="_blank"} 和 MDN 為準。
 
-### 結論
+## 結論
 
 整理成一句話：
 
@@ -265,13 +265,13 @@ const supportsHint = probe.popover === "hint";
 
 這樣清單裡又可以多打一個勾了。你在專案裡是怎麼做 tooltip 的呢？歡迎一起討論！
 
-### 延伸閱讀
+## 延伸閱讀
 
 - [收合的內容，為什麼按 Ctrl+F 找不到？聊聊 hidden="until-found"](/blog/hidden-until-found/)
 - [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 - [無障礙網頁設計學習與簡易要點](/blog/a11y-learning/)
 
-### 相關連結
+## 相關連結
 
 - [MDN — popover 全域屬性](https://developer.mozilla.org/zh-TW/docs/Web/HTML/Global_attributes/popover "另開新視窗"){target="_blank"}
 - [W3C — WCAG 2.2 理解 1.4.13 滑鼠移入或聚焦時出現的內容](https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus "另開新視窗"){target="_blank"}

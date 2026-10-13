@@ -9,15 +9,15 @@ category: frontend
 draft: false
 ---
 
-### 前言
+## 前言
 
 中英文全名: Search Engine Optimisation，搜尋引擎最佳化。是一種透過了解搜尋引擎的運作規則來調整網站， 提高在搜尋引擎內排名。搜尋引擎演算法時常在變，2020 google 切換為 Mobile First
 
-### 提高排名的好處
+## 提高排名的好處
 
 經過許多專業的 SEO 研究機構調查後發現， 當使用者利用搜尋引擎尋找資料、產品或服務時， 大部分人通常只會點擊搜尋結果當中，最前面出現的幾個連結。通常 4 ~ 6 個月才能看出明顯效益。
 
-### 近三年台灣主要搜尋引擎(Desktop)：Google, Yahoo, Bing
+## 近三年台灣主要搜尋引擎(Desktop)：Google, Yahoo, Bing
 
 ::figure
   ![搜尋引擎三年數據比較](/images/blog/8.webp)
@@ -26,9 +26,9 @@ draft: false
   ::
 ::
 
-### 技術層面
+## 技術層面
 
-#### HTML
+### HTML
 
 ```html
 <meta charset="UTF-8">
@@ -133,7 +133,7 @@ media="screen and (min-device-width:481px) and (max-device-width:1024px) and (or
 <html lang="en">
 ```
 
-#### Vue
+### Vue
 
 因為目前專案大部分都使用 Vue ，但 Vue 要做每頁都不一樣的 meta 資訊比較麻煩，所以直接使用 Nuxt。
 全域: 整個網站，寫在全域設定檔 nuxt.config.js
@@ -147,7 +147,7 @@ export default {
 }
 ```
 
-#### 網頁載入速度
+### 網頁載入速度
 
 - 基本先依據 Google PageSpeed Insights改善。至少半秒載完畫面。
 - 提供 next-gen 格式的圖片  
@@ -166,7 +166,7 @@ JPEG 2000、JPEG XR 和 WebP 等圖片格式的壓縮效果通常優於 PNG 或 
 - 降低要求數量並減少傳輸大小
 - 手機版跟桌機版
 
-#### 網站安全性
+### 網站安全性
 
 - Https (申請 SSL)，Chrome79將逐步封鎖網頁中未SSL加密之內容
 - 如果使用者輸入http，也要轉到 Https
@@ -176,20 +176,20 @@ JPEG 2000、JPEG XR 和 WebP 等圖片格式的壓縮效果通常優於 PNG 或 
 - 軟體更新
 - 其他，sesstion 存活時間、不連外網、blahblah…
 
-#### 提交索引
+### 提交索引
 
 - Google 在 2018/7/25 星期三宣布停止公開提交網址索引的服務。
 - Bing 於 2018/9/18 公告停止公開提交網址索引服務
 - [Google Search Console](https://search.google.com/search-console/about "另開新視窗"){target=_blank}
 - [Bing網站管理工具](https://www.bing.com/toolbox/webmaster "另開新視窗"){target=_blank}
 
-#### 域名
+### 域名
 
 域名最好可以包含關鍵字或相關。
 使用者不管有沒有打 www ，也要可以連線。
 域名最好是符合性質。例如台灣使用.tw，開發使用.dev
 
-#### Robot.txt
+### Robot.txt
 
 - 允許所有搜尋引擎檢索所有內容(通常建議使用)  
  User-agent: *  
@@ -215,7 +215,7 @@ JPEG 2000、JPEG XR 和 WebP 等圖片格式的壓縮效果通常優於 PNG 或 
 - Robot.txt檔案只能放在網站的根目錄底下  
 - 有些東西要擋掉比較好  
 
-#### 其他
+### 其他
 
 - XML
 - 可使用工具產生：XML-Sitemaps  
@@ -233,7 +233,7 @@ JPEG 2000、JPEG XR 和 WebP 等圖片格式的壓縮效果通常優於 PNG 或 
   ::
 ::
 
-#### UX
+### UX
 
 - 每頁至少要顯示關鍵字一次。
 - 避免無意義的用關鍵字填滿內容，可使用同義詞 確保內容是高品質的。
@@ -262,7 +262,7 @@ JPEG 2000、JPEG XR 和 WebP 等圖片格式的壓縮效果通常優於 PNG 或 
 - 301 Redirects Are POWERFUL & WHITE HAT
 - 注意使用者在你的網站上的發言內容
 
-#### 工具整理
+### 工具整理
 
 - [Google Search Console](https://search.google.com/search-console/about "另開新視窗"){target="_blank"}
 - [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=zh-TW "另開新視窗"){target="_blank"}
@@ -275,7 +275,7 @@ JPEG 2000、JPEG XR 和 WebP 等圖片格式的壓縮效果通常優於 PNG 或 
 - [XML-Sitemaps](https://www.xml-sitemaps.com/ "另開新視窗"){target="_blank"}
 - [SEO Reporter](https://seositecheckup.com/ "另開新視窗"){target="_blank"}
 
-#### 參考
+### 參考
 
 - [搜尋引擎最佳化](https://zh.wikipedia.org/wiki/%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E%E6%9C%80%E4%BD%B3%E5%8C%96#%E5%BD%93%E4%BB%A3%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E "另開新視窗"){target="_blank"}
 - [Google SEO Tutorial for Beginners | How To SEO A Website Step By Step (2020)](https://www.hobo-web.co.uk/seo-tutorial/?fbclid=IwAR0QKuD_RBGD-DdRr2vbj3brSjJ9H_50hqtLKE98_C4BfRvufcW0F0IvnJI#an-introduction-to-seo "另開新視窗"){target="_blank"}

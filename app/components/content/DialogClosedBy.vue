@@ -25,9 +25,9 @@
       @cancel="add('cancel', `${item.value}: ${text.cancel}`)"
       @close="add('close', `${item.value}: ${text.closed}`)"
     >
-      <h4 :id="`${uid}-${item.value}-title`">
+      <h3 :id="`${uid}-${item.value}-title`">
         <code>closedby="{{ item.value }}"</code>
-      </h4>
+      </h3>
       <p>{{ item.body }}</p>
       <button
         type="button"

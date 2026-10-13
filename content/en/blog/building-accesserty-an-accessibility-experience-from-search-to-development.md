@@ -13,7 +13,7 @@ draft: false
 
 Today, I’d like to share the story behind Accesserty, a small product ecosystem I built in about a month, aimed at improving the accessible web experience. From the moment users search to the moment developers build, I wanted to offer a calm, practical set of tools to make accessibility visible, understandable, and actionable.
 
-### Origin: Curiosity about Chrome Extensions
+## Origin: Curiosity about Chrome Extensions
 
 Back in 2023, I created my first Chrome extension — Report Website Issues — simply out of curiosity.
 
@@ -21,9 +21,9 @@ Now in 2025, with the rise of large language models (LLMs), I began thinking abo
 
 I experimented with assigning LLMs different “roles” — product manager, frontend dev, accessibility analyst — and used them to speed up system design and implementation.
 
-### Identifying the Problems
+## Identifying the Problems
 
-#### 1. After searching, users still don’t know which link to click
+### 1. After searching, users still don’t know which link to click
 
 Search engines consider SEO, performance, and content, but that doesn’t mean the top results are easy to use — especially for people who rely on keyboard navigation or screen readers.
 
@@ -34,7 +34,7 @@ What if I could see how accessible a site is — right from the search result li
 
 It would save time, reduce frustration, and help everyone make more informed choices.
 
-#### 2. Users often have no way to report issues
+### 2. Users often have no way to report issues
 
 Even if a user encounters a serious accessibility problem, it’s often unclear how to report it — or if it will even be taken seriously.
 
@@ -65,7 +65,7 @@ The earlier you address accessibility, the lower the cost.
 From planning to design to engineering, everyone needs to be aligned early.
 This diagram sums it up well:
 
-### Solutions: Simulate, Detect, Report
+## Solutions: Simulate, Detect, Report
 
 Based on these observations, I created a journey map to visualize the pain points across users, developers, and site owners.  
   
@@ -78,7 +78,7 @@ Remediation — Identify and fix real-world issues through feedback
 
 The goal: a sustainable feedback loop where everyone benefits.
 
-### Building the Accesserty Brand
+## Building the Accesserty Brand
 
 Many a11y tools try to scare developers into action — with stories of lawsuits or million-dollar fines.
 
@@ -100,7 +100,7 @@ And we avoid…Fear-driven messaging, tokenism, accessibility as an afterthought
 
 With the structure aligned, I started coding the actual tools — one by one — with the help of Chrome Extension, Web Components, AppSheet, and some Vibe Coding.
 
-### The Accesserty Ecosystem
+## The Accesserty Ecosystem
 
 - Accesserty Signal
   See accessibility status directly in Google Search  
@@ -120,14 +120,14 @@ With the structure aligned, I started coding the actual tools — one by one —
   Introduction  
   Built solo, with AI as a thought partner, and designed for low-maintenance sustainability.
 
-### Launched on GAAD 🎉
+## Launched on GAAD 🎉
 
 I chose to launch Accesserty on Global Accessibility Awareness Day (GAAD) —
 the third Thursday of May, every year.
 
 You can find it on [Product Hunt](https://www.producthunt.com/products/report-website-issues?launch=accesserty "Open New Window"){target="_blank"}
 
-### My hope is that this helps show:
+## My hope is that this helps show:
 
 You don’t need a big team or budget to make the web more accessible.
 With the right mindset and tools, transparency and improvement can happen — at scale, and with care.
@@ -137,6 +137,6 @@ Accesserty was built for you.
 
 I’d love to hear your thoughts, feedback, or even ideas for collaboration.
 
-### Related Links
+## Related Links
 
 - [GAAD Website](https://accessibility.day "Open New Window"){target="_blank"}

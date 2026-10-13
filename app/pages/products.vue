@@ -5,7 +5,7 @@
       <AkContainer />
 
       <template v-if="!route.params.name || isModal">
-        <h2>{{ pageTitle }}</h2>
+        <h1>{{ pageTitle }}</h1>
         <PortfolioFilters
           v-model:sortorder="sortorder"
           v-model:role="selectedRole"

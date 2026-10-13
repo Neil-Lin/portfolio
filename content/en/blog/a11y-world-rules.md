@@ -18,7 +18,7 @@ For that reason, this article lays the institutional groundwork first. It survey
 
 The focus is not on “which version of WCAG” (the technical standard has converged almost universally on WCAG 2.1/2.2 AA), but on a more fundamental question: what force actually makes a website become accessible? Is it the government issuing a certificate, sending inspectors to audit periodically, levying a fine — or waiting for a person with a disability to sue? The answers differ far more than you might expect.
 
-### 1. The Framework: Separate Public from Private First, Then Look at the Tool
+## 1. The Framework: Separate Public from Private First, Then Look at the Tool
 
 The most common mistake in comparing countries is treating each one as a single “cell.” In reality, almost every jurisdiction governs the public sector and the private sector with two different laws, two different enforcers, and two different consequences:
 
@@ -28,7 +28,7 @@ The most common mistake in comparing countries is treating each one as a single 
 
 This article therefore uses a two-axis analysis: first separate “public vs. private,” then use a shared vocabulary of mechanisms to locate where each jurisdiction falls.
 
-#### Six Regulatory Tools (the Mechanism Vocabulary)
+### Six Regulatory Tools (the Mechanism Vocabulary)
 
 ① Mandatory certification (gates ex ante) — Government or designated bodies test and certify; the law requires certain entities to obtain it.  
 
@@ -42,9 +42,9 @@ This article therefore uses a two-axis analysis: first separate “public vs. pr
 
 ⑥ Soft law / duty to make efforts — No binding threshold or penalty; relies on administrative guidance and reputational pressure.
 
-#### 2. Jurisdiction-by-Jurisdiction Review (Grouped by Dominant Model)
+### 2. Jurisdiction-by-Jurisdiction Review (Grouped by Dominant Model)
 
-##### Group A — Government Mandatory-Certification Model (East Asia + India)
+#### Group A — Government Mandatory-Certification Model (East Asia + India)
 
 What these jurisdictions share: the government (or a government-designated body) acts as the certifier, and “obtaining certification” is written into law or policy.
 
@@ -54,7 +54,7 @@ What these jurisdictions share: the government (or a government-designated body)
 
 - India. Built on the Rights of Persons with Disabilities Act (RPwD 2016). STQC — an official body under MeitY — tests and issues the CQW certification (bundling accessibility, cybersecurity, and usability together), under the GIGW 3.0 standard (WCAG 2.1 AA). Penalties run from ₹10,000 for a first offense to up to ₹5 lakh for repeat offenses. A 2025 SEBI circular extended mandatory accessibility to the financial sector for the first time — India is expanding from the public sector into the private.
 
-##### Group B — Anti-Discrimination, Litigation-Driven Model (Common Law + Japan)  
+#### Group B — Anti-Discrimination, Litigation-Driven Model (Common Law + Japan)  
 
 These jurisdictions set no government pre-certification; they frame accessibility as “anti-discrimination / equal rights” and drive it through complaints and lawsuits.
 
@@ -66,7 +66,7 @@ These jurisdictions set no government pre-certification; they frame accessibilit
 
 - Japan. The Act on the Elimination of Discrimination against Persons with Disabilities — Article 7 (government) and Article 8 (private) — with the standard JIS X 8341–3:2016 (corresponding to WCAG 2.0, moving toward 2.1 in practice). As of 1 April 2024, the private-sector duty of “reasonable accommodation” was upgraded from a duty-to-make-efforts to a legal obligation, yet web accessibility itself remains more of an aspirational target with virtually no direct penalty (the only fine, up to ¥200,000, targets refusal to cooperate with government investigations or filing false reports). A textbook case of “soft law.”
 
-##### Group C — EU Dual-Directive Model (WAD for Public, EAA for Private)
+#### Group C — EU Dual-Directive Model (WAD for Public, EAA for Private)
 
 These countries are highly uniform in structure: the public sector derives from the WAD (2016/2102) and runs on self-declaration + government monitoring; the private sector derives from the EAA (2019/882, applicable from 28 June 2025) and runs on market surveillance + fines. The differences lie in “how much bite the monitoring has” and “how large the fines are.” The standard is uniformly EN 301 549 → WCAG 2.1 AA.
 
@@ -84,11 +84,11 @@ These countries are highly uniform in structure: the public sector derives from 
 
 - Netherlands. Public sector under the Temporary Decree on Digital Accessibility for Government, using a comply-or-explain approach + Logius checking statements + a public dashboard, with no fines; the private-sector Implementation Act is supervised by the Authority for Consumers and Markets (ACM), with fines up to €90,000 and the power to ban a non-compliant service. Drempelvrij/Digital Inclusive is a private voluntary mark.
 
-##### Group D — Non-EU, Its Own System
+#### Group D — Non-EU, Its Own System
 
 - Switzerland. The Disability Equality Act (BehiG, 2004) + the eCH-0059 standard (WCAG 2.1 AA). It currently applies only to the federal administration, with no fines, relying on individuals asserting their rights. Non-EU, so the EAA does not apply. A revision is underway, expected no earlier than 1 January 2027, to extend the obligation to private online services.
 
-#### 3. The Public × Private × Mechanism Matrix
+### 3. The Public × Private × Mechanism Matrix
 
 ::figure
   ![Web Accessibility Regimes](/images/blog/49.webp)
@@ -98,7 +98,7 @@ These countries are highly uniform in structure: the public sector derives from 
   ::
 ::
 
-#### Four Structural Facts the Matrix Reveals
+### Four Structural Facts the Matrix Reveals
 
 1. The public sector clusters around “certification/monitoring”; the private sector splits into two paths. The public column is always ① or ②; the private column fractures into two legal traditions — common-law countries (US, UK, AU) plus East Asian anti-discrimination regimes (JP, KR) rely on ⑤ litigation, while the EU relies on ④ market surveillance + fines.
 
@@ -108,9 +108,9 @@ These countries are highly uniform in structure: the public sector derives from 
 
 4. Private-sector (EAA) fine ceilings vary enormously. Portugal ~€45k, Austria €80k, Netherlands €90k, Germany €100k, France aggregate €250k, Spain up to €1M. The same EAA, “priced” wildly differently across countries.
 
-### 4. Pros and Cons of Each Mechanism
+## 4. Pros and Cons of Each Mechanism
 
-#### A. Common Public-Sector Mechanisms
+### A. Common Public-Sector Mechanisms
 
 ① Mandatory certification — (Taiwan, Korea, India)  
 
@@ -132,7 +132,7 @@ These countries are highly uniform in structure: the public sector derives from 
 
 > The public sector’s shared weakness: however strong, its boundary stops at the government itself. Taiwan’s and India’s mandatory certification has no spillover to the private sector; the EU’s monitoring model has broad coverage but shallow depth, and most countries impose no fines on the public sector at all (France being a rare exception).  
 
-#### B. Common Private-Sector Mechanisms  
+### B. Common Private-Sector Mechanisms  
 
 ④ Market surveillance + fines — (EU private sector, India SEBI)
 
@@ -154,12 +154,12 @@ These countries are highly uniform in structure: the public sector derives from 
 
 > The private sector’s shared dilemma: it is either ex post (fines and lawsuits both come after the harm) or toothless (soft law). No country applies “ex-ante mandatory certification” to the private sector — which is precisely why official marks grow almost exclusively in the public sector. 
 
-#### Cross-Group Observations
+### Cross-Group Observations
 
 - There is no single best solution; mature jurisdictions all “stack” tools. The US = procurement (③) + litigation (⑤); EU countries = monitoring (②) + market surveillance (④), plus individual litigation. A strong regime layers multiple tools that back each other up, rather than betting on one.
 - The presence or size of fines doesn’t equal effectiveness. The Netherlands has no public-sector fines yet sustains transparency pressure via comply-or-explain + a public dashboard; Spain fines the private sector up to €1M, but actual enforcement capacity remains a question mark. The real difference lies in enforcement density, not just the numbers in the statute.
 
-### 5. Overall Observations and Trends
+## 5. Overall Observations and Trends
 
 1. The technical standard is converging globally, while regulatory tools diverge sharply. Everyone is converging on EN 301 549 / WCAG 2.1 (moving to 2.2) AA; the real differences are all in “who enforces, and how.”
 
@@ -167,9 +167,9 @@ These countries are highly uniform in structure: the public sector derives from 
 
 3. “Whether there’s an official mark” ≠ “how strong the regime is.” Taiwan, Korea, and India have mandatory official marks; but Germany, Spain, and the Netherlands — countries with complete regimes — deliberately issue no official mark, opting instead for self-declaration + monitoring and leaving marks to a private, voluntary market. Portugal’s Selo, though government-run, is still merely a voluntary excellence award rather than a compliance gate.
 
-### Reference
+## Reference
 
-#### International / Framework
+### International / Framework
 
 [W3C WAI, Web Accessibility Laws & Policies](https://www.w3.org/WAI/policies/ "Open new window"){target="_blank"}
 
@@ -179,13 +179,13 @@ These countries are highly uniform in structure: the public sector derives from 
 
 [EN 301 549（Accessible EU Centre）](https://accessible-eu-centre.ec.europa.eu/ "Open new window"){target="_blank"}
 
-#### Taiwan
+### Taiwan
 
 [People with Disabilities Rights Protection Act, Art. 52–2](https://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=D0050046&FLNO=52-2 "Open new window"){target="_blank"}
 
 [Ministry of Digital Affairs, Website Accessibility Guidelines](https://accessibility.moda.gov.tw/ "Open new window"){target="_blank"}
 
-#### United States
+### United States
 
 [ADA](https://www.ada.gov/law-and-regs/ada/ "Open new window"){target="_blank"}
 
@@ -193,7 +193,7 @@ These countries are highly uniform in structure: the public sector derives from 
 
 [ADA Title II 2024 rule vs. Section 508 (Level Access)](https://www.levelaccess.com/blog/ada-vs-section-508-whats-the-difference/ "Open new window"){target="_blank"}
 
-#### United Kingdom
+### United Kingdom
 
 [PSBAR 2018](https://www.legislation.gov.uk/uksi/2018/952/contents "Open new window"){target="_blank"}
 
@@ -201,25 +201,25 @@ These countries are highly uniform in structure: the public sector derives from 
 
 [Public-sector accessibility requirements (GOV.UK)](https://www.gov.uk/guidance/accessibility-requirements-for-public-sector-websites-and-apps "Open new window"){target="_blank"}
 
-#### Australia
+### Australia
 
 [Disability Discrimination Act 1992](https://www.legislation.gov.au/C2004A04426/latest "Open new window"){target="_blank"}
 
 [AHRC, World Wide Web Access: DDA Advisory Notes](https://humanrights.gov.au/our-work/disability-rights/world-wide-web-access-disability-discrimination-act-advisory-notes-ver "Open new window"){target="_blank"}
 
-#### South Korea
+### South Korea
 
 [Act on Prohibition of Discrimination against Persons with Disabilities(KLRI English)](https://elaw.klri.re.kr/eng_mobile/viewer.do?hseq=55535&type=part&key=38 "Open new window"){target="_blank"}
 
 [Seoul, Web Accessibility Quality Mark](https://english.seoul.go.kr/web-accessibility-quality-mark/ "Open new window"){target="_blank"}
 
-#### Japan
+### Japan
 
 [Act on the Elimination of Discrimination against Persons with Disabilities (Cabinet Office)](https://www8.cao.go.jp/shougai/suishin/law_h25-65.html "Open new window"){target="_blank"}
 
 [1 April 2024 reasonable-accommodation duty (Anderson Mōri & Tomotsune) ](https://www.amt-law.com/asset/pdf/bulletins9_pdf/LELB63.pdf "Open new window"){target="_blank"}
 
-#### India
+### India
 
 [RPwD Act 2016](https://niepvd.nic.in/the-rights-of-persons-with-disabilities-rpwd-act-2016/ "Open new window"){target="_blank"}
 
@@ -229,13 +229,13 @@ These countries are highly uniform in structure: the public sector derives from 
 
 [SEBI 2025 digital accessibility (Deque)](https://www.deque.com/blog/sebi-sets-a-new-standard-for-digital-accessibility-in-finance-in-india/ "Open new window"){target="_blank"}
 
-#### Germany
+### Germany
 
 [BGG / BITV 2.0 / BFSG](https://www.gesetze-im-internet.de/bfsg/ "Open new window"){target="_blank"}
 
 [States’ joint market-surveillance body (Magdeburg)](https://ms.sachsen-anhalt.de/themen/menschen-mit-behinderungen/aktuelles/marktueberwachungsstelle-der-laender-fuer-die-barrierefreiheit-von-produkten-und-dienstleistungen "Open new window"){target="_blank"}
 
-#### France
+### France
 
 [Loi 2005-102, art. 47](https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000037388867/ "Open new window"){target="_blank"}
 
@@ -243,19 +243,19 @@ These countries are highly uniform in structure: the public sector derives from 
 
 [ARCOM oversight ](https://www.arcom.fr/nous-connaitre/nos-missions/garantir-le-pluralisme-et-la-cohesion-sociale/les-droits-des-personnes-handicapees/accessibilite-des-sites-et-des-services-numeriques "Open new window"){target="_blank"}
 
-#### Spain
+### Spain
 
 [RD 1112/2018](https://www.boe.es/buscar/act.php?id=BOE-A-2018-12699 "Open new window"){target="_blank"}
 
 [RDL 11/2023](https://www.boe.es/buscar/act.php?id=BOE-A-2023-11022 "Open new window"){target="_blank"}
 
-#### Portugal
+### Portugal
 
 [DL 83/2018](https://www.acessibilidade.gov.pt/mudanca/dl-n-o-83-2018/ "Open new window"){target="_blank"}
 
 [DL 82/2022（EAA 轉化）AMA / acessibilidade.gov.pt](https://www.acessibilidade.gov.pt/ "Open new window"){target="_blank"}
 
-#### Austria
+### Austria
 
 [WZG（RIS）](https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20010727 "Open new window"){target="_blank"}
 
@@ -263,19 +263,19 @@ These countries are highly uniform in structure: the public sector derives from 
 
 [Digital Barrierefrei](https://www.digitalbarrierefrei.at/en/ "Open new window"){target="_blank"}
 
-#### Belgium
+### Belgium
 
 [Law of 19 July 2018 (BOSA)](https://bosa.belgium.be/fr/regulations/loi-du-19-juillet-2018-accessibilite "Open new window"){target="_blank"}
 
 [Belgian Web Accessibility (monitoring & complaints)](https://accessibility.belgium.be/fr/missions-et-plaintes "Open new window"){target="_blank"}
 
-#### Netherlands
+### Netherlands
 
 [DigiToegankelijk (policy)](https://www.digitoegankelijk.nl/wetgeving/beleid-nederland-en-europa "Open new window"){target="_blank"}
 
 [Netherlands Digital Accessibility Laws（Level Access）](https://www.levelaccess.com/wp-content/uploads/2025/06/Netherlands-Digital-Accessibility-Laws.pdf "Open new window"){target="_blank"}
 
-#### Switzerland
+### Switzerland
 
 [BehiG / Accessibility in the federal administration (bit.admin.ch)](https://www.bit.admin.ch/en/accessibility-in-the-federal-administration "Open new window"){target="_blank"}
 

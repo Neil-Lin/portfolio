@@ -34,7 +34,7 @@ These problems often go unnoticed — until it’s too late.
 That’s why I built Accesserty DevCheck:
 A developer tool that helps you simulate real-world accessibility challenges and run basic tests, all from your browser.
 
-### Why Simulation Matters
+## Why Simulation Matters
 
 Automated tools like Lighthouse or axe-core can check for missing alt text, bad heading structure, or missing ARIA labels.
 
@@ -48,7 +48,7 @@ But they can’t tell you what it’s like to actually use your product if:
 
 That’s where DevCheck’s simulation layer comes in.
 
-### What DevCheck Offers
+## What DevCheck Offers
 
 These tools let you experience a website the way many users do — with visual or interaction limitations:
 
@@ -67,7 +67,7 @@ These tools let you experience a website the way many users do — with visual o
 - Finger Tap Zone Simulation
 - Shows a 64px circle around your cursor to test if small clickable areas are accessible
 
-### Detection Tools (Debug Mode)
+## Detection Tools (Debug Mode)
 
 - axe-core audit
 - Run in-browser checks for common violations
@@ -78,14 +78,14 @@ These tools let you experience a website the way many users do — with visual o
   - SEO metadata detection
   - ARIA misuse warnings
 
-### Who is it for?
+## Who is it for?
 - Frontend developers — Test as you build
 - Designers — Validate layouts, spacing, and color choices
 - PMs — Simulate user pain points before demo day
 - Testers — Reproduce visual experience issues
 - Customer support — Understand user complaints better
 
-### It’s not about compliance — it’s about empathy
+## It’s not about compliance — it’s about empathy
 
 Most users won’t report accessibility issues.
 

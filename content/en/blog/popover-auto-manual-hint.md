@@ -19,7 +19,7 @@ draft: false
 
 > Up front: these are my own notes from practicing `popover="hint"`. Browser support moves fast, so what's true as I write this may not stay true. If I've gotten something wrong, corrections welcome.
 
-### Intro
+## Intro
 
 In my [modern CSS & HTML cheat sheet](/en/blog/css-techniques-checklist), `popover="hint"` was one of the boxes I still hadn't ticked.
 
@@ -30,7 +30,7 @@ Before we start, here's what your browser supports. The demos below adapt to thi
 ::popover-support
 ::
 
-### How the three values differ
+## How the three values differ
 
 The `popover` attribute really decides just two things:
 
@@ -45,7 +45,7 @@ The `popover` attribute really decides just two things:
 
 The table is still a bit abstract, so let's go through them one at a time.
 
-### `auto`: the default for menus
+## `auto`: the default for menus
 
 Writing `popover` with no value gives you `auto`. Only one can be open at a time, and clicking outside or pressing Escape closes it, which makes it a natural fit for menus and dropdown panels.
 
@@ -63,7 +63,7 @@ The buttons use Invoker Commands: `commandfor` says what to control and `command
 
 The nice part is that none of this needs a single line of JavaScript. "Close when clicking outside" used to mean listening for clicks on the document and checking whether they landed inside the menu. Now it's one attribute.
 
-### `manual`: entirely up to you
+## `manual`: entirely up to you
 
 A `manual` popover doesn't close on an outside click or Escape, and it doesn't close others, so several can be open at once. It suits things that should stay on screen, like a toast. The trade-off is that **you have to provide the way to close it**.
 
@@ -78,7 +78,7 @@ A `manual` popover doesn't close on an outside click or Escape, and it doesn't c
 
 Try it: open both A and B and they stay open together. Clicking outside or pressing Escape does nothing; only the Close button inside each panel works.
 
-### `hint`: finally, a value for tooltips
+## `hint`: finally, a value for tooltips
 
 Before `hint`, building a tooltip with popover left you two not-great options:
 
@@ -99,7 +99,7 @@ Tooltips usually appear on hover or keyboard focus rather than on click. The dem
 
 Try it: hover a button or Tab to it and the tooltip appears. Move from Save to Export formats and the first tooltip closes on its own. You can also move the pointer onto the tooltip without it disappearing.
 
-### Going further: replacing the trigger JavaScript with `interestfor`
+## Going further: replacing the trigger JavaScript with `interestfor`
 
 First, something I mixed up myself at the start: `popover="hint"` and `interestfor` aren't alternatives. They work at different levels.
 
@@ -142,7 +142,7 @@ Against the WCAG 1.4.13 table earlier, "hoverable," which you used to add yourse
 
 The hint demo above now works exactly like this: browsers with `interestfor` use it natively, and only browsers without it get the JavaScript fallback. Below the demo it shows which one your browser is using, so try it in both Chrome and Safari to see the difference.
 
-### Lab: all three together
+## Lab: all three together
 
 Each one makes sense on its own, but you only see why `hint` exists when they're combined. This lab has an `auto` menu whose items each have a `hint` tooltip, plus a `manual` toast. The event log lists every popover opening and closing as it happens, so you can see exactly what closes what.
 
@@ -161,7 +161,7 @@ If the tooltips on the menu items were `auto`, step 3 would close the menu as so
 
 One small gotcha I only noticed while building this: with the menu open, pressing Show toast closes the menu first. That click lands outside the menu, so it triggers the `auto` light dismiss. It's exactly the right behavior, I just didn't see it coming, which is why the steps say to open the toast first.
 
-#### A pitfall found later: one Escape, two layers closed
+### A pitfall found later: one Escape, two layers closed
 
 After publishing this post, I retested step 5 in Chrome 154 (Chromium 153 behaves the same) and found the result depends on how the tooltip was opened:
 
@@ -187,7 +187,7 @@ tip.addEventListener("toggle", (event) => {
 
 I confirmed it in Chromium 153: removing the `CloseWatcher` from the demo reproduces "two layers closed", and with it in place the first Escape closes only the tooltip while focus stays on the menu item. This looks more like a Chrome implementation issue. I haven't tested other browsers yet, and I'll update this if anything changes.
 
-### One more trap: if you give a popover a `display`, hide it yourself
+## One more trap: if you give a popover a `display`, hide it yourself
 
 I hit this one for real while testing the demo: after closing the menu, I moved the mouse over where the menu used to be, and a tooltip popped up.
 
@@ -220,7 +220,7 @@ If you add a fade-out (a `transition` with `display` and `allow-discrete`), the 
 
 The one-line takeaway: **whenever you give a popover a `display`, add `:not(:popover-open) { display: none; }` too.**
 
-### Building tooltips with `hint`: you still own the accessibility
+## Building tooltips with `hint`: you still own the accessibility
 
 This is the part I think matters most: `popover` only handles showing and hiding. **It adds no semantics for you.**
 
@@ -237,7 +237,7 @@ Two more points:
 - **Add the semantics yourself**: give the tooltip `role="tooltip"` and point to it from the button with `aria-describedby`, so screen readers announce it as a description.
 - **Keep interactive elements out of tooltips**: once there's a link or button in it, it isn't a tooltip anymore. Make it an `auto` panel the user opens instead.
 
-### What happens without support?
+## What happens without support?
 
 This is different from [`hidden="until-found"`](/en/blog/hidden-until-found/), which I looked at earlier, so it needs extra care.
 
@@ -253,7 +253,7 @@ const supportsHint = probe.popover === "hint";
 
 Without support, you can fall back to `auto`, or add Escape handling yourself as the demos here do. `hint` is supported from Chrome 133; support in other browsers changes quickly, so check [caniuse](https://caniuse.com "Open new window"){target="_blank"} and MDN before shipping.
 
-### Conclusion
+## Conclusion
 
 In short:
 
@@ -265,12 +265,12 @@ In short:
 
 That's one more box ticked on my list. How do you build tooltips in your projects? I'd love to hear about it.
 
-### Related reading
+## Related reading
 
 - [Why Can't Ctrl+F Find Collapsed Content? A Look at hidden="until-found"](/en/blog/hidden-until-found/)
 - [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
-### Related links
+## Related links
 
 - [MDN — popover global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/popover "Open new window"){target="_blank"}
 - [W3C — Understanding WCAG 2.2 SC 1.4.13 Content on Hover or Focus](https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus "Open new window"){target="_blank"}

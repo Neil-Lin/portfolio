@@ -17,7 +17,7 @@ Not long ago, Anthropic engineer [Thariq](https://x.com/trq212/status/2052809885
 
 That made me wonder: if AI is reading a high-quality accessible website, would it be easier for the AI to “understand” the website, and then produce better results when interacting with humans?
 
-### First, let’s quickly look at the benefits of good web accessibility
+## First, let’s quickly look at the benefits of good web accessibility
 
 Here are a few points from Taiwan’s “Accessible Web Development Service”:
 
@@ -30,7 +30,7 @@ Here are a few points from Taiwan’s “Accessible Web Development Service”:
 
 The first point is a basic protection. Points 2, 3, and 4 are mostly about “serving people.” But for point 5, I think we should no longer see it only as “SEO optimization.” It should now become AXO optimization.
 
-### How does web accessibility help AI interact with websites better?
+## How does web accessibility help AI interact with websites better?
 
 When an AI Agent operates a website, what it fears most is not an ugly interface. What it fears is not knowing: “What is this?” “Can I click this?” “What happens after I click it?”
 
@@ -42,7 +42,7 @@ If accessibility is done well, AI Agents can use the accessibility tree to get c
 
 Take booking tickets as an example. While website A is still forcing the AI to parse a bunch of unclear elements, website B might already allow the AI to complete the booking successfully. For users, website B is faster. For AI service providers, website B also saves more resources.
 
-### What changes will this bring?
+## What changes will this bring?
 
 No Hacks mentioned in the article [“HOW AI AGENTS SEE YOUR WEBSITE (AND HOW TO BUILD FOR THEM)”](https://nohacks.co/blog/how-ai-agents-see-your-website "Open new window"){target="_blank"}:
 
@@ -66,7 +66,7 @@ This shift in motivation could theoretically create healthy competition, and it 
 
 After all, the first step is still to increase the number of websites that actually meet accessibility standards.
 
-### So, are the users of web accessibility really changing?
+## So, are the users of web accessibility really changing?
 
 I don’t think they are changing. I think the scope is expanding, just like what happened with SEO in the past.
 

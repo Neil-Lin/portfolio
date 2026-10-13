@@ -14,7 +14,7 @@ draft: false
 
 > 話說在前頭：文中的行為我都在 Chromium 153 實測過。`focusgroup` 還很新，規格和實作都可能再變；報讀軟體實際怎麼唸，也請以你自己打開報讀軟體聽到的為準。有講錯的地方歡迎指正。
 
-### 前言
+## 前言
 
 做過無障礙元件的人，應該都寫過 roving tabindex。
 
@@ -29,7 +29,7 @@ WAI-ARIA 的鍵盤模式要求：工具列、頁籤、選單這類「一組按�
 ::feature-support{features="focusgroup" notice="你的瀏覽器不支援 focusgroup，下方範例會自動改用 JavaScript 模擬，操作起來一樣，可以先感受一下行為。"}
 ::
 
-### 一、第一個坑：只寫 `focusgroup` 沒有效果
+## 一、第一個坑：只寫 `focusgroup` 沒有效果
 
 網路上不少介紹（包括我自己清單上原本的範例）是這樣寫的：
 
@@ -51,14 +51,14 @@ WAI-ARIA 的鍵盤模式要求：工具列、頁籤、選單這類「一組按�
 
 這樣整組就只佔一個 Tab 停留點，左右方向鍵在按鈕之間移動，不需要任何 JavaScript。
 
-### 二、動手試試
+## 二、動手試試
 
 選一種類型，從「前面的按鈕」按 Tab 進去，再用方向鍵、Home、End 操作。下方的按鍵紀錄會列出每個按鍵讓焦點落在哪裡：
 
 ::focusgroup-lab
 ::
 
-### 三、六種行為類型
+## 三、六種行為類型
 
 我實測每一種的差別，整理如下：
 
@@ -75,7 +75,7 @@ WAI-ARIA 的鍵盤模式要求：工具列、頁籤、選單這類「一組按�
 
 可以看到，**類型不只決定鍵盤行為，還會自動幫你加上角色**。`focusgroup="tablist"` 的容器在無障礙樹裡就是 `tablist`，裡面的按鈕自動變成 `tab`。這點後面還會再談。
 
-### 四、修飾詞：wrap、nomemory、block
+## 四、修飾詞：wrap、nomemory、block
 
 類型後面可以加修飾詞，用空白隔開：
 
@@ -87,7 +87,7 @@ WAI-ARIA 的鍵盤模式要求：工具列、頁籤、選單這類「一組按�
 | `block` | 改用上下方向鍵 | `toolbar block`：變成直式工具列 |
 | `inline` | 改用左右方向鍵 | — |
 
-### 五、實測的細節
+## 五、實測的細節
 
 除了方向鍵之外，這些是我實測時特別注意的地方：
 
@@ -113,7 +113,7 @@ WAI-ARIA 的鍵盤模式要求：工具列、頁籤、選單這類「一組按�
 - **巢狀的 focusgroup** 也會變成獨立的 Tab 停留點，外層的方向鍵不會跑進去。
 - **不會改動你的 `tabindex`**：子項目的 `tabindex` 還是原本的 `0`，「只佔一個停留點」是瀏覽器在內部處理的。
 
-### 六、角色是自動的，但狀態不是
+## 六、角色是自動的，但狀態不是
 
 前面提到，`focusgroup` 會自動加上角色。但我實測發現，**它只管角色，不管狀態**：
 
@@ -126,7 +126,7 @@ WAI-ARIA 的鍵盤模式要求：工具列、頁籤、選單這類「一組按�
 
 還有一個實際的理由：**檢測工具還不認得這些自動加上的角色**。我用 axe 檢查頁籤範例，原本只在容器寫 `focusgroup="tablist"`、沒寫 `role="tablist"`，結果每個 `tab` 都被回報「缺少 `tablist` 父層」，雖然瀏覽器的無障礙樹其實是對的。補上 `role="tablist"` 之後就沒問題了。
 
-### 七、頁籤的坑：Tab 進來停在第一個，不是選取中的那個
+## 七、頁籤的坑：Tab 進來停在第一個，不是選取中的那個
 
 APG 的頁籤模式是這樣規定的：從外面 Tab 進到頁籤列時，焦點要落在**目前選取的那個頁籤**上。
 
@@ -151,7 +151,7 @@ APG 的頁籤模式是這樣規定的：從外面 Tab 進到頁籤列時，焦�
 
 也要注意，`focusgroup` 只負責**移動焦點**，「聚焦時要不要順便切換頁籤」、面板的顯示隱藏，還是要自己寫。我的 UI Kit 頁籤是「方向鍵移動就切換」的寫法，換成 `focusgroup` 之後，可以省掉的是方向鍵、Home、End、從右到左、繞回這些鍵盤處理，選取和面板的邏輯還是要留著。
 
-### 八、不支援的時候怎麼辦？
+## 八、不支援的時候怎麼辦？
 
 不支援的瀏覽器會忽略這個屬性，元件退回成「每個按鈕一個 Tab 停留點」。還是用得了，只是不符合 APG 的鍵盤模式。
 
@@ -185,7 +185,7 @@ if (!("focusGroup" in HTMLElement.prototype)) {
 }
 ```
 
-### 結論
+## 結論
 
 整理成幾句話：
 
@@ -200,13 +200,13 @@ if (!("focusGroup" in HTMLElement.prototype)) {
 
 你的專案裡有自己寫過 roving tabindex 嗎？歡迎一起討論！
 
-### 延伸閱讀
+## 延伸閱讀
 
 - [只用 CSS 做輪播，無障礙夠嗎？拿我的 UI Kit 來對照](/blog/css-carousel-a11y/)
 - [Popover 的 auto、manual、hint 到底差在哪？做個可以玩的範例來看看](/blog/popover-auto-manual-hint/)
 - [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
-### 相關連結
+## 相關連結
 
 - [Open UI — Scoped focusgroup 提案](https://open-ui.org/components/scoped-focusgroup.explainer/ "另開新視窗"){target="_blank"}
 - [WAI-ARIA APG — 在複合元件內管理焦點（roving tabindex）](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#kbd_roving_tabindex "另開新視窗"){target="_blank"}

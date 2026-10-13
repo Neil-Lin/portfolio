@@ -11,7 +11,7 @@ category: accessibility
 draft: false
 ---
 
-### Introduction
+## Introduction
 
 A few days ago, Gemini’s automated scheduling system pushed me a daily accessibility-related article. The article described a service whose core technology allegedly uses AI to add web accessibility features during frontend rendering, while also offering personalized shortcut settings for users to adjust the website experience.
 
@@ -23,7 +23,7 @@ I thought perhaps some new technology had finally been invented and applied in a
 
 But after looking into it more carefully, my excitement quickly turned into disappointment — and eventually, anger.
 
-### From Excitement to Deep Disappointment
+## From Excitement to Deep Disappointment
 
 The article that Gemini collected turned out to be, in essence, a sponsored article.
 
@@ -61,7 +61,7 @@ At that moment, I truly felt deceived.
 
 I was genuinely angry.
 
-### From Anger to Gratitude
+## From Anger to Gratitude
 
 But after the anger passed, I started to see the situation from another angle.
 
@@ -79,7 +79,7 @@ Still, they took a new step. Maybe this approach will improve over time.
 
 After all, humans have always wanted to save effort while producing more. That desire has led to many great inventions.
 
-### Conclusion
+## Conclusion
 
 AI is not omnipotent.
 
@@ -107,6 +107,6 @@ Accessibility is not something that can simply be sprinkled onto a website after
 
 And it should never be treated as a marketing feature covered in AI sugar.
 
-### Related reading
+## Related reading
 
 - [AI Is Great at Research — But Is It a Reliable Researcher?](/en/blog/ai-reliable-researcher/)

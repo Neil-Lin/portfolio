@@ -14,7 +14,7 @@ draft: false
 
 > Up front: I tested the behavior in this post in Chromium. Details may differ in other browsers. If I've gotten something wrong, corrections welcome.
 
-### Intro
+## Intro
 
 In [the popover post](/en/blog/popover-auto-manual-hint/), the tooltips and menus sit next to their buttons using Anchor Positioning. I slipped in a line of `position-try-fallbacks: flip-block` back then without much explanation.
 
@@ -29,7 +29,7 @@ First, here's what your browser supports:
 ::feature-support{features="anchor,position-try" notice="Your browser doesn't support anchor positioning or position-try-fallbacks, so the demo below won't work. You can still read the explanations and code."}
 ::
 
-### 1. Try it
+## 1. Try it
 
 The dashed box below stands in for the screen. Move the anchor with the sliders; the tooltip sits above the anchor by default:
 
@@ -44,7 +44,7 @@ Things to try:
 4. Switch to the custom `@position-try` and drag the anchor to the top: this time the tooltip moves to the right first.
 5. Switch back to `flip-block`, check `position-try-order`, and put the anchor a little above the middle (vertical position around 35): there's room above, yet the tooltip goes below. Section 5 explains.
 
-### 2. Three ways to write it
+## 2. Three ways to write it
 
 `position-try-fallbacks` is a list. The browser starts with the original position, and if that doesn't fit, it tries each entry in order and uses the first one that fits. The list can hold three kinds of things.
 
@@ -106,13 +106,13 @@ Only position-related properties are allowed inside `@position-try`:
 
 In my tests, a `background` inside `@position-try` is simply ignored: no error, no effect. So "change the colour when it flips below" isn't something `@position-try` can do.
 
-### 3. Margins flip too
+## 3. Margins flip too
 
 With `flip-block` you don't need to worry about spacing. In my tests, a tooltip written with `margin-bottom: 8px` automatically gets `margin-top: 8px` once it flips below, so the 8px gap to the anchor stays and they don't end up stuck together.
 
 So write the margin only on the side facing the anchor, and flipping takes care of the rest. Custom `@position-try` rules don't flip anything for you, so write the margin yourself, as in the example above.
 
-### 4. The browser remembers the last position
+## 4. The browser remembers the last position
 
 This surprised me most while testing, and it's what you saw in step 3 of the demo.
 
@@ -124,7 +124,7 @@ When is the memory cleared? In my tests, hiding the element and showing it again
 
 So for popovers, every open starts fresh; the memory matters when something stays open while the page scrolls or the anchor moves. Knowing about it stops you from filing it as a bug while testing.
 
-### 5. position-try-order: pick the side with the most room
+## 5. position-try-order: pick the side with the most room
 
 The default rule is "use the original position if it fits". Sometimes what you want is "use whichever side has more room", say for a long dropdown:
 
@@ -148,13 +148,13 @@ You can also write it all with the `position-try` shorthand:
 }
 ```
 
-### 6. When nothing fits
+## 6. When nothing fits
 
 If neither the original position nor any fallback fits, the browser **falls back to the original position**, even if that means getting cut off. I tested this with a separate, very short container, and the tooltip did stay above, cut off.
 
 So make the original position the most common, most sensible one. Fallbacks are only fallbacks; there's no guarantee any of them will fit.
 
-### 7. Pairing it with popover
+## 7. Pairing it with popover
 
 In practice, the most common combination is a popover plus anchor positioning. An open popover is in the top layer, so "does it fit" is measured against the whole viewport, which is exactly what we want:
 
@@ -176,13 +176,13 @@ No room below, go above; no room on the right, go left; in a corner, flip both. 
 
 What about browsers without support? I wrap it in `@supports (position-area: bottom)` and position with JavaScript otherwise, which is what the demos in [the popover post](/en/blog/popover-auto-manual-hint/) do.
 
-### Accessibility notes
+## Accessibility notes
 
 - **Only the visual position changes**: flipping doesn't touch DOM order, so the screen reader reading order and keyboard Tab order stay the same.
 - **The tooltip's own rules still apply**: WCAG 1.4.13 Content on Hover or Focus requires that the tooltip can be dismissed, stays while the pointer moves onto it, and doesn't vanish by itself. Getting the position right doesn't take care of those; you still have to.
 - **Zoom is where it counts**: with less room on screen when zoomed, having fallbacks makes a bigger difference than usual. When testing, zoom to 200% and 400%.
 
-### Conclusion
+## Conclusion
 
 In a few lines:
 
@@ -197,13 +197,13 @@ What used to need a library and a pile of event listeners now takes a few lines 
 
 Are your tooltips and menus still positioned with JavaScript? I'd love to hear about it.
 
-### Related reading
+## Related reading
 
 - [Popover auto, manual and hint: What's Actually the Difference? I Built Demos to Find Out](/en/blog/popover-auto-manual-hint/)
 - [How to Write a Dialog Today: From showModal() to command and closedby](/en/blog/dialog-modern-guide/)
 - [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
-### Related links
+## Related links
 
 - [MDN — position-try-fallbacks](https://developer.mozilla.org/en-US/docs/Web/CSS/position-try-fallbacks "Open new window"){target="_blank"}
 - [MDN — @position-try](https://developer.mozilla.org/en-US/docs/Web/CSS/@position-try "Open new window"){target="_blank"}

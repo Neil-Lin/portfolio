@@ -25,7 +25,7 @@
       @close="onClose"
     >
       <form method="dialog" class="dialog-demo__form">
-        <h4 :id="`${dialogId}-title`">{{ text.title }}</h4>
+        <h3 :id="`${dialogId}-title`">{{ text.title }}</h3>
         <label :for="`${dialogId}-note`">{{ text.field }}</label>
         <textarea
           :id="`${dialogId}-note`"

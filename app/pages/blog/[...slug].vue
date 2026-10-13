@@ -4,7 +4,7 @@
       <TheBreadcrumbs :list="breadCrumbsList" />
       <AkContainer />
       <article v-if="article" class="article">
-        <h2>{{ article.title }}</h2>
+        <h1>{{ article.title }}</h1>
         <div class="article-meta">
           <time :datetime="article.date">{{ formatDate(article.date) }}</time>
           <template v-if="showUpdatedAt">
@@ -42,7 +42,7 @@
         <ContentRenderer :value="article" class="article-body" />
 
         <nav v-if="related.length" class="related" aria-labelledby="related-h">
-          <h3 id="related-h">{{ t("page.blog.related") }}</h3>
+          <h2 id="related-h">{{ t("page.blog.related") }}</h2>
           <ul>
             <li v-for="post in related" :key="post.slug">
               <nuxt-link

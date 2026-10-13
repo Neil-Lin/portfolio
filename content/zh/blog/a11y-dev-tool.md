@@ -25,7 +25,7 @@ draft: false
 
 讓開發者在開發階段，就能模擬真實世界中遇到的可及性挑戰，並結合機器工具進行基本檢測。
 
-### 為什麼需要模擬？
+## 為什麼需要模擬？
 
 無障礙問題，有些可以用程式碼掃出來，例如：
 
@@ -43,9 +43,9 @@ draft: false
 
 所以我們需要的是：模擬情境 + 偵測工具。
 
-### Accesserty DevCheck 提供了什麼功能？
+## Accesserty DevCheck 提供了什麼功能？
 
-#### 模擬情境（Simulation Modes）
+### 模擬情境（Simulation Modes）
 
 這些功能可以讓你在任何網站中，快速切換視覺環境來體驗他人可能遇到的困難：
 
@@ -59,12 +59,12 @@ draft: false
   - 顏色反轉模式：模擬強制暗色模式對 UI 的影響
   - 單指點擊區模擬：讓你了解手指點擊範圍過小是否會導致誤觸（特別適合行動裝置開發者）
 
-#### 偵測功能（Debug Tools）
+### 偵測功能（Debug Tools）
 
 - axe-core 自動偵測
 - PDF 結構偵測
 
-### 使用方式簡單直覺
+## 使用方式簡單直覺
 
 DevCheck 是一個 Chrome Extension，只要安裝後點擊圖示，就能開啟模擬選單。
 
@@ -72,14 +72,14 @@ DevCheck 是一個 Chrome Extension，只要安裝後點擊圖示，就能開啟
 
 不用換頁、不用複製網址，不論是開發者測試 staging 站、還是設計師審查 prototype，都能即時驗證。
 
-### 它不只是給工程師的工具
+## 它不只是給工程師的工具
 
 - 設計師可以用來檢查配色與字級
 - 專案經理可以在 Demo 前模擬各種情境
 - 測試人員可以用來快速重現視覺問題
 - 客服也能在用戶報案後馬上模擬狀況
 
-### 為什麼這很重要？
+## 為什麼這很重要？
 
 因為「有問題」不代表「會回報」，也不代表「知道怎麼回報」。
 
@@ -87,7 +87,7 @@ DevCheck 是一個 Chrome Extension，只要安裝後點擊圖示，就能開啟
 
 如果體驗一次你就覺得難用，那真正需要這個功能的人，可能早就放棄這個網站了。
 
-### 試試看 Accesserty DevCheck
+## 試試看 Accesserty DevCheck
 
 - [介紹](https://accesserty.com/devcheck "另開新視窗"){target="_blank"}  
 - [擴充程式](https://chromewebstore.google.com/detail/accesserty-devcheck/ompbhahmipenipgiiiehbkiibkonoeec "另開新視窗"){target="_blank"}

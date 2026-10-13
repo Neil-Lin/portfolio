@@ -2,7 +2,7 @@
   <NuxtLayout name="default">
     <main class="page">
       <AkContainer />
-      <h2>{{ t("error.title") }}</h2>
+      <h1>{{ t("error.title") }}</h1>
       <p>{{ t("error.errorCode") }}：{{ error.statusCode }}</p>
       <div v-if="error.statusCode === 404">
         <p>

@@ -17,7 +17,7 @@ draft: false
 
 > **October 2026 update**: Chrome 154 adds `links` (default) and `tabs` modes to `scroll-marker-group`, which change the markers' focus order and ARIA semantics. In `tabs` mode, only the selected marker is focusable, the arrow keys switch between markers, and unselected slides are excluded from the accessibility tree, which addresses several of the problems in this post. In Chromium 153, `scroll-marker-group: after tabs` is already accepted as syntax, but behaves exactly like the default, so the conclusions below describe Chromium up to 153. I'll retest and update this post once I can get Chrome 154.
 
-### Intro
+## Intro
 
 The carousel is probably the component that goes wrong for accessibility most often: unnamed dots, buttons that are just an arrow glyph, focus that wanders off, slides that rotate on their own forever.
 
@@ -30,7 +30,7 @@ First, here's what your browser supports:
 ::feature-support{features="scroll-marker" notice="Your browser doesn't support ::scroll-marker, so the first demo below is just a row of cards you can scroll sideways. The second, UI Kit demo isn't affected."}
 ::
 
-### 1. Writing a native CSS carousel
+## 1. Writing a native CSS carousel
 
 First, turn the content into a sideways-scrolling list that snaps into place. This part is `scroll-snap`, which is well established:
 
@@ -92,7 +92,7 @@ A pitfall I hit while building the demo: `::scroll-marker-group` is a full-width
 }
 ```
 
-### 2. What it becomes in the accessibility tree
+## 2. What it becomes in the accessibility tree
 
 I read the accessibility tree of the demo above:
 
@@ -108,7 +108,7 @@ Two things stand out:
 - **The dots use tab semantics**: they become `tab`s, but the slides don't become matching `tabpanel`s; they stay plain list items. A screen reader user who hears "tab" expects it to switch a panel.
 - **The `tablist` has no name**: put two carousels on a page and you get two unnamed tab lists that can't be told apart.
 
-### 3. Keyboard testing
+## 3. Keyboard testing
 
 Starting from a button before the carousel and pressing Tab:
 
@@ -128,7 +128,7 @@ In other words, once a keyboard user reaches the last slide, the next step takes
 
 The native version also **announces nothing**. Press "next", the slide changes, and the screen reader isn't told which slide is now showing.
 
-### 4. How I built it in the UI Kit
+## 4. How I built it in the UI Kit
 
 Here's the same content using `<au-carousel>` from Accesserty UI Kit:
 
@@ -149,7 +149,7 @@ It looks much the same, but these are deliberate choices:
 
 Its accessibility tree in my tests: the outer element is a named `group`, the dots sit in a `group` named "Choose a slide", and each dot is a `button`. At the last slide, focus stays on "next" and the live region announces the last slide's name.
 
-### 5. Side by side
+## 5. Side by side
 
 | Aspect | Native CSS | `<au-carousel>` |
 |---|---|---|
@@ -164,7 +164,7 @@ Its accessibility tree in my tests: the outer element is a named `group`, the do
 | End buttons | `disabled`, focus is lost | `aria-disabled`, focus stays |
 | Announcing slide changes | None | Yes |
 
-### 6. What can the native version patch?
+## 6. What can the native version patch?
 
 The native version's biggest limitation: **the dots and buttons are pseudo-elements**, so you can't add HTML attributes to them. That means:
 
@@ -186,7 +186,7 @@ carousel.addEventListener("scrollsnapchange", (event) => {
 
 But by this point you're writing JavaScript anyway, and the most important problem, focus, is still unsolved.
 
-### Conclusion
+## Conclusion
 
 In a few lines:
 
@@ -201,13 +201,13 @@ And the old advice still stands: avoid carousels if you can, and if you must use
 
 Do you have carousels in your projects? Built in-house or from a library? I'd love to hear about it.
 
-### Related reading
+## Related reading
 
 - [Make Screen Readers Speak: Replacing aria-live with ariaNotify()](/en/blog/aria-notify/)
 - [Tooltip Getting Cut Off? Let the Browser Find a Spot with @position-try](/en/blog/position-try/)
 - [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
-### Related links
+## Related links
 
 - [Accesserty UI Kit (GitHub)](https://github.com/Accesserty/UI-Kit "Open new window"){target="_blank"}
 - [MDN — ::scroll-marker](https://developer.mozilla.org/en-US/docs/Web/CSS/::scroll-marker "Open new window"){target="_blank"}

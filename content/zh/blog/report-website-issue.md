@@ -15,7 +15,7 @@ draft: false
 
 --
 
-### 前言
+## 前言
 
 大概七年前看到同事有做了一個瀏覽器擴充程式，當時的我也是躍躍欲試，沒想到就這樣過了七年，直接變成大叔了。
 
@@ -27,7 +27,7 @@ draft: false
   ![Chrome 瀏覽器擴充程式：Report website issues](/images/blog/26.webp)
 ::
 
-### 目標與需求
+## 目標與需求
 
 接觸無障礙網頁設計之後，都沈浸在開發無障礙 UI Framework。後來想想好像應該開發一些成本低、易用、立即有幫助的簡單功能，潛在幫助大家，讓上網的環境更好，於是就有了以下理想、目標、需求：
 
@@ -53,7 +53,7 @@ draft: false
 
 因為這樣子就不需要讓使用者輸入作業系統/瀏覽器版本、時間、網址了，只需要勾選分類，送出！比起前往表單，使用擴充程式的方便性更大。
 
-### 現實考量
+## 現實考量
 
 因為個人開發、只會切版跟簡單 javascript，也不會寫後端，所以必須想一些簡易的方法，還有思考瀏覽器那麼多種要挑哪個來做？於是開始思考眾多限制下的實行方案：
 
@@ -63,7 +63,7 @@ draft: false
 - 實驗如果使用 html 的 ```<form>``` ，能不能將資料塞進 google form，於是找到了這篇文章([連結](https://spreadsheet.dev/submit-responses-to-google-form-apps-script "另開新視窗"){target="_blank"})
 - 寫一點點 javascript 提升UX，應該不是難事，不知道就問 AI
 
-### 學習 Chrome 擴充程式
+## 學習 Chrome 擴充程式
 確定以上都能實作後，就開始學 Chrome 擴充程式要怎麼做，於是直接去翻最新的書([連結](https://learning.oreilly.com/library/view/building-browser-extensions/9781484287255/ "另開新視窗"){target="_blank"})：，或是一些參考連結（以下連結請注意內文提到的開發版本）：
 
 - [你知道這是什麼嗎？ Chrome Extension MV3 With Vite](https://ithelp.ithome.com.tw/users/20139636/ironman/4982 "另開新視窗"){target="_blank"}
@@ -99,7 +99,7 @@ draft: false
   ![載入未封裝項目示意圖](/images/blog/28.webp)
 ::
 
-### 上架與發佈
+## 上架與發佈
 確定都沒什麼問題之後，就要到 Chrome Web Store Developer 註冊與上架
 
 - 跟著文件指示註冊([連結](https://developer.chrome.com/docs/webstore/register/ "另開新視窗"){target="_blank"})
@@ -123,7 +123,7 @@ draft: false
 
 最後就是提交了，審核時間不一定，我等了三天，看 Google 心情，後續每次修改，都需要再提交一次，所以如果是要經營的話，要注意上架審核的時間，如果時間急迫又被退件，那就麻煩了。但應該會有不重新審核就可以更新內容的技巧，但那離我太遠了。
 
-### 總結
+## 總結
 
 雖然只有用到簡單的 Html、CSS、Javascript 沒遇到什麼困難，但其實這樣就可以打造一個對人有用的產品了，覺得設計師/工程師們都可以多嘗試一點，說不定一個爆紅的產品就又出現了。
 

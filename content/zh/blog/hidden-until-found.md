@@ -15,7 +15,7 @@ draft: false
 
 > 話說在前頭：這篇是我練習 `hidden="until-found"` 的筆記，文中的實測是在 Chromium 上做的，其他瀏覽器的支援狀況變動很快，有講錯的地方歡迎指正。
 
-### 前言
+## 前言
 
 在我的[現代 CSS 與 HTML 技巧整理清單](/blog/css-techniques-checklist)裡，`hidden="until-found"` 也是一格還沒打勾的。上一篇寫 [popover 的 auto、manual、hint](/blog/popover-auto-manual-hint) 時提到它，說它「降級比較安全」，這次就來好好驗證一下。
 
@@ -28,7 +28,7 @@ draft: false
 ::feature-support{features="until-found" notice="你的瀏覽器不支援 until-found，下方範例裡的 until-found 區塊會退回成一般的 hidden，搜尋找不到是正常的。"}
 ::
 
-### 先動手：四種收合方式，哪個搜得到？
+## 先動手：四種收合方式，哪個搜得到？
 
 這次一樣先玩再說。下面四個區塊用四種不同的方式收合，每個區塊上方都標了一個要搜尋的關鍵字（關鍵字只藏在各自的區塊裡）。請按 Ctrl+F 一個一個搜尋看看：
 
@@ -46,7 +46,7 @@ draft: false
 
 如果你看到的結果不一樣，很可能是瀏覽器支援度的差異，也歡迎告訴我。
 
-### 它是怎麼運作的？
+## 它是怎麼運作的？
 
 寫法很單純，把 `hidden` 的值改成 `until-found` 就好：
 
@@ -64,7 +64,7 @@ draft: false
 
 也就是說，它只負責「被找到時展開」。使用者自己點按鈕展開、收合，還是要你寫。
 
-### 常見問答範例：事件、深層連結與 `aria-expanded`
+## 常見問答範例：事件、深層連結與 `aria-expanded`
 
 下面是一個用 `until-found` 做的常見問答。每個答案收合時都是 `hidden="until-found"`，事件紀錄會列出 `beforematch` 什麼時候觸發：
 
@@ -87,7 +87,7 @@ panel.addEventListener("beforematch", () => {
 });
 ```
 
-### 坑一：`el.hidden = !el.hidden` 會悄悄把它變回一般的 `hidden`
+## 坑一：`el.hidden = !el.hidden` 會悄悄把它變回一般的 `hidden`
 
 這個坑是我寫範例時實測出來的。很多人切換顯示的寫法是這樣：
 
@@ -118,7 +118,7 @@ button.addEventListener("click", () => {
 });
 ```
 
-### 坑二：CSS reset 裡的 `[hidden]` 會讓它失效
+## 坑二：CSS reset 裡的 `[hidden]` 會讓它失效
 
 很多 CSS reset 或專案裡都有這一行，為了確保 `hidden` 一定藏得住：
 
@@ -143,7 +143,7 @@ button.addEventListener("click", () => {
 - **收合時盒子還在**：`content-visibility: hidden` 只是不畫內容，元素本身的 padding、邊框、背景都還在。面板如果有 padding，收合時記得拿掉，不然會留下一條空框。
 - **Web Component 要注意 Shadow DOM**：`beforematch` 會冒泡，但不會穿出 Shadow DOM，監聽器要掛在 shadow root 裡面的元素上。
 
-### 坑三：收合時順手加了 `inert`，就找不到了
+## 坑三：收合時順手加了 `inert`，就找不到了
 
 有些元件收合時，除了把內容藏起來，還會加上 `inert`，確保鍵盤和報讀軟體碰不到裡面。我自己的 UI Kit 裡，手風琴和樹狀選單就是這樣寫的，導入 `until-found` 時就卡在這裡。
 
@@ -163,7 +163,7 @@ button.addEventListener("click", () => {
 
 如果既有元件是用 `inert` 來收合，改用 `until-found` 時記得把收合和展開兩邊的 `inert` 都拿掉。
 
-### 不支援的時候會怎樣？
+## 不支援的時候會怎樣？
 
 這次的降級是安全的。不認得 `until-found` 的瀏覽器會把它當成一般的 `hidden`：內容一樣藏著，只是搜尋不到，什麼都不會壞。跟 `popover="hint"` 不支援時退化成 `manual`、連關都關不掉相比，可以放心地當成漸進增強來用。
 
@@ -175,7 +175,7 @@ const supportsUntilFound = "onbeforematch" in HTMLElement.prototype;
 
 `until-found` 在 Chromium 系瀏覽器很早就支援了，Firefox 和 Safari 的狀況變動比較快，上線前請以 [caniuse](https://caniuse.com "另開新視窗"){target="_blank"} 為準。
 
-### 那 `<details>` 呢？
+## 那 `<details>` 呢？
 
 如果只是單純的展開收合，原生的 `<details>` 其實也會在頁內搜尋命中時自動展開（Chromium 系瀏覽器支援），而且連按鈕和狀態都不用自己做。
 
@@ -184,7 +184,7 @@ const supportsUntilFound = "onbeforematch" in HTMLElement.prototype;
 - **單純的「展開更多」**：先考慮 `<details>`，最省事。
 - **需要標題階層、自訂結構的手風琴**（例如標題包按鈕、控制 `aria-controls` 的寫法），或是不方便改成 `<details>` 的既有元件：用 `hidden="until-found"`。
 
-### 結論
+## 結論
 
 整理成幾句話：
 
@@ -198,12 +198,12 @@ const supportsUntilFound = "onbeforematch" in HTMLElement.prototype;
 
 清單上又可以多打一個勾了。你的網站裡有多少收合起來的內容呢？歡迎一起討論！
 
-### 延伸閱讀
+## 延伸閱讀
 
 - [Popover 的 auto、manual、hint 到底差在哪？做個可以玩的範例來看看](/blog/popover-auto-manual-hint/)
 - [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
-### 相關連結
+## 相關連結
 
 - [MDN — hidden 全域屬性](https://developer.mozilla.org/zh-TW/docs/Web/HTML/Global_attributes/hidden "另開新視窗"){target="_blank"}
 - [MDN — beforematch 事件](https://developer.mozilla.org/en-US/docs/Web/API/Element/beforematch_event "另開新視窗"){target="_blank"}

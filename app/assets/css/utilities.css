@@ -109,8 +109,8 @@
   不支援的瀏覽器（Firefox）忽略即可，不影響排版。
 *************************/
 
-.article :is(h2, h3) {
-  /* trim 裁掉字體上下留白後標題顯扁；用邏輯屬性補回上下邊距（覆蓋全域 h2/h3 的 margin-bottom）。 */
+.article :is(h1, h2) {
+  /* trim 裁掉字體上下留白後標題顯扁；用邏輯屬性補回上下邊距（覆蓋全域 h1/h2 的 margin-bottom）。 */
   margin-block: 2.5rem 2rem;
   -webkit-text-box-trim: trim-both;
   text-box-trim: trim-both;

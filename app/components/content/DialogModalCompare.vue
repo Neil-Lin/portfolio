@@ -30,7 +30,7 @@
       :aria-labelledby="`${uid}-plain-title`"
       @close="onClose(text.plainName)"
     >
-      <h4 :id="`${uid}-plain-title`">{{ text.plainTitle }}</h4>
+      <h3 :id="`${uid}-plain-title`">{{ text.plainTitle }}</h3>
       <p>{{ text.plainBody }}</p>
       <button
         type="button"
@@ -48,7 +48,7 @@
       :aria-labelledby="`${uid}-modal-title`"
       @close="onClose(text.modalName)"
     >
-      <h4 :id="`${uid}-modal-title`">{{ text.modalTitle }}</h4>
+      <h3 :id="`${uid}-modal-title`">{{ text.modalTitle }}</h3>
       <p>{{ text.modalBody }}</p>
       <button
         type="button"

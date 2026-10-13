@@ -52,33 +52,32 @@ body {
   text-transform: none;
 }
 
+/*
+  標題層級：每頁只有一個 h1（頁面或文章標題），網站名稱不再是 h1。
+  字級沿用調整層級前的樣子：h1 是原本 h2 的大小，以此類推。
+*/
 h1 {
-  font-size: clamp(2.25rem, calc(100cqw / 30), 4rem);
-  margin-bottom: 1.5rem;
-  text-wrap: pretty;
-}
-
-h2 {
   font-size: clamp(1.5rem, calc(100cqw / 40), 3rem);
   margin-bottom: 1.5rem;
   text-wrap: pretty;
 }
 
-h3 {
+h2 {
   font-size: clamp(1.25rem, calc(100cqw / 50), 1.625rem);
   margin-bottom: 1rem;
 }
 
-h4 {
+h3 {
   font-size: 1.125rem;
   margin-bottom: 1rem;
 }
 
-h5 {
+h4 {
   font-size: 0.875rem;
   margin-bottom: 1rem;
 }
 
+h5,
 h6 {
   font-size: 0.75rem;
   margin-bottom: 1rem;

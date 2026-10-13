@@ -16,13 +16,13 @@ category: frontend
 draft: false
 ---
 
-### 前言
+## 前言
 
 這是我自己在追蹤的現代 CSS 特性清單——用來快速掃描、決定接下來要補實驗哪些技巧。依用途分成版面、選擇器、色彩、文字排版、動畫、表單、響應式、封裝效能、函式數學等類別，每一條列出用途、範例與瀏覽器支援度，並標記我是否已經實驗過。
 
 最後一區（K）收的是 HTML 而不是 CSS。之所以放在同一份清單裡，是因為它們在做同一件事：**把過去得寫一堆 JS 才做得到的效果，變成宣告式的一行**——而且不少項目根本是配套的（`appearance: base-select` 與 `<selectedcontent>`、anchor positioning 與 popover、`reading-flow` 與 `focusgroup`），拆開反而不好用。
 
-### 圖例說明
+## 圖例說明
 
 **已實驗**
 
@@ -36,7 +36,7 @@ draft: false
 - 🟠 實驗性 — 僅部分瀏覽器 / 需開旗標 / 剛上 Chrome
 - 🔴 提案中 — 規格仍在提案階段，目前無法在瀏覽器使用
 
-### A. 版面配置（Layout）
+## A. 版面配置（Layout）
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
@@ -53,7 +53,7 @@ draft: false
 | 單軸捲動容器 | 只在一個方向捲動、另一個方向 `clip`，讓 `position: sticky` 在兩個方向分別受不同的捲動容器限制（例如表頭和第一欄各自固定）；Chrome 156 Beta | `overflow: scroll clip;` | 🟠 | ⬜ |
 | 溢位對齊 `safe` / `unsafe` | 置中的內容放不下時，`safe` 會改成靠起點對齊，避免內容被推到看不到、捲不到的地方；Safari 27.2 Beta 補上與 `normal` 搭配及固定定位的支援（放大畫面與鍵盤焦點的實測見[這篇](/blog/css-safe-alignment/)） | `align-items: safe center;` | 🟡 | ✅ |
 
-### B. 選擇器（Selectors）
+## B. 選擇器（Selectors）
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
@@ -70,7 +70,7 @@ draft: false
 | 媒體狀態偽類（`:playing` / `:paused` / `:muted` 等） | 依 `<video>`／`<audio>` 播放、暫停、靜音、緩衝的狀態直接套樣式，自訂播放器不必再用 JS 切 class（Safari 先支援，Chrome 156 Beta 加入，Firefox 尚未） | `video:paused + .play-btn{}` | 🟠 | ⬜ |
 | `image-animation` / `:animated-image` | 控制 GIF、APNG 這類動畫圖片要不要播放，並能選取動畫圖片；動畫 GIF 一直很難符合 WCAG 2.2.2「暫停、停止、隱藏」，無障礙價值高（Chrome 156 Beta） | `img:animated-image { image-animation: paused; }` | 🟠 | ⬜ |
 
-### C. 色彩（Color）
+## C. 色彩（Color）
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
@@ -83,7 +83,7 @@ draft: false
 | 漸層指定內插色彩空間 | `linear-gradient(in oklch …)` 讓漸層過渡更均勻不灰濁 | `background: linear-gradient(in oklch, #4ba3f7, #9d2398);` | 🟢 | ✅ |
 | `alpha()` | 相對色彩函式，只調整既有顏色的透明度，不必拆開重寫整個色值（Baseline 2026：Chrome 151、Firefox 155、Safari 27） | `color: alpha(from var(--brand) / 50%);` | 🟡 | ⬜ |
 
-### D. 文字排版（Typography）
+## D. 文字排版（Typography）
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
@@ -105,7 +105,7 @@ draft: false
 | `text-autospace` | 在中文與英文／數字之間自動加入適當間距，不必再手動打空白；Safari 27 另加入 `insert` 值 | `text-autospace: normal;` | 🟡 | ✅ |
 | `font-width` | `font-stretch` 的正式新名稱，選取窄體、寬體字型；舊名稱保留為別名（Baseline 2026） | `font-width: 75%;` | 🟡 | ⬜ |
 
-### E. 動畫與過渡（Animation & Transition）
+## E. 動畫與過渡（Animation & Transition）
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
@@ -115,7 +115,7 @@ draft: false
 | `backface-visibility` | 3D 翻轉時是否顯示背面（翻卡效果） | `backface-visibility: hidden;` | 🟢 | ✅ |
 | `prefers-reduced-motion` | 偵測「減少動態」偏好，無障礙必備；可搭配 `prefers-color-scheme` 偵測深淺色 | `@media (prefers-reduced-motion: reduce){}` | 🟢 | ✅ |
 
-### F. 表單與元件（Forms & Components）
+## F. 表單與元件（Forms & Components）
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
@@ -124,7 +124,7 @@ draft: false
 | `<selectlist>`（原 `<selectmenu>`） | 可高度自訂的下拉元件；已改名並整併進「可自訂 select」路線 | `<selectlist>…</selectlist>` | 🟠 | ✅ |
 | `::backdrop` | `dialog.showModal()` 或全螢幕時的背後遮罩層樣式 | `dialog::backdrop{}` | 🟢 | ✅ |
 
-### G. 響應式與使用者偏好（Responsive & Preferences）
+## G. 響應式與使用者偏好（Responsive & Preferences）
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
@@ -136,7 +136,7 @@ draft: false
 | Style Queries `@container style()` | 依容器的自訂屬性值套樣式（如主題），元件變體超好用 | `@container style(--theme: dark){}` | 🟡 | ✅ |
 | Scroll-State Queries | 依容器捲動狀態（如 `stuck`、`snapped`）套樣式；可偵測 sticky 是否黏住 | `@container scroll-state(stuck: top){}` | 🟠 | ✅ |
 
-### H. 封裝與效能（Encapsulation & Performance）
+## H. 封裝與效能（Encapsulation & Performance）
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
@@ -150,7 +150,7 @@ draft: false
 | `@supports` | 特性偵測，做漸進增強與 fallback | `@supports (display: grid){}` | 🟢 | ✅ |
 | `at-rule()` | 在 `@supports` 裡偵測某個 at-rule 支不支援，例如 `@scope`、`@position-try`，終於不用靠間接寫法猜（Firefox 157 起） | `@supports at-rule(@scope){}` | 🟠 | ⬜ |
 
-### I. 函式與數學（Functions & Math）
+## I. 函式與數學（Functions & Math）
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
@@ -164,7 +164,7 @@ draft: false
 | `attr()` 用在任何屬性 | 以前 `attr()` 只能用在 `content`，現在可以帶型別讀取 HTML 屬性，直接當作寬度、顏色等任何屬性的值（Chrome 先支援，Firefox 155 加入；用它讀 ARIA 屬性的實測見[這篇](/blog/css-attr/)） | `width: attr(data-w type(<length>));` | 🟠 | ✅ |
 | `symbols()` | 在 CSS 裡直接定義清單符號，不必另寫 `@counter-style`（Chrome 155 Beta） | `list-style: symbols(cyclic "◆" "◇");` | 🟠 | ⬜ |
 
-### J. 其他實用屬性（Misc）
+## J. 其他實用屬性（Misc）
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
@@ -183,11 +183,11 @@ draft: false
 | `@when` / `@else` | CSS 的 if/else 條件塊；仍為提案，瀏覽器皆不可用 | `@when supports(...){} @else{}` | 🔴 | ✅ |
 | Scroll anchoring（`overflow-anchor`） | 上方內容載入或插入時，瀏覽器自動維持目前的閱讀位置、畫面不跳動；預設開啟，個別元素可用 `none` 關閉。畫面跳動對認知或動作障礙者特別困擾（Safari 27 補上後，三大引擎到齊） | `overflow-anchor: none;` | 🟡 | ✅ |
 
-### K. HTML 元素與屬性（非 CSS，但同屬「宣告式取代 JS」的趨勢）
+## K. HTML 元素與屬性（非 CSS，但同屬「宣告式取代 JS」的趨勢）
 
 這一區嚴格說不是 CSS，但它們和現代 CSS 是同一個方向：**把過去得寫一堆 JS 才做得到的事，改成宣告式寫法**——而且多半直接影響無障礙品質，所以一併記在同一份清單裡。
 
-#### K-1. 新的 HTML 元素
+### K-1. 新的 HTML 元素
 
 | 元素 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
@@ -196,7 +196,7 @@ draft: false
 | `<install>` | PWA 安裝按鈕，文案與外觀由瀏覽器控制（使用者看到「安裝」就知道會發生什麼）。指定 `installurl` 可安裝其他網域的 app，能做成 app 目錄頁 | `<install installurl="…" manifestid="…">` | 🟠 | ⬜ |
 | `<model>` | 像 `<img>` 一樣嵌入可互動的 3D 模型（USDZ 格式），可用 `<source>` 提供多格式、用 `environmentmap` 指定環境光 | `<model src="a.usdz">` | 🟠 | ⬜ |
 
-#### K-2. 新的 HTML 屬性與行為
+### K-2. 新的 HTML 屬性與行為
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
@@ -209,10 +209,10 @@ draft: false
 | 宣告式 Shadow DOM | 不寫 JS 就能建立 Shadow DOM，SSR 輸出可以直接帶著走 | `<template shadowrootmode="open">` | 🟢 | ✅ |
 | `Element.setHTML()` | 安全版的 `innerHTML`：插入時自動清掉 `<script>`、事件屬性等危險標記（Sanitizer API），和宣告式 Shadow DOM 文章提到的 `setHTMLUnsafe()` 是一組；Firefox 157 改為解析時就清理，其他瀏覽器請以 caniuse 為準 | `el.setHTML(userInput);` | 🟠 | ⬜ |
 | `shadowrootreferencetarget` | 讓 Shadow DOM 外面的 `<label>`／`aria-*` 能指向內部真正的 input——解決 web component 長年的標籤關聯難題 | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ⬜ |
-| `<h1>` 巢狀尺寸修正 | UA 樣式表變更：`<h1>` 放在 `<section>` 裡不再被自動縮小，標題階層的視覺呈現終於可預期 | — | 🟢 | ⬜ |
+| `<h1>` 巢狀尺寸修正 | UA 樣式表變更：`<h1>` 放在 `<section>` 裡不再被自動縮小，標題階層的視覺呈現終於可預期（實測與我網站的標題調整見[這篇](/blog/html-nested-h1/)） | — | 🟢 | ✅ |
 | `ariaNotify()` | 直接請螢幕閱讀器念出一段訊息（例如「已加入購物車」），取代在頁面藏一個 `aria-live` 區塊再塞文字的舊做法。它是 DOM API 而不是 HTML 屬性，但它取代的正是那套 HTML 屬性寫法（Chrome 141、Firefox 150 起；Safari 的資料互相矛盾，請以實測為準） | `document.ariaNotify("已加入購物車");` | 🟡 | ✅ |
 
-#### K-3. 提案／原型階段（先知道有這回事就好）
+### K-3. 提案／原型階段（先知道有這回事就好）
 
 | 功能 | 主要用途 | 支援 | 已實驗 |
 |---|---|---|---|
@@ -220,21 +220,20 @@ draft: false
 | `<persistentwidget>` | 同源頁面之間導覽時仍持續存在的嵌入內容（例如播放器不中斷） | 🔴 | ⬜ |
 | HTML-in-Canvas（`layoutsubtree`） | 在 canvas 上渲染可互動的 HTML | 🔴 | ⬜ |
 
-### 建議優先補實驗的清單
+## 建議優先補實驗的清單
 
 原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前面幾項是 🟢／🟡、可以直接上線的；最後兩項雖然還是 🟠，但無障礙價值很高，等正式版推出就做。
 
-1. `<h1>` 巢狀尺寸修正——瀏覽器預設樣式的變更，順便檢查自己網站的標題階層有沒有靠預設字級。
-2. `sizes="auto"`——搭配 `loading="lazy"`，響應式圖片不用再自己算 `sizes`。
-3. `stretch` 尺寸關鍵字——取代 `-webkit-fill-available` 這類私有寫法。
-4. `alpha()` 與 `revert-rule`——Baseline 2026 的兩個小工具，日常寫法直接升級。
-5. `progress()`——做隨尺寸連續變化的樣式。
-6. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
-7. `shadowrootreferencetarget`——解決 web component 外面的 `<label>`、`aria-*` 指不到內部元素的問題。
+1. `sizes="auto"`——搭配 `loading="lazy"`，響應式圖片不用再自己算 `sizes`。
+2. `stretch` 尺寸關鍵字——取代 `-webkit-fill-available` 這類私有寫法。
+3. `alpha()` 與 `revert-rule`——Baseline 2026 的兩個小工具，日常寫法直接升級。
+4. `progress()`——做隨尺寸連續變化的樣式。
+5. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
+6. `shadowrootreferencetarget`——解決 web component 外面的 `<label>`、`aria-*` 指不到內部元素的問題。
 
 > **提醒**：標為 🟠 / 🔴 的多為 2025–2026 才進 Chrome 或仍在提案的特性，支援度每季都在變。實際導入 production 前，請以 [caniuse.com](https://caniuse.com "另開新視窗"){target="_blank"} 與 MDN 的最新資料為準，並記得為新特性加 `@supports` fallback。
 
-### 相關連結
+## 相關連結
 
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}
 - [MDN Web Docs — CSS](https://developer.mozilla.org/zh-TW/docs/Web/CSS "另開新視窗"){target="_blank"}

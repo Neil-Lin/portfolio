@@ -16,15 +16,15 @@ Take Hong Kong's DARS. I first assumed it was an official certification run by a
 
 This gray zone — where the government appears to be involved but the actual issuer is a private body — makes it easy, in a mark-comparison article, to lump together two things of completely different natures unless you first pin down each country's institutional foundation. So this article widens the map by eight more jurisdictions — Hong Kong, Italy, Qatar, Norway, Denmark, Poland, Ireland, and Finland — bringing the groundwork up to 24 jurisdictions, and along the way introduces the "organizer / co-organizer / advisor" distinction I stumbled onto, before moving on to the marks. As before, the information below may contain errors; corrections from experts are very welcome.
 
-### 1. The Same Mechanism Vocabulary, With One Added Caveat
+## 1. The Same Mechanism Vocabulary, With One Added Caveat
 
 Reusing the six regulatory tools from the previous article: ① mandatory certification, ② self-declaration + government monitoring, ③ procurement / supply-chain leverage, ④ market surveillance + fines, ⑤ anti-discrimination litigation, ⑥ soft law / duty to make efforts.
 
 Among these eight new jurisdictions, five (Italy, Denmark, Poland, Ireland, Finland) continue the previous article's "Group C — EU Dual-Directive Model" formula: the public sector runs on the WAD (② self-declaration + monitoring), the private sector on the EAA (④ market surveillance + fines, formally applicable from 28 June 2025). One (Norway) continues "Group D — Non-EU, Its Own System." The remaining two (Hong Kong, Qatar) are an entirely new type — no dedicated law, standards drawn from policy or private bodies, and marks issued by someone other than the government itself. That is exactly the extra caveat this article adds: **"government co-organized" is not "government certified."** To judge a mark's authority, first work out who the organizer, the co-organizer, and the advisor each are.
 
-### 2. Jurisdiction-by-Jurisdiction Review (Continuing the Earlier Grouping)
+## 2. Jurisdiction-by-Jurisdiction Review (Continuing the Earlier Grouping)
 
-#### Group C Extended: EU Dual-Directive Model (Five More)
+### Group C Extended: EU Dual-Directive Model (Five More)
 
 These five are structurally identical to the previous article's Germany, France, Spain, Portugal, Austria, Belgium, and the Netherlands: the public sector derives from the WAD and runs on ② self-declaration + monitoring; the private sector derives from the EAA and runs on ④ market surveillance + fines, applicable from 28 June 2025. The differences again lie in the bite of the monitoring and the size of the fines — this time with a first look at how enforcement was actually divided up once the EAA took effect.
 
@@ -38,11 +38,11 @@ These five are structurally identical to the previous article's Germany, France,
 
 - Finland. The Act on the Provision of Digital Services 306/2019 (in force 1 April 2019, transposing the WAD). Per Traficom's supervision pages the standard is EN 301 549 + WCAG 2.1. Beyond the public sector, the scope also covers private-sector digital services that receive over 50% public funding, as well as specific private services such as electronic identification/payment and utilities, transport, and postal services. The EAA transposition law's correct number is the Act on Accessibility Requirements for Certain Products 102/2023, with implementing decree 179/2023, in force from 20 February 2023 and applicable from 28 June 2025 (the "568/2023" often seen online is a wrong number — I note this specifically to stop the error from spreading). The competent authority is now the digital accessibility supervision unit of Traficom (the Finnish Transport and Communications Agency) — but this power was only consolidated and transferred over from the Regional State Administrative Agency for Southern Finland (AVI) on 1 January 2025, a piece of history the previous article missed. There is no official mark scheme; the penalties are not "unclear" either, but a clear last resort — after administrative guidance fails, Traficom can impose a case-by-case uhkasakko (conditional fine) under the Act on Conditional Fines (Uhkasakkolaki), and for the EAA part there are additional, stricter powers such as prohibition orders and mandatory audits.
 
-#### Group D Extended: Non-EU / EEA, Its Own System (One More)
+### Group D Extended: Non-EU / EEA, Its Own System (One More)
 
 - Norway. Using the Equality and Anti-Discrimination Act (Act No. 51 of 2017) together with the Regulations on Universal Design of ICT to implement the concept of "universell utforming av IKT," the public sector is subject to 48 requirements and the private sector to 35, all as minimum requirements — and both sectors use the same set of rules, rather than splitting into WAD/EAA tracks like the EU. The competent authority is the Authority for Universal Design of ICT (Tilsynet for universell utforming av ikt), under the Norwegian Digitalisation Agency (Digdir). There is no third-party testing-body scheme and no official mark; the authority samples and checks directly (manual + semi-automated + automated). The penalty mechanism is tvangsmulkt (a coercive fine calculated per day) — its legal basis is actually Section 36 of the parent act itself, not §6/§7 of the subordinate rules; the correct process is to first issue a corrective order (pålegg) under §18 (universal-design duty) and §19a (documentation duty) of the rules, and only impose tvangsmulkt under Section 36 of the parent act if remediation misses the deadline — the section numbers in the previous article need correcting. Public-sector website statements have been mandatory on uustatus.no (Digdir's centralized platform) since 1 February 2023, while the deadline for app statements is 1 February 2026 — which, as of today, has only just taken effect. As an EEA member, whether Norway will move toward WAD/EAA alignment is worth watching.
 
-#### Group E (New): Policy-Guided + Private-Mark Model (No Dedicated Law)
+### Group E (New): Policy-Guided + Private-Mark Model (No Dedicated Law)
 
 This group is the real new discovery this time — there is no dedicated law like Taiwan's Article 52-2 of the People with Disabilities Rights Protection Act that "explicitly requires obtaining a certification mark." Web accessibility obligations come from a general anti-discrimination law or a policy document; and the marks you can find on the market are issued by private or semi-official bodies, not the government itself.
 
@@ -50,7 +50,7 @@ This group is the real new discovery this time — there is no dedicated law lik
 
 - Qatar. I had originally assumed Qatar's parent-law status was "not publicly confirmed"; on checking, that description is out of date — the previously applicable Law No. 2 of 2004 on the Rights of Persons with Disabilities was repealed and replaced by Law No. 22 of 2025, signed by the Emir on 5 October 2025 and in force from 19 November 2025. Article 23(2) expressly requires banks and financial institutions to provide accessible digital services, with violations punishable by a QAR 50,000 fine; other violations up to QAR 100,000; and, where a serious case results in death, up to QAR 500,000 and/or up to 5 years' imprisonment, enforced by the Ministry of Social Development and Family (MSDF) — the only case among these eight jurisdictions to newly add statutory penalties in 2025, worth flagging. As for the mark issuer, the Mada Assistive Technology Center Qatar is explicitly a "private institution for public benefit," not a government body; its website-accessibility certification comes in three public lists — Accredited Websites / Mobile Apps / Kiosks & ATMs. Two standard tracks need separating here: Qatar's own government digital services require WCAG 2.0 under the Government Website & e-Services Framework, while Mada's own certification uses WCAG 2.1 — the original data only noted "WCAG 2.1 as the main standard clue," missing the government-policy standard.
 
-### 3. The Public × Private × Mechanism Matrix (Eight New Jurisdictions)
+## 3. The Public × Private × Mechanism Matrix (Eight New Jurisdictions)
 
 Continuing the previous article's matrix codes: ① mandatory certification, ② self-declaration + monitoring, ③ procurement / supply-chain leverage, ④ market surveillance + fines, ⑤ anti-discrimination litigation, ⑥ soft law / duty to make efforts.
 
@@ -65,17 +65,17 @@ Continuing the previous article's matrix codes: ① mandatory certification, ②
 | Ireland | ② NDA statutory monitoring (no direct fines) | ④⑤ EAA (six-body split; up to 18 months' imprisonment + private right of action) |
 | Finland | ② Traficom supervision (since 2025; formerly AVI) | ④ EAA (recurring uhkasakko + prohibition orders) |
 
-### 4. The Biggest Misconception This Time: "Organizing" ≠ "Certifying"
+## 4. The Biggest Misconception This Time: "Organizing" ≠ "Certifying"
 
 The previous article's Observation 4 noted that "whether there's an official mark ≠ how strong the regime is." After collecting the Hong Kong and Qatar data, I want to add a further layer: **a mark that looks government-backed doesn't mean the government is the issuer.**
 
 On Hong Kong's DARS pages you'll see the DPO's name, making it easy to mistake it for an official, government-run certification; but the actual organizer is HKIRC, with the DPO merely co-organizing and the EOC only advising. Qatar's Mada certification likewise carries a seemingly official domain and brand image, yet its legal status is a "private institution for public benefit." This is a completely different level of authority from Taiwan's Article 52-2 mandatory certification ("government agencies must obtain the certification mark by law"), or Korea's MSIT designating three bodies to issue an official quality mark — not that private marks have no value; the assessment mechanisms and public lists that DARS and Mada have built up are actually quite solid. It's just that, when judging a mark's force, the first step should be to clearly distinguish "who organizes, who co-organizes, and who is merely a named advisor," rather than treating the appearance of a government body's name as a statutory certification. This is also the first field I'll confirm when the next article takes each country's marks apart one by one.
 
-### 5. The First Wave of Market-Surveillance Samples After the EAA Took Effect
+## 5. The First Wave of Market-Surveillance Samples After the EAA Took Effect
 
 28 June 2025 was the formal application date of the EAA's private-sector obligations, and Italy, Poland, Ireland, and Finland — collected this time — happen to be the first batch of jurisdictions with concrete enforcement detail available. The penalty gaps are again enormous: Poland looks to up to 10% of annual turnover; Italy fines enterprises with turnover above €500M up to 5% of turnover; Ireland takes the criminal route (up to 18 months' imprisonment, with company officers individually liable); and Finland uses a case-by-case, uncapped uhkasakko. The same EAA directive, transposed into four completely different "sets of teeth" by four countries — consistent with the gaps observed for Germany, France, Spain, the Netherlands, Austria, and Belgium in the previous article. The EU harmonized only the standard (EN 301 549 → WCAG 2.1 AA), not the intensity of enforcement.
 
-### 6. Updated Observations and Trends
+## 6. Updated Observations and Trends
 
 Stacking the eight new jurisdictions onto the previous article's sixteen, three more points can be added:
 
@@ -83,13 +83,13 @@ Stacking the eight new jurisdictions onto the previous article's sixteen, three 
 - **The nature of the organizer determines the tier of a mark's evidentiary force.** Government mandatory certification (Taiwan, Korea, India) > government policy requirement + private voluntary mark (Hong Kong, Qatar) > pure private voluntary mark (WACA, AENOR, and the like in Germany, Spain, the Netherlands, etc.). All three can look like "official recognition," but their legal force is worlds apart.
 - **The EAA took effect on 28 June 2025, and the first enforcement differences have already surfaced.** Poland, Italy, Ireland, and Finland took four different penalty routes, showing that "the same EU directive" will grow into at least four-plus enforcement versions across the twenty-seven member states — a gap likely to keep widening as more countries' enforcement records become public.
 
-### Next Article Preview: Taking Each Mark Apart
+## Next Article Preview: Taking Each Mark Apart
 
 This article widened the institutional map to 24 jurisdictions, and in passing produced a method for judging a mark's credibility — first look at who organizes, co-organizes, and advises; then look at the standard version; and finally look at whether there's a publicly searchable list and an expiry date. The next article will finally return to the original plan: laying out DARS, Mada, WACA, AnySurfer, AENOR, Ilunion, Access for all, Drempelvrij, and Selo one by one, comparing whether each is a mandatory gate or a voluntary award, how many tiers it has, whether it has an expiry date, whether a complete list is searchable, and what its design looks like.
 
-### Reference
+## Reference
 
-#### Hong Kong
+### Hong Kong
 
 [Digital Policy Office established today (HKSAR Government press release)](https://www.info.gov.hk/gia/general/202407/25/P2024072400394.htm "Open new window"){target="_blank"}
 
@@ -101,7 +101,7 @@ This article widened the institutional map to 24 jurisdictions, and in passing p
 
 [DARS 2024-2025 Guide to Application (PDF, assessment-tier criteria)](https://www.digital-accessibility.hk/wp-content/uploads/2024/01/DARS_Application_Guide-1.pdf "Open new window"){target="_blank"}
 
-#### Qatar
+### Qatar
 
 [Mada Digital Accessibility Portal — Accredited Websites](https://ictaccess.mada.org.qa/en/accredited-websites/ "Open new window"){target="_blank"}
 
@@ -113,7 +113,7 @@ This article widened the institutional map to 24 jurisdictions, and in passing p
 
 [Qatar National e-Accessibility Policy 2011 (PDF, MCIT)](https://www.mcit.gov.qa/sites/default/files/qatar_eaccessibility_policy_en_v4.pdf "Open new window"){target="_blank"}
 
-#### Italy
+### Italy
 
 [D.Lgs. 82/2022 (EAA transposition)](https://www.gazzettaufficiale.it/eli/id/2022/07/01/22G00089/SG "Open new window"){target="_blank"}
 
@@ -129,7 +129,7 @@ This article widened the institutional map to 24 jurisdictions, and in passing p
 
 [MIMIT — product safety and market surveillance](https://www.mimit.gov.it/it/mercato-e-consumatori/sicurezza-prodotti "Open new window"){target="_blank"}
 
-#### Norway
+### Norway
 
 [Likestillings- og diskrimineringsloven (parent act, full text incl. §36)](https://lovdata.no/dokument/NL/lov/2017-06-16-51 "Open new window"){target="_blank"}
 
@@ -141,7 +141,7 @@ This article widened the institutional map to 24 jurisdictions, and in passing p
 
 [uustatus.no — central accessibility-statement platform](https://uustatus.no/nb "Open new window"){target="_blank"}
 
-#### Denmark
+### Denmark
 
 [Digitaliseringsstyrelsen — in-depth monitoring](https://digst.dk/tilsyn/webtilgaengelighed/monitorering-og-tilsyn/dybdegaaende-monitoreringer/ "Open new window"){target="_blank"}
 
@@ -153,7 +153,7 @@ This article widened the institutional map to 24 jurisdictions, and in passing p
 
 [WAS-Tool official portal](https://edit.was.digst.dk/da-DK "Open new window"){target="_blank"}
 
-#### Poland
+### Poland
 
 [Ustawa z dnia 4 kwietnia 2019 r. (ISAP)](https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20190000848 "Open new window"){target="_blank"}
 
@@ -163,7 +163,7 @@ This article widened the institutional map to 24 jurisdictions, and in passing p
 
 [Poland Ministry of Digital Affairs — digital accessibility](https://www.gov.pl/web/cyfryzacja/dostepnosc-cyfrowa "Open new window"){target="_blank"}
 
-#### Ireland
+### Ireland
 
 [S.I. No. 358/2020](https://www.irishstatutebook.ie/eli/2020/si/358/made/en/print "Open new window"){target="_blank"}
 
@@ -173,7 +173,7 @@ This article widened the institutional map to 24 jurisdictions, and in passing p
 
 [DLA Piper — Irish accessibility regulations penalty detail](https://www.dlapiper.com/en-us/insights/publications/2025/10/navigating-the-irish-accessibility-regulations "Open new window"){target="_blank"}
 
-#### Finland
+### Finland
 
 [Traficom — supervisory-authority tasks (incl. uhkasakko)](https://www.saavutettavuusvaatimukset.fi/en/tasks-supervisory-authority-0 "Open new window"){target="_blank"}
 

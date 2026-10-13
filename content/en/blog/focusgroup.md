@@ -14,7 +14,7 @@ draft: false
 
 > Up front: I tested the behavior in this post in Chromium 153. `focusgroup` is still new, so the spec and implementation may change, and how a screen reader actually announces it is best checked with one turned on. If I've gotten something wrong, corrections welcome.
 
-### Intro
+## Intro
 
 If you've built accessible components, you've probably written a roving tabindex.
 
@@ -29,7 +29,7 @@ First, here's what your browser supports:
 ::feature-support{features="focusgroup" notice="Your browser doesn't support focusgroup, so the demos below fall back to a JavaScript version that behaves the same way, and you can still get a feel for it."}
 ::
 
-### 1. The first trap: a bare `focusgroup` does nothing
+## 1. The first trap: a bare `focusgroup` does nothing
 
 Plenty of introductions (including the example originally in my own cheat sheet) write it like this:
 
@@ -51,14 +51,14 @@ The current syntax takes a **behavior type**:
 
 Now the group takes a single Tab stop and the left and right arrow keys move between the buttons, with no JavaScript at all.
 
-### 2. Try it
+## 2. Try it
 
 Pick a type, Tab in from "Button before", then use the arrow keys, Home and End. The key log below shows where each key press landed focus:
 
 ::focusgroup-lab
 ::
 
-### 3. The six behavior types
+## 3. The six behavior types
 
 Here's how each type behaved in my tests:
 
@@ -75,7 +75,7 @@ Every type supports Home and End to jump to the first and last items. PageUp and
 
 As you can see, **the type doesn't just set the keyboard behavior; it adds roles for you too**. A container with `focusgroup="tablist"` is a `tablist` in the accessibility tree, and its buttons automatically become `tab`s. More on that below.
 
-### 4. Modifiers: wrap, nomemory, block
+## 4. Modifiers: wrap, nomemory, block
 
 You can add modifiers after the type, separated by spaces:
 
@@ -87,7 +87,7 @@ You can add modifiers after the type, separated by spaces:
 | `block` | Use the up/down arrow keys | `toolbar block`: a vertical toolbar |
 | `inline` | Use the left/right arrow keys | — |
 
-### 5. Details from testing
+## 5. Details from testing
 
 Beyond the arrow keys, these are the things I paid attention to:
 
@@ -113,7 +113,7 @@ Beyond the arrow keys, these are the things I paid attention to:
 - **A nested focusgroup** also becomes its own Tab stop, and the outer group's arrow keys don't go into it.
 - **It doesn't touch your `tabindex`**: items keep their original `tabindex` of `0`; the "single Tab stop" is handled inside the browser.
 
-### 6. Roles are automatic, state isn't
+## 6. Roles are automatic, state isn't
 
 As mentioned, `focusgroup` adds roles automatically. But in my tests, **it only handles roles, not state**:
 
@@ -126,7 +126,7 @@ So my recommendation: **still write the roles out explicitly**, and manage state
 
 There's a practical reason too: **testing tools don't recognize these automatic roles yet**. When I ran axe on the tabs demo with only `focusgroup="tablist"` on the container and no `role="tablist"`, every `tab` was reported as "Required ARIA parent role not present: tablist", even though the browser's accessibility tree was correct. Adding `role="tablist"` cleared it.
 
-### 7. The tabs trap: Tab lands on the first tab, not the selected one
+## 7. The tabs trap: Tab lands on the first tab, not the selected one
 
 The APG tabs pattern says that when you Tab into a tab list from outside, focus should land on **the currently selected tab**.
 
@@ -151,7 +151,7 @@ When the selected tab changes, move `focusgroupstart` along with it.
 
 Keep in mind that `focusgroup` only **moves focus**. Whether focusing a tab also selects it, and showing and hiding panels, are still yours to write. The tabs in my UI Kit select as you arrow through them; switching to `focusgroup` would remove the keyboard handling (arrow keys, Home, End, right-to-left, wrapping), but the selection and panel logic would stay.
 
-### 8. What happens without support?
+## 8. What happens without support?
 
 Browsers without support ignore the attribute, and the component falls back to "one Tab stop per button". It still works; it just doesn't follow the APG keyboard pattern.
 
@@ -185,7 +185,7 @@ if (!("focusGroup" in HTMLElement.prototype)) {
 }
 ```
 
-### Conclusion
+## Conclusion
 
 In a few lines:
 
@@ -200,13 +200,13 @@ After writing so many roving tabindexes, seeing it become an attribute is a litt
 
 Have you hand-written a roving tabindex in your projects? I'd love to hear about it.
 
-### Related reading
+## Related reading
 
 - [Is a CSS-Only Carousel Accessible Enough? Compared Against My UI Kit](/en/blog/css-carousel-a11y/)
 - [Popover auto, manual and hint: What's Actually the Difference? I Built Demos to Find Out](/en/blog/popover-auto-manual-hint/)
 - [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
-### Related links
+## Related links
 
 - [Open UI — Scoped focusgroup explainer](https://open-ui.org/components/scoped-focusgroup.explainer/ "Open new window"){target="_blank"}
 - [WAI-ARIA APG — Managing focus within composites (roving tabindex)](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#kbd_roving_tabindex "Open new window"){target="_blank"}

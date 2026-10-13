@@ -3,7 +3,6 @@
     <a id="ak-jump" href="#ak-container" :title="$t('shortcut.skipToContent')">
       {{ $t("shortcut.skipToContent") }}
     </a>
-    <h1 class="visually-hidden">{{ $t("website.name") }}</h1>
     <div class="header-container">
       <div class="left">
         <a

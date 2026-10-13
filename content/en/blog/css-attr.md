@@ -14,7 +14,7 @@ draft: false
 
 > Up front: I tested the behavior in this post in Chromium 141 and 153. I couldn't find definitive Safari support data while writing, so check caniuse before shipping. If I've gotten something wrong, corrections welcome.
 
-### Intro
+## Intro
 
 There's a habit that works really well for accessible components: **use ARIA attributes as the hook for your styles**.
 
@@ -37,7 +37,7 @@ First, here's what your browser supports:
 ::feature-support{features="attr-typed" notice="Your browser doesn't support typed attr(), so the demos below copy the value into a CSS variable with JavaScript instead, with the same result."}
 ::
 
-### 1. The old attr(): content only
+## 1. The old attr(): content only
 
 `attr()` has been around a long time, but only in `content`, and it always returned a string:
 
@@ -49,7 +49,7 @@ a::after {
 
 Using it for a width, color or spacing did nothing.
 
-### 2. The new syntax: typed, in any property
+## 2. The new syntax: typed, in any property
 
 Now you can tell the browser what type to treat the attribute as, plus a fallback for when it can't be read:
 
@@ -71,7 +71,7 @@ Now you can tell the browser what type to treat the attribute as, plus a fallbac
 
 Most importantly, **it can read ARIA attributes**.
 
-### 3. Example 1: a progress bar that reads aria-valuenow
+## 3. Example 1: a progress bar that reads aria-valuenow
 
 ```html
 <div class="progress" role="progressbar" aria-label="Upload progress"
@@ -119,7 +119,7 @@ If the minimum isn't 0, read `aria-valuemin` and `aria-valuemax` as well:
 
 In my tests, `aria-valuemin="10"`, `aria-valuemax="60"` and `aria-valuenow="35"` gave exactly 50%.
 
-### 4. The first trap: children can't read a parent's attributes
+## 4. The first trap: children can't read a parent's attributes
 
 Notice that `--now` is set on the outer `.progress`, not directly on `.progress__fill`.
 
@@ -141,7 +141,7 @@ The fix is to read the value into a CSS variable on the element that has the att
 .progress__fill { width: calc(var(--now) * 1%); }             /* children use the inherited variable */
 ```
 
-### 5. Example 2: rating stars
+## 5. Example 2: rating stars
 
 A rating display uses the same pattern. Use `role="meter"` with `aria-valuenow`, and have the star length read it:
 
@@ -171,7 +171,7 @@ Two accessibility details:
 - **The stars are decoration**: an empty string after the slash in `content` stops screen readers from reading out five star characters. The name and value come from `aria-label` and `aria-valuetext`.
 - **`aria-valuetext` is the version for people**: `aria-valuenow` is the number for code and CSS, while `aria-valuetext` is the sentence a screen reader actually says, such as "4.5 out of 5 stars".
 
-### 6. Example 3: tree indentation from aria-level
+## 6. Example 3: tree indentation from aria-level
 
 Each level of a tree already needs `aria-level` to tell screen readers how deep it is. The visual indentation can read the same value:
 
@@ -185,13 +185,13 @@ In my tests, items with `aria-level` 1, 2 and 4 were indented 0, 24px and 72px. 
 
 From then on, adjusting the tree means changing `aria-level` and the indentation follows. Conversely, if the indentation looks wrong, the problem must be in `aria-level`, which also affects screen reader users, so you catch both at once during development.
 
-### 7. Other details from testing
+## 7. Other details from testing
 
 - **Invalid values fall back to the default**: `aria-valuenow="abc"` and `aria-level="x"` both use the default after the comma, so the layout doesn't break. That's why **you should always provide a default**.
 - **It reads attributes, not live element state**: drag an `<input type="range" value="30">` and `input.value` changes, but the HTML `value` attribute is still 30, so `attr(value)` still reads 30. Live form values still need JavaScript.
 - **It can't be used in URLs**: `background-image: url(attr(data-img))` does nothing, and `type(<url>)` doesn't read either. This is deliberately blocked for security, so attributes on a page can't be used to load external resources.
 
-### 8. What happens without support?
+## 8. What happens without support?
 
 Feature detection:
 
@@ -213,7 +213,7 @@ if (!CSS.supports("width: attr(data-x type(<length>))")) {
 
 That way the CSS is written once: it reads the attribute when supported, and the variable written by JavaScript when not.
 
-### Conclusion
+## Conclusion
 
 In a few lines:
 
@@ -227,13 +227,13 @@ In a few lines:
 
 Where in your projects is JavaScript updating both styles and ARIA at once? I'd love to hear about it.
 
-### Related reading
+## Related reading
 
 - [No More Hand-Rolled Roving tabindex: Arrow-Key Navigation with focusgroup](/en/blog/focusgroup/)
 - [Make Screen Readers Speak: Replacing aria-live with ariaNotify()](/en/blog/aria-notify/)
 - [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
-### Related links
+## Related links
 
 - [MDN — attr()](https://developer.mozilla.org/en-US/docs/Web/CSS/attr "Open new window"){target="_blank"}
 - [Chrome for Developers — CSS attr() gets an upgrade](https://developer.chrome.com/blog/advanced-attr "Open new window"){target="_blank"}

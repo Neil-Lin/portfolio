@@ -19,7 +19,7 @@ draft: false
 
 > 話說在前頭：這篇的實測是在 Chromium 上做的，`closedby` 這類比較新的功能各瀏覽器支援狀況不一，寫的當下正確不代表之後也正確，有講錯的地方歡迎指正。
 
-### 前言
+## 前言
 
 寫完 [popover](/blog/popover-auto-manual-hint) 和 [hidden="until-found"](/blog/hidden-until-found) 之後，下一個想整理的就是 `<dialog>`。
 
@@ -32,7 +32,7 @@ draft: false
 ::feature-support{features="command,dialog-closedby,dialog-requestclose" notice="有項目不支援也沒關係，範例裡對應的地方會改用 JavaScript 後備，或在文中說明差異。"}
 ::
 
-### 一、先分清楚：`show()` 跟 `showModal()` 差很多
+## 一、先分清楚：`show()` 跟 `showModal()` 差很多
 
 `<dialog>` 有兩種打開方式，這是最多人搞混的地方：
 
@@ -41,7 +41,7 @@ draft: false
 
 兩個都打開試試看，再按 Tab、點背景的按鈕，差別很明顯：
 
-| | `show()`（非 modal） | `showModal()`（modal） |
+| 比較項目 | `show()`（非 modal） | `showModal()`（modal） |
 |---|---|---|
 | 背景能不能操作 | 可以 | 不行，整個背景變成 inert |
 | Tab 會不會跑出去 | 會 | 不會，只在對話框和瀏覽器介面之間移動 |
@@ -53,7 +53,7 @@ draft: false
 
 另外，直接在 HTML 寫 `<dialog open>` 等同 `show()`，是非 modal。**需要使用者先處理完才能繼續的情況，一律用 modal**，不要只加 `open` 屬性。
 
-### 二、用 Invoker Commands 開關，不寫 JavaScript
+## 二、用 Invoker Commands 開關，不寫 JavaScript
 
 以前要打開 modal，一定要寫這段：
 
@@ -84,7 +84,7 @@ openButton.addEventListener("click", () => dialog.showModal());
 
 Invoker Commands 從 Chrome 135、Firefox 144、Safari 26.2 開始支援，已經是 Baseline。這篇的範例在不支援的瀏覽器裡，會用一小段 JavaScript 補上這三個指令。
 
-### 三、`closedby`：決定誰能關掉它
+## 三、`closedby`：決定誰能關掉它
 
 以前想做「點背景就關閉」，要自己監聽點擊、判斷點的是不是對話框外面。現在用 `closedby` 屬性就可以：
 
@@ -109,7 +109,7 @@ Invoker Commands 從 Chrome 135、Firefox 144、Safari 26.2 開始支援，已�
 
 `closedby` 從 Chrome 134、Firefox 141 開始支援，Safari 在我寫這篇時查到的資料還沒有，請以 [caniuse](https://caniuse.com "另開新視窗"){target="_blank"} 為準。不支援的瀏覽器會忽略這個屬性，退回上面說的預設行為，不會壞掉。
 
-### 四、`request-close`：表單還沒存，先問一下
+## 四、`request-close`：表單還沒存，先問一下
 
 這是我覺得最實用的新功能。使用者在對話框裡打了一堆字，手滑按到取消或 Esc，內容就全部不見了，這種事應該很多人都遇過。
 
@@ -141,7 +141,7 @@ editor.addEventListener("cancel", (e) => {
 - **確認訊息出現時，把焦點移過去**，報讀軟體才會唸出「還有沒儲存的修改」。
 - **`close` 指令不會觸發 `cancel`**，所以「放棄修改」那顆按鈕用 `close` 就能直接關掉，不會又被攔一次。
 
-### 五、`form method="dialog"`：把結果帶出來
+## 五、`form method="dialog"`：把結果帶出來
 
 範例裡的「儲存」按鈕沒有寫任何 JavaScript 來關閉對話框，靠的是 `<form method="dialog">`：
 
@@ -179,7 +179,7 @@ editor.addEventListener("close", () => {
 
 `ariaNotify()` 是讓報讀軟體直接唸出一段訊息的新 API，用來取代藏一個 `aria-live` 區塊的舊做法。它的用法、支援度和不支援時的降級寫法，我另外整理在〈[讓報讀軟體開口說話：用 ariaNotify() 取代 aria-live](/blog/aria-notify/)〉。
 
-### 六、無障礙要注意的地方
+## 六、無障礙要注意的地方
 
 原生 `<dialog>` 幫你做掉了很多事，但還有幾件要自己確認：
 
@@ -189,7 +189,7 @@ editor.addEventListener("close", () => {
 - **一定要有看得到的關閉方式**：就算可以按 Esc，也不是每個人都知道。
 - **不要把 modal 用在不需要打斷使用者的地方**：只是補充說明的話，popover 或頁面內的展開區塊通常更好。
 
-### 七、樣式與進出場動畫
+## 七、樣式與進出場動畫
 
 對話框的進出場動畫，現在可以完全用 CSS 做。這段是我網站本身在用的寫法，範例裡的對話框也是套用它：
 
@@ -245,7 +245,7 @@ dialog {
 - `display` 和 `overlay` 要加 `allow-discrete`，關閉時瀏覽器才會等動畫跑完再把它藏起來、移出最上層。
 - **記得加減少動態偏好**。老實說，寫這篇時才發現我自己網站的 dialog 漏了最後這段，已經順手補上了。
 
-### 八、什麼時候還是需要 JavaScript？
+## 八、什麼時候還是需要 JavaScript？
 
 整理下來，宣告式的寫法已經能涵蓋大部分情況，但這幾種還是要寫程式：
 
@@ -255,7 +255,7 @@ dialog {
 - **內容需要動態載入的對話框**。
 - **要支援比較舊的瀏覽器**：補上 Invoker Commands 的後備。
 
-### 結論
+## 結論
 
 整理成幾句話：
 
@@ -269,14 +269,14 @@ dialog {
 
 你的專案裡還有自己刻的 modal 嗎？歡迎一起討論！
 
-### 延伸閱讀
+## 延伸閱讀
 
 - [讓報讀軟體開口說話：用 ariaNotify() 取代 aria-live](/blog/aria-notify/)
 - [Popover 的 auto、manual、hint 到底差在哪？做個可以玩的範例來看看](/blog/popover-auto-manual-hint/)
 - [收合的內容，為什麼按 Ctrl+F 找不到？聊聊 hidden="until-found"](/blog/hidden-until-found/)
 - [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
-### 相關連結
+## 相關連結
 
 - [MDN — `<dialog>` 對話框元素](https://developer.mozilla.org/zh-TW/docs/Web/HTML/Element/dialog "另開新視窗"){target="_blank"}
 - [MDN — HTMLDialogElement.closedBy](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/closedBy "另開新視窗"){target="_blank"}

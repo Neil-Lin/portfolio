@@ -1,6 +1,6 @@
 <template>
   <div v-if="product && product.clickable === true" class="portfolio-detail">
-    <h2 v-if="product.name">{{ product.name[$i18n.locale] }}</h2>
+    <h1 v-if="product.name">{{ product.name[$i18n.locale] }}</h1>
 
     <figure v-if="product.heroImage[$i18n.locale][0]!.src" class="hero-img">
       <img
@@ -16,7 +16,7 @@
     <section
       v-if="product.summary || product.target || product.roles || product.tools"
     >
-      <h3>{{ t("page.detail.summary") }}</h3>
+      <h2>{{ t("page.detail.summary") }}</h2>
       <p v-if="product.summary && product.summary[$i18n.locale]">
         {{ product.summary[$i18n.locale] }}
       </p>
@@ -26,7 +26,7 @@
           v-if="product.target && product.target[$i18n.locale].length > 0"
           class="flex-item"
         >
-          <h4>{{ t("page.detail.target") }}</h4>
+          <h3>{{ t("page.detail.target") }}</h3>
           <ul>
             <li
               v-for="(item, index) in product.target[$i18n.locale]"
@@ -40,7 +40,7 @@
           v-if="product.roles && product.roles[$i18n.locale].length > 0"
           class="flex-item"
         >
-          <h4>{{ t("page.detail.roles") }}</h4>
+          <h3>{{ t("page.detail.roles") }}</h3>
           <ul>
             <li
               v-for="(item, index) in product.roles[$i18n.locale]"
@@ -54,7 +54,7 @@
           v-if="product.tools && product.tools[$i18n.locale].length > 0"
           class="flex-item"
         >
-          <h4>{{ t("page.detail.tools") }}</h4>
+          <h3>{{ t("page.detail.tools") }}</h3>
           <ul>
             <li
               v-for="(item, index) in product.tools[$i18n.locale]"
@@ -68,13 +68,13 @@
     </section>
 
     <section v-if="product.observe || product.learn || product.research">
-      <h3>{{ t("page.detail.process") }}</h3>
+      <h2>{{ t("page.detail.process") }}</h2>
       <div class="flex gap-2 flex-wrap">
         <div
           v-if="product.observe && product.observe[$i18n.locale].length > 0"
           class="flex-item"
         >
-          <h4>{{ t("page.detail.observe") }}</h4>
+          <h3>{{ t("page.detail.observe") }}</h3>
           <ul>
             <li
               v-for="(item, index) in product.observe[$i18n.locale]"
@@ -88,7 +88,7 @@
           v-if="product.learn && product.learn[$i18n.locale].length > 0"
           class="flex-item"
         >
-          <h4>{{ t("page.detail.learn") }}</h4>
+          <h3>{{ t("page.detail.learn") }}</h3>
           <ul>
             <li
               v-for="(item, index) in product.learn[$i18n.locale]"
@@ -102,7 +102,7 @@
           v-if="product.research && product.research[$i18n.locale].length > 0"
           class="flex-item"
         >
-          <h4>{{ t("page.detail.research") }}</h4>
+          <h3>{{ t("page.detail.research") }}</h3>
           <ul>
             <li
               v-for="(item, index) in product.research[$i18n.locale]"
@@ -116,7 +116,7 @@
     </section>
 
     <section v-if="product.output || product.images || product.videos">
-      <h3>{{ t("page.detail.output") }}</h3>
+      <h2>{{ t("page.detail.output") }}</h2>
       <div v-if="product.output">
         <ul>
           <li
@@ -155,13 +155,13 @@
     </section>
 
     <section v-if="product.relatedLinks">
-      <h3>{{ t("page.detail.links") }}</h3>
+      <h2>{{ t("page.detail.links") }}</h2>
       <div
         v-if="
           product.relatedLinks && product.relatedLinks[$i18n.locale].length > 0
         "
       >
-        <h4>{{ t("page.detail.website") }}</h4>
+        <h3>{{ t("page.detail.website") }}</h3>
         <ol>
           <li
             v-for="(item, index) in product.relatedLinks[$i18n.locale]"

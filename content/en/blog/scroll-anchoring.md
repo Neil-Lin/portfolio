@@ -14,7 +14,7 @@ draft: false
 
 > Up front: I tested the behavior in this post in Chromium. Details may differ in other browsers. If I've gotten something wrong, corrections welcome.
 
-### Intro
+## Intro
 
 You've been there: halfway through an article, an image or ad above finishes loading a few seconds late, the page jumps down, and you've lost your place. If you were about to tap a link, you might hit something else entirely.
 
@@ -31,7 +31,7 @@ First, here's what your browser supports:
 ::feature-support{features="overflow-anchor" notice="Your browser doesn't support scroll anchoring, so paragraph 5 will get pushed away in the demo below whatever you toggle; the reserve-space option still works."}
 ::
 
-### 1. What does it do?
+## 1. What does it do?
 
 The idea is simple: the browser picks an element on screen as an "anchor". When content above gets taller or shorter, the browser adjusts the scroll position so the anchor stays where it was on screen.
 
@@ -43,7 +43,7 @@ It's **on by default**, so you don't write anything. You only write something to
 }
 ```
 
-### 2. Try it
+## 2. Try it
 
 The box below is an article, and the purple paragraph is "the one you're reading". Press "Scroll to paragraph 5", then "Simulate slow loading"; 1.5 seconds later a block of late content appears at the top:
 
@@ -61,7 +61,7 @@ Try these combinations:
 
 The third case is the one to notice: **scroll anchoring does nothing when the scroll position is at the top**. In my tests, inserting content while the scroll position was 0 pushed the paragraphs below straight down.
 
-### 3. Tested: when it works and when it can't help
+## 3. Tested: when it works and when it can't help
 
 I also tested a few cases on a simpler page:
 
@@ -79,14 +79,14 @@ The last one happens because the anchor is usually the element you're looking at
 
 Also, `overflow-anchor: none` doesn't have to go on the whole scroll container. In my tests, putting it only on "the block that arrives late" stops the browser from picking that block as the anchor, and the other paragraphs stay protected.
 
-### 4. When should you turn it off?
+## 4. When should you turn it off?
 
 Most of the time, leave the default alone. You usually only turn it off where **you already control the scroll position with JavaScript**, so the two don't fight. For example:
 
 - **Chats and live logs**: new messages are added at the bottom, and your code scrolls to the newest one while the user is at the bottom. Having the browser adjust the position as well causes trouble.
 - **Your own infinite scroll or virtualized list**: your code is already computing the scroll position precisely.
 
-### 5. It's a safety net, not the fix
+## 5. It's a safety net, not the fix
 
 Scroll anchoring cuts down on jumps, but as you've seen, there are cases it can't help. The real fix is **reserving space at the source**, which is what the demo's "reserve space" option does:
 
@@ -104,11 +104,11 @@ Scroll anchoring cuts down on jumps, but as you've seen, there are cases it can'
 
 With space reserved, even the "at the top" case that scroll anchoring can't handle doesn't jump. This is exactly what CLS (Cumulative Layout Shift) in Core Web Vitals measures: scroll anchoring only keeps what you see in place; the layout still shifted.
 
-### 6. Applying it to my site
+## 6. Applying it to my site
 
 While writing this, I checked my own site and found two real examples: one where scroll anchoring is already quietly helping, and one where it can't help and the fix has to happen at the source.
 
-#### Example 1: category tags on the blog list
+### Example 1: category tags on the blog list
 
 On the [blog list](/en/blog/) I recently built, each post has a clickable category tag that filters the list down to that category. I scrolled down to the 10th post and clicked its "Design & AI" tag (on the Chinese version of the list):
 
@@ -117,7 +117,7 @@ On the [blog list](/en/blog/) I recently built, each post has a clickable catego
 
 **No code needed here**; the default does the right thing. It has limits, though: if the post you clicked isn't the first result, the earlier results end up above the screen. Scroll anchoring makes sure "what you were just looking at doesn't run off"; it doesn't make sure "you see what matters most".
 
-#### Example 2: product pages with unsized images
+### Example 2: product pages with unsized images
 
 I measured layout shift on my site's pages with PerformanceObserver, deliberately delaying images by 1.5 seconds to simulate a slow connection. The [product pages](/en/products/) scored a CLS of **0.1263**, above Google's recommended 0.1. The cause: none of the product page images had `width` and `height`, so each image was 0 tall until it loaded, then pushed the content below it down.
 
@@ -136,7 +136,7 @@ Combined with the site's existing `img { max-width: 100%; height: auto; }`, the 
 
 To avoid forgetting this when adding images later, I also added a check to the build's data validation: if a product page uses an image that isn't in the size list, the build fails and reminds me to regenerate the list.
 
-### 7. A fix along the way: smooth scrolling
+## 7. A fix along the way: smooth scrolling
 
 While checking, I noticed the site set smooth scrolling for the whole page:
 
@@ -163,7 +163,7 @@ const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
 ```
 
-### Conclusion
+## Conclusion
 
 In a few lines:
 
@@ -178,13 +178,13 @@ This is an accessibility feature that "needs no code": the browser quietly helps
 
 What kind of page jump catches you out most often? I'd love to hear about it.
 
-### Related reading
+## Related reading
 
 - [Is a CSS-Only Carousel Accessible Enough? Compared Against My UI Kit](/en/blog/css-carousel-a11y/)
 - [Spaces Between Chinese and English? Let text-autospace Add Them for You](/en/blog/text-autospace/)
 - [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
-### Related links
+## Related links
 
 - [MDN — overflow-anchor](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor "Open new window"){target="_blank"}
 - [MDN — Guide to scroll anchoring](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor/Guide_to_scroll_anchoring "Open new window"){target="_blank"}

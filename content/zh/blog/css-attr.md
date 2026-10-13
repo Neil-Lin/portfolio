@@ -14,7 +14,7 @@ draft: false
 
 > 話說在前頭：文中的行為我在 Chromium 141 和 153 上實測過。Safari 的支援狀況我寫這篇時沒有查到確定的資料，上線前請以 caniuse 為準。有講錯的地方歡迎指正。
 
-### 前言
+## 前言
 
 做無障礙元件有一個很好用的習慣：**用 ARIA 屬性當樣式的依據**。
 
@@ -37,7 +37,7 @@ draft: false
 ::feature-support{features="attr-typed" notice="你的瀏覽器不支援帶型別的 attr()，下方範例會改用 JavaScript 把數值複製到 CSS 變數，效果一樣。"}
 ::
 
-### 一、以前的 attr()：只能放進 content
+## 一、以前的 attr()：只能放進 content
 
 `attr()` 其實很早就有了，但只能用在 `content`，而且讀到的一律是字串：
 
@@ -49,7 +49,7 @@ a::after {
 
 想拿它當寬度、顏色、間距，都沒有作用。
 
-### 二、新寫法：帶型別，用在任何屬性
+## 二、新寫法：帶型別，用在任何屬性
 
 現在可以告訴瀏覽器「這個屬性的值要當成什麼型別」，再給一個讀不到時的預設值：
 
@@ -71,7 +71,7 @@ a::after {
 
 最重要的是，**它可以讀 ARIA 屬性**。
 
-### 三、例子一：進度條的長度直接讀 aria-valuenow
+## 三、例子一：進度條的長度直接讀 aria-valuenow
 
 ```html
 <div class="progress" role="progressbar" aria-label="上傳進度"
@@ -119,7 +119,7 @@ progress.setAttribute("aria-valuenow", 70);
 
 我實測 `aria-valuemin="10"`、`aria-valuemax="60"`、`aria-valuenow="35"`，寬度剛好是 50%。
 
-### 四、第一個坑：子元素讀不到父層的屬性
+## 四、第一個坑：子元素讀不到父層的屬性
 
 仔細看上面的寫法，`--now` 是寫在外層 `.progress` 上，不是直接寫在 `.progress__fill`。
 
@@ -141,7 +141,7 @@ progress.setAttribute("aria-valuenow", 70);
 .progress__fill { width: calc(var(--now) * 1%); }             /* 子元素用繼承來的變數 */
 ```
 
-### 五、例子二：評分的星星長度
+## 五、例子二：評分的星星長度
 
 評分顯示也是同一個模式。用 `role="meter"` 搭配 `aria-valuenow`，星星長度直接讀它：
 
@@ -171,7 +171,7 @@ progress.setAttribute("aria-valuenow", 70);
 - **星星是裝飾**：`content` 斜線後面給空字串，報讀軟體就不會唸出五個星號。評分的名稱和數值由 `aria-label`、`aria-valuetext` 提供。
 - **`aria-valuetext` 給人聽的版本**：`aria-valuenow` 是給程式和 CSS 用的數字，`aria-valuetext` 則是報讀軟體實際唸的句子，例如「4.5 顆星，滿分 5 顆」。
 
-### 六、例子三：樹狀選單的縮排讀 aria-level
+## 六、例子三：樹狀選單的縮排讀 aria-level
 
 樹狀選單的每一層，本來就要用 `aria-level` 告訴報讀軟體它在第幾層。畫面上的縮排，可以直接讀同一個值：
 
@@ -185,13 +185,13 @@ progress.setAttribute("aria-valuenow", 70);
 
 以後調整樹狀結構時，只要改 `aria-level`，縮排就會跟著對；反過來說，如果縮排看起來不對，問題一定出在 `aria-level`，報讀軟體使用者也會受影響，開發時就能一起發現。
 
-### 七、其他實測的細節
+## 七、其他實測的細節
 
 - **值不合法時會退回預設值**：`aria-valuenow="abc"`、`aria-level="x"` 都會用逗號後面的預設值，不會讓版面壞掉。所以**預設值一定要給**。
 - **它讀的是屬性，不是元素的即時狀態**：`<input type="range" value="30">` 拖動之後，`input.value` 變了，但 HTML 上的 `value` 屬性還是 30，`attr(value)` 也還是讀到 30。表單元件的即時值，還是要用 JavaScript 處理。
 - **不能用在網址裡**：`background-image: url(attr(data-img))` 不會有作用，`type(<url>)` 也讀不到。這是為了安全刻意禁止的，避免頁面上的屬性被拿來載入外部資源。
 
-### 八、不支援的時候怎麼辦？
+## 八、不支援的時候怎麼辦？
 
 偵測方式：
 
@@ -213,7 +213,7 @@ if (!CSS.supports("width: attr(data-x type(<length>))")) {
 
 這樣 CSS 的部分只要寫一次：支援時讀屬性，不支援時讀 JavaScript 寫進來的變數。
 
-### 結論
+## 結論
 
 整理成幾句話：
 
@@ -227,13 +227,13 @@ if (!CSS.supports("width: attr(data-x type(<length>))")) {
 
 你的專案裡，有哪些地方是 JavaScript 同時在改樣式和 ARIA 的？歡迎一起討論！
 
-### 延伸閱讀
+## 延伸閱讀
 
 - [不用再手刻 roving tabindex：用 focusgroup 做鍵盤方向鍵導覽](/blog/focusgroup/)
 - [讓報讀軟體開口說話：用 ariaNotify() 取代 aria-live](/blog/aria-notify/)
 - [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
-### 相關連結
+## 相關連結
 
 - [MDN — attr()](https://developer.mozilla.org/en-US/docs/Web/CSS/attr "另開新視窗"){target="_blank"}
 - [Chrome for Developers — CSS attr() gets an upgrade](https://developer.chrome.com/blog/advanced-attr "另開新視窗"){target="_blank"}

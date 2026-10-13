@@ -19,7 +19,7 @@ draft: false
 
 > Up front: my tests for this post were run in Chromium. Newer features like `closedby` have uneven support across browsers, so what's true as I write this may not stay true. If I've gotten something wrong, corrections welcome.
 
-### Intro
+## Intro
 
 After writing about [popover](/en/blog/popover-auto-manual-hint) and [hidden="until-found"](/en/blog/hidden-until-found), the next thing I wanted to round up was `<dialog>`.
 
@@ -32,7 +32,7 @@ First, here's what your browser supports:
 ::feature-support{features="command,dialog-closedby,dialog-requestclose" notice="If something isn't supported, that's fine. The demos fall back to JavaScript where needed, and the text explains the differences."}
 ::
 
-### 1. Know the difference: `show()` and `showModal()` are very different
+## 1. Know the difference: `show()` and `showModal()` are very different
 
 `<dialog>` can be opened two ways, and this is where most of the confusion starts:
 
@@ -41,7 +41,7 @@ First, here's what your browser supports:
 
 Open both, then press Tab and try the background button. The difference is obvious:
 
-| | `show()` (non-modal) | `showModal()` (modal) |
+| Behavior | `show()` (non-modal) | `showModal()` (modal) |
 |---|---|---|
 | Can you use the background? | Yes | No, the whole background becomes inert |
 | Does Tab escape? | Yes | No, it moves only between the dialog and the browser UI |
@@ -53,7 +53,7 @@ In my Chromium tests, both move focus to the first focusable element in the dial
 
 Writing `<dialog open>` straight into the HTML is the same as `show()`: non-modal. **Whenever people must deal with the dialog before continuing, use a modal**, not just the `open` attribute.
 
-### 2. Open and close with Invoker Commands, no JavaScript
+## 2. Open and close with Invoker Commands, no JavaScript
 
 Opening a modal used to require this:
 
@@ -84,7 +84,7 @@ Note that **there's no non-modal `show` command**, which is why the non-modal bu
 
 Invoker Commands are supported from Chrome 135, Firefox 144 and Safari 26.2, so they're Baseline. In browsers without them, the demos in this post add these three commands back with a little JavaScript.
 
-### 3. `closedby`: deciding who can close it
+## 3. `closedby`: deciding who can close it
 
 "Close when clicking the backdrop" used to mean listening for clicks and checking whether they landed outside the dialog. Now there's the `closedby` attribute:
 
@@ -109,7 +109,7 @@ My recommendations:
 
 `closedby` is supported from Chrome 134 and Firefox 141. When I wrote this, the sources I found didn't show Safari support yet, so check [caniuse](https://caniuse.com "Open new window"){target="_blank"}. Browsers without it ignore the attribute and fall back to the defaults above, so nothing breaks.
 
-### 4. `request-close`: ask before throwing away unsaved work
+## 4. `request-close`: ask before throwing away unsaved work
 
 This is the new feature I find most useful. Someone types a lot into a dialog, accidentally hits Cancel or Escape, and it's all gone. Plenty of people have been there.
 
@@ -141,7 +141,7 @@ A few things I handled deliberately in the demo:
 - **Focus moves to the confirmation when it appears**, so screen readers announce "You have unsaved changes."
 - **The `close` command doesn't fire `cancel`**, so the "Discard changes" button can use `close` to shut the dialog without being intercepted again.
 
-### 5. `form method="dialog"`: getting the result out
+## 5. `form method="dialog"`: getting the result out
 
 The demo's Save button doesn't use any JavaScript to close the dialog. It relies on `<form method="dialog">`:
 
@@ -179,7 +179,7 @@ editor.addEventListener("close", () => {
 
 `ariaNotify()` is a new API that asks the screen reader to speak a message directly, replacing the old trick of hiding an `aria-live` region. I've written up how to use it, its support, and a fallback for browsers without it in [Make Screen Readers Speak: Replacing aria-live with ariaNotify()](/en/blog/aria-notify/).
 
-### 6. Accessibility checklist
+## 6. Accessibility checklist
 
 Native `<dialog>` handles a lot for you, but a few things are still yours to check:
 
@@ -189,7 +189,7 @@ Native `<dialog>` handles a lot for you, but a few things are still yours to che
 - **Always provide a visible way to close it**: Escape works, but not everyone knows that.
 - **Don't use a modal where you don't need to interrupt people**: for supplementary info, a popover or an in-page disclosure is usually better.
 
-### 7. Styling and enter/exit animation
+## 7. Styling and enter/exit animation
 
 Dialog enter and exit animations can now be done entirely in CSS. This is the code my own site uses, and the demo dialogs use it too:
 
@@ -245,7 +245,7 @@ Three key points:
 - `display` and `overlay` need `allow-discrete`, so on close the browser waits for the animation before hiding it and removing it from the top layer.
 - **Remember the reduced-motion preference.** Honestly, I only noticed while writing this that my own site's dialog was missing that last block, so I've added it.
 
-### 8. When do you still need JavaScript?
+## 8. When do you still need JavaScript?
 
 Declarative markup now covers most cases, but these still need code:
 
@@ -255,7 +255,7 @@ Declarative markup now covers most cases, but these still need code:
 - **Dialogs with dynamically loaded content.**
 - **Supporting older browsers**: add the Invoker Commands fallback.
 
-### Conclusion
+## Conclusion
 
 In a few lines:
 
@@ -269,14 +269,14 @@ Looking back over these three posts, they all point the same way: interactions t
 
 Do you still have hand-rolled modals in your projects? I'd love to hear about it.
 
-### Related reading
+## Related reading
 
 - [Make Screen Readers Speak: Replacing aria-live with ariaNotify()](/en/blog/aria-notify/)
 - [Popover auto, manual and hint: What's Actually the Difference? I Built Demos to Find Out](/en/blog/popover-auto-manual-hint/)
 - [Why Can't Ctrl+F Find Collapsed Content? A Look at hidden="until-found"](/en/blog/hidden-until-found/)
 - [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
-### Related links
+## Related links
 
 - [MDN — `<dialog>`: The Dialog element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog "Open new window"){target="_blank"}
 - [MDN — HTMLDialogElement.closedBy](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/closedBy "Open new window"){target="_blank"}

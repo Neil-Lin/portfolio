@@ -3,9 +3,9 @@
     <div class="page-container">
       <TheBreadcrumbs :list="breadCrumbsList" />
       <AkContainer />
-      <h2>{{ pageTitle }}</h2>
+      <h1>{{ pageTitle }}</h1>
       <section>
-        <h3>{{ $t("words.websiteBlocksAndShortcutKeys") }}</h3>
+        <h2>{{ $t("words.websiteBlocksAndShortcutKeys") }}</h2>
         <i18n-t keypath="page.sitemap.p1" tag="p" scope="global"><br /></i18n-t>
         <i18n-t keypath="page.sitemap.p2" tag="p" scope="global">
           <template #n>
@@ -132,7 +132,7 @@
         </i18n-t>
       </section>
       <section>
-        <h3>{{ $t("words.sitemap") }}</h3>
+        <h2>{{ $t("words.sitemap") }}</h2>
         <div class="sitemap-list">
           <ol>
             <li>

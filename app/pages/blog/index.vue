@@ -3,7 +3,7 @@
     <div class="page-container">
       <TheBreadcrumbs :list="breadCrumbsList" />
       <AkContainer />
-      <h2>{{ pageTitle }}</h2>
+      <h1>{{ pageTitle }}</h1>
       <p>{{ t("page.blog.hint") }}</p>
 
       <BlogFilters
@@ -35,14 +35,14 @@
           :key="post.path"
           class="blog-item animation-fade-out"
         >
-          <h3>
+          <h2>
             <nuxt-link
               :to="localePath(`/blog/${post.slug}`)"
               :title="`${$t('action.goTo')} ${post.title}`"
             >
               {{ post.title }}
             </nuxt-link>
-          </h3>
+          </h2>
           <p class="des">{{ post.description }}</p>
           <div class="blog-meta">
             <time :datetime="post.date">{{ formatDate(post.date) }}</time>

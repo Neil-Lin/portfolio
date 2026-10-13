@@ -5,7 +5,7 @@
       :key="post.url"
       class="blog-item animation-fade-out"
     >
-      <h3>
+      <h2>
         <nuxt-link
           :to="post.url"
           :title="`${$t('action.openWindow')} ${$t('action.goTo')} ${post.title}`"
@@ -13,7 +13,7 @@
         >
           {{ post.title }}
         </nuxt-link>
-      </h3>
+      </h2>
       <p class="des">{{ post.description }}</p>
     </li>
   </ul>

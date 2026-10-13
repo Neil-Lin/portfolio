@@ -1,5 +1,5 @@
 <template>
-  <h3 class="portfolio-title">{{ title }}</h3>
+  <h2 class="portfolio-title">{{ title }}</h2>
   <div class="portfolio-content">
     <img
       v-if="imageSrc"

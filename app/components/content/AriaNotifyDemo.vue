@@ -50,7 +50,7 @@
       class="dialog-demo__dialog"
       :aria-labelledby="`${uid}-dialog-title`"
     >
-      <h4 :id="`${uid}-dialog-title`">{{ text.dialogTitle }}</h4>
+      <h3 :id="`${uid}-dialog-title`">{{ text.dialogTitle }}</h3>
       <p>{{ text.dialogBody }}</p>
       <div class="dialog-demo__actions">
         <button

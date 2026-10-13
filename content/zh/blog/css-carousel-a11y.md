@@ -17,7 +17,7 @@ draft: false
 
 > **2026/10 更新**：Chrome 154 替 `scroll-marker-group` 加了 `links`（預設）和 `tabs` 兩種模式，會改變導覽點的焦點順序和 ARIA 語意。`tabs` 模式下只有選取中的導覽點能聚焦、用方向鍵切換，沒選取的投影片內容會從無障礙樹排除，正好在處理本文提到的幾個問題。我在 Chromium 153 測試，`scroll-marker-group: after tabs` 的語法已經被接受，但行為和預設完全一樣，所以下面的結論是 153 以前的狀況。拿到 154 之後我會重測、更新這篇。
 
-### 前言
+## 前言
 
 輪播（carousel）大概是無障礙最常出問題的元件：導覽點沒有名稱、按鈕只有一個箭頭符號、焦點不知道跑去哪裡、自己一直轉不停。
 
@@ -30,7 +30,7 @@ CSS 現在多了 `::scroll-marker` 和 `::scroll-button()`，不寫 JavaScript �
 ::feature-support{features="scroll-marker" notice="你的瀏覽器不支援 ::scroll-marker，下方第一個範例只會是一排可以左右捲動的卡片；第二個 UI Kit 範例不受影響。"}
 ::
 
-### 一、原生 CSS 輪播怎麼寫
+## 一、原生 CSS 輪播怎麼寫
 
 先把內容做成一排可以左右捲動、會自動對齊的清單，這部分用的是 `scroll-snap`，已經很成熟了：
 
@@ -92,7 +92,7 @@ CSS 現在多了 `::scroll-marker` 和 `::scroll-button()`，不寫 JavaScript �
 }
 ```
 
-### 二、在無障礙樹裡變成什麼？
+## 二、在無障礙樹裡變成什麼？
 
 我把上面這個範例的無障礙樹讀出來，整理如下：
 
@@ -108,7 +108,7 @@ CSS 現在多了 `::scroll-marker` 和 `::scroll-button()`，不寫 JavaScript �
 - **導覽點用的是頁籤語意**：導覽點變成 `tab`，但投影片並沒有變成對應的 `tabpanel`，還是原本的清單項目。報讀軟體使用者聽到「頁籤」，會預期它在切換面板。
 - **`tablist` 沒有名稱**：一個頁面上有兩個輪播，就會有兩個沒有名稱的頁籤清單，分不出來。
 
-### 三、鍵盤實測
+## 三、鍵盤實測
 
 我用鍵盤從輪播前面的按鈕開始按 Tab，結果如下：
 
@@ -128,7 +128,7 @@ CSS 現在多了 `::scroll-marker` 和 `::scroll-button()`，不寫 JavaScript �
 
 另外，原生版本**沒有任何播報**。按「下一張」換了投影片，報讀軟體不會被告知現在是哪一張。
 
-### 四、我在 UI Kit 裡怎麼做
+## 四、我在 UI Kit 裡怎麼做
 
 下面是同樣的內容，換成 Accesserty UI Kit 的 `<au-carousel>`：
 
@@ -149,7 +149,7 @@ CSS 現在多了 `::scroll-marker` 和 `::scroll-button()`，不寫 JavaScript �
 
 我實測它的無障礙樹：外層是有名稱的 `group`，導覽點群組是名稱為「選擇投影片」的 `group`，每個導覽點都是 `button`。按到最後一張時，焦點停在「下一張」上，live region 唸出最後一張的名稱。
 
-### 五、並排對照
+## 五、並排對照
 
 | 項目 | 原生 CSS | `<au-carousel>` |
 |---|---|---|
@@ -164,7 +164,7 @@ CSS 現在多了 `::scroll-marker` 和 `::scroll-button()`，不寫 JavaScript �
 | 頭尾的按鈕 | `disabled`，焦點會掉 | `aria-disabled`，焦點留著 |
 | 換投影片的播報 | 沒有 | 有 |
 
-### 六、原生版本能補什麼？
+## 六、原生版本能補什麼？
 
 原生版本最大的限制是：**導覽點和按鈕都是偽元素**，沒辦法加 HTML 屬性。所以：
 
@@ -186,7 +186,7 @@ carousel.addEventListener("scrollsnapchange", (event) => {
 
 但補到這裡，就已經在寫 JavaScript 了，而且最重要的焦點問題還是沒解決。
 
-### 結論
+## 結論
 
 整理成幾句話：
 
@@ -201,13 +201,13 @@ carousel.addEventListener("scrollsnapchange", (event) => {
 
 你的專案裡有輪播嗎？是自己做的還是用套件？歡迎一起討論！
 
-### 延伸閱讀
+## 延伸閱讀
 
 - [讓報讀軟體開口說話：用 ariaNotify() 取代 aria-live](/blog/aria-notify/)
 - [提示框被切掉了？用 @position-try 讓瀏覽器自己找位置](/blog/position-try/)
 - [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
-### 相關連結
+## 相關連結
 
 - [Accesserty UI Kit（GitHub）](https://github.com/Accesserty/UI-Kit "另開新視窗"){target="_blank"}
 - [MDN — ::scroll-marker](https://developer.mozilla.org/en-US/docs/Web/CSS/::scroll-marker "另開新視窗"){target="_blank"}

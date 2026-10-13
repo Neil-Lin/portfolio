@@ -14,7 +14,7 @@ draft: false
 
 > 話說在前頭：文中的行為我都在 Chromium 上實測過，其他瀏覽器的細節可能不同，有講錯的地方歡迎指正。
 
-### 前言
+## 前言
 
 在 [popover 那篇](/blog/popover-auto-manual-hint/)裡，tooltip 和選單是用錨點定位（Anchor Positioning）貼在按鈕旁邊的。當時我順手加了一行 `position-try-fallbacks: flip-block`，但沒有多解釋。
 
@@ -29,7 +29,7 @@ draft: false
 ::feature-support{features="anchor,position-try" notice="你的瀏覽器不支援錨點定位或 position-try-fallbacks，下方範例無法運作，可以先看文字說明和程式碼。"}
 ::
 
-### 一、動手試試
+## 一、動手試試
 
 下面的虛線框就是畫面範圍。用滑桿移動「錨點」，提示框預設在錨點上方：
 
@@ -44,7 +44,7 @@ draft: false
 4. 換成自訂 `@position-try`，把錨點拉到最上面：這次提示框會先跑到右邊。
 5. 換回 `flip-block`，勾選 `position-try-order`，把錨點放在中間偏上一點（垂直位置大約 35）：上方明明放得下，提示框卻跑到下方。第五節會解釋。
 
-### 二、三種寫法
+## 二、三種寫法
 
 `position-try-fallbacks` 是一個清單，瀏覽器會先用原本的位置，放不下就依序往後試，用第一個放得下的。清單裡可以放三種東西。
 
@@ -106,13 +106,13 @@ draft: false
 
 我實測在 `@position-try` 裡寫 `background`，會直接被忽略，不會報錯，也不會套用。所以「翻到下方時換個顏色」這種需求，`@position-try` 做不到。
 
-### 三、margin 會跟著翻
+## 三、margin 會跟著翻
 
 用 `flip-block` 的時候，不用擔心間距。我實測原本寫 `margin-bottom: 8px` 的提示框，翻到下方之後，瀏覽器會自動變成 `margin-top: 8px`，提示框和錨點之間一樣保持 8px，不會黏在一起。
 
 所以 margin 只要寫在「面對錨點的那一邊」就好，翻面的時候會一起處理。自訂 `@position-try` 就不會自動翻了，要像上面的範例一樣自己寫 margin。
 
-### 四、瀏覽器會記住上一次的位置
+## 四、瀏覽器會記住上一次的位置
 
 這是我實測時最意外的地方，也就是範例第 3 步看到的狀況。
 
@@ -124,7 +124,7 @@ draft: false
 
 所以對 popover 來說，每次打開都是重新開始；會用到這個記憶的，是打開之後還會跟著捲動、拖動的情況。知道有這回事，測試時才不會以為是 bug。
 
-### 五、position-try-order：挑空間最大的
+## 五、position-try-order：挑空間最大的
 
 預設的規則是「原本的位置放得下就用」。但有時候你想要的是「哪邊空間大就放哪邊」，例如很長的下拉選單：
 
@@ -148,13 +148,13 @@ draft: false
 }
 ```
 
-### 六、全部都放不下時
+## 六、全部都放不下時
 
 如果原本的位置和所有備案都放不下，瀏覽器會**退回原本的位置**，就算會被切掉也一樣。我另外做了一個很矮的範圍來測，提示框確實留在上方被切掉。
 
 所以原本的位置，要設成「最常見、最合理」的那個。備案只是備案，不保證一定有地方放。
 
-### 七、跟 popover 搭配
+## 七、跟 popover 搭配
 
 實務上最常用的組合，就是 popover 加上錨點定位。popover 開啟時會進入 top layer，這時候判斷「放不放得下」的範圍是整個視窗，正好就是我們要的：
 
@@ -176,13 +176,13 @@ draft: false
 
 不支援的瀏覽器怎麼辦？我的做法是用 `@supports (position-area: bottom)` 包起來，不支援時再用 JavaScript 定位，[popover 那篇](/blog/popover-auto-manual-hint/)的範例就是這樣做的。
 
-### 無障礙上要注意的事
+## 無障礙上要注意的事
 
 - **只換畫面上的位置**：翻面不會改變 DOM 順序，報讀軟體唸的順序、鍵盤 Tab 的順序都不受影響。
 - **提示框本身的規則還是要顧**：WCAG 1.4.13「滑鼠移入或聚焦時出現的內容」要求提示框可以關閉、滑鼠移上去不會消失、不會自己突然不見。位置放對了，這些還是要自己處理。
 - **放大時更需要它**：畫面放大後空間變小，有沒有備案，差別會比平常更明顯。測試時記得把畫面放大到 200%、400% 看看。
 
-### 結論
+## 結論
 
 整理成幾句話：
 
@@ -197,13 +197,13 @@ draft: false
 
 你的專案裡，提示框和選單還是用 JavaScript 定位的嗎？歡迎一起討論！
 
-### 延伸閱讀
+## 延伸閱讀
 
 - [Popover 的 auto、manual、hint 到底差在哪？做個可以玩的範例來看看](/blog/popover-auto-manual-hint/)
 - [現在的 dialog 要怎麼寫？從 showModal() 到 command、closedby 一次整理](/blog/dialog-modern-guide/)
 - [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
-### 相關連結
+## 相關連結
 
 - [MDN — position-try-fallbacks](https://developer.mozilla.org/en-US/docs/Web/CSS/position-try-fallbacks "另開新視窗"){target="_blank"}
 - [MDN — @position-try](https://developer.mozilla.org/en-US/docs/Web/CSS/@position-try "另開新視窗"){target="_blank"}
