@@ -161,7 +161,7 @@ draft: false
 | `if()` | 在屬性值中做條件判斷 | `display: if(style(--open: 1): block; else: none);` | 🟠 | ⬜ |
 | `@function` | 自訂 CSS 函式與 mixin 概念，可帶參數回傳值 | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ⬜ |
 | `progress()` | 算出一個值落在兩個值之間的比例（0–1），做隨尺寸連續變化的樣式（Baseline 2026；Firefox 155、Safari 27 另支援 `no-clamp`，讓結果可以超出 0–1） | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ⬜ |
-| `attr()` 用在任何屬性 | 以前 `attr()` 只能用在 `content`，現在可以帶型別讀取 HTML 屬性，直接當作寬度、顏色等任何屬性的值（Chrome 先支援，Firefox 155 加入） | `width: attr(data-w type(<length>));` | 🟠 | ⬜ |
+| `attr()` 用在任何屬性 | 以前 `attr()` 只能用在 `content`，現在可以帶型別讀取 HTML 屬性，直接當作寬度、顏色等任何屬性的值（Chrome 先支援，Firefox 155 加入；用它讀 ARIA 屬性的實測見[這篇](/blog/css-attr/)） | `width: attr(data-w type(<length>));` | 🟠 | ✅ |
 | `symbols()` | 在 CSS 裡直接定義清單符號，不必另寫 `@counter-style`（Chrome 155 Beta） | `list-style: symbols(cyclic "◆" "◇");` | 🟠 | ⬜ |
 
 ### J. 其他實用屬性（Misc）

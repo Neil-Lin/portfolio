@@ -161,7 +161,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `if()` | Conditional logic inside a property value | `display: if(style(--open: 1): block; else: none);` | 🟠 | ⬜ |
 | `@function` | Custom CSS functions / a mixin-like concept, with parameters and a return value | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ⬜ |
 | `progress()` | Returns where a value sits between two others as a 0–1 ratio, for styles that change continuously with size (Baseline 2026; Firefox 155 and Safari 27 also support `no-clamp`, letting the result go outside 0–1) | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ⬜ |
-| `attr()` in any property | `attr()` used to work only in `content`; now it can read an HTML attribute with a type and use it as the value of any property, such as a width or color (Chrome first, added in Firefox 155) | `width: attr(data-w type(<length>));` | 🟠 | ⬜ |
+| `attr()` in any property | `attr()` used to work only in `content`; now it can read an HTML attribute with a type and use it as the value of any property, such as a width or color (Chrome first, added in Firefox 155; see [my post on reading ARIA attributes with it](/en/blog/css-attr/)) | `width: attr(data-w type(<length>));` | 🟠 | ✅ |
 | `symbols()` | Define list markers directly in CSS without a separate `@counter-style` (Chrome 155 Beta) | `list-style: symbols(cyclic "◆" "◇");` | 🟠 | ⬜ |
 
 ### J. Misc

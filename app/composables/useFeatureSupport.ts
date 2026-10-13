@@ -50,6 +50,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "focusgroup",
     detect: () => "focusGroup" in HTMLElement.prototype,
   },
+  "attr-typed": {
+    name: "attr() type()",
+    detect: () => CSS.supports("width: attr(data-x type(<length>))"),
+  },
   interestfor: {
     name: "interestfor",
     detect: () => "interestForElement" in HTMLButtonElement.prototype,

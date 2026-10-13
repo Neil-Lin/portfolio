@@ -1549,3 +1549,98 @@ au-carousel:not(:defined) {
     outline: 3px solid oklch(var(--outline-color));
   }
 }
+
+/*************************
+  Blog 互動範例：attr() 讀 ARIA 屬性
+  元件在 app/components/content/AttrAriaDemo.vue。
+  attr() 只讀「宣告所在元素自己」的屬性，所以在外層讀成 --now，再由子元素／偽元素繼承。
+*************************/
+
+.attr-progress,
+.attr-rating {
+  /* 不支援帶型別 attr() 時，由 JavaScript 在 inline style 寫入 --now */
+  --now: 0;
+}
+@supports (width: attr(data-x type(<length>))) {
+  .attr-progress,
+  .attr-rating {
+    --now: attr(aria-valuenow type(<number>), 0);
+  }
+}
+.attr-progress {
+  block-size: 1.25rem;
+  overflow: hidden;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 999px;
+  background-color: oklch(var(--wrapper-bg));
+}
+.attr-progress__fill {
+  display: block;
+  block-size: 100%;
+  inline-size: calc(var(--now) * 1%);
+  background-color: oklch(var(--pd-c));
+}
+.attr-demo__readout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  > div {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid oklch(var(--border-color));
+    border-radius: 0.5rem;
+  }
+  dt {
+    font-size: 0.875rem;
+  }
+  dd {
+    margin: 0;
+    font-weight: 700;
+  }
+  &.is-mismatch > div {
+    border-color: oklch(var(--pd-no));
+  }
+}
+.attr-demo__verdict {
+  font-weight: 700;
+}
+.attr-demo__readout.is-mismatch + .attr-demo__verdict {
+  color: oklch(var(--pd-no));
+}
+
+.attr-rating__list {
+  display: grid;
+  gap: 0.5rem;
+  li {
+    display: grid;
+    grid-template-columns: 4rem auto 2.5rem;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: start;
+  }
+}
+.attr-rating {
+  position: relative;
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+  /* 星星只是裝飾，斜線後的空字串讓報讀軟體略過；名稱與數值由 aria-* 提供 */
+  &::before {
+    content: "★★★★★" / "";
+    color: oklch(var(--border-color));
+  }
+  &::after {
+    content: "★★★★★" / "";
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: calc(var(--now) / 5 * 100%);
+    overflow: hidden;
+    color: oklch(75% 0.16 80);
+  }
+}
+.attr-rating__value {
+  font-weight: 700;
+}
