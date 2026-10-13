@@ -182,7 +182,7 @@ window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
 
 - [只用 CSS 做輪播，無障礙夠嗎？拿我的 UI Kit 來對照](/blog/css-carousel-a11y/)
 - [中英文之間要不要打空白？text-autospace 讓瀏覽器自動補間距](/blog/text-autospace/)
-- [現代 CSS 與 HTML 技巧整理清單：102 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ### 相關連結
 

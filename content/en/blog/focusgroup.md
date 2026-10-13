@@ -204,7 +204,7 @@ Have you hand-written a roving tabindex in your projects? I'd love to hear about
 
 - [Is a CSS-Only Carousel Accessible Enough? Compared Against My UI Kit](/en/blog/css-carousel-a11y/)
 - [Popover auto, manual and hint: What's Actually the Difference? I Built Demos to Find Out](/en/blog/popover-auto-manual-hint/)
-- [Modern CSS & HTML Cheat Sheet: 102 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ### Related links
 

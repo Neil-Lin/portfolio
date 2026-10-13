@@ -15,6 +15,8 @@ draft: false
 
 > Up front: everything here was tested in Chromium 141 (and retested in Chromium 153 with the same results), and the accessibility tree was read from the browser's accessibility API. How a screen reader actually announces it is best checked by turning one on yourself. If I've gotten something wrong, corrections welcome.
 
+> **October 2026 update**: Chrome 154 adds `links` (default) and `tabs` modes to `scroll-marker-group`, which change the markers' focus order and ARIA semantics. In `tabs` mode, only the selected marker is focusable, the arrow keys switch between markers, and unselected slides are excluded from the accessibility tree, which addresses several of the problems in this post. In Chromium 153, `scroll-marker-group: after tabs` is already accepted as syntax, but behaves exactly like the default, so the conclusions below describe Chromium up to 153. I'll retest and update this post once I can get Chrome 154.
+
 ### Intro
 
 The carousel is probably the component that goes wrong for accessibility most often: unnamed dots, buttons that are just an arrow glyph, focus that wanders off, slides that rotate on their own forever.
@@ -203,7 +205,7 @@ Do you have carousels in your projects? Built in-house or from a library? I'd lo
 
 - [Make Screen Readers Speak: Replacing aria-live with ariaNotify()](/en/blog/aria-notify/)
 - [Tooltip Getting Cut Off? Let the Browser Find a Spot with @position-try](/en/blog/position-try/)
-- [Modern CSS & HTML Cheat Sheet: 102 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ### Related links
 

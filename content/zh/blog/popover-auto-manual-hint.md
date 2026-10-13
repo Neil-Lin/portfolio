@@ -268,7 +268,7 @@ const supportsHint = probe.popover === "hint";
 ### 延伸閱讀
 
 - [收合的內容，為什麼按 Ctrl+F 找不到？聊聊 hidden="until-found"](/blog/hidden-until-found/)
-- [現代 CSS 與 HTML 技巧整理清單：102 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 - [無障礙網頁設計學習與簡易要點](/blog/a11y-learning/)
 
 ### 相關連結

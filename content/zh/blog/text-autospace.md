@@ -133,7 +133,7 @@ pre {
 
 - [提示框被切掉了？用 @position-try 讓瀏覽器自己找位置](/blog/position-try/)
 - [收合的內容，為什麼按 Ctrl+F 找不到？聊聊 hidden="until-found"](/blog/hidden-until-found/)
-- [現代 CSS 與 HTML 技巧整理清單：102 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ### 相關連結
 

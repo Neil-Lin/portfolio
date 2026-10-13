@@ -182,7 +182,7 @@ What kind of page jump catches you out most often? I'd love to hear about it.
 
 - [Is a CSS-Only Carousel Accessible Enough? Compared Against My UI Kit](/en/blog/css-carousel-a11y/)
 - [Spaces Between Chinese and English? Let text-autospace Add Them for You](/en/blog/text-autospace/)
-- [Modern CSS & HTML Cheat Sheet: 102 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ### Related links
 

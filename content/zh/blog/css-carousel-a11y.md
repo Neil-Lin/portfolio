@@ -15,6 +15,8 @@ draft: false
 
 > 話說在前頭：文中的行為都是我在 Chromium 141 上實測的（後來在 Chromium 153 重測，結果相同），無障礙樹是從瀏覽器的無障礙 API 讀出來的；報讀軟體實際怎麼唸，還是要以你自己打開報讀軟體聽到的為準。有講錯的地方歡迎指正。
 
+> **2026/10 更新**：Chrome 154 替 `scroll-marker-group` 加了 `links`（預設）和 `tabs` 兩種模式，會改變導覽點的焦點順序和 ARIA 語意。`tabs` 模式下只有選取中的導覽點能聚焦、用方向鍵切換，沒選取的投影片內容會從無障礙樹排除，正好在處理本文提到的幾個問題。我在 Chromium 153 測試，`scroll-marker-group: after tabs` 的語法已經被接受，但行為和預設完全一樣，所以下面的結論是 153 以前的狀況。拿到 154 之後我會重測、更新這篇。
+
 ### 前言
 
 輪播（carousel）大概是無障礙最常出問題的元件：導覽點沒有名稱、按鈕只有一個箭頭符號、焦點不知道跑去哪裡、自己一直轉不停。
@@ -203,7 +205,7 @@ carousel.addEventListener("scrollsnapchange", (event) => {
 
 - [讓報讀軟體開口說話：用 ariaNotify() 取代 aria-live](/blog/aria-notify/)
 - [提示框被切掉了？用 @position-try 讓瀏覽器自己找位置](/blog/position-try/)
-- [現代 CSS 與 HTML 技巧整理清單：102 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ### 相關連結
 
