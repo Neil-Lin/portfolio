@@ -208,7 +208,7 @@ draft: false
 | `sizes="auto"` | 響應式圖片不用再自己算 `sizes`，交給瀏覽器；搭配 `srcset` 與 `loading="lazy"` 使用（Chrome、Firefox、Safari 27 皆已支援） | `<img srcset="…" sizes="auto">` | 🟡 | ⬜ |
 | 宣告式 Shadow DOM | 不寫 JS 就能建立 Shadow DOM，SSR 輸出可以直接帶著走 | `<template shadowrootmode="open">` | 🟢 | ✅ |
 | `Element.setHTML()` | 安全版的 `innerHTML`：插入時自動清掉 `<script>`、事件屬性等危險標記（Sanitizer API），和宣告式 Shadow DOM 文章提到的 `setHTMLUnsafe()` 是一組；Firefox 157 改為解析時就清理，其他瀏覽器請以 caniuse 為準 | `el.setHTML(userInput);` | 🟠 | ⬜ |
-| `shadowrootreferencetarget` | 讓 Shadow DOM 外面的 `<label>`／`aria-*` 能指向內部真正的 input——解決 web component 長年的標籤關聯難題 | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ⬜ |
+| `shadowrootreferencetarget` | 讓 Shadow DOM 外面的 `<label>`／`aria-*` 能指向內部真正的 input——解決 web component 長年的標籤關聯難題（實測與 UI Kit 的例子見[這篇](/blog/shadow-dom-reference-target/)） | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ✅ |
 | `<h1>` 巢狀尺寸修正 | UA 樣式表變更：`<h1>` 放在 `<section>` 裡不再被自動縮小，標題階層的視覺呈現終於可預期（實測與我網站的標題調整見[這篇](/blog/html-nested-h1/)） | — | 🟢 | ✅ |
 | `ariaNotify()` | 直接請螢幕閱讀器念出一段訊息（例如「已加入購物車」），取代在頁面藏一個 `aria-live` 區塊再塞文字的舊做法。它是 DOM API 而不是 HTML 屬性，但它取代的正是那套 HTML 屬性寫法（Chrome 141、Firefox 150 起；Safari 的資料互相矛盾，請以實測為準） | `document.ariaNotify("已加入購物車");` | 🟡 | ✅ |
 
@@ -222,14 +222,13 @@ draft: false
 
 ## 建議優先補實驗的清單
 
-原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前面幾項是 🟢／🟡、可以直接上線的；最後兩項雖然還是 🟠，但無障礙價值很高，等正式版推出就做。
+原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前面幾項是 🟢／🟡、可以直接上線的；最後一項雖然還是 🟠，但無障礙價值很高，等正式版推出就做。
 
 1. `sizes="auto"`——搭配 `loading="lazy"`，響應式圖片不用再自己算 `sizes`。
 2. `stretch` 尺寸關鍵字——取代 `-webkit-fill-available` 這類私有寫法。
 3. `alpha()` 與 `revert-rule`——Baseline 2026 的兩個小工具，日常寫法直接升級。
 4. `progress()`——做隨尺寸連續變化的樣式。
 5. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
-6. `shadowrootreferencetarget`——解決 web component 外面的 `<label>`、`aria-*` 指不到內部元素的問題。
 
 > **提醒**：標為 🟠 / 🔴 的多為 2025–2026 才進 Chrome 或仍在提案的特性，支援度每季都在變。實際導入 production 前，請以 [caniuse.com](https://caniuse.com "另開新視窗"){target="_blank"} 與 MDN 的最新資料為準，並記得為新特性加 `@supports` fallback。
 

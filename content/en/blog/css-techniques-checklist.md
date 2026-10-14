@@ -208,7 +208,7 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 | `sizes="auto"` | Stop hand-computing `sizes` for responsive images and let the browser work it out; pairs with `srcset` and `loading="lazy"` (now in Chrome, Firefox and Safari 27) | `<img srcset="…" sizes="auto">` | 🟡 | ⬜ |
 | Declarative Shadow DOM | Build a shadow root with no JavaScript, so SSR output can carry it | `<template shadowrootmode="open">` | 🟢 | ✅ |
 | `Element.setHTML()` | A safe `innerHTML`: inserts markup while stripping `<script>`, event attributes and other dangerous markup (Sanitizer API); the counterpart to the `setHTMLUnsafe()` mentioned in my Declarative Shadow DOM post. Firefox 157 now sanitizes while parsing; check caniuse for other browsers | `el.setHTML(userInput);` | 🟠 | ⬜ |
-| `shadowrootreferencetarget` | Lets a `<label>` or `aria-*` outside the shadow root point at the real input inside it — the long-standing labelling problem for web components | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ⬜ |
+| `shadowrootreferencetarget` | Lets a `<label>` or `aria-*` outside the shadow root point at the real input inside it — the long-standing labelling problem for web components (see [my post testing it, with a UI Kit example](/en/blog/shadow-dom-reference-target/)) | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ✅ |
 | `<h1>` nested sizing fix | UA stylesheet change: an `<h1>` inside a `<section>` is no longer shrunk automatically, so heading hierarchy finally renders predictably (see [my post testing it and fixing my site's headings](/en/blog/html-nested-h1/)) | — | 🟢 | ✅ |
 | `ariaNotify()` | Ask the screen reader to announce a message directly (e.g. "Added to cart"), replacing the old trick of hiding an `aria-live` region and stuffing text into it. It's a DOM API rather than an HTML attribute, but what it replaces is exactly that HTML-attribute pattern (Chrome 141 and Firefox 150 onward; sources disagree on Safari, so test it yourself) | `document.ariaNotify("Added to cart");` | 🟡 | ✅ |
 
@@ -222,14 +222,13 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 
 ## What to try next (recommended)
 
-Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: the first few are 🟢 / 🟡 and ready for production; the last two are still 🟠, but they're valuable for accessibility, so I'll do them once they ship in stable.
+Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: the first few are 🟢 / 🟡 and ready for production; the last one is still 🟠, but it's valuable for accessibility, so I'll do it once it ships in stable.
 
 1. `sizes="auto"`—with `loading="lazy"`, responsive images no longer need a hand-calculated `sizes`.
 2. The `stretch` sizing keyword—replaces vendor-specific values like `-webkit-fill-available`.
 3. `alpha()` and `revert-rule`—two small Baseline 2026 tools that upgrade everyday code.
 4. `progress()`—styles that change smoothly with size.
 5. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
-6. `shadowrootreferencetarget`—lets a `<label>` or `aria-*` outside a web component point to the element inside it.
 
 > **Note:** Most items marked 🟠 / 🔴 only landed in Chrome in 2025–2026 or are still proposals, and support changes every quarter. Before shipping to production, treat [caniuse.com](https://caniuse.com "opens in new window"){target="_blank"} and MDN as the source of truth, and remember to add an `@supports` fallback for new features.
 

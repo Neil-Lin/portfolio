@@ -10,7 +10,7 @@ tags:
   - 瀏覽器支援
 category: frontend
 translationKey: shadow-dom-reference-target
-draft: true
+draft: false
 ---
 
 > 話說在前頭：文中的行為我在 Chromium 153 上實測過，141 還不支援。依照 Chrome 152 的版本資訊，這個功能是在 152 正式推出的；Firefox 和 Safari 的狀況我寫這篇時沒辦法確認，上線前請以 caniuse 為準。有講錯的地方歡迎指正。
@@ -75,6 +75,8 @@ root.referenceTarget = "inp";
 
 ::reference-target-demo{kind="label"}
 ::
+
+> 提醒：左邊範例裡的 input 是刻意沒有名稱的，用來示範這個問題。用報讀軟體閱讀這篇時，會聽到一個沒有名稱的編輯欄位，直接略過就好；用 axe 這類工具檢查這一頁，也會回報它。
 
 我在 Chromium 153 的無障礙樹裡看到的結果：
 
@@ -146,7 +148,7 @@ input.ariaDescribedByElements = [document.getElementById("outside-hint")];
 
 我的 [Accesserty UI Kit](https://github.com/Accesserty/UI-Kit "另開新視窗"){target="_blank"} 是用 Shadow DOM 做的 Web Components，剛好可以拿來看看這個功能能幫上什麼。
 
-以 `<au-input>` 為例，為了讓外面的 label 和說明接得上，它現在做了不少事：
+以 2.0.7 版的 `<au-input>` 為例，為了讓外面的 label 和說明接得上，它現在做了不少事：
 
 - 用 MutationObserver 監看整頁，外面的 `aria-labelledby`、`aria-describedby` 有變動就重新同步。
 - 支援 `ariaLabelledByElements` 的瀏覽器，把外面的元素直接交給裡面的 input；不支援的，把文字複製成 `aria-label`。說明則是複製到 Shadow DOM 裡一個隱藏的元素。

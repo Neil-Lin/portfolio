@@ -10,7 +10,7 @@ tags:
   - Browser Support
 category: frontend
 translationKey: shadow-dom-reference-target
-draft: true
+draft: false
 ---
 
 > Up front: I tested the behavior in this post in Chromium 153; 141 doesn't support it yet. According to the Chrome 152 release notes, it shipped in 152. I couldn't confirm the status in Firefox and Safari while writing, so check caniuse before shipping. If I've gotten something wrong, corrections welcome.
@@ -75,6 +75,8 @@ On both sides below, an outside `<label for>` points at a Shadow DOM component; 
 
 ::reference-target-demo{kind="label"}
 ::
+
+> Note: the input in the left demo has no name on purpose, to show the problem. If you're reading this with a screen reader, you'll hear an edit field with no name; just skip it. Tools like axe will also flag it on this page.
 
 What I saw in the Chromium 153 accessibility tree:
 
@@ -146,7 +148,7 @@ So for components using reference target, **don't rely on automated tools alone*
 
 My [Accesserty UI Kit](https://github.com/Accesserty/UI-Kit "Open new window"){target="_blank"} is a set of Web Components built with Shadow DOM, which makes it a good place to see what this feature could help with.
 
-Take `<au-input>`. To connect outside labels and descriptions, it currently does quite a lot:
+Take `<au-input>` in version 2.0.7. To connect outside labels and descriptions, it currently does quite a lot:
 
 - It watches the whole page with a MutationObserver and re-syncs whenever an outside `aria-labelledby` or `aria-describedby` changes.
 - In browsers that support `ariaLabelledByElements`, it hands the outside elements straight to the inner input; otherwise, it copies the text into `aria-label`. Descriptions are copied into a hidden element inside the Shadow DOM.
