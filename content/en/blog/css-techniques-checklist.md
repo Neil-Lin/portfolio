@@ -49,7 +49,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | Gap Decorations (`row-rule` / `column-rule` / `rule`) | Draw and style separators directly in grid/flex gaps—no more divider elements; plus fine-grain `rule-inset`/`rule-overlap`/`rule-visibility-items` (Chrome/Edge 149+; not in other browsers yet) | `column-rule: 1px solid; row-rule: 1px solid;` or shorthand `rule: 1px solid;` | 🟠 | ✅ |
 | `margin-inline` | Logical property; set both inline-axis margins at once (often `auto` to center) | `margin-inline: auto;` | 🟢 | ✅ |
 | Two-value display | Write outer × inner display separately: `display: block flex` etc.; `flex` = `block flex`, `inline-flex` = `inline flex`. Clarifies display's two layers; single-value shorthands still fine day-to-day | `display: inline flex;` | 🟡 | ✅ |
-| `stretch` sizing keyword | Make a box fill its container's available space (margins included), replacing vendor-specific values like `-webkit-fill-available` | `width: stretch;` | 🟡 | ⬜ |
+| `stretch` sizing keyword | Make a box fill its container's available space (margins included), replacing vendor-specific values like `-webkit-fill-available` (see [my post testing it and checking my site](/en/blog/css-stretch/)) | `width: stretch;` | 🟡 | ✅ |
 | Single-axis scroll containers | Scroll in one direction and `clip` in the other, so `position: sticky` can be constrained by different scroll containers per axis (e.g. a sticky table header and first column); Chrome 156 Beta | `overflow: scroll clip;` | 🟠 | ⬜ |
 | `safe` / `unsafe` overflow alignment | When centered content doesn't fit, `safe` falls back to start alignment so content isn't pushed somewhere you can't see or scroll to; Safari 27.2 Beta adds pairing with `normal` and fixed-position support (see [my post testing it with zoom and keyboard focus](/en/blog/css-safe-alignment/)) | `align-items: safe center;` | 🟡 | ✅ |
 
@@ -224,10 +224,9 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 
 Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: the first few are 🟢 / 🟡 and ready for production; the last one is still 🟠, but it's valuable for accessibility, so I'll do it once it ships in stable.
 
-1. The `stretch` sizing keyword—replaces vendor-specific values like `-webkit-fill-available`.
-2. `alpha()` and `revert-rule`—two small Baseline 2026 tools that upgrade everyday code.
-3. `progress()`—styles that change smoothly with size.
-4. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
+1. `alpha()` and `revert-rule`—two small Baseline 2026 tools that upgrade everyday code.
+2. `progress()`—styles that change smoothly with size.
+3. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
 
 > **Note:** Most items marked 🟠 / 🔴 only landed in Chrome in 2025–2026 or are still proposals, and support changes every quarter. Before shipping to production, treat [caniuse.com](https://caniuse.com "opens in new window"){target="_blank"} and MDN as the source of truth, and remember to add an `@supports` fallback for new features.
 

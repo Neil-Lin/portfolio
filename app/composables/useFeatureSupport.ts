@@ -50,6 +50,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "focusgroup",
     detect: () => "focusGroup" in HTMLElement.prototype,
   },
+  stretch: {
+    name: "width: stretch",
+    detect: () => CSS.supports("width: stretch"),
+  },
   "reference-target": {
     name: "referenceTarget",
     detect: () => "referenceTarget" in ShadowRoot.prototype,

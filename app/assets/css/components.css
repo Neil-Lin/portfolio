@@ -723,7 +723,7 @@ dialog {
   font: inherit;
   font-size: 0.9375rem;
   cursor: pointer;
-  white-space: nowrap;
+  /* 不要 nowrap：英文的按鈕文字比較長，放大到 400%（約 320px 寬）時會撐出畫面 */
   min-height: 2.5rem;
   padding: 0.375rem 1rem;
   border-radius: 0.5rem;
@@ -1892,6 +1892,60 @@ au-carousel:not(:defined) {
   .sizes-auto-demo .position-try-demo__options,
   .sizes-auto-demo .position-try-demo__range,
   .sizes-auto-demo > label {
+    display: none;
+  }
+}
+
+/*************************
+  Blog 互動範例：width: stretch
+  元件在 app/components/content/StretchDemo.vue。
+  容器右側預留 6rem 給溢出的部分，外層用 clip 裁掉，範例本身不會讓手機版整頁橫向捲動。
+*************************/
+
+.stretch-demo__controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 0.75rem;
+}
+.stretch-demo__stage {
+  overflow-x: clip;
+  padding-block: 0.5rem;
+}
+.stretch-demo__box {
+  inline-size: calc(100% - 6rem);
+  padding-block: 0.75rem;
+  border: 2px dashed oklch(var(--border-color));
+  border-radius: 0.5rem;
+}
+.stretch-demo__target {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border: 3px solid oklch(var(--pd-c));
+  border-radius: 0.375rem;
+  background-color: oklch(var(--card-bg));
+  color: inherit;
+  font: inherit;
+  &:focus-visible {
+    outline: 3px solid oklch(var(--outline-color));
+    outline-offset: 2px;
+  }
+}
+button.stretch-demo__target {
+  cursor: pointer;
+  font-weight: 700;
+}
+.stretch-demo__result {
+  font-weight: 700;
+  &.is-over {
+    color: oklch(var(--pd-no));
+  }
+  &.is-fit {
+    color: oklch(var(--pd-c));
+  }
+}
+@media print {
+  .stretch-demo__controls,
+  .stretch-demo .position-try-demo__range {
     display: none;
   }
 }

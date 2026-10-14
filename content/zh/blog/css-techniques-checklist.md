@@ -49,7 +49,7 @@ draft: false
 | Gap Decorations（`row-rule` / `column-rule` / `rule`） | 直接在 grid/flex 的 gap 畫分隔線、控制樣式，不用再插 divider 元素；另有 `rule-inset`／`rule-overlap`／`rule-visibility-items` 等微調（Chrome/Edge 149 起，其他瀏覽器尚未） | `column-rule: 1px solid; row-rule: 1px solid;` 或簡寫 `rule: 1px solid;` | 🟠 | ✅ |
 | `margin-inline` | 邏輯屬性，一次設定行向左右邊距（常用 `auto` 置中） | `margin-inline: auto;` | 🟢 | ✅ |
 | 多值 display（雙值語法） | 拆開寫「外部 × 內部」顯示：`display: block flex` 等；`flex`＝`block flex`、`inline-flex`＝`inline flex`。理解 display 的雙層本質，日常仍可續用單值縮寫 | `display: inline flex;` | 🟡 | ✅ |
-| `stretch` 尺寸關鍵字 | 讓元素撐滿容器可用空間（會算進 margin），取代 `-webkit-fill-available` 這類私有寫法 | `width: stretch;` | 🟡 | ⬜ |
+| `stretch` 尺寸關鍵字 | 讓元素撐滿容器可用空間（會算進 margin），取代 `-webkit-fill-available` 這類私有寫法（實測與網站檢查見[這篇](/blog/css-stretch/)） | `width: stretch;` | 🟡 | ✅ |
 | 單軸捲動容器 | 只在一個方向捲動、另一個方向 `clip`，讓 `position: sticky` 在兩個方向分別受不同的捲動容器限制（例如表頭和第一欄各自固定）；Chrome 156 Beta | `overflow: scroll clip;` | 🟠 | ⬜ |
 | 溢位對齊 `safe` / `unsafe` | 置中的內容放不下時，`safe` 會改成靠起點對齊，避免內容被推到看不到、捲不到的地方；Safari 27.2 Beta 補上與 `normal` 搭配及固定定位的支援（放大畫面與鍵盤焦點的實測見[這篇](/blog/css-safe-alignment/)） | `align-items: safe center;` | 🟡 | ✅ |
 
@@ -224,10 +224,9 @@ draft: false
 
 原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前面幾項是 🟢／🟡、可以直接上線的；最後一項雖然還是 🟠，但無障礙價值很高，等正式版推出就做。
 
-1. `stretch` 尺寸關鍵字——取代 `-webkit-fill-available` 這類私有寫法。
-2. `alpha()` 與 `revert-rule`——Baseline 2026 的兩個小工具，日常寫法直接升級。
-3. `progress()`——做隨尺寸連續變化的樣式。
-4. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
+1. `alpha()` 與 `revert-rule`——Baseline 2026 的兩個小工具，日常寫法直接升級。
+2. `progress()`——做隨尺寸連續變化的樣式。
+3. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
 
 > **提醒**：標為 🟠 / 🔴 的多為 2025–2026 才進 Chrome 或仍在提案的特性，支援度每季都在變。實際導入 production 前，請以 [caniuse.com](https://caniuse.com "另開新視窗"){target="_blank"} 與 MDN 的最新資料為準，並記得為新特性加 `@supports` fallback。
 
