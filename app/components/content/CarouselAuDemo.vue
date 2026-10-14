@@ -39,7 +39,7 @@
 // 部落格文章用：Accesserty UI Kit 的 <au-carousel>，跟原生 CSS 輪播對照
 // 元件檔案放在 public/vendor/accesserty-ui-kit/<版本>/carousel.js（MIT），只在瀏覽器端載入。
 // 用法：::carousel-au-demo
-const AU_CAROUSEL_SRC = "/vendor/accesserty-ui-kit/2.0.7/carousel.js";
+const AU_CAROUSEL_SRC = "/vendor/accesserty-ui-kit/2.0.8/carousel.js";
 
 const { locale } = useI18n();
 const slides = computed(() => carouselDemoSlides(locale.value));

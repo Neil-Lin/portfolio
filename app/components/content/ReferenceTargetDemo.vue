@@ -59,7 +59,7 @@ type Key = "off" | "on" | "kit";
 
 const props = defineProps<{ kind: "label" | "kit" }>();
 
-const AU_INPUT_SRC = "/vendor/accesserty-ui-kit/2.0.7/input.js";
+const AU_INPUT_SRC = "/vendor/accesserty-ui-kit/2.0.8/input.js";
 
 const { locale } = useI18n();
 const uid = usePopoverDemoId("rtd");

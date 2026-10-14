@@ -148,7 +148,7 @@ So for components using reference target, **don't rely on automated tools alone*
 
 My [Accesserty UI Kit](https://github.com/Accesserty/UI-Kit "Open new window"){target="_blank"} is a set of Web Components built with Shadow DOM, which makes it a good place to see what this feature could help with.
 
-Take `<au-input>` in version 2.0.7. To connect outside labels and descriptions, it currently does quite a lot:
+Take `<au-input>` in version 2.0.8. To connect outside labels and descriptions, it currently does quite a lot:
 
 - It watches the whole page with a MutationObserver and re-syncs whenever an outside `aria-labelledby` or `aria-describedby` changes.
 - In browsers that support `ariaLabelledByElements`, it hands the outside elements straight to the inner input; otherwise, it copies the text into `aria-label`. Descriptions are copied into a hidden element inside the Shadow DOM.

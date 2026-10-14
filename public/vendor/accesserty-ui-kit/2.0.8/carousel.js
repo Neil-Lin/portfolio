@@ -1,4 +1,4 @@
-/*! Accesserty UI Kit 2.0.7 — au-carousel | MIT License | https://github.com/Accesserty/UI-Kit */
+/*! Accesserty UI Kit 2.0.8 — au-carousel | MIT License | https://github.com/Accesserty/UI-Kit */
 class AuCarousel extends HTMLElement {
   static get observedAttributes() {
     return [

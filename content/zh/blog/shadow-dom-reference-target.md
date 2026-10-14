@@ -148,7 +148,7 @@ input.ariaDescribedByElements = [document.getElementById("outside-hint")];
 
 我的 [Accesserty UI Kit](https://github.com/Accesserty/UI-Kit "另開新視窗"){target="_blank"} 是用 Shadow DOM 做的 Web Components，剛好可以拿來看看這個功能能幫上什麼。
 
-以 2.0.7 版的 `<au-input>` 為例，為了讓外面的 label 和說明接得上，它現在做了不少事：
+以 2.0.8 版的 `<au-input>` 為例，為了讓外面的 label 和說明接得上，它現在做了不少事：
 
 - 用 MutationObserver 監看整頁，外面的 `aria-labelledby`、`aria-describedby` 有變動就重新同步。
 - 支援 `ariaLabelledByElements` 的瀏覽器，把外面的元素直接交給裡面的 input；不支援的，把文字複製成 `aria-label`。說明則是複製到 Shadow DOM 裡一個隱藏的元素。

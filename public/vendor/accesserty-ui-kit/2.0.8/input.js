@@ -1,4 +1,4 @@
-/*! Accesserty UI Kit 2.0.7 — au-input | MIT License | https://github.com/Accesserty/UI-Kit */
+/*! Accesserty UI Kit 2.0.8 — au-input | MIT License | https://github.com/Accesserty/UI-Kit */
 class AuInput extends HTMLElement {
   static formAssociated = true;
 
