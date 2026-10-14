@@ -1865,3 +1865,33 @@ au-carousel:not(:defined) {
     display: none;
   }
 }
+
+/*************************
+  Blog 互動範例：sizes="auto"
+  元件在 app/components/content/SizesAutoDemo.vue。
+  圖片寬度由滑桿決定，但不超過容器，手機上量到的實際寬度會比滑桿小。
+*************************/
+
+.sizes-auto-demo__stage {
+  overflow: hidden;
+  img {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+    border: 1px solid oklch(var(--border-color));
+    border-radius: 0.5rem;
+  }
+}
+.sizes-auto-demo .sizes-auto-demo__readout {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+}
+.sizes-auto-demo__candidates {
+  font-size: 0.875rem;
+}
+@media print {
+  .sizes-auto-demo .position-try-demo__options,
+  .sizes-auto-demo .position-try-demo__range,
+  .sizes-auto-demo > label {
+    display: none;
+  }
+}

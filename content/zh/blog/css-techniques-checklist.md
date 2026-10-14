@@ -205,7 +205,7 @@ draft: false
 | Interest Invokers | 同一套 command 機制，但改用「hover／focus 表達興趣」觸發而非點擊——可以做出不寫 JS 的原生 tooltip | `<button interestfor="tip">` | 🟠 | ✅ |
 | `hidden="until-found"` | 內容摺疊起來，但仍能被瀏覽器的頁內搜尋命中，命中時自動展開。長文的摺疊段落、FAQ 用這個才不會讓內容變成搜不到 | `<div hidden="until-found">` | 🟡 | ✅ |
 | `popover="hint"` | 專給 tooltip 類的 popover：保有 light-dismiss，但只會關掉其他 hint，不會把主要的 popover 一起關掉 | `<div popover="hint">` | 🟡 | ✅ |
-| `sizes="auto"` | 響應式圖片不用再自己算 `sizes`，交給瀏覽器；搭配 `srcset` 與 `loading="lazy"` 使用（Chrome、Firefox、Safari 27 皆已支援） | `<img srcset="…" sizes="auto">` | 🟡 | ⬜ |
+| `sizes="auto"` | 響應式圖片不用再自己算 `sizes`，交給瀏覽器；搭配 `srcset` 與 `loading="lazy"` 使用（Chrome、Firefox、Safari 27 皆已支援）（實測與套用到我作品集的結果見[這篇](/blog/html-sizes-auto/)） | `<img srcset="…" sizes="auto">` | 🟡 | ✅ |
 | 宣告式 Shadow DOM | 不寫 JS 就能建立 Shadow DOM，SSR 輸出可以直接帶著走 | `<template shadowrootmode="open">` | 🟢 | ✅ |
 | `Element.setHTML()` | 安全版的 `innerHTML`：插入時自動清掉 `<script>`、事件屬性等危險標記（Sanitizer API），和宣告式 Shadow DOM 文章提到的 `setHTMLUnsafe()` 是一組；Firefox 157 改為解析時就清理，其他瀏覽器請以 caniuse 為準 | `el.setHTML(userInput);` | 🟠 | ⬜ |
 | `shadowrootreferencetarget` | 讓 Shadow DOM 外面的 `<label>`／`aria-*` 能指向內部真正的 input——解決 web component 長年的標籤關聯難題（實測與 UI Kit 的例子見[這篇](/blog/shadow-dom-reference-target/)） | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ✅ |
@@ -224,11 +224,10 @@ draft: false
 
 原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前面幾項是 🟢／🟡、可以直接上線的；最後一項雖然還是 🟠，但無障礙價值很高，等正式版推出就做。
 
-1. `sizes="auto"`——搭配 `loading="lazy"`，響應式圖片不用再自己算 `sizes`。
-2. `stretch` 尺寸關鍵字——取代 `-webkit-fill-available` 這類私有寫法。
-3. `alpha()` 與 `revert-rule`——Baseline 2026 的兩個小工具，日常寫法直接升級。
-4. `progress()`——做隨尺寸連續變化的樣式。
-5. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
+1. `stretch` 尺寸關鍵字——取代 `-webkit-fill-available` 這類私有寫法。
+2. `alpha()` 與 `revert-rule`——Baseline 2026 的兩個小工具，日常寫法直接升級。
+3. `progress()`——做隨尺寸連續變化的樣式。
+4. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
 
 > **提醒**：標為 🟠 / 🔴 的多為 2025–2026 才進 Chrome 或仍在提案的特性，支援度每季都在變。實際導入 production 前，請以 [caniuse.com](https://caniuse.com "另開新視窗"){target="_blank"} 與 MDN 的最新資料為準，並記得為新特性加 `@supports` fallback。
 

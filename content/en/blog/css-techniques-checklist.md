@@ -205,7 +205,7 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 | Interest Invokers | The same command mechanism, but triggered by "showing interest" (hover/focus) rather than a click — enough to build a native tooltip with no JS | `<button interestfor="tip">` | 🟠 | ✅ |
 | `hidden="until-found"` | Content stays collapsed but is still reachable by in-page search, and expands automatically when matched. The right way to collapse long-form sections and FAQs without making their content unfindable | `<div hidden="until-found">` | 🟡 | ✅ |
 | `popover="hint"` | A popover category meant for tooltips: it keeps light-dismiss, but only closes other hints instead of tearing down your main popover with it | `<div popover="hint">` | 🟡 | ✅ |
-| `sizes="auto"` | Stop hand-computing `sizes` for responsive images and let the browser work it out; pairs with `srcset` and `loading="lazy"` (now in Chrome, Firefox and Safari 27) | `<img srcset="…" sizes="auto">` | 🟡 | ⬜ |
+| `sizes="auto"` | Stop hand-computing `sizes` for responsive images and let the browser work it out; pairs with `srcset` and `loading="lazy"` (now in Chrome, Firefox and Safari 27) (see [my post testing it and fixing my portfolio](/en/blog/html-sizes-auto/)) | `<img srcset="…" sizes="auto">` | 🟡 | ✅ |
 | Declarative Shadow DOM | Build a shadow root with no JavaScript, so SSR output can carry it | `<template shadowrootmode="open">` | 🟢 | ✅ |
 | `Element.setHTML()` | A safe `innerHTML`: inserts markup while stripping `<script>`, event attributes and other dangerous markup (Sanitizer API); the counterpart to the `setHTMLUnsafe()` mentioned in my Declarative Shadow DOM post. Firefox 157 now sanitizes while parsing; check caniuse for other browsers | `el.setHTML(userInput);` | 🟠 | ⬜ |
 | `shadowrootreferencetarget` | Lets a `<label>` or `aria-*` outside the shadow root point at the real input inside it — the long-standing labelling problem for web components (see [my post testing it, with a UI Kit example](/en/blog/shadow-dom-reference-target/)) | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ✅ |
@@ -224,11 +224,10 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 
 Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: the first few are 🟢 / 🟡 and ready for production; the last one is still 🟠, but it's valuable for accessibility, so I'll do it once it ships in stable.
 
-1. `sizes="auto"`—with `loading="lazy"`, responsive images no longer need a hand-calculated `sizes`.
-2. The `stretch` sizing keyword—replaces vendor-specific values like `-webkit-fill-available`.
-3. `alpha()` and `revert-rule`—two small Baseline 2026 tools that upgrade everyday code.
-4. `progress()`—styles that change smoothly with size.
-5. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
+1. The `stretch` sizing keyword—replaces vendor-specific values like `-webkit-fill-available`.
+2. `alpha()` and `revert-rule`—two small Baseline 2026 tools that upgrade everyday code.
+3. `progress()`—styles that change smoothly with size.
+4. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
 
 > **Note:** Most items marked 🟠 / 🔴 only landed in Chrome in 2025–2026 or are still proposals, and support changes every quarter. Before shipping to production, treat [caniuse.com](https://caniuse.com "opens in new window"){target="_blank"} and MDN as the source of truth, and remember to add an `@supports` fallback for new features.
 

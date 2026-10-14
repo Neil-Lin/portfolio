@@ -29,6 +29,32 @@ export function validateContentData(rootDir: string = process.cwd()) {
   const sizes: Record<string, unknown> = existsSync(sizesFile)
     ? JSON.parse(readFileSync(sizesFile, "utf8"))
     : {};
+  // 卡片與產品頁的圖片會寫 srcset（見 app/utils/imageSrcset.ts），比最小版本寬的圖都要有縮小版本
+  const variantsFile = join(rootDir, "data/imageVariants.json");
+  const variants: Record<string, number[]> = existsSync(variantsFile)
+    ? JSON.parse(readFileSync(variantsFile, "utf8"))
+    : {};
+  for (const [src, widths] of Object.entries(variants)) {
+    const stem = src.replace(/^\/images\//, "").replace(/\.[^.]+$/, "");
+    for (const w of widths) {
+      const file = `/image-variants/${stem}-${w}.webp`;
+      if (!existsSync(join(publicDir, file))) {
+        errors.push(
+          `data/imageVariants.json: public${file} 檔案不存在，請執行 npm run images:variants`,
+        );
+      }
+    }
+  }
+  const checkVariants = (src: string | undefined, context: string) => {
+    if (!src || !src.startsWith("/images/") || src.endsWith(".svg")) return;
+    const width = (sizes[src] as number[] | undefined)?.[0] ?? 0;
+    if (width > 480 && !variants[src]) {
+      errors.push(
+        `${context}: ${src} 沒有縮小版本，請執行 npm run images:variants`,
+      );
+    }
+  };
+
   const checkSize = (src: string | undefined, context: string) => {
     if (!src || !src.startsWith("/") || src.endsWith(".svg")) return;
     if (!sizes[src]) {
@@ -36,6 +62,7 @@ export function validateContentData(rootDir: string = process.cwd()) {
         `${context}: ${src} 不在 data/imageSizes.json，請執行 npm run images:sizes`,
       );
     }
+    checkVariants(src, context);
   };
 
   const productSlugs = new Set<string>();
@@ -75,9 +102,10 @@ export function validateContentData(rootDir: string = process.cwd()) {
     projectSlugs.add(p.slug);
 
     for (const loc of LOCALES) {
-      p.heroImage?.[loc]?.forEach((m, i) =>
-        checkPath(m.src, `projects/${p.slug} heroImage[${loc}][${i}]`),
-      );
+      p.heroImage?.[loc]?.forEach((m, i) => {
+        checkPath(m.src, `projects/${p.slug} heroImage[${loc}][${i}]`);
+        checkVariants(m.src, `projects/${p.slug} heroImage[${loc}][${i}]`);
+      });
     }
   }
 

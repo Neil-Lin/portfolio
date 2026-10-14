@@ -4,6 +4,8 @@
 
     <figure v-if="product.heroImage[$i18n.locale][0]!.src" class="hero-img">
       <img
+        :sizes="DETAIL_SIZES"
+        :srcset="imageSrcset(product.heroImage[$i18n.locale][0]!.src)"
         :src="`${product.heroImage[$i18n.locale][0]!.src}`"
         :alt="product.heroImage[$i18n.locale][0]!.figcaption"
         v-bind="imageSize(product.heroImage[$i18n.locale][0]!.src)"
@@ -141,11 +143,13 @@
           :key="index"
         >
           <img
+            loading="lazy"
+            decoding="async"
+            :sizes="`auto, ${DETAIL_SIZES}`"
+            :srcset="imageSrcset(item.src)"
             :src="`${item.src}`"
             :alt="item.figcaption"
             v-bind="imageSize(item.src)"
-            loading="lazy"
-            decoding="async"
           />
           <figcaption>
             {{ item.figcaption }}
@@ -186,6 +190,10 @@ import { productsData } from "~~/data/productsData";
 
 const { t, locale } = useI18n();
 const runtimeConfig = useRuntimeConfig();
+
+// 產品頁圖片在畫面上的寬度（實測）：手機約 100vw - 68px，桌機最寬約 72vw。
+// 首圖不是 lazy，直接用這個值；其餘 lazy 的圖寫成 "auto, …"，這個值只給不支援 auto 的瀏覽器。
+const DETAIL_SIZES = "(width <= 768px) calc(100vw - 68px), 72vw";
 const route = useRoute();
 
 function getProductSlug(value: unknown): string {
