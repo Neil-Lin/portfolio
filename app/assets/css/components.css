@@ -1815,3 +1815,53 @@ au-carousel:not(:defined) {
     display: none;
   }
 }
+
+/*************************
+  Blog 互動範例：shadowrootreferencetarget
+  元件在 app/components/content/ReferenceTargetDemo.vue。
+  元件內部的 input 樣式寫在 Shadow DOM 裡，外框顏色從這裡用變數傳進去。
+*************************/
+
+.reference-target-demo__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 0.75rem;
+}
+.reference-target-demo__cell {
+  --rtd-outline: oklch(var(--outline-color));
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 0.5rem;
+  figcaption {
+    margin: 0;
+    max-width: none;
+    text-align: start;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: inherit;
+  }
+  > label {
+    justify-self: start;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+.reference-target-demo__result {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  &.is-inside {
+    color: oklch(var(--pd-c));
+  }
+  &.is-outside {
+    color: oklch(var(--pd-no));
+  }
+}
+@media print {
+  .reference-target-demo > label {
+    display: none;
+  }
+}

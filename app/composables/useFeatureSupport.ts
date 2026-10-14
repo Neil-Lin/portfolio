@@ -50,6 +50,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "focusgroup",
     detect: () => "focusGroup" in HTMLElement.prototype,
   },
+  "reference-target": {
+    name: "referenceTarget",
+    detect: () => "referenceTarget" in ShadowRoot.prototype,
+  },
   "safe-align": {
     name: "safe center",
     detect: () => CSS.supports("align-items: safe center"),
