@@ -56,14 +56,23 @@ body {
   標題層級：每頁只有一個 h1（頁面或文章標題），網站名稱不再是 h1。
   字級沿用調整層級前的樣子：h1 是原本 h2 的大小，以此類推。
 */
+/*
+  h1、h2 的流體字級：只在寬度 20rem～36rem（手機到小平板）之間變大，超過就固定。
+  瀏覽器放大到 200% 時版面寬度會變一半，如果字級還在隨寬度變大，縮小的寬度會抵銷放大，
+  標題就到不了 2 倍（原本 1920px 寬的螢幕只有 1.06 倍）。在 36rem 就長到最大，
+  1224px 以上的螢幕放大 200% 時寬度還在 36rem 以上，標題就是完整的 2 倍（WCAG 1.4.4）。
+  第一行是不支援 progress() 時的備案，兩行算出來的大小一樣。
+*/
 h1 {
-  font-size: clamp(1.5rem, calc(100cqw / 40), 3rem);
+  font-size: clamp(1.5rem, 1.0313rem + 2.3438cqw, 1.875rem);
+  font-size: calc(1.5rem + progress(100cqw, 20rem, 36rem) * 0.375rem);
   margin-bottom: 1.5rem;
   text-wrap: pretty;
 }
 
 h2 {
-  font-size: clamp(1.25rem, calc(100cqw / 50), 1.625rem);
+  font-size: clamp(1.25rem, 0.9375rem + 1.5625cqw, 1.5rem);
+  font-size: calc(1.25rem + progress(100cqw, 20rem, 36rem) * 0.25rem);
   margin-bottom: 1rem;
 }
 
