@@ -1,5 +1,5 @@
 ---
-title: width: 100% 為什麼會撐破容器？用 stretch 撐滿剛剛好
+title: "width: 100% 為什麼會撐破容器？用 stretch 撐滿剛剛好"
 description: "元素有 margin 的時候，width: 100% 會撐出容器，box-sizing 也救不了。width: stretch 是「撐滿剩下的空間」，會自動扣掉 margin，也是 -webkit-fill-available 的標準名稱。這篇用互動範例比較 100%、calc() 和 stretch，整理它在按鈕、輸入框、flex、grid 裡的行為，也用放大 400% 的寬度檢查了這個網站。"
 date: 2026-10-14
 tags:

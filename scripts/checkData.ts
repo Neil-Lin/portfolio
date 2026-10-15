@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { productsData } from "../data/productsData";
 import { projectsData } from "../data/projectsData";
@@ -106,6 +106,27 @@ export function validateContentData(rootDir: string = process.cwd()) {
         checkPath(m.src, `projects/${p.slug} heroImage[${loc}][${i}]`);
         checkVariants(m.src, `projects/${p.slug} heroImage[${loc}][${i}]`);
       });
+    }
+  }
+
+  // 部落格文章的 frontmatter：沒加引號的值裡如果有「: 」，YAML 會整個解析失敗，
+  // 文章不會 build 失敗，但標題會變成 [object Object]、日期變成 1970 年
+  for (const lang of ["zh", "en"]) {
+    const dir = join(rootDir, "content", lang, "blog");
+    if (!existsSync(dir)) continue;
+    for (const name of readdirSync(dir)) {
+      if (!name.endsWith(".md")) continue;
+      const frontmatter =
+        readFileSync(join(dir, name), "utf8").split(/^---$/m)[1] ?? "";
+      for (const line of frontmatter.split("\n")) {
+        const m = line.match(/^(\w+):\s+(.*)$/);
+        if (!m || /^["'|>]/.test(m[2]!)) continue;
+        if (/:\s/.test(m[2]!)) {
+          errors.push(
+            `content/${lang}/blog/${name}: ${m[1]} 的值含有「: 」，請用引號包起來`,
+          );
+        }
+      }
     }
   }
 
