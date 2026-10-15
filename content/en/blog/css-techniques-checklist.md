@@ -160,7 +160,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `random()` | Native random values in CSS (scatter, jitter effects) | `rotate: random(-5deg, 5deg);` | 🟠 | ✅ |
 | `if()` | Conditional logic inside a property value | `display: if(style(--open: 1): block; else: none);` | 🟠 | ⬜ |
 | `@function` | Custom CSS functions / a mixin-like concept, with parameters and a return value | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ⬜ |
-| `progress()` | Returns where a value sits between two others as a 0–1 ratio, for styles that change continuously with size (Baseline 2026; Firefox 155 and Safari 27 also support `no-clamp`, letting the result go outside 0–1) | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ⬜ |
+| `progress()` | Returns where a value sits between two others as a 0–1 ratio, for styles that change continuously with size (Baseline 2026; Firefox 155 and Safari 27 also support `no-clamp`, letting the result go outside 0–1) (applied to this site's fluid h1 and h2 sizes so headings also reach 2× at 200% zoom) | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ✅ |
 | `attr()` in any property | `attr()` used to work only in `content`; now it can read an HTML attribute with a type and use it as the value of any property, such as a width or color (Chrome first, added in Firefox 155; see [my post on reading ARIA attributes with it](/en/blog/css-attr/)) | `width: attr(data-w type(<length>));` | 🟠 | ✅ |
 | `symbols()` | Define list markers directly in CSS without a separate `@counter-style` (Chrome 155 Beta) | `list-style: symbols(cyclic "◆" "◇");` | 🟠 | ⬜ |
 
@@ -222,10 +222,15 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 
 ## What to try next (recommended)
 
-Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: the first is 🟡 and ready for production; the second is still 🟠, but it's valuable for accessibility, so I'll do it once it ships in stable.
+Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: the first six can already be tested in Chromium and are ordered by accessibility value; the last actually has the highest accessibility value, but it's still in Beta, so I'll do it once it ships in stable.
 
-1. `progress()`—styles that change smoothly with size.
-2. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
+1. `<geolocation>`—a declarative location button; does a user have a way back after denying the permission?
+2. `background-clip: border-area`—do gradient borders disappear entirely in forced colors mode (Windows high contrast)?
+3. Single-axis scroll containers (`overflow: scroll clip`)—a data table with both the header row and first column sticky; can it be scrolled with the keyboard?
+4. `Element.setHTML()`—the safe `innerHTML`; does it strip accessibility attributes like `aria-*` and `role`?
+5. `corner-shape`—non-rounded corner shapes; does the focus outline follow the shape?
+6. `if()` and `@function`—turning repeated style logic into conditions and functions.
+7. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
 
 > **Note:** Most items marked 🟠 / 🔴 only landed in Chrome in 2025–2026 or are still proposals, and support changes every quarter. Before shipping to production, treat [caniuse.com](https://caniuse.com "opens in new window"){target="_blank"} and MDN as the source of truth, and remember to add an `@supports` fallback for new features.
 

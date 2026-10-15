@@ -160,7 +160,7 @@ draft: false
 | `random()` | CSS 原生隨機值（散布、抖動效果） | `rotate: random(-5deg, 5deg);` | 🟠 | ✅ |
 | `if()` | 在屬性值中做條件判斷 | `display: if(style(--open: 1): block; else: none);` | 🟠 | ⬜ |
 | `@function` | 自訂 CSS 函式與 mixin 概念，可帶參數回傳值 | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ⬜ |
-| `progress()` | 算出一個值落在兩個值之間的比例（0–1），做隨尺寸連續變化的樣式（Baseline 2026；Firefox 155、Safari 27 另支援 `no-clamp`，讓結果可以超出 0–1） | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ⬜ |
+| `progress()` | 算出一個值落在兩個值之間的比例（0–1），做隨尺寸連續變化的樣式（Baseline 2026；Firefox 155、Safari 27 另支援 `no-clamp`，讓結果可以超出 0–1）（已套用在本站 h1、h2 的流體字級，讓畫面放大 200% 時標題也能放大 2 倍） | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ✅ |
 | `attr()` 用在任何屬性 | 以前 `attr()` 只能用在 `content`，現在可以帶型別讀取 HTML 屬性，直接當作寬度、顏色等任何屬性的值（Chrome 先支援，Firefox 155 加入；用它讀 ARIA 屬性的實測見[這篇](/blog/css-attr/)） | `width: attr(data-w type(<length>));` | 🟠 | ✅ |
 | `symbols()` | 在 CSS 裡直接定義清單符號，不必另寫 `@counter-style`（Chrome 155 Beta） | `list-style: symbols(cyclic "◆" "◇");` | 🟠 | ⬜ |
 
@@ -222,10 +222,15 @@ draft: false
 
 ## 建議優先補實驗的清單
 
-原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：第一項是 🟡、可以直接上線的；第二項雖然還是 🟠，但無障礙價值很高，等正式版推出就做。
+原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前六項在 Chromium 上已經可以實測，依無障礙價值排序；最後一項的無障礙價值其實最高，但還在 Beta，等正式版推出就做。
 
-1. `progress()`——做隨尺寸連續變化的樣式。
-2. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
+1. `<geolocation>`——宣告式的定位按鈕，看權限請求被拒絕之後，使用者有沒有辦法恢復。
+2. `background-clip: border-area`——漸層邊框在強制色彩模式（Windows 高對比）下會不會整個消失。
+3. 單軸捲動容器（`overflow: scroll clip`）——資料表的表頭和第一欄同時固定，鍵盤能不能捲動。
+4. `Element.setHTML()`——安全版的 `innerHTML`，實測 `aria-*`、`role` 這些無障礙屬性會不會被清掉。
+5. `corner-shape`——非圓角的形狀，焦點外框會不會跟著形狀走。
+6. `if()` 與 `@function`——把重複的樣式邏輯收成條件和函式。
+7. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
 
 > **提醒**：標為 🟠 / 🔴 的多為 2025–2026 才進 Chrome 或仍在提案的特性，支援度每季都在變。實際導入 production 前，請以 [caniuse.com](https://caniuse.com "另開新視窗"){target="_blank"} 與 MDN 的最新資料為準，並記得為新特性加 `@supports` fallback。
 
