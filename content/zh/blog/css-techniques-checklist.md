@@ -81,7 +81,7 @@ draft: false
 | `light-dark()` | 同一屬性同時給亮／暗兩值，搭配 `color-scheme` 免寫 media query；也可以放圖片（三大瀏覽器皆支援） | `color: light-dark(#000, #fff);` | 🟢 | ✅ |
 | `font-palette` / `@font-palette-values` | 彩色字型（COLR）可自訂調色盤 | `@font-palette-values --p{...}` + `font-palette: --p;` | 🟡 | ✅ |
 | 漸層指定內插色彩空間 | `linear-gradient(in oklch …)` 讓漸層過渡更均勻不灰濁 | `background: linear-gradient(in oklch, #4ba3f7, #9d2398);` | 🟢 | ✅ |
-| `alpha()` | 相對色彩函式，只調整既有顏色的透明度，不必拆開重寫整個色值（Baseline 2026：Chrome 151、Firefox 155、Safari 27） | `color: alpha(from var(--brand) / 50%);` | 🟡 | ⬜ |
+| `alpha()` | 相對色彩函式，只調整既有顏色的透明度，不必拆開重寫整個色值（Baseline 2026：Chrome 151、Firefox 155、Safari 27）（各種色彩寫法與對比的實測見[這篇](/blog/css-alpha-revert-rule/)） | `color: alpha(from var(--brand) / 50%);` | 🟡 | ✅ |
 
 ## D. 文字排版（Typography）
 
@@ -141,7 +141,7 @@ draft: false
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
 | Cascade Layers `@layer` | 用圖層管理權重優先序，馴服大型專案的 specificity | `@layer base, components, utilities;` | 🟢 | ✅ |
-| `revert-rule` | 把屬性退回到「如果這條規則不存在」時的值；和 `revert`（退回瀏覽器預設）、`revert-layer`（退回上一層 `@layer`）是同一家族（Baseline 2026） | `color: revert-rule;` | 🟡 | ⬜ |
+| `revert-rule` | 把屬性退回到「如果這條規則不存在」時的值；和 `revert`（退回瀏覽器預設）、`revert-layer`（退回上一層 `@layer`）是同一家族（Baseline 2026）（和 revert、revert-layer 的比較見[這篇](/blog/css-alpha-revert-rule/)） | `color: revert-rule;` | 🟡 | ✅ |
 | `@scope` | 樣式作用域限制在某區塊、可設下界，類似 CSS Modules 的作用域 | `@scope (.card) to (.content){}` | 🟡 | ✅ |
 | `contain` | 宣告內部排版／樣式獨立，隔離重排範圍以提升效能 | `contain: layout style;` | 🟢 | ✅ |
 | `contain-intrinsic-size` | 搭配 `content-visibility: auto`，先給預估尺寸避免捲動跳動，有 cache 後轉 auto | `contain-intrinsic-size: auto 100px;` | 🟢 | ✅ |
@@ -222,11 +222,10 @@ draft: false
 
 ## 建議優先補實驗的清單
 
-原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前面幾項是 🟢／🟡、可以直接上線的；最後一項雖然還是 🟠，但無障礙價值很高，等正式版推出就做。
+原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：第一項是 🟡、可以直接上線的；第二項雖然還是 🟠，但無障礙價值很高，等正式版推出就做。
 
-1. `alpha()` 與 `revert-rule`——Baseline 2026 的兩個小工具，日常寫法直接升級。
-2. `progress()`——做隨尺寸連續變化的樣式。
-3. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
+1. `progress()`——做隨尺寸連續變化的樣式。
+2. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
 
 > **提醒**：標為 🟠 / 🔴 的多為 2025–2026 才進 Chrome 或仍在提案的特性，支援度每季都在變。實際導入 production 前，請以 [caniuse.com](https://caniuse.com "另開新視窗"){target="_blank"} 與 MDN 的最新資料為準，並記得為新特性加 `@supports` fallback。
 

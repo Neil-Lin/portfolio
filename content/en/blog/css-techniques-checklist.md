@@ -81,7 +81,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `light-dark()` | Give a property both a light and dark value at once; with `color-scheme` it skips the media query; it also accepts images (supported in all three major browsers) | `color: light-dark(#000, #fff);` | 🟢 | ✅ |
 | `font-palette` / `@font-palette-values` | Custom palettes for color (COLR) fonts | `@font-palette-values --p{...}` + `font-palette: --p;` | 🟡 | ✅ |
 | Gradient interpolation color space | `linear-gradient(in oklch …)` makes gradient transitions smoother and less muddy | `background: linear-gradient(in oklch, #4ba3f7, #9d2398);` | 🟢 | ✅ |
-| `alpha()` | Relative color function that changes only the opacity of an existing color, without rewriting the whole color value (Baseline 2026: Chrome 151, Firefox 155, Safari 27) | `color: alpha(from var(--brand) / 50%);` | 🟡 | ⬜ |
+| `alpha()` | Relative color function that changes only the opacity of an existing color, without rewriting the whole color value (Baseline 2026: Chrome 151, Firefox 155, Safari 27) (see [my post testing every color format and contrast](/en/blog/css-alpha-revert-rule/)) | `color: alpha(from var(--brand) / 50%);` | 🟡 | ✅ |
 
 ## D. Typography
 
@@ -141,7 +141,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
 | Cascade Layers `@layer` | Manage priority with layers to tame specificity in large projects | `@layer base, components, utilities;` | 🟢 | ✅ |
-| `revert-rule` | Roll a property back to the value it would have if the current rule didn't exist; the same family as `revert` (back to browser defaults) and `revert-layer` (back to the previous `@layer`) (Baseline 2026) | `color: revert-rule;` | 🟡 | ⬜ |
+| `revert-rule` | Roll a property back to the value it would have if the current rule didn't exist; the same family as `revert` (back to browser defaults) and `revert-layer` (back to the previous `@layer`) (Baseline 2026) (see [my post comparing it with revert and revert-layer](/en/blog/css-alpha-revert-rule/)) | `color: revert-rule;` | 🟡 | ✅ |
 | `@scope` | Scope styles to a block with an optional lower bound, similar to CSS Modules scoping | `@scope (.card) to (.content){}` | 🟡 | ✅ |
 | `contain` | Declare inner layout/style independence to isolate reflow and boost performance | `contain: layout style;` | 🟢 | ✅ |
 | `contain-intrinsic-size` | With `content-visibility: auto`, give an estimated size first to avoid scroll jumps; switches to auto once cached | `contain-intrinsic-size: auto 100px;` | 🟢 | ✅ |
@@ -222,11 +222,10 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 
 ## What to try next (recommended)
 
-Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: the first few are 🟢 / 🟡 and ready for production; the last one is still 🟠, but it's valuable for accessibility, so I'll do it once it ships in stable.
+Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: the first is 🟡 and ready for production; the second is still 🟠, but it's valuable for accessibility, so I'll do it once it ships in stable.
 
-1. `alpha()` and `revert-rule`—two small Baseline 2026 tools that upgrade everyday code.
-2. `progress()`—styles that change smoothly with size.
-3. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
+1. `progress()`—styles that change smoothly with size.
+2. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
 
 > **Note:** Most items marked 🟠 / 🔴 only landed in Chrome in 2025–2026 or are still proposals, and support changes every quarter. Before shipping to production, treat [caniuse.com](https://caniuse.com "opens in new window"){target="_blank"} and MDN as the source of truth, and remember to add an `@supports` fallback for new features.
 

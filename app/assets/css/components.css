@@ -1949,3 +1949,71 @@ button.stretch-demo__target {
     display: none;
   }
 }
+
+/*************************
+  Blog 互動範例：alpha()
+  元件在 app/components/content/AlphaColorDemo.vue。
+  兩個面板固定用白底和深色底，跟網站的亮暗模式無關，才能比較同一個顏色在兩種背景上的對比。
+*************************/
+
+.alpha-demo__formats {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
+  legend {
+    grid-column: 1 / -1;
+  }
+}
+.alpha-demo__code {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  > div {
+    display: grid;
+    gap: 0.125rem;
+  }
+  dt {
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+  dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+}
+.alpha-demo__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 0.75rem;
+}
+.alpha-demo__panel {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 0.5rem;
+  figcaption {
+    margin: 0;
+    max-width: none;
+    text-align: start;
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+}
+.alpha-demo__sample {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  border: 3px solid;
+  border-radius: 0.375rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.alpha-demo__ratio,
+.alpha-demo__note {
+  font-size: 0.875rem;
+}
+@media print {
+  .alpha-demo .position-try-demo__options,
+  .alpha-demo .position-try-demo__range {
+    display: none;
+  }
+}

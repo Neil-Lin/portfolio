@@ -50,6 +50,14 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "focusgroup",
     detect: () => "focusGroup" in HTMLElement.prototype,
   },
+  "alpha-color": {
+    name: "alpha()",
+    detect: () => CSS.supports("color: alpha(from red / 50%)"),
+  },
+  "revert-rule": {
+    name: "revert-rule",
+    detect: () => CSS.supports("color: revert-rule"),
+  },
   stretch: {
     name: "width: stretch",
     detect: () => CSS.supports("width: stretch"),
