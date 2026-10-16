@@ -9,7 +9,7 @@ tags:
   - Browser Support
 category: frontend
 translationKey: css-if-function
-draft: true
+draft: false
 ---
 
 > Up front: I tested the behavior in this post in Chromium 141 and 153. Both support `if()` and `@function`, and I've marked where they differ. For other browsers, check caniuse and MDN. If I've gotten something wrong, corrections welcome.

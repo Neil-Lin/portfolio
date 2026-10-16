@@ -9,7 +9,7 @@ tags:
   - 瀏覽器支援
 category: frontend
 translationKey: css-if-function
-draft: true
+draft: false
 ---
 
 > 話說在前頭：文中的行為我在 Chromium 141 和 153 上實測過，兩版都支援 `if()` 和 `@function`，有差異的地方會特別標出來。其他瀏覽器的支援狀況請以 caniuse、MDN 為準。有講錯的地方歡迎指正。

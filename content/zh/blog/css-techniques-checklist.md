@@ -158,8 +158,8 @@ draft: false
 | 三角函式 `sin/cos/tan` | 圓形排列、波形、角度計算 | `width: calc(sin(30deg) * 100px);` | 🟢 | ✅ |
 | `calc-size()` / `interpolate-size` | 對 `auto`／`min-content` 等關鍵字做動畫過渡，如未知高度的 accordion 展開 | `interpolate-size: allow-keywords;` | 🟠 | ✅ |
 | `random()` | CSS 原生隨機值（散布、抖動效果） | `rotate: random(-5deg, 5deg);` | 🟠 | ✅ |
-| `if()` | 在屬性值中做條件判斷 | `display: if(style(--open: 1): block; else: none);` | 🟠 | ⬜ |
-| `@function` | 自訂 CSS 函式與 mixin 概念，可帶參數回傳值 | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ⬜ |
+| `if()` | 在屬性值中做條件判斷（沒寫 `else` 時屬性會退回初始值，焦點外框可能整個消失，見[這篇](/blog/css-if-function/)） | `display: if(style(--open: 1): block; else: none);` | 🟠 | ✅ |
+| `@function` | 自訂 CSS 函式與 mixin 概念，可帶參數回傳值（用來保證最小點擊區的實測見[這篇](/blog/css-if-function/)） | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ✅ |
 | `progress()` | 算出一個值落在兩個值之間的比例（0–1），做隨尺寸連續變化的樣式（Baseline 2026；Firefox 155、Safari 27 另支援 `no-clamp`，讓結果可以超出 0–1）（已套用在本站 h1、h2 的流體字級，讓畫面放大 200% 時標題也能放大 2 倍） | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ✅ |
 | `attr()` 用在任何屬性 | 以前 `attr()` 只能用在 `content`，現在可以帶型別讀取 HTML 屬性，直接當作寬度、顏色等任何屬性的值（Chrome 先支援，Firefox 155 加入；用它讀 ARIA 屬性的實測見[這篇](/blog/css-attr/)） | `width: attr(data-w type(<length>));` | 🟠 | ✅ |
 | `symbols()` | 在 CSS 裡直接定義清單符號，不必另寫 `@counter-style`（Chrome 155 Beta） | `list-style: symbols(cyclic "◆" "◇");` | 🟠 | ⬜ |
@@ -222,12 +222,11 @@ draft: false
 
 ## 建議優先補實驗的清單
 
-原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前兩項在 Chromium 上已經可以實測，依無障礙價值排序；最後兩項要等 Chrome 156 正式版才測得到（我測的 153 裡，`overflow: scroll clip` 的 `clip` 還會被改成 `hidden`），其中動畫圖片那一項的無障礙價值其實最高。
+原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：第一項在 Chromium 上已經可以實測；最後兩項要等 Chrome 156 正式版才測得到（我測的 153 裡，`overflow: scroll clip` 的 `clip` 還會被改成 `hidden`），其中動畫圖片那一項的無障礙價值其實最高。
 
 1. `corner-shape`——非圓角的形狀，焦點外框會不會跟著形狀走。
-2. `if()` 與 `@function`——把重複的樣式邏輯收成條件和函式。
-3. 單軸捲動容器（`overflow: scroll clip`）——資料表的表頭和第一欄同時固定，鍵盤能不能捲動。
-4. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
+2. 單軸捲動容器（`overflow: scroll clip`）——資料表的表頭和第一欄同時固定，鍵盤能不能捲動。
+3. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
 
 > **提醒**：標為 🟠 / 🔴 的多為 2025–2026 才進 Chrome 或仍在提案的特性，支援度每季都在變。實際導入 production 前，請以 [caniuse.com](https://caniuse.com "另開新視窗"){target="_blank"} 與 MDN 的最新資料為準，並記得為新特性加 `@supports` fallback。
 
