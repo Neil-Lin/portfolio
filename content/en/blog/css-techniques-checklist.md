@@ -191,7 +191,7 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 
 | Element | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
-| `<geolocation>` | A declarative button for location requests: the browser owns the permission flow and — crucially — offers a recovery path for users who previously denied access (which used to be a dead end). Degrades to a `<span>` where unsupported, so it progressively enhances | `<geolocation onlocation="fn(event)">` | 🟠 | ⬜ |
+| `<geolocation>` | A declarative button for location requests: the browser owns the permission flow and — crucially — offers a recovery path for users who previously denied access (which used to be a dead end). Degrades to a `<span>` where unsupported, so it progressively enhances (tested: the browser only compares the button's own text and background colors and disables it below 3:1, but background images, blur and a removed focus outline all get through) | `<geolocation onlocation="fn(event)">` | 🟠 | ✅ |
 | `<usermedia>` | Declarative camera/microphone access that hands the page a `MediaStream` directly, with no `getUserMedia()` call of your own. Video-only `<camera>` and audio-only `<microphone>` variants shipped in Chrome 153 | `<usermedia>` | 🟠 | ⬜ |
 | `<install>` | An install button for PWAs whose label and appearance the browser controls (users who click "Install" aren't surprised by what happens next). Point `installurl` elsewhere to install apps from other origins — enough to build a catalogue page | `<install installurl="…" manifestid="…">` | 🟠 | ⬜ |
 | `<model>` | Embed an interactive 3D model (USDZ) as easily as an `<img>`; supply multiple formats via `<source>` and custom lighting via `environmentmap` | `<model src="a.usdz">` | 🟠 | ⬜ |
@@ -222,15 +222,14 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 
 ## What to try next (recommended)
 
-Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: the first six can already be tested in Chromium and are ordered by accessibility value; the last actually has the highest accessibility value, but it's still in Beta, so I'll do it once it ships in stable.
+Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: the first five can already be tested in Chromium and are ordered by accessibility value; the last actually has the highest accessibility value, but it's still in Beta, so I'll do it once it ships in stable.
 
-1. `<geolocation>`—a declarative location button; does a user have a way back after denying the permission?
-2. `background-clip: border-area`—do gradient borders disappear entirely in forced colors mode (Windows high contrast)?
-3. Single-axis scroll containers (`overflow: scroll clip`)—a data table with both the header row and first column sticky; can it be scrolled with the keyboard?
-4. `Element.setHTML()`—the safe `innerHTML`; does it strip accessibility attributes like `aria-*` and `role`?
-5. `corner-shape`—non-rounded corner shapes; does the focus outline follow the shape?
-6. `if()` and `@function`—turning repeated style logic into conditions and functions.
-7. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
+1. `background-clip: border-area`—do gradient borders disappear entirely in forced colors mode (Windows high contrast)?
+2. Single-axis scroll containers (`overflow: scroll clip`)—a data table with both the header row and first column sticky; can it be scrolled with the keyboard?
+3. `Element.setHTML()`—the safe `innerHTML`; does it strip accessibility attributes like `aria-*` and `role`?
+4. `corner-shape`—non-rounded corner shapes; does the focus outline follow the shape?
+5. `if()` and `@function`—turning repeated style logic into conditions and functions.
+6. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
 
 > **Note:** Most items marked 🟠 / 🔴 only landed in Chrome in 2025–2026 or are still proposals, and support changes every quarter. Before shipping to production, treat [caniuse.com](https://caniuse.com "opens in new window"){target="_blank"} and MDN as the source of truth, and remember to add an `@supports` fallback for new features.
 

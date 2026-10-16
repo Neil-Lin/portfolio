@@ -191,7 +191,7 @@ draft: false
 
 | 元素 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
-| `<geolocation>` | 宣告式的定位請求按鈕，授權流程交給瀏覽器處理，並提供「使用者先前拒絕過」的恢復路徑（過去一旦被拒就沒救了）。不支援的瀏覽器會降級成 `<span>`，可漸進增強 | `<geolocation onlocation="fn(event)">` | 🟠 | ⬜ |
+| `<geolocation>` | 宣告式的定位請求按鈕，授權流程交給瀏覽器處理，並提供「使用者先前拒絕過」的恢復路徑（過去一旦被拒就沒救了）。不支援的瀏覽器會降級成 `<span>`，可漸進增強（實測：瀏覽器只比對按鈕自己的文字色與背景色，低於 3:1 就失效，但背景圖片、模糊、拿掉焦點框都擋不住） | `<geolocation onlocation="fn(event)">` | 🟠 | ✅ |
 | `<usermedia>` | 相機／麥克風的宣告式存取，直接把 `MediaStream` 交給頁面，不必自己呼叫 `getUserMedia()`。只要影像或只要聲音的 `<camera>`／`<microphone>` 已在 Chrome 153 推出 | `<usermedia>` | 🟠 | ⬜ |
 | `<install>` | PWA 安裝按鈕，文案與外觀由瀏覽器控制（使用者看到「安裝」就知道會發生什麼）。指定 `installurl` 可安裝其他網域的 app，能做成 app 目錄頁 | `<install installurl="…" manifestid="…">` | 🟠 | ⬜ |
 | `<model>` | 像 `<img>` 一樣嵌入可互動的 3D 模型（USDZ 格式），可用 `<source>` 提供多格式、用 `environmentmap` 指定環境光 | `<model src="a.usdz">` | 🟠 | ⬜ |
@@ -222,15 +222,14 @@ draft: false
 
 ## 建議優先補實驗的清單
 
-原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前六項在 Chromium 上已經可以實測，依無障礙價值排序；最後一項的無障礙價值其實最高，但還在 Beta，等正式版推出就做。
+原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前五項在 Chromium 上已經可以實測，依無障礙價值排序；最後一項的無障礙價值其實最高，但還在 Beta，等正式版推出就做。
 
-1. `<geolocation>`——宣告式的定位按鈕，看權限請求被拒絕之後，使用者有沒有辦法恢復。
-2. `background-clip: border-area`——漸層邊框在強制色彩模式（Windows 高對比）下會不會整個消失。
-3. 單軸捲動容器（`overflow: scroll clip`）——資料表的表頭和第一欄同時固定，鍵盤能不能捲動。
-4. `Element.setHTML()`——安全版的 `innerHTML`，實測 `aria-*`、`role` 這些無障礙屬性會不會被清掉。
-5. `corner-shape`——非圓角的形狀，焦點外框會不會跟著形狀走。
-6. `if()` 與 `@function`——把重複的樣式邏輯收成條件和函式。
-7. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
+1. `background-clip: border-area`——漸層邊框在強制色彩模式（Windows 高對比）下會不會整個消失。
+2. 單軸捲動容器（`overflow: scroll clip`）——資料表的表頭和第一欄同時固定，鍵盤能不能捲動。
+3. `Element.setHTML()`——安全版的 `innerHTML`，實測 `aria-*`、`role` 這些無障礙屬性會不會被清掉。
+4. `corner-shape`——非圓角的形狀，焦點外框會不會跟著形狀走。
+5. `if()` 與 `@function`——把重複的樣式邏輯收成條件和函式。
+6. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
 
 > **提醒**：標為 🟠 / 🔴 的多為 2025–2026 才進 Chrome 或仍在提案的特性，支援度每季都在變。實際導入 production 前，請以 [caniuse.com](https://caniuse.com "另開新視窗"){target="_blank"} 與 MDN 的最新資料為準，並記得為新特性加 `@supports` fallback。
 
