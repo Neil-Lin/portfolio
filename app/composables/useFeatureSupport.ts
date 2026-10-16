@@ -50,6 +50,14 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "focusgroup",
     detect: () => "focusGroup" in HTMLElement.prototype,
   },
+  "css-if": {
+    name: "if()",
+    detect: () => CSS.supports("color: if(else: red)"),
+  },
+  "css-function": {
+    name: "@function",
+    detect: () => "CSSFunctionRule" in window,
+  },
   "set-html": {
     name: "Element.setHTML()",
     detect: () => "setHTML" in Element.prototype,
