@@ -50,6 +50,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "focusgroup",
     detect: () => "focusGroup" in HTMLElement.prototype,
   },
+  "set-html": {
+    name: "Element.setHTML()",
+    detect: () => "setHTML" in Element.prototype,
+  },
   "alpha-color": {
     name: "alpha()",
     detect: () => CSS.supports("color: alpha(from red / 50%)"),

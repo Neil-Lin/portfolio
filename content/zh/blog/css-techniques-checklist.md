@@ -207,7 +207,7 @@ draft: false
 | `popover="hint"` | 專給 tooltip 類的 popover：保有 light-dismiss，但只會關掉其他 hint，不會把主要的 popover 一起關掉 | `<div popover="hint">` | 🟡 | ✅ |
 | `sizes="auto"` | 響應式圖片不用再自己算 `sizes`，交給瀏覽器；搭配 `srcset` 與 `loading="lazy"` 使用（Chrome、Firefox、Safari 27 皆已支援）（實測與套用到我作品集的結果見[這篇](/blog/html-sizes-auto/)） | `<img srcset="…" sizes="auto">` | 🟡 | ✅ |
 | 宣告式 Shadow DOM | 不寫 JS 就能建立 Shadow DOM，SSR 輸出可以直接帶著走 | `<template shadowrootmode="open">` | 🟢 | ✅ |
-| `Element.setHTML()` | 安全版的 `innerHTML`：插入時自動清掉 `<script>`、事件屬性等危險標記（Sanitizer API），和宣告式 Shadow DOM 文章提到的 `setHTMLUnsafe()` 是一組；Firefox 157 改為解析時就清理，其他瀏覽器請以 caniuse 為準 | `el.setHTML(userInput);` | 🟠 | ⬜ |
+| `Element.setHTML()` | 安全版的 `innerHTML`：插入時自動清掉 `<script>`、事件屬性等危險標記（Sanitizer API），和宣告式 Shadow DOM 文章提到的 `setHTMLUnsafe()` 是一組；Firefox 157 改為解析時就清理，其他瀏覽器請以 caniuse 為準（實測預設設定會清掉所有 `aria-*`、`role`，見[這篇](/blog/html-sethtml/)） | `el.setHTML(userInput);` | 🟠 | ✅ |
 | `shadowrootreferencetarget` | 讓 Shadow DOM 外面的 `<label>`／`aria-*` 能指向內部真正的 input——解決 web component 長年的標籤關聯難題（實測與 UI Kit 的例子見[這篇](/blog/shadow-dom-reference-target/)） | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ✅ |
 | `<h1>` 巢狀尺寸修正 | UA 樣式表變更：`<h1>` 放在 `<section>` 裡不再被自動縮小，標題階層的視覺呈現終於可預期（實測與我網站的標題調整見[這篇](/blog/html-nested-h1/)） | — | 🟢 | ✅ |
 | `ariaNotify()` | 直接請螢幕閱讀器念出一段訊息（例如「已加入購物車」），取代在頁面藏一個 `aria-live` 區塊再塞文字的舊做法。它是 DOM API 而不是 HTML 屬性，但它取代的正是那套 HTML 屬性寫法（Chrome 141、Firefox 150 起；Safari 的資料互相矛盾，請以實測為準） | `document.ariaNotify("已加入購物車");` | 🟡 | ✅ |
@@ -222,13 +222,12 @@ draft: false
 
 ## 建議優先補實驗的清單
 
-原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前三項在 Chromium 上已經可以實測，依無障礙價值排序；最後兩項要等 Chrome 156 正式版才測得到（我測的 153 裡，`overflow: scroll clip` 的 `clip` 還會被改成 `hidden`），其中動畫圖片那一項的無障礙價值其實最高。
+原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前兩項在 Chromium 上已經可以實測，依無障礙價值排序；最後兩項要等 Chrome 156 正式版才測得到（我測的 153 裡，`overflow: scroll clip` 的 `clip` 還會被改成 `hidden`），其中動畫圖片那一項的無障礙價值其實最高。
 
-1. `Element.setHTML()`——安全版的 `innerHTML`，實測 `aria-*`、`role` 這些無障礙屬性會不會被清掉。
-2. `corner-shape`——非圓角的形狀，焦點外框會不會跟著形狀走。
-3. `if()` 與 `@function`——把重複的樣式邏輯收成條件和函式。
-4. 單軸捲動容器（`overflow: scroll clip`）——資料表的表頭和第一欄同時固定，鍵盤能不能捲動。
-5. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
+1. `corner-shape`——非圓角的形狀，焦點外框會不會跟著形狀走。
+2. `if()` 與 `@function`——把重複的樣式邏輯收成條件和函式。
+3. 單軸捲動容器（`overflow: scroll clip`）——資料表的表頭和第一欄同時固定，鍵盤能不能捲動。
+4. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
 
 > **提醒**：標為 🟠 / 🔴 的多為 2025–2026 才進 Chrome 或仍在提案的特性，支援度每季都在變。實際導入 production 前，請以 [caniuse.com](https://caniuse.com "另開新視窗"){target="_blank"} 與 MDN 的最新資料為準，並記得為新特性加 `@supports` fallback。
 
