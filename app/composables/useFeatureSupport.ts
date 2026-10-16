@@ -50,6 +50,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "focusgroup",
     detect: () => "focusGroup" in HTMLElement.prototype,
   },
+  "corner-shape": {
+    name: "corner-shape",
+    detect: () => CSS.supports("corner-shape: bevel"),
+  },
   "css-if": {
     name: "if()",
     detect: () => CSS.supports("color: if(else: red)"),

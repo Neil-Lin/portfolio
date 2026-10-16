@@ -178,7 +178,7 @@ draft: false
 | 獨立 transform 屬性 | `translate`／`rotate`／`scale` 各自成屬性，好分開做動畫 | `rotate: 45deg; scale: 1.2;` | 🟢 | ✅ |
 | `border-image` | 用切片圖做複雜邊框，省去傳統切版煩惱 | `border-image: url(frame.png) 30 round;` | 🟢 | ✅ |
 | `background-clip: border-area` | 把背景裁切到「邊框筆畫所在的區域」（會依 `border-width`／`border-style` 計算、忽略 `border-color` 的透明度），可直接用漸層做邊框，免去 `border-image` 的迂迴（Chrome 150 新增）（實測：強制色彩模式下漸層會被拿掉，但瀏覽器會把透明邊框換成文字色，邊框形狀不會消失） | `border: 3px solid transparent; background: linear-gradient(45deg, red, blue); background-clip: border-area;` | 🟠 | ✅ |
-| `corner-shape` | 超越 `border-radius` 的圓角形狀（squircle／切角等），搭配 `border-radius` 使用；Chrome 156 Beta 另加入簡寫 `corner` | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ⬜ |
+| `corner-shape` | 超越 `border-radius` 的圓角形狀（squircle／切角等），搭配 `border-radius` 使用；Chrome 156 Beta 另加入簡寫 `corner`（用 App 圖示、優惠券、箭頭步驟、切角按鈕實測，見[這篇](/blog/css-corner-shape/)） | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ✅ |
 | 字型平滑（`-webkit-font-smoothing`） | 深色模式讓文字不刺眼的關鍵：macOS 上淺色文字在深底會因次像素抗鋸齒而變粗發光，改用 grayscale 抗鋸齒後變細、不刺眼；非標準，僅特定平台有效 | `-webkit-font-smoothing: antialiased;`（+ `-moz-osx-font-smoothing: grayscale;`） | 🟡 | ✅ |
 | `@when` / `@else` | CSS 的 if/else 條件塊；仍為提案，瀏覽器皆不可用 | `@when supports(...){} @else{}` | 🔴 | ✅ |
 | Scroll anchoring（`overflow-anchor`） | 上方內容載入或插入時，瀏覽器自動維持目前的閱讀位置、畫面不跳動；預設開啟，個別元素可用 `none` 關閉。畫面跳動對認知或動作障礙者特別困擾（Safari 27 補上後，三大引擎到齊） | `overflow-anchor: none;` | 🟡 | ✅ |
@@ -222,11 +222,10 @@ draft: false
 
 ## 建議優先補實驗的清單
 
-原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：第一項在 Chromium 上已經可以實測；最後兩項要等 Chrome 156 正式版才測得到（我測的 153 裡，`overflow: scroll clip` 的 `clip` 還會被改成 `hidden`），其中動畫圖片那一項的無障礙價值其實最高。
+原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：這兩項都要等 Chrome 156 正式版才測得到（我測的 153 裡，`overflow: scroll clip` 的 `clip` 還會被改成 `hidden`），其中動畫圖片那一項的無障礙價值其實最高。
 
-1. `corner-shape`——非圓角的形狀，焦點外框會不會跟著形狀走。
-2. 單軸捲動容器（`overflow: scroll clip`）——資料表的表頭和第一欄同時固定，鍵盤能不能捲動。
-3. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
+1. 單軸捲動容器（`overflow: scroll clip`）——資料表的表頭和第一欄同時固定，鍵盤能不能捲動。
+2. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
 
 > **提醒**：標為 🟠 / 🔴 的多為 2025–2026 才進 Chrome 或仍在提案的特性，支援度每季都在變。實際導入 production 前，請以 [caniuse.com](https://caniuse.com "另開新視窗"){target="_blank"} 與 MDN 的最新資料為準，並記得為新特性加 `@supports` fallback。
 

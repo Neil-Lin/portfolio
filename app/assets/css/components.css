@@ -2180,3 +2180,240 @@ button.stretch-demo__target {
     display: none;
   }
 }
+
+/*************************
+  Blog 互動範例：corner-shape
+  元件在 app/components/content/CornerShapeDemo.vue。
+  每個設計都先寫不支援 corner-shape 時的圓角，再用 @supports 換成新形狀；
+  .is-legacy 是「以前的寫法」（clip-path／mask），用來比較焦點外框和邊框會不會被切掉。
+  .is-forced 是模擬強制色彩模式：背景換成 Canvas，文字和邊框換成 CanvasText。
+*************************/
+
+.cs-demo__forced {
+  margin-block-end: 0.5rem;
+}
+.cs-demo__hint {
+  font-size: 0.875rem;
+}
+.cs-demo__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 0.75rem;
+}
+.cs-demo__card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 0.5rem;
+  figcaption {
+    margin: 0;
+    max-width: none;
+    text-align: start;
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+  code {
+    font-size: 0.8125rem;
+    overflow-wrap: anywhere;
+  }
+}
+.cs-demo__stage {
+  display: grid;
+  place-items: center;
+  min-block-size: 8.5rem;
+  padding: 1rem 0.5rem;
+  border-radius: 0.375rem;
+  background-color: oklch(97% 0 0);
+  color: oklch(var(--color-black));
+}
+.cs-demo__stage--dark {
+  background-color: oklch(20% 0.02 260);
+}
+/* 網站全域的 button、a 用 box-shadow 畫焦點框，範例統一改用 outline 才能比較 */
+.cs-demo__stage :focus-visible {
+  outline: 3px solid oklch(var(--outline-color));
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+/* 1. App 圖示的方圓角 */
+.cs-demo__icon {
+  display: grid;
+  place-items: center;
+  inline-size: 6rem;
+  block-size: 6rem;
+  /* 透明邊框：平常看不到，強制色彩模式會變成文字色，圖示的形狀才不會消失 */
+  border: 2px solid transparent;
+  border-radius: 22%; /* 不支援時：一般圓角 */
+  background: linear-gradient(oklch(62% 0.2 294), oklch(40% 0.2 294));
+  color: oklch(var(--color-white));
+  font-size: 2.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+@supports (corner-shape: squircle) {
+  .cs-demo__icon {
+    border-radius: 50%;
+    corner-shape: squircle;
+  }
+}
+.is-legacy .cs-demo__icon {
+  border-radius: 0;
+  corner-shape: round;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M100 50L100 71L98 79L97 85L94 90L90 94L85 97L79 98L71 100L50 100L29 100L21 98L15 97L10 94L6 90L3 85L2 79L0 71L0 50L0 29L2 21L3 15L6 10L10 6L15 3L21 2L29 0L50 0L71 0L79 2L85 3L90 6L94 10L97 15L98 21L100 29Z'/%3E%3C/svg%3E")
+    center / 100% 100% no-repeat;
+}
+
+/* 2. 優惠券的半圓缺口：左右兩塊相鄰的角各挖四分之一圓，合起來就是半圓 */
+.cs-demo__coupon {
+  display: flex;
+  max-inline-size: 100%;
+  color: oklch(30% 0.08 60);
+  letter-spacing: 0.02em;
+  * {
+    color: inherit; /* 網站深色模式會改 strong 的顏色，這裡固定用優惠券的文字色 */
+    letter-spacing: inherit; /* 網站全域的 p、button 字距較寬，窄螢幕會塞不下 */
+  }
+  > * {
+    margin: 0;
+    border: 2px solid oklch(50% 0.13 55);
+    background-color: oklch(92% 0.1 90);
+  }
+}
+.cs-demo__coupon-info {
+  display: grid;
+  padding: 0.75rem 1rem 0.75rem 0.75rem;
+  border-right-style: dashed; /* 撕線 */
+  line-height: 1.4;
+  min-inline-size: 0;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  strong {
+    font-size: 1.125rem;
+    white-space: nowrap;
+  }
+}
+.cs-demo__coupon-btn {
+  flex: none;
+  padding: 0.75rem 0.75rem 0.75rem 1rem;
+  white-space: nowrap;
+  border-left: 0;
+  border-radius: 0.75rem;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+@supports (corner-shape: scoop) {
+  /* 四個值的順序：左上、右上、右下、左下 */
+  .cs-demo__coupon-info {
+    corner-shape: round scoop scoop round;
+  }
+  .cs-demo__coupon-btn {
+    corner-shape: scoop round round scoop;
+  }
+}
+.is-legacy {
+  .cs-demo__coupon-info,
+  .cs-demo__coupon-btn {
+    corner-shape: round;
+  }
+  .cs-demo__coupon-info {
+    border-radius: 0.75rem 0 0 0.75rem;
+    mask:
+      radial-gradient(circle 0.75rem at 100% 0, #0000 98%, #000) top / 100% 51% no-repeat,
+      radial-gradient(circle 0.75rem at 100% 100%, #0000 98%, #000) bottom / 100% 51% no-repeat;
+  }
+  .cs-demo__coupon-btn {
+    border-radius: 0 0.75rem 0.75rem 0;
+    mask:
+      radial-gradient(circle 0.75rem at 0 0, #0000 98%, #000) top / 100% 51% no-repeat,
+      radial-gradient(circle 0.75rem at 0 100%, #0000 98%, #000) bottom / 100% 51% no-repeat;
+  }
+}
+
+/* 3. 結帳流程的箭頭步驟：右邊兩個角的半徑是高度的一半，切成斜角就變成箭頭 */
+.cs-demo__steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  a {
+    display: block;
+    padding: 0.5rem 1.5rem 0.5rem 0.75rem;
+    border: 2px solid oklch(var(--color-primary));
+    border-radius: 0 0.5rem 0.5rem 0; /* 不支援時：右邊圓角 */
+    background-color: oklch(var(--color-primary-modified));
+    color: oklch(var(--color-primary));
+    text-decoration: none;
+  }
+  [aria-current] {
+    background-color: oklch(var(--color-primary));
+    color: oklch(var(--color-white));
+    font-weight: 700;
+  }
+}
+@supports (corner-shape: bevel) {
+  .cs-demo__steps a {
+    /* 水平半徑 1.25rem，垂直半徑 50%：上下兩個斜角在右邊中間接起來 */
+    border-radius: 0 1.25rem 1.25rem 0 / 0 50% 50% 0;
+    corner-shape: bevel;
+  }
+}
+.is-legacy .cs-demo__steps a {
+  border-radius: 0;
+  corner-shape: round;
+  clip-path: polygon(0 0, calc(100% - 1.25rem) 0, 100% 50%, calc(100% - 1.25rem) 100%, 0 100%);
+}
+
+/* 4. 遊戲風格的切角按鈕：左上和右下切掉 */
+.cs-demo__hud {
+  padding: 0.75rem 1.75rem;
+  border: 2px solid oklch(80% 0.13 210);
+  border-radius: 0.875rem 0; /* 不支援時：左上、右下圓角 */
+  background-color: oklch(22% 0.04 260);
+  color: oklch(88% 0.12 200);
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+@supports (corner-shape: bevel) {
+  .cs-demo__hud {
+    corner-shape: bevel;
+  }
+}
+.is-legacy .cs-demo__hud {
+  border-radius: 0;
+  corner-shape: round;
+  clip-path: polygon(
+    0.875rem 0, 100% 0, 100% calc(100% - 0.875rem),
+    calc(100% - 0.875rem) 100%, 0 100%, 0 0.875rem
+  );
+}
+
+/* 模擬強制色彩模式：背景移除，只剩文字和邊框 */
+.is-forced .cs-demo__stage {
+  &,
+  * {
+    background: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
+  }
+  :focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+@media print {
+  .cs-demo .position-try-demo__options,
+  .cs-demo__forced,
+  .cs-demo__hint {
+    display: none;
+  }
+}

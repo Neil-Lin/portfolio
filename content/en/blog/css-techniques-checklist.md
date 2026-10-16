@@ -178,7 +178,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | Individual transform properties | `translate`/`rotate`/`scale` as their own properties, easier to animate separately | `rotate: 45deg; scale: 1.2;` | 🟢 | ✅ |
 | `border-image` | Complex borders from a sliced image, avoiding traditional slicing | `border-image: url(frame.png) 30 round;` | 🟢 | ✅ |
 | `background-clip: border-area` | Clips the background to the area painted by the border strokes (respecting `border-width`/`border-style`, ignoring `border-color` transparency), so gradient borders work natively instead of via `border-image` workarounds (new in Chrome 150) (tested: forced colors mode drops the gradient, but the browser turns the transparent border into the text color, so the border shape stays visible) | `border: 3px solid transparent; background: linear-gradient(45deg, red, blue); background-clip: border-area;` | 🟠 | ✅ |
-| `corner-shape` | Corner shapes beyond `border-radius` (squircle / notched, etc.), used together with `border-radius`; Chrome 156 Beta adds the `corner` shorthand | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ⬜ |
+| `corner-shape` | Corner shapes beyond `border-radius` (squircle / notched, etc.), used together with `border-radius`; Chrome 156 Beta adds the `corner` shorthand (tested with an app icon, coupon, step arrows and cut-corner button; see [this post](/en/blog/css-corner-shape/)) | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ✅ |
 | Font smoothing (`-webkit-font-smoothing`) | The key to non-harsh text in dark mode: on macOS, light text on a dark background looks bold and glowing due to subpixel antialiasing; grayscale antialiasing makes it thinner and gentler. Non-standard, works only on certain platforms | `-webkit-font-smoothing: antialiased;` (+ `-moz-osx-font-smoothing: grayscale;`) | 🟡 | ✅ |
 | `@when` / `@else` | CSS if/else conditional blocks; still a proposal, unusable in any browser | `@when supports(...){} @else{}` | 🔴 | ✅ |
 | Scroll anchoring (`overflow-anchor`) | When content loads or is inserted above the viewport, the browser keeps your reading position steady instead of jumping; on by default, opt out per element with `none`. Those jumps are especially disorienting for people with cognitive or motor disabilities (with Safari 27, all three engines support it) | `overflow-anchor: none;` | 🟡 | ✅ |
@@ -222,11 +222,10 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 
 ## What to try next (recommended)
 
-Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: the first can already be tested in Chromium; the last two need Chrome 156 stable (in the 153 I tested, the `clip` in `overflow: scroll clip` still turns into `hidden`), and the animated-image one actually has the highest accessibility value.
+Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: both need Chrome 156 stable (in the 153 I tested, the `clip` in `overflow: scroll clip` still turns into `hidden`), and the animated-image one actually has the highest accessibility value.
 
-1. `corner-shape`—non-rounded corner shapes; does the focus outline follow the shape?
-2. Single-axis scroll containers (`overflow: scroll clip`)—a data table with both the header row and first column sticky; can it be scrolled with the keyboard?
-3. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
+1. Single-axis scroll containers (`overflow: scroll clip`)—a data table with both the header row and first column sticky; can it be scrolled with the keyboard?
+2. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
 
 > **Note:** Most items marked 🟠 / 🔴 only landed in Chrome in 2025–2026 or are still proposals, and support changes every quarter. Before shipping to production, treat [caniuse.com](https://caniuse.com "opens in new window"){target="_blank"} and MDN as the source of truth, and remember to add an `@supports` fallback for new features.
 
