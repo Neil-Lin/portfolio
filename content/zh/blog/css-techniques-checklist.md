@@ -177,7 +177,7 @@ draft: false
 | JPEG XL（`image/jxl`） | 壓縮率比 JPEG 好、可無損轉換舊 JPEG 的新圖片格式；Safari 已支援，Chrome 155 Beta 加入解碼 | `<source type="image/jxl" srcset="a.jxl">` | 🟠 | ⬜ |
 | 獨立 transform 屬性 | `translate`／`rotate`／`scale` 各自成屬性，好分開做動畫 | `rotate: 45deg; scale: 1.2;` | 🟢 | ✅ |
 | `border-image` | 用切片圖做複雜邊框，省去傳統切版煩惱 | `border-image: url(frame.png) 30 round;` | 🟢 | ✅ |
-| `background-clip: border-area` | 把背景裁切到「邊框筆畫所在的區域」（會依 `border-width`／`border-style` 計算、忽略 `border-color` 的透明度），可直接用漸層做邊框，免去 `border-image` 的迂迴（Chrome 150 新增） | `border: 3px solid transparent; background: linear-gradient(45deg, red, blue); background-clip: border-area;` | 🟠 | ⬜ |
+| `background-clip: border-area` | 把背景裁切到「邊框筆畫所在的區域」（會依 `border-width`／`border-style` 計算、忽略 `border-color` 的透明度），可直接用漸層做邊框，免去 `border-image` 的迂迴（Chrome 150 新增）（實測：強制色彩模式下漸層會被拿掉，但瀏覽器會把透明邊框換成文字色，邊框形狀不會消失） | `border: 3px solid transparent; background: linear-gradient(45deg, red, blue); background-clip: border-area;` | 🟠 | ✅ |
 | `corner-shape` | 超越 `border-radius` 的圓角形狀（squircle／切角等），搭配 `border-radius` 使用；Chrome 156 Beta 另加入簡寫 `corner` | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ⬜ |
 | 字型平滑（`-webkit-font-smoothing`） | 深色模式讓文字不刺眼的關鍵：macOS 上淺色文字在深底會因次像素抗鋸齒而變粗發光，改用 grayscale 抗鋸齒後變細、不刺眼；非標準，僅特定平台有效 | `-webkit-font-smoothing: antialiased;`（+ `-moz-osx-font-smoothing: grayscale;`） | 🟡 | ✅ |
 | `@when` / `@else` | CSS 的 if/else 條件塊；仍為提案，瀏覽器皆不可用 | `@when supports(...){} @else{}` | 🔴 | ✅ |
@@ -222,14 +222,13 @@ draft: false
 
 ## 建議優先補實驗的清單
 
-原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前五項在 Chromium 上已經可以實測，依無障礙價值排序；最後一項的無障礙價值其實最高，但還在 Beta，等正式版推出就做。
+原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：前三項在 Chromium 上已經可以實測，依無障礙價值排序；最後兩項要等 Chrome 156 正式版才測得到（我測的 153 裡，`overflow: scroll clip` 的 `clip` 還會被改成 `hidden`），其中動畫圖片那一項的無障礙價值其實最高。
 
-1. `background-clip: border-area`——漸層邊框在強制色彩模式（Windows 高對比）下會不會整個消失。
-2. 單軸捲動容器（`overflow: scroll clip`）——資料表的表頭和第一欄同時固定，鍵盤能不能捲動。
-3. `Element.setHTML()`——安全版的 `innerHTML`，實測 `aria-*`、`role` 這些無障礙屬性會不會被清掉。
-4. `corner-shape`——非圓角的形狀，焦點外框會不會跟著形狀走。
-5. `if()` 與 `@function`——把重複的樣式邏輯收成條件和函式。
-6. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
+1. `Element.setHTML()`——安全版的 `innerHTML`，實測 `aria-*`、`role` 這些無障礙屬性會不會被清掉。
+2. `corner-shape`——非圓角的形狀，焦點外框會不會跟著形狀走。
+3. `if()` 與 `@function`——把重複的樣式邏輯收成條件和函式。
+4. 單軸捲動容器（`overflow: scroll clip`）——資料表的表頭和第一欄同時固定，鍵盤能不能捲動。
+5. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
 
 > **提醒**：標為 🟠 / 🔴 的多為 2025–2026 才進 Chrome 或仍在提案的特性，支援度每季都在變。實際導入 production 前，請以 [caniuse.com](https://caniuse.com "另開新視窗"){target="_blank"} 與 MDN 的最新資料為準，並記得為新特性加 `@supports` fallback。
 
