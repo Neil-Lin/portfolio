@@ -2129,9 +2129,11 @@ button.stretch-demo__target {
   &:hover {
     transform: scale(1.08);
   }
+  /* 網站全域的 button:focus-visible 用 box-shadow 畫焦點框，這裡關掉，範例才看得出 outline 的變化 */
   &:focus-visible {
     outline: 3px solid oklch(var(--outline-color));
     outline-offset: 2px;
+    box-shadow: none;
   }
 }
 .if-fn-demo__probe {
@@ -2169,7 +2171,7 @@ button.stretch-demo__target {
 }
 .if-fn-demo__warn {
   margin-inline-start: 0.5rem;
-  color: oklch(var(--color-danger));
+  color: oklch(var(--pd-no));
 }
 @media print {
   .if-fn-demo .position-try-demo__options,

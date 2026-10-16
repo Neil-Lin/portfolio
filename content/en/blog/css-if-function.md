@@ -34,8 +34,9 @@ To respect the user's reduced-motion setting, you used to need a separate `@medi
 
 ```css
 .btn {
-  transition-duration: 300ms;
+  transition-duration: 300ms; /* the usual transition duration */
 }
+/* When the user turns on "reduce motion" in the system, repeat the same selector */
 @media (prefers-reduced-motion: reduce) {
   .btn {
     transition-duration: 0s;
@@ -48,11 +49,15 @@ With `if()`, it's one declaration:
 ```css
 .btn {
   transition-duration: if(
+    /* condition: value when it's true; */
     media(prefers-reduced-motion: reduce): 0s;
+    /* value when none of the conditions above are true */
     else: 300ms
   );
 }
 ```
+
+`if()` is written as a series of `condition: value;` pairs, ending with `else: value`. Note that the separator is a semicolon `;`, not a comma.
 
 There are three kinds of condition:
 
@@ -65,11 +70,14 @@ There are three kinds of condition:
 Conditions can be combined with `and`, `or` and `not`, and you can write several branches at once; the first one that matches wins:
 
 ```css
-padding-inline: if(
-  style(--size: small): 0.5rem;
-  style(--size: large): 1.5rem;
-  else: 1rem
-);
+.btn {
+  --size: small; /* a custom property as a switch, on the element itself or an ancestor */
+  padding-inline: if(
+    style(--size: small): 0.5rem; /* when --size is small */
+    style(--size: large): 1.5rem; /* when --size is large */
+    else: 1rem                    /* anything else, including --size not being set */
+  );
+}
 ```
 
 ## 2. @function: turning repeated calculations into functions
@@ -77,12 +85,18 @@ padding-inline: if(
 WCAG 2.5.8 requires targets of at least 24×24px. With lots of components, each one has to remember `max(24px, …)`, and it's easy to miss one. As a function, you write it once:
 
 ```css
+/* Define a function named --target that takes one parameter, --h */
 @function --target(--h) {
+  /* result is the return value; read parameters with var() */
   result: max(24px, var(--h));
 }
 
 .icon-btn {
+  /* Call it like any built-in CSS function, right in the value */
   min-block-size: --target(16px); /* tested: 24px */
+}
+.btn {
+  min-block-size: --target(40px); /* tested: 40px, already above 24px */
 }
 ```
 
@@ -92,11 +106,16 @@ Function names and parameters start with `--`, and `result` is the return value.
 - **Functions can contain `@media`**, and a matching `result` overrides the earlier one:
 
 ```css
+/* Focus outline width: 2px normally, 4px when the user asks for more contrast */
 @function --ring() {
   result: 2px;
   @media (prefers-contrast: more) {
-    result: 4px;
+    result: 4px; /* overrides the 2px above when the condition matches */
   }
+}
+
+.btn:focus-visible {
+  outline: --ring() solid; /* parentheses are required even with no arguments */
 }
 ```
 
@@ -115,9 +134,133 @@ Things to try:
 - Choose `small`: the button is written as 16px tall, and `--if-demo-target()` raises it to 24px.
 - Check "Reduce motion": the transition becomes 0s, and the button no longer grows on hover.
 - Check "More contrast" and Tab to the button: the focus outline gets thicker and switches to the text color.
-- Switch to "if() without else", then uncheck "More contrast": the focus outline disappears. The next section explains why.
+- Switch to "if() without else", uncheck "More contrast", then Tab to the button: the focus outline is gone. The next section explains why.
 
-The demo simulates the preferences like this:
+### The demo's full code
+
+Here's the demo, step by step.
+
+**Step 1: HTML, with custom properties as switches**
+
+The outer `div` sets three custom properties as inline styles; the demo's options just change these values. `data-ring` switches between the "with else" and "without else" outline rules:
+
+```html
+<div
+  class="if-fn-demo__stage"
+  data-ring="else"
+  style="--size: small; --sim-motion: none; --sim-contrast: none;"
+>
+  <button type="button" class="if-fn-demo__btn">Sample button</button>
+</div>
+```
+
+- `--size`: the button size, one of `small`, `medium` or `large`.
+- `--sim-motion`: simulates "reduce motion"; `reduce` when checked.
+- `--sim-contrast`: simulates "more contrast"; `more` when checked.
+
+Custom properties inherit, so they're set on the wrapper and the button inside can still check them with `style()`.
+
+**Step 2: define two functions**
+
+```css
+/* Guarantee a target of at least 24px (WCAG 2.5.8).
+   --h is the height you want; anything below 24px returns 24px */
+@function --if-demo-target(--h) {
+  result: max(24px, var(--h));
+}
+
+/* 0s when the user asks for reduced motion; otherwise the --t passed in */
+@function --if-demo-motion(--t) {
+  result: if(
+    /* the demo's simulated switch, or the real system setting: either one is enough */
+    style(--sim-motion: reduce) or media(prefers-reduced-motion: reduce): 0s;
+    else: var(--t)
+  );
+}
+```
+
+`@function` is global: the whole site shares one namespace, so I prefixed the names with `--if-demo-` to avoid clashing with functions elsewhere.
+
+**Step 3: write the unsupported styles first**
+
+```css
+.if-fn-demo__btn {
+  min-block-size: 2.5rem;
+  padding-inline: 1rem;
+  /* other visual styles omitted */
+  transition: transform 300ms ease;
+
+  &:hover {
+    transform: scale(1.08); /* grow on hover, to show the transition */
+  }
+
+  &:focus-visible {
+    /* --outline-color is my site's focus color, stored as three oklch channels */
+    outline: 3px solid oklch(var(--outline-color));
+    outline-offset: 2px;
+    /* My site draws button focus rings with box-shadow globally. Turn it off here,
+       or you can't see the outline disappear (more in section 4) */
+    box-shadow: none;
+  }
+}
+```
+
+Browsers without `if()` only use this part: the button's size and focus outline are fixed, but the outline is always visible.
+
+**Step 4: override with if() and the functions**
+
+```css
+/* Only browsers that support if() get in here */
+@supports (color: if(else: red)) {
+  .if-fn-demo__btn {
+    /* Pick a height by size with if(), then let the function guarantee
+       at least 24px: small is written as 16px but ends up 24px */
+    min-block-size: --if-demo-target(
+      if(style(--size: small): 16px; style(--size: large): 56px; else: 40px)
+    );
+    /* Inline padding and font size switch by size too; no match means medium */
+    padding-inline: if(
+      style(--size: small): 0.5rem;
+      style(--size: large): 1.5rem;
+      else: 1rem
+    );
+    font-size: if(
+      style(--size: small): 0.875rem;
+      style(--size: large): 1.25rem;
+      else: 1rem
+    );
+    /* Let the function decide: 0s with reduced motion, otherwise 300ms */
+    transition-duration: --if-demo-motion(300ms);
+  }
+
+  /* The right way: with more contrast, a 4px outline in the text color;
+     otherwise the usual 3px focus color */
+  [data-ring="else"] .if-fn-demo__btn:focus-visible {
+    outline: if(
+      style(--sim-contrast: more) or media(prefers-contrast: more):
+        4px solid oklch(var(--title-color));
+      else: 3px solid oklch(var(--outline-color))
+    );
+  }
+
+  /* The deliberately wrong way: no else.
+     When the condition is false, outline resets to its initial value and disappears */
+  [data-ring="none"] .if-fn-demo__btn:focus-visible {
+    outline: if(
+      style(--sim-contrast: more) or media(prefers-contrast: more):
+        4px solid oklch(var(--title-color))
+    );
+  }
+}
+```
+
+Why wrap it in `@supports`? Because these values contain `var()`, browsers without support can't drop them at parse time, so they'd override the fallback from step 3. Section 5 explains this further.
+
+The values shown in the demo come from reading the button's computed `min-height`, `padding-inline-start` and `transition-duration` with JavaScript's `getComputedStyle()`. The focus outline only exists during `:focus-visible`, so the demo also has a hidden element using the same outline rule, so the value can be read when the button isn't focused.
+
+### Your site's own preference toggle
+
+The way the demo simulates preferences is useful in its own right:
 
 ```css
 transition-duration: if(
@@ -126,7 +269,7 @@ transition-duration: if(
 );
 ```
 
-This pattern is useful in its own right. If your site has its own "reduce motion" toggle, store it as a custom property and put it in the same condition as the system setting: it works whichever place the user turns it on.
+If your site has its own "reduce motion" toggle, store it as a custom property (for example, set `--motion: reduce` on `<html>`) and put it in the same condition as the system setting: it works whether the user turns it on in the system or on your site.
 
 ## 4. Pitfalls
 
@@ -148,6 +291,8 @@ When no branch in `if()` matches and there's no `else`, the whole value becomes 
 It's less obvious with just `outline-width`: its initial value is `medium` (3px), so the outline is still there, just not the width you wrote.
 
 Without a focus outline, keyboard users can't tell where they are (WCAG 2.4.7). So **for any accessibility-related property, always give `if()` an `else`**.
+
+There's one more thing to watch for when testing: **a missing outline can be hidden by other focus styles**. That's what happened with my first version of the demo: my site draws button focus rings with `box-shadow` globally, so even though the demo's `outline` was already `none`, a yellow ring still showed up. When you check, confirm the computed `outline-style` in DevTools instead of just looking at the page.
 
 ### 2. A misspelled function name does the same
 

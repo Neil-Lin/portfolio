@@ -34,8 +34,9 @@ draft: false
 
 ```css
 .btn {
-  transition-duration: 300ms;
+  transition-duration: 300ms; /* 平常的轉場時間 */
 }
+/* 使用者在系統開啟「減少動態」時，另外再寫一次同一個選擇器 */
 @media (prefers-reduced-motion: reduce) {
   .btn {
     transition-duration: 0s;
@@ -48,11 +49,15 @@ draft: false
 ```css
 .btn {
   transition-duration: if(
+    /* 條件: 成立時的值; */
     media(prefers-reduced-motion: reduce): 0s;
+    /* 前面的條件都不成立時的值 */
     else: 300ms
   );
 }
 ```
+
+`if()` 的格式是「`條件: 值;`」一組一組寫下去，最後用 `else: 值` 收尾。注意分隔符號是分號 `;`，不是逗號。
 
 條件有三種：
 
@@ -65,11 +70,14 @@ draft: false
 條件可以用 `and`、`or`、`not` 組合，也可以一次寫好幾個分支，由上往下找第一個成立的：
 
 ```css
-padding-inline: if(
-  style(--size: small): 0.5rem;
-  style(--size: large): 1.5rem;
-  else: 1rem
-);
+.btn {
+  --size: small; /* 自訂屬性當開關，可以寫在元素本身或外層 */
+  padding-inline: if(
+    style(--size: small): 0.5rem; /* --size 是 small 時 */
+    style(--size: large): 1.5rem; /* --size 是 large 時 */
+    else: 1rem                    /* 其他情況，包含沒設定 --size */
+  );
+}
 ```
 
 ## 二、@function：把重複的計算收成函式
@@ -77,12 +85,18 @@ padding-inline: if(
 WCAG 2.5.8 要求點擊區至少 24×24px。元件一多，每個都要記得寫 `max(24px, …)`，很容易漏。寫成函式就只要寫一次：
 
 ```css
+/* 定義函式：名稱 --target，接收一個參數 --h */
 @function --target(--h) {
+  /* result 是回傳值；參數在函式裡用 var() 讀取 */
   result: max(24px, var(--h));
 }
 
 .icon-btn {
+  /* 呼叫函式：跟呼叫 CSS 內建函式一樣，直接寫在值裡 */
   min-block-size: --target(16px); /* 實測：24px */
+}
+.btn {
+  min-block-size: --target(40px); /* 實測：40px，本來就超過 24px */
 }
 ```
 
@@ -92,11 +106,16 @@ WCAG 2.5.8 要求點擊區至少 24×24px。元件一多，每個都要記得寫
 - **函式裡可以寫 `@media`**，條件成立時的 `result` 會蓋掉前面的：
 
 ```css
+/* 焦點外框的粗細：平常 2px，使用者要求提高對比時 4px */
 @function --ring() {
   result: 2px;
   @media (prefers-contrast: more) {
-    result: 4px;
+    result: 4px; /* 條件成立時，蓋掉上面的 2px */
   }
+}
+
+.btn:focus-visible {
+  outline: --ring() solid; /* 沒有參數也要寫括號 */
 }
 ```
 
@@ -115,9 +134,133 @@ WCAG 2.5.8 要求點擊區至少 24×24px。元件一多，每個都要記得寫
 - 選 `small`，按鈕原本寫的是 16px 高，被 `--if-demo-target()` 拉到 24px。
 - 勾選「減少動態」，轉場時間變成 0s，滑鼠移上去按鈕不會再放大。
 - 勾選「提高對比」，用 Tab 移到按鈕上，焦點外框會變粗、改成文字色。
-- 切到「if() 沒寫 else」，再取消「提高對比」，焦點外框就不見了。下一段會說明原因。
+- 切到「if() 沒寫 else」，再取消「提高對比」，用 Tab 移到按鈕上，焦點外框就不見了。下一段會說明原因。
 
-範例裡模擬偏好的寫法是：
+### 範例的完整程式碼
+
+下面一步一步拆開範例的寫法。
+
+**第 1 步：HTML，用自訂屬性當開關**
+
+外層的 `div` 用 inline style 設定三個自訂屬性，範例裡的選項就是在改這三個值；`data-ring` 用來切換「有寫 else」和「沒寫 else」兩種外框寫法：
+
+```html
+<div
+  class="if-fn-demo__stage"
+  data-ring="else"
+  style="--size: small; --sim-motion: none; --sim-contrast: none;"
+>
+  <button type="button" class="if-fn-demo__btn">範例按鈕</button>
+</div>
+```
+
+- `--size`：按鈕尺寸，`small`、`medium`、`large` 三選一。
+- `--sim-motion`：模擬「減少動態」，勾選時是 `reduce`。
+- `--sim-contrast`：模擬「提高對比」，勾選時是 `more`。
+
+自訂屬性會繼承，所以設在外層，裡面的按鈕用 `style()` 也判斷得到。
+
+**第 2 步：定義兩個函式**
+
+```css
+/* 保證點擊區至少 24px（WCAG 2.5.8）
+   --h 是想要的高度；比 24px 小時，回傳 24px */
+@function --if-demo-target(--h) {
+  result: max(24px, var(--h));
+}
+
+/* 使用者要求減少動態時，轉場時間變 0s；否則用傳進來的 --t */
+@function --if-demo-motion(--t) {
+  result: if(
+    /* 範例的模擬開關，或系統真的開啟「減少動態」，其中一個成立就好 */
+    style(--sim-motion: reduce) or media(prefers-reduced-motion: reduce): 0s;
+    else: var(--t)
+  );
+}
+```
+
+`@function` 是全域的，整個網站共用同一個名稱空間，所以我在名稱前面加了 `--if-demo-`，避免跟其他地方的函式撞名。
+
+**第 3 步：先寫不支援時的樣式**
+
+```css
+.if-fn-demo__btn {
+  min-block-size: 2.5rem;
+  padding-inline: 1rem;
+  /* 其他外觀省略 */
+  transition: transform 300ms ease;
+
+  &:hover {
+    transform: scale(1.08); /* 滑鼠移上去放大，用來看轉場 */
+  }
+
+  &:focus-visible {
+    /* --outline-color 是我網站的焦點色，存的是 oklch 的三個通道 */
+    outline: 3px solid oklch(var(--outline-color));
+    outline-offset: 2px;
+    /* 我的網站全域用 box-shadow 畫按鈕的焦點框，這裡要關掉，
+       不然 outline 不見了也看不出來（第四段會說明） */
+    box-shadow: none;
+  }
+}
+```
+
+不支援 `if()` 的瀏覽器只會用到這一段，按鈕的尺寸和焦點外框都是固定的，但一定看得到。
+
+**第 4 步：用 if() 和函式覆寫**
+
+```css
+/* 只有支援 if() 的瀏覽器才會進來 */
+@supports (color: if(else: red)) {
+  .if-fn-demo__btn {
+    /* 先用 if() 依尺寸選出高度，再交給函式保證至少 24px：
+       small 寫的是 16px，實際會是 24px */
+    min-block-size: --if-demo-target(
+      if(style(--size: small): 16px; style(--size: large): 56px; else: 40px)
+    );
+    /* 左右內距和字級也依尺寸切換，沒有符合的就用 else 的中尺寸 */
+    padding-inline: if(
+      style(--size: small): 0.5rem;
+      style(--size: large): 1.5rem;
+      else: 1rem
+    );
+    font-size: if(
+      style(--size: small): 0.875rem;
+      style(--size: large): 1.25rem;
+      else: 1rem
+    );
+    /* 轉場時間交給函式判斷：減少動態時是 0s，否則 300ms */
+    transition-duration: --if-demo-motion(300ms);
+  }
+
+  /* 正確的寫法：提高對比時外框改成文字色、加粗到 4px；
+     否則用原本的焦點色 3px */
+  [data-ring="else"] .if-fn-demo__btn:focus-visible {
+    outline: if(
+      style(--sim-contrast: more) or media(prefers-contrast: more):
+        4px solid oklch(var(--title-color));
+      else: 3px solid oklch(var(--outline-color))
+    );
+  }
+
+  /* 故意示範的錯誤寫法：沒有 else。
+     條件不成立時 outline 會變回初始值，外框就不見了 */
+  [data-ring="none"] .if-fn-demo__btn:focus-visible {
+    outline: if(
+      style(--sim-contrast: more) or media(prefers-contrast: more):
+        4px solid oklch(var(--title-color))
+    );
+  }
+}
+```
+
+為什麼要包在 `@supports` 裡？因為這些值裡面都有 `var()`，不支援的瀏覽器沒辦法在解析時就丟掉它們，前面第 3 步的備案會被蓋掉。第五段會再說明。
+
+範例畫面上的數值，是用 JavaScript 的 `getComputedStyle()` 讀出按鈕計算後的 `min-height`、`padding-inline-start`、`transition-duration`。焦點外框只在 `:focus-visible` 時才有，所以範例另外放了一個隱藏的元素，套用同一條外框規則，用來在按鈕沒有焦點時也讀得到值。
+
+### 網站自己的偏好開關
+
+範例裡模擬偏好的寫法，本身就很實用：
 
 ```css
 transition-duration: if(
@@ -126,7 +269,7 @@ transition-duration: if(
 );
 ```
 
-這個寫法本身就很實用。如果你的網站有自己的「減少動態」開關，把它設成自訂屬性，就能跟系統設定寫在同一個條件裡：使用者不管從哪裡開啟，都會生效。
+如果你的網站有自己的「減少動態」開關，把它設成自訂屬性（例如在 `<html>` 上設定 `--motion: reduce`），就能跟系統設定寫在同一個條件裡：使用者不管從系統還是網站開啟，都會生效。
 
 ## 四、要注意的坑
 
@@ -148,6 +291,8 @@ transition-duration: if(
 只寫 `outline-width` 時比較不明顯：初始值是 `medium`（3px），外框還在，只是粗細跟你寫的不一樣。
 
 焦點外框不見，鍵盤使用者就不知道自己在哪裡（WCAG 2.4.7）。所以**跟無障礙有關的屬性，`if()` 一定要寫 `else`**。
+
+測試的時候還要注意一件事：**外框不見，可能被其他焦點樣式蓋過去，看不出來**。我第一版的範例就是這樣：我的網站全域用 `box-shadow` 幫按鈕畫焦點框，範例的 `outline` 明明已經是 `none`，畫面上還是有一圈黃色的框。所以檢查時，要用開發者工具確認計算後的 `outline-style`，不能只看畫面。
 
 ### 2. 函式名稱打錯也一樣
 
