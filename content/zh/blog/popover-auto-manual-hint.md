@@ -138,7 +138,7 @@ button {
 }
 ```
 
-對照前面 WCAG 1.4.13 的表格，原本要自己補的「可移入」也內建了。不過語意還是一樣：`role="tooltip"` 和 `aria-describedby` 我還是建議自己寫清楚。
+對照下方 WCAG 1.4.13 的表格，原本要自己補的「可移入」也內建了。不過語意還是一樣：`role="tooltip"` 和 `aria-describedby` 我還是建議自己寫清楚。
 
 上面的 hint 範例現在就是這樣做的：支援 `interestfor` 的瀏覽器走原生，不支援的才接上 JavaScript 後備。範例下方會顯示你的瀏覽器目前用的是哪一種，可以用 Chrome 和 Safari 分別打開看看差別。
 
@@ -171,7 +171,7 @@ button {
 | 程式呼叫 `showPopover()` | 只關提示 |
 | `interestfor`，提示打開時另外建立 `CloseWatcher` | 只關提示，焦點留在選單項目上 |
 
-追了一下事件順序：按一次 Esc，先觸發 `interestfor` 的「失去興趣」把提示關掉，接著 popover 自己的 Esc 關閉機制，又把下一層的選單也關了。在 `keydown` 呼叫 `preventDefault()` 擋不住第二步，`CloseWatcher` 才擋得住。
+追了一下事件順序：按一次 Esc，先觸發 `interestfor` 的「失去興趣」把提示關掉，接著 popover 自己的 Esc 關閉機制，又把下一層的選單也關了。如果在 `keydown` 無條件呼叫 `preventDefault()`，這次 Esc 會整個失效，提示和選單都不會關。我在 Chromium 153 實測，要「只關提示」有兩種做法：在 `keydown` 裡判斷提示開著時才 `preventDefault()`，再自己呼叫 `tip.hidePopover()`；或是用 `CloseWatcher`。兩種結果一樣，`CloseWatcher` 不用自己處理按鍵，寫起來比較乾淨。
 
 第一種情況跟 WCAG 1.4.13「不移動焦點就能關閉」有衝突：使用者只是想關掉提示，結果整個選單不見，焦點也被移走了。所以範例現在的做法是，提示打開時建立一個 `CloseWatcher`，讓第一次 Esc 只關提示：
 

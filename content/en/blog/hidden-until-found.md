@@ -147,7 +147,7 @@ Two smaller details:
 
 Some components don't just hide content when collapsed; they also add `inert` so keyboards and screen readers can't reach it. The accordion and tree in my own UI Kit work that way, and that's exactly where adopting `until-found` got stuck.
 
-The problem is that `inert` content is excluded from find-in-page; that's how the HTML spec defines it. So `hidden="until-found"` plus `inert` is just as unfindable with Ctrl+F, which defeats the purpose. In practice, neither search nor links could find the content.
+The problem is that `inert` content is excluded from find-in-page; that's how the HTML spec defines it. So `hidden="until-found"` plus `inert` is just as unfindable with Ctrl+F, which defeats the purpose. In practice, search couldn't find the content, and while links did expand the panel, nothing inside could be used (see the next paragraph).
 
 I also tested `#id` deep links in Chromium 141 and 153: the panel does expand, but `inert` isn't removed, so nothing inside can be focused and screen readers can't read it. You can see it, but you can't use it.
 

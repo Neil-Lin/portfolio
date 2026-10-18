@@ -85,6 +85,8 @@ a::after {
   --now: attr(aria-valuenow type(<number>), 0);
 }
 .progress__fill {
+  display: block; /* span 預設是 inline，要改成 block，width 才有作用 */
+  height: 100%;
   width: calc(var(--now) * 1%);
 }
 ```
@@ -123,7 +125,7 @@ progress.setAttribute("aria-valuenow", 70);
 
 仔細看上面的寫法，`--now` 是寫在外層 `.progress` 上，不是直接寫在 `.progress__fill`。
 
-這是我實測時踩到的坑。我一開始是這樣寫的：
+這是我實測時踩到的坑。我一開始是這樣寫的（`display: block` 等其他樣式跟上面一樣，這裡只列出寬度那一行）：
 
 ```css
 /* 不會動 */
@@ -154,10 +156,17 @@ progress.setAttribute("aria-valuenow", 70);
 ```css
 .rating {
   --now: attr(aria-valuenow type(<number>), 0);
+  position: relative; /* 讓 ::after 以這裡為定位基準 */
+  display: inline-block;
+  white-space: nowrap;
 }
 .rating::before { content: "★★★★★" / ""; }
 .rating::after {
   content: "★★★★★" / "";
+  /* 疊在灰色星星上面，從左邊開始，超出的部分裁掉 */
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
   width: calc(var(--now) / 5 * 100%);
   overflow: hidden;
 }

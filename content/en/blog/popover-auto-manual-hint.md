@@ -138,7 +138,7 @@ button {
 }
 ```
 
-Against the WCAG 1.4.13 table earlier, "hoverable," which you used to add yourself, is now built in. The semantics are unchanged, though: I'd still write `role="tooltip"` and `aria-describedby` explicitly.
+Against the WCAG 1.4.13 table below, "hoverable," which you used to add yourself, is now built in. The semantics are unchanged, though: I'd still write `role="tooltip"` and `aria-describedby` explicitly.
 
 The hint demo above now works exactly like this: browsers with `interestfor` use it natively, and only browsers without it get the JavaScript fallback. Below the demo it shows which one your browser is using, so try it in both Chrome and Safari to see the difference.
 
@@ -171,7 +171,7 @@ After publishing this post, I retested step 5 in Chrome 154 (Chromium 153 behave
 | Script calling `showPopover()` | Closes the tooltip only |
 | `interestfor`, plus a `CloseWatcher` created when the tooltip opens | Closes the tooltip only; focus stays on the menu item |
 
-Tracing the event order: a single Escape first triggers `interestfor`'s "lose interest", which closes the tooltip, and then the popover's own Escape handling closes the next layer down, the menu. Calling `preventDefault()` on `keydown` doesn't stop that second step; a `CloseWatcher` does.
+Tracing the event order: a single Escape first triggers `interestfor`'s "lose interest", which closes the tooltip, and then the popover's own Escape handling closes the next layer down, the menu. If you call `preventDefault()` unconditionally on `keydown`, that Escape does nothing at all: neither the tooltip nor the menu closes. In my tests in Chromium 153, there are two ways to close only the tooltip: in `keydown`, call `preventDefault()` only while the tooltip is open and close it yourself with `tip.hidePopover()`; or use a `CloseWatcher`. Both give the same result, and `CloseWatcher` is cleaner because you don't handle the key yourself.
 
 The first case conflicts with WCAG 1.4.13's "dismissible without moving focus": the user only wanted to close the tooltip, but the whole menu disappears and focus moves. So the demo now creates a `CloseWatcher` when the tooltip opens, making the first Escape close only the tooltip:
 

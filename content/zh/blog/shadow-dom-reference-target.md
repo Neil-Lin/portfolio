@@ -90,23 +90,26 @@ root.referenceTarget = "inp";
 | 外面的屬性 | 結果 |
 |---|---|
 | `<label for>` | 名稱接上，點 label 會 focus |
-| `aria-labelledby`、`aria-describedby` | 可以用元件裡的文字當名稱或說明 |
+| `aria-labelledby`、`aria-describedby` | 可以只拿元件裡的某一段文字當名稱或說明 |
 | `commandfor`、`popovertarget` | 按鈕可以打開元件裡的 `<dialog>`、popover |
 | `aria-controls`、`aria-activedescendant` | 可以指到元件裡的元素 |
 | 元件裡再包元件 | 外層指向內層元件、內層再指向 input，會一路傳到最裡面 |
 
-例如一個專門顯示提示訊息的元件，外面的 input 用 `aria-describedby` 指向它，報讀軟體就會唸出元件裡那段提示：
+例如一個顯示提示訊息的元件，裡面有一個「小提醒」標題和真正的提示文字。外面的 input 用 `aria-describedby` 指向它，只想讓報讀軟體唸出提示文字：
 
 ```html
 <input aria-label="手機號碼" aria-describedby="phone-hint">
 <form-hint id="phone-hint">
   <template shadowrootmode="open" shadowrootreferencetarget="msg">
+    <strong>小提醒</strong>
     <p id="msg">格式：0912-345-678</p>
   </template>
 </form-hint>
 ```
 
-我實測這個 input 的說明就是「格式：0912-345-678」。
+我實測這個 input 的說明是「格式：0912-345-678」。
+
+要注意的是，`aria-labelledby`、`aria-describedby` 指向元件外框時，瀏覽器本來就會把整個元件的文字（包含 Shadow DOM 裡的）拿來當名稱或說明。所以拿掉 `shadowrootreferencetarget`，說明一樣讀得到，只是會變成「小提醒 格式：0912-345-678」，連標題一起唸。reference target 在這裡的作用，是**只指定其中一段**。
 
 按鈕打開元件裡的 dialog 也一樣，[dialog 那篇](/blog/dialog-modern-guide/)介紹的 `commandfor` 可以直接指向元件：
 
@@ -151,7 +154,7 @@ input.ariaDescribedByElements = [document.getElementById("outside-hint")];
 以 2.0.8 版的 `<au-input>` 為例，為了讓外面的 label 和說明接得上，它現在做了不少事：
 
 - 用 MutationObserver 監看整頁，外面的 `aria-labelledby`、`aria-describedby` 有變動就重新同步。
-- 支援 `ariaLabelledByElements` 的瀏覽器，把外面的元素直接交給裡面的 input；不支援的，把文字複製成 `aria-label`。說明則是複製到 Shadow DOM 裡一個隱藏的元素。
+- 支援 `ariaLabelledByElements` 的瀏覽器，把外面的元素直接交給裡面的 input；不支援的，把文字複製成 `aria-label`。說明也一樣：支援 `ariaDescribedByElements` 的瀏覽器直接交給 input，不支援的才複製到 Shadow DOM 裡一個隱藏的元素。
 - 外面的 `<label for>`，透過 form-associated custom element 的 `internals.labels` 取得。
 
 我在 Chromium 153 實測，名稱、說明、表單送出都正常。但有一個小缺口：**點外面的 `<label>`，焦點不會進到 input 裡**。滑鼠使用者習慣點 label 來聚焦欄位，這個行為少了。

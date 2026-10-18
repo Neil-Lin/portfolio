@@ -92,6 +92,7 @@ sanitizer.allowAttribute("role");
 sanitizer.allowAttribute("aria-label");
 sanitizer.allowAttribute("aria-expanded");
 sanitizer.allowAttribute("alt");
+sanitizer.allowAttribute("src"); // allow src along with img, or the image ends up empty
 
 element.setHTML(html, { sanitizer });
 ```

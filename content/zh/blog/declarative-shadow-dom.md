@@ -87,7 +87,7 @@ class MyCard extends HTMLElement {
 
 把現有的 Web Component 改成支援宣告式 Shadow DOM 時，最容易踩的坑在這裡。
 
-很多元件的 constructor 一開始就是 `attachShadow()`。我實測發現，如果元素上**已經有**宣告式的 shadow root，`attachShadow()` 不會報錯，而是回傳同一個 shadow root，**但會把裡面的內容清空**。等於伺服器辛苦畫好的內容，被元件自己清掉了。
+很多元件的 constructor 一開始就是 `attachShadow()`。我實測發現，如果元素上**已經有**宣告式的 shadow root，而且 `attachShadow()` 傳入的 `mode` 跟它一樣，就不會報錯，而是回傳同一個 shadow root，**但會把裡面的內容清空**（`mode` 不一樣時則會丟出 `NotSupportedError`）。等於伺服器辛苦畫好的內容，被元件自己清掉了。
 
 下面兩張卡片的 HTML 一模一樣，都用宣告式 Shadow DOM 先畫出來；元件的 JavaScript 刻意晚 1.5 秒才載入：
 

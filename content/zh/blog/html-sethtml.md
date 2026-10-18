@@ -92,6 +92,7 @@ sanitizer.allowAttribute("role");
 sanitizer.allowAttribute("aria-label");
 sanitizer.allowAttribute("aria-expanded");
 sanitizer.allowAttribute("alt");
+sanitizer.allowAttribute("src"); // img 要連 src 一起放行，不然圖片會是空的
 
 element.setHTML(html, { sanitizer });
 ```

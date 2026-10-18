@@ -38,7 +38,7 @@ The dashed box below stands in for the screen. Move the anchor with the sliders;
 
 Things to try:
 
-1. Pick "None" and drag the anchor to the top: the tooltip stays above it and gets cut off.
+1. Pick "None" and drag the anchor to the top: there's no room above and no fallback to switch to. Chromium 141 keeps the tooltip above and cuts it off; Chromium 153 pushes it back inside the area, so it ends up covering the anchor. Neither is what we want.
 2. Switch to `flip-block` and drag the anchor to the top again: the tooltip flips below.
 3. Now drag the anchor back to the middle: the tooltip **stays below** and doesn't flip back. Press "Show the tooltip again" and it returns to the top. That's not a bug; section 4 explains.
 4. Switch to the custom `@position-try` and drag the anchor to the top: this time the tooltip moves to the right first.
@@ -150,7 +150,9 @@ You can also write it all with the `position-try` shorthand:
 
 ## 6. When nothing fits
 
-If neither the original position nor any fallback fits, the browser **falls back to the original position**, even if that means getting cut off. I tested this with a separate, very short container, and the tooltip did stay above, cut off.
+If neither the original position nor any fallback fits, the browser uses **the last successful position**; only when there's none remembered (when it's first shown, or shown again) does it use the original position.
+
+I tested this with a separate, very short container: I let the tooltip flip below first, then shrank the container so neither side fit, and the tooltip stayed below, cut off. Only after showing it again did it go back to the original position above: Chromium 141 lets it overflow and cuts it off, while Chromium 153 pushes it back inside the area, covering the anchor.
 
 So make the original position the most common, most sensible one. Fallbacks are only fallbacks; there's no guarantee any of them will fit.
 
@@ -191,7 +193,7 @@ In a few lines:
 - `flip-block` flips the margin too; `@position-try` only accepts position-related properties.
 - Once flipped, it remembers the position instead of jumping back and forth; hiding and showing it again (such as reopening a popover) makes it choose afresh.
 - For "use whichever side has more room", add `position-try-order: most-height`.
-- When nothing fits, it falls back to the original position.
+- When nothing fits, it uses the last successful position, or the original position if there isn't one.
 
 What used to need a library and a pile of event listeners now takes a few lines of CSS. And people who zoom the page feel the difference most, which makes it a very real accessibility improvement.
 

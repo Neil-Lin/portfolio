@@ -87,7 +87,7 @@ Support starts at Chrome / Edge 111, Firefox 123 and Safari 16.4, and it's been 
 
 This is where converting an existing web component to Declarative Shadow DOM most often goes wrong.
 
-Many components call `attachShadow()` first thing in the constructor. In my tests, if the element **already has** a declarative shadow root, `attachShadow()` doesn't throw; it returns the same shadow root, **but empties it**. The content the server worked to render gets wiped by the component itself.
+Many components call `attachShadow()` first thing in the constructor. In my tests, if the element **already has** a declarative shadow root and `attachShadow()` is called with the same `mode`, it doesn't throw; it returns the same shadow root, **but empties it** (with a different `mode`, it throws `NotSupportedError`). The content the server worked to render gets wiped by the component itself.
 
 The two cards below have identical HTML, both drawn first by Declarative Shadow DOM, and the component's JavaScript deliberately arrives 1.5 seconds late:
 

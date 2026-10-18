@@ -133,12 +133,12 @@ The hand-written `sizes` aren't guesses. I used Playwright to measure each image
 
 **3. Results**
 
-With Playwright scrolling through the whole page so every lazy image loaded, here's the image data downloaded before and after:
+With Playwright scrolling through the whole page so every lazy image loaded, here's the image data downloaded before and after (1 KB = 1024 bytes):
 
 | Page | Viewport × pixel ratio | Before | After |
 |---|---|---|---|
-| Project list | 375 × 3 (phone) | 1634 KB | 638 KB (61% less) |
-| Project list | 1280 × 1 (laptop) | 1778 KB | 397 KB (78% less) |
+| Project list | 375 × 3 (phone) | 1979 KB | 638 KB (68% less) |
+| Project list | 1280 × 1 (laptop) | 1979 KB | 397 KB (80% less) |
 | Product list | 1280 × 1 | 620 KB | 290 KB (53% less) |
 | Product page (Accesserty) | 375 × 3 | 421 KB | 215 KB (49% less) |
 | Project list | 1920 × 2 (large high-res screen) | 1979 KB | 1979 KB (no change) |
@@ -162,7 +162,7 @@ In a few lines:
 - On a non-lazy image, `sizes="auto, …"` ignores even the fallback, so above-the-fold images need a hand-written `sizes`.
 - A wider image switches to a bigger file; a narrower one doesn't switch back.
 - With a framework, put `loading`, `sizes` and `srcset` before `src`.
-- On my portfolio, image data on the project list dropped by 61% on phones and 78% on laptops.
+- On my portfolio, image data on the project list dropped by 68% on phones and 80% on laptops.
 
 The biggest takeaway was finding out my own site had been making phones download big images all along. What size file does your site's biggest image download on a phone?
 

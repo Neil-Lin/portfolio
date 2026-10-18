@@ -254,7 +254,7 @@ Browsers without `if()` only use this part: the button's size and focus outline 
 }
 ```
 
-Why wrap it in `@supports`? Because these values contain `var()`, browsers without support can't drop them at parse time, so they'd override the fallback from step 3. Section 5 explains this further.
+Why wrap it in `@supports`? Because the two `outline` rules contain `var()`, browsers without support can't drop them at parse time, so they'd override the focus-outline fallback from step 3 and the outline would disappear. The other rules have no `var()`, so browsers without support drop them at parse time and the fallback still applies, but wrapping everything together makes it easier to tell the new code from the fallback. Section 5 explains this further.
 
 The values shown in the demo come from reading the button's computed `min-height`, `padding-inline-start` and `transition-duration` with JavaScript's `getComputedStyle()`. The focus outline only exists during `:focus-visible`, so the demo also has a hidden element using the same outline rule, so the value can be read when the button isn't focused.
 

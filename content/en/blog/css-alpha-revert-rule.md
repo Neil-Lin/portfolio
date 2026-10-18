@@ -103,7 +103,7 @@ A few things:
 - **The same color has different contrast on a different background.** A text color that works on white may not be enough in dark mode.
 - **The contrast of a semi-transparent color depends on what's underneath.** You first blend the color with the background into the color people actually see, then calculate contrast from that. That's what the demo does: paint the background on a canvas, paint the semi-transparent color over it, read the resulting color, then apply the WCAG formula.
 - **Both WCAG 1.4.3 and 1.4.11 apply**: normal text needs 4.5:1, while large text (about 24px, or about 18.66px bold) and UI components and graphics need 3:1. Semi-transparent borders and icons still need 3:1.
-- **Testing tools use the composited color too**: when I ran axe on the demo set to 50%, it reported 2.27:1 and 1.65:1, matching the demo's own calculation. That's why the demo starts at 100%; the contrast failures appear as you lower it.
+- **Testing tools use the composited color too**: when I ran axe on the demo set to 50%, it reported 2.27:1 and 1.65:1; the demo's own calculation gives 2.27:1 and 1.66:1, so they differ only by rounding in the second decimal place. That's why the demo starts at 100%; the contrast failures appear as you lower it.
 
 So `alpha()` makes semi-transparent colors easy to write, but you still have to check contrast on every background they'll appear on.
 

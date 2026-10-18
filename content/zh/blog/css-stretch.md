@@ -42,11 +42,11 @@ draft: false
 
 | 寫法 | 元素寬度 | 結果 |
 |---|---|---|
-| `width: 100%`（content-box），加上 5px 邊框、10px padding | 430px | 溢出 69px |
+| `width: 100%`（content-box），加上 5px 邊框、10px padding | 430px | 溢出 70px（430 加兩邊 margin 40，比容器多 70） |
 | `width: 100%` 加 `box-sizing: border-box` | 400px | 還是溢出 40px，就是兩邊的 margin |
 | `width: stretch` | 360px | 剛好塞滿 |
 
-以前的補救方法是 `width: calc(100% - 2rem)`，自己把 margin 扣掉。但 margin 一改，`calc()` 就要跟著改，很容易忘記。
+以前的補救方法是 `width: calc(100% - 40px)`，自己把兩邊的 margin 扣掉。但 margin 一改，`calc()` 就要跟著改，很容易忘記。
 
 ## 二、width: stretch：撐滿剩下的空間
 
@@ -67,7 +67,7 @@ draft: false
 可以這樣玩：
 
 1. `<div>` 選 `100%`：溢出的量剛好是兩邊 margin 的總和。
-2. 換成 `calc(100% - 2rem)`：margin 剛好是 2rem 左右時會塞滿，但把 margin 拉大或拉小，就又溢出或留空了。
+2. 換成 `calc(100% - 32px)`：margin 剛好是每邊 16px（合計 32px）時會塞滿，但把 margin 拉大或拉小，就又溢出或留空了。
 3. 換成 `stretch`：不管 margin 拉到多少，都剛好塞滿。
 4. 選 `<button>` 或 `<input>`，再選 `auto`：它們預設不會撐滿，這就是以前要寫 `100%` 的原因。換成 `stretch` 一樣剛好塞滿。
 

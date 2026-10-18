@@ -85,6 +85,8 @@ Most importantly, **it can read ARIA attributes**.
   --now: attr(aria-valuenow type(<number>), 0);
 }
 .progress__fill {
+  display: block; /* a span is inline by default; make it block so width applies */
+  height: 100%;
   width: calc(var(--now) * 1%);
 }
 ```
@@ -123,7 +125,7 @@ In my tests, `aria-valuemin="10"`, `aria-valuemax="60"` and `aria-valuenow="35"`
 
 Notice that `--now` is set on the outer `.progress`, not directly on `.progress__fill`.
 
-That's a trap I hit while testing. My first attempt was:
+That's a trap I hit while testing. My first attempt was (the other styles, such as `display: block`, are the same as above; only the width line is shown):
 
 ```css
 /* Doesn't work */
@@ -154,10 +156,17 @@ A rating display uses the same pattern. Use `role="meter"` with `aria-valuenow`,
 ```css
 .rating {
   --now: attr(aria-valuenow type(<number>), 0);
+  position: relative; /* the positioning reference for ::after */
+  display: inline-block;
+  white-space: nowrap;
 }
 .rating::before { content: "★★★★★" / ""; }
 .rating::after {
   content: "★★★★★" / "";
+  /* sit on top of the grey stars, from the left, and clip the rest */
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
   width: calc(var(--now) / 5 * 100%);
   overflow: hidden;
 }

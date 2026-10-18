@@ -20,14 +20,14 @@ draft: false
 
 ```css
 .page {
-  min-height: 100vh;
+  height: 100vh; /* 容器高度固定 */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 ```
 
-登入頁、空狀態、對話框，到處都是這幾行。平常看起來都沒問題，但只要**內容比容器大**，就會出事：置中會讓內容往上下（或左右）兩邊平均溢出，**跑到上方和左邊的那一半，捲不到**。
+登入頁、空狀態、對話框，到處都是這幾行。平常看起來都沒問題，但容器的高度固定時，只要**內容比容器大**，就會出事：置中會讓內容往上下（或左右）兩邊平均溢出，**跑到上方和左邊的那一半，捲不到**。
 
 什麼時候內容會比容器大？最常見的就是使用者把畫面放大。WCAG 1.4.10「重排」要求畫面放大到 400%（大約等於 320 CSS 像素寬）時，內容還是要能完整使用；1.4.4「調整文字大小」也要求文字放大到 200% 時不能遺失內容。放大之後，原本放得下的卡片就放不下了。
 
@@ -67,7 +67,7 @@ draft: false
 
 ```css
 .page {
-  min-height: 100vh;
+  height: 100vh; /* 容器高度固定 */
   display: flex;
   align-items: safe center;
   justify-content: safe center;
@@ -109,7 +109,7 @@ draft: false
 ::safe-align-demo{kind="chips"}
 ::
 
-我實測寬 300px 的容器放 8 個標籤，用 `center` 時，第一個標籤在容器外 198px 的地方，前面兩三個標籤完全捲不到。用 Tab 移到第一個標籤，焦點一樣在畫面外。
+我實測寬 20rem（約 340px）的容器放 8 個標籤，用 `center` 時，第一個標籤在容器外 198px 的地方，前面兩三個標籤完全捲不到。用 Tab 移到第一個標籤，焦點一樣在畫面外。
 
 換成 `safe center`，寬螢幕放得下時一樣置中，窄螢幕放不下時就從第一個開始排，可以正常往右捲。
 
@@ -127,14 +127,15 @@ draft: false
 | grid 的 `place-items: center`，欄寬自動 | 欄寬會跟著內容變大，溢出只往結束那一側，捲得到 |
 | 一般區塊的 `align-content: center` | 預設就安全，要寫 `unsafe` 才會被切掉 |
 | `position: absolute` 加 `inset: 0` 和 `justify-self: center` | 預設就安全，要寫 `unsafe` 才會被切掉 |
-| `position: absolute` 加 `inset: 0; margin: auto` | 安全 |
+| `position: absolute` 加 `inset: 0; margin: auto` | 水平方向安全，**垂直方向上方會被切掉** |
 | flex 子元素用 `margin: auto` 置中 | 安全 |
 | `left: 50%; transform: translateX(-50%)` | 起點被切掉 |
 
 幾個重點：
 
 - **flex 和 grid 只寫 `center` 就是 unsafe**，這是最需要注意的。
-- **`margin: auto` 本來就是安全的**：自動外距最小是 0，不會變成負的，放不下時內容只會往結束那一側溢出。所以如果要支援很舊的瀏覽器，flex 子元素用 `margin: auto` 置中，效果跟 `safe center` 一樣。
+- **flex 子元素的 `margin: auto` 本來就是安全的**：自動外距最小是 0，不會變成負的，放不下時內容只會往結束那一側溢出。所以如果要支援很舊的瀏覽器，flex 子元素用 `margin: auto` 置中，效果跟 `safe center` 一樣。
+- **絕對定位的 `margin: auto` 只有水平方向安全**：垂直方向的兩個自動外距可以變成負的。我實測 200×200 的捲動容器放一個 300×300、`inset: 0; margin: auto` 的元素，上方 50px 被切掉，捲不到。
 - **`translate(-50%)` 這招是 unsafe 的**：以前常用的絕對定位置中技巧，放不下時一樣會被切掉。
 
 ## 七、什麼時候該加 safe？
@@ -167,7 +168,7 @@ draft: false
 - 置中的內容放不下時，會往兩邊溢出，跑到上方和左邊的部分捲不到。
 - 放大畫面的使用者會看不到內容；鍵盤使用者 Tab 過去，焦點會在畫面外。
 - 寫成 `safe center`：放得下就置中，放不下就從起點排。
-- flex 和 grid 只寫 `center` 就是 unsafe；`margin: auto` 和一般區塊的 `align-content` 本來就安全；`translate(-50%)` 是 unsafe。
+- flex 和 grid 只寫 `center` 就是 unsafe；flex 子元素的 `margin: auto` 和一般區塊的 `align-content` 本來就安全；絕對定位的 `margin: auto` 垂直方向會被切掉；`translate(-50%)` 是 unsafe。
 - 容器大小固定的置中，一律加 `safe`；不支援的瀏覽器，前面再寫一行 `center` 當備案。
 
 只要多打一個字，就能避免一整塊內容在放大時消失，是投資報酬率很高的一個小習慣。

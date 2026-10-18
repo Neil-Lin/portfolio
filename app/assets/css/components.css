@@ -2089,7 +2089,7 @@ button.stretch-demo__target {
   Blog 互動範例：if() 與 @function
   元件在 app/components/content/IfFunctionDemo.vue。
   --sim-motion、--sim-contrast 是範例用來模擬使用者偏好的開關，系統真的開啟時 media() 也會成立。
-  if() 的規則包在 @supports 裡：裡面用到 var()，不支援的瀏覽器會在計算時才失效、整條變回初始值，
+  if() 的規則包在 @supports 裡：焦點外框的 outline 用到 var()，不支援的瀏覽器會在計算時才失效、整條變回初始值，
   焦點外框會不見，所以不能只靠「前面先寫一行備案」。
 *************************/
 

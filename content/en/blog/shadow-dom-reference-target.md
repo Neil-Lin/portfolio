@@ -90,23 +90,26 @@ Every attribute that points at others by id gets forwarded to the inner element 
 | Outside attribute | Result |
 |---|---|
 | `<label for>` | Name connected; clicking the label focuses the input |
-| `aria-labelledby`, `aria-describedby` | Text inside the component can be used as a name or description |
+| `aria-labelledby`, `aria-describedby` | A specific piece of text inside the component can be used as a name or description |
 | `commandfor`, `popovertarget` | A button can open a `<dialog>` or popover inside the component |
 | `aria-controls`, `aria-activedescendant` | Can point at an element inside the component |
 | A component inside a component | The outer one points at the inner one, which points at the input, all the way down |
 
-For example, with a component that only shows a hint, an outside input can point at it with `aria-describedby`, and a screen reader reads the hint inside:
+For example, a hint component contains a "Tip" heading and the actual hint text. An outside input points at it with `aria-describedby`, and you only want screen readers to read the hint text:
 
 ```html
 <input aria-label="Phone" aria-describedby="phone-hint">
 <form-hint id="phone-hint">
   <template shadowrootmode="open" shadowrootreferencetarget="msg">
+    <strong>Tip</strong>
     <p id="msg">Format: 0912-345-678</p>
   </template>
 </form-hint>
 ```
 
 In my test, this input's description was "Format: 0912-345-678".
+
+Note that when `aria-labelledby` or `aria-describedby` points at the component's host, the browser already uses all of the component's text (including what's inside the Shadow DOM) as the name or description. So without `shadowrootreferencetarget` the description still comes through, but it becomes "Tip Format: 0912-345-678", heading included. What the reference target does here is **point at just one part**.
 
 Opening a dialog inside a component works the same way: the `commandfor` from [my dialog post](/en/blog/dialog-modern-guide/) can point straight at the component:
 
@@ -151,7 +154,7 @@ My [Accesserty UI Kit](https://github.com/Accesserty/UI-Kit "Open new window"){t
 Take `<au-input>` in version 2.0.8. To connect outside labels and descriptions, it currently does quite a lot:
 
 - It watches the whole page with a MutationObserver and re-syncs whenever an outside `aria-labelledby` or `aria-describedby` changes.
-- In browsers that support `ariaLabelledByElements`, it hands the outside elements straight to the inner input; otherwise, it copies the text into `aria-label`. Descriptions are copied into a hidden element inside the Shadow DOM.
+- In browsers that support `ariaLabelledByElements`, it hands the outside elements straight to the inner input; otherwise, it copies the text into `aria-label`. Descriptions work the same way: browsers that support `ariaDescribedByElements` get the elements handed straight to the input, and only the others get the text copied into a hidden element inside the Shadow DOM.
 - An outside `<label for>` is picked up through the form-associated custom element's `internals.labels`.
 
 In my Chromium 153 test, the name, description and form submission all work. But there's one small gap: **clicking an outside `<label>` doesn't move focus into the input**. Mouse users are used to clicking a label to focus its field, and that behavior is missing.

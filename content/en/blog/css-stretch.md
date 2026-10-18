@@ -42,11 +42,11 @@ The familiar `box-sizing: border-box` only folds padding and borders into the wi
 
 | Markup | Element width | Result |
 |---|---|---|
-| `width: 100%` (content-box), plus a 5px border and 10px padding | 430px | Overflows by 69px |
+| `width: 100%` (content-box), plus a 5px border and 10px padding | 430px | Overflows by 70px (430 plus 40 of margins is 70 more than the container) |
 | `width: 100%` plus `box-sizing: border-box` | 400px | Still overflows by 40px: the two margins |
 | `width: stretch` | 360px | Fills exactly |
 
-The old fix was `width: calc(100% - 2rem)`, subtracting the margins yourself. But change the margin and the `calc()` has to change too, which is easy to forget.
+The old fix was `width: calc(100% - 40px)`, subtracting both margins yourself. But change the margin and the `calc()` has to change too, which is easy to forget.
 
 ## 2. width: stretch: fill the remaining space
 
@@ -67,7 +67,7 @@ Switch the element and the value in the demo below, then drag the margin:
 Try this:
 
 1. With `<div>`, choose `100%`: the overflow is exactly the two margins added together.
-2. Switch to `calc(100% - 2rem)`: it fills when the margins are around 2rem in total, but drag the margin bigger or smaller and it overflows or leaves a gap again.
+2. Switch to `calc(100% - 32px)`: it fills when the margin is exactly 16px on each side (32px in total), but drag the margin bigger or smaller and it overflows or leaves a gap again.
 3. Switch to `stretch`: whatever the margin, it fills exactly.
 4. Choose `<button>` or `<input>` with `auto`: they don't fill by default, which is why we used to write `100%`. Switch to `stretch` and they fill exactly too.
 

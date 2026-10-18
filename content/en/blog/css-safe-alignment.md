@@ -20,14 +20,14 @@ Centering is probably one of the things we do most in CSS:
 
 ```css
 .page {
-  min-height: 100vh;
+  height: 100vh; /* a fixed container height */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 ```
 
-Sign-in pages, empty states, dialogs: these lines are everywhere. They usually look fine, but as soon as **the content is bigger than the container**, things break. Centering makes the content overflow evenly on both sides, and **the half that goes off the top or left can't be scrolled to**.
+Sign-in pages, empty states, dialogs: these lines are everywhere. They usually look fine, but when the container has a fixed height, as soon as **the content is bigger than the container**, things break. Centering makes the content overflow evenly on both sides, and **the half that goes off the top or left can't be scrolled to**.
 
 When does content get bigger than its container? Most often when people zoom in. WCAG 1.4.10 Reflow requires content to stay usable at 400% zoom (about 320 CSS pixels wide), and 1.4.4 Resize Text requires no loss of content when text is enlarged to 200%. Once you zoom in, a card that used to fit no longer does.
 
@@ -67,7 +67,7 @@ In other words, those 50px on the left were never part of the scrollable area. E
 
 ```css
 .page {
-  min-height: 100vh;
+  height: 100vh; /* a fixed container height */
   display: flex;
   align-items: safe center;
   justify-content: safe center;
@@ -109,7 +109,7 @@ The horizontal case is common too: a row of tags that scrolls left and right, ce
 ::safe-align-demo{kind="chips"}
 ::
 
-In my test, a 300px-wide container with 8 tags: with `center`, the first tag sits 198px outside the container, and the first two or three tags can't be scrolled to at all. Tab to the first tag, and focus is off screen again.
+In my test, a 20rem-wide (about 340px) container with 8 tags: with `center`, the first tag sits 246px outside the container, and the first two or three tags can't be scrolled to at all. Tab to the first tag, and focus is off screen again.
 
 With `safe center`, it's still centered on wide screens where it fits, and on narrow screens it starts from the first tag and scrolls right normally.
 
@@ -127,14 +127,15 @@ With just `center`, the result depends on the layout. I gave the container a fix
 | Grid `place-items: center`, auto column width | The column grows with the content; overflow only goes toward the end and can be scrolled to |
 | Block `align-content: center` | Safe by default; only cut off if you write `unsafe` |
 | `position: absolute` with `inset: 0` and `justify-self: center` | Safe by default; only cut off if you write `unsafe` |
-| `position: absolute` with `inset: 0; margin: auto` | Safe |
+| `position: absolute` with `inset: 0; margin: auto` | Safe horizontally, but **the top gets cut off vertically** |
 | Flex item centered with `margin: auto` | Safe |
 | `left: 50%; transform: translateX(-50%)` | Start side cut off |
 
 The key points:
 
 - **In flex and grid, plain `center` is unsafe.** That's the one to watch.
-- **`margin: auto` is already safe**: auto margins never go below 0, so when content doesn't fit it only overflows toward the end. If you need to support very old browsers, centering a flex item with `margin: auto` gives you the same result as `safe center`.
+- **`margin: auto` on a flex item is already safe**: auto margins never go below 0, so when content doesn't fit it only overflows toward the end. If you need to support very old browsers, centering a flex item with `margin: auto` gives you the same result as `safe center`.
+- **`margin: auto` on an absolutely positioned element is only safe horizontally**: vertically, the two auto margins can go negative. In my test, a 300×300 element with `inset: 0; margin: auto` inside a 200×200 scroll container had its top 50px cut off, out of scroll reach.
 - **The `translate(-50%)` trick is unsafe**: the old absolute-positioning centering technique gets cut off too when it doesn't fit.
 
 ## 7. When should you add safe?
@@ -167,7 +168,7 @@ In a few lines:
 - When centered content doesn't fit, it overflows on both sides, and the part off the top and left can't be scrolled to.
 - People who zoom in lose content; keyboard users who Tab there have focus off screen.
 - Write `safe center`: centered when it fits, starting from the start when it doesn't.
-- In flex and grid, plain `center` is unsafe; `margin: auto` and block `align-content` are already safe; `translate(-50%)` is unsafe.
+- In flex and grid, plain `center` is unsafe; `margin: auto` on a flex item and block `align-content` are already safe; `margin: auto` on an absolutely positioned element gets cut off vertically; `translate(-50%)` is unsafe.
 - Always add `safe` when centering inside a fixed-size container, with a plain `center` line before it as a fallback.
 
 One extra word stops a whole block of content from disappearing when people zoom in. That's a small habit with a big payoff.

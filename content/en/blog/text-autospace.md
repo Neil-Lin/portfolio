@@ -70,7 +70,7 @@ The spec has finer-grained values too, such as `ideograph-alpha` (only between C
 | Across HTML tags | Around `<strong>`, links and `<code>` | Yes |
 | Next to Chinese punctuation | Chrome，瀏覽 | No |
 | Full-width letters and numbers | 共８個 | No |
-| Symbols | 用#標籤 | No |
+| Some symbols | 用#標籤, 用@帳號 | Yes (but not `$`, `-`, `(`, `/` and others) |
 | At the start of a wrapped line | An English word that wraps to a new line | No (no extra gap at the line start) |
 
 Working across tags is especially handy: posts often have a `<code>` snippet or a link right after Chinese text, and those get the gap too.

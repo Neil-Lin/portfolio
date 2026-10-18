@@ -78,7 +78,7 @@
 // 部落格文章用：有 margin 的元素用 width: 100%、calc()、stretch 撐滿容器，比較會不會溢出
 // 用法：::stretch-demo
 type Tag = "div" | "button" | "input";
-type Width = "auto" | "100%" | "calc(100% - 2rem)" | "stretch";
+type Width = "auto" | "100%" | "calc(100% - 32px)" | "stretch";
 
 const { locale } = useI18n();
 const uid = usePopoverDemoId("std");
@@ -86,7 +86,7 @@ const box = ref<HTMLElement | null>(null);
 const target = ref<HTMLElement | null>(null);
 
 const tags: Tag[] = ["div", "button", "input"];
-const widths: Width[] = ["auto", "100%", "calc(100% - 2rem)", "stretch"];
+const widths: Width[] = ["auto", "100%", "calc(100% - 32px)", "stretch"];
 const tag = ref<Tag>("div");
 const width = ref<Width>("100%");
 const margin = ref(16);

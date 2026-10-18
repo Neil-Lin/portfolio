@@ -66,7 +66,7 @@
 // 部落格文章用：移動錨點，觀察 position-try-fallbacks 在空間不夠時怎麼換位置
 // 用法：::position-try-demo
 type Option = "none" | "flip" | "custom";
-type Side = "top" | "bottom" | "left" | "right";
+type Side = "top" | "bottom" | "left" | "right" | "overlap";
 
 const { locale } = useI18n();
 const root = ref<HTMLElement | null>(null);
@@ -104,6 +104,7 @@ const messages = {
     sides: { top: "上方", bottom: "下方", left: "左邊", right: "右邊" },
     readout: (s: string, cut: boolean) =>
       `提示框目前在錨點的${s}${cut ? "，而且超出範圍被切掉了" : ""}`,
+    overlap: "提示框被推回範圍內，蓋住了錨點",
     pending: "提示框位置偵測中（需要 JavaScript）",
     unsupported: "你的瀏覽器不支援錨點定位，這個範例無法運作。",
     codeTitle: "目前套用的 CSS",
@@ -136,6 +137,8 @@ const messages = {
     },
     readout: (s: string, cut: boolean) =>
       `The tooltip is ${s} the anchor${cut ? ", and it's cut off" : ""}`,
+    overlap:
+      "The tooltip was pushed back inside the area and covers the anchor",
     pending: "Detecting the tooltip position (requires JavaScript)",
     unsupported:
       "Your browser doesn't support anchor positioning, so this demo won't work.",
@@ -158,6 +161,7 @@ const optionList = computed(() =>
 const readout = computed(() => {
   if (supported.value === false) return text.value.unsupported;
   if (!side.value) return text.value.pending;
+  if (side.value === "overlap") return text.value.overlap;
   return text.value.readout(text.value.sides[side.value], overflow.value);
 });
 
@@ -218,7 +222,10 @@ async function measure() {
         ? "bottom"
         : t.right <= a.left + 1
           ? "left"
-          : "right";
+          : t.left >= a.right - 1
+            ? "right"
+            : // 較新的 Chromium 放不下時會把提示框推回範圍內，結果蓋住錨點
+              "overlap";
   overflow.value =
     t.top < s.top - 1 ||
     t.bottom > s.bottom + 1 ||

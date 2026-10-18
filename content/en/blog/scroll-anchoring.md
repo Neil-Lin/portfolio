@@ -102,7 +102,7 @@ Scroll anchoring cuts down on jumps, but as you've seen, there are cases it can'
 }
 ```
 
-With space reserved, even the "at the top" case that scroll anchoring can't handle doesn't jump. This is exactly what CLS (Cumulative Layout Shift) in Core Web Vitals measures: scroll anchoring only keeps what you see in place; the layout still shifted.
+With space reserved, even the "at the top" case that scroll anchoring can't handle doesn't jump. This also ties into CLS (Cumulative Layout Shift) in Core Web Vitals. CLS measures the shift people see on screen: in my tests, when scroll anchoring kicked in, nothing moved on screen and CLS was 0; but at the top of the page, or with scroll anchoring turned off, inserting the same 200px block gave a CLS of 0.25. Reserving space keeps both cases from jumping.
 
 ## 6. Applying it to my site
 
