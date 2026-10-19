@@ -22,4 +22,6 @@ Neil Lin is a product designer and front-end developer focused on web accessibil
 
 - Sitemap: https://neillin.com/sitemap_index.xml
 - Robots: https://neillin.com/robots.txt
-- This site supports content negotiation: send `Accept: text/markdown` to receive page content as Markdown.
+- Every page has a Markdown version: drop the trailing slash and add `.md`, e.g. https://neillin.com/blog/css-corner-shape.md (English: https://neillin.com/en/blog/css-corner-shape.md). Each HTML page also links to it with `<link rel="alternate" type="text/markdown">`.
+- The full site as one Markdown file: https://neillin.com/llms-full.txt
+- Markdown sitemap: https://neillin.com/sitemap.md

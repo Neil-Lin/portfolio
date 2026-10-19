@@ -463,10 +463,13 @@ export default defineNuxtConfig({
     autoLastmod: true,
   },
 
-  // @nuxtjs/seo 6 新帶進來的兩個模組，先關閉，讓網站輸出維持升級前的樣子：
-  // - nuxt-ai-ready：每頁產生 .md、llms-full.txt 等，且會在 robots.txt 加一行沒有 ai-train=no 的 Content-Signal
-  // - nuxt-skew-protection：靜態網站用不到，已有 chunk-reload 插件處理部署後的舊 chunk
-  aiReady: { enabled: false },
+  // nuxt-ai-ready（@nuxtjs/seo 6 內含）：每頁輸出一份 Markdown 版（/blog/xxx.md），
+  // 並在 <head> 用 <link rel="alternate" type="text/markdown"> 告訴 AI 工具。
+  // Content Signal 也由它寫進 robots.txt：允許搜尋與 AI 即時引用（ai-input），不允許拿去訓練（ai-train）。
+  aiReady: {
+    contentSignal: { search: true, aiInput: true, aiTrain: false },
+  },
+  // nuxt-skew-protection（@nuxtjs/seo 6 內含）：靜態網站用不到，已有 chunk-reload 插件處理部署後的舊 chunk
   skewProtection: { enabled: false },
 
   ogImage: {
