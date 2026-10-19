@@ -1,3 +1,5 @@
+import { defineEventHandler } from "nuxt/server";
+
 export default defineEventHandler((event) =>
   buildBlogRss(event, "blog_zh", {
     pathPrefix: "",

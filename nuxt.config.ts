@@ -1,8 +1,8 @@
-import enUS from "./i18n/lang/en-US";
-import zhHantTW from "./i18n/lang/zh-Hant-TW";
-import { productsData } from "./data/productsData";
-import { validateContentData } from "./scripts/checkData";
-import { getBlogRoutes } from "./scripts/blogRoutes";
+import enUS from "./i18n/lang/en-US.ts";
+import zhHantTW from "./i18n/lang/zh-Hant-TW.ts";
+import { productsData } from "./data/productsData.ts";
+import { validateContentData } from "./scripts/checkData.ts";
+import { getBlogRoutes } from "./scripts/blogRoutes.ts";
 
 // 內容資料驗證：路徑不存在或 slug 重複時直接讓 build 失敗
 validateContentData();
@@ -239,6 +239,16 @@ export default defineNuxtConfig({
     },
   },
   compatibilityDate: "2026-09-06",
+  // 提前啟用 Nuxt 5 的行為（Nuxt 4.2 起支援），讓升級 Nuxt 5 時不會有意外
+  future: { compatibilityVersion: 5 },
+  experimental: {
+    // Nuxt 5 預設關閉伺服器端自動匯入，但 @nuxtjs/i18n 10.6 的伺服器程式還從 #imports 匯入
+    // useRuntimeConfig，關掉會讓 build 失敗。等 i18n 支援 Nuxt 5 後拿掉。
+    nitroAutoImports: true,
+    // Nuxt 5 預設開啟型別化路由，但 @nuxtjs/i18n 10.6 的 localePath() 型別還不接受
+    // "/blog" 這類路徑字串（vue-router 5 的型別化路由）。等 i18n 跟上後拿掉。
+    typedPages: false,
+  },
   devtools: { enabled: false },
   ssr: true,
   nitro: {
@@ -376,6 +386,8 @@ export default defineNuxtConfig({
     workbox: {
       navigateFallback: null,
       cleanupOutdatedCaches: true,
+      // Nuxt 5 相容模式下 PWA 套件讀到的 Vite sourcemap 設定會變，明確關掉，不輸出 sw.js.map
+      sourcemap: false,
     },
     devOptions: {
       enabled: false,

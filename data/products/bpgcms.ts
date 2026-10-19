@@ -1,4 +1,4 @@
-import type { Product } from "../types";
+import type { Product } from "../types.ts";
 
 export const bpgcms: Product = {
   id: 4,

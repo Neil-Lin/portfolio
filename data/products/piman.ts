@@ -1,4 +1,4 @@
-import type { Product } from "../types";
+import type { Product } from "../types.ts";
 
 export const piman: Product = {
   id: 1,

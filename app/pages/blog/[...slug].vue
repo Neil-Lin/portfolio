@@ -93,8 +93,8 @@ const { data: article } = await useAsyncData(
 
 if (!article.value) {
   throw createError({
-    statusCode: 404,
-    statusMessage: "Article not found",
+    status: 404,
+    statusText: "Article not found",
     fatal: true,
   });
 }
@@ -108,11 +108,13 @@ const { data: counterpart } = await useAsyncData(
     if (key) {
       return await queryCollection(otherCollection.value)
         .where("translationKey", "=", key)
+        .select("path", "stem")
         .first();
     }
     const otherLang = locale.value === "en" ? "zh" : "en";
     return await queryCollection(otherCollection.value)
       .path(`/${otherLang}/blog/${slug.value}`)
+      .select("path", "stem")
       .first();
   },
   { watch: [contentPath] },
@@ -141,6 +143,8 @@ const { data: rawRelated } = await useAsyncData(
     queryCollection(collection.value)
       .where("draft", "=", false)
       .order("date", "DESC")
+      // 相關文章只顯示標題和連結：不取 body，payload 才不會把每篇文章的全文都帶進來
+      .select("path", "stem", "title", "tags")
       .all(),
   { watch: [contentPath], default: () => [] },
 );

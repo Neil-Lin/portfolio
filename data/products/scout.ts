@@ -1,4 +1,4 @@
-import type { Product } from "../types";
+import type { Product } from "../types.ts";
 
 export const scout: Product = {
   id: 3,

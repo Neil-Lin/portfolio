@@ -1,4 +1,4 @@
-import type { Product } from "../types";
+import type { Product } from "../types.ts";
 
 export const vitalsEspSurvey: Product = {
   id: 7,

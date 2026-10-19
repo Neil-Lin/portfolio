@@ -116,6 +116,8 @@ const { data: rawPosts } = await useAsyncData(
     queryCollection(locale.value === "en" ? "blog_en" : "blog_zh")
       .where("draft", "=", false)
       .order("date", "DESC")
+      // 只取列表用到的欄位：不取 body，payload 才不會把每篇文章的全文都帶進來
+      .select("path", "stem", "title", "description", "date", "tags", "category")
       .all(),
   { watch: [locale], default: () => [] },
 );

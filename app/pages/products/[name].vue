@@ -217,8 +217,8 @@ function isClickableProductSlug(value: unknown): boolean {
 definePageMeta({
   validate: (route) =>
     isClickableProductSlug(route.params.name) || {
-      statusCode: 404,
-      statusMessage: "Product not found",
+      status: 404,
+      statusText: "Product not found",
     },
 });
 

@@ -1,4 +1,4 @@
-import type { H3Event } from "h3";
+import { useRuntimeConfig, type RequestEvent } from "nuxt/server";
 import { queryCollection } from "@nuxt/content/server";
 
 const escapeXml = (s: string) =>
@@ -10,7 +10,7 @@ const escapeXml = (s: string) =>
     .replace(/'/g, "&apos;");
 
 export async function buildBlogRss(
-  event: H3Event,
+  event: RequestEvent,
   collection: "blog_zh" | "blog_en",
   opts: {
     pathPrefix: string;
@@ -22,7 +22,12 @@ export async function buildBlogRss(
   const config = useRuntimeConfig();
   const base = config.public.baseUrl as string;
 
-  const docs = await queryCollection(event, collection)
+  // @nuxt/content 的 queryCollection 型別還只接受 h3 v1 的 H3Event；
+  // nuxt/server 的 event 在 Nuxt 4.6 實測可以直接用，等 Content 支援 Nuxt 5 再拿掉這個轉型
+  const contentEvent = event as unknown as Parameters<
+    typeof queryCollection
+  >[0];
+  const docs = await queryCollection(contentEvent, collection)
     .where("draft", "=", false)
     .order("date", "DESC")
     .all();
@@ -68,9 +73,6 @@ ${items}
   </channel>
 </rss>`;
 
-  event.node.res.setHeader(
-    "content-type",
-    "application/rss+xml; charset=utf-8",
-  );
+  event.res.headers.set("content-type", "application/rss+xml; charset=utf-8");
   return xml;
 }

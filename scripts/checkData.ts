@@ -1,8 +1,8 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { productsData } from "../data/productsData";
-import { projectsData } from "../data/projectsData";
-import type { LocaleKey } from "../data/types";
+import { productsData } from "../data/productsData.ts";
+import { projectsData } from "../data/projectsData.ts";
+import type { LocaleKey } from "../data/types.ts";
 
 const LOCALES: LocaleKey[] = ["zh-Hant-TW", "en"];
 
