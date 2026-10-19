@@ -37,13 +37,10 @@
 
 - [ ] 給 AI 讀的 `.md` 版本（例如 `/blog/html-sethtml.md`），回應的 `Content-Type` 有沒有帶 `charset=utf-8`，中文是否正常顯示。
 
-## OG 分享圖
-
-- [ ] **英文長標題的 OG 圖文字超出畫面**：例如 `/en/blog/css-corner-shape/`，標題加描述太長，上下都被裁掉。可以限制描述行數，或依字數縮小字級。
-
 ## 備註
 
 - **OG 圖的中文字型靠 `fontless`**：nuxt-og-image 7 的 Satori 不能用 Google 提供的 Noto Sans TC 可變字型（woff2），要透過 `fontless` 另外下載靜態字型。`fontless` 是它的選用 peer dependency，**一定要裝在專案裡**，沒裝的話建置不會失敗，只會出現 `Satori renders "Noto Sans TC" text with the bundled Inter font` 警告，中文全部變成方框。升級 `@nuxtjs/seo` / `nuxt-og-image` 後要看建置紀錄有沒有這個警告。
+- **OG 模板會依標題長度調整字級與行數**（`CustomTemplate.satori.vue` 的 `TITLE_LAYOUTS`）：64、56、48px 最多 3 行，再長用 44px 最多 4 行；描述依標題佔的行數顯示 2～4 行，超出以「…」截斷。字寬是估算值，改字型或版面時要重新看一遍所有 OG 圖。
 - **OG 模板的 `font-weight` 要寫數字**（700），寫 `bold` 時 og-image 7 只會下載 400 字重，標題就不是粗體。
 - **在 Claude 的 sandbox 驗證 OG 圖**：sandbox 擋了 `fonts.google.com`（字型清單 API）與 bunny、fontsource 等供應商，但 `fonts.googleapis.com`、`fonts.gstatic.com` 連得到。做法是用 `NODE_USE_ENV_PROXY=1` 讓 Node 走 proxy、用 `--import` 預載一支攔截 `fonts.google.com/metadata/fonts` 的腳本（回傳只有 Noto Sans TC 的清單），並暫時在 `fonts.providers` 關掉 Google 以外的供應商。這些都只在 sandbox 用，不要 commit。
 
