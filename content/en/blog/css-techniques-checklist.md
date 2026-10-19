@@ -156,7 +156,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 |---|---|---|---|---|
 | `round()` / `mod()` / `rem()` | Rounding and remainders in CSS, to align to a grid/rhythm | `width: round(down, 15.5px, 4px);` | 🟡 | ✅ |
 | Trig functions `sin/cos/tan` | Circular layouts, waveforms, angle math | `width: calc(sin(30deg) * 100px);` | 🟢 | ✅ |
-| `calc-size()` / `interpolate-size` | Animate transitions to keywords like `auto`/`min-content`, e.g. an accordion expanding to an unknown height | `interpolate-size: allow-keywords;` | 🟠 | ✅ |
+| `calc-size()` / `interpolate-size` | Animate transitions to keywords like `auto`/`min-content`, e.g. an accordion expanding to an unknown height; combined with `round()`, it can also make a height an exact multiple of a background pattern so the pattern isn't cut off (`height: calc-size(auto, round(up, size, 48px))`) | `interpolate-size: allow-keywords;` | 🟠 | ✅ |
 | `random()` | Native random values in CSS (scatter, jitter effects) | `rotate: random(-5deg, 5deg);` | 🟠 | ✅ |
 | `if()` | Conditional logic inside a property value (without `else`, the property falls back to its initial value and a focus outline can disappear entirely; see [this post](/en/blog/css-if-function/)) | `display: if(style(--open: 1): block; else: none);` | 🟠 | ✅ |
 | `@function` | Custom CSS functions / a mixin-like concept, with parameters and a return value (see [this post](/en/blog/css-if-function/) for using one to guarantee a minimum target size) | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ✅ |

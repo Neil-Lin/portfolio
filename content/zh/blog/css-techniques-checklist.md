@@ -156,7 +156,7 @@ draft: false
 |---|---|---|---|---|
 | `round()` / `mod()` / `rem()` | CSS 內做進位取整、取餘，對齊網格／節奏 | `width: round(down, 15.5px, 4px);` | 🟡 | ✅ |
 | 三角函式 `sin/cos/tan` | 圓形排列、波形、角度計算 | `width: calc(sin(30deg) * 100px);` | 🟢 | ✅ |
-| `calc-size()` / `interpolate-size` | 對 `auto`／`min-content` 等關鍵字做動畫過渡，如未知高度的 accordion 展開 | `interpolate-size: allow-keywords;` | 🟠 | ✅ |
+| `calc-size()` / `interpolate-size` | 對 `auto`／`min-content` 等關鍵字做動畫過渡，如未知高度的 accordion 展開；也可以搭配 `round()`，讓高度剛好是背景圖案的倍數，圖案不會被切掉（`height: calc-size(auto, round(up, size, 48px))`） | `interpolate-size: allow-keywords;` | 🟠 | ✅ |
 | `random()` | CSS 原生隨機值（散布、抖動效果） | `rotate: random(-5deg, 5deg);` | 🟠 | ✅ |
 | `if()` | 在屬性值中做條件判斷（沒寫 `else` 時屬性會退回初始值，焦點外框可能整個消失，見[這篇](/blog/css-if-function/)） | `display: if(style(--open: 1): block; else: none);` | 🟠 | ✅ |
 | `@function` | 自訂 CSS 函式與 mixin 概念，可帶參數回傳值（用來保證最小點擊區的實測見[這篇](/blog/css-if-function/)） | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ✅ |
