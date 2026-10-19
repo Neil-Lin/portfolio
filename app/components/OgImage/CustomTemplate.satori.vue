@@ -35,12 +35,26 @@
           object-fit: cover;
         "
       />
+      <!-- position: relative 讓文字畫在絕對定位的浮水印上面（新版 satori 依 CSS 規範的繪製順序） -->
       <div
-        style="font-weight: bold; font-size: 4rem; color: #222; padding: 0 4rem"
+        style="
+          position: relative;
+          font-weight: bold;
+          font-size: 4rem;
+          color: #222;
+          padding: 0 4rem;
+        "
       >
         {{ title }}
       </div>
-      <div style="font-size: 2rem; color: #565656; padding: 0 4rem">
+      <div
+        style="
+          position: relative;
+          font-size: 2rem;
+          color: #565656;
+          padding: 0 4rem;
+        "
+      >
         {{ description }}
       </div>
     </div>

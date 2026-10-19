@@ -463,6 +463,12 @@ export default defineNuxtConfig({
     autoLastmod: true,
   },
 
+  // @nuxtjs/seo 6 新帶進來的兩個模組，先關閉，讓網站輸出維持升級前的樣子：
+  // - nuxt-ai-ready：每頁產生 .md、llms-full.txt 等，且會在 robots.txt 加一行沒有 ai-train=no 的 Content-Signal
+  // - nuxt-skew-protection：靜態網站用不到，已有 chunk-reload 插件處理部署後的舊 chunk
+  aiReady: { enabled: false },
+  skewProtection: { enabled: false },
+
   ogImage: {
     zeroRuntime: true,
     security: {
@@ -470,6 +476,8 @@ export default defineNuxtConfig({
     },
   },
 
+  // @nuxt/fonts 1.0 起，正式建置時字型抓不到會讓建置失敗（throwOnError 預設為 true），
+  // 不會再默默部署一個沒有中文字型的網站；建置失敗時 Cloudflare 會保留上一版。
   fonts: {
     families: [
       {

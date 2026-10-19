@@ -22,29 +22,30 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,html,css,scss,json,md}\""
   },
   "dependencies": {
-    "@nuxt/content": "^3.16.0",
-    "@nuxt/fonts": "^0.14.0",
-    "@nuxtjs/seo": "^5.3.14",
+    "@nuxt/content": "^3.16.2",
+    "@nuxt/fonts": "^1.0.1",
+    "@nuxtjs/seo": "^6.0.1",
     "@resvg/resvg-js": "^2.6.2",
-    "better-sqlite3": "^12.11.1",
+    "better-sqlite3": "^13.0.3",
     "nuxt": "^4.6.2",
-    "satori": "^0.26.0",
+    "satori": "^0.47.0",
     "vue": "^3.5.44"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.17.0",
     "@nuxtjs/i18n": "^10.6.0",
+    "@types/node": "^26.6.5",
     "@vite-pwa/nuxt": "^1.1.1",
-    "eslint": "^10.10.0",
+    "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
-    "nuxi": "^3.37.0",
-    "prettier": "^3.9.6",
-    "sharp": "^0.35.4",
-    "typescript": "^5.7.3",
-    "vue-tsc": "^3.3.11"
+    "eslint-plugin-prettier": "^5.5.7",
+    "nuxi": "^4.0.1",
+    "prettier": "^3.9.10",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.3.13"
   },
   "overrides": {
-    "vue-router": "5.0.7"
+    "vue-router": "5.4.0"
   }
 }
