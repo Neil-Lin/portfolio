@@ -27,9 +27,9 @@
     "@nuxtjs/seo": "^5.3.14",
     "@resvg/resvg-js": "^2.6.2",
     "better-sqlite3": "^12.11.1",
-    "nuxt": "^4.5.2",
+    "nuxt": "^4.6.2",
     "satori": "^0.26.0",
-    "vue": "^3.5.42"
+    "vue": "^3.5.44"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.17.0",
