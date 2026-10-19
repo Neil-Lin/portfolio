@@ -51,7 +51,8 @@ export default {
     passA11yTWBadge: "A11y AA level",
   },
   des: {
-    sitemap: "Site sections, keyboard shortcuts and sitemap for finding your way around",
+    sitemap:
+      "Site sections, keyboard shortcuts and sitemap for finding your way around",
     a11yReference: "mozilla accesskey document",
     ithomeA11y: "iThome blog",
     blog: "Neil's blog: notes on frontend, design, and accessibility",
