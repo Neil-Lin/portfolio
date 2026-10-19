@@ -1,6 +1,6 @@
 <template>
-  <div class="reference-target-demo dialog-demo">
-    <p class="dialog-demo__label">
+  <div class="reference-target-demo demo">
+    <p class="demo__label">
       {{ kind === "label" ? text.labelLabel : text.kitLabel }}
     </p>
 
@@ -31,7 +31,7 @@
     </div>
 
     <template v-else>
-      <label class="until-found-faq__sync">
+      <label class="demo__option">
         <input v-model="kitTarget" type="checkbox" />
         <span>{{ text.kitToggle }}</span>
       </label>
@@ -46,8 +46,8 @@
       </div>
     </template>
 
-    <p class="focusgroup-demo__mode">{{ modeText }}</p>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__status">{{ modeText }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -62,7 +62,7 @@ const props = defineProps<{ kind: "label" | "kit" }>();
 const AU_INPUT_SRC = "/vendor/accesserty-ui-kit/2.0.8/input.js";
 
 const { locale } = useI18n();
-const uid = usePopoverDemoId("rtd");
+const uid = useDemoId("rtd");
 const supported = ref<boolean | null>(null);
 const kitTarget = ref(false);
 const kitHost = ref<HTMLElement | null>(null);

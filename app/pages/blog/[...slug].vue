@@ -76,9 +76,6 @@ const langDir = computed(() => (locale.value === "en" ? "en" : "zh"));
 const collection = computed(() =>
   locale.value === "en" ? "blog_en" : "blog_zh",
 );
-const otherCollection = computed(() =>
-  locale.value === "en" ? "blog_zh" : "blog_en",
-);
 const slug = computed(() => {
   const s = route.params.slug;
   return Array.isArray(s) ? s.join("/") : (s ?? "");
@@ -99,42 +96,8 @@ if (!article.value) {
   });
 }
 
-// 對照版：優先用 frontmatter translationKey；否則以「同 slug」為慣例
-// （中英相同檔名即視為同一篇的兩個語言版本，自動連 hreflang 與語言切換）
-const { data: counterpart } = await useAsyncData(
-  () => `article-alt-${contentPath.value}`,
-  async () => {
-    const key = article.value?.translationKey;
-    if (key) {
-      return await queryCollection(otherCollection.value)
-        .where("translationKey", "=", key)
-        .select("path", "stem")
-        .first();
-    }
-    const otherLang = locale.value === "en" ? "zh" : "en";
-    return await queryCollection(otherCollection.value)
-      .path(`/${otherLang}/blog/${slug.value}`)
-      .select("path", "stem")
-      .first();
-  },
-  { watch: [contentPath] },
-);
-
-// 防禦：path / stem 任一可用即可取出 slug，避免單一異常文件讓整頁 500
-const slugOf = (doc: { path?: string; stem?: string } | null | undefined) => {
-  const source = doc?.path ?? doc?.stem;
-  return typeof source === "string"
-    ? source.split("/").filter(Boolean).pop()
-    : undefined;
-};
-
-const counterpartPath = computed(() => {
-  if (!counterpart.value) return null;
-  const cslug = slugOf(counterpart.value);
-  if (!cslug) return null;
-  // 對照版在「另一語言」：目前是 en → 對照版是 zh（無前綴）；反之加 /en
-  return locale.value === "en" ? `/blog/${cslug}/` : `/en/blog/${cslug}/`;
-});
+// 另一語言版本的網址（頁尾、頁首的語言切換也用同一個查詢）
+const counterpartPath = await useBlogCounterpart();
 
 // 相關文章：同 tag、同語言、排除自己
 const { data: rawRelated } = await useAsyncData(
@@ -157,19 +120,8 @@ const related = computed(() => {
         (p.tags ?? []).some((tg: string) => tags.has(tg)),
     )
     .slice(0, 3)
-    .map((p) => ({ slug: slugOf(p) ?? "", title: p.title }))
+    .map((p) => ({ slug: blogSlugOf(p) ?? "", title: p.title }))
     .filter((p) => p.slug);
-});
-
-// Option A：語言切換鈕目標
-const switchOverride = useLocaleSwitchTarget();
-watchEffect(() => {
-  const otherCode = locale.value === "en" ? "zh-Hant-TW" : "en";
-  const fallback = otherCode === "en" ? "/en/blog/" : "/blog/";
-  switchOverride.value = { [otherCode]: counterpartPath.value ?? fallback };
-});
-onScopeDispose(() => {
-  switchOverride.value = null;
 });
 
 // 只在「有填 updatedAt 且與發布日不同」時才顯示更新日期，避免出現「發布 X · 更新 X」的冗贅。
@@ -246,3 +198,9 @@ const breadCrumbsList = computed(() => [
 ]);
 useBreadcrumbSchema(breadCrumbsList);
 </script>
+
+<style>
+/* 範例元件的樣式只有文章頁會用到，不放進全站 CSS；先宣告圖層順序，確保仍排在 ui 之後、utilities 之前 */
+@layer reset, ui, components, utilities, print;
+@import url("@/assets/css/demos.css") layer(components);
+</style>

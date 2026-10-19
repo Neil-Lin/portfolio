@@ -117,7 +117,15 @@ const { data: rawPosts } = await useAsyncData(
       .where("draft", "=", false)
       .order("date", "DESC")
       // 只取列表用到的欄位：不取 body，payload 才不會把每篇文章的全文都帶進來
-      .select("path", "stem", "title", "description", "date", "tags", "category")
+      .select(
+        "path",
+        "stem",
+        "title",
+        "description",
+        "date",
+        "tags",
+        "category",
+      )
       .all(),
   { watch: [locale], default: () => [] },
 );
@@ -125,12 +133,7 @@ const { data: rawPosts } = await useAsyncData(
 const posts = computed(() =>
   (rawPosts.value ?? [])
     .map((p) => {
-      // 防禦：path / stem 任一可用即可取出 slug，異常文件跳過而非讓整頁 500
-      const source = p.path ?? p.stem;
-      const slug =
-        typeof source === "string"
-          ? source.split("/").filter(Boolean).pop()
-          : undefined;
+      const slug = blogSlugOf(p);
       return {
         path: p.path,
         slug: slug ?? "",

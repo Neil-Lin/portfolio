@@ -106,13 +106,8 @@ export default defineSitemapEventHandler(async (e) => {
       .all();
     return docs
       .map((doc): SitemapEntry | null => {
-        // 防禦：path / stem 任一可用即可取出 slug。單一異常文件不該讓整個
-        // endpoint 500——那會使 sitemap 變成空的（Google 就拿不到任何網址）。
-        const source = doc.path ?? doc.stem;
-        const slug =
-          typeof source === "string"
-            ? source.split("/").filter(Boolean).pop()
-            : undefined;
+        // 取不到 slug 的異常文件跳過：不該讓整個 endpoint 500，sitemap 才不會變成空的
+        const slug = blogSlugOf(doc);
         if (!slug) return null;
         const lastmodSrc = doc.updatedAt ?? doc.date;
         return {

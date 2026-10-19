@@ -1,30 +1,30 @@
 <template>
-  <div class="if-fn-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div class="if-fn-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
-    <fieldset class="position-try-demo__options">
+    <fieldset class="demo__options">
       <legend>{{ text.size }}</legend>
-      <label v-for="s in sizes" :key="s" class="until-found-faq__sync">
+      <label v-for="s in sizes" :key="s" class="demo__option">
         <input v-model="size" type="radio" :name="`${uid}-size`" :value="s" />
         <code>--size: {{ s }}</code>
       </label>
     </fieldset>
 
-    <fieldset class="position-try-demo__options">
+    <fieldset class="demo__options">
       <legend>{{ text.prefs }}</legend>
-      <label class="until-found-faq__sync">
+      <label class="demo__option">
         <input v-model="motion" type="checkbox" />
         <span>{{ text.motion }}</span>
       </label>
-      <label class="until-found-faq__sync">
+      <label class="demo__option">
         <input v-model="contrast" type="checkbox" />
         <span>{{ text.contrast }}</span>
       </label>
     </fieldset>
 
-    <fieldset class="position-try-demo__options">
+    <fieldset class="demo__options">
       <legend>{{ text.ring }}</legend>
-      <label v-for="r in rings" :key="r" class="until-found-faq__sync">
+      <label v-for="r in rings" :key="r" class="demo__option">
         <input v-model="ring" type="radio" :name="`${uid}-ring`" :value="r" />
         <span>{{ text.rings[r] }}</span>
       </label>
@@ -46,7 +46,7 @@
     </div>
     <p class="if-fn-demo__hint">{{ text.hint }}</p>
 
-    <dl class="alpha-demo__code" aria-live="polite">
+    <dl class="demo__code" aria-live="polite">
       <div v-for="row in rows" :key="row.label">
         <dt>{{ row.label }}</dt>
         <dd>
@@ -58,8 +58,8 @@
       </div>
     </dl>
 
-    <p class="focusgroup-demo__mode">{{ modeText }}</p>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__status">{{ modeText }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -72,7 +72,7 @@ type Size = "small" | "medium" | "large";
 type Ring = "else" | "none";
 
 const { locale } = useI18n();
-const uid = usePopoverDemoId("ifn");
+const uid = useDemoId("ifn");
 const sizes: Size[] = ["small", "medium", "large"];
 const rings: Ring[] = ["else", "none"];
 const size = ref<Size>("small");

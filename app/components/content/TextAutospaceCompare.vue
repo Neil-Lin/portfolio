@@ -1,6 +1,6 @@
 <template>
-  <div ref="root" class="text-autospace-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div ref="root" class="text-autospace-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
     <div class="text-autospace-demo__grid">
       <figure
@@ -30,7 +30,7 @@
     </div>
 
     <p class="text-autospace-demo__hint">{{ text.hint }}</p>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 

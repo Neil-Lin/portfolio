@@ -28,7 +28,7 @@ defineProps<{ entries: EventLogEntry[]; title: string }>();
 defineEmits<{ clear: [] }>();
 
 const { locale } = useI18n();
-const titleId = usePopoverDemoId("dlog");
+const titleId = useDemoId("dlog");
 const clearLabel = computed(() =>
   locale.value === "en" ? "Clear log" : "清除紀錄",
 );

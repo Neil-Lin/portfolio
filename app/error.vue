@@ -27,7 +27,9 @@ const props = defineProps<{
 }>();
 
 // Nuxt 5 改用 status／statusText；statusCode 保留給舊的錯誤物件
-const status = computed(() => props.error.status ?? props.error.statusCode ?? 500);
+const status = computed(
+  () => props.error.status ?? props.error.statusCode ?? 500,
+);
 
 useSeoMeta({
   robots: () =>

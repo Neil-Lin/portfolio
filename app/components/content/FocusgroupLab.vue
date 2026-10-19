@@ -1,10 +1,10 @@
 <template>
-  <div ref="root" class="focusgroup-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div ref="root" class="focusgroup-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
-    <fieldset class="position-try-demo__options">
+    <fieldset class="demo__options">
       <legend>{{ text.typeLegend }}</legend>
-      <label v-for="item in types" :key="item" class="until-found-faq__sync">
+      <label v-for="item in types" :key="item" class="demo__option">
         <input
           v-model="type"
           type="radio"
@@ -15,11 +15,11 @@
       </label>
     </fieldset>
     <div class="focusgroup-demo__mods">
-      <label class="until-found-faq__sync">
+      <label class="demo__option">
         <input v-model="wrap" type="checkbox" />
         <span><code>wrap</code>{{ text.wrap }}</span>
       </label>
-      <label class="until-found-faq__sync">
+      <label class="demo__option">
         <input v-model="nomemory" type="checkbox" />
         <span><code>nomemory</code>{{ text.nomemory }}</span>
       </label>
@@ -27,7 +27,7 @@
 
     <pre class="position-try-demo__code"><code>{{ code }}</code></pre>
 
-    <p class="focusgroup-demo__mode">{{ modeText }}</p>
+    <p class="demo__status">{{ modeText }}</p>
 
     <div class="focusgroup-demo__stage">
       <button type="button" class="dialog-demo__close">
@@ -62,7 +62,7 @@
         <li v-for="(entry, i) in log" :key="i">{{ entry }}</li>
       </ol>
     </div>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -71,7 +71,7 @@
 // 不支援時改用 JavaScript roving tabindex 模擬（app/composables/useFocusgroupFallback.ts）
 // 用法：::focusgroup-lab
 const { locale } = useI18n();
-const uid = usePopoverDemoId("fgl");
+const uid = useDemoId("fgl");
 const root = ref<HTMLElement | null>(null);
 const group = ref<HTMLElement | null>(null);
 

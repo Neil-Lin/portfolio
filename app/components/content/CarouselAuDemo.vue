@@ -1,6 +1,6 @@
 <template>
-  <div class="carousel-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div class="carousel-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
     <au-carousel
       class="carousel-au"
@@ -31,7 +31,7 @@
         </button>
       </div>
     </au-carousel>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 

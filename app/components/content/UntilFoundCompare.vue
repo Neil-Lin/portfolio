@@ -51,7 +51,7 @@
     <button type="button" class="until-found-demo__reset" @click="collapseAll">
       {{ text.reset }}
     </button>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -60,7 +60,7 @@
 // 用法：::until-found-compare
 const { locale } = useI18n();
 const root = ref<HTMLElement | null>(null);
-const uid = usePopoverDemoId("ufc");
+const uid = useDemoId("ufc");
 
 type Key = "hidden" | "height" | "until" | "reset";
 

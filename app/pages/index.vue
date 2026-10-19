@@ -129,7 +129,7 @@ const { data: latestRaw } = await useAsyncData(
 );
 const latestPosts = computed(() =>
   (latestRaw.value ?? []).map((r) => ({
-    slug: r.stem.split("/").pop() as string,
+    slug: blogSlugOf(r) ?? "",
     title: r.title,
     date: r.date,
   })),

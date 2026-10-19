@@ -1,13 +1,13 @@
 <template>
   <div
-    class="cs-demo dialog-demo"
+    class="cs-demo demo"
     :class="{ 'is-legacy': legacy, 'is-forced': forced }"
   >
-    <p class="dialog-demo__label">{{ text.label }}</p>
+    <p class="demo__label">{{ text.label }}</p>
 
-    <fieldset class="position-try-demo__options">
+    <fieldset class="demo__options">
       <legend>{{ text.mode }}</legend>
-      <label class="until-found-faq__sync">
+      <label class="demo__option">
         <input
           v-model="legacy"
           type="radio"
@@ -16,7 +16,7 @@
         />
         <span>corner-shape</span>
       </label>
-      <label class="until-found-faq__sync">
+      <label class="demo__option">
         <input
           v-model="legacy"
           type="radio"
@@ -27,7 +27,7 @@
       </label>
     </fieldset>
 
-    <label class="until-found-faq__sync cs-demo__forced">
+    <label class="demo__option cs-demo__forced">
       <input v-model="forced" type="checkbox" />
       <span>{{ text.forced }}</span>
     </label>
@@ -105,8 +105,8 @@
       </figure>
     </div>
 
-    <p class="focusgroup-demo__mode">{{ modeText }}</p>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__status">{{ modeText }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -116,7 +116,7 @@
 // 用法：::corner-shape-demo
 // 樣式在 components.css；「模擬強制色彩模式」只是把背景換成 Canvas、文字和邊框換成 CanvasText
 const { locale } = useI18n();
-const uid = usePopoverDemoId("csd");
+const uid = useDemoId("csd");
 const legacy = ref(false);
 const forced = ref(false);
 const supported = ref<boolean | null>(null);

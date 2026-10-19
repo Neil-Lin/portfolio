@@ -1,15 +1,15 @@
 <template>
-  <div class="sethtml-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div class="sethtml-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
     <label class="sethtml-demo__input">
       <span>{{ text.input }}</span>
       <textarea v-model="source" rows="8" spellcheck="false"></textarea>
     </label>
 
-    <fieldset class="position-try-demo__options">
+    <fieldset class="demo__options">
       <legend>{{ text.mode }}</legend>
-      <label v-for="m in modes" :key="m" class="until-found-faq__sync">
+      <label v-for="m in modes" :key="m" class="demo__option">
         <input v-model="mode" type="radio" :name="`${uid}-mode`" :value="m" />
         <code>{{ modeCode[m] }}</code>
       </label>
@@ -31,8 +31,8 @@
       :aria-label="text.output"
     ><code>{{ output || "—" }}</code></pre>
 
-    <p class="focusgroup-demo__mode">{{ modeText }}</p>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__status">{{ modeText }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -43,7 +43,7 @@
 type Mode = "default" | "empty" | "allow";
 
 const { locale } = useI18n();
-const uid = usePopoverDemoId("shd");
+const uid = useDemoId("shd");
 const modes: Mode[] = ["default", "empty", "allow"];
 const mode = ref<Mode>("default");
 const output = ref("");

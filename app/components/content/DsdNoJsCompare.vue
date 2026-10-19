@@ -1,8 +1,8 @@
 <template>
-  <div class="dsd-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div class="dsd-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
-    <label class="until-found-faq__sync">
+    <label class="demo__option">
       <input v-model="allowScripts" type="checkbox" />
       {{ text.toggle }}
     </label>
@@ -29,7 +29,7 @@
         ></iframe>
       </figure>
     </div>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 

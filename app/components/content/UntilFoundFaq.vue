@@ -2,7 +2,7 @@
   <div class="until-found-demo until-found-faq">
     <p class="until-found-demo__label">{{ text.label }}</p>
 
-    <label class="until-found-faq__sync">
+    <label class="demo__option">
       <input v-model="sync" type="checkbox" />
       {{ text.sync }}
     </label>
@@ -54,7 +54,7 @@
         <span>{{ entry.message }}</span>
       </li>
     </ol>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -63,7 +63,7 @@
 // 深層連結，以及「不同步 aria-expanded」的錯誤示範開關
 // 用法：::until-found-faq
 const { locale } = useI18n();
-const uid = usePopoverDemoId("uff");
+const uid = useDemoId("uff");
 
 const messages = {
   "zh-Hant-TW": {

@@ -20,7 +20,7 @@
       </button>
     </div>
 
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
 
     <div class="popover-lab__log-head">
       <p :id="`${uid}-log-title`" class="popover-lab__log-title">
@@ -112,7 +112,7 @@ const { locale } = useI18n();
 const root = ref<HTMLElement | null>(null);
 const menu = ref<HTMLElement | null>(null);
 const toast = ref<HTMLElement | null>(null);
-const uid = usePopoverDemoId("pl");
+const uid = useDemoId("pl");
 
 const messages = {
   "zh-Hant-TW": {

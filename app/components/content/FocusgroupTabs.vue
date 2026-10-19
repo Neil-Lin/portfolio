@@ -1,8 +1,8 @@
 <template>
-  <div ref="root" class="focusgroup-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div ref="root" class="focusgroup-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
-    <label class="until-found-faq__sync">
+    <label class="demo__option">
       <input v-model="useStart" type="checkbox" />
       <span><code>focusgroupstart</code>{{ text.toggle }}</span>
     </label>
@@ -52,8 +52,8 @@
         </div>
       </div>
     </div>
-    <p class="focusgroup-demo__mode">{{ result }}</p>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__status">{{ result }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -61,7 +61,7 @@
 // 部落格文章用：focusgroup="tablist" 第一次 Tab 進來，停在第一個頁籤還是「選取中」的頁籤
 // 用法：::focusgroup-tabs
 const { locale } = useI18n();
-const uid = usePopoverDemoId("fgt");
+const uid = useDemoId("fgt");
 const root = ref<HTMLElement | null>(null);
 const tablist = ref<HTMLElement | null>(null);
 const useStart = ref(false);

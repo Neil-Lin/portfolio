@@ -1,18 +1,18 @@
 <template>
-  <div class="safe-align-demo dialog-demo">
-    <p class="dialog-demo__label">
+  <div class="safe-align-demo demo">
+    <p class="demo__label">
       {{ kind === "card" ? text.cardLabel : text.chipsLabel }}
     </p>
 
-    <fieldset class="position-try-demo__options">
+    <fieldset class="demo__options">
       <legend>{{ kind === "card" ? "align-items" : "justify-content" }}</legend>
-      <label v-for="v in values" :key="v" class="until-found-faq__sync">
+      <label v-for="v in values" :key="v" class="demo__option">
         <input v-model="align" type="radio" :name="`${uid}-align`" :value="v" />
         <code>{{ v }}</code>
       </label>
     </fieldset>
 
-    <label v-if="kind === 'card'" class="position-try-demo__range">
+    <label v-if="kind === 'card'" class="demo__range">
       <span>{{ text.zoom }}</span>
       <input v-model.number="zoom" type="range" min="100" max="300" step="25" />
       <output>{{ zoom }}%</output>
@@ -73,8 +73,8 @@
     </dl>
     <p class="attr-demo__verdict">{{ verdict }}</p>
 
-    <p class="focusgroup-demo__mode">{{ modeText }}</p>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__status">{{ modeText }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -84,7 +84,7 @@
 const props = defineProps<{ kind: "card" | "chips" }>();
 
 const { locale } = useI18n();
-const uid = usePopoverDemoId("sad");
+const uid = useDemoId("sad");
 const screen = ref<HTMLElement | null>(null);
 const target = ref<HTMLElement | null>(null);
 const first = ref<HTMLElement | null>(null);

@@ -1,6 +1,6 @@
 <template>
-  <div ref="root" class="dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div ref="root" class="demo">
+    <p class="demo__label">{{ text.label }}</p>
 
     <div class="dialog-demo__controls">
       <button type="button" class="dialog-demo__trigger" @click="openPlain">
@@ -61,7 +61,7 @@
     </dialog>
 
     <DialogEventLog :entries="entries" :title="text.logTitle" @clear="clear" />
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -71,7 +71,7 @@
 const { locale } = useI18n();
 const root = ref<HTMLElement | null>(null);
 const plain = ref<HTMLDialogElement | null>(null);
-const uid = usePopoverDemoId("dmc");
+const uid = useDemoId("dmc");
 const count = ref(0);
 const { entries, add, clear } = useEventLog();
 useDialogCommandFallback(root);

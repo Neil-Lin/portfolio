@@ -1,6 +1,6 @@
 <template>
-  <div class="dsd-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div class="dsd-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
     <button type="button" class="dialog-demo__close" @click="replay++">
       {{ text.replay }}
@@ -28,7 +28,7 @@
         ></iframe>
       </figure>
     </div>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 

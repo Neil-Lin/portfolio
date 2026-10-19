@@ -1,6 +1,6 @@
 <template>
-  <div class="carousel-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div class="carousel-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
     <!-- 按鈕與導覽點都是 CSS 產生的偽元素；替代文字用 attr() 讀這裡的 data-*，才能切換語系 -->
     <ul
@@ -28,7 +28,7 @@
       </li>
     </ul>
     <p class="carousel-demo__fallback">{{ text.fallback }}</p>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 

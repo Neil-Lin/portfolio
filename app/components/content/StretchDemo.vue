@@ -1,18 +1,18 @@
 <template>
-  <div class="stretch-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div class="stretch-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
     <div class="stretch-demo__controls">
-      <fieldset class="position-try-demo__options">
+      <fieldset class="demo__options">
         <legend>{{ text.element }}</legend>
-        <label v-for="t in tags" :key="t" class="until-found-faq__sync">
+        <label v-for="t in tags" :key="t" class="demo__option">
           <input v-model="tag" type="radio" :name="`${uid}-tag`" :value="t" />
           <code>&lt;{{ t }}&gt;</code>
         </label>
       </fieldset>
-      <fieldset class="position-try-demo__options">
+      <fieldset class="demo__options">
         <legend>width</legend>
-        <label v-for="v in widths" :key="v" class="until-found-faq__sync">
+        <label v-for="v in widths" :key="v" class="demo__option">
           <input
             v-model="width"
             type="radio"
@@ -24,7 +24,7 @@
       </fieldset>
     </div>
 
-    <label class="position-try-demo__range">
+    <label class="demo__range">
       <span>margin</span>
       <input v-model.number="margin" type="range" min="0" max="40" step="4" />
       <output>{{ margin }}px</output>
@@ -69,8 +69,8 @@
       {{ resultText }}
     </p>
 
-    <p class="focusgroup-demo__mode">{{ modeText }}</p>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__status">{{ modeText }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -81,7 +81,7 @@ type Tag = "div" | "button" | "input";
 type Width = "auto" | "100%" | "calc(100% - 32px)" | "stretch";
 
 const { locale } = useI18n();
-const uid = usePopoverDemoId("std");
+const uid = useDemoId("std");
 const box = ref<HTMLElement | null>(null);
 const target = ref<HTMLElement | null>(null);
 

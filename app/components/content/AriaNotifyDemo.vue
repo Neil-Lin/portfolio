@@ -1,8 +1,8 @@
 <template>
-  <div ref="root" class="aria-notify-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div ref="root" class="aria-notify-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
-    <label class="until-found-faq__sync">
+    <label class="demo__option">
       <input v-model="forceFallback" type="checkbox" />
       {{ text.force }}
     </label>
@@ -73,7 +73,7 @@
     </dialog>
 
     <DialogEventLog :entries="entries" :title="text.logTitle" @clear="clear" />
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -86,7 +86,7 @@ const cartBtn = ref<HTMLElement | null>(null);
 const payBtn = ref<HTMLElement | null>(null);
 const enBtn = ref<HTMLElement | null>(null);
 const copyBtn = ref<HTMLElement | null>(null);
-const uid = usePopoverDemoId("anr");
+const uid = useDemoId("anr");
 const { entries, add, clear } = useEventLog();
 useDialogCommandFallback(root);
 

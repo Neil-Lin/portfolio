@@ -1,6 +1,6 @@
 <template>
-  <div ref="root" class="position-try-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div ref="root" class="position-try-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
     <div
       class="position-try-demo__stage"
@@ -21,23 +21,19 @@
     <p class="position-try-demo__readout">{{ readout }}</p>
 
     <div class="position-try-demo__controls">
-      <label class="position-try-demo__range">
+      <label class="demo__range">
         <span>{{ text.x }}</span>
         <input v-model.number="x" type="range" min="0" max="100" step="1" />
       </label>
-      <label class="position-try-demo__range">
+      <label class="demo__range">
         <span>{{ text.y }}</span>
         <input v-model.number="y" type="range" min="0" max="100" step="1" />
       </label>
     </div>
 
-    <fieldset class="position-try-demo__options">
+    <fieldset class="demo__options">
       <legend>{{ text.legend }}</legend>
-      <label
-        v-for="item in optionList"
-        :key="item.value"
-        class="until-found-faq__sync"
-      >
+      <label v-for="item in optionList" :key="item.value" class="demo__option">
         <input v-model="option" type="radio" :name="uid" :value="item.value" />
         <span
           >{{ item.label.before
@@ -47,7 +43,7 @@
       </label>
     </fieldset>
 
-    <label class="until-found-faq__sync">
+    <label class="demo__option">
       <input v-model="order" type="checkbox" />
       <span><code>position-try-order: most-height</code>{{ text.order }}</span>
     </label>
@@ -58,7 +54,7 @@
 
     <p class="position-try-demo__code-title">{{ text.codeTitle }}</p>
     <pre class="position-try-demo__code"><code>{{ code }}</code></pre>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -71,7 +67,7 @@ type Side = "top" | "bottom" | "left" | "right" | "overlap";
 const { locale } = useI18n();
 const root = ref<HTMLElement | null>(null);
 const tip = ref<HTMLElement | null>(null);
-const uid = usePopoverDemoId("ptd");
+const uid = useDemoId("ptd");
 
 const x = ref(50);
 const y = ref(50);

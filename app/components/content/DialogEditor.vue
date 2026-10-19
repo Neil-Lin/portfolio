@@ -1,6 +1,6 @@
 <template>
-  <div ref="root" class="dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div ref="root" class="demo">
+    <p class="demo__label">{{ text.label }}</p>
 
     <div class="dialog-demo__controls">
       <button
@@ -83,7 +83,7 @@
     </dialog>
 
     <DialogEventLog :entries="entries" :title="text.logTitle" @clear="clear" />
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -95,7 +95,7 @@ const root = ref<HTMLElement | null>(null);
 const dialog = ref<HTMLDialogElement | null>(null);
 const field = ref<HTMLTextAreaElement | null>(null);
 const confirmBox = ref<HTMLElement | null>(null);
-const dialogId = usePopoverDemoId("ded");
+const dialogId = useDemoId("ded");
 const { entries, add, clear } = useEventLog();
 useDialogCommandFallback(root);
 

@@ -42,7 +42,7 @@
       }}</strong>
     </p>
 
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
 
     <template v-if="mode === 'hint'">
       <div
@@ -93,7 +93,7 @@ const { locale } = useI18n();
 const root = ref<HTMLElement | null>(null);
 const { tooltipMode } = usePopoverDemo(root);
 
-const uid = usePopoverDemoId("pd");
+const uid = useDemoId("pd");
 
 const messages = {
   "zh-Hant-TW": {

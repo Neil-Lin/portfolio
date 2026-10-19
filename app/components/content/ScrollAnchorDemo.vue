@@ -1,13 +1,13 @@
 <template>
-  <div ref="root" class="scroll-anchor-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div ref="root" class="scroll-anchor-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
     <div class="scroll-anchor-demo__options">
-      <label class="until-found-faq__sync">
+      <label class="demo__option">
         <input v-model="anchorOff" type="checkbox" />
         <span><code>overflow-anchor: none</code>{{ text.off }}</span>
       </label>
-      <label class="until-found-faq__sync">
+      <label class="demo__option">
         <input v-model="reserve" type="checkbox" />
         <span>{{ text.reserve }}</span>
       </label>
@@ -62,7 +62,7 @@
     </div>
 
     <p class="scroll-anchor-demo__readout">{{ readout }}</p>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 

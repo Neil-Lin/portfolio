@@ -1,20 +1,20 @@
 <template>
-  <div class="sizes-auto-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div class="sizes-auto-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
-    <fieldset class="position-try-demo__options">
+    <fieldset class="demo__options">
       <legend>sizes</legend>
-      <label v-for="m in modes" :key="m" class="until-found-faq__sync">
+      <label v-for="m in modes" :key="m" class="demo__option">
         <input v-model="mode" type="radio" :name="`${uid}-mode`" :value="m" />
         <code>{{ modeLabel(m) }}</code>
       </label>
     </fieldset>
-    <label class="until-found-faq__sync">
+    <label class="demo__option">
       <input v-model="eager" type="checkbox" />
       <span>{{ text.eager }}</span>
     </label>
 
-    <label class="position-try-demo__range">
+    <label class="demo__range">
       <span>{{ text.width }}</span>
       <input
         v-model.number="width"
@@ -61,7 +61,7 @@
         >1280w</code
       >
     </p>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -74,7 +74,7 @@ type Mode = "none" | "auto";
 const SRC = "/images/youth-taipei-thumbnail.webp";
 
 const { locale } = useI18n();
-const uid = usePopoverDemoId("sad2");
+const uid = useDemoId("sad2");
 const img = ref<HTMLImageElement | null>(null);
 const modes: Mode[] = ["none", "auto"];
 const mode = ref<Mode>("none");

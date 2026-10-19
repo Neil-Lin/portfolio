@@ -1,8 +1,8 @@
 <template>
-  <div class="nested-h1-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div class="nested-h1-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
-    <label class="until-found-faq__sync">
+    <label class="demo__option">
       <input v-model="authored" type="checkbox" />
       <span>{{ text.authored }}</span>
     </label>
@@ -64,7 +64,7 @@
       </table>
     </div>
 
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 

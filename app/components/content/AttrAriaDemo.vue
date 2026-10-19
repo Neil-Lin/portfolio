@@ -1,13 +1,13 @@
 <template>
-  <div ref="root" class="attr-demo dialog-demo">
-    <p class="dialog-demo__label">
+  <div ref="root" class="attr-demo demo">
+    <p class="demo__label">
       {{ kind === "progress" ? text.progressLabel : text.ratingLabel }}
     </p>
 
     <template v-if="kind === 'progress'">
-      <fieldset class="position-try-demo__options">
+      <fieldset class="demo__options">
         <legend>{{ text.modeLegend }}</legend>
-        <label class="until-found-faq__sync">
+        <label class="demo__option">
           <input
             v-model="mode"
             type="radio"
@@ -16,12 +16,12 @@
           />
           <span>{{ text.modeAttr }}</span>
         </label>
-        <label class="until-found-faq__sync">
+        <label class="demo__option">
           <input v-model="mode" type="radio" :name="`${uid}-mode`" value="js" />
           <span>{{ text.modeJs }}</span>
         </label>
       </fieldset>
-      <label v-if="mode === 'js'" class="until-found-faq__sync">
+      <label v-if="mode === 'js'" class="demo__option">
         <input v-model="forget" type="checkbox" />
         <span>{{ text.forget }}</span>
       </label>
@@ -92,8 +92,8 @@
       </ul>
     </template>
 
-    <p class="focusgroup-demo__mode">{{ modeText }}</p>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__status">{{ modeText }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -103,7 +103,7 @@
 const props = defineProps<{ kind: "progress" | "rating" }>();
 
 const { locale } = useI18n();
-const uid = usePopoverDemoId("aad");
+const uid = useDemoId("aad");
 const root = ref<HTMLElement | null>(null);
 const fill = ref<HTMLElement | null>(null);
 

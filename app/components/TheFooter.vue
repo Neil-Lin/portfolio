@@ -39,7 +39,7 @@
           class="a11y-img"
         >
           <img
-            src="@/assets/images/a11y-aa.svg"
+            src="/images/a11y-aa.svg"
             width="88"
             height="31"
             :alt="t('words.passA11yTWBadge')"
@@ -52,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-const { resolve } = useLocaleSwitch();
+const { resolve } = await useLocaleSwitch();
 const { t, locales, locale } = useI18n();
 
 type LocaleItem = { code: "zh-Hant-TW" | "en"; name: string };

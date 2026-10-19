@@ -1,10 +1,10 @@
 <template>
-  <div class="alpha-demo dialog-demo">
-    <p class="dialog-demo__label">{{ text.label }}</p>
+  <div class="alpha-demo demo">
+    <p class="demo__label">{{ text.label }}</p>
 
-    <fieldset class="position-try-demo__options alpha-demo__formats">
+    <fieldset class="demo__options alpha-demo__formats">
       <legend>{{ text.format }}</legend>
-      <label v-for="f in formats" :key="f.key" class="until-found-faq__sync">
+      <label v-for="f in formats" :key="f.key" class="demo__option">
         <input
           v-model="formatKey"
           type="radio"
@@ -15,13 +15,13 @@
       </label>
     </fieldset>
 
-    <label class="position-try-demo__range">
+    <label class="demo__range">
       <span>{{ text.alpha }}</span>
       <input v-model.number="alpha" type="range" min="0" max="100" step="5" />
       <output>{{ alpha }}%</output>
     </label>
 
-    <dl class="alpha-demo__code">
+    <dl class="demo__code">
       <div>
         <dt>{{ text.source }}</dt>
         <dd>
@@ -64,8 +64,8 @@
     </div>
 
     <p v-if="format.note" class="alpha-demo__note">{{ format.note }}</p>
-    <p class="focusgroup-demo__mode">{{ modeText }}</p>
-    <p class="popover-demo__print">{{ text.print }}</p>
+    <p class="demo__status">{{ modeText }}</p>
+    <p class="demo__print">{{ text.print }}</p>
   </div>
 </template>
 
@@ -79,7 +79,7 @@ type BgKey = "light" | "dark";
 const BASE = "#7c3aed";
 
 const { locale } = useI18n();
-const uid = usePopoverDemoId("acd");
+const uid = useDemoId("acd");
 const formatKey = ref("oklch");
 const alpha = ref(100); // 從不透明開始，往下拉才看得到對比不足
 const computedValue = ref(""); // getComputedStyle 算出來的 color 值
