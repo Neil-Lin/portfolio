@@ -35,11 +35,12 @@
           object-fit: cover;
         "
       />
-      <!-- position: relative 讓文字畫在絕對定位的浮水印上面（新版 satori 依 CSS 規範的繪製順序） -->
+      <!-- position: relative 讓文字畫在絕對定位的浮水印上面（新版 satori 依 CSS 規範的繪製順序）；
+           font-weight 要寫數字：og-image 7 依模板決定要下載哪些字重，寫 bold 會只下載 400 -->
       <div
         style="
           position: relative;
-          font-weight: bold;
+          font-weight: 700;
           font-size: 4rem;
           color: #222;
           padding: 0 4rem;

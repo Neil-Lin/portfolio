@@ -36,9 +36,16 @@
 ## 部署後要確認
 
 - [ ] 給 AI 讀的 `.md` 版本（例如 `/blog/html-sethtml.md`），回應的 `Content-Type` 有沒有帶 `charset=utf-8`，中文是否正常顯示。
-- [ ] 正式站的 OG 圖片中文字型是否正常（本機 sandbox 抓不到字型，無法驗證）。
+
+## OG 分享圖
+
+- [ ] **英文長標題的 OG 圖文字超出畫面**：例如 `/en/blog/css-corner-shape/`，標題加描述太長，上下都被裁掉。可以限制描述行數，或依字數縮小字級。
 
 ## 備註
 
-- **`@nuxt/fonts` 的 `throwOnError`**：1.0 起預設為 `true`，正式建置時字型抓不到會讓建置失敗，Cloudflare 會保留上一版，不會默默部署沒有中文字型的網站。所以 repo 裡**不要**設定 `throwOnError: false`；只有在沒有網路的環境（例如 Claude 的 sandbox）本機建置時才暫時加上。
+- **OG 圖的中文字型靠 `fontless`**：nuxt-og-image 7 的 Satori 不能用 Google 提供的 Noto Sans TC 可變字型（woff2），要透過 `fontless` 另外下載靜態字型。`fontless` 是它的選用 peer dependency，**一定要裝在專案裡**，沒裝的話建置不會失敗，只會出現 `Satori renders "Noto Sans TC" text with the bundled Inter font` 警告，中文全部變成方框。升級 `@nuxtjs/seo` / `nuxt-og-image` 後要看建置紀錄有沒有這個警告。
+- **OG 模板的 `font-weight` 要寫數字**（700），寫 `bold` 時 og-image 7 只會下載 400 字重，標題就不是粗體。
+- **在 Claude 的 sandbox 驗證 OG 圖**：sandbox 擋了 `fonts.google.com`（字型清單 API）與 bunny、fontsource 等供應商，但 `fonts.googleapis.com`、`fonts.gstatic.com` 連得到。做法是用 `NODE_USE_ENV_PROXY=1` 讓 Node 走 proxy、用 `--import` 預載一支攔截 `fonts.google.com/metadata/fonts` 的腳本（回傳只有 Noto Sans TC 的清單），並暫時在 `fonts.providers` 關掉 Google 以外的供應商。這些都只在 sandbox 用，不要 commit。
+
+- **`@nuxt/fonts` 的 `throwOnError`**：1.0 起預設為 `true`，正式建置時字型抓不到會讓建置失敗，Cloudflare 會保留上一版，不會默默部署沒有中文字型的網站。所以 repo 裡**不要**設定 `throwOnError: false`；只有在沒有網路的環境本機建置時才暫時加上。
 - **範例元件的 `modeText`（偵測中／原生支援／後備）**：9 個範例有相似的寫法，但偵測時機和各自 `onMounted` 的量測流程綁在一起，抽成 composable 不會比較短或清楚，所以刻意保留現狀。
