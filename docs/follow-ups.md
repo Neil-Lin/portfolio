@@ -29,10 +29,6 @@
 
 - [ ] 給 AI 讀的 `.md` 版本（例如 `/blog/html-sethtml.md`），回應的 `Content-Type` 有沒有帶 `charset=utf-8`，中文是否正常顯示。
 
-## 內容待確認
-
-- [ ] **兩個作品的英文名稱是我翻的**（`data/projectsData.ts`）：原本英文欄位填的是代稱（`luodongarchives`、`foreign`），改成 `Lanyang Forestry Culture and History Archives`（蘭陽地區林業文化歷史資料庫）、`Taiwan in Overseas Historical Records`（海外史料看台灣）。若網站有官方英文名稱請換掉。
-
 ## 備註
 
 - **`seo.minify` 關閉**（`nuxt.config.ts`）：nuxt-seo-utils 9 預設會在預渲染時再壓縮一次 HTML 裡的 `<style>`，它的壓縮器把冒號當標點，會刪掉 `.article :is(h1)` 這類後代選擇器中的空白（變成 `.article:is(h1)`），連文章程式碼範例裡的 `<style>` 都會被改掉，也造成 Shiki `<style>` 的 hydration mismatch。CSS 在 build 時已由 lightningcss 壓縮，關掉只多 0.3% HTML。升級 `@nuxtjs/seo` 後若想重新開啟，要先確認這個問題已修。

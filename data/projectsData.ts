@@ -452,7 +452,7 @@ export const projectsData: Project[] = [
     clickable: false,
     name: {
       "zh-Hant-TW": "海外史料看台灣",
-      en: "Taiwan in Overseas Historical Records",
+      en: "taiwanoverseas",
     },
     intro: {
       "zh-Hant-TW": "外國人紀錄的有關臺灣歷史",
