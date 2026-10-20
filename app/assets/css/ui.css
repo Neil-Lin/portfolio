@@ -47,6 +47,16 @@ body {
   color: oklch(var(--title-color));
 }
 
+/* 作者自己寫的標題（文章標題與內文、文章列表、作品與產品名稱）照原文顯示：
+   capitalize 會把 setHTML() 變成 SetHTML()，英文標題裡的 but、and 也會被大寫。
+   capitalize 只留給來自語系檔的短標籤（intro、tools 等）。 */
+.article :is(h1, h2, h3, h4, h5, h6),
+.blog-item h2,
+.portfolio-detail > h1,
+.portfolio-title {
+  text-transform: none;
+}
+
 /* 標題裡的程式碼（屬性、方法名稱）大小寫有意義，不跟著 capitalize */
 :is(h1, h2, h3, h4, h5, h6) code {
   text-transform: none;

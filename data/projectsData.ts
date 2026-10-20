@@ -7,7 +7,7 @@ export const projectsData: Project[] = [
     clickable: false,
     name: {
       "zh-Hant-TW": "農業知識入口網",
-      en: "Knowlwdge Management",
+      en: "Knowledge Management",
     },
     intro: {
       "zh-Hant-TW":
@@ -61,11 +61,11 @@ export const projectsData: Project[] = [
     clickable: false,
     name: {
       "zh-Hant-TW": "標準檢驗局知識入口網",
-      en: "Knowlwdge Management",
+      en: "Knowledge Management",
     },
     intro: {
       "zh-Hant-TW": "內部知識入口網",
-      en: "Knowlwdge Management",
+      en: "Knowledge Management",
     },
     platform: ["web"],
     yearRange: { start: 2018, end: 2018 },
@@ -133,7 +133,7 @@ export const projectsData: Project[] = [
     clickable: false,
     name: {
       "zh-Hant-TW": "捷運 100 億",
-      en: "MRT 10 billion",
+      en: "MRT 10 Billion",
     },
     intro: {
       "zh-Hant-TW": "捷運 100 億運量活動網站",
@@ -152,7 +152,7 @@ export const projectsData: Project[] = [
     clickable: false,
     name: {
       "zh-Hant-TW": "臺北市資料大平臺",
-      en: "taipeiod",
+      en: "Data.Taipei",
     },
     intro: {
       "zh-Hant-TW": "臺北市的開放資料",
@@ -205,7 +205,7 @@ export const projectsData: Project[] = [
     },
     name: {
       "zh-Hant-TW": "蘭陽地區林業文化歷史資料庫",
-      en: "luodongarchives",
+      en: "Lanyang Forestry Culture and History Archives",
     },
     intro: {
       "zh-Hant-TW": "數位典藏",
@@ -330,7 +330,7 @@ export const projectsData: Project[] = [
     },
     name: {
       "zh-Hant-TW": "228 事件檔案資料庫",
-      en: "228 files",
+      en: "228 Files",
     },
     intro: {
       "zh-Hant-TW": "數位典藏",
@@ -452,7 +452,7 @@ export const projectsData: Project[] = [
     clickable: false,
     name: {
       "zh-Hant-TW": "海外史料看台灣",
-      en: "foreign",
+      en: "Taiwan in Overseas Historical Records",
     },
     intro: {
       "zh-Hant-TW": "外國人紀錄的有關臺灣歷史",

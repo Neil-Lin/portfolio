@@ -484,6 +484,14 @@ export default defineNuxtConfig({
   // nuxt-skew-protection（@nuxtjs/seo 6 內含）：靜態網站用不到，已有 chunk-reload 插件處理部署後的舊 chunk
   skewProtection: { enabled: false },
 
+  seo: {
+    // 關掉 nuxt-seo-utils 在預渲染時對 HTML 內 <style> 的二次壓縮：
+    // 它的壓縮器把冒號當標點，會刪掉「.article :is(h1)」這類後代選擇器中的空白，
+    // 變成「.article:is(h1)」，選擇器意思就錯了；也會讓 Shiki 的 <style> 前後端不一致。
+    // CSS 在 build 時已由 lightningcss 壓縮過，關掉幾乎沒有損失。
+    minify: false,
+  },
+
   ogImage: {
     zeroRuntime: true,
     security: {

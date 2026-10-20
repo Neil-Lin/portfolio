@@ -456,8 +456,6 @@
 .until-found-compare__title {
   margin: 0;
   font-size: 1rem;
-  /* 全站標題有 capitalize，這裡是程式碼，大小寫不能被改 */
-  text-transform: none;
 }
 .until-found-compare__code {
   font-size: 0.8125rem;

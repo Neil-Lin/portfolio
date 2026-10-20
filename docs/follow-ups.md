@@ -25,19 +25,18 @@
 - [ ] **TypeScript 7**
   - 條件：`vue-tsc` 支援 TypeScript 7（Go 版編譯器）。在那之前維持 TypeScript 6。
 
-## 已知、目前不處理
-
-- [ ] **文章頁 Shiki `<style>` 的 hydration text mismatch**
-  - 現象：有程式碼區塊的文章，console 會出現「Hydration completed but contains mismatches」。細節是 Shiki 產生的 `<style>`：伺服器端輸出是壓縮過的 CSS，客戶端渲染的是沒壓縮的版本，文字不一樣。
-  - 影響：只有 console 警告，畫面與樣式相同（CSS 內容等價）。升級前的版本就有，不是這次造成的。
-  - 檢查方式：在 `nuxt.config.ts` 暫時加 `vite: { define: { __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: "true" } }` 再 build，就能在 console 看到差異細節。檢查完要拿掉。
-  - 可能的處理：等 `@nuxt/content` / Shiki 修正，或關掉 HTML 壓縮對 `<style>` 的處理。
-
 ## 部署後要確認
 
 - [ ] 給 AI 讀的 `.md` 版本（例如 `/blog/html-sethtml.md`），回應的 `Content-Type` 有沒有帶 `charset=utf-8`，中文是否正常顯示。
 
+## 內容待確認
+
+- [ ] **兩個作品的英文名稱是我翻的**（`data/projectsData.ts`）：原本英文欄位填的是代稱（`luodongarchives`、`foreign`），改成 `Lanyang Forestry Culture and History Archives`（蘭陽地區林業文化歷史資料庫）、`Taiwan in Overseas Historical Records`（海外史料看台灣）。若網站有官方英文名稱請換掉。
+
 ## 備註
+
+- **`seo.minify` 關閉**（`nuxt.config.ts`）：nuxt-seo-utils 9 預設會在預渲染時再壓縮一次 HTML 裡的 `<style>`，它的壓縮器把冒號當標點，會刪掉 `.article :is(h1)` 這類後代選擇器中的空白（變成 `.article:is(h1)`），連文章程式碼範例裡的 `<style>` 都會被改掉，也造成 Shiki `<style>` 的 hydration mismatch。CSS 在 build 時已由 lightningcss 壓縮，關掉只多 0.3% HTML。升級 `@nuxtjs/seo` 後若想重新開啟，要先確認這個問題已修。
+- **標題的 `text-transform: capitalize`**（`ui.css`）：全站標題預設 capitalize，給語系檔裡的小寫短標籤用；文章標題與內文、文章列表、作品與產品名稱排除在外，照原文顯示。語系檔或資料裡新增會顯示在這些地方的英文名稱，要自己寫好大小寫。
 
 - **OG 圖的中文字型靠 `fontless`**：nuxt-og-image 7 的 Satori 不能用 Google 提供的 Noto Sans TC 可變字型（woff2），要透過 `fontless` 另外下載靜態字型。`fontless` 是它的選用 peer dependency，**一定要裝在專案裡**，沒裝的話建置不會失敗，只會出現 `Satori renders "Noto Sans TC" text with the bundled Inter font` 警告，中文全部變成方框。升級 `@nuxtjs/seo` / `nuxt-og-image` 後要看建置紀錄有沒有這個警告。
 - **OG 模板會依標題長度調整字級與行數**（`CustomTemplate.satori.vue` 的 `TITLE_LAYOUTS`）：64、56、48px 最多 3 行，再長用 44px 最多 4 行；描述依標題佔的行數顯示 2～4 行，超出以「…」截斷。字寬是估算值，改字型或版面時要重新看一遍所有 OG 圖。
