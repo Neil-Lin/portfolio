@@ -47,7 +47,6 @@
 <script setup lang="ts">
 // 部落格文章用：closedby 三種值的差別
 // 用法：::dialog-closed-by
-const { locale } = useI18n();
 const root = ref<HTMLElement | null>(null);
 const uid = useDemoId("dcb");
 const { entries, add, clear } = useEventLog();
@@ -85,9 +84,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const values = ["any", "closerequest", "none"] as const;
 const items = computed(() =>

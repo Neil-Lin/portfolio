@@ -121,9 +121,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const describe = (el: Element | null) =>
   describeFocus(el, locale.value === "en");

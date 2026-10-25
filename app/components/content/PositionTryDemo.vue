@@ -143,9 +143,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const optionList = computed(() =>
   (["none", "flip", "custom"] as const).map((value) => ({

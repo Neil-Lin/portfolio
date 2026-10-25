@@ -80,7 +80,6 @@
 type Tag = "div" | "button" | "input";
 type Width = "auto" | "100%" | "calc(100% - 32px)" | "stretch";
 
-const { locale } = useI18n();
 const uid = useDemoId("std");
 const box = ref<HTMLElement | null>(null);
 const target = ref<HTMLElement | null>(null);
@@ -129,9 +128,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const targetStyle = computed(() => ({
   width: width.value,

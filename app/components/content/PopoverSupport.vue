@@ -18,7 +18,6 @@
 
 <script setup lang="ts">
 // 部落格文章用：偵測讀者瀏覽器的 popover 相關支援度
-const { locale } = useI18n();
 
 const messages = {
   "zh-Hant-TW": {
@@ -43,9 +42,7 @@ const messages = {
   },
 } as const;
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const support = ref<PopoverSupport | null>(null);
 onMounted(() => {

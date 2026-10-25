@@ -58,7 +58,6 @@
 <script setup lang="ts">
 // 部落格文章用：四種收合方式並排，讓讀者自己按 Ctrl+F 測試哪些搜得到
 // 用法：::until-found-compare
-const { locale } = useI18n();
 const root = ref<HTMLElement | null>(null);
 const uid = useDemoId("ufc");
 
@@ -138,9 +137,7 @@ const messages = {
   },
 } as const;
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const codeOf: Record<Key, string> = {
   hidden: "<div hidden>",

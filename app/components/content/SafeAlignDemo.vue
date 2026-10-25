@@ -83,7 +83,6 @@
 // 用法：::safe-align-demo{kind="card"} 或 ::safe-align-demo{kind="chips"}
 const props = defineProps<{ kind: "card" | "chips" }>();
 
-const { locale } = useI18n();
 const uid = useDemoId("sad");
 const screen = ref<HTMLElement | null>(null);
 const target = ref<HTMLElement | null>(null);
@@ -175,9 +174,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 const tags = computed(() => text.value.tags);
 
 const focusText = computed(() =>

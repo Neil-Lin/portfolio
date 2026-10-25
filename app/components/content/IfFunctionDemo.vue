@@ -71,7 +71,6 @@
 type Size = "small" | "medium" | "large";
 type Ring = "else" | "none";
 
-const { locale } = useI18n();
 const uid = useDemoId("ifn");
 const sizes: Size[] = ["small", "medium", "large"];
 const rings: Ring[] = ["else", "none"];
@@ -132,9 +131,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const modeText = computed(() =>
   supported.value === null

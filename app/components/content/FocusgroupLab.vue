@@ -70,7 +70,6 @@
 // 部落格文章用：切換 focusgroup 的類型與修飾詞，用鍵盤操作看焦點怎麼移動
 // 不支援時改用 JavaScript roving tabindex 模擬（app/composables/useFocusgroupFallback.ts）
 // 用法：::focusgroup-lab
-const { locale } = useI18n();
 const uid = useDemoId("fgl");
 const root = ref<HTMLElement | null>(null);
 const group = ref<HTMLElement | null>(null);
@@ -123,9 +122,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 // wrap 只在該類型預設不繞回時才有意義
 const effectiveWrap = computed(

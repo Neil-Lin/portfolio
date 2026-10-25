@@ -39,8 +39,6 @@
 // 用法：::text-autospace-compare
 type Key = "off-unspaced" | "on-unspaced" | "off-spaced" | "on-spaced";
 
-const { locale } = useI18n();
-
 // 範例文字固定用中文：text-autospace 處理的就是中文與英數之間的間距
 const sampleUnspaced = "我用Chrome 141測試text-autospace，間距只有0.125em。";
 const sampleSpaced = "我用 Chrome 141 測試 text-autospace，間距只有 0.125em。";
@@ -74,9 +72,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const samples = new Map<Key, HTMLElement>();
 function setSample(key: Key, el: unknown) {

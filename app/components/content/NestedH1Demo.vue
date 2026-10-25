@@ -73,7 +73,6 @@
 // 用法：::nested-h1-demo
 type Key = "old" | "now";
 
-const { locale } = useI18n();
 const authored = ref(false);
 // 作者樣式一定比瀏覽器預設優先；範例裡用 inline style 模擬，才不會跟模擬的舊預設樣式比權重
 const authoredStyle = computed(() =>
@@ -126,9 +125,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const columns = computed(() => [
   { key: "old" as const, caption: text.value.oldCaption },

@@ -21,8 +21,6 @@ const props = defineProps<{
   notice?: string;
 }>();
 
-const { locale } = useI18n();
-
 const messages = {
   "zh-Hant-TW": {
     title: "你的瀏覽器支援度",
@@ -38,9 +36,7 @@ const messages = {
   },
 } as const;
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const keys = computed(() =>
   props.features

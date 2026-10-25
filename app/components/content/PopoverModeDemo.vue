@@ -89,7 +89,6 @@
 // 用法：::popover-mode-demo{mode="auto"}  （auto / manual / hint）
 const props = defineProps<{ mode: "auto" | "manual" | "hint" }>();
 
-const { locale } = useI18n();
 const root = ref<HTMLElement | null>(null);
 const { tooltipMode } = usePopoverDemo(root);
 
@@ -137,9 +136,7 @@ const messages = {
   },
 } as const;
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const panels = computed(() =>
   props.mode === "hint"

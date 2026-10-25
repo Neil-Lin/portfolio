@@ -80,7 +80,6 @@
 <script setup lang="ts">
 // 部落格文章用：ariaNotify() 與 live region 後備的對照範例
 // 用法：::aria-notify-demo
-const { locale } = useI18n();
 const root = ref<HTMLElement | null>(null);
 const cartBtn = ref<HTMLElement | null>(null);
 const payBtn = ref<HTMLElement | null>(null);
@@ -133,9 +132,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const cart = ref(0);
 const forceFallback = ref(false);

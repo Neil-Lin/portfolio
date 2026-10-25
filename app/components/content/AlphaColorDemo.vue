@@ -141,9 +141,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 // 同一個紫色（#7c3aed）換算成各種寫法；具名色彩、currentColor、transparent 是特例
 const formats = computed(() => [

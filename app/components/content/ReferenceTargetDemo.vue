@@ -61,7 +61,6 @@ const props = defineProps<{ kind: "label" | "kit" }>();
 
 const AU_INPUT_SRC = "/vendor/accesserty-ui-kit/2.0.8/input.js";
 
-const { locale } = useI18n();
 const uid = useDemoId("rtd");
 const supported = ref<boolean | null>(null);
 const kitTarget = ref(false);
@@ -121,9 +120,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const modeText = computed(() =>
   supported.value === null

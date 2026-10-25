@@ -128,9 +128,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 const items = computed(() => text.value.items);
 
 const open = ref([false, false, false]);

@@ -75,9 +75,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 onMounted(() => {
   if (customElements.get("au-carousel")) return;

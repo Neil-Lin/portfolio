@@ -72,7 +72,6 @@
 const TARGET = 5;
 const DELAY = 1500;
 
-const { locale } = useI18n();
 const root = ref<HTMLElement | null>(null);
 const box = ref<HTMLElement | null>(null);
 let target: HTMLElement | null = null;
@@ -136,9 +135,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const readout = computed(() =>
   moved.value === null ? text.value.idle : text.value.result(moved.value),

@@ -73,7 +73,6 @@ type Mode = "none" | "auto";
 
 const SRC = "/images/youth-taipei-thumbnail.webp";
 
-const { locale } = useI18n();
 const uid = useDemoId("sad2");
 const img = ref<HTMLImageElement | null>(null);
 const modes: Mode[] = ["none", "auto"];
@@ -116,9 +115,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 function modeLabel(m: Mode) {
   return m === "auto" ? 'sizes="auto"' : text.value.none;

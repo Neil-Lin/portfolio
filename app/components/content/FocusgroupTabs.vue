@@ -60,7 +60,6 @@
 <script setup lang="ts">
 // 部落格文章用：focusgroup="tablist" 第一次 Tab 進來，停在第一個頁籤還是「選取中」的頁籤
 // 用法：::focusgroup-tabs
-const { locale } = useI18n();
 const uid = useDemoId("fgt");
 const root = ref<HTMLElement | null>(null);
 const tablist = ref<HTMLElement | null>(null);
@@ -104,9 +103,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 const tabs = computed(() => text.value.tabs);
 const result = computed(() => text.value.result(firstEntry.value));
 

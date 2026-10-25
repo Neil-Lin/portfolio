@@ -79,9 +79,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const wrongDoc = computed(() => hydrateDoc(text.value.doc, "wrong"));
 const rightDoc = computed(() => hydrateDoc(text.value.doc, "right"));

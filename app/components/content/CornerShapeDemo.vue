@@ -115,7 +115,6 @@
 // 比較 corner-shape 和以前的 clip-path／mask 寫法，用鍵盤看焦點外框會不會被切掉
 // 用法：::corner-shape-demo
 // 樣式在 components.css；「模擬強制色彩模式」只是把背景換成 Canvas、文字和邊框換成 CanvasText
-const { locale } = useI18n();
 const uid = useDemoId("csd");
 const legacy = ref(false);
 const forced = ref(false);
@@ -170,9 +169,7 @@ const messages = {
   },
 };
 
-const text = computed(() =>
-  locale.value === "en" ? messages.en : messages["zh-Hant-TW"],
-);
+const text = useDemoText(messages);
 
 const modeText = computed(() =>
   supported.value === null
