@@ -74,6 +74,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "revert-rule",
     detect: () => CSS.supports("color: revert-rule"),
   },
+  "text-fit": {
+    name: "text-fit",
+    detect: () => CSS.supports("text-fit: grow"),
+  },
   stretch: {
     name: "width: stretch",
     detect: () => CSS.supports("width: stretch"),

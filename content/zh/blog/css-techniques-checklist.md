@@ -101,7 +101,7 @@ draft: false
 | `font-variant-numeric: tabular-nums` | 等寬數字，計時器／價格／百分比等會跳動的數字必備（字型需支援） | `font-variant-numeric: tabular-nums;` | 🟢 | ✅ |
 | `lh` 單位 | 以行高為單位設 margin／間距，跟著字級縮放 | `margin-bottom: 1.5lh;` | 🟡 | ✅ |
 | `margin-trim` | 剪掉容器內首尾子元素的外距，免除 `:first/:last-child` 歸零（Safari 為主，Chrome 155 Beta 加入） | `margin-trim: block;` | 🟠 | ⬜ |
-| `text-fit` | 自動縮放文字大小以填滿容器寬度，做響應式大標題不必再手算或靠 JS（Chrome 150 新增） | `h1 { text-fit: auto; }` | 🟠 | ⬜ |
+| `text-fit` | 自動縮放文字大小以填滿容器寬度，做響應式大標題不必再手算或靠 JS（Chrome 150 新增；一定要加百分比上限，否則放大頁面時字反而變小，實測見[這篇](/blog/css-text-fit/)） | `h1 { text-fit: grow per-line-all 200%; }` | 🟠 | ✅ |
 | `text-autospace` | 在中文與英文／數字之間自動加入適當間距，不必再手動打空白；Safari 27 另加入 `insert` 值 | `text-autospace: normal;` | 🟡 | ✅ |
 | `font-width` | `font-stretch` 的正式新名稱，選取窄體、寬體字型；舊名稱保留為別名（Baseline 2026） | `font-width: 75%;` | 🟡 | ⬜ |
 

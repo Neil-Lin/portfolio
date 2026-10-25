@@ -101,7 +101,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `font-variant-numeric: tabular-nums` | Monospaced digits—essential for timers/prices/percentages that jitter (font must support it) | `font-variant-numeric: tabular-nums;` | 🟢 | ✅ |
 | `lh` unit | Set margin/spacing in line-height units so they scale with font size | `margin-bottom: 1.5lh;` | 🟡 | ✅ |
 | `margin-trim` | Trim margins of the first/last children in a container, avoiding `:first/:last-child` resets (Safari-first; added in Chrome 155 Beta) | `margin-trim: block;` | 🟠 | ⬜ |
-| `text-fit` | Auto-scales font size so text exactly fills its container's width—responsive headlines without manual math or JS (new in Chrome 150) | `h1 { text-fit: auto; }` | 🟠 | ⬜ |
+| `text-fit` | Auto-scales font size so text exactly fills its container's width—responsive headlines without manual math or JS (new in Chrome 150; always add a percentage limit, or zooming makes the text smaller—see [my tests](/en/blog/css-text-fit/)) | `h1 { text-fit: grow per-line-all 200%; }` | 🟠 | ✅ |
 | `text-autospace` | Automatically adds proper spacing between CJK text and Latin letters or numbers, so you don't have to type the spaces by hand; Safari 27 adds the `insert` value | `text-autospace: normal;` | 🟡 | ✅ |
 | `font-width` | The new canonical name for `font-stretch`, selecting condensed or expanded faces; the old name stays as an alias (Baseline 2026) | `font-width: 75%;` | 🟡 | ⬜ |
 
