@@ -2165,3 +2165,88 @@ button.stretch-demo__target {
     display: none;
   }
 }
+
+/*************************
+  Blog 互動範例：<usermedia>
+  元件在 app/components/content/UsermediaDemo.vue。
+  <usermedia> 由 JavaScript 建立，按鈕的文字與圖示由瀏覽器提供，這裡只能調顏色、字級、外框。
+  文字與背景的對比低於 3:1、字級約 13px 以下時，瀏覽器會讓按鈕失效（外觀不變）。
+*************************/
+
+.usermedia-demo__consent {
+  align-items: flex-start;
+  font-weight: 700;
+}
+.usermedia-demo__lobby {
+  display: grid;
+  gap: 0.75rem;
+}
+.usermedia-demo__controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 0.75rem;
+}
+.usermedia-demo__preview {
+  inline-size: 100%;
+  max-inline-size: 24rem;
+  aspect-ratio: 4 / 3;
+  border-radius: 0.5rem;
+  background-color: oklch(0% 0 0);
+  object-fit: cover;
+}
+.usermedia-demo__slot {
+  min-block-size: 2.5rem;
+}
+/* 品牌色：主色背景、卡片背景色當文字顏色，亮暗模式的對比都超過 3:1 */
+.usermedia-demo__button {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 999px;
+  background-color: oklch(var(--pd-c));
+  color: oklch(var(--card-bg));
+  font-size: 1rem;
+  font-weight: 700;
+  /* 瀏覽器不會保護焦點框，要自己寫 */
+  &:focus-visible {
+    outline: 3px solid oklch(var(--outline-color));
+    outline-offset: 3px;
+  }
+  /* 對比低於 3:1：按鈕會失效，但外觀看不出來 */
+  &.is-low {
+    background-color: #bbb;
+    color: #999;
+  }
+}
+.usermedia-demo__hint {
+  font-size: 0.875rem;
+}
+.usermedia-demo__status {
+  min-block-size: 1.5em;
+  font-weight: 700;
+  color: oklch(var(--pd-c));
+}
+.usermedia-demo__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.usermedia-demo__action {
+  padding: 0.375rem 0.75rem;
+  border: 2px solid oklch(var(--pd-c));
+  border-radius: 0.375rem;
+  background-color: transparent;
+  color: oklch(var(--pd-c));
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  &:focus-visible {
+    outline: 3px solid oklch(var(--outline-color));
+    outline-offset: 2px;
+  }
+}
+@media print {
+  .usermedia-demo__consent,
+  .usermedia-demo__lobby {
+    display: none;
+  }
+}

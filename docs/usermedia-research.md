@@ -1,9 +1,9 @@
 # `<usermedia>` 研究紀錄與文章規劃
 
-2026-10-31，在 Chromium 153（無頭模式、假的相機與麥克風裝置）實測。寫文章前用；文章上架後可刪除。
+2026-10-31，在 Chromium 153（無頭模式、假的相機與麥克風裝置）實測，並在本機 macOS 的 Chrome + VoiceOver 確認。
 
-本機測試頁：`public/labs/usermedia-test.html`（`npm run dev` 後開 `http://localhost:3000/labs/usermedia-test.html`）。
-這個檔案有 `noindex`，但放在 `public/` 會被部署出去，文章上架時一併移除或改成文章裡的範例。
+文章：`content/zh|en/blog/html-usermedia.md`，範例 `app/components/content/UsermediaDemo.vue`。
+本機測試頁（`public/labs/usermedia-test.html`）在文章完成後已移除，需要時可從 git 歷史（commit a3db168）取回。
 
 ## 元素概要
 

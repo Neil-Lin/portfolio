@@ -192,7 +192,7 @@ draft: false
 | 元素 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
 | `<geolocation>` | 宣告式的定位請求按鈕，授權流程交給瀏覽器處理，並提供「使用者先前拒絕過」的恢復路徑（過去一旦被拒就沒救了）。不支援的瀏覽器會降級成 `<span>`，可漸進增強（實測：瀏覽器只比對按鈕自己的文字色與背景色，低於 3:1 就失效，但背景圖片、模糊、拿掉焦點框都擋不住） | `<geolocation onlocation="fn(event)">` | 🟠 | ✅ |
-| `<usermedia>` | 相機／麥克風的宣告式存取，直接把 `MediaStream` 交給頁面，不必自己呼叫 `getUserMedia()`。只要影像或只要聲音的 `<camera>`／`<microphone>` 已在 Chrome 153 推出 | `<usermedia>` | 🟠 | ⬜ |
+| `<usermedia>` | 相機／麥克風的宣告式存取，直接把 `MediaStream` 交給頁面，不必自己呼叫 `getUserMedia()`，使用者封鎖過也能在頁面上直接恢復。只要影像或只要聲音的 `<camera>`／`<microphone>` 已在 Chrome 153 推出（實測：`lang="zh-Hant-TW"` 會讓按鈕變簡體、開啟後沒有狀態、鍵盤使用者按太快會失敗，見[這篇](/blog/html-usermedia/)） | `<usermedia lang="zh-TW">` | 🟠 | ✅ |
 | `<install>` | PWA 安裝按鈕，文案與外觀由瀏覽器控制（使用者看到「安裝」就知道會發生什麼）。指定 `installurl` 可安裝其他網域的 app，能做成 app 目錄頁 | `<install installurl="…" manifestid="…">` | 🟠 | ⬜ |
 | `<model>` | 像 `<img>` 一樣嵌入可互動的 3D 模型（USDZ 格式），可用 `<source>` 提供多格式、用 `environmentmap` 指定環境光 | `<model src="a.usdz">` | 🟠 | ⬜ |
 

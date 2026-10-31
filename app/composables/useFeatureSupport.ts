@@ -74,6 +74,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "revert-rule",
     detect: () => CSS.supports("color: revert-rule"),
   },
+  usermedia: {
+    name: "<usermedia>",
+    detect: () => "HTMLUserMediaElement" in window,
+  },
   "text-fit": {
     name: "text-fit",
     detect: () => CSS.supports("text-fit: grow"),
