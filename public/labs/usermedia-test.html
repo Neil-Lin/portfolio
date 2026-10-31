@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="color-scheme" content="light dark" />
+    <title>usermedia 實測頁</title>
+    <!--
+      <usermedia>／<camera>／<microphone> 的本機實測頁，寫文章前用，不對外連結。
+      需要安全環境：用 http://localhost 或 https 開啟，不能直接開檔案（file://）。
+    -->
+    <style>
+      body {
+        max-width: 48rem;
+        margin: 0 auto;
+        padding: 1rem;
+        font-family: system-ui, sans-serif;
+        line-height: 1.6;
+      }
+      section {
+        margin-block: 2rem;
+        padding: 1rem;
+        border: 1px solid #8888;
+        border-radius: 0.5rem;
+      }
+      h2 {
+        margin-top: 0;
+        font-size: 1.25rem;
+      }
+      video {
+        display: block;
+        width: 100%;
+        max-width: 24rem;
+        background: #000;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      .note {
+        font-size: 0.875rem;
+        opacity: 0.8;
+      }
+      #log {
+        min-height: 6rem;
+        max-height: 16rem;
+        overflow: auto;
+        padding: 0.5rem;
+        background: #8881;
+        font-family: ui-monospace, monospace;
+        font-size: 0.875rem;
+        white-space: pre-wrap;
+      }
+      .low-contrast {
+        color: #999;
+        background: #bbb;
+      }
+      .no-outline:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>&lt;usermedia&gt; 實測頁</h1>
+    <p>
+      支援度：<strong id="support">偵測中</strong>。權限狀態：相機
+      <strong id="perm-camera">?</strong>、麥克風
+      <strong id="perm-mic">?</strong>（會即時更新）。
+    </p>
+
+    <section aria-labelledby="h-log">
+      <h2 id="h-log">事件紀錄</h2>
+      <p class="note">
+        每個元素的 stream／track／error／cancel 事件都會記在這裡（live
+        region，報讀軟體會念出新的紀錄）。同一種元素每頁最多 3 個，所以每一節要先按「載入這一節的元素」，載入時會移除其他節的元素。
+      </p>
+      <div id="log" role="log" aria-live="polite"></div>
+      <div class="row">
+        <button type="button" id="stop">關閉所有相機與麥克風</button>
+        <button type="button" id="clear">清除紀錄</button>
+      </div>
+      <video id="preview" autoplay muted playsinline aria-label="攝影機預覽"></video>
+    </section>
+
+    <section aria-labelledby="h1-prompt">
+      <h2 id="h1-prompt">1. 權限詢問視窗與鍵盤操作</h2>
+      <ol>
+        <li>先到網址列左邊的網站設定，把相機和麥克風重設為「詢問」。</li>
+        <li>只用鍵盤：Tab 到下面的按鈕，按 Enter 或空白鍵。</li>
+        <li>
+          記錄：詢問視窗出現在哪裡、焦點有沒有自動移到視窗裡、能不能用鍵盤選「允許」、關掉視窗後焦點回到哪裡。
+        </li>
+      </ol>
+<button type="button" class="load" data-section="s1">載入這一節的元素</button>
+      <div class="stage" id="stage-s1"></div>
+      <template id="tpl-s1">
+        <usermedia id="um-main"
+          ><button type="button">（不支援時的後備按鈕）</button></usermedia
+        >
+      </template>
+    </section>
+
+    <section aria-labelledby="h2-recover">
+      <h2 id="h2-recover">2. 拒絕之後的復原流程</h2>
+      <ol>
+        <li>點上一節的按鈕，在詢問視窗按「封鎖」（或「不允許」）。</li>
+        <li>重新整理頁面，再點一次下面的按鈕。</li>
+        <li>
+          記錄：有沒有出現頁面內的說明或復原視窗、文字是什麼、能不能用鍵盤完成「重新允許」、事件紀錄出現哪個事件。
+        </li>
+      </ol>
+<button type="button" class="load" data-section="s2">載入這一節的元素</button>
+      <div class="stage" id="stage-s2"></div>
+      <template id="tpl-s2">
+        <usermedia id="um-recover"></usermedia>
+      </template>
+    </section>
+
+    <section aria-labelledby="h3-sr">
+      <h2 id="h3-sr">3. 報讀軟體</h2>
+      <p>
+        用 VoiceOver（macOS：⌘ + F5）或 NVDA，依序移到下面的元素，記錄念出的內容：角色、名稱、狀態，以及開啟相機之後有沒有改變。
+      </p>
+<button type="button" class="load" data-section="s3">載入這一節的元素</button>
+      <div class="stage" id="stage-s3"></div>
+      <template id="tpl-s3">
+        <div class="row">
+          <usermedia id="um-sr"></usermedia>
+          <camera id="cam-sr"></camera>
+          <microphone id="mic-sr"></microphone>
+        </div>
+      </template>
+      <p class="note">
+        sandbox 的實測結果：三個都是「按鈕」，開啟後名稱不變，也沒有 pressed 之類的狀態。
+      </p>
+    </section>
+
+    <section aria-labelledby="h4-toggle">
+      <h2 id="h4-toggle">4. &lt;camera&gt;／&lt;microphone&gt; 第二次點擊會不會切換</h2>
+      <p>
+        規格說開啟後再點一次，會變成「關閉鏡頭／靜音」的切換。點兩次以上，看按鈕文字有沒有變，以及下面的
+        track.enabled。
+      </p>
+<button type="button" class="load" data-section="s4">載入這一節的元素</button>
+      <div class="stage" id="stage-s4"></div>
+      <template id="tpl-s4">
+        <div class="row">
+          <camera id="cam-toggle"></camera>
+          <microphone id="mic-toggle"></microphone>
+        </div>
+      </template>
+      <p>
+        相機 track.enabled：<strong id="cam-enabled">—</strong>；麥克風
+        track.enabled：<strong id="mic-enabled">—</strong>
+      </p>
+      <p class="note">sandbox（Chromium 153 無頭模式）的結果：第二次點擊沒有切換，enabled 一直是 true。</p>
+    </section>
+
+    <section aria-labelledby="h5-known">
+      <h2 id="h5-known">5. 已知問題重現（sandbox 已測過，可以順便確認）</h2>
+
+      <h3>5-1. lang 與按鈕文字</h3>
+      <p class="note">sandbox 結果：只有 zh-TW、zh-HK 是繁體，zh-Hant-TW 等其他寫法都是簡體。</p>
+<button type="button" class="load" data-section="s5a">載入這一節的元素</button>
+      <div class="stage" id="stage-s5a"></div>
+      <template id="tpl-s5a">
+        <div class="row">
+          <span>zh-Hant-TW：</span><usermedia lang="zh-Hant-TW"></usermedia>
+        </div>
+        <div class="row">
+          <span>zh-Hant：</span><usermedia lang="zh-Hant"></usermedia>
+        </div>
+        <div class="row">
+          <span>zh-TW：</span><usermedia lang="zh-TW"></usermedia>
+        </div>
+      </template>
+
+      <h3>5-2. 對比不足時，點了沒反應</h3>
+      <p class="note">
+        文字與背景對比低於 3:1。sandbox 結果：外觀和無障礙樹都跟正常的一樣，點擊只觸發 error（invalid style）。
+      </p>
+<button type="button" class="load" data-section="s5b">載入這一節的元素</button>
+      <div class="stage" id="stage-s5b"></div>
+      <template id="tpl-s5b">
+        <usermedia id="um-low" class="low-contrast"></usermedia>
+      </template>
+
+      <h3>5-3. aria-label 蓋掉名稱、aria-describedby 補充說明</h3>
+<button type="button" class="load" data-section="s5c">載入這一節的元素</button>
+      <div class="stage" id="stage-s5c"></div>
+      <template id="tpl-s5c">
+        <div class="row">
+          <usermedia id="um-label" aria-label="開啟視訊鏡頭"></usermedia>
+          <usermedia id="um-desc" aria-describedby="desc"></usermedia>
+        </div>
+      </template>
+      <p id="desc">開啟後，會議中的其他人會看到你的畫面。</p>
+
+      <h3>5-4. 焦點框被拿掉</h3>
+      <p class="note">用 Tab 移過去，看看還找不找得到焦點在哪裡。</p>
+<button type="button" class="load" data-section="s5d">載入這一節的元素</button>
+      <div class="stage" id="stage-s5d"></div>
+      <template id="tpl-s5d">
+        <usermedia id="um-outline" class="no-outline"></usermedia>
+      </template>
+    </section>
+
+    <section aria-labelledby="h6-timing">
+      <h2 id="h6-timing">6. 鍵盤：剛捲進畫面時按 Enter</h2>
+      <p>
+        sandbox 結果：用 Tab 移到畫面外的元素（畫面自動捲動），500ms 內按 Enter 會失敗（error：intersection with viewport changed），800ms 後才成功。
+        請在真實的 Chrome 試：從下面的「起點」按 Tab，立刻按 Enter，看事件紀錄。
+      </p>
+      <button type="button" class="load" data-section="s6">載入這一節的元素</button>
+      <button type="button">起點</button>
+      <div style="height: 120vh" aria-hidden="true"></div>
+      <div class="stage" id="stage-s6"></div>
+      <template id="tpl-s6"><usermedia id="um-timing"></usermedia></template>
+    </section>
+
+    <section aria-labelledby="h7-limit">
+      <h2 id="h7-limit">7. 每頁的數量上限</h2>
+      <p>
+        sandbox 結果：同一種元素在一頁最多 3 個，第 4 個起點擊會出現 error：not registered in the browser process。所以這一頁一次只載入一節的元素。
+      </p>
+      <button type="button" class="load" data-section="s7">載入這一節的元素（4 個 usermedia）</button>
+      <div class="stage" id="stage-s7"></div>
+      <template id="tpl-s7">
+        <div class="row">
+          <usermedia id="um-n1"></usermedia>
+          <usermedia id="um-n2"></usermedia>
+          <usermedia id="um-n3"></usermedia>
+          <usermedia id="um-n4"></usermedia>
+        </div>
+      </template>
+    </section>
+
+    <script>
+      const log = document.getElementById("log");
+      const preview = document.getElementById("preview");
+      const streams = new Set();
+      const time = () => new Date().toLocaleTimeString("zh-TW", { hour12: false });
+      const write = (msg) => {
+        log.textContent += `${time()}  ${msg}\n`;
+        log.scrollTop = log.scrollHeight;
+      };
+
+      document.getElementById("support").textContent =
+        "HTMLUserMediaElement" in window
+          ? `支援（usermedia：是，camera：${"HTMLCameraElement" in window ? "是" : "否"}，microphone：${"HTMLMicrophoneElement" in window ? "是" : "否"}）`
+          : "不支援";
+
+      // 權限狀態：即時更新，方便觀察拒絕、復原的過程
+      for (const [name, id] of [
+        ["camera", "perm-camera"],
+        ["microphone", "perm-mic"],
+      ]) {
+        navigator.permissions
+          ?.query({ name })
+          .then((status) => {
+            const show = () => {
+              document.getElementById(id).textContent = status.state;
+              write(`權限 ${name}：${status.state}`);
+            };
+            show();
+            status.addEventListener("change", show);
+          })
+          .catch(() => (document.getElementById(id).textContent = "無法查詢"));
+      }
+
+      const label = (el) =>
+        `<${el.localName}${el.id ? "#" + el.id : el.lang ? " lang=" + el.lang : ""}>`;
+
+      // 同一種元素每頁最多 3 個（第 4 個起會 not registered），所以一次只載入一節的元素
+      for (const btn of document.querySelectorAll("button.load")) {
+        btn.addEventListener("click", () => {
+          for (const stage of document.querySelectorAll(".stage")) stage.replaceChildren();
+          const id = btn.dataset.section;
+          const stage = document.getElementById(`stage-${id}`);
+          stage.append(document.getElementById(`tpl-${id}`).content.cloneNode(true));
+          stage.querySelectorAll("usermedia, camera, microphone").forEach(bind);
+          write(`已載入第 ${id.replace("s", "")} 節的元素（剛載入的元素要等約 1 秒才能點）`);
+        });
+      }
+
+      function bind(el) {
+        el.addEventListener("stream", () => {
+          write(`${label(el)} stream：${el.stream.getTracks().map((t) => t.kind).join("+")}`);
+          streams.add(el.stream);
+          preview.srcObject = el.stream;
+        });
+        el.addEventListener("track", () => {
+          write(`${label(el)} track：${el.track.kind}，enabled=${el.track.enabled}`);
+          streams.add(new MediaStream([el.track]));
+          if (el.track.kind === "video") preview.srcObject = new MediaStream([el.track]);
+        });
+        el.addEventListener("error", () =>
+          write(`${label(el)} error：${el.error?.name}：${el.error?.message}`),
+        );
+        el.addEventListener("cancel", () =>
+          write(`${label(el)} cancel：${el.error?.name ?? ""} ${el.error?.message ?? ""}`),
+        );
+      }
+
+      // 第 4 節：定時讀 track.enabled，看第二次點擊有沒有切換
+      setInterval(() => {
+        const cam = document.getElementById("cam-toggle");
+        const mic = document.getElementById("mic-toggle");
+        document.getElementById("cam-enabled").textContent = cam?.track
+          ? String(cam.track.enabled)
+          : "—";
+        document.getElementById("mic-enabled").textContent = mic?.track
+          ? String(mic.track.enabled)
+          : "—";
+      }, 300);
+
+      document.getElementById("stop").addEventListener("click", () => {
+        for (const s of streams) s.getTracks().forEach((t) => t.stop());
+        for (const el of document.querySelectorAll("camera, microphone")) el.track?.stop();
+        streams.clear();
+        preview.srcObject = null;
+        write("已關閉所有相機與麥克風");
+      });
+      document.getElementById("clear").addEventListener("click", () => (log.textContent = ""));
+    </script>
+  </body>
