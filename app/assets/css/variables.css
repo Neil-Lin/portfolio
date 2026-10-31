@@ -27,7 +27,14 @@
   --color-warning: 70% .222 41.29;
   --color-danger: 56.18% .227 24.35;
   --color-visited: 30% .2 283.95;
-  --outline-color: 83% .17 82.04;
+  /*
+    焦點框：淺色模式用主色紫（對白底 7.5:1），深色模式改回琥珀（對黑底 12:1）。
+    先前淺色模式也是琥珀，對白底只有 1.7:1，焦點框幾乎看不見（WCAG 1.4.11 要 3:1）。
+    --focus-ring：元素外先留 2px 背景色間隙，再畫 3px 焦點色，紫色按鈕外面也看得出來。
+  */
+  --outline-color: var(--color-primary);
+  --focus-gap: var(--color-white);
+  --focus-ring: 0 0 0 2px oklch(var(--focus-gap)), 0 0 0 5px oklch(var(--outline-color));
 
   --border-color: 79.21% 0 0;
   --link-color: var(--color-primary);
@@ -101,18 +108,21 @@
 
     --pre-bg: var(--color-black);
     --pre-text-color: var(--color-white);
+
+    --outline-color: 83% .17 82.04; /* 琥珀：對黑底 12:1 */
+    --focus-gap: var(--color-black);
+    --focus-ring: 0 0 0 2px oklch(var(--focus-gap)), 0 0 0 5px oklch(var(--outline-color));
   }
 }
 
 /*
   使用者要求「更高對比」時（macOS/iOS 增強對比、Windows 高對比等）加強對比。
   純覆蓋 token 值，元件零改動；不寫也不影響一般模式，屬漸進增強。
-  1) 邊框加深、2) 焦點框加深加粗、3) 內文次要色衝 AAA、4) 連結色加深。
+  1) 邊框加深、2) 焦點框加粗（暗色時改純白）、3) 內文次要色衝 AAA、4) 連結色加深。
 */
 @media (prefers-contrast: more) {
   :root {
     --border-color: var(--color-gray-700); /* 79% → 45%：卡片/表格/輸入框邊框現形 */
-    --outline-color: var(--color-primary); /* 淺琥珀 → 深紫：焦點框更明顯 */
     --wrapper-color: var(--color-gray-900); /* 45% → 30%：內文次要色衝 AAA */
     --link-color: 38% 0.17 294.72; /* 主色紫再加深，連結對比更強 */
   }
@@ -126,6 +136,8 @@
       --border-color: 60% 0 0; /* 暗色：邊框提亮現形 */
       --wrapper-color: var(--color-white); /* 內文提到純白，衝最高對比 */
       --link-color: var(--color-white); /* 連結提到純白 */
+      --outline-color: var(--color-white); /* 暗色：焦點框用純白，對黑底最高對比 */
+      --focus-ring: 0 0 0 2px oklch(var(--focus-gap)), 0 0 0 5px oklch(var(--outline-color));
     }
   }
 }

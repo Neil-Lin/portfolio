@@ -135,7 +135,7 @@ a {
   }
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px oklch(var(--outline-color));
+    box-shadow: var(--focus-ring);
   }
   &:visited {
     color: oklch(var(--color-visited));
@@ -182,7 +182,7 @@ select {
     background-image: url(@/assets/images/angle-down-solid-white.svg);
   }
   &:focus-visible {
-    box-shadow: 0 0 0 4px oklch(var(--outline-color));
+    box-shadow: var(--focus-ring);
   }
 }
 
@@ -295,11 +295,17 @@ code {
   word-break: break-word;
 }
 
+/* 勾選框、單選、滑桿：瀏覽器預設只有 1px 細框，改成跟全站一樣的 3px 焦點框 */
+input:is([type="checkbox"], [type="radio"], [type="range"]):focus-visible {
+  outline: 3px solid oklch(var(--outline-color));
+  outline-offset: 2px;
+}
+
 button,
 [class~="btn"] {
   outline: none;
   &:focus-visible {
-    box-shadow: 0 0 0 4px oklch(var(--outline-color));
+    box-shadow: var(--focus-ring);
   }
 }
 

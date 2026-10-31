@@ -97,7 +97,7 @@ const uid = useId();
     outline: none;
 
     &:focus-visible {
-      box-shadow: 0 0 0 4px oklch(var(--outline-color));
+      box-shadow: var(--focus-ring);
     }
   }
 
