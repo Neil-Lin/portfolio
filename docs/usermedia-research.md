@@ -54,7 +54,9 @@
     - 關閉視窗後回到原本的按鈕：「目前位於，usermedia 實測頁 - Google Chrome，視窗，使用麥克風和攝影機，按鈕」。
     - 按「這次允許」後念出「Chrome，有新的，視窗」。
     - 相機開啟後，**按鈕名稱不變**（仍是「使用麥克風和攝影機，按鈕」，沒有狀態）。唯一的提示在 Chrome 視窗標題：「usermedia 實測頁 - 攝影機和麥克風正在錄影和錄音 - Google Chrome」，只有 VoiceOver 重念視窗時才聽得到。
-- [ ] `<camera>`、`<microphone>` 第二次點擊會不會切換。
+- [x] `<camera>`、`<microphone>` 第二次點擊會不會切換。
+  - 2026-10-31 本機（Chrome、VoiceOver）：允許後相機、麥克風都開啟，之後連續點擊多次，**按鈕文字仍是「使用攝影機」「使用麥克風」，`track.enabled` 一直是 `true`**，沒有切換成「關閉鏡頭／靜音」，與 sandbox 結果相同，也與規格說明不同。只開相機時，VoiceOver 念的視窗標題是「… - 攝影機正在錄影 - Google Chrome」。
+  - → 文章：關閉鏡頭、靜音要自己做按鈕（例如 `aria-pressed` 的切換按鈕），不能靠 `<camera>`／`<microphone>`。
 - [ ] 第 8 點的時間差在真實環境是否一樣。
 
 ## 文章規劃（暫定）
