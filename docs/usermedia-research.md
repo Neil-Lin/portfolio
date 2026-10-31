@@ -57,7 +57,8 @@
 - [x] `<camera>`、`<microphone>` 第二次點擊會不會切換。
   - 2026-10-31 本機（Chrome、VoiceOver）：允許後相機、麥克風都開啟，之後連續點擊多次，**按鈕文字仍是「使用攝影機」「使用麥克風」，`track.enabled` 一直是 `true`**，沒有切換成「關閉鏡頭／靜音」，與 sandbox 結果相同，也與規格說明不同。只開相機時，VoiceOver 念的視窗標題是「… - 攝影機正在錄影 - Google Chrome」。
   - → 文章：關閉鏡頭、靜音要自己做按鈕（例如 `aria-pressed` 的切換按鈕），不能靠 `<camera>`／`<microphone>`。
-- [ ] 第 8 點的時間差在真實環境是否一樣。
+- [x] 第 8 點的時間差在真實環境是否一樣。
+  - 2026-10-31 本機（Chrome）：從畫面上方按 Tab 移到畫面外的 `<usermedia>`（畫面自動捲動）後立刻按 Enter → `error: InvalidStateError: The permission element is disabled due to: intersection out of viewport or clipped, intersection with viewport changed.`，按鈕沒反應、畫面沒有任何提示。與 sandbox 結果相同。
 
 ## 文章規劃（暫定）
 
