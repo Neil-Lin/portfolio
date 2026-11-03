@@ -18,3 +18,9 @@ allowBuilds:
 
 overrides:
   vue-router: 5.4.0
+
+# @nuxtjs/mdc 是 @nuxt/content 的間接依賴。Nuxt 會叫 Vite 預先打包 `@nuxtjs/mdc > remark-gfm` 等套件，
+# Vite 要從專案根目錄找得到 @nuxtjs/mdc 才行；pnpm 預設不會把間接依賴放到根目錄，
+# 開發伺服器就會出現 NUXT_B7002 警告。把它提升到根目錄的 node_modules。
+publicHoistPattern:
+  - "@nuxtjs/mdc"
