@@ -6,12 +6,15 @@ Nuxt 4 + Vue 3 + TypeScript，SSR + Prerender。
 
 ## 開發
 
+套件管理用 **pnpm 12**（版本釘在 `package.json` 的 `packageManager`），安全設定在 `pnpm-workspace.yaml`，選擇理由見 `docs/package-manager.md`。
+
 ```bash
-npm install
-npm run dev        # 開發伺服器 http://localhost:3000
-npm run lint       # ESLint 檢查
-npm run lint:fix   # ESLint 自動修復
-npm run format     # Prettier 格式化
+npm i -g pnpm@12.16.1   # 第一次：安裝 pnpm（Node 26 不內建 corepack）
+pnpm install
+pnpm dev           # 開發伺服器 http://localhost:3000
+pnpm lint          # ESLint 檢查
+pnpm lint:fix      # ESLint 自動修復
+pnpm format        # Prettier 格式化
 ```
 
 環境變數請參考 `.env.example` 複製為 `.env`。
@@ -19,8 +22,8 @@ npm run format     # Prettier 格式化
 ## 建置
 
 ```bash
-npm run generate   # 預渲染靜態輸出至 .output/public
-npm run preview    # 本地預覽建置結果
+pnpm generate      # 預渲染靜態輸出至 .output/public
+pnpm preview       # 本地預覽建置結果
 ```
 
 ## 專案結構

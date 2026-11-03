@@ -40,7 +40,7 @@ export function validateContentData(rootDir: string = process.cwd()) {
       const file = `/image-variants/${stem}-${w}.webp`;
       if (!existsSync(join(publicDir, file))) {
         errors.push(
-          `data/imageVariants.json: public${file} 檔案不存在，請執行 npm run images:variants`,
+          `data/imageVariants.json: public${file} 檔案不存在，請執行 pnpm images:variants`,
         );
       }
     }
@@ -50,7 +50,7 @@ export function validateContentData(rootDir: string = process.cwd()) {
     const width = (sizes[src] as number[] | undefined)?.[0] ?? 0;
     if (width > 480 && !variants[src]) {
       errors.push(
-        `${context}: ${src} 沒有縮小版本，請執行 npm run images:variants`,
+        `${context}: ${src} 沒有縮小版本，請執行 pnpm images:variants`,
       );
     }
   };
@@ -59,7 +59,7 @@ export function validateContentData(rootDir: string = process.cwd()) {
     if (!src || !src.startsWith("/") || src.endsWith(".svg")) return;
     if (!sizes[src]) {
       errors.push(
-        `${context}: ${src} 不在 data/imageSizes.json，請執行 npm run images:sizes`,
+        `${context}: ${src} 不在 data/imageSizes.json，請執行 pnpm images:sizes`,
       );
     }
     checkVariants(src, context);

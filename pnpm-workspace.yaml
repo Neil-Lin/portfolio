@@ -1,0 +1,20 @@
+# pnpm 設定（單一專案也放這裡，不需要 packages:）。決策紀錄見 docs/package-manager.md
+
+# 新版本發布未滿 24 小時（1440 分鐘）不安裝。明確寫出來才是嚴格模式：
+# 沒有夠舊的版本時直接失敗，而不是退而安裝新版本。
+minimumReleaseAge: 1440
+
+# 套件的信任等級比之前的版本低（例如原本有來源證明、新版沒有）就拒絕安裝。
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  # 同一位維護者 2.5.0 用 CI 發布（有來源證明），30 分鐘後手動發布 3.0.0-pre1（沒有）。
+  # 經由 @vite-pwa/nuxt → workbox-build 引入。只排除這一個版本，之後的版本照常檢查。
+  - "@trickfilm400/rollup-plugin-off-main-thread@3.0.0-pre1"
+
+# 允許執行安裝腳本的套件，沒列出的一律不執行
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true
+
+overrides:
+  vue-router: 5.4.0

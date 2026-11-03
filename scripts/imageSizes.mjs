@@ -1,6 +1,6 @@
 // 產生 data/imageSizes.json：public/images 底下每張點陣圖的原始寬高。
 // 圖片標籤寫上 width / height，瀏覽器載入前就能先佔好空間，不會在圖片晚到時把版面往下推（CLS）。
-// 新增或替換圖片後執行：npm run images:sizes（build 時 scripts/checkData.ts 會檢查有沒有漏掉）。
+// 新增或替換圖片後執行：pnpm images:sizes（build 時 scripts/checkData.ts 會檢查有沒有漏掉）。
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, relative, extname } from "node:path";
 

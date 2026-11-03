@@ -41,3 +41,4 @@
 
 - **`@nuxt/fonts` 的 `throwOnError`**：1.0 起預設為 `true`，正式建置時字型抓不到會讓建置失敗，Cloudflare 會保留上一版，不會默默部署沒有中文字型的網站。所以 repo 裡**不要**設定 `throwOnError: false`；只有在沒有網路的環境本機建置時才暫時加上。
 - **範例元件的 `modeText`（偵測中／原生支援／後備）**：9 個範例有相似的寫法，但偵測時機和各自 `onMounted` 的量測流程綁在一起，抽成 composable 不會比較短或清楚，所以刻意保留現狀。
+- **pnpm 的 `trustPolicyExclude`**：`pnpm-workspace.yaml` 排除了 `@trickfilm400/rollup-plugin-off-main-thread@3.0.0-pre1`（經由 `@vite-pwa/nuxt` → `workbox-build`）。升級 `@vite-pwa/nuxt` 後跑 `pnpm why @trickfilm400/rollup-plugin-off-main-thread`，不再用到這個版本就刪掉這條例外。其他 pnpm 設定與升級步驟見 `docs/package-manager.md`。

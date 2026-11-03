@@ -1,7 +1,7 @@
 // 產生響應式圖片用的縮小版本：public/images 第一層的每張圖，輸出成數個寬度的 webp，
 // 放在 public/image-variants/，並把每張圖有哪些寬度寫進 data/imageVariants.json。
 // <img> 的 srcset 由 app/utils/imageSrcset.ts 依這份清單組出來，再搭配 sizes="auto" 讓瀏覽器自己挑。
-// 新增或替換圖片後執行：npm run images:sizes 和 npm run images:variants（build 時 scripts/checkData.ts 會檢查有沒有漏掉）。
+// 新增或替換圖片後執行：pnpm images:sizes 和 pnpm images:variants（build 時 scripts/checkData.ts 會檢查有沒有漏掉）。
 // 產出的檔案會 commit 進 repo，部署時不需要再產生。
 import {
   existsSync,
