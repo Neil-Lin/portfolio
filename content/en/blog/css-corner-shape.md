@@ -377,7 +377,7 @@ The shapes designers draw can finally go straight into CSS, and this time keyboa
 
 - [Writing Accessibility into CSS with if() and @function: Reduced Motion, More Contrast, Minimum Target Size](/en/blog/css-if-function/)
 - [Zoomed In and the Top of Your Centered Content Is Gone? Make It Reachable with safe center](/en/blog/css-safe-alignment/)
-- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

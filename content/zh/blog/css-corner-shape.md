@@ -377,7 +377,7 @@ CSS.supports("corner-shape: bevel");
 
 - [用 if() 和 @function 把無障礙寫進 CSS：減少動態、提高對比、最小點擊區](/blog/css-if-function/)
 - [放大之後，置中的內容上半部不見了？用 safe center 讓它捲得到](/blog/css-safe-alignment/)
-- [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ## 相關連結
 

@@ -204,7 +204,7 @@ This is the biggest accessibility gap in Web Components, and it finally has a na
 
 - [Why Do Web Components Flash? Fixing It with Declarative Shadow DOM](/en/blog/declarative-shadow-dom/)
 - [How to Write a Dialog Today: From showModal() to command and closedby](/en/blog/dialog-modern-guide/)
-- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

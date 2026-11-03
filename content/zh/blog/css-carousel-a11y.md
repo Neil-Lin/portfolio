@@ -205,7 +205,7 @@ carousel.addEventListener("scrollsnapchange", (event) => {
 
 - [讓報讀軟體開口說話：用 ariaNotify() 取代 aria-live](/blog/aria-notify/)
 - [提示框被切掉了？用 @position-try 讓瀏覽器自己找位置](/blog/position-try/)
-- [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ## 相關連結
 

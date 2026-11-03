@@ -240,7 +240,7 @@ Where in your projects is JavaScript updating both styles and ARIA at once? I'd 
 
 - [No More Hand-Rolled Roving tabindex: Arrow-Key Navigation with focusgroup](/en/blog/focusgroup/)
 - [Make Screen Readers Speak: Replacing aria-live with ariaNotify()](/en/blog/aria-notify/)
-- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

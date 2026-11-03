@@ -124,7 +124,7 @@ document.querySelectorAll(":is(article, aside, nav, section) h1");
 
 - [無障礙網頁設計學習與簡易要點](/blog/a11y-learning/)
 - [讓 ARIA 當唯一的真相：用 CSS attr() 直接讀 aria-valuenow](/blog/css-attr/)
-- [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ## 相關連結
 

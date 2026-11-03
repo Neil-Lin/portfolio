@@ -203,7 +203,7 @@ Are your tooltips and menus still positioned with JavaScript? I'd love to hear a
 
 - [Popover auto, manual and hint: What's Actually the Difference? I Built Demos to Find Out](/en/blog/popover-auto-manual-hint/)
 - [How to Write a Dialog Today: From showModal() to command and closedby](/en/blog/dialog-modern-guide/)
-- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

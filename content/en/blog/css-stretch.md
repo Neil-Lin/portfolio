@@ -137,7 +137,7 @@ Those few dozen overflowing pixels become a horizontal scrollbar for people who 
 
 - [Zoomed In and the Top of Your Centered Content Is Gone? Make It Reachable with safe center](/en/blog/css-safe-alignment/)
 - [Why Can't Ctrl+F Find Collapsed Content? A Look at hidden="until-found"](/en/blog/hidden-until-found/)
-- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

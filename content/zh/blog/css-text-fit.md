@@ -238,7 +238,7 @@ text-fit: shrink 80%;             /* 縮小，但不小於原本的 80% */
 
 - [width: 100% 為什麼會撐破容器？用 stretch 撐滿剛剛好](/blog/css-stretch/)
 - [放大之後，置中的內容上半部不見了？用 safe center 讓它捲得到](/blog/css-safe-alignment/)
-- [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ## 相關連結
 

@@ -150,7 +150,7 @@ Security and accessibility shouldn't be a trade-off. This time the browser's def
 
 - [Why Do Web Components Flash? Fixing It with Declarative Shadow DOM](/en/blog/declarative-shadow-dom/)
 - [An Outside label Can Finally Reach the input Inside Shadow DOM: shadowrootreferencetarget](/en/blog/shadow-dom-reference-target/)
-- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

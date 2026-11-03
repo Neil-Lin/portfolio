@@ -124,7 +124,7 @@ A small change to browser defaults made me go back and fix something I'd been do
 
 - [Let ARIA Be the Single Source of Truth: Reading aria-valuenow with CSS attr()](/en/blog/css-attr/)
 - [Zoomed In and the Top of Your Centered Content Is Gone? Make It Reachable with safe center](/en/blog/css-safe-alignment/)
-- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

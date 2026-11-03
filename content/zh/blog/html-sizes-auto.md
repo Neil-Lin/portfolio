@@ -170,7 +170,7 @@ lazy 的圖這樣寫沒問題。但我實測**沒有 `loading="lazy"` 的圖寫 
 
 - [讀到一半畫面突然跳走？聊聊捲動錨定 overflow-anchor](/blog/scroll-anchoring/)
 - [section 裡的 h1 不再自動縮小了：順便把我網站的 h1 改對](/blog/html-nested-h1/)
-- [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ## 相關連結
 

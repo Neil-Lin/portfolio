@@ -170,7 +170,7 @@ The biggest takeaway was finding out my own site had been making phones download
 
 - [Page Jumps While You Read? A Look at Scroll Anchoring and overflow-anchor](/en/blog/scroll-anchoring/)
 - [h1 Inside a section No Longer Shrinks: and I Fixed My Site's h1 Too](/en/blog/html-nested-h1/)
-- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

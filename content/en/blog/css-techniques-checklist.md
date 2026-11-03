@@ -1,8 +1,8 @@
 ---
-title: "Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next"
+title: "Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next"
 description: "A scannable checklist of modern CSS and HTML features—grouped by layout, selectors, color, typography, animation and more, plus declarative HTML additions like `<geolocation>`, `focusgroup` and Invoker Commands—each with its purpose, an example, and browser support."
 date: 2026-07-06
-updatedAt: 2026-10-13
+updatedAt: 2026-11-03
 tags:
   - CSS
   - HTML
@@ -40,7 +40,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
-| `grid-template-rows: masonry` | Masonry (waterfall) layout without JS. WebKit's alternative, `display: grid-lanes`, now ships in Safari (Safari 27.2 Beta renames `flow-tolerance` to `fit-tolerance`); the two approaches are still converging | `grid-template-rows: masonry;` | 🟠 | ✅ |
+| `grid-template-rows: masonry` | Masonry (waterfall) layout without JS. WebKit's alternative, `display: grid-lanes`, now ships in Safari ; Safari 27.2 renames `flow-tolerance` to `fit-tolerance` (the old name stays as an alias for now). A larger `fit-tolerance` keeps items in neighboring columns instead of jumping back and forth, so focus moves more predictably for sighted keyboard users. The two approaches are still converging | `grid-template-rows: masonry;` | 🟠 | ✅ |
 | `subgrid` | Lets a child grid inherit the parent's tracks and gaps, so alignment snaps to the parent's lines; great for aligning elements across cards | `grid-template-columns: subgrid;` | 🟢 | ✅ |
 | Container Queries | Responsive design based on the container's size (not the screen)—the key to true componentization | `container-type: inline-size;` + `@container (width > 400px){}` | 🟢 | ✅ |
 | Anchor Positioning | Anchor one element's position to another (tooltip / popover / menu), replacing a lot of JS math | `anchor-name: --a;` + `top: anchor(--a bottom);` | 🟠 | ✅ |
@@ -51,7 +51,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | Two-value display | Write outer × inner display separately: `display: block flex` etc.; `flex` = `block flex`, `inline-flex` = `inline flex`. Clarifies display's two layers; single-value shorthands still fine day-to-day | `display: inline flex;` | 🟡 | ✅ |
 | `stretch` sizing keyword | Make a box fill its container's available space (margins included), replacing vendor-specific values like `-webkit-fill-available` (see [my post testing it and checking my site](/en/blog/css-stretch/)) | `width: stretch;` | 🟡 | ✅ |
 | Single-axis scroll containers | Scroll in one direction and `clip` in the other, so `position: sticky` can be constrained by different scroll containers per axis (e.g. a sticky table header and first column); Chrome 156 Beta | `overflow: scroll clip;` | 🟠 | ⬜ |
-| `safe` / `unsafe` overflow alignment | When centered content doesn't fit, `safe` falls back to start alignment so content isn't pushed somewhere you can't see or scroll to; Safari 27.2 Beta adds pairing with `normal` and fixed-position support (see [my post testing it with zoom and keyboard focus](/en/blog/css-safe-alignment/)) | `align-items: safe center;` | 🟡 | ✅ |
+| `safe` / `unsafe` overflow alignment | When centered content doesn't fit, `safe` falls back to start alignment so content isn't pushed somewhere you can't see or scroll to; Safari 27.2 adds pairing with `normal`, and `safe` keeps absolutely and fixed positioned boxes inside their containing block (which is also how large select pickers now stay on screen) (see [my post testing it with zoom and keyboard focus](/en/blog/css-safe-alignment/)) | `align-items: safe center;` | 🟡 | ✅ |
 
 ## B. Selectors
 
@@ -120,7 +120,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
 | `field-sizing: content` | Let input/textarea grow automatically to fit their content (Baseline 2026) | `field-sizing: content;` | 🟡 | ✅ |
-| Customizable `<select>` (`appearance: base-select`) | Fully style the native dropdown; options can hold icons/HTML. Pair it with `::picker(select)` and `::picker-icon` to style the popup, and `<selectedcontent>` to clone the chosen option. You finally don't have to rebuild a select out of divs just to style it — and rebuilding it is a classic source of accessibility disasters (Chrome 135 and Safari 27; not in Firefox yet) | `select{ appearance: base-select; }` | 🟡 | ✅ |
+| Customizable `<select>` (`appearance: base-select`) | Fully style the native dropdown; options can hold icons/HTML. Pair it with `::picker(select)` and `::picker-icon` to style the popup, and `<selectedcontent>` to clone the chosen option; Safari 27.2 adds `::field-content` to style the selected text in the button without `<selectedcontent>`. You finally don't have to rebuild a select out of divs just to style it — and rebuilding it is a classic source of accessibility disasters (Chrome 135 and Safari 27; not in Firefox yet) | `select{ appearance: base-select; }` | 🟡 | ✅ |
 | `<selectlist>` (formerly `<selectmenu>`) | A highly customizable dropdown component; renamed and folded into the "customizable select" track | `<selectlist>…</selectlist>` | 🟠 | ✅ |
 | `::backdrop` | Style the layer behind `dialog.showModal()` or fullscreen | `dialog::backdrop{}` | 🟢 | ✅ |
 
@@ -134,6 +134,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `forced-colors` | Adjust for high-contrast / forced-colors mode (Windows High Contrast) | `@media (forced-colors: active){}` | 🟢 | ✅ |
 | `resolution` media | Switch by output device pixel density (e.g. Retina) | `@media (resolution >= 2dppx){}` | 🟢 | ✅ |
 | Style Queries `@container style()` | Style by a container's custom-property value (e.g. theme); great for component variants | `@container style(--theme: dark){}` | 🟡 | ✅ |
+| `@custom-media` | Named, reusable media queries, like custom properties for media queries: e.g. name `(hover: none) and (pointer: coarse)` `--touch`. Only Firefox 148+ behind a flag; Chrome is at Intent to Prototype. For now, compile it with PostCSS, or set custom properties on `:root` inside media queries and test them with `@container style()` | `@custom-media --touch (hover: none) and (pointer: coarse);` | 🔴 | ⬜ |
 | Scroll-State Queries | Style by a container's scroll state (e.g. `stuck`, `snapped`); can detect whether a sticky element is stuck | `@container scroll-state(stuck: top){}` | 🟠 | ✅ |
 
 ## H. Encapsulation & Performance
@@ -211,6 +212,7 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 | `shadowrootreferencetarget` | Lets a `<label>` or `aria-*` outside the shadow root point at the real input inside it — the long-standing labelling problem for web components (see [my post testing it, with a UI Kit example](/en/blog/shadow-dom-reference-target/)) | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ✅ |
 | `<h1>` nested sizing fix | UA stylesheet change: an `<h1>` inside a `<section>` is no longer shrunk automatically, so heading hierarchy finally renders predictably (see [my post testing it and fixing my site's headings](/en/blog/html-nested-h1/)) | — | 🟢 | ✅ |
 | `ariaNotify()` | Ask the screen reader to announce a message directly (e.g. "Added to cart"), replacing the old trick of hiding an `aria-live` region and stuffing text into it. It's a DOM API rather than an HTML attribute, but what it replaces is exactly that HTML-attribute pattern (Chrome 141 and Firefox 150 onward; sources disagree on Safari, so test it yourself) | `document.ariaNotify("Added to cart");` | 🟡 | ✅ |
+| HTML-in-Canvas | Draw regular HTML into a `<canvas>` (2D, WebGL, WebGPU). The drawn content stays clickable, selectable and keyboard-operable, sits in the accessibility tree, and works with find-in-page, translation and autofill — before, a canvas was just pixels and needed a hidden DOM copy for screen readers. The prototype's `layoutsubtree` attribute is now `content="drawable"` (Chrome 157) | `<canvas content="drawable"><div drawable>…</div></canvas>` + `ctx.drawElementImage(el, x, y)` | 🟠 | ⬜ |
 
 ### K-3. Proposal / prototype stage (just worth knowing about)
 
@@ -218,7 +220,6 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 |---|---|---|---|
 | Declarative Partial Updates | Streaming partial HTML updates that inject content without a navigation; a native `<include>` element may follow | 🔴 | ⬜ |
 | `<persistentwidget>` | Embedded content that survives same-origin navigations (a player that doesn't stop, for instance) | 🔴 | ⬜ |
-| HTML-in-Canvas (`layoutsubtree`) | Render interactive HTML onto a canvas | 🔴 | ⬜ |
 
 ## What to try next (recommended)
 
@@ -246,3 +247,6 @@ Everything that used to be listed here is now checked off. These are the uncheck
 - [Safari 27 Release Notes (Apple; one of the sources for this support update)](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes "opens in new window"){target="_blank"}
 - [Web platform features explorer (Baseline status lookup)](https://web-platform-dx.github.io/web-features-explorer/ "opens in new window"){target="_blank"}
 - [CSS-Tricks](https://css-tricks.com "opens in new window"){target="_blank"}
+- [WebKit Features for Safari 27.2 (`::field-content`, `fit-tolerance`, `safe` alignment)](https://webkit.org/blog/18515/webkit-features-for-safari-27-2/ "opens in new window"){target="_blank"}
+- [HTML-in-Canvas in Chrome 157 (Chrome for Developers)](https://developer.chrome.com/blog/html-in-canvas "opens in new window"){target="_blank"}
+- [Useful @custom-media Presets (blog.master.dev)](https://blog.master.dev/useful-custom-media-presets/ "opens in new window"){target="_blank"}

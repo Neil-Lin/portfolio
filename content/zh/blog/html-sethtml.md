@@ -150,7 +150,7 @@ if ("setHTML" in Element.prototype) {
 
 - [Web Component 為什麼會閃一下？用宣告式 Shadow DOM 解決](/blog/declarative-shadow-dom/)
 - [外面的 label 終於找得到 Shadow DOM 裡的 input：shadowrootreferencetarget](/blog/shadow-dom-reference-target/)
-- [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ## 相關連結
 

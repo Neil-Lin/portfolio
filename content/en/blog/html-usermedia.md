@@ -334,7 +334,7 @@ One more thing developers can't control: on macOS, unless the user has turned on
 
 - [How to Write a Dialog Today: From showModal() to command and closedby](/en/blog/dialog-modern-guide/)
 - [Make Screen Readers Speak: Replacing aria-live with ariaNotify()](/en/blog/aria-notify/)
-- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

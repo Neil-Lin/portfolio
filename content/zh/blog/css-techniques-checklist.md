@@ -1,8 +1,8 @@
 ---
-title: 現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序
+title: 現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序
 description: "一份可快速掃描的現代 CSS 與 HTML 特性清單，依版面、選擇器、色彩、文字、動畫等分類，另收錄 `<geolocation>`、`focusgroup`、Invoker Commands 等宣告式 HTML 新特性，逐條整理用途、範例與瀏覽器支援度。"
 date: 2026-07-06
-updatedAt: 2026-10-13
+updatedAt: 2026-11-03
 tags:
   - CSS
   - HTML
@@ -40,7 +40,7 @@ draft: false
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
-| `grid-template-rows: masonry` | 磚牆式（瀑布流）排版，不用 JS。WebKit 的對案 `display: grid-lanes` 已在 Safari 實作（Safari 27.2 Beta 把 `flow-tolerance` 改名為 `fit-tolerance`），兩種寫法仍在收斂 | `grid-template-rows: masonry;` | 🟠 | ✅ |
+| `grid-template-rows: masonry` | 磚牆式（瀑布流）排版，不用 JS。WebKit 的對案 `display: grid-lanes` 已在 Safari 實作，Safari 27.2 把 `flow-tolerance` 改名為 `fit-tolerance`（舊名暫時保留）。`fit-tolerance` 調大，項目會留在相鄰欄位、不會左右亂跳，鍵盤使用者看焦點移動比較順；兩種寫法仍在收斂 | `grid-template-rows: masonry;` | 🟠 | ✅ |
 | `subgrid` | 讓子網格繼承外層 grid 的軌道與 gap，對齊點變成外層基準；卡片內元素跨卡對齊超好用 | `grid-template-columns: subgrid;` | 🟢 | ✅ |
 | Container Queries | 依「容器」大小做 RWD（而非螢幕），元件化的關鍵 | `container-type: inline-size;` + `@container (width > 400px){}` | 🟢 | ✅ |
 | Anchor Positioning | 讓元素錨定到另一元素定位（tooltip / popover / 選單），取代大量 JS 計算 | `anchor-name: --a;` + `top: anchor(--a bottom);` | 🟠 | ✅ |
@@ -51,7 +51,7 @@ draft: false
 | 多值 display（雙值語法） | 拆開寫「外部 × 內部」顯示：`display: block flex` 等；`flex`＝`block flex`、`inline-flex`＝`inline flex`。理解 display 的雙層本質，日常仍可續用單值縮寫 | `display: inline flex;` | 🟡 | ✅ |
 | `stretch` 尺寸關鍵字 | 讓元素撐滿容器可用空間（會算進 margin），取代 `-webkit-fill-available` 這類私有寫法（實測與網站檢查見[這篇](/blog/css-stretch/)） | `width: stretch;` | 🟡 | ✅ |
 | 單軸捲動容器 | 只在一個方向捲動、另一個方向 `clip`，讓 `position: sticky` 在兩個方向分別受不同的捲動容器限制（例如表頭和第一欄各自固定）；Chrome 156 Beta | `overflow: scroll clip;` | 🟠 | ⬜ |
-| 溢位對齊 `safe` / `unsafe` | 置中的內容放不下時，`safe` 會改成靠起點對齊，避免內容被推到看不到、捲不到的地方；Safari 27.2 Beta 補上與 `normal` 搭配及固定定位的支援（放大畫面與鍵盤焦點的實測見[這篇](/blog/css-safe-alignment/)） | `align-items: safe center;` | 🟡 | ✅ |
+| 溢位對齊 `safe` / `unsafe` | 置中的內容放不下時，`safe` 會改成靠起點對齊，避免內容被推到看不到、捲不到的地方；Safari 27.2 補上與 `normal` 搭配，絕對／固定定位的元素用 `safe` 會留在原本的包含區塊內（大型 select 選單也靠這個不跑出畫面）（放大畫面與鍵盤焦點的實測見[這篇](/blog/css-safe-alignment/)） | `align-items: safe center;` | 🟡 | ✅ |
 
 ## B. 選擇器（Selectors）
 
@@ -120,7 +120,7 @@ draft: false
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
 | `field-sizing: content` | 讓 input／textarea 依內容自動增長（Baseline 2026） | `field-sizing: content;` | 🟡 | ✅ |
-| 可自訂 `<select>`（`appearance: base-select`） | 原生下拉可完全自訂樣式，選項可放圖示／HTML；搭配 `::picker(select)`、`::picker-icon` 控制彈出層，並可用 `<selectedcontent>` 複製選中項目的內容。終於不必為了改樣式用 div 重刻 select——而重刻正是無障礙災難的常見來源（Chrome 135、Safari 27 支援，Firefox 尚未） | `select{ appearance: base-select; }` | 🟡 | ✅ |
+| 可自訂 `<select>`（`appearance: base-select`） | 原生下拉可完全自訂樣式，選項可放圖示／HTML；搭配 `::picker(select)`、`::picker-icon` 控制彈出層，並可用 `<selectedcontent>` 複製選中項目的內容；Safari 27.2 另加入 `::field-content`，不用 `<selectedcontent>` 也能設定按鈕上選中文字的樣式。終於不必為了改樣式用 div 重刻 select——而重刻正是無障礙災難的常見來源（Chrome 135、Safari 27 支援，Firefox 尚未） | `select{ appearance: base-select; }` | 🟡 | ✅ |
 | `<selectlist>`（原 `<selectmenu>`） | 可高度自訂的下拉元件；已改名並整併進「可自訂 select」路線 | `<selectlist>…</selectlist>` | 🟠 | ✅ |
 | `::backdrop` | `dialog.showModal()` 或全螢幕時的背後遮罩層樣式 | `dialog::backdrop{}` | 🟢 | ✅ |
 
@@ -134,6 +134,7 @@ draft: false
 | `forced-colors` | 高對比／強制色彩模式（Windows 高對比）下的調整 | `@media (forced-colors: active){}` | 🟢 | ✅ |
 | `resolution` media | 依輸出裝置像素密度切換（如 Retina） | `@media (resolution >= 2dppx){}` | 🟢 | ✅ |
 | Style Queries `@container style()` | 依容器的自訂屬性值套樣式（如主題），元件變體超好用 | `@container style(--theme: dark){}` | 🟡 | ✅ |
+| `@custom-media` | 自訂具名的 media query，像 CSS 變數一樣重複使用，例如把 `(hover: none) and (pointer: coarse)` 命名為 `--touch`。目前只有 Firefox 148 起要開旗標，Chrome 只到「打算原型」；現在要用得靠 PostCSS 編譯，或在 `:root` 依 media query 設自訂屬性、再用 `@container style()` 判斷 | `@custom-media --touch (hover: none) and (pointer: coarse);` | 🔴 | ⬜ |
 | Scroll-State Queries | 依容器捲動狀態（如 `stuck`、`snapped`）套樣式；可偵測 sticky 是否黏住 | `@container scroll-state(stuck: top){}` | 🟠 | ✅ |
 
 ## H. 封裝與效能（Encapsulation & Performance）
@@ -211,6 +212,7 @@ draft: false
 | `shadowrootreferencetarget` | 讓 Shadow DOM 外面的 `<label>`／`aria-*` 能指向內部真正的 input——解決 web component 長年的標籤關聯難題（實測與 UI Kit 的例子見[這篇](/blog/shadow-dom-reference-target/)） | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ✅ |
 | `<h1>` 巢狀尺寸修正 | UA 樣式表變更：`<h1>` 放在 `<section>` 裡不再被自動縮小，標題階層的視覺呈現終於可預期（實測與我網站的標題調整見[這篇](/blog/html-nested-h1/)） | — | 🟢 | ✅ |
 | `ariaNotify()` | 直接請螢幕閱讀器念出一段訊息（例如「已加入購物車」），取代在頁面藏一個 `aria-live` 區塊再塞文字的舊做法。它是 DOM API 而不是 HTML 屬性，但它取代的正是那套 HTML 屬性寫法（Chrome 141、Firefox 150 起；Safari 的資料互相矛盾，請以實測為準） | `document.ariaNotify("已加入購物車");` | 🟡 | ✅ |
+| HTML-in-Canvas | 把一般 HTML 畫進 `<canvas>`（2D、WebGL、WebGPU），畫出來的內容仍可點擊、選取文字、用鍵盤操作，也在無障礙樹裡，頁內搜尋、翻譯、自動填入照常可用——以前 canvas 只是一張像素圖，得另做隱藏的 DOM 給報讀軟體。屬性已從原型時的 `layoutsubtree` 改為 `content="drawable"`（Chrome 157） | `<canvas content="drawable"><div drawable>…</div></canvas>` + `ctx.drawElementImage(el, x, y)` | 🟠 | ⬜ |
 
 ### K-3. 提案／原型階段（先知道有這回事就好）
 
@@ -218,7 +220,6 @@ draft: false
 |---|---|---|---|
 | Declarative Partial Updates | HTML 串流式的局部更新，不換頁就注入內容；未來可能出現原生的 `<include>` 元素 | 🔴 | ⬜ |
 | `<persistentwidget>` | 同源頁面之間導覽時仍持續存在的嵌入內容（例如播放器不中斷） | 🔴 | ⬜ |
-| HTML-in-Canvas（`layoutsubtree`） | 在 canvas 上渲染可互動的 HTML | 🔴 | ⬜ |
 
 ## 建議優先補實驗的清單
 
@@ -246,3 +247,6 @@ draft: false
 - [Safari 27 Release Notes（Apple，本次燈號更新依據之一）](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes "另開新視窗"){target="_blank"}
 - [Web platform features explorer（Baseline 狀態查詢）](https://web-platform-dx.github.io/web-features-explorer/ "另開新視窗"){target="_blank"}
 - [CSS-Tricks](https://css-tricks.com "另開新視窗"){target="_blank"}
+- [WebKit Features for Safari 27.2（`::field-content`、`fit-tolerance`、`safe` 對齊）](https://webkit.org/blog/18515/webkit-features-for-safari-27-2/ "另開新視窗"){target="_blank"}
+- [Chrome 157 的 HTML-in-Canvas（Chrome for Developers）](https://developer.chrome.com/blog/html-in-canvas?hl=zh-tw "另開新視窗"){target="_blank"}
+- [Useful @custom-media Presets（blog.master.dev）](https://blog.master.dev/useful-custom-media-presets/ "另開新視窗"){target="_blank"}

@@ -205,7 +205,7 @@ Do you have carousels in your projects? Built in-house or from a library? I'd lo
 
 - [Make Screen Readers Speak: Replacing aria-live with ariaNotify()](/en/blog/aria-notify/)
 - [Tooltip Getting Cut Off? Let the Browser Find a Spot with @position-try](/en/blog/position-try/)
-- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

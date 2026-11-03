@@ -365,7 +365,7 @@ CSS 的 `@supports at-rule(@function)` 也可以偵測 `@function`，但我實�
 
 - [alpha() 一行調透明度，revert-rule 一行退回原樣：兩個 CSS 小工具實測](/blog/css-alpha-revert-rule/)
 - [放大之後，置中的內容上半部不見了？用 safe center 讓它捲得到](/blog/css-safe-alignment/)
-- [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ## 相關連結
 

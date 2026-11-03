@@ -179,7 +179,7 @@ Do your projects have a full-screen centered sign-in page or dialog? Zoom to 400
 
 - [Tooltip Getting Cut Off? Let the Browser Find a Spot with @position-try](/en/blog/position-try/)
 - [Page Jumps While You Read? A Look at Scroll Anchoring and overflow-anchor](/en/blog/scroll-anchoring/)
-- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

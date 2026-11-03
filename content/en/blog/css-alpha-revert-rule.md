@@ -196,7 +196,7 @@ Both are tiny bits of syntax, and both cut repetition: no more storing a color s
 
 - [Zoomed In and the Top of Your Centered Content Is Gone? Make It Reachable with safe center](/en/blog/css-safe-alignment/)
 - [Why Does width: 100% Overflow Its Container? Fill It Exactly with stretch](/en/blog/css-stretch/)
-- [Modern CSS & HTML Cheat Sheet: 115 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

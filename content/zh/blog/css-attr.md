@@ -240,7 +240,7 @@ if (!CSS.supports("width: attr(data-x type(<length>))")) {
 
 - [不用再手刻 roving tabindex：用 focusgroup 做鍵盤方向鍵導覽](/blog/focusgroup/)
 - [讓報讀軟體開口說話：用 ariaNotify() 取代 aria-live](/blog/aria-notify/)
-- [現代 CSS 與 HTML 技巧整理清單：115 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ## 相關連結
 
