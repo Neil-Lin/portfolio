@@ -12,13 +12,13 @@ translationKey: npm-maintenance-notes
 draft: true
 ---
 
-> 話說在前頭：這篇由 AI（Anthropic 的 Claude）協助收集資料與整理，我再閱讀確認。指令與預設值都對照 npm 12 的官方文件，並在 npm 11.21.1、12.2.1 上實際執行過，來源連結放在文末。有講錯的地方歡迎指正。
+> 話說在前頭：這篇由 AI（Anthropic 的 Claude）協助收集資料與整理，我再閱讀確認。指令與預設值都對照 npm 12 的官方文件，並在 npm 11.20.0（Node 26 內建）、11.21.1、12.2.1 上實際執行過，來源連結放在文末。有講錯的地方歡迎指正。
 
 前端專案開起來很快，但 Node 版本、套件來源、lockfile、版本範圍這些細節沒顧好，維護時才會發現事情大條。npm、pnpm、Yarn 的比較見[另一篇](/blog/package-managers-2026/)。
 
 ## 1. 鎖定 Node 版本
 
-套件可能會限制支援的 Node 版本，所以 Node 本身也要鎖。我建議用版本管理工具安裝 Node，不要直接用官網的安裝檔：安裝檔一次只會有一個版本，換專案時不好切換。我用的是 nvm（目前版本 v0.40.8）：
+套件可能會限制支援的 Node 版本，所以 Node 本身也要鎖。我建議用版本管理工具安裝 Node，不要直接用官網的安裝檔：安裝檔一次只會有一個版本，換專案時不好切換。以 nvm 為例（目前版本 v0.40.8）：
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash
@@ -150,7 +150,7 @@ npm cache verify
 - `test`、`start` 可以省略 `run`：`npm test`、`npm start`。
 - 名稱前加 `pre`、`post` 會在前後自動執行：定義了 `prebuild`，執行 `npm run build` 時會先跑它。
 
-要注意 `install` 相關的生命週期 scripts（`preinstall`、`install`、`postinstall`）：**依賴套件的這些 scripts 會在你安裝時自動執行**，惡意套件可以利用這點，在你的電腦上執行任何程式。npm 12 預設會擋下沒核准的，核准清單寫在 `package.json` 的 `allowScripts`：
+要注意 `install` 相關的生命週期 scripts（`preinstall`、`install`、`postinstall`）：**依賴套件的這些 scripts 會在你安裝時自動執行**，惡意套件可以利用這點，在你的電腦上執行任何程式。npm 12 預設會擋下沒核准的；Node 26 內建的 npm 11 只會顯示警告，**照樣執行**（我實測過）。核准清單寫在 `package.json` 的 `allowScripts`：
 
 ```bash
 npm install-scripts approve esbuild   # 核准後寫入 allowScripts
