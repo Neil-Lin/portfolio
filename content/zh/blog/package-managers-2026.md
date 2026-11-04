@@ -101,11 +101,13 @@ npm 加上 `strict-allow-scripts=true`，有未核准的腳本時安裝會直接
 
 ## 其他差異
 
-- **pnpm 12 能管理 Node 版本**：在 `package.json` 的 `devEngines.runtime` 指定，pnpm 會下載並驗證官方簽章；沒指定時讀 `.nvmrc` 或 `.node-version`。
+- **pnpm 12 能管理 Node 版本**：在 `package.json` 的 `devEngines.runtime` 指定，pnpm 會下載並驗證 Node 官方的簽章。專案沒指定時，透過 pnpm 安裝的全域 `node` 會改讀最近的 `.nvmrc` 或 `.node-version`。
 - **pnpm 12 的 lockfile 是固定的**：依賴有循環時用固定方式處理，同樣的依賴一定產生相同的 lockfile。
-- **npm 不用另外安裝**：隨 Node 內建、零設定，仍是它最大的優勢。
+- **npm 不用另外安裝**：隨 Node 內建，不需要額外設定就能用。
 
 ## 怎麼選
+
+以下是我的建議：
 
 | 情況 | 建議 |
 |---|---|

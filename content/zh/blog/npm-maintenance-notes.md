@@ -18,7 +18,7 @@ draft: true
 
 ## 1. 鎖定 Node 版本
 
-套件常常會綁 Node 版本，所以 Node 本身也要鎖。**不要從官網下載安裝檔**，裝了就只有一個版本，換專案時很難切換。用 nvm 管理（目前版本 v0.40.8）：
+套件可能會限制支援的 Node 版本，所以 Node 本身也要鎖。我建議用版本管理工具安裝 Node，不要直接用官網的安裝檔：安裝檔一次只會有一個版本，換專案時不好切換。我用的是 nvm（目前版本 v0.40.8）：
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash
@@ -27,7 +27,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash
 安裝腳本會把 nvm 下載到 `~/.nvm`，並嘗試把載入設定加進 shell 設定檔（例如 `~/.zshrc`）。重開終端機後：
 
 ```bash
-nvm install 26        # 安裝 Node 26 的最新版
+nvm install 26        # 安裝 Node 26.x 的最新版
 nvm use 26            # 切換到 Node 26
 nvm ls                # 列出已安裝的版本
 nvm alias default 26  # 新開終端機時的預設版本
@@ -103,7 +103,7 @@ npm outdated
 
 ## 5. 安裝出錯時的處理順序
 
-**不要一出錯就刪 `package-lock.json`。** lockfile 記錄的是「現在能動的這組版本」，刪掉後重裝，所有依賴（包括沒碰過的間接依賴）都會跳到版本範圍內的最新版，原本的問題可能消失，但會多出新問題，而且不知道變了什麼。
+**不要一出錯就刪 `package-lock.json`。** lockfile 記錄的是「現在能動的這組版本」，連同 `node_modules` 一起刪掉後重裝，所有依賴（包括沒碰過的間接依賴）都會跳到版本範圍內的最新版，原本的問題可能消失，但會多出新問題，而且不知道變了什麼。
 
 建議的順序：
 
@@ -190,7 +190,7 @@ npx 會先用專案已安裝的套件；專案裡沒有時，會先詢問，再�
 xcode-select --install
 ```
 
-現在很多原生套件（例如 `better-sqlite3`、`sharp`）都附預先編譯好的檔案，大多不需要在本機編譯。
+有些原生套件會附預先編譯好的檔案，例如 `better-sqlite3`、`sharp`，在常見的平台上不需要在本機編譯。
 
 ## 11. 版本號規則
 
@@ -204,7 +204,7 @@ xcode-select --install
 | `^0.2.3` | `>=0.2.3 <0.3.0`（0 開頭時 `^` 會更嚴格） |
 | `^0.0.3` | 只能是 0.0.3 |
 
-semver 規格定義 0.x 是初期開發階段，任何東西都可能隨時改變，所以 `^` 會鎖得更緊。
+semver 規格把 0.x 定義為初期開發階段，任何東西都可能隨時改變；npm 的 `^` 規則是「不改動最左邊第一個不是 0 的數字」，所以遇到 0.x 時範圍會變窄。
 
 預發布版本的排序：
 
@@ -216,9 +216,9 @@ semver 規格定義 0.x 是初期開發階段，任何東西都可能隨時改�
 
 ## 12. peerDependencies
 
-`peerDependencies` 的意思是：「要用我，你的專案裡也要裝 X。」例如 Vue 元件套件把 `vue` 寫在 peerDependencies：它需要 Vue，但不該自己再裝一份。
+`peerDependencies` 的意思是：「要用我，你的專案裡也要裝 X。」例如 `vue-router` 把 `vue` 寫在 peerDependencies：它需要 Vue，但用的是你專案裡的那一份，不會自己再裝一份。
 
-npm 會自動安裝 peerDependencies，版本衝突時直接報錯。網路上常見的解法 `--legacy-peer-deps`，是讓 npm **完全忽略** peerDependencies，只是把問題藏起來。先看清楚是哪兩個套件要求的版本衝突，再決定升級哪一邊。
+npm 7 起會自動安裝 peerDependencies；不同套件要求的版本衝突、無法解析時，安裝可能會報錯。常被拿來繞過錯誤的 `--legacy-peer-deps`，是讓 npm **完全忽略** peerDependencies，只是把問題藏起來。先看清楚是哪兩個套件要求的版本衝突，再決定升級哪一邊。
 
 ## 13. overrides：強制指定間接依賴的版本
 
