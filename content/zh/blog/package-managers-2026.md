@@ -16,7 +16,7 @@ draft: true
 
 > 文中的版本與預設值，是 2026 年 11 月 4 日用 npm 11.21.1、npm 12.2.1、pnpm 12.16.1、Yarn 4.18.1 實際查詢或執行的結果，請以各自的官方文件為準。
 
-三個工具的功能其實差不多，**差在預設開了哪些防護，以及設定錯了會不會提醒你**。日常指令與維護問題，見另一篇[前端套件管理的維護筆記](/blog/node-package-ecosystem/)。
+三個工具的功能其實差不多，**差在預設開了哪些防護，以及設定錯了會不會提醒你**。日常指令與維護問題，見另一篇[npm 維護筆記](/blog/npm-maintenance-notes/)。
 
 ## 版本現況
 
@@ -116,7 +116,7 @@ npm 加上 `strict-allow-scripts=true`，有未核准的腳本時安裝會直接
 
 ## 延伸閱讀
 
-- [前端套件管理的維護筆記：Node 版本、registry、lockfile 與那些年踩過的坑](/blog/node-package-ecosystem/)
+- [npm 維護筆記：Node 版本、套件來源、lockfile 與常見問題](/blog/npm-maintenance-notes/)
 
 ## 相關連結
 
