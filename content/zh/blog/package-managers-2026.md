@@ -1,6 +1,6 @@
 ---
 title: "npm、pnpm、Yarn 2026 最新版比較"
-description: "npm 12、pnpm 12、Yarn 4 的版本現況、安裝方式、安全預設值、node_modules 結構與設定檔對照。三者功能差不多，差在預設開了哪些防護，以及設定錯了會不會提醒你。"
+description: "npm 12、pnpm 12、Yarn 4 的版本現況、安裝方式、安全預設值、node_modules 結構與設定檔對照。三者的防護功能有很多重疊，差在預設開了哪些，以及設定寫錯時會不會擋下來。"
 date: 2026-11-04
 tags:
   - npm
@@ -14,7 +14,7 @@ translationKey: package-managers-2026
 draft: true
 ---
 
-> 話說在前頭：這篇由 AI（Anthropic 的 Claude）協助收集資料與整理，我再閱讀確認。文中的版本與預設值，是 2026 年 11 月 4 日用 npm 11.21.1、npm 12.2.1、pnpm 12.16.1、Yarn 4.18.1 實際查詢或執行的結果；其餘說法以官方文件、官方變更紀錄與 npm registry 的發布資料為依據，連結放在文末。工具更新很快，請以官方最新文件為準，有講錯的地方歡迎指正。
+> 話說在前頭：這篇由 AI（Anthropic 的 Claude）協助收集資料與整理，我再閱讀確認。文中的版本與預設值，是 2026 年 11 月 4 日用 npm 11.20.0（Node 26 內建）、npm 11.21.1、npm 12.2.1、pnpm 12.16.1、Yarn 4.18.1 實際查詢或執行的結果；其餘說法以官方文件、官方變更紀錄與 npm registry 的發布資料為依據，連結放在文末。工具更新很快，請以官方最新文件為準，有講錯的地方歡迎指正。
 
 三個工具的防護功能有很多重疊，**差在預設開了哪些，以及設定寫錯時會不會擋下來**。日常指令與維護問題，見另一篇[npm 維護筆記](/blog/npm-maintenance-notes/)。
 
@@ -48,7 +48,7 @@ pnpm 12 能安裝其他套件管理工具，執行前會先驗證 npm 的簽章�
 
 什麼都不設定時的行為：
 
-| 防護 | npm 11.21 | npm 12.2 | pnpm 12.16 | Yarn 4.18 |
+| 防護 | npm 11.20／11.21 | npm 12.2 | pnpm 12.16 | Yarn 4.18 |
 |---|---|---|---|---|
 | 發布冷卻期 | `min-release-age`，**預設關閉** | 同左 | `minimumReleaseAge` **預設 1440 分鐘**（非嚴格） | `npmMinimalAgeGate` **預設 1440 分鐘** |
 | 依賴的安裝腳本 | 未核准的**照跑**，只顯示提示 | 未核准的**擋下**並警告 | 未核准的**擋下** | `enableScripts` **預設關閉** |
@@ -57,9 +57,12 @@ pnpm 12 能安裝其他套件管理工具，執行前會先驗證 npm 的簽章�
 | 信任等級下降 | 沒有 | 沒有 | `trustPolicy: no-downgrade`，要自己開 | 未找到對應設定 |
 | SBOM | `npm sbom` | `npm sbom` | `pnpm sbom` | 未找到內建指令 |
 
+注意版本差異：pnpm 10 的官方文件中，`minimumReleaseAge` 預設是 0、`blockExoticSubdeps` 預設是 false。上表是 pnpm 12 的預設值，我實測過兩者確實預設開啟。
+
 **冷卻期的嚴格模式**
 - pnpm：官方文件寫明，內建的 1440 分鐘預設值是非嚴格的，找不到夠舊的版本時會退而安裝新版本，讓安裝照樣成功。**自己明確設定 `minimumReleaseAge` 時，`minimumReleaseAgeStrict` 才會預設為 true**，找不到夠舊的版本就失敗。
 - npm 的 `min-release-age` 單位是天，一開就是嚴格。
+- Yarn：實測指定的版本未滿 1440 分鐘時，安裝失敗並標示為 quarantined。
 
 **安裝腳本白名單**
 
@@ -82,7 +85,7 @@ npm 加上 `strict-allow-scripts=true`，有未核准的腳本時安裝會直接
 |---|---|---|---|
 | 預設結構 | 扁平，盡量放在最上層 | 共用 store，用硬連結與符號連結組成 | **Plug'n'Play**，沒有 `node_modules` |
 | 沒宣告就使用的套件（實測） | 被提升到最上層時引用得到 | 專案程式碼引用不到 | 引用不到 |
-| 跨專案重複的套件 | 各存一份 | 共用一份 | 共用快取 |
+| 跨專案重複的套件 | 各專案的 `node_modules` 各存一份 | 從共用的 store 硬連結，同一份檔案 | 從全域快取讀取 |
 
 - Yarn 可用 `nodeLinker` 改成 `node-modules` 或 `pnpm`。
 - pnpm 的嚴格結構偶爾讓工具找不到間接依賴，例如 Nuxt 開發時 Vite 找不到 `@nuxtjs/mdc`，用 `publicHoistPattern` 提升到根目錄即可。
@@ -125,6 +128,7 @@ npm 加上 `strict-allow-scripts=true`，有未核准的腳本時安裝會直接
 - [npm Docs — config](https://docs.npmjs.com/cli/using-npm/config "另開新視窗"){target="_blank"}
 - [pnpm — 設定](https://pnpm.io/settings "另開新視窗"){target="_blank"}
 - [pnpm — 依賴解析設定（minimumReleaseAge、trustPolicy、blockExoticSubdeps）](https://pnpm.io/settings/dependency-resolution "另開新視窗"){target="_blank"}
+- [pnpm 10 的設定文件（舊版預設值）](https://pnpm.io/10.x/settings "另開新視窗"){target="_blank"}
 - [pnpm — 為什麼用 pnpm（store 與非扁平的 node_modules）](https://pnpm.io/motivation "另開新視窗"){target="_blank"}
 - [pnpm — 安裝](https://pnpm.io/installation "另開新視窗"){target="_blank"}
 - [Yarn — .yarnrc.yml 設定](https://yarnpkg.com/configuration/yarnrc "另開新視窗"){target="_blank"}
