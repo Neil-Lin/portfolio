@@ -43,7 +43,7 @@ nvm alias default 26  # 新開終端機時的預設版本
 
 ## 2. 鎖定 npm 版本
 
-npm 隨 Node 內建，但**裝了最新的 Node 不等於用最新的 npm**：Node 26 內建的是 npm 11.20，最新版是 npm 12。要升級：
+npm 隨 Node 內建，但**裝了最新的 Node 不等於用最新的 npm**：Node 26（26.13.0）內建的是 npm 11.20.0，最新版是 npm 12.2.1。要升級：
 
 ```bash
 npm i -g npm@12
@@ -75,7 +75,7 @@ npm i -g npm@12
 也可以用指令設定：
 
 ```bash
-npm config set @mycompany:registry https://npm.mycompany.com/
+npm config set @mycompany:registry=https://npm.mycompany.com/
 ```
 
 如果整個切換過 registry 又在那時安裝套件，`package-lock.json` 會記下那個來源的網址（例如內網的 `192.168.x.x`），換個環境就裝不起來。這也是不要整個切換的原因。
@@ -272,8 +272,8 @@ strict-allow-scripts=true
 查看目前套用的設定：
 
 ```bash
-npm config list      # 有改過的設定
-npm config ls -l     # 全部設定，包含預設值
+npm config list      # 列出設定
+npm config list -l   # 連預設值一起列出
 ```
 
 ## 延伸閱讀
