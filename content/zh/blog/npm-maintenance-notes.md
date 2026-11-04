@@ -9,7 +9,7 @@ tags:
   - 資訊安全
 category: frontend
 translationKey: npm-maintenance-notes
-draft: true
+draft: false
 ---
 
 > 話說在前頭：這篇由 AI（Anthropic 的 Claude）協助收集資料與整理，我再閱讀確認。指令與預設值都對照 npm 12 的官方文件，並在 npm 11.20.0（Node 26 內建）、11.21.1、12.2.1 上實際執行過，來源連結放在文末。有講錯的地方歡迎指正。

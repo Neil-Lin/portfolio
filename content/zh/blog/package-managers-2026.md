@@ -11,7 +11,7 @@ tags:
   - 資訊安全
 category: frontend
 translationKey: package-managers-2026
-draft: true
+draft: false
 ---
 
 > 話說在前頭：這篇由 AI（Anthropic 的 Claude）協助收集資料與整理，我再閱讀確認。文中的版本與預設值，是 2026 年 11 月 4 日用 npm 11.20.0（Node 26 內建）、npm 11.21.1、npm 12.2.1、pnpm 12.16.1、Yarn 4.18.1 實際查詢或執行的結果；其餘說法以官方文件、官方變更紀錄與 npm registry 的發布資料為依據，連結放在文末。工具更新很快，請以官方最新文件為準，有講錯的地方歡迎指正。
