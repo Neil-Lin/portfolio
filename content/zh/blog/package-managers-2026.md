@@ -14,7 +14,7 @@ translationKey: package-managers-2026
 draft: true
 ---
 
-> 文中的版本與預設值，是 2026 年 11 月 4 日用 npm 11.21.1、npm 12.2.1、pnpm 12.16.1、Yarn 4.18.1 實際查詢或執行的結果，請以各自的官方文件為準。
+> 話說在前頭：這篇由 AI（Anthropic 的 Claude）協助收集資料與整理，我再閱讀確認。文中的版本與預設值，是 2026 年 11 月 4 日用 npm 11.21.1、npm 12.2.1、pnpm 12.16.1、Yarn 4.18.1 實際查詢或執行的結果；其餘說法以官方文件、官方變更紀錄與 npm registry 的發布資料為依據，連結放在文末。工具更新很快，請以官方最新文件為準，有講錯的地方歡迎指正。
 
 三個工具的功能其實差不多，**差在預設開了哪些防護，以及設定錯了會不會提醒你**。日常指令與維護問題，見另一篇[npm 維護筆記](/blog/npm-maintenance-notes/)。
 
@@ -22,10 +22,10 @@ draft: true
 
 | 工具 | 最新穩定版 | 備註 |
 |---|---|---|
-| npm | **12.2.1** | 12.0.0 於 2026 年 7 月發布，支援 Node `^22.22.2 \|\| ^24.15.0 \|\| >=26`。**Node 26 LTS 內建的是 npm 11.20.0**，要用 12 得自己升級 |
+| npm | **12.2.1** | 12.0.0 於 2026 年 7 月發布，支援 Node `^22.22.2 \|\| ^24.15.0 \|\| >=26`。**Node 26 LTS（26.13.0）內建的是 npm 11.20.0**，要用 12 得自己升級 |
 | pnpm | **12.16.1** | 12.0.0 於 2026 年 8 月發布，CLI 改用 Rust，各平台發布獨立執行檔。pnpm 11 仍在維護 |
 | Yarn | **4.18.1** | 2026 年 9 月發布。Rust 重寫的 Yarn 6 仍是預覽版 |
-| Yarn Classic | 1.22.22 | 不再開發新功能，新專案不建議 |
+| Yarn Classic | 1.22.22 | 2024 年 3 月後沒有新版本 |
 
 ## 安裝方式
 
@@ -35,7 +35,7 @@ draft: true
 |---|---|
 | npm | 隨 Node 內建；升級用 `npm i -g npm@12` |
 | pnpm | `npm i -g pnpm@12` 或官方安裝腳本；升級用 `pnpm self-update` |
-| Yarn 4 | `npm i -g corepack` 後 `corepack enable`；或 `pnpm add -g yarn@4` |
+| Yarn 4 | 官方做法：`npm i -g corepack` 後在專案裡使用 `yarn`；或 `pnpm add -g yarn@4` |
 
 pnpm 12 能安裝其他套件管理工具，執行前會先驗證 npm 的簽章，例如 `pnx npm@11 ci` 可臨時用指定版本的 npm。
 
@@ -73,7 +73,7 @@ pnpm 12 能安裝其他套件管理工具，執行前會先驗證 npm 的簽章�
 npm 加上 `strict-allow-scripts=true`，有未核准的腳本時安裝會直接失敗。
 
 **設定寫錯時**
-- npm：不認得的設定**直接忽略，不會報錯**。CI 的 npm 版本較舊時，防護可能根本沒生效。
+- npm：不認得的設定只顯示 `Unknown project config` 警告，**安裝照常進行**。CI 的 npm 版本較舊時，防護可能沒生效，只留下一行容易被忽略的警告。
 - pnpm 12：`pnpm-workspace.yaml` 有不認得的設定會提示正確名稱；專案有釘 pnpm 版本時，指令直接失敗。
 
 ## node_modules 結構
@@ -92,7 +92,7 @@ npm 加上 `strict-allow-scripts=true`，有未核准的腳本時安裝會直接
 | | npm | pnpm 12 | Yarn 4 |
 |---|---|---|---|
 | 主要設定檔 | `.npmrc` | `pnpm-workspace.yaml`（單一專案也用） | `.yarnrc.yml` |
-| 讀 `.npmrc` | 全部 | 只讀 registry 相關；`engine-strict`、`save-exact` 實測不讀 | 不讀 |
+| 讀 `.npmrc` | 全部 | 實測：`registry` 會讀，`engine-strict`、`save-exact` 不讀 | 實測不讀 |
 | 覆寫依賴版本 | `package.json` 的 `overrides` | `pnpm-workspace.yaml` 的 `overrides` | `package.json` 的 `resolutions` |
 | 照 lockfile 安裝 | `npm ci` | `pnpm install --frozen-lockfile` | `yarn install --immutable` |
 | 執行一次性工具 | `npx` | `pnpm dlx`／`pnx` | `yarn dlx` |
@@ -124,4 +124,9 @@ npm 加上 `strict-allow-scripts=true`，有未核准的腳本時安裝會直接
 - [pnpm — 設定](https://pnpm.io/settings "另開新視窗"){target="_blank"}
 - [pnpm — 安裝](https://pnpm.io/installation "另開新視窗"){target="_blank"}
 - [Yarn — .yarnrc.yml 設定](https://yarnpkg.com/configuration/yarnrc "另開新視窗"){target="_blank"}
-- [Node.js — Corepack](https://nodejs.org/api/corepack.html "另開新視窗"){target="_blank"}
+- [Node.js 24 文件 — Corepack（v25 起不再隨 Node 發布）](https://nodejs.org/docs/latest-v24.x/api/corepack.html "另開新視窗"){target="_blank"}
+- [Node.js 各版本內建的 npm 版本（官方 index.json）](https://nodejs.org/dist/index.json "另開新視窗"){target="_blank"}
+- [npm Docs — npm install-scripts](https://docs.npmjs.com/cli/commands/npm-install-scripts "另開新視窗"){target="_blank"}
+- [pnpm 變更紀錄（GitHub Releases）](https://github.com/pnpm/pnpm/releases "另開新視窗"){target="_blank"}
+- [Yarn — 安裝](https://yarnpkg.com/getting-started/install "另開新視窗"){target="_blank"}
+- [Yarn 6 文件（預覽版）](https://v6.yarnpkg.com/concepts/yarn-6 "另開新視窗"){target="_blank"}

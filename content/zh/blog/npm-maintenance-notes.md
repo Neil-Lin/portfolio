@@ -12,7 +12,7 @@ translationKey: npm-maintenance-notes
 draft: true
 ---
 
-> 指令與預設值對照 npm 12 的官方文件，並實際執行過。
+> 話說在前頭：這篇由 AI（Anthropic 的 Claude）協助收集資料與整理，我再閱讀確認。指令與預設值都對照 npm 12 的官方文件，並在 npm 11.21.1、12.2.1 上實際執行過，來源連結放在文末。有講錯的地方歡迎指正。
 
 前端專案開起來很快，但 Node 版本、套件來源、lockfile、版本範圍這些細節沒顧好，維護時才會發現事情大條。npm、pnpm、Yarn 的比較見[另一篇](/blog/package-managers-2026/)。
 
@@ -88,7 +88,7 @@ npm config set @mycompany:registry https://npm.mycompany.com/
 npm outdated
 ```
 
-會列出目前版本（Current）、版本範圍內的最新版（Wanted）與所有版本中的最新版（Latest）。
+會列出目前版本（Current）、版本範圍內的最新版（Wanted）與 registry 上標記為 latest 的版本（Latest）。
 
 - **只升到版本範圍內的最新版**：`npm update`。
 - **升到最新的主版號**：用 [npm-check-updates](https://github.com/raineorshine/npm-check-updates) 的互動模式，逐一選擇：
@@ -256,7 +256,7 @@ strict-allow-scripts=true
 ```
 
 - **不建議 `ignore-scripts=true`**：它會擋掉所有安裝腳本，包括正常套件需要的。用 `allowScripts` 白名單只放行確認過的套件。
-- **確認 npm 版本支援這些設定**：npm 碰到不認得的設定會直接忽略，**不會報錯**。CI 上的 npm 版本比本機舊時，防護可能根本沒生效。
+- **確認 npm 版本支援這些設定**：npm 碰到不認得的設定，只會顯示 `Unknown project config` 警告，**安裝照常進行**。CI 上的 npm 版本比本機舊時，防護可能沒生效，只留下一行容易被忽略的警告。
 
 ### 設定的優先順序
 
@@ -289,5 +289,10 @@ npm config ls -l     # 全部設定，包含預設值
 - [npm Docs — npm audit](https://docs.npmjs.com/cli/commands/npm-audit "另開新視窗"){target="_blank"}
 - [npm Docs — package.json（devEngines、overrides）](https://docs.npmjs.com/cli/configuring-npm/package-json "另開新視窗"){target="_blank"}
 - [semver 規格](https://semver.org/lang/zh-TW/ "另開新視窗"){target="_blank"}
+- [npm Docs — npm install-scripts](https://docs.npmjs.com/cli/commands/npm-install-scripts "另開新視窗"){target="_blank"}
+- [npm Docs — npm outdated](https://docs.npmjs.com/cli/commands/npm-outdated "另開新視窗"){target="_blank"}
+- [npm Docs — npm exec（npx）](https://docs.npmjs.com/cli/commands/npm-exec "另開新視窗"){target="_blank"}
+- [Node.js 各版本內建的 npm 版本（官方 index.json）](https://nodejs.org/dist/index.json "另開新視窗"){target="_blank"}
+- [node-gyp — 安裝需求（macOS 需要 Xcode Command Line Tools）](https://github.com/nodejs/node-gyp#installation "另開新視窗"){target="_blank"}
 - [nvm](https://github.com/nvm-sh/nvm "另開新視窗"){target="_blank"}
 - [npm-check-updates](https://github.com/raineorshine/npm-check-updates "另開新視窗"){target="_blank"}
