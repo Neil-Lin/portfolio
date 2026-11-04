@@ -26,6 +26,8 @@
 | `allowBuilds` | 允許執行安裝腳本的套件 | esbuild、unrs-resolver。`better-sqlite3`、`sharp` 附預先編譯檔，不需要 |
 | `overrides` | 從 `package.json` 搬過來 | `vue-router: 5.4.0` |
 
+`engineStrict: true` 原本是 `.npmrc` 的 `engine-strict=true`；pnpm 12 不讀這一行（實測：在 Node 22 照樣安裝；改寫在 `pnpm-workspace.yaml` 後就會擋下），所以搬到這裡並刪掉 `.npmrc`（另一行 `registry=` 是預設值）。
+
 `blockExoticSubdeps`（擋掉從 git、網址安裝的間接依賴）在 pnpm 11 起是預設開啟，不用寫。
 
 ## 實測時擋下的東西

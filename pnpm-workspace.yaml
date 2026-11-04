@@ -1,5 +1,9 @@
 # pnpm 設定（單一專案也放這裡，不需要 packages:）。決策紀錄見 docs/package-manager.md
 
+# Node 版本不符合 package.json 的 engines（>=26 <27）就拒絕安裝。
+# 原本寫在 .npmrc 的 engine-strict=true，pnpm 不會讀，要寫在這裡。
+engineStrict: true
+
 # 新版本發布未滿 24 小時（1440 分鐘）不安裝。明確寫出來才是嚴格模式：
 # 沒有夠舊的版本時直接失敗，而不是退而安裝新版本。
 minimumReleaseAge: 1440
