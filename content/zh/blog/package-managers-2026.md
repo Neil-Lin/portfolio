@@ -29,7 +29,7 @@ draft: true
 
 ## 安裝方式
 
-**Node 25 起不再內建 Corepack**（Node.js 技術指導委員會投票決定），pnpm 和 Yarn 要自己裝：
+**Node 25 起不再內建 Corepack**，pnpm 和 Yarn 要自己裝：
 
 | 工具 | 安裝與升級 |
 |---|---|
@@ -39,11 +39,10 @@ draft: true
 
 pnpm 12 能安裝其他套件管理工具，執行前會先驗證 npm 的簽章，例如 `pnx npm@11 ci` 可臨時用指定版本的 npm。
 
-三者都建議用 `packageManager` 釘住版本，只接受完整版本號：
+釘住套件管理工具的版本：
 
-```json
-"packageManager": "pnpm@12.16.1"
-```
+- **pnpm、Yarn**：`package.json` 的 `packageManager`，只接受完整版本號，例如 `"packageManager": "pnpm@12.16.1"`。
+- **npm**：官方文件沒有 `packageManager` 欄位，改用 `devEngines.packageManager` 檢查版本，不符合時停止。
 
 ## 安全預設值
 
@@ -53,13 +52,13 @@ pnpm 12 能安裝其他套件管理工具，執行前會先驗證 npm 的簽章�
 |---|---|---|---|---|
 | 發布冷卻期 | `min-release-age`，**預設關閉** | 同左 | `minimumReleaseAge` **預設 1440 分鐘**（非嚴格） | `npmMinimalAgeGate` **預設 1440 分鐘** |
 | 依賴的安裝腳本 | 未核准的**照跑**，只顯示提示 | 未核准的**擋下**並警告 | 未核准的**擋下** | `enableScripts` **預設關閉** |
-| 從 git 安裝依賴 | `allow-git` 預設 `all` | 預設 `none` | `blockExoticSubdeps` 可擋間接依賴 | `approvedGitRepositories` 預設空白（全擋） |
-| 從網址安裝 tarball | `allow-remote` 預設 `all` | 預設 `none` | 同上 | 未找到對應設定 |
+| 從 git 安裝依賴 | `allow-git` 預設 `all` | 預設 `none` | `blockExoticSubdeps` **預設開啟**：間接依賴不准，直接依賴可以 | `approvedGitRepositories` 預設空白（全擋） |
+| 從網址安裝 tarball | `allow-remote` 預設 `all` | 預設 `none` | 同上（`blockExoticSubdeps`） | 未找到對應設定 |
 | 信任等級下降 | 沒有 | 沒有 | `trustPolicy: no-downgrade`，要自己開 | 未找到對應設定 |
 | SBOM | `npm sbom` | `npm sbom` | `pnpm sbom` | 未找到內建指令 |
 
 **冷卻期的嚴格模式**
-- pnpm 預設非嚴格：符合範圍的版本都未滿 24 小時，就退而安裝新版本。**在設定檔明確寫上 `minimumReleaseAge` 才會變嚴格**，找不到夠舊的版本直接失敗。
+- pnpm：官方文件寫明，內建的 1440 分鐘預設值是非嚴格的，找不到夠舊的版本時會退而安裝新版本，讓安裝照樣成功。**自己明確設定 `minimumReleaseAge` 時，`minimumReleaseAgeStrict` 才會預設為 true**，找不到夠舊的版本就失敗。
 - npm 的 `min-release-age` 單位是天，一開就是嚴格。
 
 **安裝腳本白名單**
@@ -81,7 +80,7 @@ npm 加上 `strict-allow-scripts=true`，有未核准的腳本時安裝會直接
 | | npm | pnpm | Yarn 4 |
 |---|---|---|---|
 | 預設結構 | 扁平，盡量放在最上層 | 共用 store，用硬連結與符號連結組成 | **Plug'n'Play**，沒有 `node_modules` |
-| 沒宣告就使用的套件 | 引用得到 | 報錯 | 報錯 |
+| 沒宣告就使用的套件 | 被提升到最上層時引用得到 | 專案程式碼引用不到 | 引用不到 |
 | 跨專案重複的套件 | 各存一份 | 共用一份 | 共用快取 |
 
 - Yarn 可用 `nodeLinker` 改成 `node-modules` 或 `pnpm`。
@@ -122,6 +121,8 @@ npm 加上 `strict-allow-scripts=true`，有未核准的腳本時安裝會直接
 
 - [npm Docs — config](https://docs.npmjs.com/cli/using-npm/config "另開新視窗"){target="_blank"}
 - [pnpm — 設定](https://pnpm.io/settings "另開新視窗"){target="_blank"}
+- [pnpm — 依賴解析設定（minimumReleaseAge、trustPolicy、blockExoticSubdeps）](https://pnpm.io/settings/dependency-resolution "另開新視窗"){target="_blank"}
+- [pnpm — 為什麼用 pnpm（store 與非扁平的 node_modules）](https://pnpm.io/motivation "另開新視窗"){target="_blank"}
 - [pnpm — 安裝](https://pnpm.io/installation "另開新視窗"){target="_blank"}
 - [Yarn — .yarnrc.yml 設定](https://yarnpkg.com/configuration/yarnrc "另開新視窗"){target="_blank"}
 - [Node.js 24 文件 — Corepack（v25 起不再隨 Node 發布）](https://nodejs.org/docs/latest-v24.x/api/corepack.html "另開新視窗"){target="_blank"}

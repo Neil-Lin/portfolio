@@ -24,7 +24,7 @@ draft: true
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash
 ```
 
-安裝腳本會把載入設定加進 shell 設定檔（例如 `~/.zshrc`），重開終端機後：
+安裝腳本會把 nvm 下載到 `~/.nvm`，並嘗試把載入設定加進 shell 設定檔（例如 `~/.zshrc`）。重開終端機後：
 
 ```bash
 nvm install 26        # 安裝 Node 26 的最新版
@@ -99,7 +99,7 @@ npm outdated
 
 **一次升一小批，每批跑完測試再繼續。** 全部一起升，壞掉時很難知道是哪個套件造成的。
 
-**新版本先等一天**：供應鏈攻擊常見的手法是盜用維護者帳號、發布惡意新版本，趁還沒被發現時被自動安裝。在 `.npmrc` 設定 `min-release-age=1`（單位是天），發布未滿一天的版本就不安裝。
+**新版本先等一天**：在 `.npmrc` 設定 `min-release-age=1`（單位是天），發布未滿一天的版本就不安裝，降低裝到剛發布、還沒被發現有問題（包括被植入惡意程式）的版本的風險。找不到符合條件的版本時，npm 會直接報錯。
 
 ## 5. 安裝出錯時的處理順序
 
@@ -109,7 +109,7 @@ npm outdated
 
 1. 用 `npm ci` 照 lockfile 重裝（它會先刪掉 `node_modules`）。
 2. 還是不行，用 `npm ls <套件名稱>` 找出是哪個套件、哪個版本出問題。
-3. 只更新那個套件：`npm install <套件>@<版本>`，lockfile 只會改這一部分。
+3. 只更新那個套件：`npm install <套件>@<版本>`，lockfile 只會改動跟它有關的部分。
 
 **快取幾乎不會是問題。** npm 的快取在寫入和讀出時都會驗證完整性，資料壞掉會自動重新下載。官方文件寫明：除了要釋放硬碟空間，沒有理由清快取。要檢查快取，用：
 
@@ -150,7 +150,7 @@ npm cache verify
 - `test`、`start` 可以省略 `run`：`npm test`、`npm start`。
 - 名稱前加 `pre`、`post` 會在前後自動執行：定義了 `prebuild`，執行 `npm run build` 時會先跑它。
 
-要注意 `install` 相關的生命週期 scripts（`preinstall`、`install`、`postinstall`）：**依賴套件的這些 scripts 會在你安裝時自動執行**，這正是惡意套件最常用的手法。npm 12 預設會擋下沒核准的，核准清單寫在 `package.json` 的 `allowScripts`：
+要注意 `install` 相關的生命週期 scripts（`preinstall`、`install`、`postinstall`）：**依賴套件的這些 scripts 會在你安裝時自動執行**，惡意套件可以利用這點，在你的電腦上執行任何程式。npm 12 預設會擋下沒核准的，核准清單寫在 `package.json` 的 `allowScripts`：
 
 ```bash
 npm install-scripts approve esbuild   # 核准後寫入 allowScripts
@@ -180,11 +180,11 @@ npm audit signatures               # 檢查套件的 registry 簽章與來源證
 npx npm-check-updates
 ```
 
-npx 會先找專案 `node_modules/.bin` 裡有沒有，沒有才下載到暫存區執行。下載執行等於直接跑網路上的程式碼，**套件名稱要打對**，避免裝到名稱相近的惡意套件。
+npx 會先用專案已安裝的套件；專案裡沒有時，會先詢問，再下載到 npm 的快取資料夾執行。下載執行等於直接跑網路上的程式碼，**套件名稱要打對**，避免裝到名稱相近的其他套件。
 
 ## 10. 原生模組編譯失敗
 
-含有 C/C++ 原生程式碼的套件，安裝時要用 node-gyp 編譯。在 Mac 上失敗，最常見的原因是沒裝 Xcode 命令列工具：
+含有 C/C++ 原生程式碼的套件，安裝時要用 node-gyp 編譯。node-gyp 的官方說明寫明，macOS 需要先安裝 Xcode 命令列工具：
 
 ```bash
 xcode-select --install
@@ -204,7 +204,7 @@ xcode-select --install
 | `^0.2.3` | `>=0.2.3 <0.3.0`（0 開頭時 `^` 會更嚴格） |
 | `^0.0.3` | 只能是 0.0.3 |
 
-0.x 代表還不穩定，任何次版號更新都可能有破壞性變更，所以 `^` 會鎖得更緊。
+semver 規格定義 0.x 是初期開發階段，任何東西都可能隨時改變，所以 `^` 會鎖得更緊。
 
 預發布版本的排序：
 
@@ -212,7 +212,7 @@ xcode-select --install
 1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0
 ```
 
-**真正鎖住版本的是 lockfile。** 只要 commit 了 `package-lock.json`、CI 用 `npm ci`，`^` 也不會裝到意外的版本。`save-exact=true`（安裝時寫入固定版本）的代價是每個小修正都要手動升級；要發布給別人用的套件更不該寫死，會造成使用者的依賴衝突。
+**真正鎖住版本的是 lockfile。** 只要 commit 了 `package-lock.json`、CI 用 `npm ci`，`^` 也不會裝到意外的版本。`save-exact=true`（安裝時寫入固定版本）的代價是每個小修正都要手動升級。我的建議是應用程式靠 lockfile 就夠了；要發布給別人用的套件也不建議寫死，使用者的專案會比較難跟其他套件共用同一個版本。
 
 ## 12. peerDependencies
 
