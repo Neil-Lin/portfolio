@@ -50,7 +50,7 @@ draft: false
 | `margin-inline` | 邏輯屬性，一次設定行向左右邊距（常用 `auto` 置中） | `margin-inline: auto;` | 🟢 | ✅ |
 | 多值 display（雙值語法） | 拆開寫「外部 × 內部」顯示：`display: block flex` 等；`flex`＝`block flex`、`inline-flex`＝`inline flex`。理解 display 的雙層本質，日常仍可續用單值縮寫 | `display: inline flex;` | 🟡 | ✅ |
 | `stretch` 尺寸關鍵字 | 讓元素撐滿容器可用空間（會算進 margin），取代 `-webkit-fill-available` 這類私有寫法（實測與網站檢查見[這篇](/blog/css-stretch/)） | `width: stretch;` | 🟡 | ✅ |
-| 單軸捲動容器 | 只在一個方向捲動、另一個方向 `clip`，讓 `position: sticky` 在兩個方向分別受不同的捲動容器限制（例如表頭和第一欄各自固定）；Chrome 156 Beta | `overflow: scroll clip;` | 🟠 | ⬜ |
+| 單軸捲動容器 | 只在一個方向捲動、另一個方向 `clip`，讓 `position: sticky` 在兩個方向分別受不同的捲動容器限制（例如表頭黏在頁面頂端、第一欄黏在表格左邊）；Chrome 156 起支援，以前 `clip` 會被改成 `hidden`（資料表的實測與無障礙重點見[這篇](/blog/css-single-axis-scroll/)） | `overflow: auto clip;` | 🟠 | ✅ |
 | 溢位對齊 `safe` / `unsafe` | 置中的內容放不下時，`safe` 會改成靠起點對齊，避免內容被推到看不到、捲不到的地方；Safari 27.2 補上與 `normal` 搭配，絕對／固定定位的元素用 `safe` 會留在原本的包含區塊內（大型 select 選單也靠這個不跑出畫面）（放大畫面與鍵盤焦點的實測見[這篇](/blog/css-safe-alignment/)） | `align-items: safe center;` | 🟡 | ✅ |
 
 ## B. 選擇器（Selectors）
@@ -223,9 +223,7 @@ draft: false
 
 ## 建議優先補實驗的清單
 
-原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的。這項要 Chrome 156 以上才測得到（我測的 153 裡，`overflow: scroll clip` 的 `clip` 還會被改成 `hidden`）。
-
-1. 單軸捲動容器（`overflow: scroll clip`）——資料表的表頭和第一欄同時固定，鍵盤能不能捲動。
+原本列在這裡的幾項都已經打勾了，最後一項單軸捲動容器的實測寫在[這篇](/blog/css-single-axis-scroll/)。
 
 原本也列了 `image-animation`／`:animated-image`，但它的出貨提案已經封存，等重新提出再實測。
 

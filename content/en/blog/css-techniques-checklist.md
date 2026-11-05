@@ -50,7 +50,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `margin-inline` | Logical property; set both inline-axis margins at once (often `auto` to center) | `margin-inline: auto;` | 🟢 | ✅ |
 | Two-value display | Write outer × inner display separately: `display: block flex` etc.; `flex` = `block flex`, `inline-flex` = `inline flex`. Clarifies display's two layers; single-value shorthands still fine day-to-day | `display: inline flex;` | 🟡 | ✅ |
 | `stretch` sizing keyword | Make a box fill its container's available space (margins included), replacing vendor-specific values like `-webkit-fill-available` (see [my post testing it and checking my site](/en/blog/css-stretch/)) | `width: stretch;` | 🟡 | ✅ |
-| Single-axis scroll containers | Scroll in one direction and `clip` in the other, so `position: sticky` can be constrained by different scroll containers per axis (e.g. a sticky table header and first column); Chrome 156 Beta | `overflow: scroll clip;` | 🟠 | ⬜ |
+| Single-axis scroll containers | Scroll in one direction and `clip` in the other, so `position: sticky` can be constrained by different scroll containers per axis (e.g. a table header stuck to the top of the page and a first column stuck to the table's left edge); supported since Chrome 156, where `clip` used to be changed to `hidden` (see [my post testing it on a data table, with accessibility notes](/en/blog/css-single-axis-scroll/)) | `overflow: auto clip;` | 🟠 | ✅ |
 | `safe` / `unsafe` overflow alignment | When centered content doesn't fit, `safe` falls back to start alignment so content isn't pushed somewhere you can't see or scroll to; Safari 27.2 adds pairing with `normal`, and `safe` keeps absolutely and fixed positioned boxes inside their containing block (which is also how large select pickers now stay on screen) (see [my post testing it with zoom and keyboard focus](/en/blog/css-safe-alignment/)) | `align-items: safe center;` | 🟡 | ✅ |
 
 ## B. Selectors
@@ -223,9 +223,7 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 
 ## What to try next (recommended)
 
-Everything that used to be listed here is now checked off. This is the unchecked item I want to do next. It needs Chrome 156 or later (in the 153 I tested, the `clip` in `overflow: scroll clip` still turns into `hidden`).
-
-1. Single-axis scroll containers (`overflow: scroll clip`)—a data table with both the header row and first column sticky; can it be scrolled with the keyboard?
+Everything that used to be listed here is now checked off; the last one, single-axis scroll containers, is covered in [this post](/en/blog/css-single-axis-scroll/).
 
 `image-animation` / `:animated-image` used to be listed here too, but its intent to ship has been archived; I'll test it once it's proposed again.
 

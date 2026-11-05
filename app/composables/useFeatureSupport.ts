@@ -78,6 +78,11 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "<usermedia>",
     detect: () => "HTMLUserMediaElement" in window,
   },
+  "single-axis-scroll": {
+    name: "single-axis scroll containers",
+    // 單軸捲動容器沒有新的屬性值可偵測（clip 早就支援），Chrome 用 named-feature() 讓 @supports 判斷
+    detect: () => CSS.supports("named-feature(single-axis-scroll-container)"),
+  },
   "text-fit": {
     name: "text-fit",
     detect: () => CSS.supports("text-fit: grow"),
