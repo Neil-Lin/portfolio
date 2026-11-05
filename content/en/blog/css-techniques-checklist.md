@@ -2,7 +2,7 @@
 title: "Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next"
 description: "A scannable checklist of modern CSS and HTML features—grouped by layout, selectors, color, typography, animation and more, plus declarative HTML additions like `<geolocation>`, `focusgroup` and Invoker Commands—each with its purpose, an example, and browser support."
 date: 2026-07-06
-updatedAt: 2026-11-03
+updatedAt: 2026-11-05
 tags:
   - CSS
   - HTML
@@ -68,7 +68,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `:heading` | Select all headings at once; supported from Safari 27, not in other browsers yet | `:heading{}` | 🟠 | ⬜ |
 | Carousel selectors | `::scroll-marker` / `scroll-marker-group` / `:target-current` for native carousels and scrollspy; Chrome 154 adds `links` (default) and `tabs` modes to `scroll-marker-group`, changing the markers' focus order and ARIA semantics | `:target-current{}` | 🟠 | ✅ |
 | Media state pseudo-classes (`:playing` / `:paused` / `:muted`, etc.) | Style `<video>`/`<audio>` directly by playing, paused, muted or buffering state, so custom players no longer need JS to toggle classes (Safari first, added in Chrome 156 Beta, not in Firefox yet) | `video:paused + .play-btn{}` | 🟠 | ⬜ |
-| `image-animation` / `:animated-image` | Control whether animated images such as GIF and APNG play, and select animated images; animated GIFs have always been hard to square with WCAG 2.2.2 Pause, Stop, Hide, so this is high-value for accessibility (Chrome 156 Beta) | `img:animated-image { image-animation: paused; }` | 🟠 | ⬜ |
+| `image-animation` / `:animated-image` | Control whether animated images such as GIF and APNG play, and select animated images; animated GIFs have always been hard to square with WCAG 2.2.2 Pause, Stop, Hide, so this is high-value for accessibility. **Not shipped yet**: from Chromium 153 through 159 it's test-only and needs `--enable-blink-features=CSSImageAnimation` at launch; the intent to ship (originally Chrome 152) got no approvals and was archived in October 2026 while the spec is still being revised. Testing with the flag in Chromium 159: `paused` / `stopped` / `running` work, but animated SVG images can't be paused, and single-frame static GIFs also match `:animated-image` | `img:animated-image { image-animation: paused; }` | 🔴 | ⬜ |
 
 ## C. Color
 
@@ -223,10 +223,11 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 
 ## What to try next (recommended)
 
-Everything that used to be listed here is now checked off. These are the unchecked items I want to do next: both need Chrome 156 stable (in the 153 I tested, the `clip` in `overflow: scroll clip` still turns into `hidden`), and the animated-image one actually has the highest accessibility value.
+Everything that used to be listed here is now checked off. This is the unchecked item I want to do next. It needs Chrome 156 or later (in the 153 I tested, the `clip` in `overflow: scroll clip` still turns into `hidden`).
 
 1. Single-axis scroll containers (`overflow: scroll clip`)—a data table with both the header row and first column sticky; can it be scrolled with the keyboard?
-2. `image-animation` / `:animated-image`—lets animated GIFs be paused, mapping directly to WCAG 2.2.2.
+
+`image-animation` / `:animated-image` used to be listed here too, but its intent to ship has been archived; I'll test it once it's proposed again.
 
 > **Note:** Most items marked 🟠 / 🔴 only landed in Chrome in 2025–2026 or are still proposals, and support changes every quarter. Before shipping to production, treat [caniuse.com](https://caniuse.com "opens in new window"){target="_blank"} and MDN as the source of truth, and remember to add an `@supports` fallback for new features.
 

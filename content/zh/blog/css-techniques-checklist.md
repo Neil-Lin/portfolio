@@ -2,7 +2,7 @@
 title: 現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序
 description: "一份可快速掃描的現代 CSS 與 HTML 特性清單，依版面、選擇器、色彩、文字、動畫等分類，另收錄 `<geolocation>`、`focusgroup`、Invoker Commands 等宣告式 HTML 新特性，逐條整理用途、範例與瀏覽器支援度。"
 date: 2026-07-06
-updatedAt: 2026-11-03
+updatedAt: 2026-11-05
 tags:
   - CSS
   - HTML
@@ -68,7 +68,7 @@ draft: false
 | `:heading` | 一次選取所有標題；Safari 27 起支援，其他瀏覽器尚未 | `:heading{}` | 🟠 | ⬜ |
 | Carousel 選擇器組 | `::scroll-marker` / `scroll-marker-group` / `:target-current` 做原生輪播與 Scrollspy；Chrome 154 新增 `scroll-marker-group` 的 `links`（預設）／`tabs` 模式，改變導覽點的焦點順序與 ARIA 語意 | `:target-current{}` | 🟠 | ✅ |
 | 媒體狀態偽類（`:playing` / `:paused` / `:muted` 等） | 依 `<video>`／`<audio>` 播放、暫停、靜音、緩衝的狀態直接套樣式，自訂播放器不必再用 JS 切 class（Safari 先支援，Chrome 156 Beta 加入，Firefox 尚未） | `video:paused + .play-btn{}` | 🟠 | ⬜ |
-| `image-animation` / `:animated-image` | 控制 GIF、APNG 這類動畫圖片要不要播放，並能選取動畫圖片；動畫 GIF 一直很難符合 WCAG 2.2.2「暫停、停止、隱藏」，無障礙價值高（Chrome 156 Beta） | `img:animated-image { image-animation: paused; }` | 🟠 | ⬜ |
+| `image-animation` / `:animated-image` | 控制 GIF、APNG 這類動畫圖片要不要播放，並能選取動畫圖片；動畫 GIF 一直很難符合 WCAG 2.2.2「暫停、停止、隱藏」，無障礙價值高。**尚未出貨**：Chromium 從 153 到 159 都只是測試狀態，要用 `--enable-blink-features=CSSImageAnimation` 啟動才能用；出貨提案（原定 Chrome 152）沒有獲得核准，2026 年 10 月封存，規格還在修改。我用旗標在 Chromium 159 實測：`paused`／`stopped`／`running` 可用，但 SVG 動畫圖暫停不了，只有一格的靜態 GIF 也會被 `:animated-image` 選到 | `img:animated-image { image-animation: paused; }` | 🔴 | ⬜ |
 
 ## C. 色彩（Color）
 
@@ -223,10 +223,11 @@ draft: false
 
 ## 建議優先補實驗的清單
 
-原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的：這兩項都要等 Chrome 156 正式版才測得到（我測的 153 裡，`overflow: scroll clip` 的 `clip` 還會被改成 `hidden`），其中動畫圖片那一項的無障礙價值其實最高。
+原本列在這裡的幾項都已經打勾了。以下是還沒打勾的項目中，我接下來想先做的。這項要 Chrome 156 以上才測得到（我測的 153 裡，`overflow: scroll clip` 的 `clip` 還會被改成 `hidden`）。
 
 1. 單軸捲動容器（`overflow: scroll clip`）——資料表的表頭和第一欄同時固定，鍵盤能不能捲動。
-2. `image-animation`／`:animated-image`——讓動畫 GIF 可以暫停，直接對應 WCAG 2.2.2。
+
+原本也列了 `image-animation`／`:animated-image`，但它的出貨提案已經封存，等重新提出再實測。
 
 > **提醒**：標為 🟠 / 🔴 的多為 2025–2026 才進 Chrome 或仍在提案的特性，支援度每季都在變。實際導入 production 前，請以 [caniuse.com](https://caniuse.com "另開新視窗"){target="_blank"} 與 MDN 的最新資料為準，並記得為新特性加 `@supports` fallback。
 
