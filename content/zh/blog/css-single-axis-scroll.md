@@ -9,7 +9,7 @@ tags:
   - 瀏覽器支援
 category: frontend
 translationKey: css-single-axis-scroll
-draft: true
+draft: false
 ---
 
 > 話說在前頭：這篇由 AI（Anthropic 的 Claude）協助收集資料與整理，我再閱讀確認。文中的行為是在 Chromium 153 與 159 上實測的結果；規格、無障礙規範與支援度都以文末連結的 W3C 規格、WCAG 說明文件、MDN 與 Chromium 原始碼為依據。有講錯的地方歡迎指正。
