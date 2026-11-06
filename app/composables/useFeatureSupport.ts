@@ -78,6 +78,11 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "<usermedia>",
     detect: () => "HTMLUserMediaElement" in window,
   },
+  "html-in-canvas": {
+    name: "HTML-in-Canvas",
+    // Chrome 官方指南的寫法；<canvas content="drawable"> 的 content 屬性
+    detect: () => "content" in HTMLCanvasElement.prototype,
+  },
   "single-axis-scroll": {
     name: "single-axis scroll containers",
     // 單軸捲動容器沒有新的屬性值可偵測（clip 早就支援），Chrome 用 named-feature() 讓 @supports 判斷

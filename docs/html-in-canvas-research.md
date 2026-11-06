@@ -28,8 +28,8 @@
 - **屬性名稱**：155、156 同時有 `layoutsubtree` 和 `drawable`；**157 起只剩 `content="drawable"`**（`layoutsubtree` 從屬性清單移除）。
 - **MDN 相容性資料**：所有介面標 Chrome 157，Firefox、Safari 不支援；`experimental: true`、`standard_track: false`。MDN 說明文件頁尚未建立。
 - **標準化**：whatwg/html#11588 仍開啟（2025-08-21 開始），實作者欄位只寫 Chromium；2026-11-05 仍有審查。
-- **WebKit**：standards-positions#630，2026-08-04 smfr 表示「一週後若無異議將標為 support，API 形狀仍有討論」，但到 2026-11-06 頁面上**仍沒有 support 標籤**（標籤只有 topic: html、topic: accessibility、venue: WHATWG HTML Workstream、from: Google）；WebKit repo 裡有實作中的 PR（#76794、#77526），bug 316240。
-- **Mozilla**：standards-positions#1076 仍開啟、無正式立場。負責人 nical 2025-12-09：「我們認為把文件畫進 Canvas2D 而不是 DOM，在多個層面上都是錯誤方向」；2026-03-11：「我們希望網頁平台**遠離**用 canvas 做豐富 UI」。
+- **WebKit**：standards-positions#630，2026-08-03（UTC，台灣時間可能顯示 8/4）smfr 表示「一週後若無異議將標為 support，API 形狀仍有討論」，但到 2026-11-06 頁面上**仍沒有 support 標籤**（標籤只有 topic: html、topic: accessibility、venue: WHATWG HTML Workstream、venue: WICG、from: Google）；WebKit repo 裡有實作中的 PR（#76794、#77526），bug 316240。
+- **Mozilla**：standards-positions#1076 仍開啟、無正式立場。負責人 nical 2025-12-09：「We believe that rendering documents to a Canvas2d instead of the DOM is the wrong approach at multiple levels」；2026-03-11：「We want the web platform to evolve _away_ from folks using canvas to build rich UIs」。
 
 ## API 概要（README）
 
@@ -84,6 +84,8 @@
 1. **標了 `drawable` 但沒畫出來的元素，仍然可以 Tab 進去**：焦點跑到看不見的地方。`aria-hidden="true"` 擋不住 Tab（還會造成「可聚焦但被隱藏」的違規），頁內搜尋也會找到看不見的文字。
 2. **`inert` 在 canvas 裡不會從無障礙樹移除**（畫或沒畫都一樣）：Tab、頁內搜尋都擋住了，但報讀軟體仍讀得到；同樣的 `inert` 放在 canvas 外面就會移除。這和 Chrome 文件「除非用 `aria-hidden` 或 `inert` 明確隱藏」的說法不同，可能是 Chrome 的問題。
 2-1. **`aria-hidden` 在 canvas 裡**會從無障礙樹移除，但 Tab 照樣進得去（可聚焦卻對報讀軟體隱藏，本身就是違規）。
+2-1a. **焦點移進 `aria-hidden` 區塊後**，Chrome 會忽略 `aria-hidden`，主控台警告「Blocked aria-hidden on an element because its descendant retained focus」，報讀軟體最後還是會讀到；頁內搜尋也找得到 `aria-hidden` 裡的文字。
+2-1b. **`hidden` 會被 CSS 的 `display` 蓋掉**：範例的 `.hic-demo__card { display: grid }` 讓 `hidden` 失效、Tab 照樣進得去，補 `[hidden] { display: none; }` 才修好。
 2-2. **`clearElementGeometry()` 之後**點不到了，但 Tab 照樣進得去。
 3. **`hidden` 最乾淨**：無障礙樹、Tab、頁內搜尋都移除。沒畫出來的內容用 `hidden`（或從 DOM 移除）。
 4. **不支援的瀏覽器（Firefox、Safari 目前）**：canvas 的子元素是「備援內容」，看不到但**可以 Tab 進去**（153 實測）。要偵測支援，不支援時改成一般 HTML 顯示。
