@@ -212,24 +212,11 @@ function measure() {
   covered.value = overlaps(box, head) || overlaps(box, rowHeader);
 }
 
-// 這個網站的頁首往上捲時會固定在頂端（往下捲時藏起來）。
-// 表頭 top: 0 會跟頁首疊在一起，所以把表頭往下移到頁首底下。
-let topFrame = 0;
-function syncHeaderOffset() {
-  cancelAnimationFrame(topFrame);
-  topFrame = requestAnimationFrame(() => {
-    const header = document.querySelector("header");
-    let offset = 0;
-    if (header && getComputedStyle(header).position === "sticky") {
-      offset = Math.max(0, Math.round(header.getBoundingClientRect().bottom));
-    }
-    wrap.value?.style.setProperty("--sat-top", `${offset}px`);
-  });
-}
+// 表頭固定在頁面頂端時，避開網站頁首（往上捲時才出現的那條）
+useSiteHeaderOffset(wrap, "--sat-top");
 
 // 頁面捲動時，表頭可能蓋過焦點，也要重新量
 function onWindowScroll() {
-  syncHeaderOffset();
   if (focusCell.value) measure();
 }
 
@@ -237,11 +224,6 @@ onMounted(() => {
   supported.value = featureDetectors["single-axis-scroll"]!.detect();
   window.addEventListener("scroll", onWindowScroll, { passive: true });
   document.addEventListener("focusout", onFocusOut);
-  // 頁首用 transform 滑進滑出，動畫結束後再量一次
-  document
-    .querySelector("header")
-    ?.addEventListener("transitionend", syncHeaderOffset);
-  syncHeaderOffset();
 });
 function onFocusOut() {
   // 等焦點移到新元素後再量
@@ -250,9 +232,5 @@ function onFocusOut() {
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", onWindowScroll);
   document.removeEventListener("focusout", onFocusOut);
-  document
-    .querySelector("header")
-    ?.removeEventListener("transitionend", syncHeaderOffset);
-  cancelAnimationFrame(topFrame);
 });
 </script>

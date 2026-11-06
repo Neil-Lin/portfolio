@@ -54,7 +54,7 @@
                 >({{ $t("action.scrollHorizontalToSeeMore") }})</small
               >
             </caption>
-            <tbody>
+            <thead>
               <tr>
                 <th scope="col">
                   {{ $t("words.browser") }}/{{ $t("words.os") }}
@@ -63,6 +63,8 @@
                 <th scope="col">Linux</th>
                 <th scope="col">Mac</th>
               </tr>
+            </thead>
+            <tbody>
               <tr>
                 <th scope="row">Firefox</th>
                 <td colspan="2">
@@ -206,6 +208,9 @@ const checkTabAble = () => {
     tabIndex.value = undefined;
   }
 };
+// 表頭固定在頁面頂端時，避開網站頁首（CSS 讀 --sticky-top）
+useSiteHeaderOffset(checkScrollable);
+
 onMounted(() => {
   checkTabAble();
   window.addEventListener("resize", checkTabAble);

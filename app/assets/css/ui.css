@@ -213,10 +213,44 @@ table {
   }
 }
 
+/*
+  可左右捲動的表格外框（網站導覽的快速鍵表）。
+  單軸捲動容器：外框只左右捲動（overflow: auto clip），上下交給頁面，
+  所以表頭可以黏在頁面頂端、第一欄黏在外框左邊。不支援的瀏覽器會把 clip 當成 hidden，
+  表頭只是不會黏在頁面上，表格照常可用。
+  說明文章：content/zh/blog/css-single-axis-scroll.md（英文版同名）
+*/
 .table-scroll-h {
-  overflow: auto;
+  --first-col: 10rem;
+  overflow: auto clip;
+  @media screen and (width <= 768px) {
+    --first-col: 7rem;
+  }
   & table {
     min-width: var(--breakpoint-768);
+    /* collapse 時，固定的格子的框線會留在原地，所以改用 separate，框線畫在格子上 */
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  & :is(th, td) {
+    border-bottom: 1px solid oklch(var(--border-color));
+  }
+  & thead th {
+    position: sticky;
+    /* --sticky-top：網站頁首出現時由 useSiteHeaderOffset 設成頁首的高度 */
+    top: var(--sticky-top, 0);
+    z-index: 1;
+  }
+  & tbody th {
+    position: sticky;
+    left: 0;
+  }
+  & :is(thead th:first-child, tbody th) {
+    left: 0;
+    inline-size: var(--first-col);
+  }
+  & thead th:first-child {
+    z-index: 2; /* 左上角同時固定兩個方向，要在最上層 */
   }
 }
 
