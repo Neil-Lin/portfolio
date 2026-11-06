@@ -10,7 +10,7 @@ tags:
   - 瀏覽器支援
 category: accessibility
 translationKey: html-in-canvas-a11y
-draft: true
+draft: false
 ---
 
 > 話說在前頭：這篇由 AI（Anthropic 的 Claude）協助收集資料與整理，我再閱讀確認。文中的行為是在 Chromium 157（Chrome 157 分支點的版本）、159 與 153 上實測的結果；規格、官方說法與支援度以文末連結的 WICG 說明文件、Chrome 官方文件、MDN、W3C 規範與 Chromium 原始碼為依據。有講錯的地方歡迎指正。

@@ -10,7 +10,7 @@ tags:
   - Browser Support
 category: accessibility
 translationKey: html-in-canvas-a11y
-draft: true
+draft: false
 ---
 
 > Up front: this post was researched and drafted with help from AI (Anthropic's Claude), then read and checked by me. The behavior described was tested in Chromium 157 (the Chrome 157 branch point), 159, and 153; specs, official statements, and support are based on the WICG explainer, Chrome's documentation, MDN, W3C specs, and Chromium source linked at the end. If I've gotten something wrong, corrections welcome.

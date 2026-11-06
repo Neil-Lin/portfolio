@@ -2,7 +2,7 @@
 title: 現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序
 description: "一份可快速掃描的現代 CSS 與 HTML 特性清單，依版面、選擇器、色彩、文字、動畫等分類，另收錄 `<geolocation>`、`focusgroup`、Invoker Commands 等宣告式 HTML 新特性，逐條整理用途、範例與瀏覽器支援度。"
 date: 2026-07-06
-updatedAt: 2026-11-05
+updatedAt: 2026-11-06
 tags:
   - CSS
   - HTML
@@ -212,7 +212,7 @@ draft: false
 | `shadowrootreferencetarget` | 讓 Shadow DOM 外面的 `<label>`／`aria-*` 能指向內部真正的 input——解決 web component 長年的標籤關聯難題（實測與 UI Kit 的例子見[這篇](/blog/shadow-dom-reference-target/)） | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ✅ |
 | `<h1>` 巢狀尺寸修正 | UA 樣式表變更：`<h1>` 放在 `<section>` 裡不再被自動縮小，標題階層的視覺呈現終於可預期（實測與我網站的標題調整見[這篇](/blog/html-nested-h1/)） | — | 🟢 | ✅ |
 | `ariaNotify()` | 直接請螢幕閱讀器念出一段訊息（例如「已加入購物車」），取代在頁面藏一個 `aria-live` 區塊再塞文字的舊做法。它是 DOM API 而不是 HTML 屬性，但它取代的正是那套 HTML 屬性寫法（Chrome 141、Firefox 150 起；Safari 的資料互相矛盾，請以實測為準） | `document.ariaNotify("已加入購物車");` | 🟡 | ✅ |
-| HTML-in-Canvas | 把一般 HTML 畫進 `<canvas>`（2D、WebGL、WebGPU），畫出來的內容仍可點擊、選取文字、用鍵盤操作，也在無障礙樹裡，頁內搜尋、翻譯、自動填入照常可用——以前 canvas 只是一張像素圖，得另做隱藏的 DOM 給報讀軟體。屬性已從原型時的 `layoutsubtree` 改為 `content="drawable"`（Chrome 157） | `<canvas content="drawable"><div drawable>…</div></canvas>` + `ctx.drawElementImage(el, x, y)` | 🟠 | ⬜ |
+| HTML-in-Canvas | 把一般 HTML 畫進 `<canvas>`（2D、WebGL、WebGPU），畫出來的內容仍可點擊、選取文字、用鍵盤操作，也在無障礙樹裡，頁內搜尋、翻譯、自動填入照常可用——以前 canvas 只是一張像素圖，得另做隱藏的 DOM 給報讀軟體。屬性已從原型時的 `layoutsubtree` 改為 `content="drawable"`（Chrome 157）（無障礙實測見[這篇](/blog/html-in-canvas-a11y/)） | `<canvas content="drawable"><div drawable>…</div></canvas>` + `ctx.drawElementImage(el, x, y)` | 🟠 | ✅ |
 
 ### K-3. 提案／原型階段（先知道有這回事就好）
 
