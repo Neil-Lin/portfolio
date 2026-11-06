@@ -108,18 +108,11 @@ Adding `position: sticky` doesn't break table semantics: the column headers (13)
 
 ### 2. Focus must not hide under the sticky first column
 
-When the table contains links or buttons, moving focus with Tab or Shift+Tab makes the browser scroll the focused element into the wrapper. But in my tests, focus sometimes landed right under the sticky first column, completely out of sight.
+The sticky first column floats on top of the table. When you move focus with Tab, the browser scrolls that cell into the wrapper, but it doesn't know the left edge is covered by the first column, so the cell often ends up underneath it and focus can't be seen.
 
-WCAG 2.4.11 Focus Not Obscured (Minimum) is Level AA: a component receiving focus **must not be entirely hidden by author-created content**, and the Understanding document specifically mentions sticky headers and footers.
+That fails WCAG 2.4.11 Focus Not Obscured (Minimum) (AA): a component receiving focus must not be entirely hidden.
 
-In a table with a link in every cell, I pressed Tab 150 times and Shift+Tab 150 times (299 of those landed on a link). It happened in both directions:
-
-| | Focus entirely hidden |
-|---|---|
-| No `scroll-padding` | **24 times** |
-| `scroll-padding-inline-start` on the wrapper (the first column's width) | **0 times** |
-
-`scroll-padding` shrinks the part of a scroll container that counts as "in view". The CSS Scroll Snap spec states that it should affect whether an element is considered scrolled into view for operations such as focusing. So the browser scrolls a little further and focus stops to the right of the first column:
+The fix: add `scroll-padding-inline-start` to the wrapper, set to the first column's width. It tells the browser "this strip on the left is covered, don't count it as visible", so the browser scrolls the cell to the right of the first column.
 
 ```css
 .table-wrap {
@@ -130,6 +123,13 @@ tbody th {
   min-inline-size: var(--first-col);
 }
 ```
+
+Tested on a table with a link in every cell, pressing Tab and Shift+Tab 150 times each (299 landed on a link):
+
+| | Focus entirely hidden |
+|---|---|
+| Without it | **24 times** |
+| With it | **0 times** |
 
 ### 3. At 320px wide, the page must not scroll horizontally
 
