@@ -173,7 +173,7 @@ draft: false
 | `<img loading="lazy">` | 圖片延遲載入，改善首屏效能 | `<img loading="lazy">` | 🟢 | ✅ |
 | `overscroll-behavior: contain` | 區塊捲到底不再帶動外層捲軸（彈窗／側欄常用） | `overscroll-behavior: contain;` | 🟢 | ✅ |
 | `object-view-box` | 直接在 CSS 擷取圖片的局部區域，免另存裁切檔 | `object-view-box: inset(10% 10% 10% 10%);` | 🟠 | ✅ |
-| 響應式 iframe（`frame-sizing`） | iframe 高度自動依內嵌內容調整，不必再用 `postMessage` 傳高度；內嵌頁面要加 `<meta name="responsive-embedded-sizing" content="allow-origins=…">` 同意，沒寫 `content` 不會生效；高度只在載入時量，之後內容變了要呼叫 `requestResize()`（Chrome 154） | `iframe { frame-sizing: content-height; }` | 🟠 | ⬜ |
+| 響應式 iframe（`frame-sizing`） | iframe 高度自動依內嵌內容調整，不必再用 `postMessage` 傳高度；內嵌頁面要加 `<meta name="responsive-embedded-sizing" content="allow-origins=…">` 同意，沒寫 `content` 不會生效；高度只在載入時量，之後內容變了要呼叫 `requestResize()`（Chrome 154；實測與無障礙重點見[這篇](/blog/css-frame-sizing/)） | `iframe { frame-sizing: content-height; }` | 🟠 | ✅ |
 | `scroll-snap-type: pair` | 捲動吸附的新模式（Chrome 156 Beta），細節待正式版推出後再實測 | `scroll-snap-type: pair;` | 🟠 | ⬜ |
 | JPEG XL（`image/jxl`） | 壓縮率比 JPEG 好、可無損轉換舊 JPEG 的新圖片格式；Safari 已支援，Chrome 155 Beta 加入解碼 | `<source type="image/jxl" srcset="a.jxl">` | 🟠 | ⬜ |
 | 獨立 transform 屬性 | `translate`／`rotate`／`scale` 各自成屬性，好分開做動畫 | `rotate: 45deg; scale: 1.2;` | 🟢 | ✅ |
