@@ -2,7 +2,7 @@
 title: "Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next"
 description: "A scannable checklist of modern CSS and HTML features—grouped by layout, selectors, color, typography, animation and more, plus declarative HTML additions like `<geolocation>`, `focusgroup` and Invoker Commands—each with its purpose, an example, and browser support."
 date: 2026-07-06
-updatedAt: 2026-11-06
+updatedAt: 2026-11-07
 tags:
   - CSS
   - HTML
@@ -67,7 +67,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `sibling-index()` / `sibling-count()` | Get an element's index and total among siblings; enables staggered animation, dynamic widths (Baseline 2026) | `--i: sibling-index();` | 🟡 | ✅ |
 | `:heading` | Select all headings at once; supported from Safari 27, not in other browsers yet | `:heading{}` | 🟠 | ⬜ |
 | Carousel selectors | `::scroll-marker` / `scroll-marker-group` / `:target-current` for native carousels and scrollspy; Chrome 154 adds `links` (default) and `tabs` modes to `scroll-marker-group`, changing the markers' focus order and ARIA semantics | `:target-current{}` | 🟠 | ✅ |
-| Media state pseudo-classes (`:playing` / `:paused` / `:muted`, etc.) | Style `<video>`/`<audio>` directly by playing, paused, muted or buffering state, so custom players no longer need JS to toggle classes (Safari first, added in Chrome 156 Beta, not in Firefox yet) | `video:paused + .play-btn{}` | 🟠 | ⬜ |
+| Media state pseudo-classes (`:playing` / `:paused` / `:muted`, etc.) | Style `<video>`/`<audio>` directly by playing, paused, muted or buffering state, so custom players no longer need JS to toggle classes (supported since Safari 15.4, Firefox 150, and Chrome 158) | `video:paused + .play-btn{}` | 🟡 | ⬜ |
 | `image-animation` / `:animated-image` | Control whether animated images such as GIF and APNG play, and select animated images; animated GIFs have always been hard to square with WCAG 2.2.2 Pause, Stop, Hide, so this is high-value for accessibility. **Not shipped yet**: from Chromium 153 through 159 it's test-only and needs `--enable-blink-features=CSSImageAnimation` at launch; the intent to ship (originally Chrome 152) got no approvals and was archived in October 2026 while the spec is still being revised. Testing with the flag in Chromium 159: `paused` / `stopped` / `running` work, but animated SVG images can't be paused, and single-frame static GIFs also match `:animated-image` | `img:animated-image { image-animation: paused; }` | 🔴 | ⬜ |
 
 ## C. Color

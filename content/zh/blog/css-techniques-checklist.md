@@ -2,7 +2,7 @@
 title: 現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序
 description: "一份可快速掃描的現代 CSS 與 HTML 特性清單，依版面、選擇器、色彩、文字、動畫等分類，另收錄 `<geolocation>`、`focusgroup`、Invoker Commands 等宣告式 HTML 新特性，逐條整理用途、範例與瀏覽器支援度。"
 date: 2026-07-06
-updatedAt: 2026-11-06
+updatedAt: 2026-11-07
 tags:
   - CSS
   - HTML
@@ -67,7 +67,7 @@ draft: false
 | `sibling-index()` / `sibling-count()` | 取得元素在同層中的索引與總數，可做交錯動畫、動態寬度（Baseline 2026） | `--i: sibling-index();` | 🟡 | ✅ |
 | `:heading` | 一次選取所有標題；Safari 27 起支援，其他瀏覽器尚未 | `:heading{}` | 🟠 | ⬜ |
 | Carousel 選擇器組 | `::scroll-marker` / `scroll-marker-group` / `:target-current` 做原生輪播與 Scrollspy；Chrome 154 新增 `scroll-marker-group` 的 `links`（預設）／`tabs` 模式，改變導覽點的焦點順序與 ARIA 語意 | `:target-current{}` | 🟠 | ✅ |
-| 媒體狀態偽類（`:playing` / `:paused` / `:muted` 等） | 依 `<video>`／`<audio>` 播放、暫停、靜音、緩衝的狀態直接套樣式，自訂播放器不必再用 JS 切 class（Safari 先支援，Chrome 156 Beta 加入，Firefox 尚未） | `video:paused + .play-btn{}` | 🟠 | ⬜ |
+| 媒體狀態偽類（`:playing` / `:paused` / `:muted` 等） | 依 `<video>`／`<audio>` 播放、暫停、靜音、緩衝的狀態直接套樣式，自訂播放器不必再用 JS 切 class（Safari 15.4、Firefox 150、Chrome 158 起都支援） | `video:paused + .play-btn{}` | 🟡 | ⬜ |
 | `image-animation` / `:animated-image` | 控制 GIF、APNG 這類動畫圖片要不要播放，並能選取動畫圖片；動畫 GIF 一直很難符合 WCAG 2.2.2「暫停、停止、隱藏」，無障礙價值高。**尚未出貨**：Chromium 從 153 到 159 都只是測試狀態，要用 `--enable-blink-features=CSSImageAnimation` 啟動才能用；出貨提案（原定 Chrome 152）沒有獲得核准，2026 年 10 月封存，規格還在修改。我用旗標在 Chromium 159 實測：`paused`／`stopped`／`running` 可用，但 SVG 動畫圖暫停不了，只有一格的靜態 GIF 也會被 `:animated-image` 選到 | `img:animated-image { image-animation: paused; }` | 🔴 | ⬜ |
 
 ## C. 色彩（Color）
