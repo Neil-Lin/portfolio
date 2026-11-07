@@ -29,7 +29,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 - ✅ = I've experimented with it
 - ⬜ = Not yet
 
-**Support status** (as of October 2026; 🟠 / 🔴 move fast—re-check [caniuse](https://caniuse.com "opens in new window"){target="_blank"} / MDN before shipping)
+**Support status** (as of November 2026; 🟠 / 🔴 move fast—re-check [caniuse](https://caniuse.com "opens in new window"){target="_blank"} / MDN before shipping)
 
 - 🟢 Stable — broadly available across major browsers, safe for production
 - 🟡 Newer — supported in most browsers; add a fallback
@@ -43,8 +43,8 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `grid-template-rows: masonry` | Masonry (waterfall) layout without JS. WebKit's alternative, `display: grid-lanes`, now ships in Safari ; Safari 27.2 renames `flow-tolerance` to `fit-tolerance` (the old name stays as an alias for now). A larger `fit-tolerance` keeps items in neighboring columns instead of jumping back and forth, so focus moves more predictably for sighted keyboard users. The two approaches are still converging | `grid-template-rows: masonry;` | 🟠 | ✅ |
 | `subgrid` | Lets a child grid inherit the parent's tracks and gaps, so alignment snaps to the parent's lines; great for aligning elements across cards | `grid-template-columns: subgrid;` | 🟢 | ✅ |
 | Container Queries | Responsive design based on the container's size (not the screen)—the key to true componentization | `container-type: inline-size;` + `@container (width > 400px){}` | 🟢 | ✅ |
-| Anchor Positioning | Anchor one element's position to another (tooltip / popover / menu), replacing a lot of JS math | `anchor-name: --a;` + `top: anchor(--a bottom);` | 🟠 | ✅ |
-| `@position-try` | Fallback for anchor positioning: auto-flip when there isn't enough room | `position-try-fallbacks: flip-block;` | 🟠 | ✅ |
+| Anchor Positioning | Anchor one element's position to another (tooltip / popover / menu), replacing a lot of JS math (Chrome 125, Safari 26, Firefox 147; all three major browsers) | `anchor-name: --a;` + `top: anchor(--a bottom);` | 🟡 | ✅ |
+| `@position-try` | Fallback for anchor positioning: auto-flip when there isn't enough room (Chrome 125, Safari 26, Firefox 147) | `position-try-fallbacks: flip-block;` | 🟡 | ✅ |
 | `reading-flow` / `reading-order` | When flex/grid visual order is reordered, fix keyboard and screen-reader reading order (an accessibility must) | `reading-flow: flex-visual;` / `reading-order: 1;` | 🟠 | ✅ |
 | Gap Decorations (`row-rule` / `column-rule` / `rule`) | Draw and style separators directly in grid/flex gaps—no more divider elements; plus fine-grain `rule-inset`/`rule-overlap`/`rule-visibility-items` (Chrome/Edge 149+; not in other browsers yet) | `column-rule: 1px solid; row-rule: 1px solid;` or shorthand `rule: 1px solid;` | 🟠 | ✅ |
 | `margin-inline` | Logical property; set both inline-axis margins at once (often `auto` to center) | `margin-inline: auto;` | 🟢 | ✅ |
@@ -67,7 +67,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `sibling-index()` / `sibling-count()` | Get an element's index and total among siblings; enables staggered animation, dynamic widths (Baseline 2026) | `--i: sibling-index();` | 🟡 | ✅ |
 | `:heading` | Select all headings at once; supported from Safari 27, not in other browsers yet | `:heading{}` | 🟠 | ⬜ |
 | Carousel selectors | `::scroll-marker` / `scroll-marker-group` / `:target-current` for native carousels and scrollspy; Chrome 154 adds `links` (default) and `tabs` modes to `scroll-marker-group`, changing the markers' focus order and ARIA semantics | `:target-current{}` | 🟠 | ✅ |
-| Media state pseudo-classes (`:playing` / `:paused` / `:muted`, etc.) | Style `<video>`/`<audio>` directly by playing, paused, muted or buffering state, so custom players no longer need JS to toggle classes (supported since Safari 15.4, Firefox 150, and Chrome 158; button names and states still need syncing with JS, see [my post testing it](/en/blog/css-media-state-pseudos/)) | `video:paused + .play-btn{}` | 🟡 | ✅ |
+| Media state pseudo-classes (`:playing` / `:paused` / `:muted`, etc.) | Style `<video>`/`<audio>` directly by playing, paused, muted or buffering state, so custom players no longer need JS to toggle classes (supported since Safari 15.4 and Firefox 150, with Chrome 158 due on November 17, 2026; button names and states still need syncing with JS, see [my post testing it](/en/blog/css-media-state-pseudos/)) | `video:paused + .play-btn{}` | 🟡 | ✅ |
 | `image-animation` / `:animated-image` | Control whether animated images such as GIF and APNG play, and select animated images; animated GIFs have always been hard to square with WCAG 2.2.2 Pause, Stop, Hide, so this is high-value for accessibility. **Not shipped yet**: from Chromium 153 through 159 it's test-only and needs `--enable-blink-features=CSSImageAnimation` at launch; the intent to ship (originally Chrome 152) got no approvals and was archived in October 2026 while the spec is still being revised. Testing with the flag in Chromium 159: `paused` / `stopped` / `running` work, but animated SVG images can't be paused, and single-frame static GIFs also match `:animated-image` | `img:animated-image { image-animation: paused; }` | 🔴 | ⬜ |
 
 ## C. Color
@@ -81,35 +81,35 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `light-dark()` | Give a property both a light and dark value at once; with `color-scheme` it skips the media query; it also accepts images (supported in all three major browsers) | `color: light-dark(#000, #fff);` | 🟢 | ✅ |
 | `font-palette` / `@font-palette-values` | Custom palettes for color (COLR) fonts | `@font-palette-values --p{...}` + `font-palette: --p;` | 🟡 | ✅ |
 | Gradient interpolation color space | `linear-gradient(in oklch …)` makes gradient transitions smoother and less muddy | `background: linear-gradient(in oklch, #4ba3f7, #9d2398);` | 🟢 | ✅ |
-| `alpha()` | Relative color function that changes only the opacity of an existing color, without rewriting the whole color value (Baseline 2026: Chrome 151, Firefox 155, Safari 27) (see [my post testing every color format and contrast](/en/blog/css-alpha-revert-rule/)) | `color: alpha(from var(--brand) / 50%);` | 🟡 | ✅ |
+| `alpha()` | Relative color function that changes only the opacity of an existing color, without rewriting the whole color value (Baseline 2026: Chrome 152, Firefox 155, Safari 27) (see [my post testing every color format and contrast](/en/blog/css-alpha-revert-rule/)) | `color: alpha(from var(--brand) / 50%);` | 🟡 | ✅ |
 
 ## D. Typography
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
 | `text-wrap: balance` / `pretty` | `balance` evens out heading line widths; `pretty` avoids orphan words in body text (pretty is newer) | `text-wrap: balance;` | 🟡 | ✅ |
-| `text-decoration-skip-ink` | Break the underline around descenders (g, y) for a cleaner look; Chrome 155 Beta adds `text-decoration-skip-spaces` to control whether the underline skips spaces | `text-decoration-skip-ink: auto;` | 🟢 | ✅ |
-| `text-decoration-inset` | Shorten or extend decorations such as underlines; positive values inset, negative values outset, for underline animations without extra elements (Chrome 154) | `text-decoration-inset: 0.5em;` | 🟠 | ⬜ |
+| `text-decoration-skip-ink` | Break the underline around descenders (g, y) for a cleaner look; Chrome 155 adds `text-decoration-skip-spaces` to control whether the underline skips spaces | `text-decoration-skip-ink: auto;` | 🟢 | ✅ |
+| `text-decoration-inset` | Shorten or extend decorations such as underlines; positive values inset, negative values outset, for underline animations without extra elements (Firefox 146, Chrome 157) | `text-decoration-inset: 0.5em;` | 🟡 | ⬜ |
 | `text-combine-upright` | Lay numbers/Latin horizontally within vertical text ("tate-chu-yoko"); common in CJK long-form | `text-combine-upright: all;` | 🟡 | ✅ |
 | `text-emphasis` | Emphasis dots/circles that track the character center; common CJK annotation | `text-emphasis: dot;` | 🟢 | ✅ |
 | `ruby-align` | Alignment of ruby annotations (bopomofo / pinyin, etc.) | `ruby-align: center;` | 🟡 | ✅ |
 | `paint-order` | Control the paint order of text fill vs. stroke (for outlined text) | `paint-order: stroke fill;` | 🟢 | ✅ |
 | `box-decoration-break: clone` | On line/page breaks, apply border/radius/background to each fragment; especially nice for link focus | `box-decoration-break: clone;` | 🟡 | ✅ |
-| `text-box-trim` | Trim the extra space above/below a font for precise vertical alignment (Chrome and Safari; not in Firefox yet) | `text-box: trim-both cap alphabetic;` | 🟡 | ✅ |
-| `line-clamp` (`-webkit-line-clamp`) | Show "…" after N lines; the new standard `line-clamp` is gradually replacing the webkit form | `-webkit-line-clamp: 3;` (needs `-webkit-box`) | 🟢 | ✅ |
+| `text-box-trim` | Trim the extra space above/below a font for precise vertical alignment (Chrome 133, Safari 18.2, Firefox 154; all three major browsers) | `text-box: trim-both cap alphabetic;` | 🟡 | ✅ |
+| `line-clamp` (`-webkit-line-clamp`) | Show "…" after N lines; the unprefixed standard `line-clamp` is only in preview builds so far, so in practice you still use `-webkit-line-clamp` | `-webkit-line-clamp: 3;` (needs `-webkit-box`) | 🟢 | ✅ |
 | `hanging-punctuation` | Hang leading/trailing punctuation outside the edge for tidier alignment (Safari-first) | `hanging-punctuation: first last;` | 🟠 | ⬜ |
 | `font-variant-numeric: tabular-nums` | Monospaced digits—essential for timers/prices/percentages that jitter (font must support it) | `font-variant-numeric: tabular-nums;` | 🟢 | ✅ |
 | `lh` unit | Set margin/spacing in line-height units so they scale with font size | `margin-bottom: 1.5lh;` | 🟡 | ✅ |
-| `margin-trim` | Trim margins of the first/last children in a container, avoiding `:first/:last-child` resets (Safari-first; added in Chrome 155 Beta) | `margin-trim: block;` | 🟠 | ⬜ |
+| `margin-trim` | Trim margins of the first/last children in a container, avoiding `:first/:last-child` resets (Safari 16.4, Chrome 155; not in Firefox yet) | `margin-trim: block;` | 🟡 | ⬜ |
 | `text-fit` | Auto-scales font size so text exactly fills its container's width—responsive headlines without manual math or JS (new in Chrome 150; always add a percentage limit, or zooming makes the text smaller—see [my tests](/en/blog/css-text-fit/)) | `h1 { text-fit: grow per-line-all 200%; }` | 🟠 | ✅ |
 | `text-autospace` | Automatically adds proper spacing between CJK text and Latin letters or numbers, so you don't have to type the spaces by hand; Safari 27 adds the `insert` value | `text-autospace: normal;` | 🟡 | ✅ |
-| `font-width` | The new canonical name for `font-stretch`, selecting condensed or expanded faces; the old name stays as an alias (Baseline 2026) | `font-width: 75%;` | 🟡 | ⬜ |
+| `font-width` | The new canonical name for `font-stretch`, selecting condensed or expanded faces; the old name stays as an alias (Firefox 155, Safari 18.4; not in Chrome yet) | `font-width: 75%;` | 🟡 | ⬜ |
 
 ## E. Animation & Transition
 
 | Property / Feature | Main use & when to use | Example | Support | Tried |
 |---|---|---|---|---|
-| Scroll-driven animation (formerly "@scroll-timeline") | Drive animation by scroll progress instead of time; the spec is now `animation-timeline: scroll()/view()` | `animation-timeline: scroll();` | 🟠 | ✅ |
+| Scroll-driven animation (formerly "@scroll-timeline") | Drive animation by scroll progress instead of time; the spec is now `animation-timeline: scroll()/view()` (Chrome 115, Safari 26, Firefox 159; all three major browsers) | `animation-timeline: scroll();` | 🟡 | ✅ |
 | `@view-transition` / `transition-behavior` | Transitions for page/state changes; `allow-discrete` lets discrete properties like `display` transition | `transition-behavior: allow-discrete;` | 🟡 | ✅ |
 | `@starting-style` | Define an element's first-appearance start styles; enables `display:none → shown` entry animations | `@starting-style{ opacity:0; }` | 🟡 | ✅ |
 | `backface-visibility` | Whether the back face shows during a 3D flip (card-flip effect) | `backface-visibility: hidden;` | 🟢 | ✅ |
@@ -149,7 +149,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `scrollbar-gutter: stable` | Reserve the scrollbar gutter so content doesn't shift when the scrollbar appears | `scrollbar-gutter: stable;` | 🟡 | ✅ |
 | `scrollbar-color` / `scrollbar-width` | Customize scrollbar color and thickness | `scrollbar-color: #888 #eee;` | 🟡 | ✅ |
 | `@supports` | Feature detection for progressive enhancement and fallbacks | `@supports (display: grid){}` | 🟢 | ✅ |
-| `at-rule()` | Test inside `@supports` whether an at-rule such as `@scope` or `@position-try` is supported, instead of guessing indirectly (Firefox 157+) | `@supports at-rule(@scope){}` | 🟠 | ⬜ |
+| `at-rule()` | Test inside `@supports` whether an at-rule such as `@scope` or `@position-try` is supported, instead of guessing indirectly (Chrome 148, Firefox 157; not in Safari yet) | `@supports at-rule(@scope){}` | 🟡 | ⬜ |
 
 ## I. Functions & Math
 
@@ -158,12 +158,12 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `round()` / `mod()` / `rem()` | Rounding and remainders in CSS, to align to a grid/rhythm | `width: round(down, 15.5px, 4px);` | 🟡 | ✅ |
 | Trig functions `sin/cos/tan` | Circular layouts, waveforms, angle math | `width: calc(sin(30deg) * 100px);` | 🟢 | ✅ |
 | `calc-size()` / `interpolate-size` | Animate transitions to keywords like `auto`/`min-content`, e.g. an accordion expanding to an unknown height; combined with `round()`, it can also make a height an exact multiple of a background pattern so the pattern isn't cut off (`height: calc-size(auto, round(up, size, 48px))`) | `interpolate-size: allow-keywords;` | 🟠 | ✅ |
-| `random()` | Native random values in CSS (scatter, jitter effects) | `rotate: random(-5deg, 5deg);` | 🟠 | ✅ |
+| `random()` | Native random values in CSS (scatter, jitter effects) (Safari 26.2, Chrome 156; not in Firefox yet) | `rotate: random(-5deg, 5deg);` | 🟡 | ✅ |
 | `if()` | Conditional logic inside a property value (without `else`, the property falls back to its initial value and a focus outline can disappear entirely; see [this post](/en/blog/css-if-function/)) | `display: if(style(--open: 1): block; else: none);` | 🟠 | ✅ |
 | `@function` | Custom CSS functions / a mixin-like concept, with parameters and a return value (see [this post](/en/blog/css-if-function/) for using one to guarantee a minimum target size) | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ✅ |
-| `progress()` | Returns where a value sits between two others as a 0–1 ratio, for styles that change continuously with size (Baseline 2026; Firefox 155 and Safari 27 also support `no-clamp`, letting the result go outside 0–1) (applied to this site's fluid h1 and h2 sizes so headings also reach 2× at 200% zoom) | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ✅ |
-| `attr()` in any property | `attr()` used to work only in `content`; now it can read an HTML attribute with a type and use it as the value of any property, such as a width or color (Chrome first, added in Firefox 155; see [my post on reading ARIA attributes with it](/en/blog/css-attr/)) | `width: attr(data-w type(<length>));` | 🟠 | ✅ |
-| `symbols()` | Define list markers directly in CSS without a separate `@counter-style` (Chrome 155 Beta) | `list-style: symbols(cyclic "◆" "◇");` | 🟠 | ⬜ |
+| `progress()` | Returns where a value sits between two others as a 0–1 ratio, for styles that change continuously with size (Baseline 2026; Firefox 155 also supports `no-clamp` (Safari only in preview so far), letting the result go outside 0–1) (applied to this site's fluid h1 and h2 sizes so headings also reach 2× at 200% zoom) | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ✅ |
+| `attr()` in any property | `attr()` used to work only in `content`; now it can read an HTML attribute with a type and use it as the value of any property, such as a width or color (Chrome 133, Firefox 155; not in Safari yet; see [my post on reading ARIA attributes with it](/en/blog/css-attr/)) | `width: attr(data-w type(<length>));` | 🟡 | ✅ |
+| `symbols()` | Define list markers directly in CSS without a separate `@counter-style` (Firefox 35, Chrome 155; not in Safari yet) | `list-style: symbols(cyclic "◆" "◇");` | 🟡 | ⬜ |
 
 ## J. Misc
 
@@ -174,12 +174,12 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `overscroll-behavior: contain` | Stop a scrolled-to-the-end block from scrolling the outer container (common for modals/sidebars) | `overscroll-behavior: contain;` | 🟢 | ✅ |
 | `object-view-box` | Crop a region of an image directly in CSS, no separate cropped file needed | `object-view-box: inset(10% 10% 10% 10%);` | 🟠 | ✅ |
 | Responsive iframes (`frame-sizing`) | An iframe sizes its height to the embedded content, with no more `postMessage` height plumbing; the embedded page opts in with `<meta name="responsive-embedded-sizing" content="allow-origins=…">` (without `content` it does nothing); the height is only measured at load, so later changes need `requestResize()` (Chrome 154; see [my post testing it, with accessibility notes](/en/blog/css-frame-sizing/)) | `iframe { frame-sizing: content-height; }` | 🟠 | ✅ |
-| `scroll-snap-type: pair` | A new scroll snapping mode (Chrome 156 Beta); I'll test the details once it ships to stable | `scroll-snap-type: pair;` | 🟠 | ⬜ |
-| JPEG XL (`image/jxl`) | A newer image format that compresses better than JPEG and can losslessly convert existing JPEGs; Safari supports it, and Chrome 155 Beta adds decoding | `<source type="image/jxl" srcset="a.jxl">` | 🟠 | ⬜ |
+| `scroll-snap-type: pair` | A new scroll snapping mode (Chrome 156; not in other browsers yet); I'll test the details later | `scroll-snap-type: pair;` | 🟠 | ⬜ |
+| JPEG XL (`image/jxl`) | A newer image format that compresses better than JPEG and can losslessly convert existing JPEGs; Safari 17, Chrome 155, Firefox 158; all three major browsers | `<source type="image/jxl" srcset="a.jxl">` | 🟡 | ⬜ |
 | Individual transform properties | `translate`/`rotate`/`scale` as their own properties, easier to animate separately | `rotate: 45deg; scale: 1.2;` | 🟢 | ✅ |
 | `border-image` | Complex borders from a sliced image, avoiding traditional slicing | `border-image: url(frame.png) 30 round;` | 🟢 | ✅ |
-| `background-clip: border-area` | Clips the background to the area painted by the border strokes (respecting `border-width`/`border-style`, ignoring `border-color` transparency), so gradient borders work natively instead of via `border-image` workarounds (new in Chrome 150) (tested: forced colors mode drops the gradient, but the browser turns the transparent border into the text color, so the border shape stays visible) | `border: 3px solid transparent; background: linear-gradient(45deg, red, blue); background-clip: border-area;` | 🟠 | ✅ |
-| `corner-shape` | Corner shapes beyond `border-radius` (squircle / notched, etc.), used together with `border-radius`; Chrome 156 Beta adds the `corner` shorthand (tested with an app icon, coupon, step arrows and cut-corner button; see [this post](/en/blog/css-corner-shape/)) | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ✅ |
+| `background-clip: border-area` | Clips the background to the area painted by the border strokes (respecting `border-width`/`border-style`, ignoring `border-color` transparency), so gradient borders work natively instead of via `border-image` workarounds (Safari 18.2, Chrome 150; not in Firefox yet) (tested: forced colors mode drops the gradient, but the browser turns the transparent border into the text color, so the border shape stays visible) | `border: 3px solid transparent; background: linear-gradient(45deg, red, blue); background-clip: border-area;` | 🟠 | ✅ |
+| `corner-shape` | Corner shapes beyond `border-radius` (squircle / notched, etc.), used together with `border-radius`; the `corner` shorthand is still experimental in Chromium 158 and hasn't shipped (tested with an app icon, coupon, step arrows and cut-corner button; see [this post](/en/blog/css-corner-shape/)) | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ✅ |
 | Font smoothing (`-webkit-font-smoothing`) | The key to non-harsh text in dark mode: on macOS, light text on a dark background looks bold and glowing due to subpixel antialiasing; grayscale antialiasing makes it thinner and gentler. Non-standard, works only on certain platforms | `-webkit-font-smoothing: antialiased;` (+ `-moz-osx-font-smoothing: grayscale;`) | 🟡 | ✅ |
 | `@when` / `@else` | CSS if/else conditional blocks; still a proposal, unusable in any browser | `@when supports(...){} @else{}` | 🔴 | ✅ |
 | Scroll anchoring (`overflow-anchor`) | When content loads or is inserted above the viewport, the browser keeps your reading position steady instead of jumping; on by default, opt out per element with `none`. Those jumps are especially disorienting for people with cognitive or motor disabilities (with Safari 27, all three engines support it) | `overflow-anchor: none;` | 🟡 | ✅ |
@@ -195,7 +195,7 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 | `<geolocation>` | A declarative button for location requests: the browser owns the permission flow and — crucially — offers a recovery path for users who previously denied access (which used to be a dead end). Degrades to a `<span>` where unsupported, so it progressively enhances (tested: the browser only compares the button's own text and background colors and disables it below 3:1, but background images, blur and a removed focus outline all get through) | `<geolocation onlocation="fn(event)">` | 🟠 | ✅ |
 | `<usermedia>` | Declarative camera/microphone access that hands the page a `MediaStream` directly, with no `getUserMedia()` call of your own, and lets people who blocked access recover right on the page. Video-only `<camera>` and audio-only `<microphone>` variants shipped in Chrome 153 (in my tests, `lang="zh-Hant-TW"` shows Simplified Chinese, there's no state once it's on, and keyboard users who press too quickly get a silent failure—see [my post](/en/blog/html-usermedia/)) | `<usermedia>` | 🟠 | ✅ |
 | `<install>` | An install button for PWAs whose label and appearance the browser controls (users who click "Install" aren't surprised by what happens next). Point `installurl` elsewhere to install apps from other origins — enough to build a catalogue page | `<install installurl="…" manifestid="…">` | 🟠 | ⬜ |
-| `<model>` | Embed an interactive 3D model (USDZ) as easily as an `<img>`; supply multiple formats via `<source>` and custom lighting via `environmentmap` | `<model src="a.usdz">` | 🟠 | ⬜ |
+| `<model>` | Embed an interactive 3D model (USDZ) as easily as an `<img>`; supply multiple formats via `<source>` and custom lighting via `environmentmap` (Safari 27; not in other browsers yet) | `<model src="a.usdz">` | 🟠 | ⬜ |
 
 ### K-2. New HTML attributes & behaviours
 
@@ -208,10 +208,10 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 | `popover="hint"` | A popover category meant for tooltips: it keeps light-dismiss, but only closes other hints instead of tearing down your main popover with it | `<div popover="hint">` | 🟡 | ✅ |
 | `sizes="auto"` | Stop hand-computing `sizes` for responsive images and let the browser work it out; pairs with `srcset` and `loading="lazy"` (now in Chrome, Firefox and Safari 27) (see [my post testing it and fixing my portfolio](/en/blog/html-sizes-auto/)) | `<img srcset="…" sizes="auto">` | 🟡 | ✅ |
 | Declarative Shadow DOM | Build a shadow root with no JavaScript, so SSR output can carry it | `<template shadowrootmode="open">` | 🟢 | ✅ |
-| `Element.setHTML()` | A safe `innerHTML`: inserts markup while stripping `<script>`, event attributes and other dangerous markup (Sanitizer API); the counterpart to the `setHTMLUnsafe()` mentioned in my Declarative Shadow DOM post. Firefox 157 now sanitizes while parsing; check caniuse for other browsers (in my tests the default config strips every `aria-*` and `role`; see [this post](/en/blog/html-sethtml/)) | `el.setHTML(userInput);` | 🟠 | ✅ |
+| `Element.setHTML()` | A safe `innerHTML`: inserts markup while stripping `<script>`, event attributes and other dangerous markup (Sanitizer API); the counterpart to the `setHTMLUnsafe()` mentioned in my Declarative Shadow DOM post. supported since Chrome 146 and Firefox 148, not in Safari yet; Firefox 157 now sanitizes while parsing (in my tests the default config strips every `aria-*` and `role`; see [this post](/en/blog/html-sethtml/)) | `el.setHTML(userInput);` | 🟡 | ✅ |
 | `shadowrootreferencetarget` | Lets a `<label>` or `aria-*` outside the shadow root point at the real input inside it — the long-standing labelling problem for web components (see [my post testing it, with a UI Kit example](/en/blog/shadow-dom-reference-target/)) | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ✅ |
 | `<h1>` nested sizing fix | UA stylesheet change: an `<h1>` inside a `<section>` is no longer shrunk automatically, so heading hierarchy finally renders predictably (see [my post testing it and fixing my site's headings](/en/blog/html-nested-h1/)) | — | 🟢 | ✅ |
-| `ariaNotify()` | Ask the screen reader to announce a message directly (e.g. "Added to cart"), replacing the old trick of hiding an `aria-live` region and stuffing text into it. It's a DOM API rather than an HTML attribute, but what it replaces is exactly that HTML-attribute pattern (Chrome 141 and Firefox 150 onward; sources disagree on Safari, so test it yourself) | `document.ariaNotify("Added to cart");` | 🟡 | ✅ |
+| `ariaNotify()` | Ask the screen reader to announce a message directly (e.g. "Added to cart"), replacing the old trick of hiding an `aria-live` region and stuffing text into it. It's a DOM API rather than an HTML attribute, but what it replaces is exactly that HTML-attribute pattern (Chrome 141, Firefox 150, Safari 27; all three major browsers) | `document.ariaNotify("Added to cart");` | 🟡 | ✅ |
 | HTML-in-Canvas | Draw regular HTML into a `<canvas>` (2D, WebGL, WebGPU). The drawn content stays clickable, selectable and keyboard-operable, sits in the accessibility tree, and works with find-in-page, translation and autofill — before, a canvas was just pixels and needed a hidden DOM copy for screen readers. The prototype's `layoutsubtree` attribute is now `content="drawable"` (Chrome 157) (see [my post testing its accessibility](/en/blog/html-in-canvas-a11y/)) | `<canvas content="drawable"><div drawable>…</div></canvas>` + `ctx.drawElementImage(el, x, y)` | 🟠 | ✅ |
 
 ### K-3. Proposal / prototype stage (just worth knowing about)

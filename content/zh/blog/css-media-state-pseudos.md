@@ -1,6 +1,6 @@
 ---
 title: "用 :playing、:paused 做自訂播放器：圖示跟著狀態換了，但報讀軟體不知道"
-description: "媒體狀態偽類讓 CSS 直接依 <video>、<audio> 的播放、暫停、靜音狀態切換外觀，Chrome 158 起三大瀏覽器都支援。我在 Chromium 實測後整理了幾個容易誤會的地方（音量 0 不會符合 :muted、播完會變 :paused），以及 CSS 管不到的部分：按鈕名稱和狀態，還是要用 JavaScript 從媒體事件同步。"
+description: "媒體狀態偽類讓 CSS 直接依 <video>、<audio> 的播放、暫停、靜音狀態切換外觀，Safari、Firefox 已經支援，Chrome 158（預計 2026 年 11 月 17 日推出）之後三大瀏覽器就到齊了。我在 Chromium 實測後整理了幾個容易誤會的地方（音量 0 不會符合 :muted、播完會變 :paused），以及 CSS 管不到的部分：按鈕名稱和狀態，還是要用 JavaScript 從媒體事件同步。"
 date: 2026-11-07
 tags:
   - CSS
@@ -33,11 +33,11 @@ draft: false
 
 | 瀏覽器 | 版本 | 依據 |
 |---|---|---|
-| Chrome | 158 | Chromium 原始碼：154～157 是實驗狀態，158 起預設開啟 |
+| Chrome | 158（預計 2026 年 11 月 17 日推出） | Chromium 原始碼：154～157 是實驗狀態，158 起預設開啟 |
 | Firefox | 150 | MDN 的 Firefox 150 版本說明 |
 | Safari | 15.4 | MDN 相容性資料 |
 
-我實測 Chromium 157 不支援，159 支援。
+我實測 Chromium 157 不支援，159 支援。Chrome 157 在 2026 年 11 月 3 日推出，所以**目前的正式版 Chrome 還不支援**，要等 158（推出日期依 MDN 相容性資料的瀏覽器版本資料）。
 
 ## 基本寫法
 
@@ -166,6 +166,7 @@ CSS 則是 `@supports selector(:playing) { … }`。
 - [WHATWG HTML — 媒體元素的偽類定義](https://html.spec.whatwg.org/multipage/semantics-other.html#pseudo-classes "另開新視窗"){target="_blank"}
 - [WHATWG HTML — 媒體元素的靜音定義](https://html.spec.whatwg.org/multipage/media.html#concept-media-muted "另開新視窗"){target="_blank"}
 - [MDN — Firefox 150 版本說明](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/150 "另開新視窗"){target="_blank"}
+- [MDN browser-compat-data — Chrome 各版本推出日期](https://github.com/mdn/browser-compat-data/blob/main/browsers/chrome.json "另開新視窗"){target="_blank"}
 - [MDN browser-compat-data — :playing](https://github.com/mdn/browser-compat-data/blob/main/css/selectors/playing.json "另開新視窗"){target="_blank"}
 - [Chromium 原始碼 — runtime_enabled_features.json5（CSSMediaElementPseudos）](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/platform/runtime_enabled_features.json5 "另開新視窗"){target="_blank"}
 - [WAI-ARIA 編寫實務指南 — 按鈕模式](https://www.w3.org/WAI/ARIA/apg/patterns/button/ "另開新視窗"){target="_blank"}

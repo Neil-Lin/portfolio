@@ -29,7 +29,7 @@ draft: false
 - ✅ = 我已實驗過
 - ⬜ = 尚未實驗
 
-**支援狀態**（截至 2026 年 10 月，🟠 / 🔴 者變動快，上線前請再查 [caniuse](https://caniuse.com "另開新視窗"){target="_blank"} / MDN）
+**支援狀態**（截至 2026 年 11 月，🟠 / 🔴 者變動快，上線前請再查 [caniuse](https://caniuse.com "另開新視窗"){target="_blank"} / MDN）
 
 - 🟢 穩定 — 主流瀏覽器普遍可用，可放心進 production
 - 🟡 較新 — 多數瀏覽器已支援，建議加 fallback
@@ -43,8 +43,8 @@ draft: false
 | `grid-template-rows: masonry` | 磚牆式（瀑布流）排版，不用 JS。WebKit 的對案 `display: grid-lanes` 已在 Safari 實作，Safari 27.2 把 `flow-tolerance` 改名為 `fit-tolerance`（舊名暫時保留）。`fit-tolerance` 調大，項目會留在相鄰欄位、不會左右亂跳，鍵盤使用者看焦點移動比較順；兩種寫法仍在收斂 | `grid-template-rows: masonry;` | 🟠 | ✅ |
 | `subgrid` | 讓子網格繼承外層 grid 的軌道與 gap，對齊點變成外層基準；卡片內元素跨卡對齊超好用 | `grid-template-columns: subgrid;` | 🟢 | ✅ |
 | Container Queries | 依「容器」大小做 RWD（而非螢幕），元件化的關鍵 | `container-type: inline-size;` + `@container (width > 400px){}` | 🟢 | ✅ |
-| Anchor Positioning | 讓元素錨定到另一元素定位（tooltip / popover / 選單），取代大量 JS 計算 | `anchor-name: --a;` + `top: anchor(--a bottom);` | 🟠 | ✅ |
-| `@position-try` | 錨定定位的 fallback：空間不足時自動翻面 | `position-try-fallbacks: flip-block;` | 🟠 | ✅ |
+| Anchor Positioning | 讓元素錨定到另一元素定位（tooltip / popover / 選單），取代大量 JS 計算（Chrome 125、Safari 26、Firefox 147 起，三大瀏覽器都支援） | `anchor-name: --a;` + `top: anchor(--a bottom);` | 🟡 | ✅ |
+| `@position-try` | 錨定定位的 fallback：空間不足時自動翻面（Chrome 125、Safari 26、Firefox 147 起） | `position-try-fallbacks: flip-block;` | 🟡 | ✅ |
 | `reading-flow` / `reading-order` | flex/grid 視覺順序被反轉時，修正鍵盤與報讀的閱讀順序（無障礙關鍵） | `reading-flow: flex-visual;` / `reading-order: 1;` | 🟠 | ✅ |
 | Gap Decorations（`row-rule` / `column-rule` / `rule`） | 直接在 grid/flex 的 gap 畫分隔線、控制樣式，不用再插 divider 元素；另有 `rule-inset`／`rule-overlap`／`rule-visibility-items` 等微調（Chrome/Edge 149 起，其他瀏覽器尚未） | `column-rule: 1px solid; row-rule: 1px solid;` 或簡寫 `rule: 1px solid;` | 🟠 | ✅ |
 | `margin-inline` | 邏輯屬性，一次設定行向左右邊距（常用 `auto` 置中） | `margin-inline: auto;` | 🟢 | ✅ |
@@ -67,7 +67,7 @@ draft: false
 | `sibling-index()` / `sibling-count()` | 取得元素在同層中的索引與總數，可做交錯動畫、動態寬度（Baseline 2026） | `--i: sibling-index();` | 🟡 | ✅ |
 | `:heading` | 一次選取所有標題；Safari 27 起支援，其他瀏覽器尚未 | `:heading{}` | 🟠 | ⬜ |
 | Carousel 選擇器組 | `::scroll-marker` / `scroll-marker-group` / `:target-current` 做原生輪播與 Scrollspy；Chrome 154 新增 `scroll-marker-group` 的 `links`（預設）／`tabs` 模式，改變導覽點的焦點順序與 ARIA 語意 | `:target-current{}` | 🟠 | ✅ |
-| 媒體狀態偽類（`:playing` / `:paused` / `:muted` 等） | 依 `<video>`／`<audio>` 播放、暫停、靜音、緩衝的狀態直接套樣式，自訂播放器不必再用 JS 切 class（Safari 15.4、Firefox 150、Chrome 158 起都支援；按鈕名稱和狀態仍要用 JS 同步，實測見[這篇](/blog/css-media-state-pseudos/)） | `video:paused + .play-btn{}` | 🟡 | ✅ |
+| 媒體狀態偽類（`:playing` / `:paused` / `:muted` 等） | 依 `<video>`／`<audio>` 播放、暫停、靜音、緩衝的狀態直接套樣式，自訂播放器不必再用 JS 切 class（Safari 15.4、Firefox 150 起支援，Chrome 158 預計 2026 年 11 月 17 日推出；按鈕名稱和狀態仍要用 JS 同步，實測見[這篇](/blog/css-media-state-pseudos/)） | `video:paused + .play-btn{}` | 🟡 | ✅ |
 | `image-animation` / `:animated-image` | 控制 GIF、APNG 這類動畫圖片要不要播放，並能選取動畫圖片；動畫 GIF 一直很難符合 WCAG 2.2.2「暫停、停止、隱藏」，無障礙價值高。**尚未出貨**：Chromium 從 153 到 159 都只是測試狀態，要用 `--enable-blink-features=CSSImageAnimation` 啟動才能用；出貨提案（原定 Chrome 152）沒有獲得核准，2026 年 10 月封存，規格還在修改。我用旗標在 Chromium 159 實測：`paused`／`stopped`／`running` 可用，但 SVG 動畫圖暫停不了，只有一格的靜態 GIF 也會被 `:animated-image` 選到 | `img:animated-image { image-animation: paused; }` | 🔴 | ⬜ |
 
 ## C. 色彩（Color）
@@ -81,35 +81,35 @@ draft: false
 | `light-dark()` | 同一屬性同時給亮／暗兩值，搭配 `color-scheme` 免寫 media query；也可以放圖片（三大瀏覽器皆支援） | `color: light-dark(#000, #fff);` | 🟢 | ✅ |
 | `font-palette` / `@font-palette-values` | 彩色字型（COLR）可自訂調色盤 | `@font-palette-values --p{...}` + `font-palette: --p;` | 🟡 | ✅ |
 | 漸層指定內插色彩空間 | `linear-gradient(in oklch …)` 讓漸層過渡更均勻不灰濁 | `background: linear-gradient(in oklch, #4ba3f7, #9d2398);` | 🟢 | ✅ |
-| `alpha()` | 相對色彩函式，只調整既有顏色的透明度，不必拆開重寫整個色值（Baseline 2026：Chrome 151、Firefox 155、Safari 27）（各種色彩寫法與對比的實測見[這篇](/blog/css-alpha-revert-rule/)） | `color: alpha(from var(--brand) / 50%);` | 🟡 | ✅ |
+| `alpha()` | 相對色彩函式，只調整既有顏色的透明度，不必拆開重寫整個色值（Baseline 2026：Chrome 152、Firefox 155、Safari 27）（各種色彩寫法與對比的實測見[這篇](/blog/css-alpha-revert-rule/)） | `color: alpha(from var(--brand) / 50%);` | 🟡 | ✅ |
 
 ## D. 文字排版（Typography）
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
 | `text-wrap: balance` / `pretty` | `balance` 平衡標題各行寬度；`pretty` 避免內文孤字（pretty 較新） | `text-wrap: balance;` | 🟡 | ✅ |
-| `text-decoration-skip-ink` | 底線遇到字母下伸部（g、y）時斷開，更好看；Chrome 155 Beta 另加入 `text-decoration-skip-spaces`，控制底線要不要略過空白 | `text-decoration-skip-ink: auto;` | 🟢 | ✅ |
-| `text-decoration-inset` | 縮短或延長底線等裝飾線，正值內縮、負值外延，做底線動畫不必多包元素（Chrome 154） | `text-decoration-inset: 0.5em;` | 🟠 | ⬜ |
+| `text-decoration-skip-ink` | 底線遇到字母下伸部（g、y）時斷開，更好看；Chrome 155 另加入 `text-decoration-skip-spaces`，控制底線要不要略過空白 | `text-decoration-skip-ink: auto;` | 🟢 | ✅ |
+| `text-decoration-inset` | 縮短或延長底線等裝飾線，正值內縮、負值外延，做底線動畫不必多包元素（Firefox 146、Chrome 157 起） | `text-decoration-inset: 0.5em;` | 🟡 | ⬜ |
 | `text-combine-upright` | 直排文中把數字／英文橫置（「縱中橫」），中日文長文常用 | `text-combine-upright: all;` | 🟡 | ✅ |
 | `text-emphasis` | 文字強調點／圈（跟著字中心），中日文標註常用 | `text-emphasis: dot;` | 🟢 | ✅ |
 | `ruby-align` | 注音／拼音等 ruby 註記的對齊方式 | `ruby-align: center;` | 🟡 | ✅ |
 | `paint-order` | 控制文字填色與外框繪製順序（做描邊字） | `paint-order: stroke fill;` | 🟢 | ✅ |
 | `box-decoration-break: clone` | 斷行／換頁時每段各自套用邊框圓角背景，連結 focus 特別有感 | `box-decoration-break: clone;` | 🟡 | ✅ |
-| `text-box-trim` | 裁掉字體上下的多餘留白，做精準垂直對齊（Chrome、Safari 支援，Firefox 尚未） | `text-box: trim-both cap alphabetic;` | 🟡 | ✅ |
-| `line-clamp`（`-webkit-line-clamp`） | 限制幾行後顯示「…」；新標準 `line-clamp` 逐步取代 webkit 寫法 | `-webkit-line-clamp: 3;`（需 `-webkit-box`） | 🟢 | ✅ |
+| `text-box-trim` | 裁掉字體上下的多餘留白，做精準垂直對齊（Chrome 133、Safari 18.2、Firefox 154 起，三大瀏覽器都支援） | `text-box: trim-both cap alphabetic;` | 🟡 | ✅ |
+| `line-clamp`（`-webkit-line-clamp`） | 限制幾行後顯示「…」；不加前綴的標準 `line-clamp` 目前只有預覽版支援，實務上仍用 `-webkit-line-clamp` | `-webkit-line-clamp: 3;`（需 `-webkit-box`） | 🟢 | ✅ |
 | `hanging-punctuation` | 行首／行尾標點懸掛到邊界外，對齊更整齊（Safari 為主） | `hanging-punctuation: first last;` | 🟠 | ⬜ |
 | `font-variant-numeric: tabular-nums` | 等寬數字，計時器／價格／百分比等會跳動的數字必備（字型需支援） | `font-variant-numeric: tabular-nums;` | 🟢 | ✅ |
 | `lh` 單位 | 以行高為單位設 margin／間距，跟著字級縮放 | `margin-bottom: 1.5lh;` | 🟡 | ✅ |
-| `margin-trim` | 剪掉容器內首尾子元素的外距，免除 `:first/:last-child` 歸零（Safari 為主，Chrome 155 Beta 加入） | `margin-trim: block;` | 🟠 | ⬜ |
+| `margin-trim` | 剪掉容器內首尾子元素的外距，免除 `:first/:last-child` 歸零（Safari 16.4、Chrome 155 起，Firefox 尚未） | `margin-trim: block;` | 🟡 | ⬜ |
 | `text-fit` | 自動縮放文字大小以填滿容器寬度，做響應式大標題不必再手算或靠 JS（Chrome 150 新增；一定要加百分比上限，否則放大頁面時字反而變小，實測見[這篇](/blog/css-text-fit/)） | `h1 { text-fit: grow per-line-all 200%; }` | 🟠 | ✅ |
 | `text-autospace` | 在中文與英文／數字之間自動加入適當間距，不必再手動打空白；Safari 27 另加入 `insert` 值 | `text-autospace: normal;` | 🟡 | ✅ |
-| `font-width` | `font-stretch` 的正式新名稱，選取窄體、寬體字型；舊名稱保留為別名（Baseline 2026） | `font-width: 75%;` | 🟡 | ⬜ |
+| `font-width` | `font-stretch` 的正式新名稱，選取窄體、寬體字型；舊名稱保留為別名（Firefox 155、Safari 18.4 起，Chrome 尚未） | `font-width: 75%;` | 🟡 | ⬜ |
 
 ## E. 動畫與過渡（Animation & Transition）
 
 | 屬性 / 功能 | 主要用途與使用時機 | 範例 | 支援 | 已實驗 |
 |---|---|---|---|---|
-| 捲動驅動動畫（原「@scroll-timeline」） | 以捲動進度而非時間驅動動畫；規格已改為 `animation-timeline: scroll()/view()` | `animation-timeline: scroll();` | 🟠 | ✅ |
+| 捲動驅動動畫（原「@scroll-timeline」） | 以捲動進度而非時間驅動動畫；規格已改為 `animation-timeline: scroll()/view()`（Chrome 115、Safari 26、Firefox 159 起，三大瀏覽器都支援） | `animation-timeline: scroll();` | 🟡 | ✅ |
 | `@view-transition` / `transition-behavior` | 頁面／狀態切換的過場動畫；`allow-discrete` 讓 `display` 等離散屬性可過渡 | `transition-behavior: allow-discrete;` | 🟡 | ✅ |
 | `@starting-style` | 定義元素「首次出現」的起始樣式，可做 `display:none → 顯示` 的進場動畫 | `@starting-style{ opacity:0; }` | 🟡 | ✅ |
 | `backface-visibility` | 3D 翻轉時是否顯示背面（翻卡效果） | `backface-visibility: hidden;` | 🟢 | ✅ |
@@ -149,7 +149,7 @@ draft: false
 | `scrollbar-gutter: stable` | 預留捲軸槽，避免捲軸出現時內容位移 | `scrollbar-gutter: stable;` | 🟡 | ✅ |
 | `scrollbar-color` / `scrollbar-width` | 自訂捲軸顏色與粗細 | `scrollbar-color: #888 #eee;` | 🟡 | ✅ |
 | `@supports` | 特性偵測，做漸進增強與 fallback | `@supports (display: grid){}` | 🟢 | ✅ |
-| `at-rule()` | 在 `@supports` 裡偵測某個 at-rule 支不支援，例如 `@scope`、`@position-try`，終於不用靠間接寫法猜（Firefox 157 起） | `@supports at-rule(@scope){}` | 🟠 | ⬜ |
+| `at-rule()` | 在 `@supports` 裡偵測某個 at-rule 支不支援，例如 `@scope`、`@position-try`，終於不用靠間接寫法猜（Chrome 148、Firefox 157 起，Safari 尚未） | `@supports at-rule(@scope){}` | 🟡 | ⬜ |
 
 ## I. 函式與數學（Functions & Math）
 
@@ -158,12 +158,12 @@ draft: false
 | `round()` / `mod()` / `rem()` | CSS 內做進位取整、取餘，對齊網格／節奏 | `width: round(down, 15.5px, 4px);` | 🟡 | ✅ |
 | 三角函式 `sin/cos/tan` | 圓形排列、波形、角度計算 | `width: calc(sin(30deg) * 100px);` | 🟢 | ✅ |
 | `calc-size()` / `interpolate-size` | 對 `auto`／`min-content` 等關鍵字做動畫過渡，如未知高度的 accordion 展開；也可以搭配 `round()`，讓高度剛好是背景圖案的倍數，圖案不會被切掉（`height: calc-size(auto, round(up, size, 48px))`） | `interpolate-size: allow-keywords;` | 🟠 | ✅ |
-| `random()` | CSS 原生隨機值（散布、抖動效果） | `rotate: random(-5deg, 5deg);` | 🟠 | ✅ |
+| `random()` | CSS 原生隨機值（散布、抖動效果）（Safari 26.2、Chrome 156 起，Firefox 尚未） | `rotate: random(-5deg, 5deg);` | 🟡 | ✅ |
 | `if()` | 在屬性值中做條件判斷（沒寫 `else` 時屬性會退回初始值，焦點外框可能整個消失，見[這篇](/blog/css-if-function/)） | `display: if(style(--open: 1): block; else: none);` | 🟠 | ✅ |
 | `@function` | 自訂 CSS 函式與 mixin 概念，可帶參數回傳值（用來保證最小點擊區的實測見[這篇](/blog/css-if-function/)） | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ✅ |
-| `progress()` | 算出一個值落在兩個值之間的比例（0–1），做隨尺寸連續變化的樣式（Baseline 2026；Firefox 155、Safari 27 另支援 `no-clamp`，讓結果可以超出 0–1）（已套用在本站 h1、h2 的流體字級，讓畫面放大 200% 時標題也能放大 2 倍） | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ✅ |
-| `attr()` 用在任何屬性 | 以前 `attr()` 只能用在 `content`，現在可以帶型別讀取 HTML 屬性，直接當作寬度、顏色等任何屬性的值（Chrome 先支援，Firefox 155 加入；用它讀 ARIA 屬性的實測見[這篇](/blog/css-attr/)） | `width: attr(data-w type(<length>));` | 🟠 | ✅ |
-| `symbols()` | 在 CSS 裡直接定義清單符號，不必另寫 `@counter-style`（Chrome 155 Beta） | `list-style: symbols(cyclic "◆" "◇");` | 🟠 | ⬜ |
+| `progress()` | 算出一個值落在兩個值之間的比例（0–1），做隨尺寸連續變化的樣式（Baseline 2026；Firefox 155 另支援 `no-clamp`（Safari 目前只在預覽版），讓結果可以超出 0–1）（已套用在本站 h1、h2 的流體字級，讓畫面放大 200% 時標題也能放大 2 倍） | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ✅ |
+| `attr()` 用在任何屬性 | 以前 `attr()` 只能用在 `content`，現在可以帶型別讀取 HTML 屬性，直接當作寬度、顏色等任何屬性的值（Chrome 133、Firefox 155 起，Safari 尚未；用它讀 ARIA 屬性的實測見[這篇](/blog/css-attr/)） | `width: attr(data-w type(<length>));` | 🟡 | ✅ |
+| `symbols()` | 在 CSS 裡直接定義清單符號，不必另寫 `@counter-style`（Firefox 35、Chrome 155 起，Safari 尚未） | `list-style: symbols(cyclic "◆" "◇");` | 🟡 | ⬜ |
 
 ## J. 其他實用屬性（Misc）
 
@@ -174,12 +174,12 @@ draft: false
 | `overscroll-behavior: contain` | 區塊捲到底不再帶動外層捲軸（彈窗／側欄常用） | `overscroll-behavior: contain;` | 🟢 | ✅ |
 | `object-view-box` | 直接在 CSS 擷取圖片的局部區域，免另存裁切檔 | `object-view-box: inset(10% 10% 10% 10%);` | 🟠 | ✅ |
 | 響應式 iframe（`frame-sizing`） | iframe 高度自動依內嵌內容調整，不必再用 `postMessage` 傳高度；內嵌頁面要加 `<meta name="responsive-embedded-sizing" content="allow-origins=…">` 同意，沒寫 `content` 不會生效；高度只在載入時量，之後內容變了要呼叫 `requestResize()`（Chrome 154；實測與無障礙重點見[這篇](/blog/css-frame-sizing/)） | `iframe { frame-sizing: content-height; }` | 🟠 | ✅ |
-| `scroll-snap-type: pair` | 捲動吸附的新模式（Chrome 156 Beta），細節待正式版推出後再實測 | `scroll-snap-type: pair;` | 🟠 | ⬜ |
-| JPEG XL（`image/jxl`） | 壓縮率比 JPEG 好、可無損轉換舊 JPEG 的新圖片格式；Safari 已支援，Chrome 155 Beta 加入解碼 | `<source type="image/jxl" srcset="a.jxl">` | 🟠 | ⬜ |
+| `scroll-snap-type: pair` | 捲動吸附的新模式（Chrome 156 起，其他瀏覽器尚未），細節之後再實測 | `scroll-snap-type: pair;` | 🟠 | ⬜ |
+| JPEG XL（`image/jxl`） | 壓縮率比 JPEG 好、可無損轉換舊 JPEG 的新圖片格式；Safari 17、Chrome 155、Firefox 158 起，三大瀏覽器都支援 | `<source type="image/jxl" srcset="a.jxl">` | 🟡 | ⬜ |
 | 獨立 transform 屬性 | `translate`／`rotate`／`scale` 各自成屬性，好分開做動畫 | `rotate: 45deg; scale: 1.2;` | 🟢 | ✅ |
 | `border-image` | 用切片圖做複雜邊框，省去傳統切版煩惱 | `border-image: url(frame.png) 30 round;` | 🟢 | ✅ |
-| `background-clip: border-area` | 把背景裁切到「邊框筆畫所在的區域」（會依 `border-width`／`border-style` 計算、忽略 `border-color` 的透明度），可直接用漸層做邊框，免去 `border-image` 的迂迴（Chrome 150 新增）（實測：強制色彩模式下漸層會被拿掉，但瀏覽器會把透明邊框換成文字色，邊框形狀不會消失） | `border: 3px solid transparent; background: linear-gradient(45deg, red, blue); background-clip: border-area;` | 🟠 | ✅ |
-| `corner-shape` | 超越 `border-radius` 的圓角形狀（squircle／切角等），搭配 `border-radius` 使用；Chrome 156 Beta 另加入簡寫 `corner`（用 App 圖示、優惠券、箭頭步驟、切角按鈕實測，見[這篇](/blog/css-corner-shape/)） | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ✅ |
+| `background-clip: border-area` | 把背景裁切到「邊框筆畫所在的區域」（會依 `border-width`／`border-style` 計算、忽略 `border-color` 的透明度），可直接用漸層做邊框，免去 `border-image` 的迂迴（Safari 18.2、Chrome 150 起，Firefox 尚未）（實測：強制色彩模式下漸層會被拿掉，但瀏覽器會把透明邊框換成文字色，邊框形狀不會消失） | `border: 3px solid transparent; background: linear-gradient(45deg, red, blue); background-clip: border-area;` | 🟠 | ✅ |
+| `corner-shape` | 超越 `border-radius` 的圓角形狀（squircle／切角等），搭配 `border-radius` 使用；簡寫 `corner` 在 Chromium 158 仍是實驗狀態，還沒正式推出（用 App 圖示、優惠券、箭頭步驟、切角按鈕實測，見[這篇](/blog/css-corner-shape/)） | `corner-shape: squircle; border-radius: 30px;` | 🟠 | ✅ |
 | 字型平滑（`-webkit-font-smoothing`） | 深色模式讓文字不刺眼的關鍵：macOS 上淺色文字在深底會因次像素抗鋸齒而變粗發光，改用 grayscale 抗鋸齒後變細、不刺眼；非標準，僅特定平台有效 | `-webkit-font-smoothing: antialiased;`（+ `-moz-osx-font-smoothing: grayscale;`） | 🟡 | ✅ |
 | `@when` / `@else` | CSS 的 if/else 條件塊；仍為提案，瀏覽器皆不可用 | `@when supports(...){} @else{}` | 🔴 | ✅ |
 | Scroll anchoring（`overflow-anchor`） | 上方內容載入或插入時，瀏覽器自動維持目前的閱讀位置、畫面不跳動；預設開啟，個別元素可用 `none` 關閉。畫面跳動對認知或動作障礙者特別困擾（Safari 27 補上後，三大引擎到齊） | `overflow-anchor: none;` | 🟡 | ✅ |
@@ -195,7 +195,7 @@ draft: false
 | `<geolocation>` | 宣告式的定位請求按鈕，授權流程交給瀏覽器處理，並提供「使用者先前拒絕過」的恢復路徑（過去一旦被拒就沒救了）。不支援的瀏覽器會降級成 `<span>`，可漸進增強（實測：瀏覽器只比對按鈕自己的文字色與背景色，低於 3:1 就失效，但背景圖片、模糊、拿掉焦點框都擋不住） | `<geolocation onlocation="fn(event)">` | 🟠 | ✅ |
 | `<usermedia>` | 相機／麥克風的宣告式存取，直接把 `MediaStream` 交給頁面，不必自己呼叫 `getUserMedia()`，使用者封鎖過也能在頁面上直接恢復。只要影像或只要聲音的 `<camera>`／`<microphone>` 已在 Chrome 153 推出（實測：`lang="zh-Hant-TW"` 會讓按鈕變簡體、開啟後沒有狀態、鍵盤使用者按太快會失敗，見[這篇](/blog/html-usermedia/)） | `<usermedia lang="zh-TW">` | 🟠 | ✅ |
 | `<install>` | PWA 安裝按鈕，文案與外觀由瀏覽器控制（使用者看到「安裝」就知道會發生什麼）。指定 `installurl` 可安裝其他網域的 app，能做成 app 目錄頁 | `<install installurl="…" manifestid="…">` | 🟠 | ⬜ |
-| `<model>` | 像 `<img>` 一樣嵌入可互動的 3D 模型（USDZ 格式），可用 `<source>` 提供多格式、用 `environmentmap` 指定環境光 | `<model src="a.usdz">` | 🟠 | ⬜ |
+| `<model>` | 像 `<img>` 一樣嵌入可互動的 3D 模型（USDZ 格式），可用 `<source>` 提供多格式、用 `environmentmap` 指定環境光（Safari 27 起，其他瀏覽器尚未） | `<model src="a.usdz">` | 🟠 | ⬜ |
 
 ### K-2. 新的 HTML 屬性與行為
 
@@ -208,10 +208,10 @@ draft: false
 | `popover="hint"` | 專給 tooltip 類的 popover：保有 light-dismiss，但只會關掉其他 hint，不會把主要的 popover 一起關掉 | `<div popover="hint">` | 🟡 | ✅ |
 | `sizes="auto"` | 響應式圖片不用再自己算 `sizes`，交給瀏覽器；搭配 `srcset` 與 `loading="lazy"` 使用（Chrome、Firefox、Safari 27 皆已支援）（實測與套用到我作品集的結果見[這篇](/blog/html-sizes-auto/)） | `<img srcset="…" sizes="auto">` | 🟡 | ✅ |
 | 宣告式 Shadow DOM | 不寫 JS 就能建立 Shadow DOM，SSR 輸出可以直接帶著走 | `<template shadowrootmode="open">` | 🟢 | ✅ |
-| `Element.setHTML()` | 安全版的 `innerHTML`：插入時自動清掉 `<script>`、事件屬性等危險標記（Sanitizer API），和宣告式 Shadow DOM 文章提到的 `setHTMLUnsafe()` 是一組；Firefox 157 改為解析時就清理，其他瀏覽器請以 caniuse 為準（實測預設設定會清掉所有 `aria-*`、`role`，見[這篇](/blog/html-sethtml/)） | `el.setHTML(userInput);` | 🟠 | ✅ |
+| `Element.setHTML()` | 安全版的 `innerHTML`：插入時自動清掉 `<script>`、事件屬性等危險標記（Sanitizer API），和宣告式 Shadow DOM 文章提到的 `setHTMLUnsafe()` 是一組；Chrome 146、Firefox 148 起支援，Safari 尚未；Firefox 157 改為解析時就清理（實測預設設定會清掉所有 `aria-*`、`role`，見[這篇](/blog/html-sethtml/)） | `el.setHTML(userInput);` | 🟡 | ✅ |
 | `shadowrootreferencetarget` | 讓 Shadow DOM 外面的 `<label>`／`aria-*` 能指向內部真正的 input——解決 web component 長年的標籤關聯難題（實測與 UI Kit 的例子見[這篇](/blog/shadow-dom-reference-target/)） | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ✅ |
 | `<h1>` 巢狀尺寸修正 | UA 樣式表變更：`<h1>` 放在 `<section>` 裡不再被自動縮小，標題階層的視覺呈現終於可預期（實測與我網站的標題調整見[這篇](/blog/html-nested-h1/)） | — | 🟢 | ✅ |
-| `ariaNotify()` | 直接請螢幕閱讀器念出一段訊息（例如「已加入購物車」），取代在頁面藏一個 `aria-live` 區塊再塞文字的舊做法。它是 DOM API 而不是 HTML 屬性，但它取代的正是那套 HTML 屬性寫法（Chrome 141、Firefox 150 起；Safari 的資料互相矛盾，請以實測為準） | `document.ariaNotify("已加入購物車");` | 🟡 | ✅ |
+| `ariaNotify()` | 直接請螢幕閱讀器念出一段訊息（例如「已加入購物車」），取代在頁面藏一個 `aria-live` 區塊再塞文字的舊做法。它是 DOM API 而不是 HTML 屬性，但它取代的正是那套 HTML 屬性寫法（Chrome 141、Firefox 150、Safari 27 起，三大瀏覽器都支援） | `document.ariaNotify("已加入購物車");` | 🟡 | ✅ |
 | HTML-in-Canvas | 把一般 HTML 畫進 `<canvas>`（2D、WebGL、WebGPU），畫出來的內容仍可點擊、選取文字、用鍵盤操作，也在無障礙樹裡，頁內搜尋、翻譯、自動填入照常可用——以前 canvas 只是一張像素圖，得另做隱藏的 DOM 給報讀軟體。屬性已從原型時的 `layoutsubtree` 改為 `content="drawable"`（Chrome 157）（無障礙實測見[這篇](/blog/html-in-canvas-a11y/)） | `<canvas content="drawable"><div drawable>…</div></canvas>` + `ctx.drawElementImage(el, x, y)` | 🟠 | ✅ |
 
 ### K-3. 提案／原型階段（先知道有這回事就好）

@@ -1,6 +1,6 @@
 ---
 title: "Building a Custom Player with :playing and :paused: the Icon Follows the State, but Screen Readers Don't Know"
-description: "The media state pseudo-classes let CSS style <video> and <audio> by whether they're playing, paused, or muted, and since Chrome 158 all three major browsers support them. After testing in Chromium, I cover a few things that are easy to get wrong (volume 0 doesn't match :muted, and the element becomes :paused when it ends) and the part CSS can't reach: button names and states still have to be synced from media events with JavaScript."
+description: "The media state pseudo-classes let CSS style <video> and <audio> by whether they're playing, paused, or muted, Safari and Firefox already support them, and with Chrome 158 (due November 17, 2026) all three major browsers will. After testing in Chromium, I cover a few things that are easy to get wrong (volume 0 doesn't match :muted, and the element becomes :paused when it ends) and the part CSS can't reach: button names and states still have to be synced from media events with JavaScript."
 date: 2026-11-07
 tags:
   - CSS
@@ -33,11 +33,11 @@ To switch icons by state in a custom player, you used to listen for `play` and `
 
 | Browser | Version | Source |
 |---|---|---|
-| Chrome | 158 | Chromium source: experimental in 154–157, enabled by default from 158 |
+| Chrome | 158 (due November 17, 2026) | Chromium source: experimental in 154–157, enabled by default from 158 |
 | Firefox | 150 | MDN's Firefox 150 release notes |
 | Safari | 15.4 | MDN compatibility data |
 
-In my tests, Chromium 157 doesn't support them and 159 does.
+In my tests, Chromium 157 doesn't support them and 159 does. Chrome 157 shipped on November 3, 2026, so **the current stable Chrome doesn't support them yet**; that comes with 158 (release dates from the browser release data in MDN's compatibility data).
 
 ## The basics
 
@@ -166,6 +166,7 @@ The media state pseudo-classes mean you no longer toggle classes just for the lo
 - [WHATWG HTML — pseudo-classes for media elements](https://html.spec.whatwg.org/multipage/semantics-other.html#pseudo-classes "opens in new window"){target="_blank"}
 - [WHATWG HTML — what “muted” means for a media element](https://html.spec.whatwg.org/multipage/media.html#concept-media-muted "opens in new window"){target="_blank"}
 - [MDN — Firefox 150 release notes](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/150 "opens in new window"){target="_blank"}
+- [MDN browser-compat-data — Chrome release dates](https://github.com/mdn/browser-compat-data/blob/main/browsers/chrome.json "opens in new window"){target="_blank"}
 - [MDN browser-compat-data — :playing](https://github.com/mdn/browser-compat-data/blob/main/css/selectors/playing.json "opens in new window"){target="_blank"}
 - [Chromium source — runtime_enabled_features.json5 (CSSMediaElementPseudos)](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/platform/runtime_enabled_features.json5 "opens in new window"){target="_blank"}
 - [WAI-ARIA Authoring Practices Guide — Button pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/ "opens in new window"){target="_blank"}
