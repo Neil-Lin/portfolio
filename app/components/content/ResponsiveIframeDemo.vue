@@ -54,6 +54,13 @@
       </div>
     </dl>
 
+    <p
+      v-if="supported && clipped && sizing === 'content-height' && !auto"
+      class="rif-demo__hint"
+    >
+      {{ text.hint }}
+    </p>
+
     <p class="demo__status">{{ modeText }}</p>
     <p class="demo__print">{{ text.print }}</p>
   </div>
@@ -95,6 +102,7 @@ const messages = {
     contentHeight: "內容高度",
     clippedLabel: "有內容被擠到框內捲動嗎？",
     clippedYes: "有，要在框內捲動才看得到",
+    hint: "這是規格的設計：frame-sizing 只在 iframe 載入時量一次高度（載入時已經從預設的 150px 調成內容高度）。之後內容變了，要勾選上方的「自動呼叫 requestResize()」，或按 iframe 裡的「通知父頁更新高度」。",
     no: "沒有",
     native: "你的瀏覽器支援 frame-sizing：iframe 高度由瀏覽器依內容決定",
     fallback:
@@ -135,6 +143,7 @@ const messages = {
     contentHeight: "Content height",
     clippedLabel: "Is any content pushed into a scroll area inside the frame?",
     clippedYes: "Yes, you have to scroll inside the frame to see it",
+    hint: "This is by design: frame-sizing only measures the height once, when the iframe loads (at load it already grew from the default 150px to the content height). When the content changes later, turn on “Call requestResize() automatically” above, or press “Tell the parent to update” inside the iframe.",
     no: "No",
     native:
       "Your browser supports frame-sizing: the browser sizes the iframe to its content",
@@ -178,7 +187,12 @@ const esc = (s: string) =>
 
 // 內嵌頁面（srcdoc 和父頁同源，allow-origins='self' 就能用）
 // 顏色由父頁量好後傳進去，深淺色主題才會一致
-const colors = ref({ fg: "CanvasText", bg: "Canvas", accent: "LinkText" });
+const colors = ref({
+  scheme: "light",
+  fg: "CanvasText",
+  bg: "Canvas",
+  accent: "LinkText",
+});
 const srcdoc = computed(() => {
   const t = text.value;
   const c = colors.value;
@@ -193,7 +207,7 @@ const srcdoc = computed(() => {
 <meta name="responsive-embedded-sizing" content="allow-origins='self'">
 <title>${esc(t.heading)}</title>
 <style>
-:root{color:${c.fg};background:${c.bg};font:1rem/1.6 system-ui,sans-serif}
+:root{color-scheme:${c.scheme};color:${c.fg};background:${c.bg};font:1rem/1.6 system-ui,sans-serif}
 body{margin:0;padding:1rem}
 h2{margin:0 0 .75rem;font-size:1.125rem}
 details{border-block-end:1px solid currentColor;padding-block:.5rem}
@@ -303,15 +317,25 @@ function readColors() {
   const el = frame.value?.parentElement;
   if (!el) return;
   const cs = getComputedStyle(el);
-  const accent = getComputedStyle(el).getPropertyValue("--pd-c").trim();
+  const accent = cs.getPropertyValue("--pd-c").trim();
+  const cardBg = cs.getPropertyValue("--card-bg").trim();
+  // iframe 裡的頁面要宣告跟父頁一樣的 color-scheme；
+  // 不一樣的話，瀏覽器會在 iframe 底下畫不透明的背景（深色模式時變成白底）
+  const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const next = {
+    scheme: dark ? "dark" : "light",
     fg: cs.color,
-    bg: cs.backgroundColor,
+    bg: cardBg ? `oklch(${cardBg})` : "Canvas",
     accent: accent ? `oklch(${accent})` : cs.color,
   };
   // 顏色真的變了才更新（srcdoc 一變，iframe 就會重新載入）
   const c = colors.value;
-  if (next.fg !== c.fg || next.bg !== c.bg || next.accent !== c.accent) {
+  if (
+    next.scheme !== c.scheme ||
+    next.fg !== c.fg ||
+    next.bg !== c.bg ||
+    next.accent !== c.accent
+  ) {
     colors.value = next;
   }
 }

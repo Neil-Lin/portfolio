@@ -2604,3 +2604,6 @@ button.stretch-demo__target {
     frame-sizing: content-height;
   }
 }
+.rif-demo__hint {
+  font-size: 0.9375rem;
+}
