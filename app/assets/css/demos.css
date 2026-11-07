@@ -2577,7 +2577,30 @@ button.stretch-demo__target {
 
 /* 窄螢幕：讀數改一欄，偽類名稱才不會被斷開 */
 @media (width <= 40rem) {
-  .ms-demo .attr-demo__readout {
+  .ms-demo .attr-demo__readout,
+  .rif-demo .attr-demo__readout {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/************************
+  響應式 iframe（frame-sizing）
+*************************/
+
+.rif-demo__stage {
+  max-inline-size: 100%;
+  &.is-narrow {
+    inline-size: 320px;
+  }
+}
+
+.rif-demo__frame {
+  display: block;
+  inline-size: 100%;
+  /* 沒有內容尺寸時（frame-sizing: auto）用瀏覽器預設的 150px */
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 0.5rem;
+  &.is-content {
+    frame-sizing: content-height;
   }
 }

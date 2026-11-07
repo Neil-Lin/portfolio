@@ -83,6 +83,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     // Chrome 官方指南的寫法；<canvas content="drawable"> 的 content 屬性
     detect: () => "content" in HTMLCanvasElement.prototype,
   },
+  "frame-sizing": {
+    name: "frame-sizing",
+    detect: () => CSS.supports("frame-sizing", "content-height"),
+  },
   "media-pseudos": {
     name: "media state pseudo-classes",
     detect: () => CSS.supports("selector(:playing)"),
