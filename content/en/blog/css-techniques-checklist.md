@@ -2,7 +2,7 @@
 title: "Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next"
 description: "A scannable checklist of modern CSS and HTML features—grouped by layout, selectors, color, typography, animation and more, plus declarative HTML additions like `<geolocation>`, `focusgroup` and Invoker Commands—each with its purpose, an example, and browser support."
 date: 2026-07-06
-updatedAt: 2026-11-07
+updatedAt: 2026-11-08
 tags:
   - CSS
   - HTML
@@ -89,7 +89,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 |---|---|---|---|---|
 | `text-wrap: balance` / `pretty` | `balance` evens out heading line widths; `pretty` avoids orphan words in body text (pretty is newer) | `text-wrap: balance;` | 🟡 | ✅ |
 | `text-decoration-skip-ink` | Break the underline around descenders (g, y) for a cleaner look; Chrome 155 adds `text-decoration-skip-spaces` to control whether the underline skips spaces | `text-decoration-skip-ink: auto;` | 🟢 | ✅ |
-| `text-decoration-inset` | Shorten or extend decorations such as underlines; positive values inset, negative values outset, for underline animations without extra elements (Firefox 146, Chrome 157) | `text-decoration-inset: 0.5em;` | 🟡 | ⬜ |
+| `text-decoration-inset` | Shorten or extend decorations such as underlines; positive values inset, negative values outset, for underline animations without extra elements (Firefox 146, Chrome 157; at 50% the underline disappears, so always keep a visible underline at rest; see [my post testing it](/en/blog/css-text-decoration-inset/)) | `text-decoration-inset: 0.5em;` | 🟡 | ✅ |
 | `text-combine-upright` | Lay numbers/Latin horizontally within vertical text ("tate-chu-yoko"); common in CJK long-form | `text-combine-upright: all;` | 🟡 | ✅ |
 | `text-emphasis` | Emphasis dots/circles that track the character center; common CJK annotation | `text-emphasis: dot;` | 🟢 | ✅ |
 | `ruby-align` | Alignment of ruby annotations (bopomofo / pinyin, etc.) | `ruby-align: center;` | 🟡 | ✅ |

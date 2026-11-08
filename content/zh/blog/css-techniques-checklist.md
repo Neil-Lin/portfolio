@@ -2,7 +2,7 @@
 title: 現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序
 description: "一份可快速掃描的現代 CSS 與 HTML 特性清單，依版面、選擇器、色彩、文字、動畫等分類，另收錄 `<geolocation>`、`focusgroup`、Invoker Commands 等宣告式 HTML 新特性，逐條整理用途、範例與瀏覽器支援度。"
 date: 2026-07-06
-updatedAt: 2026-11-07
+updatedAt: 2026-11-08
 tags:
   - CSS
   - HTML
@@ -89,7 +89,7 @@ draft: false
 |---|---|---|---|---|
 | `text-wrap: balance` / `pretty` | `balance` 平衡標題各行寬度；`pretty` 避免內文孤字（pretty 較新） | `text-wrap: balance;` | 🟡 | ✅ |
 | `text-decoration-skip-ink` | 底線遇到字母下伸部（g、y）時斷開，更好看；Chrome 155 另加入 `text-decoration-skip-spaces`，控制底線要不要略過空白 | `text-decoration-skip-ink: auto;` | 🟢 | ✅ |
-| `text-decoration-inset` | 縮短或延長底線等裝飾線，正值內縮、負值外延，做底線動畫不必多包元素（Firefox 146、Chrome 157 起） | `text-decoration-inset: 0.5em;` | 🟡 | ⬜ |
+| `text-decoration-inset` | 縮短或延長底線等裝飾線，正值內縮、負值外延，做底線動畫不必多包元素（Firefox 146、Chrome 157 起；內縮到 50% 底線會消失，平常一定要留著看得到的底線，實測見[這篇](/blog/css-text-decoration-inset/)） | `text-decoration-inset: 0.5em;` | 🟡 | ✅ |
 | `text-combine-upright` | 直排文中把數字／英文橫置（「縱中橫」），中日文長文常用 | `text-combine-upright: all;` | 🟡 | ✅ |
 | `text-emphasis` | 文字強調點／圈（跟著字中心），中日文標註常用 | `text-emphasis: dot;` | 🟢 | ✅ |
 | `ruby-align` | 注音／拼音等 ruby 註記的對齊方式 | `ruby-align: center;` | 🟡 | ✅ |
