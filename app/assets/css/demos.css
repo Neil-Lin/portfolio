@@ -2578,7 +2578,8 @@ button.stretch-demo__target {
 /* 窄螢幕：讀數改一欄，偽類名稱才不會被斷開 */
 @media (width <= 40rem) {
   .ms-demo .attr-demo__readout,
-  .rif-demo .attr-demo__readout {
+  .rif-demo .attr-demo__readout,
+  .tdi-demo .attr-demo__readout {
     grid-template-columns: minmax(0, 1fr);
   }
 }
@@ -2606,4 +2607,75 @@ button.stretch-demo__target {
 }
 .rif-demo__hint {
   font-size: 0.9375rem;
+}
+
+/************************
+  text-decoration-inset（連結底線動畫、相鄰底線分開）
+*************************/
+
+.tdi-demo__text {
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.tdi-demo__link {
+  text-decoration: underline 0.1em;
+  text-underline-offset: 0.2em;
+  /* 讓範例只比較底線，不受全站連結 hover 變淡的影響 */
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/* 支援時才設定 inset 與動畫；不支援的瀏覽器底線維持完整 */
+@supports (text-decoration-inset: 0) {
+  .tdi-demo__link {
+    transition: text-decoration-inset 300ms ease-out;
+  }
+  .tdi-demo__text.is-hidden .tdi-demo__link {
+    text-decoration-inset: 50%;
+  }
+  .tdi-demo__text.is-trim .tdi-demo__link {
+    text-decoration-inset: 0.3em;
+  }
+  .tdi-demo__text.is-extend .tdi-demo__link {
+    text-decoration-inset: 0;
+  }
+  .tdi-demo__text:is(.is-hidden, .is-trim) .tdi-demo__link:hover,
+  .tdi-demo__text.is-focus:is(.is-hidden, .is-trim) .tdi-demo__link:focus-visible {
+    text-decoration-inset: 0;
+  }
+  .tdi-demo__text.is-extend .tdi-demo__link:hover,
+  .tdi-demo__text.is-focus.is-extend .tdi-demo__link:focus-visible {
+    text-decoration-inset: -0.15em;
+  }
+  .tdi-demo__text.is-reduced .tdi-demo__link {
+    transition: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tdi-demo__link {
+      transition: none;
+    }
+  }
+}
+
+.tdi-demo__subhead {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.tdi-demo__names {
+  margin: 0;
+  font-size: 1.25rem;
+  u {
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.25em;
+  }
+  &.is-auto u {
+    text-decoration-inset: auto;
+  }
 }
