@@ -123,15 +123,32 @@ dialog {
 
 a {
   color: oklch(var(--link-color));
-  transition: opacity 160ms ease-in;
   text-decoration: underline;
   text-decoration-skip-ink: auto;
   box-decoration-break: clone;
-  &:hover {
-    opacity: 0.6;
+  /*
+    hover 回饋用底線變化，不再整個變淡：
+    以前 opacity: 0.6 會讓淺色模式的連結對比從 7.23:1 掉到 2.89:1。
+    平常底線兩端稍微內縮、還是看得到（連結和內文對比約 1:1，底線是唯一的辨識方式，WCAG 1.4.1），
+    hover、鍵盤焦點時展開到完整。
+  */
+  @supports (text-decoration-inset: 0) {
+    text-decoration-inset: 0.15em;
+    transition: text-decoration-inset 200ms ease-out;
+    &:hover,
+    &:focus-visible {
+      text-decoration-inset: 0;
+    }
   }
-  &:active {
-    opacity: 1;
+  /* 不支援 text-decoration-inset 的瀏覽器（例如 Safari）：hover 時底線加粗 */
+  @supports not (text-decoration-inset: 0) {
+    &:hover,
+    &:focus-visible {
+      text-decoration-thickness: 2px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
   &:focus-visible {
     outline: none;

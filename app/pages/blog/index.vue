@@ -322,6 +322,12 @@ useBreadcrumbSchema(breadCrumbsList);
     text-wrap: pretty;
   }
 
+  /* 文章標題：hover、鍵盤焦點時出現底線（全站連結已不再用變淡當 hover 回饋） */
+  h2 a:hover,
+  h2 a:focus-visible {
+    text-decoration: underline;
+  }
+
   .des {
     display: -webkit-box;
     -webkit-line-clamp: 2;
