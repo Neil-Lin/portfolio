@@ -8,7 +8,10 @@ engineStrict: true
 # 沒有夠舊的版本時直接失敗，而不是退而安裝新版本。
 minimumReleaseAge: 1440
 
-# 套件的信任等級比之前的版本低（例如原本有來源證明、新版沒有）就拒絕安裝。
+# 不安裝信任等級比之前版本低的版本（例如原本有來源證明、新版沒有）。
+# 注意：不一定讓安裝失敗。版本範圍內有較舊的版本時，pnpm 會改裝那個版本、只顯示警告
+# （Skipped trust downgrades rejected by trustPolicy），所以升級後要看警告、逐一比對版本。
+# 範圍內沒有其他版本時才會失敗。說明見 docs/package-manager.md
 trustPolicy: no-downgrade
 trustPolicyExclude:
   # 同一位維護者 2.5.0 用 CI 發布（有來源證明），30 分鐘後手動發布 3.0.0-pre1（沒有）。

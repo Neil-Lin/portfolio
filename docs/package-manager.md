@@ -21,12 +21,14 @@
 | 設定 | 用途 | 備註 |
 |---|---|---|
 | `minimumReleaseAge: 1440` | 發布未滿 24 小時的版本不安裝 | **一定要明確寫出來**：pnpm 只有在使用者自己設定時才把 `minimumReleaseAgeStrict` 設為 true；只靠預設值時，找不到夠舊的版本會退而安裝新版本 |
-| `trustPolicy: no-downgrade` | 信任等級下降（例如原本有來源證明、新版沒有）就拒絕 | 預設不開啟 |
+| `trustPolicy: no-downgrade` | 不安裝信任等級下降的版本（例如原本有來源證明、新版沒有） | 預設不開啟。**不一定讓安裝失敗**，見下方 |
 | `trustPolicyExclude` | 排除已確認的誤報 | 只排除確切版本，見下方 |
 | `allowBuilds` | 允許執行安裝腳本的套件 | esbuild、unrs-resolver。`better-sqlite3`、`sharp` 附預先編譯檔，不需要 |
 | `overrides` | 從 `package.json` 搬過來 | `vue-router: 5.4.0` |
 
 `engineStrict: true` 原本是 `.npmrc` 的 `engine-strict=true`；pnpm 12 不讀這一行（實測：在 Node 22 照樣安裝；改寫在 `pnpm-workspace.yaml` 後就會擋下），所以搬到這裡並刪掉 `.npmrc`（另一行 `registry=` 是預設值）。
+
+**`trustPolicy` 擋下時不一定會失敗**（2026-11-08 查證）：官方文件寫「pnpm will fail」，但 pnpm 12.16.1 的原始碼與測試（`pnpm/crates/resolving-npm-resolver/src/npm_resolver/guarded_pick.rs`、`tests/trust_policy.rs`）顯示，解析版本時遇到信任等級下降的版本，會**改裝版本範圍內的上一個版本**，只顯示一行警告「Skipped trust downgrades rejected by trustPolicy: … Resolved … instead.」；範圍內沒有其他版本（例如指定確切版本）時才失敗。所以安裝或升級後要看警告，並逐一比對解析出來的版本。2026-11-08 在複本上從頭重新解析並和 lockfile 逐一比對：沒有出現這個警告，也沒有套件被改裝成較舊的版本。
 
 `blockExoticSubdeps`（擋掉從 git、網址安裝的間接依賴）在 pnpm 官方文件標示預設為 `true`，不用寫。
 
