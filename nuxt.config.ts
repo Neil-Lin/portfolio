@@ -49,6 +49,8 @@ export default defineNuxtConfig({
         {
           src: "https://accesserty.com/pulse.js",
           defer: true,
+          // 載入 pulse.js 時不送出 Referer（不讓 accesserty.com 從請求標頭看到目前網址）
+          referrerpolicy: "no-referrer",
           // 這是您的專屬追蹤 ID
           "data-client-id": "AP_41EB0D1A_514",
         },
