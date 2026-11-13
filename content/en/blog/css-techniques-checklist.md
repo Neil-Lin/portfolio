@@ -2,7 +2,7 @@
 title: "Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next"
 description: "A scannable checklist of modern CSS and HTML features—grouped by layout, selectors, color, typography, animation and more, plus declarative HTML additions like `<geolocation>`, `focusgroup` and Invoker Commands—each with its purpose, an example, and browser support."
 date: 2026-07-06
-updatedAt: 2026-11-08
+updatedAt: 2026-11-13
 tags:
   - CSS
   - HTML
@@ -163,7 +163,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `@function` | Custom CSS functions / a mixin-like concept, with parameters and a return value (see [this post](/en/blog/css-if-function/) for using one to guarantee a minimum target size) | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ✅ |
 | `progress()` | Returns where a value sits between two others as a 0–1 ratio, for styles that change continuously with size (Baseline 2026; Firefox 155 also supports `no-clamp` (Safari only in preview so far), letting the result go outside 0–1) (applied to this site's fluid h1 and h2 sizes so headings also reach 2× at 200% zoom) | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ✅ |
 | `attr()` in any property | `attr()` used to work only in `content`; now it can read an HTML attribute with a type and use it as the value of any property, such as a width or color (Chrome 133, Firefox 155; not in Safari yet; see [my post on reading ARIA attributes with it](/en/blog/css-attr/)) | `width: attr(data-w type(<length>));` | 🟡 | ✅ |
-| `symbols()` | Define list markers directly in CSS without a separate `@counter-style` (Firefox 35, Chrome 155; not in Safari yet) | `list-style: symbols(cyclic "◆" "◇");` | 🟡 | ⬜ |
+| `symbols()` | Define list markers directly in CSS without a separate `@counter-style` (Firefox 35, Chrome 155; not in Safari yet; use symbols only for decoration, write `cyclic`, and keep meaning in the text; see [my post testing it](/en/blog/css-symbols/)) | `list-style: symbols(cyclic "◆" "◇");` | 🟡 | ✅ |
 
 ## J. Misc
 

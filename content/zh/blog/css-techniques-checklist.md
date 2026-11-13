@@ -2,7 +2,7 @@
 title: 現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序
 description: "一份可快速掃描的現代 CSS 與 HTML 特性清單，依版面、選擇器、色彩、文字、動畫等分類，另收錄 `<geolocation>`、`focusgroup`、Invoker Commands 等宣告式 HTML 新特性，逐條整理用途、範例與瀏覽器支援度。"
 date: 2026-07-06
-updatedAt: 2026-11-08
+updatedAt: 2026-11-13
 tags:
   - CSS
   - HTML
@@ -163,7 +163,7 @@ draft: false
 | `@function` | 自訂 CSS 函式與 mixin 概念，可帶參數回傳值（用來保證最小點擊區的實測見[這篇](/blog/css-if-function/)） | `@function --double(--x){ result: calc(var(--x)*2); }` | 🟠 | ✅ |
 | `progress()` | 算出一個值落在兩個值之間的比例（0–1），做隨尺寸連續變化的樣式（Baseline 2026；Firefox 155 另支援 `no-clamp`（Safari 目前只在預覽版），讓結果可以超出 0–1）（已套用在本站 h1、h2 的流體字級，讓畫面放大 200% 時標題也能放大 2 倍） | `opacity: progress(100cqw, 300px, 900px);` | 🟡 | ✅ |
 | `attr()` 用在任何屬性 | 以前 `attr()` 只能用在 `content`，現在可以帶型別讀取 HTML 屬性，直接當作寬度、顏色等任何屬性的值（Chrome 133、Firefox 155 起，Safari 尚未；用它讀 ARIA 屬性的實測見[這篇](/blog/css-attr/)） | `width: attr(data-w type(<length>));` | 🟡 | ✅ |
-| `symbols()` | 在 CSS 裡直接定義清單符號，不必另寫 `@counter-style`（Firefox 35、Chrome 155 起，Safari 尚未） | `list-style: symbols(cyclic "◆" "◇");` | 🟡 | ⬜ |
+| `symbols()` | 在 CSS 裡直接定義清單符號，不必另寫 `@counter-style`（Firefox 35、Chrome 155 起，Safari 尚未；符號只拿來裝飾、記得寫 `cyclic`，有意義的內容要寫在文字裡，實測見[這篇](/blog/css-symbols/)） | `list-style: symbols(cyclic "◆" "◇");` | 🟡 | ✅ |
 
 ## J. 其他實用屬性（Misc）
 
