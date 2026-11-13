@@ -83,6 +83,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     // Chrome 官方指南的寫法；<canvas content="drawable"> 的 content 屬性
     detect: () => "content" in HTMLCanvasElement.prototype,
   },
+  symbols: {
+    name: "symbols()",
+    detect: () => CSS.supports("list-style-type", 'symbols(cyclic "◆")'),
+  },
   "text-decoration-inset": {
     name: "text-decoration-inset",
     detect: () => CSS.supports("text-decoration-inset", "0"),

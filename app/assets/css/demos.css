@@ -2579,7 +2579,8 @@ button.stretch-demo__target {
 @media (width <= 40rem) {
   .ms-demo .attr-demo__readout,
   .rif-demo .attr-demo__readout,
-  .tdi-demo .attr-demo__readout {
+  .tdi-demo .attr-demo__readout,
+  .sym-demo .attr-demo__readout {
     grid-template-columns: minmax(0, 1fr);
   }
 }
@@ -2678,4 +2679,44 @@ button.stretch-demo__target {
   &.is-auto u {
     text-decoration-inset: auto;
   }
+}
+
+/************************
+  symbols()（自訂清單符號）
+*************************/
+
+/* .demo ul 會把清單內距歸零，這裡要提高權重，符號才不會跑到外框外面 */
+.sym-demo .sym-demo__list {
+  margin: 0;
+  padding: 1rem 1rem 1rem 2.5rem;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  li + li {
+    margin-top: 0.25rem;
+  }
+  &.is-cyclic {
+    list-style: symbols(cyclic "◆" "◇");
+  }
+  &.is-symbolic {
+    list-style: symbols("◆");
+  }
+  &.is-check {
+    list-style: symbols(cyclic "✓");
+  }
+  &.is-speakas {
+    list-style: sym-demo-diamond;
+  }
+}
+
+@counter-style sym-demo-diamond {
+  system: cyclic;
+  symbols: "◆";
+  suffix: " ";
+  speak-as: bullets;
+}
+
+.sym-demo__note {
+  margin: 0;
+  font-size: 0.875rem;
 }
