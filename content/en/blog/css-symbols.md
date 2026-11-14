@@ -1,7 +1,8 @@
 ---
 title: "Custom List Markers with symbols(): What Screen Readers Read Today, and Later, May Not Be What You Meant"
-description: "Chrome 155 supports symbols() and Firefox has for years, so one line of CSS swaps your list markers. But reading Chromium's accessibility tree, I found that screen readers get the raw symbol today, while the spec says cyclic markers should be read as bullets and markers with no type as numbers, so a ✓ meaning “done” loses its meaning. This post covers the syntax, test results, and when to put the meaning in the text."
+description: "Chrome 155 supports symbols() and Firefox has for years, so one line of CSS swaps your list markers. But reading Chromium's accessibility tree, I found that screen readers get the raw symbol today, while the spec says cyclic markers should be read as bullets and markers with no type as numbers, so a ✓ meaning “done” loses its meaning; and in my VoiceOver tests, ✓ isn't read at all even today. This post covers the syntax, test results, and when to put the meaning in the text."
 date: 2026-11-13
+updatedAt: 2026-11-14
 tags:
   - CSS
   - Front-End
@@ -12,7 +13,7 @@ translationKey: css-symbols
 draft: false
 ---
 
-> Up front: this post was researched and drafted with help from AI (Anthropic's Claude), then read and checked by me. The behavior described was tested in Chromium 157, 159, and 153; specs, accessibility guidance, and support are based on the W3C specs and WCAG documents, MDN, and Chromium source linked at the end. If I've gotten something wrong, corrections welcome.
+> Up front: this post was researched and drafted with help from AI (Anthropic's Claude), then read and checked by me. The behavior described was tested in Chromium 157, 159, and 153, and screen reader output was tested with VoiceOver on macOS in Chrome; specs, accessibility guidance, and support are based on the W3C specs and WCAG documents, MDN, and Chromium source linked at the end. If I've gotten something wrong, corrections welcome.
 
 ## What it solves
 
@@ -75,6 +76,17 @@ List markers go into the accessibility tree and on to screen readers. In Chromiu
 
 In other words, **Chromium currently passes the raw symbol to screen readers**, and what gets spoken depends on the screen reader's own symbol dictionary.
 
+I tested the demo's four styles with VoiceOver on macOS in Chrome:
+
+| Style | What VoiceOver reads |
+|---|---|
+| `symbols(cyclic "◆" "◇")` | The symbol's name (“… diamond”), for every item |
+| `symbols("◆")` (no type) | Same |
+| `symbols(cyclic "✓")` | **Nothing at all** |
+| `@counter-style` with `speak-as: bullets` | Still “… diamond”; `speak-as` has no effect |
+
+I also put a ✓ in a form label's text, and VoiceOver didn't read it there either. So it's VoiceOver itself that doesn't read this symbol, not something specific to lists.
+
 ## The spec says something different
 
 The spec defines `speak-as: auto` like this:
@@ -101,7 +113,7 @@ MDN's compatibility data says Chrome has supported `speak-as` since 91. In my te
 
 Using ✓/✗ for “done/not done”:
 
-- Today: the screen reader gets a raw `✓`, and whether it says “check mark” depends on the screen reader.
+- Today: the screen reader gets a raw `✓`, but in my tests VoiceOver (Chrome) didn't read it at all, so the meaning “bought” is simply gone.
 - Per the spec: `cyclic` is read as a plain bullet, and the meaning disappears.
 
 Neither is reliable. **Put the status in the text**, such as “Apples (bought)”. This maps to WCAG 1.3.1 Info and Relationships: information conveyed through presentation must also be programmatically determinable. Checking “Put ‘bought’ in the text” in the demo shows this approach.
@@ -124,7 +136,7 @@ ul {
 }
 ```
 
-`symbols()` can't take `speak-as`, so to set pronunciation you have to use `@counter-style`. But Chrome doesn't apply it to the accessibility tree yet, and Safari doesn't support `speak-as` (MDN compatibility data).
+`symbols()` can't take `speak-as`, so to set pronunciation you have to use `@counter-style`. But Chrome doesn't apply it to the accessibility tree yet, and VoiceOver confirmed it: with `speak-as: bullets`, it still read “… diamond”. Safari doesn't support `speak-as` either (MDN compatibility data).
 
 ### 4. Unsupported browsers fall back to bullets
 

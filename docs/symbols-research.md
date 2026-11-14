@@ -37,8 +37,18 @@
 - Chromium 153：所有 `symbols()` 宣告被丟掉，退回 `•`；`@counter-style` 仍有效。
 - 範例：`.demo ul { padding: 0 }` 權重較高，清單樣式要寫 `.sym-demo .sym-demo__list`。
 
-## 待使用者確認（VoiceOver）
+## VoiceOver 實測（2026-11-14，使用者在正式機以 macOS VoiceOver + Chrome 測試）
 
-- Chrome、Firefox：`◆`、`✓`、`→` 的實際念法。
-- Firefox 是否套用 `speak-as`。
+| 寫法 | 念法 |
+|---|---|
+| `symbols(cyclic "◆" "◇")` | 念出「… diamond」，每一項都念 |
+| `symbols("◆")` | 同上 |
+| `symbols(cyclic "✓")` | 完全不念 |
+| `@counter-style` + `speak-as: bullets` | 念出「… diamond」（speak-as 沒有作用，與原始碼一致） |
+
+- 使用者另外測：✓ 寫在表單標籤文字裡，VoiceOver 也不念 → VoiceOver 本身不念這個符號。
+
+## 尚未測試
+
+- Firefox 是否套用 `speak-as`（MDN 標示支援）。
 - Safari：退回預設圓點。

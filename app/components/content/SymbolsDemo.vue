@@ -39,6 +39,10 @@
         </dd>
       </div>
       <div>
+        <dt>{{ text.voLabel }}</dt>
+        <dd>{{ text.vo[mode] }}</dd>
+      </div>
+      <div>
         <dt>{{ text.specLabel }}</dt>
         <dd>{{ text.spec[mode] }}</dd>
       </div>
@@ -96,6 +100,13 @@ const messages = {
     boughtSuffix: "（已買）",
     nowLabel: "Chromium 現在交給報讀軟體的標記",
     fallbackMarker: "•（你的瀏覽器不支援，退回預設圓點）",
+    voLabel: "VoiceOver（Chrome）實測念法",
+    vo: {
+      cyclic: "念出「… diamond」，每一項都念",
+      symbolic: "念出「… diamond」，每一項都念",
+      check: "完全不念 ✓",
+      speakas: "還是念出「… diamond」，speak-as 沒有作用",
+    },
     specLabel: "規格要求的念法（瀏覽器照規格實作後）",
     spec: {
       cyclic: "項目符號（例如「圓點」）",
@@ -105,9 +116,10 @@ const messages = {
     },
     meaningLabel: "符號的意思有傳達出去嗎？",
     decorative: "符號只是裝飾，不需要傳達",
-    lostText: "沒有：現在要看報讀軟體怎麼念 ✓，照規格又會變成一般項目符號",
+    lostText:
+      "沒有：VoiceOver（Chrome）實測完全不念 ✓，照規格又會變成一般項目符號",
     keptText: "有：「已買」寫在文字裡，不靠符號",
-    note: "「現在交給報讀軟體的標記」與「規格要求的念法」是 Chromium 157、159 的實測結果（後者用旗標開啟規格行為），網頁程式讀不到無障礙樹，所以不會隨你的瀏覽器改變。實際念法請用報讀軟體確認。",
+    note: "「現在交給報讀軟體的標記」與「規格要求的念法」是 Chromium 157、159 的實測結果（後者用旗標開啟規格行為），網頁程式讀不到無障礙樹，所以不會隨你的瀏覽器改變。VoiceOver 念法是在 macOS 搭配 Chrome 實測，其他報讀軟體和瀏覽器可能不同。",
     native: "你的瀏覽器支援 symbols()",
     fallback:
       "你的瀏覽器不支援 symbols()：整條宣告會被忽略，清單退回預設的圓點",
@@ -130,6 +142,13 @@ const messages = {
     nowLabel: "Marker Chromium gives screen readers today",
     fallbackMarker:
       "• (not supported in your browser, so it falls back to the default bullet)",
+    voLabel: "What VoiceOver (Chrome) reads, tested",
+    vo: {
+      cyclic: "“… diamond”, for every item",
+      symbolic: "“… diamond”, for every item",
+      check: "Nothing: ✓ isn't read",
+      speakas: "Still “… diamond”; speak-as has no effect",
+    },
     specLabel: "How the spec says to read it (once browsers implement it)",
     spec: {
       cyclic: "As a bullet",
@@ -140,9 +159,9 @@ const messages = {
     meaningLabel: "Does the symbol's meaning get across?",
     decorative: "The symbol is decorative; there's nothing to convey",
     lostText:
-      "No: today it depends on how the screen reader reads ✓, and per the spec it becomes a plain bullet",
+      "No: in tests VoiceOver (Chrome) doesn't read ✓ at all, and per the spec it becomes a plain bullet",
     keptText: "Yes: “bought” is in the text, not just the symbol",
-    note: "“Marker Chromium gives screen readers today” and “How the spec says to read it” are test results from Chromium 157 and 159 (the latter with a flag that turns on the spec behavior). Page scripts can't read the accessibility tree, so these don't change with your browser. Check what's actually spoken with a screen reader.",
+    note: "“Marker Chromium gives screen readers today” and “How the spec says to read it” are test results from Chromium 157 and 159 (the latter with a flag that turns on the spec behavior). Page scripts can't read the accessibility tree, so these don't change with your browser. The VoiceOver results were tested on macOS in Chrome; other screen readers and browsers may differ.",
     native: "Your browser supports symbols()",
     fallback:
       "Your browser doesn't support symbols(): the whole declaration is ignored and the list falls back to the default bullet",

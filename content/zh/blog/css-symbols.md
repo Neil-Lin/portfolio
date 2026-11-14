@@ -1,7 +1,8 @@
 ---
 title: "用 symbols() 自訂清單符號：報讀軟體現在念的和以後念的，可能都不是你想的"
-description: "Chrome 155 起支援 symbols()，Firefox 更早就支援，一行 CSS 就能換掉清單符號。但我在 Chromium 讀無障礙樹發現：現在報讀軟體拿到的是符號原文；規格卻要求 cyclic 念成項目符號、沒寫類型時念成數字，用 ✓ 表示「完成」的意思會不見。這篇整理寫法、實測結果，以及什麼時候該把意思寫進文字。"
+description: "Chrome 155 起支援 symbols()，Firefox 更早就支援，一行 CSS 就能換掉清單符號。但我在 Chromium 讀無障礙樹發現：現在報讀軟體拿到的是符號原文；規格卻要求 cyclic 念成項目符號、沒寫類型時念成數字，用 ✓ 表示「完成」的意思會不見；VoiceOver 實測更是現在就完全不念 ✓。這篇整理寫法、實測結果，以及什麼時候該把意思寫進文字。"
 date: 2026-11-13
+updatedAt: 2026-11-14
 tags:
   - CSS
   - 前端開發
@@ -12,7 +13,7 @@ translationKey: css-symbols
 draft: false
 ---
 
-> 話說在前頭：這篇由 AI（Anthropic 的 Claude）協助收集資料與整理，我再閱讀確認。文中的行為是在 Chromium 157、159 與 153 上實測的結果；規格、無障礙規範與支援度以文末連結的 W3C 規格與 WCAG 文件、MDN 與 Chromium 原始碼為依據。有講錯的地方歡迎指正。
+> 話說在前頭：這篇由 AI（Anthropic 的 Claude）協助收集資料與整理，我再閱讀確認。文中的行為是在 Chromium 157、159 與 153 上實測的結果，報讀軟體的念法是在 macOS 的 VoiceOver 搭配 Chrome 實測；規格、無障礙規範與支援度以文末連結的 W3C 規格與 WCAG 文件、MDN 與 Chromium 原始碼為依據。有講錯的地方歡迎指正。
 
 ## 它解決什麼
 
@@ -75,6 +76,17 @@ symbols( 類型? 符號 符號 … )
 
 也就是說，**現在 Chromium 把符號原文交給報讀軟體**，念成什麼要看報讀軟體自己的符號字典。
 
+我用 macOS 的 VoiceOver 搭配 Chrome 實測範例的四種寫法：
+
+| 寫法 | VoiceOver 念法 |
+|---|---|
+| `symbols(cyclic "◆" "◇")` | 念出符號的英文名稱（「… diamond」），每一項都念 |
+| `symbols("◆")`（沒寫類型） | 同上 |
+| `symbols(cyclic "✓")` | **完全不念** |
+| `@counter-style` 加 `speak-as: bullets` | 還是念出「… diamond」，`speak-as` 沒有作用 |
+
+我另外把 ✓ 寫在表單標籤的文字裡，VoiceOver 一樣不念。所以這是 VoiceOver 本身不念這個符號，不是清單才有的問題。
+
 ## 規格要求的念法不一樣
 
 規格的 `speak-as: auto` 是這樣定義的：
@@ -101,7 +113,7 @@ MDN 的相容性資料標示 Chrome 91 起支援 `speak-as`。實測 Chromium �
 
 用 ✓／✗ 表示「已完成／未完成」：
 
-- 現在：報讀軟體拿到 `✓` 原文，念不念得出「打勾」要看報讀軟體。
+- 現在：報讀軟體拿到 `✓` 原文，但我實測 VoiceOver（Chrome）完全不念它，「已買」的意思直接消失。
 - 照規格：`cyclic` 會被念成一般項目符號，意思直接消失。
 
 兩種情況都不可靠。**狀態要寫在文字裡**，例如「蘋果（已買）」。這對應 WCAG 1.3.1「資訊與關係」：用外觀傳達的資訊，也要能被程式判讀。範例勾選「把『已買』寫進文字」就是這個做法。
@@ -124,7 +136,7 @@ ul {
 }
 ```
 
-`symbols()` 不能寫 `speak-as`，要指定念法只能改用 `@counter-style`。但 Chrome 目前還沒有把它用在無障礙樹，Safari 也不支援 `speak-as`（MDN 相容性資料）。
+`symbols()` 不能寫 `speak-as`，要指定念法只能改用 `@counter-style`。但 Chrome 目前還沒有把它用在無障礙樹，VoiceOver 實測也印證：寫了 `speak-as: bullets`，還是念出「… diamond」。Safari 也不支援 `speak-as`（MDN 相容性資料）。
 
 ### 4. 不支援時會退回圓點
 
