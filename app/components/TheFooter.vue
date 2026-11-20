@@ -52,11 +52,8 @@
 </template>
 
 <script setup lang="ts">
-const { resolve } = await useLocaleSwitch();
-const { t, locales, locale } = useI18n();
-
-type LocaleItem = { code: "zh-Hant-TW" | "en"; name: string };
-const supportedLocales = locales.value as LocaleItem[];
+const { resolve, supportedLocales } = await useLocaleSwitch();
+const { t, locale } = useI18n();
 
 const runtimeConfig = useRuntimeConfig();
 const buildDateStr = (runtimeConfig.public.buildDate as string) || "2025-01-01";
