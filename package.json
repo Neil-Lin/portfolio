@@ -20,7 +20,8 @@
     "lint:fix": "eslint . --fix",
     "images:sizes": "node scripts/imageSizes.mjs",
     "images:variants": "node scripts/imageVariants.mjs",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,html,css,scss,json,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,html,css,scss,json,md}\"",
+    "test:smoke": "node scripts/smoke.mjs"
   },
   "dependencies": {
     "@nuxt/content": "^3.16.2",
