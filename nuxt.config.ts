@@ -254,6 +254,10 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: true,
   nitro: {
+    // 固定輸出成純靜態檔到 .output/public（Cloudflare Pages 專案設定的輸出目錄）。
+    // 不寫的話，Nitro 在 Cloudflare 建置環境會自動改用 cloudflare-pages-static，
+    // 輸出到 dist/，部署就會找不到 .output/public 而失敗。
+    preset: "static",
     // 注意：Nitro 沒有 trailingSlash 這個選項（原本寫在這裡的那行是無效設定，
     // typecheck 抓到後移除）。全站尾斜線由下方 site.trailingSlash、
     // app/middleware/trailing-slash.global.ts 與 Cloudflare 的網址正規化共同負責。
