@@ -39,7 +39,7 @@ export default defineNuxtConfig({
         dir: "ltr",
       },
       title: zhHantTW.website.name,
-      // ⚠️ 不要在這裡加 Google Tag Manager。
+      // 這裡沒有 Google Tag Manager 是刻意的（ESLint 會擋下程式內載入 GTM）：
       // GTM（GTM-KMCXG3T4）由 Cloudflare 的 Google Tag Gateway 在邊緣注入，
       // 走第一方路徑 /tc10/（比 googletagmanager.com 更不容易被擋），GA4 掛在 GTM 後台。
       // 邊緣注入只在真實文件導覽時發生，所以 curl 看不到——那不代表它沒運作。
