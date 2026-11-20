@@ -119,16 +119,8 @@ const onOpenProduct = (event: MouseEvent, productItem: Product) => {
 
 const restoreScrollPosition = async (top: number) => {
   await nextTick();
-  requestAnimationFrame(() => {
-    const htmlScrollBehavior = document.documentElement.style.scrollBehavior;
-    const bodyScrollBehavior = document.body.style.scrollBehavior;
-
-    document.documentElement.style.scrollBehavior = "auto";
-    document.body.style.scrollBehavior = "auto";
-    window.scrollTo(0, top);
-    document.documentElement.style.scrollBehavior = htmlScrollBehavior;
-    document.body.style.scrollBehavior = bodyScrollBehavior;
-  });
+  // "instant" 會略過 CSS 的 scroll-behavior: smooth，直接回到原位
+  requestAnimationFrame(() => window.scrollTo({ top, behavior: "instant" }));
 };
 
 const closeProduct = async () => {
