@@ -23,8 +23,16 @@ pnpm format        # Prettier 格式化
 
 ```bash
 pnpm generate      # 預渲染靜態輸出至 .output/public
-pnpm preview       # 本地預覽建置結果
+pnpm test:smoke    # 冒煙測試：檢查靜態輸出沒壞掉（需先 generate）
+python3 -m http.server 4173 --directory .output/public   # 本地預覽建置結果
 ```
+
+`pnpm preview` 只適用伺服器輸出（`pnpm build`），靜態輸出沒有 server 入口，請用上面的靜態伺服器預覽。
+
+## 自動檢查
+
+PR 與 main 由 GitHub Actions（`.github/workflows/ci.yml`）依序執行 lint、typecheck、generate、冒煙測試。
+專案的寫法規則寫在 `eslint.config.mjs` 的 `no-restricted-syntax`，違反時錯誤訊息會說明原因與替代寫法。
 
 ## 專案結構
 
@@ -47,14 +55,14 @@ pnpm preview       # 本地預覽建置結果
 - **新增文章**：在 `content/zh/blog/` 或 `content/en/blog/` 放 `.md`，檔名即 slug。
 - **Frontmatter**：`title`、`description`、`date`（必填）；`updatedAt`、`tags`、`ogImage`、`translationKey`、`draft`（選填）。schema 由 `content.config.ts` 用 zod 驗證。
 - **中英對照版**：只有當兩篇互為翻譯時，才在兩邊填**相同的 `translationKey`**——這會啟用 hreflang 互指與語言切換鈕的精確對應。
-- **單語言文章**：不填 `translationKey` 即可。會輸出 self-canonical、**不發 hreflang**；切換語言時導向另一語言的 blog 首頁（Option A，邏輯在 `composables/useLocaleSwitchTarget.ts`）。
+- **單語言文章**：不填 `translationKey` 即可。會輸出 self-canonical、**不發 hreflang**；切換語言時導向另一語言的 blog 首頁（Option A，邏輯在 `app/composables/useLocaleSwitch.ts`）。
 - **draft**：`draft: true` 開發看得到、build 時排除（不預渲染、不進 sitemap）。
 - 文章路由、SEO、`BlogPosting` schema、OG 圖、相關文章、Shiki 程式碼highlight 皆自動處理。
 - 需要原生模組 `better-sqlite3`（Content 建置期用）。
 
 ## 技術備註
 
-- `package.json` 的 `overrides: { "vue-router": "5.0.7" }` 為相依性釘版，
+- `pnpm-workspace.yaml` 的 `overrides: { vue-router: 5.4.0 }` 為相依性釘版，
   升級 Nuxt 時請測試後再評估是否移除。
 - robots.txt 含 `Content-Signal: ai-train=no, search=yes, ai-input=yes`
-  （允許搜尋與 AI 輸入，拒絕模型訓練），由 `server/plugins/robots-content-signal.ts` 注入。
+  （允許搜尋與 AI 輸入，拒絕模型訓練），由 `nuxt.config.ts` 的 `aiReady.contentSignal`（nuxt-ai-ready）寫入。
