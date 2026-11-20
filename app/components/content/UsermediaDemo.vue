@@ -104,7 +104,7 @@ const messages = {
     colors: {
       brand: "品牌色（對比足夠）",
       low: "淺灰（對比低於 3:1）",
-    } as Record<Color, string>,
+    } satisfies Record<Color, string>,
     preview: "你的攝影機預覽",
     hint: "開啟後，會議中的其他人會看到你的畫面、聽到你的聲音。",
     fallback: "開啟攝影機和麥克風",
@@ -138,7 +138,7 @@ const messages = {
     colors: {
       brand: "Brand color (enough contrast)",
       low: "Light gray (contrast below 3:1)",
-    } as Record<Color, string>,
+    } satisfies Record<Color, string>,
     preview: "Your camera preview",
     hint: "Once on, others in the call can see and hear you.",
     fallback: "Turn on camera and microphone",
