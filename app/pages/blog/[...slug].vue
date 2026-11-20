@@ -22,7 +22,7 @@
               v-if="article.category"
               class="tag is-category"
               :to="{
-                path: localePath('/blog'),
+                path: pagePath('/blog'),
                 query: { category: article.category },
               }"
               :title="
@@ -46,7 +46,7 @@
           <ul>
             <li v-for="post in related" :key="post.slug">
               <nuxt-link
-                :to="localePath(`/blog/${post.slug}`)"
+                :to="pagePath(`/blog/${post.slug}`)"
                 :title="`${$t('action.goTo')} ${post.title}`"
               >
                 {{ post.title }}
@@ -62,7 +62,7 @@
 <script setup lang="ts">
 const { t, locale } = useI18n();
 const route = useRoute();
-const localePath = useLocalePath();
+const pagePath = usePagePath();
 const runtimeConfig = useRuntimeConfig();
 const orgUrl = useOrgUrl();
 

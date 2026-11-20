@@ -15,7 +15,7 @@
         </a>
 
         <div class="logo">
-          <nuxt-link :to="localePath('/')" :title="$t('action.goToHomePage')">
+          <nuxt-link :to="pagePath('/')" :title="$t('action.goToHomePage')">
             <img src="@/assets/images/avatar.webp" alt="" />
             <div class="slogan intro">
               <ClientOnly fallback-tag="span">
@@ -36,7 +36,7 @@
           <ul>
             <li v-for="(item, index) in mainMenuList" :key="index">
               <nuxt-link
-                :to="localePath(item.link)"
+                :to="pagePath(item.link)"
                 :title="`${$t('action.goTo')} ${item.title}`"
                 class="btn"
               >
@@ -58,7 +58,7 @@ import { CAREER_START_YEAR, yearsSince } from "~~/data/career";
 
 const { t } = useI18n();
 const route = useRoute();
-const localePath = useLocalePath();
+const pagePath = usePagePath();
 const careerYears = yearsSince(CAREER_START_YEAR);
 
 const getGreeting = (date: Date) => {

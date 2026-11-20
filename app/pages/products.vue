@@ -21,7 +21,7 @@
               :to="
                 productItem.clickable
                   ? {
-                      path: localePath(
+                      path: pagePath(
                         `/products/${encodeURIComponent(productItem.slug)}`,
                       ),
                     }
@@ -70,7 +70,7 @@ import type { Product } from "~~/data/types";
 const { t, locale } = useI18n();
 const router = useRouter();
 const route = useRoute();
-const localePath = useLocalePath();
+const pagePath = usePagePath();
 const lightBox = ref<HTMLDialogElement | null>(null);
 const runtimeConfig = useRuntimeConfig();
 const orgUrl = useOrgUrl();
@@ -137,7 +137,7 @@ const closeProduct = async () => {
 
   lightBox.value.close();
   await router.replace({
-    path: localePath("/products"),
+    path: pagePath("/products"),
     query: {
       role: selectedRole.value || undefined,
       platform: selectedPlatform.value || undefined,

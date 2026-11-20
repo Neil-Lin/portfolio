@@ -13,7 +13,8 @@ export async function useLocaleSwitch() {
 
   const resolve = (code: LocaleCode) => {
     const isArticle = /^\/(en\/)?blog\/.+/.test(route.path);
-    if (!isArticle || code === locale.value) return switchLocalePath(code);
+    if (!isArticle || code === locale.value)
+      return withTrailingSlash(switchLocalePath(code));
     if (counterpart.value) return counterpart.value;
     return code === "en" ? "/en/blog/" : "/blog/";
   };
