@@ -48,13 +48,16 @@ onMounted(() => {
 
 // 以前是把整個作品列表包在 aria-live 裡，一換條件報讀軟體可能整排卡片都唸一遍；
 // 現在只播報一句「顯示 N 個項目」
-watch([sortorder, role, platform], async () => {
-  await nextTick();
-  if (root.value) {
-    announce(
-      root.value,
-      t("data.resultCount", props.count, { named: { count: props.count } }),
-    );
-  }
-});
+watch(
+  [sortorder, role, platform],
+  () => {
+    if (root.value) {
+      announce(
+        root.value,
+        t("data.resultCount", props.count, { named: { count: props.count } }),
+      );
+    }
+  },
+  { flush: "post" },
+);
 </script>

@@ -172,7 +172,7 @@ function read() {
   };
 }
 
-watch([size, motion, contrast, ring], () => nextTick(read));
+watch([size, motion, contrast, ring], read, { flush: "post" });
 
 onMounted(() => {
   supported.value = CSS.supports("color: if(else: red)");

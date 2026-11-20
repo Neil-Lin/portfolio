@@ -310,10 +310,7 @@ watch(scenario, (s) => {
 watch([scenario, mode], () => {
   findResult.value = undefined;
 });
-watch([scenario, mode, width, bigText], async () => {
-  await nextTick();
-  measure();
-});
+watch([scenario, mode, width, bigText], measure, { flush: "post" });
 
 onMounted(() => {
   supported.value = CSS.supports("text-fit: grow");

@@ -232,23 +232,23 @@ onMounted(() => {
   );
 
   // 搜尋或換分類後，播報找到幾篇
-  watch([keyword, category], async () => {
-    await nextTick();
-    if (summaryEl.value) {
-      announce(
-        summaryEl.value,
-        t("page.blog.found", filtered.value.length, {
-          named: { count: filtered.value.length },
-        }),
-      );
-    }
-  });
+  watch(
+    [keyword, category],
+    () => {
+      if (summaryEl.value) {
+        announce(
+          summaryEl.value,
+          t("page.blog.found", filtered.value.length, {
+            named: { count: filtered.value.length },
+          }),
+        );
+      }
+    },
+    { flush: "post" },
+  );
 
   // 換頁後把焦點移到結果摘要，畫面也會捲到列表開頭
-  watch(currentPage, async () => {
-    await nextTick();
-    summaryEl.value?.focus();
-  });
+  watch(currentPage, () => summaryEl.value?.focus(), { flush: "post" });
 });
 onBeforeUnmount(() => clearTimeout(typingTimer));
 

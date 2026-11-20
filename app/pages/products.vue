@@ -160,12 +160,13 @@ watch(
   },
 );
 
-watch(isModal, async (modal) => {
-  if (modal) {
-    await nextTick();
-    lightBox.value?.showModal();
-  }
-});
+watch(
+  isModal,
+  (modal) => {
+    if (modal) lightBox.value?.showModal();
+  },
+  { flush: "post" },
+);
 
 onMounted(() => {
   if (isModal.value) {

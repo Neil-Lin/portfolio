@@ -269,18 +269,21 @@ function toggleCamera() {
     : text.value.cameraOffDone;
 }
 
-watch(consent, async (on) => {
-  if (on) {
-    await nextTick();
-    createElement();
-  } else {
-    clearTimeout(readyTimer);
-    stopAll(false);
-    element?.remove();
-    element = null;
-    status.value = "";
-  }
-});
+watch(
+  consent,
+  (on) => {
+    if (on) {
+      createElement();
+    } else {
+      clearTimeout(readyTimer);
+      stopAll(false);
+      element?.remove();
+      element = null;
+      status.value = "";
+    }
+  },
+  { flush: "post" },
+);
 
 // lang 改了按鈕文字會立刻更新，不需要等待
 watch(lang, (l) => {

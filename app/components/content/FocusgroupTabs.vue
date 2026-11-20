@@ -140,12 +140,11 @@ function setup() {
   );
 }
 
-watch(useStart, async () => {
+watch(useStart, () => {
   selected.value = 1;
   firstEntry.value = null;
-  await nextTick();
-  setup();
 });
+watch(useStart, setup, { flush: "post" });
 
 onMounted(setup);
 onBeforeUnmount(() => controller?.abort());
