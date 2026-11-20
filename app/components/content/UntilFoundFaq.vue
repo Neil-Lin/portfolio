@@ -23,10 +23,12 @@
         </h3>
         <div
           :id="`${uid}-a${i}`"
+          :ref="(el) => setAnswer(i, el)"
           class="until-found-faq__answer"
           role="region"
           :aria-labelledby="`${uid}-q${i}`"
           :hidden.attr="open[i] ? undefined : 'until-found'"
+          @beforematch="onFound(item.q, i)"
         >
           <p :id="`${uid}-a${i}-detail`">{{ item.a }}</p>
         </div>
@@ -165,29 +167,19 @@ function toggle(i: number) {
 function collapseAll() {
   open.value = [false, false, false];
   // 不同步時，瀏覽器移除的 hidden 不會因為狀態沒變而被加回去，手動補上
-  items.value.forEach((_, i) => {
-    document
-      .getElementById(`${uid}-a${i}`)
-      ?.setAttribute("hidden", "until-found");
-  });
+  answers.forEach((el) => el?.setAttribute("hidden", "until-found"));
 }
 
-let controller: AbortController | null = null;
-onMounted(() => {
-  controller = new AbortController();
-  items.value.forEach((item, i) => {
-    document.getElementById(`${uid}-a${i}`)?.addEventListener(
-      "beforematch",
-      () => {
-        if (sync.value) open.value[i] = true;
-        addEntry(
-          "beforematch",
-          `${text.value.found}${item.q}${text.value.paren[0]}${sync.value ? text.value.synced : text.value.notSynced}${text.value.paren[1]}`,
-        );
-      },
-      { signal: controller!.signal },
-    );
-  });
-});
-onBeforeUnmount(() => controller?.abort());
+const answers: (HTMLElement | undefined)[] = [];
+function setAnswer(i: number, el: unknown) {
+  answers[i] = el instanceof HTMLElement ? el : undefined;
+}
+
+function onFound(question: string, i: number) {
+  if (sync.value) open.value[i] = true;
+  addEntry(
+    "beforematch",
+    `${text.value.found}${question}${text.value.paren[0]}${sync.value ? text.value.synced : text.value.notSynced}${text.value.paren[1]}`,
+  );
+}
 </script>

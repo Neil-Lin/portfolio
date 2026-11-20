@@ -29,6 +29,7 @@
       class="dialog-demo__dialog"
       :aria-labelledby="`${uid}-plain-title`"
       @close="onClose(text.plainName)"
+      @toggle="onToggle('plain', $event)"
     >
       <h3 :id="`${uid}-plain-title`">{{ text.plainTitle }}</h3>
       <p>{{ text.plainBody }}</p>
@@ -47,6 +48,7 @@
       class="dialog-demo__dialog"
       :aria-labelledby="`${uid}-modal-title`"
       @close="onClose(text.modalName)"
+      @toggle="onToggle('modal', $event)"
     >
       <h3 :id="`${uid}-modal-title`">{{ text.modalTitle }}</h3>
       <p>{{ text.modalBody }}</p>
@@ -140,30 +142,13 @@ function onClose(name: string) {
   );
 }
 
-let controller: AbortController | null = null;
-onMounted(() => {
-  controller = new AbortController();
-  // modal 由 command 打開，沒有 click handler 可以接，統一用 toggle 事件記錄開啟
-  (
-    [
-      ["plain", "show"],
-      ["modal", "show-modal"],
-    ] as const
-  ).forEach(([key, kind]) => {
-    document.getElementById(`${uid}-${key}`)?.addEventListener(
-      "toggle",
-      (e) => {
-        if ((e as ToggleEvent).newState !== "open") return;
-        const name =
-          key === "plain" ? text.value.plainName : text.value.modalName;
-        add(
-          kind,
-          `${name} ${text.value.opened}${describe(document.activeElement)}`,
-        );
-      },
-      { signal: controller!.signal },
-    );
-  });
-});
-onBeforeUnmount(() => controller?.abort());
+// modal 由 command 打開，沒有 click handler 可以接，統一用 toggle 事件記錄開啟
+function onToggle(key: "plain" | "modal", e: Event) {
+  if (!(e instanceof ToggleEvent) || e.newState !== "open") return;
+  const name = key === "plain" ? text.value.plainName : text.value.modalName;
+  add(
+    key === "plain" ? "show" : "show-modal",
+    `${name} ${text.value.opened}${describe(document.activeElement)}`,
+  );
+}
 </script>

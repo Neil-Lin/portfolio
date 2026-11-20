@@ -3,6 +3,7 @@
     <div class="popover-lab__controls">
       <button
         :id="`${uid}-menu-btn`"
+        ref="menuBtn"
         type="button"
         class="popover-demo__trigger is-auto"
         :commandfor="`${uid}-menu`"
@@ -111,6 +112,7 @@ const { locale } = useI18n();
 
 const root = ref<HTMLElement | null>(null);
 const menu = ref<HTMLElement | null>(null);
+const menuBtn = ref<HTMLElement | null>(null);
 const toast = ref<HTMLElement | null>(null);
 const uid = useDemoId("pl");
 
@@ -197,7 +199,7 @@ usePopoverDemo(root, (pop, open) => {
 function runAction(label: string) {
   addEntry("app", `${text.value.run}${label}`);
   menu.value?.hidePopover();
-  document.getElementById(`${uid}-menu-btn`)?.focus();
+  menuBtn.value?.focus();
 }
 
 function showToast() {
