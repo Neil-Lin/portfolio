@@ -219,11 +219,10 @@ function setup() {
   );
 }
 
-watch(groupKey, async () => {
+watch(groupKey, () => {
   log.value = [];
-  await nextTick();
-  setup();
 });
+watch(groupKey, setup, { flush: "post" });
 
 onMounted(() => {
   supported.value = supportsFocusgroup();

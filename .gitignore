@@ -22,3 +22,6 @@ logs
 .env
 .env.*
 !.env.example
+
+# bp-codebase-cleanup baseline/report
+.codebase-cleanup/

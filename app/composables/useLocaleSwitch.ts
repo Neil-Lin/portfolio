@@ -7,16 +7,22 @@ type LocaleCode = "zh-Hant-TW" | "en";
 export async function useLocaleSwitch() {
   // 其他 composable 都要在 await 之前呼叫：await 之後就拿不到 Nuxt 的執行環境（E1001）
   const switchLocalePath = useSwitchLocalePath();
-  const { locale } = useI18n();
+  const { locale, locales } = useI18n();
   const route = useRoute();
   const counterpart = await useBlogCounterpart();
 
   const resolve = (code: LocaleCode) => {
     const isArticle = /^\/(en\/)?blog\/.+/.test(route.path);
-    if (!isArticle || code === locale.value) return switchLocalePath(code);
+    if (!isArticle || code === locale.value)
+      return withTrailingSlash(switchLocalePath(code));
     if (counterpart.value) return counterpart.value;
     return code === "en" ? "/en/blog/" : "/blog/";
   };
 
-  return { resolve };
+  // 語言選單（頁首、頁尾）共用的清單
+  const supportedLocales = computed(() =>
+    locales.value.map(({ code, name }) => ({ code, name: name ?? code })),
+  );
+
+  return { resolve, supportedLocales };
 }

@@ -20,7 +20,7 @@
 import type { NuxtError } from "#app";
 
 const { t } = useI18n();
-const localePath = useLocalePath();
+const pagePath = usePagePath();
 
 const props = defineProps<{
   error: NuxtError;
@@ -40,6 +40,6 @@ useSeoMeta({
 
 onBeforeUnmount(() => {
   // 依目前語系導回對應首頁（英文頁錯誤不再被導回中文首頁）
-  clearError({ redirect: localePath("/") });
+  clearError({ redirect: pagePath("/") });
 });
 </script>

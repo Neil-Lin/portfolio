@@ -80,7 +80,7 @@
         <ul class="news-list">
           <li v-for="post in latestPosts" :key="post.slug">
             <nuxt-link
-              :to="localePath(`/blog/${post.slug}`)"
+              :to="pagePath(`/blog/${post.slug}`)"
               :title="`${$t('action.goTo')} ${post.title}`"
             >
               {{ post.title }}
@@ -92,7 +92,7 @@
         </ul>
         <br />
         <nuxt-link
-          :to="localePath('/blog')"
+          :to="pagePath('/blog')"
           :title="`${$t('action.goTo')} ${$t('mainMenu.blog')}`"
           class="btn"
         >
@@ -107,7 +107,7 @@
 import { MANAGER_START_YEAR, yearsSince } from "~~/data/career";
 
 const { locale, t } = useI18n();
-const localePath = useLocalePath();
+const pagePath = usePagePath();
 const pageTitle = computed(() => t("words.home"));
 const pageDescription = computed(() => t("intro.des3"));
 

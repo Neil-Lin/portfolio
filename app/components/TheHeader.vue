@@ -1,5 +1,5 @@
 <template>
-  <header :class="[headerClass, isScrolled ? 'scrolled' : '']">
+  <header ref="headerEl" :class="[headerClass, isScrolled ? 'scrolled' : '']">
     <a id="ak-jump" href="#ak-container" :title="$t('shortcut.skipToContent')">
       {{ $t("shortcut.skipToContent") }}
     </a>
@@ -15,7 +15,7 @@
         </a>
 
         <div class="logo">
-          <nuxt-link :to="localePath('/')" :title="$t('action.goToHomePage')">
+          <nuxt-link :to="pagePath('/')" :title="$t('action.goToHomePage')">
             <img src="@/assets/images/avatar.webp" alt="" />
             <div class="slogan intro">
               <ClientOnly fallback-tag="span">
@@ -36,7 +36,7 @@
           <ul>
             <li v-for="(item, index) in mainMenuList" :key="index">
               <nuxt-link
-                :to="localePath(item.link)"
+                :to="pagePath(item.link)"
                 :title="`${$t('action.goTo')} ${item.title}`"
                 class="btn"
               >
@@ -58,7 +58,7 @@ import { CAREER_START_YEAR, yearsSince } from "~~/data/career";
 
 const { t } = useI18n();
 const route = useRoute();
-const localePath = useLocalePath();
+const pagePath = usePagePath();
 const careerYears = yearsSince(CAREER_START_YEAR);
 
 const getGreeting = (date: Date) => {
@@ -99,14 +99,14 @@ const headerClass = computed(() =>
   isHomePath(route.path) ? undefined : "collapsed",
 );
 
+const headerEl = ref<HTMLElement | null>(null);
 const { scrollDistance } = useDetectScrollY();
 const isScrolled = ref(false);
 let lastScrollPosition = 0; // 儲存最後的滾動位置
 const scrollUpThreshold = 10; // 向上滾動的閾值
 
 watch(scrollDistance, (currentScrollPosition) => {
-  const headerHeight =
-    document.querySelector("header")?.getBoundingClientRect().height || 0;
+  const headerHeight = headerEl.value?.getBoundingClientRect().height || 0;
 
   if (currentScrollPosition > headerHeight) {
     // 若滾動超過 header 高度且向下滾動，isScrolled 設為 true

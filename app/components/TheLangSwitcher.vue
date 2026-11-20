@@ -21,12 +21,9 @@
 </template>
 
 <script setup lang="ts">
-type LocaleItem = { code: "zh-Hant-TW" | "en"; name: string };
+const { locale } = useI18n();
 
-const { locale, locales } = useI18n();
-const supportedLocales = locales.value as LocaleItem[];
-
-const { resolve } = await useLocaleSwitch();
+const { resolve, supportedLocales } = await useLocaleSwitch();
 
 async function onLocaleChanged(event: Event) {
   const target = event.target as HTMLSelectElement;

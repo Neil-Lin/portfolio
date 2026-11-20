@@ -36,6 +36,7 @@
             'uf-reset': item.key === 'reset',
           }"
           :hidden.attr="panelHidden(item.key, i)"
+          @beforematch="onFound(i)"
         >
           <p>{{ item.sentence }}</p>
         </div>
@@ -169,19 +170,8 @@ function collapseAll() {
   found.value = [false, false, false, false];
 }
 
-let controller: AbortController | null = null;
-onMounted(() => {
-  controller = new AbortController();
-  keys.forEach((key, i) => {
-    document.getElementById(`${uid}-${key}`)?.addEventListener(
-      "beforematch",
-      () => {
-        open.value[i] = true;
-        found.value[i] = true;
-      },
-      { signal: controller!.signal },
-    );
-  });
-});
-onBeforeUnmount(() => controller?.abort());
+function onFound(i: number) {
+  open.value[i] = true;
+  found.value[i] = true;
+}
 </script>

@@ -253,7 +253,7 @@ function ratio(a: string, b: string) {
   return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
 }
 
-watch([mode, text], () => nextTick(measure));
+watch([mode, text], measure, { flush: "post" });
 
 let observer: ResizeObserver | null = null;
 let darkQuery: MediaQueryList | null = null;

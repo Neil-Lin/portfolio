@@ -79,9 +79,6 @@ const text = useDemoText(messages);
 
 onMounted(() => {
   if (customElements.get("au-carousel")) return;
-  if (document.querySelector(`script[src="${AU_CAROUSEL_SRC}"]`)) return;
-  const script = document.createElement("script");
-  script.src = AU_CAROUSEL_SRC;
-  document.head.append(script);
+  loadScriptOnce(AU_CAROUSEL_SRC);
 });
 </script>

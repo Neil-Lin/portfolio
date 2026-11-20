@@ -139,7 +139,7 @@
           <ol>
             <li>
               <nuxt-link
-                :to="localePath('/')"
+                :to="pagePath('/')"
                 :title="$t('action.goTo') + $t('action.goToHomePage')"
               >
                 {{ $t("words.home") }}
@@ -147,7 +147,7 @@
             </li>
             <li>
               <nuxt-link
-                :to="localePath('/sitemap')"
+                :to="pagePath('/sitemap')"
                 :title="$t('action.goTo') + $t('mainMenu.sitemap')"
               >
                 {{ $t("mainMenu.sitemap") }}
@@ -155,7 +155,7 @@
             </li>
             <li>
               <nuxt-link
-                :to="localePath('/products')"
+                :to="pagePath('/products')"
                 :title="$t('action.goTo') + $t('mainMenu.products')"
               >
                 {{ $t("mainMenu.products") }}
@@ -163,7 +163,7 @@
             </li>
             <li>
               <nuxt-link
-                :to="localePath('/projects')"
+                :to="pagePath('/projects')"
                 :title="$t('action.goTo') + $t('mainMenu.projects')"
               >
                 {{ $t("mainMenu.projects") }}
@@ -171,7 +171,7 @@
             </li>
             <li>
               <nuxt-link
-                :to="localePath('/blog')"
+                :to="pagePath('/blog')"
                 :title="$t('action.goTo') + $t('mainMenu.blog')"
               >
                 {{ $t("mainMenu.blog") }}
@@ -186,7 +186,7 @@
 
 <script setup lang="ts">
 const { t } = useI18n();
-const localePath = useLocalePath();
+const pagePath = usePagePath();
 
 const pageTitle = computed(() => t("mainMenu.sitemap"));
 const pageDescription = computed(() => t("des.sitemap"));

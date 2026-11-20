@@ -4,7 +4,7 @@
       <li v-for="(item, index) in list" :key="index">
         <nuxt-link
           v-if="item.link"
-          :to="localePath(item.link)"
+          :to="pagePath(item.link)"
           :title="item.title"
         >
           {{ item.title }}
@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-const localePath = useLocalePath();
+const pagePath = usePagePath();
 
 defineProps<{
   list: { link?: string; title: string }[];

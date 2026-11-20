@@ -21,7 +21,7 @@
               :to="
                 productItem.clickable
                   ? {
-                      path: localePath(
+                      path: pagePath(
                         `/products/${encodeURIComponent(productItem.slug)}`,
                       ),
                     }
@@ -70,7 +70,7 @@ import type { Product } from "~~/data/types";
 const { t, locale } = useI18n();
 const router = useRouter();
 const route = useRoute();
-const localePath = useLocalePath();
+const pagePath = usePagePath();
 const lightBox = ref<HTMLDialogElement | null>(null);
 const runtimeConfig = useRuntimeConfig();
 const orgUrl = useOrgUrl();
@@ -119,16 +119,8 @@ const onOpenProduct = (event: MouseEvent, productItem: Product) => {
 
 const restoreScrollPosition = async (top: number) => {
   await nextTick();
-  requestAnimationFrame(() => {
-    const htmlScrollBehavior = document.documentElement.style.scrollBehavior;
-    const bodyScrollBehavior = document.body.style.scrollBehavior;
-
-    document.documentElement.style.scrollBehavior = "auto";
-    document.body.style.scrollBehavior = "auto";
-    window.scrollTo(0, top);
-    document.documentElement.style.scrollBehavior = htmlScrollBehavior;
-    document.body.style.scrollBehavior = bodyScrollBehavior;
-  });
+  // "instant" 會略過 CSS 的 scroll-behavior: smooth，直接回到原位
+  requestAnimationFrame(() => window.scrollTo({ top, behavior: "instant" }));
 };
 
 const closeProduct = async () => {
@@ -137,7 +129,7 @@ const closeProduct = async () => {
 
   lightBox.value.close();
   await router.replace({
-    path: localePath("/products"),
+    path: pagePath("/products"),
     query: {
       role: selectedRole.value || undefined,
       platform: selectedPlatform.value || undefined,
@@ -160,12 +152,13 @@ watch(
   },
 );
 
-watch(isModal, async (modal) => {
-  if (modal) {
-    await nextTick();
-    lightBox.value?.showModal();
-  }
-});
+watch(
+  isModal,
+  (modal) => {
+    if (modal) lightBox.value?.showModal();
+  },
+  { flush: "post" },
+);
 
 onMounted(() => {
   if (isModal.value) {

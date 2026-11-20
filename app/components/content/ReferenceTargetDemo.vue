@@ -203,11 +203,7 @@ onMounted(async () => {
     return;
   }
   if (!customElements.get("au-input")) {
-    if (!document.querySelector(`script[src="${AU_INPUT_SRC}"]`)) {
-      const script = document.createElement("script");
-      script.src = AU_INPUT_SRC;
-      document.head.append(script);
-    }
+    loadScriptOnce(AU_INPUT_SRC);
     await customElements.whenDefined("au-input");
   }
   applyKitTarget();

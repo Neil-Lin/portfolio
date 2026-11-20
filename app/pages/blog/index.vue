@@ -37,7 +37,7 @@
         >
           <h2>
             <nuxt-link
-              :to="localePath(`/blog/${post.slug}`)"
+              :to="pagePath(`/blog/${post.slug}`)"
               :title="`${$t('action.goTo')} ${post.title}`"
             >
               {{ post.title }}
@@ -51,6 +51,7 @@
               class="tag is-category"
               :aria-current="undefined"
               :to="{
+                path: pagePath('/blog'),
                 query: buildQuery({ q: '', category: post.category, page: 1 }),
               }"
               :title="
@@ -88,7 +89,7 @@
 import { BLOG_CATEGORIES, type BlogCategory } from "~/utils/blogCategories";
 
 const { t, locale } = useI18n();
-const localePath = useLocalePath();
+const pagePath = usePagePath();
 const orgUrl = useOrgUrl();
 
 const pageTitle = computed(() => t("mainMenu.blog"));
@@ -187,7 +188,10 @@ const pagedPosts = computed(() =>
     currentPage.value * BLOG_PAGE_SIZE,
   ),
 );
-const pageTo = (p: number) => ({ query: buildQuery({ page: p }) });
+const pageTo = (p: number) => ({
+  path: pagePath("/blog"),
+  query: buildQuery({ page: p }),
+});
 const hasFilter = computed(() => !!keyword.value || !!category.value);
 
 // 輸入框的值：打字時先留在這裡，停下來 400ms 才更新網址
@@ -228,23 +232,23 @@ onMounted(() => {
   );
 
   // 搜尋或換分類後，播報找到幾篇
-  watch([keyword, category], async () => {
-    await nextTick();
-    if (summaryEl.value) {
-      announce(
-        summaryEl.value,
-        t("page.blog.found", filtered.value.length, {
-          named: { count: filtered.value.length },
-        }),
-      );
-    }
-  });
+  watch(
+    [keyword, category],
+    () => {
+      if (summaryEl.value) {
+        announce(
+          summaryEl.value,
+          t("page.blog.found", filtered.value.length, {
+            named: { count: filtered.value.length },
+          }),
+        );
+      }
+    },
+    { flush: "post" },
+  );
 
   // 換頁後把焦點移到結果摘要，畫面也會捲到列表開頭
-  watch(currentPage, async () => {
-    await nextTick();
-    summaryEl.value?.focus();
-  });
+  watch(currentPage, () => summaryEl.value?.focus(), { flush: "post" });
 });
 onBeforeUnmount(() => clearTimeout(typingTimer));
 
