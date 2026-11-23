@@ -43,6 +43,7 @@ export default defineSitemapEventHandler(async (e) => {
     "/projects",
     "/blog",
     "/sitemap",
+    "/accessibility",
   ].map((loc) => ({
     loc,
     ...(loc === "/products" && productsLastmod

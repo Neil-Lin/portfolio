@@ -38,6 +38,8 @@ for (const file of [
   "en/blog/index.html",
   "sitemap/index.html",
   "en/sitemap/index.html",
+  "accessibility/index.html",
+  "en/accessibility/index.html",
   "404.html",
   "rss.xml",
   "en/rss.xml",
@@ -94,6 +96,26 @@ for (const p of ["", "en/"]) {
   );
   expect(`${p}blog/index.html`, /class="blog-pagination"/g, 1, "部落格分頁");
   expect(`${p}rss.xml`, /<item>/g, 10, "RSS 文章");
+}
+
+// 無障礙聲明：要有回報信箱，且最後檢視日期不超過 12 個月
+// （W3C：超過一年的聲明可能被視為沒有維護；更新 data/accessibility.ts 的 reviewedAt）
+for (const p of ["", "en/"]) {
+  const page = `${p}accessibility/index.html`;
+  if (!existsSync(join(OUT, page))) continue;
+  const html = read(page);
+  if (!/href="mailto:[^"]+"/.test(html)) fail(`${page}：缺少回報問題的信箱`);
+  const reviewed = html.match(/<time[^>]*datetime="(\d{4}-\d{2}-\d{2})"/)?.[1];
+  if (!reviewed) {
+    fail(`${page}：找不到最後檢視日期 <time datetime>`);
+  } else {
+    const limit = new Date(`${reviewed}T00:00:00Z`);
+    limit.setUTCFullYear(limit.getUTCFullYear() + 1);
+    if (Date.now() > limit.getTime())
+      fail(
+        `${page}：無障礙聲明最後檢視日期 ${reviewed} 已超過 12 個月，請重新檢視並更新 data/accessibility.ts 的 reviewedAt`,
+      );
+  }
 }
 
 // 4. 每篇非草稿文章都有產出頁面

@@ -32,6 +32,11 @@
         </span>
       </ClientOnly>
       <div>
+        <nuxt-link :to="pagePath('/accessibility')">
+          {{ t("words.accessibilityStatement") }}
+        </nuxt-link>
+      </div>
+      <div>
         <nuxt-link
           to="https://accessibility.moda.gov.tw/Applications/Detail?category=20250820134645"
           :title="t('words.openNewWindowToA11yCheckPage')"
@@ -54,6 +59,7 @@
 <script setup lang="ts">
 const { resolve, supportedLocales } = await useLocaleSwitch();
 const { t, locale } = useI18n();
+const pagePath = usePagePath();
 
 const runtimeConfig = useRuntimeConfig();
 const buildDateStr = (runtimeConfig.public.buildDate as string) || "2025-01-01";

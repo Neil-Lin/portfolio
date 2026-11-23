@@ -177,6 +177,14 @@
                 {{ $t("mainMenu.blog") }}
               </nuxt-link>
             </li>
+            <li>
+              <nuxt-link
+                :to="pagePath('/accessibility')"
+                :title="$t('action.goTo') + $t('words.accessibilityStatement')"
+              >
+                {{ $t("words.accessibilityStatement") }}
+              </nuxt-link>
+            </li>
           </ol>
         </div>
       </section>

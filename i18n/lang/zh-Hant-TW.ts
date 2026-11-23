@@ -49,9 +49,12 @@ export default {
       "有這個符號代表外部連結，該連結可能與此網站的無障礙政策不相符。",
     openNewWindowToA11yCheckPage: "另開視窗前往無障礙網站",
     passA11yTWBadge: "通過AA無障礙網頁檢測",
+    accessibilityStatement: "無障礙聲明",
   },
   des: {
     sitemap: "提供網站導覽的網站區塊、快捷鍵和網站地圖",
+    accessibility:
+      "本網站的無障礙現況：採用的標準、已知限制，以及遇到問題時怎麼回報",
     a11yReference: "mozilla 開發頁面參考 accesskey",
     ithomeA11y:
       "iT 邦幫忙 2022 iThome 鐵人賽自我挑戰組，無障礙網頁設計大叔日記系列",
@@ -108,6 +111,22 @@ export default {
       p3: "如果您的瀏覽器是 Firefox，快速鍵的使用方法為 {firefoxKeyExample}，例如 {firefoxKeyExample2} 會跳至網頁中央內容區塊，以此類推。{n}{n}另外，如果您是 MAC 用戶，快速鍵的使用方法為 {macKeyExample}。{n}{n}若以上方式皆無法使用，建議可以檢查是不是有自訂的快速鍵影響。",
       tableCaption: "各作業系統與瀏覽器快速鍵參考表",
       p4: "※ 當本網站項目頁籤無法以滑鼠點選時，您可利用以下鍵盤操作方式瀏覽資料：{n}{n} {keyLeftRight} 或 {keyUpDown}：按左右鍵或上下鍵移動標籤順序。{n}{n}{keyTab}： 停留於該標籤後，可利用 {keyTab} 鍵跳至內容瀏覽該筆資料，遇到單選按鈕(radio)時請配合使用 {keyLeftRight} 或 {keyUpDown} 鍵移動項目順序。{n}{n} {keyShiftTab}： 按 {keyShiftTab} 可往回跳至上一筆資料；當跳回至標籤項目時您可繼續利用 {keyLeftRight} 或 {keyUpDown} 鍵移動標籤順序。",
+    },
+    accessibility: {
+      standard: "採用的標準",
+      badgeLink: "查看本站的無障礙標章資料",
+      measures: "我做了哪些事",
+      shortcuts: "網站的區塊說明與快速鍵設定，請見{link}。",
+      tested: "測試環境",
+      limitations: "已知限制",
+      limitationsIntro: "以下是我知道還沒做好的地方：",
+      meanwhile: "目前可以：",
+      feedback: "回報問題",
+      emailLabel: "Email：",
+      feedbackP1:
+        "如果你在使用這個網站時遇到困難，請寫信告訴我。不需要懂技術用語，只要說明在哪一頁、你想做什麼、發生了什麼事就好。",
+      feedbackP2: "如果方便，也請告訴我你使用的瀏覽器和輔助科技。",
+      reviewedAt: "本聲明最後檢視日期：",
     },
     blog: {
       hint: "前端、設計與無障礙的開發筆記。",
