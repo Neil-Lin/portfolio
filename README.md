@@ -33,6 +33,7 @@ python3 -m http.server 4173 --directory .output/public   # 本地預覽建置結
 
 PR 與 main 由 GitHub Actions（`.github/workflows/ci.yml`）依序執行 lint、typecheck、generate、冒煙測試。
 專案的寫法規則寫在 `eslint.config.mjs` 的 `no-restricted-syntax`，違反時錯誤訊息會說明原因與替代寫法。
+無障礙的檢查與維護規則見 `ACCESSIBILITY.md`。
 
 ## 專案結構
 
