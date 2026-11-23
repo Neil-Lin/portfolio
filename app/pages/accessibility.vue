@@ -24,7 +24,18 @@
         <section>
           <h2>{{ t("page.accessibility.measures") }}</h2>
           <ul>
-            <li v-for="(item, i) in s.measures[lc]" :key="i">{{ item }}</li>
+            <li v-for="(item, i) in s.measures[lc]" :key="i">
+              <template v-if="item.link"
+                >{{ splitLink(item.text)[0]
+                }}<nuxt-link
+                  :to="item.link.url"
+                  :title="`${item.link.label} ${t('action.openWindow')}`"
+                  target="_blank"
+                  >{{ item.link.label }}</nuxt-link
+                >{{ splitLink(item.text)[1] }}</template
+              >
+              <template v-else>{{ item.text }}</template>
+            </li>
           </ul>
           <i18n-t keypath="page.accessibility.shortcuts" tag="p" scope="global">
             <template #link>
@@ -88,6 +99,12 @@ const pageTitle = computed(() => t("words.accessibilityStatement"));
 const pageDescription = computed(() => t("des.accessibility"));
 
 usePageSeoMeta(pageTitle, pageDescription);
+
+// measures 的文字用 {link} 標出連結位置，拆成連結前、連結後兩段
+const splitLink = (text: string) => {
+  const [before = "", after = ""] = text.split("{link}");
+  return [before, after] as const;
+};
 
 // W3C 建議日期寫出月份，避免 11/12 這類看不出月日的寫法。固定用 UTC，伺服器與瀏覽器輸出才一致。
 const reviewedAtText = computed(() =>

@@ -1,4 +1,4 @@
-import type { I18nString, I18nStringArray, LocaleKey } from "./types.ts";
+import type { I18nString, LocaleKey } from "./types.ts";
 
 // 無障礙聲明（/accessibility/）的內容，結構參考 W3C「Developing an Accessibility Statement」：
 // 最低要求是承諾、採用的標準、聯絡方式；另外建議寫已知限制、採取的措施、測試環境、相關法規。
@@ -13,14 +13,18 @@ export interface KnownLimitation {
   meanwhile: string;
 }
 
+export interface MeasureItem {
+  /** 文字裡的 {link} 會換成連結 */
+  text: string;
+  link?: { label: string; url: string };
+}
+
 export const accessibilityStatement = {
   /** 最後檢視日期（YYYY-MM-DD），不是 build date */
   reviewedAt: "2026-11-23",
   contactEmail: "unclea11yuncle@gmail.com",
   badgeUrl:
     "https://accessibility.moda.gov.tw/Applications/Detail?category=20250820134645",
-  devCheckUrl: "https://accesserty.com/devcheck/",
-  pulseUrl: "https://accesserty.com/pulse",
 
   commitment: {
     "zh-Hant-TW":
@@ -36,18 +40,48 @@ export const accessibilityStatement = {
 
   measures: {
     "zh-Hant-TW": [
-      "通過臺灣無障礙網頁標章 AA 等級的外部檢測。",
-      "改版時用 Accesserty DevCheck 自我檢查，包含 axe-core 自動檢查與色盲等情境模擬。",
-      "網站載入 Accesserty Pulse，偵測使用者在操作上卡住的地方，作為改善依據。",
-      "每次部署前自動檢查每一頁的語言標示、標題結構，以及「跳到主要內容」連結。",
+      { text: "通過臺灣無障礙網頁標章 AA 等級的外部檢測。" },
+      {
+        text: "發布前用 {link} 在實際頁面上自我檢查，包含 axe-core 掃描、焦點路徑、可及名稱與情境模擬。",
+        link: {
+          label: "Accesserty DevCheck",
+          url: "https://accesserty.com/devcheck/",
+        },
+      },
+      {
+        text: "上線後由 {link} 收集鍵盤與操作事件，作為回頭檢查頁面的線索。",
+        link: {
+          label: "Accesserty Pulse",
+          url: "https://accesserty.com/pulse/",
+        },
+      },
+      {
+        text: "每次部署前自動檢查每一頁的語言標示、標題結構，以及「跳到主要內容」連結。",
+      },
     ],
     en: [
-      "Passed the external check for Taiwan's web accessibility badge at AA level.",
-      "Self-checked with Accesserty DevCheck when the site changes, including axe-core automated checks and simulations such as color blindness.",
-      "The site loads Accesserty Pulse, which detects where people get stuck, so I know what to improve.",
-      "Before every deployment, each page is automatically checked for its language setting, heading structure and skip-to-content link.",
+      {
+        text: "Passed the external check for Taiwan's web accessibility badge at AA level.",
+      },
+      {
+        text: "Before publishing, I check the real pages with {link}: axe-core scans, focus order, accessible names and simulations.",
+        link: {
+          label: "Accesserty DevCheck",
+          url: "https://accesserty.com/en/devcheck/",
+        },
+      },
+      {
+        text: "After launch, {link} collects keyboard and interaction events, which tell me which pages to go back and check.",
+        link: {
+          label: "Accesserty Pulse",
+          url: "https://accesserty.com/en/pulse/",
+        },
+      },
+      {
+        text: "Before every deployment, each page is automatically checked for its language setting, heading structure and skip-to-content link.",
+      },
     ],
-  } satisfies I18nStringArray,
+  } satisfies Record<LocaleKey, MeasureItem[]>,
 
   testedWith: {
     "zh-Hant-TW":

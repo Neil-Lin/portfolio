@@ -15,9 +15,9 @@
 
 ## 人工檢查（不會擋 build）
 
-- 改版時用 [Accesserty DevCheck](https://accesserty.com/devcheck/) 檢查（axe-core 自動檢查、色盲等情境模擬）
+- 發布前用 [Accesserty DevCheck](https://accesserty.com/devcheck/) 在實際頁面上檢查（axe-core 掃描、焦點路徑、可及名稱與情境模擬）
 - 用 macOS 上的 Chrome 搭配 VoiceOver 實際操作
-- 上線後由 [Accesserty Pulse](https://accesserty.com/pulse) 偵測使用者操作卡住的地方
+- 上線後由 [Accesserty Pulse](https://accesserty.com/pulse/) 收集鍵盤與操作事件，作為回頭檢查頁面的線索
 
 ## 改這個 repo 時的規則（人與 agent 都適用）
 
