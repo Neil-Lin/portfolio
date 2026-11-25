@@ -157,7 +157,7 @@ The media state pseudo-classes mean you no longer toggle classes just for the lo
 ## Further reading
 
 - [Testing HTML-in-Canvas for Accessibility: Screen Readers Can Read It Now, but You Still Need to Handle Four Things](/en/blog/html-in-canvas-a11y/)
-- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 117 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

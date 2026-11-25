@@ -158,7 +158,7 @@ WICG 說明文件列出一些**不會畫進 canvas** 的資訊，避免網頁讀
 ## 延伸閱讀
 
 - [用 `<usermedia>` 做視訊會議的等候室：瀏覽器幫你處理權限，但這六件事要自己做](/blog/html-usermedia/)
-- [現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：117 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ## 相關連結
 

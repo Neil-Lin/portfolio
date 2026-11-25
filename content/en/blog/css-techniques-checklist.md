@@ -1,8 +1,8 @@
 ---
-title: "Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next"
+title: "Modern CSS & HTML Cheat Sheet: 117 Features, Support & What to Try Next"
 description: "A scannable checklist of modern CSS and HTML features—grouped by layout, selectors, color, typography, animation and more, plus declarative HTML additions like `<geolocation>`, `focusgroup` and Invoker Commands—each with its purpose, an example, and browser support."
 date: 2026-07-06
-updatedAt: 2026-11-13
+updatedAt: 2026-11-25
 tags:
   - CSS
   - HTML
@@ -212,6 +212,7 @@ Strictly speaking this section isn't CSS, but it points the same way modern CSS 
 | `shadowrootreferencetarget` | Lets a `<label>` or `aria-*` outside the shadow root point at the real input inside it — the long-standing labelling problem for web components (see [my post testing it, with a UI Kit example](/en/blog/shadow-dom-reference-target/)) | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ✅ |
 | `<h1>` nested sizing fix | UA stylesheet change: an `<h1>` inside a `<section>` is no longer shrunk automatically, so heading hierarchy finally renders predictably (see [my post testing it and fixing my site's headings](/en/blog/html-nested-h1/)) | — | 🟢 | ✅ |
 | `ariaNotify()` | Ask the screen reader to announce a message directly (e.g. "Added to cart"), replacing the old trick of hiding an `aria-live` region and stuffing text into it. It's a DOM API rather than an HTML attribute, but what it replaces is exactly that HTML-attribute pattern (Chrome 141, Firefox 150, Safari 27; all three major browsers) | `document.ariaNotify("Added to cart");` | 🟡 | ✅ |
+| Web Share API (`navigator.share()`) | One button opens the operating system's share sheet, replacing a row of social icons and third-party share scripts; the sheet follows the system's screen reader, text size and contrast settings. It's a JS API, but what it replaces is that row of share buttons built from HTML and third-party scripts. Supported in Safari and Chrome (Windows, macOS, ChromeOS, Android); Firefox desktop, Chrome on Linux and Android WebView (including in-app browsers) lack it, so a "copy link" fallback is required (how I added a share button to every page of my site: [this post](/en/blog/web-share-a11y/)) | `await navigator.share({ title, url });` | 🟡 | ✅ |
 | HTML-in-Canvas | Draw regular HTML into a `<canvas>` (2D, WebGL, WebGPU). The drawn content stays clickable, selectable and keyboard-operable, sits in the accessibility tree, and works with find-in-page, translation and autofill — before, a canvas was just pixels and needed a hidden DOM copy for screen readers. The prototype's `layoutsubtree` attribute is now `content="drawable"` (Chrome 157) (see [my post testing its accessibility](/en/blog/html-in-canvas-a11y/)) | `<canvas content="drawable"><div drawable>…</div></canvas>` + `ctx.drawElementImage(el, x, y)` | 🟠 | ✅ |
 
 ### K-3. Proposal / prototype stage (just worth knowing about)

@@ -149,7 +149,7 @@ ul {
 ## 延伸閱讀
 
 - [用 :playing、:paused 做自訂播放器：圖示跟著狀態換了，但報讀軟體不知道](/blog/css-media-state-pseudos/)
-- [現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：117 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ## 相關連結
 

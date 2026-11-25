@@ -1,8 +1,8 @@
 ---
-title: 現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序
+title: 現代 CSS 與 HTML 技巧整理清單：117 個特性、支援度與實驗優先序
 description: "一份可快速掃描的現代 CSS 與 HTML 特性清單，依版面、選擇器、色彩、文字、動畫等分類，另收錄 `<geolocation>`、`focusgroup`、Invoker Commands 等宣告式 HTML 新特性，逐條整理用途、範例與瀏覽器支援度。"
 date: 2026-07-06
-updatedAt: 2026-11-13
+updatedAt: 2026-11-25
 tags:
   - CSS
   - HTML
@@ -212,6 +212,7 @@ draft: false
 | `shadowrootreferencetarget` | 讓 Shadow DOM 外面的 `<label>`／`aria-*` 能指向內部真正的 input——解決 web component 長年的標籤關聯難題（實測與 UI Kit 的例子見[這篇](/blog/shadow-dom-reference-target/)） | `<template shadowrootmode="open" shadowrootreferencetarget="real-input">` | 🟠 | ✅ |
 | `<h1>` 巢狀尺寸修正 | UA 樣式表變更：`<h1>` 放在 `<section>` 裡不再被自動縮小，標題階層的視覺呈現終於可預期（實測與我網站的標題調整見[這篇](/blog/html-nested-h1/)） | — | 🟢 | ✅ |
 | `ariaNotify()` | 直接請螢幕閱讀器念出一段訊息（例如「已加入購物車」），取代在頁面藏一個 `aria-live` 區塊再塞文字的舊做法。它是 DOM API 而不是 HTML 屬性，但它取代的正是那套 HTML 屬性寫法（Chrome 141、Firefox 150、Safari 27 起，三大瀏覽器都支援） | `document.ariaNotify("已加入購物車");` | 🟡 | ✅ |
+| Web Share API（`navigator.share()`） | 一顆按鈕叫出作業系統的分享選單，取代一整排社群圖示和第三方分享程式；選單跟著系統的報讀軟體、字級、高對比設定走。它是 JS API，但取代的是過去那排靠 HTML 和第三方 script 拼出來的分享按鈕。Safari、Chrome（Windows、macOS、ChromeOS、Android）支援，Firefox 桌機、Chrome Linux、Android WebView（含 App 內瀏覽器）沒有，一定要有「複製連結」的退路（我在網站每一頁加上分享按鈕的過程見[這篇](/blog/web-share-a11y/)） | `await navigator.share({ title, url });` | 🟡 | ✅ |
 | HTML-in-Canvas | 把一般 HTML 畫進 `<canvas>`（2D、WebGL、WebGPU），畫出來的內容仍可點擊、選取文字、用鍵盤操作，也在無障礙樹裡，頁內搜尋、翻譯、自動填入照常可用——以前 canvas 只是一張像素圖，得另做隱藏的 DOM 給報讀軟體。屬性已從原型時的 `layoutsubtree` 改為 `content="drawable"`（Chrome 157）（無障礙實測見[這篇](/blog/html-in-canvas-a11y/)） | `<canvas content="drawable"><div drawable>…</div></canvas>` + `ctx.drawElementImage(el, x, y)` | 🟠 | ✅ |
 
 ### K-3. 提案／原型階段（先知道有這回事就好）

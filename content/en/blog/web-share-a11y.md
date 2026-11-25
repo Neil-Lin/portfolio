@@ -10,7 +10,7 @@ tags:
   - A11Y
 translationKey: web-share
 category: accessibility
-draft: true
+draft: false
 ---
 
 > Up front: these notes were researched and tested with AI assistance, then rewritten by me. I tested the API in Chrome 158 on macOS (with real clicks simulated through DevTools) and in Electron (Chromium 156). I read the real share sheet on macOS through the system accessibility API, and actually shared from the live site in Safari and in LINE's in-app browser on iPhone. **I haven't listened to it with VoiceOver yet**; I'll add that once I have. If I've gotten something wrong, corrections welcome.
@@ -169,6 +169,22 @@ async function copy() {
 ```
 
 `report()` does two things: shows the text below the button, and announces it with the `announce()` helper from my [ariaNotify() post](/en/blog/aria-notify/). The on-screen text is **not** a live region, otherwise screen readers would read it twice.
+
+### One inside the lightbox too
+
+On my [products page](/en/products), opening a product shows it in a lightbox (a `<dialog>` opened with `showModal()`). Only after the button went live did I notice that while the lightbox is open, the share button above the footer **can't be reached**.
+
+That's how modals are supposed to work: `showModal()` makes everything outside the dialog inert, so it can't be clicked, tabbed to or read by screen readers. For the user, while the lightbox is open, the site simply has no share button.
+
+The fix is simple: put the same component at the end of the lightbox content. While the lightbox is open, the URL is already the product page and the page title is already the product name, so the component needs no changes and shares the product page. It sits at the end of the content with the same name, just like on every other page.
+
+| Case | Result |
+|---|---|
+| Lightbox open | The lightbox has "Share this page"; the footer one is blocked, so screen readers only find the one in the lightbox |
+| Sharing from the lightbox | Shares `https://neillin.com/en/products/dahtahdoc/` with the product name as the title |
+| Share finished or cancelled | Focus stays on the button inside the lightbox, never outside it |
+
+Whenever you have a modal, check that site-wide features are still reachable while it's open.
 
 ### Which URL gets shared
 

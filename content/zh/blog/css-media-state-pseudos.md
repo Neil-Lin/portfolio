@@ -157,7 +157,7 @@ CSS 則是 `@supports selector(:playing) { … }`。
 ## 延伸閱讀
 
 - [HTML-in-Canvas 的無障礙實測：報讀軟體讀得到了，但這四件事要自己補](/blog/html-in-canvas-a11y/)
-- [現代 CSS 與 HTML 技巧整理清單：116 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：117 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 
 ## 相關連結
 

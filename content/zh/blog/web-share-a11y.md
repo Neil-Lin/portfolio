@@ -10,7 +10,7 @@ tags:
   - A11Y
 translationKey: web-share
 category: accessibility
-draft: true
+draft: false
 ---
 
 > 話說在前頭：這篇是 AI 協助整理研究與實測後，我再改寫的筆記。API 行為是在 macOS 的 Chrome 158（用 DevTools 模擬真的點擊）與 Electron（Chromium 156）實測的；真的分享選單是在 macOS 上用系統無障礙 API 讀出來的，另外在正式站用 Safari 和 iPhone 上 LINE 的 App 內瀏覽器實際分享過；**還沒有用 VoiceOver 實際聽過**，會在實測後補上。有講錯的地方歡迎指正。
@@ -169,6 +169,22 @@ async function copy() {
 ```
 
 `report()` 做兩件事：在按鈕下方顯示文字，並用 [ariaNotify() 那篇](/blog/aria-notify/)的 `announce()` 播報給報讀軟體。畫面上的文字本身**沒有**設 live region，不然報讀軟體會念兩次。
+
+### 燈箱裡也要一顆
+
+[作品頁](/products)點開產品，會用燈箱（`<dialog>` 的 `showModal()`）顯示產品內容。按鈕上線後我才發現：燈箱打開時，頁尾上方那顆分享按鈕**按不到**。
+
+這是 modal 的正常行為：`showModal()` 會讓燈箱外面的內容全部變成 inert，滑鼠點不到、Tab 移不過去，報讀軟體也讀不到。對使用者來說，燈箱打開的這段時間裡，網站就是「沒有分享按鈕」。
+
+做法很單純：燈箱內容的最後面放同一個元件。燈箱打開時網址已經是產品頁，頁面標題也已經是產品名稱，所以元件不用改，分享出去的就是產品頁。位置一樣在內容最後面，名稱也一樣。
+
+| 情境 | 結果 |
+|---|---|
+| 燈箱打開 | 燈箱裡有「分享這一頁」，頁尾那顆被擋住，報讀軟體只會讀到燈箱裡的這顆 |
+| 在燈箱裡分享 | 分享的是 `https://neillin.com/products/dahtahdoc/`，標題是產品名稱 |
+| 分享結束或取消 | 焦點留在燈箱裡的按鈕，不會跑到燈箱外面 |
+
+只要有 modal，就要記得檢查：全站共用的功能，在 modal 打開時還用不用得到。
 
 ### 分享哪個網址
 

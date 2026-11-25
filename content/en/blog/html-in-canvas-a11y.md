@@ -158,7 +158,7 @@ So for now it's a Chrome-only feature. If an interface can be built with plain H
 ## Further reading
 
 - [Building a Video Call Waiting Room with `<usermedia>`: the Browser Handles Permissions, but You Still Need to Do Six Things](/en/blog/html-usermedia/)
-- [Modern CSS & HTML Cheat Sheet: 116 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 117 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 
