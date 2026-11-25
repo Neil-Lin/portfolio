@@ -102,7 +102,8 @@ Chrome 158 headless 把 `navigator.share` 換成記錄參數的假函式（headl
 ## 待實測（維護者）
 
 - [x] macOS Chrome + VoiceOver（正式站，維護者）：按「分享這一頁」，在選單選 LINE，可以正常分享。
-- [ ] VoiceOver 開啟選單那一刻念什麼（選單沒有名稱）；macOS Safari + VoiceOver。
+- [x] VoiceOver 開啟選單那一刻念什麼：「展開，彈出式選單」，不會說「分享」（選單沒有名稱，與 AX API 結果一致）。
+- [x] macOS Safari + VoiceOver：按下後念「進入彈出式項目，n 個項目」，同樣不說「分享」。
 - [ ] iOS Safari + VoiceOver、Android Chrome + TalkBack。
 - [x] LINE App 內瀏覽器（iPhone）：顯示分享、能成功分享。
 - [ ] LINE App 內瀏覽器（Android）：預期顯示「複製連結」。

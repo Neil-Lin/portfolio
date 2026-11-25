@@ -13,7 +13,7 @@ category: accessibility
 draft: false
 ---
 
-> Up front: these notes were researched and tested with AI assistance, then rewritten by me. I tested the API in Chrome 158 on macOS (with real clicks simulated through DevTools) and in Electron (Chromium 156). I read the real share sheet on macOS through the system accessibility API, and actually shared from the live site in Safari and in LINE's in-app browser on iPhone. I also turned on VoiceOver and shared to LINE from Chrome on macOS. **Android and TalkBack aren't tested yet**; I'll add those once I have. If I've gotten something wrong, corrections welcome.
+> Up front: these notes were researched and tested with AI assistance, then rewritten by me. I tested the API in Chrome 158 on macOS (with real clicks simulated through DevTools) and in Electron (Chromium 156). I read the real share sheet on macOS through the system accessibility API, and actually shared from the live site in Safari and in LINE's in-app browser on iPhone. I also tested with VoiceOver in Chrome and Safari on macOS. **Android and TalkBack aren't tested yet**; I'll add those once I have. If I've gotten something wrong, corrections welcome.
 
 ## Intro
 
@@ -226,7 +226,7 @@ In order:
 
 Every item is a named button. That's the payoff of handing this to the OS: I didn't write a line of code, yet every button has a name, including "Copy".
 
-There are two small issues, though: the sheet itself and its outer group **have no name**, so a screen reader may not say "Share" first and just read the first item; and the icon's name is wrong. How much these matter needs a real listen with VoiceOver, and both are up to the browser and OS. The page can't fix them.
+There are two small issues, though: the sheet itself and its outer group **have no name**, so a screen reader may not say "Share" first and just read the first item; and the icon's name is wrong. What VoiceOver actually says is below. Both are up to the browser and OS. The page can't fix them.
 
 #### Keyboard
 
@@ -268,18 +268,26 @@ This captures what Web Share really is: **which apps appear in the sheet is deci
 
 So don't put promises like "Share to LINE" in the UI that the page can't keep. And the sheet always has "Copy", so even when the app someone wants isn't there, they can still copy the link.
 
-### macOS Chrome + VoiceOver
+### macOS + VoiceOver: Chrome and Safari
 
 Finally, I turned on VoiceOver, pressed "Share this page" in Chrome on the live site, picked LINE in the share sheet, and the share went through normally.
 
+After pressing the button, VoiceOver says "expanded, pop-up menu" (in my Traditional Chinese setup, 「展開，彈出式選單」), not "Share". That matches what the accessibility API showed: the sheet itself has no name, so VoiceOver can only announce what kind of element it is. Since the user just pressed "Share this page", the context is clear enough, and in practice nothing got in the way.
+
+In Safari on macOS, pressing the button makes VoiceOver say "in pop-up item, n items" (「進入彈出式項目，n 個項目」), so it tells you how many items the sheet has, but again doesn't say "Share". The same system share sheet is announced differently by Chrome and Safari; that's also up to the browser, not the page.
+
+| Browser | What VoiceOver says after pressing "Share this page" |
+|---|---|
+| Chrome | Expanded, pop-up menu (「展開，彈出式選單」) |
+| Safari | In pop-up item, n items (「進入彈出式項目，n 個項目」) |
+
 This matches what reading the accessibility API showed earlier: every item in the sheet is a named button, so screen reader users can find the app they want and finish sharing. I didn't write any code for this part; the operating system handles it.
 
-<!-- TODO (after testing): what VoiceOver announces the moment the sheet opens (the sheet itself has no name); macOS Safari, iOS Safari + VoiceOver; Android Chrome + TalkBack; which button LINE's in-app browser shows on Android. -->
+<!-- TODO (after testing): iOS Safari + VoiceOver; Android Chrome + TalkBack; which button LINE's in-app browser shows on Android. -->
 
 ### Not tested yet
 
-- What VoiceOver announces the moment the sheet opens: the sheet itself has no name, and I haven't written down word for word whether it says "Share" first.
-- macOS Safari and iOS Safari with VoiceOver.
+- iOS Safari with VoiceOver.
 - Android Chrome with TalkBack.
 - LINE's in-app browser on Android. On iPhone it's confirmed to share; from the compatibility data, Android WebView lacks this API, so it should show "Copy link to this page".
 
