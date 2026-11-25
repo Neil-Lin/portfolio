@@ -2720,3 +2720,62 @@ button.stretch-demo__target {
   margin: 0;
   font-size: 0.875rem;
 }
+
+/*************************
+  Blog 互動範例：注音開關（ZhuyinToggleDemo.vue）
+*************************/
+
+.zhuyin-demo__toggle {
+  min-block-size: 3rem;
+  /* 按鈕文字不跟著狀態換，開啟時用外框和勾號表示（aria-pressed 告訴報讀軟體） */
+  &[aria-pressed="true"] {
+    background-color: oklch(var(--wrapper-bg));
+    color: oklch(var(--pd-c));
+    box-shadow: inset 0 0 0 0.1875rem oklch(var(--pd-c));
+  }
+}
+
+.zhuyin-demo__block {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid oklch(var(--border-color));
+  border-radius: 0.5rem;
+}
+
+.zhuyin-demo__title {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.zhuyin-demo__story {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 2;
+}
+
+/* 注音關閉時 display: none，<rt> 同時離開畫面與無障礙樹 */
+.zhuyin-demo__ruby rt {
+  display: none;
+  font-size: 0.4em;
+}
+
+/* 打開注音時字級、行高一起放大，注音才看得清楚 */
+.zhuyin-demo.is-on {
+  .zhuyin-demo__story {
+    font-size: 2rem;
+    line-height: 2.4;
+  }
+  .zhuyin-demo__ruby rt {
+    display: revert;
+  }
+  /* 字型名稱由元件以 CSS 變數傳入：直接寫在這裡，@nuxt/fonts 會試著替它產生備用字型而讓建置失敗 */
+  .zhuyin-demo__font {
+    font-family: var(--zhuyin-demo-font), sans-serif;
+  }
+}
+
+.zhuyin-demo__note {
+  margin: 0;
+  font-size: 0.875rem;
+}

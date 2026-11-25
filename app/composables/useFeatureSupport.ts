@@ -153,6 +153,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "Declarative Shadow DOM",
     detect: () => "shadowRootMode" in HTMLTemplateElement.prototype,
   },
+  "ruby-inter-character": {
+    name: "ruby-position: inter-character",
+    detect: () => CSS.supports("ruby-position", "inter-character"),
+  },
   "web-share": {
     name: "Web Share API",
     detect: () => typeof navigator.share === "function",
