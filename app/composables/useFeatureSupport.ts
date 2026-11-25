@@ -153,6 +153,10 @@ export const featureDetectors: Record<string, FeatureDetector> = {
     name: "Declarative Shadow DOM",
     detect: () => "shadowRootMode" in HTMLTemplateElement.prototype,
   },
+  "web-share": {
+    name: "Web Share API",
+    detect: () => typeof navigator.share === "function",
+  },
   "details-name": {
     name: "<details name>",
     detect: () =>
