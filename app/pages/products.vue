@@ -54,6 +54,8 @@
             {{ t("action.closeDialog") }}
           </button>
           <NuxtPage />
+          <!-- 燈箱是 modal，版型裡頁尾上方的分享按鈕會被擋住；燈箱裡放同一個元件，位置同樣在內容最後 -->
+          <ThePageShare />
         </dialog>
       </template>
       <template v-if="route.params.name && !isModal">
