@@ -13,7 +13,7 @@ category: accessibility
 draft: true
 ---
 
-> Up front: these notes were researched and tested with AI assistance, then rewritten by me. I tested the API in Chrome 158 on macOS (with real clicks simulated through DevTools) and in Electron (Chromium 156). I read the real share sheet on macOS through the system accessibility API, and actually shared from the live site in Safari and in LINE's in-app browser. **I haven't listened to it with VoiceOver yet**; I'll add that once I have. If I've gotten something wrong, corrections welcome.
+> Up front: these notes were researched and tested with AI assistance, then rewritten by me. I tested the API in Chrome 158 on macOS (with real clicks simulated through DevTools) and in Electron (Chromium 156). I read the real share sheet on macOS through the system accessibility API, and actually shared from the live site in Safari and in LINE's in-app browser on iPhone. **I haven't listened to it with VoiceOver yet**; I'll add that once I have. If I've gotten something wrong, corrections welcome.
 
 ## Intro
 
@@ -75,7 +75,7 @@ Web Share became a W3C Recommendation in 2023 and mobile browsers have had it fo
 
 Chrome on Linux and WebView aren't "not done yet"; they're deliberately off. The Chromium source only enables the feature on Android, ChromeOS, Windows and Mac, with a comment saying it stays off Linux and WebView.
 
-The WebView gap matters a lot in Taiwan: on Android, opening a link from LINE or Facebook uses the app's in-app WebView, which **most likely doesn't have this API** (inferred from the compatibility data and source; I haven't tested LINE yet).
+The WebView gap matters a lot in Taiwan: on Android, opening a link from LINE or Facebook uses the app's in-app WebView, which **most likely doesn't have this API** (inferred from the compatibility data and source; I haven't tested LINE on Android yet. On iPhone, LINE uses iOS WebKit, and sharing worked in my test).
 
 So a fallback isn't optional. It's required.
 
@@ -231,7 +231,7 @@ There are two small issues, though: the sheet itself and its outer group **have 
 
 Once the button was live, I tried it on the real site:
 
-- In Safari, and in the in-app browser you get when opening a link from LINE, the share sheet opened and the share actually went through.
+- In Safari, and in the in-app browser you get when opening a link from LINE on iPhone, the share sheet opened and the share actually went through.
 - Checking the live site with curl and a `Sec-Fetch-Dest: document` header, Cloudflare doesn't add a `Permissions-Policy: web-share=()` that would block sharing.
 
 ### Why isn't LINE in the Mac share sheet?
@@ -252,13 +252,13 @@ This captures what Web Share really is: **which apps appear in the sheet is deci
 
 So don't put promises like "Share to LINE" in the UI that the page can't keep. And the sheet always has "Copy", so even when the app someone wants isn't there, they can still copy the link.
 
-<!-- TODO (after testing): listen with VoiceOver (macOS Chrome, Safari, iOS Safari), Android Chrome + TalkBack; whether LINE's in-app browser differs between iOS and Android. -->
+<!-- TODO (after testing): listen with VoiceOver (macOS Chrome, Safari, iOS Safari), Android Chrome + TalkBack; which button LINE's in-app browser shows on Android. -->
 
 ### Not tested yet
 
 - Actually listening with VoiceOver: what's announced the moment the unnamed sheet opens.
 - Android Chrome with TalkBack.
-- Whether LINE's in-app browser differs between iOS and Android. From the compatibility data, Android WebView lacks this API, so it should show "Copy link to this page".
+- LINE's in-app browser on Android. On iPhone it's confirmed to share; from the compatibility data, Android WebView lacks this API, so it should show "Copy link to this page".
 
 ## Conclusion
 
