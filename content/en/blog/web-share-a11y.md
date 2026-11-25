@@ -219,7 +219,7 @@ What VoiceOver speaks comes from the operating system's accessibility API (on ma
 
 In order:
 
-1. An icon named "safari" (even though it was shared from Chrome)
+1. An icon named "safari" (even though it was shared from Chrome; see "Why is there no thumbnail in the share sheet?" below)
 2. The page title text, i.e. the `title` passed to `navigator.share()`
 3. A recent contact suggestion
 4. Add to Reading List, AirDrop, Mail, Messages, Notes, Freeform, Journal, Reminders, Copy, Edit Extensions…
@@ -283,6 +283,28 @@ In Safari on macOS, pressing the button makes VoiceOver say "in pop-up item, n i
 
 This matches what reading the accessibility API showed earlier: every item in the sheet is a named button, so screen reader users can find the app they want and finish sharing. I didn't write any code for this part; the operating system handles it.
 
+### Why is there no thumbnail in the share sheet?
+
+When the share sheet opens in Safari, the top of the sheet only shows a compass icon, not the article's thumbnail. I first assumed my site was missing something, but this article page has an `og:image` and favicons in every size.
+
+Reading both browsers' source showed the problem isn't the site:
+
+- **Safari (WebKit)**: for shares started by a web page, it builds the preview from just the URL and title, marked "incomplete", with no image or icon. Same on macOS and iOS.
+- **Chrome (macOS)**: when handing the URL to the system, it explicitly passes `image:nil` and `icon:nil`.
+
+So the system only gets a URL and a title, and falls back to the default compass icon. That's also why the icon in Chrome's sheet was named "safari" when I read the accessibility API earlier. **A web page can't make the share sheet show a thumbnail.**
+
+There are two different thumbnails to keep apart:
+
+| Where the thumbnail appears | Who decides |
+|---|---|
+| The preview at the top of the share sheet | The data the browser hands to the OS; the page can't control it |
+| The link preview the recipient sees in LINE or other apps | The app fetches the page's `og:image` itself; this is what the site needs to get right |
+
+Readers actually see the second one, so `og:image` still matters.
+
+The only way to get a thumbnail into the sheet is to pass an image in `files` to `navigator.share()`. I didn't: what's shared changes from "a link" to "an image plus a link", some apps send only the image and drop the link, and the image has to be downloaded before the click, since one click allows one share attempt. Changing what gets shared just to make the sheet look nicer isn't worth it.
+
 <!-- TODO (after testing): iOS Safari + VoiceOver; Android Chrome + TalkBack; which button LINE's in-app browser shows on Android. -->
 
 ### Not tested yet
@@ -313,4 +335,6 @@ Scroll to the bottom of this page and try "Share this page", or open it in an un
 - [MDN — Navigator.canShare()](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/canShare "Open new window"){target="_blank"}
 - [web.dev — Integrate with the OS sharing UI with the Web Share API](https://web.dev/articles/web-share "Open new window"){target="_blank"}
 - [Can I use — Web Share API](https://caniuse.com/web-share "Open new window"){target="_blank"}
+- [WebKit source — WKShareSheet.mm](https://github.com/WebKit/WebKit/blob/main/Source/WebKit/UIProcess/Cocoa/WKShareSheet.mm "Open new window"){target="_blank"}
+- [Chromium source — render_widget_host_ns_view_bridge.mm](https://chromium.googlesource.com/chromium/src/+/main/content/app_shim_remote_cocoa/render_widget_host_ns_view_bridge.mm "Open new window"){target="_blank"}
 - [Chromium source — chrome_content_renderer_client.cc](https://chromium.googlesource.com/chromium/src/+/main/chrome/renderer/chrome_content_renderer_client.cc "Open new window"){target="_blank"}

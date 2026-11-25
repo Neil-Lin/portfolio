@@ -219,7 +219,7 @@ VoiceOver 念的內容，來自作業系統的無障礙 API（macOS 是 AX API�
 
 依序是：
 
-1. 一個圖示，名稱是「safari」（明明是從 Chrome 分享的）
+1. 一個圖示，名稱是「safari」（明明是從 Chrome 分享的，原因見下面「分享選單為什麼沒有縮圖？」）
 2. 頁面標題文字，也就是 `navigator.share()` 收到的 `title`
 3. 一個最近聯絡人的建議
 4. 加入閱讀列表、AirDrop、郵件、訊息、備忘錄、無邊記、日誌、提醒事項、拷貝、編輯延伸功能⋯
@@ -283,6 +283,28 @@ VoiceOver 念的內容，來自作業系統的無障礙 API（macOS 是 AX API�
 
 這也印證了前面讀無障礙 API 看到的結果：選單裡的每個項目都是有名稱的按鈕，報讀軟體使用者可以找到想要的 App 並完成分享。我自己沒寫任何程式碼，這部分是作業系統做好的。
 
+### 分享選單為什麼沒有縮圖？
+
+在 Safari 打開分享選單時，選單上方只有一個指南針圖示，沒有文章的縮圖。我原本以為是網站少設了什麼，但這篇文章頁有 `og:image`，各種尺寸的 favicon 也都有。
+
+去讀兩個瀏覽器的原始碼才知道，問題不在網站：
+
+- **Safari（WebKit）**：網頁發起的分享，只會用網址和標題建立預覽資料，並標成「不完整」，沒有圖片也沒有圖示。macOS 和 iOS 都一樣。
+- **Chrome（macOS）**：把網址交給系統時，明確寫了 `image:nil`、`icon:nil`。
+
+所以系統拿到的只有網址和標題，只能顯示預設的指南針圖示。前面讀無障礙 API 時，Chrome 選單裡那個名稱是「safari」的圖示也是這個原因。**網頁沒辦法讓分享選單顯示縮圖。**
+
+要分清楚兩種縮圖：
+
+| 縮圖出現在哪裡 | 誰決定 |
+|---|---|
+| 分享選單上方的預覽 | 瀏覽器交給系統的資料，網頁控制不了 |
+| 收到的人在 LINE 等 App 看到的連結預覽 | App 自己去抓網頁的 `og:image`，這才是網站要設好的 |
+
+讀者真正會看到的是第二種，所以 `og:image` 還是要設好。
+
+唯一能讓選單出現縮圖的做法，是在 `navigator.share()` 多傳一張圖片 `files`。我沒有這樣做：分享的內容會從「一個連結」變成「一張圖加一個連結」，有些 App 會只送出圖片、把連結丟掉；圖片也要在點擊前先下載好，因為一次點擊只能分享一次。為了選單好看而改變分享的內容，不划算。
+
 <!-- TODO(實測後補上)：iOS Safari + VoiceOver；Android Chrome + TalkBack；Android 上 LINE App 內瀏覽器顯示哪一種按鈕。 -->
 
 ### 還沒測的
@@ -313,4 +335,6 @@ VoiceOver 念的內容，來自作業系統的無障礙 API（macOS 是 AX API�
 - [MDN — Navigator.canShare()](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/canShare "另開新視窗"){target="_blank"}
 - [web.dev — Integrate with the OS sharing UI with the Web Share API](https://web.dev/articles/web-share "另開新視窗"){target="_blank"}
 - [Can I use — Web Share API](https://caniuse.com/web-share "另開新視窗"){target="_blank"}
+- [WebKit 原始碼 — WKShareSheet.mm](https://github.com/WebKit/WebKit/blob/main/Source/WebKit/UIProcess/Cocoa/WKShareSheet.mm "另開新視窗"){target="_blank"}
+- [Chromium 原始碼 — render_widget_host_ns_view_bridge.mm](https://chromium.googlesource.com/chromium/src/+/main/content/app_shim_remote_cocoa/render_widget_host_ns_view_bridge.mm "另開新視窗"){target="_blank"}
 - [Chromium 原始碼 — chrome_content_renderer_client.cc](https://chromium.googlesource.com/chromium/src/+/main/chrome/renderer/chrome_content_renderer_client.cc "另開新視窗"){target="_blank"}

@@ -99,6 +99,16 @@ Chrome 158 headless 把 `navigator.share` 換成記錄參數的假函式（headl
 - macOS 分享選單沒有 LINE：`pluginkit -m -A -v -p com.apple.share-services` 顯示 `jp.naver.line.mac.ShareExt`（26.6.0）已註冊但前面沒有 `+`，也就是沒有啟用（書籍、捷徑同樣沒有 `+`，選單裡也沒有）。macOS 預設不啟用第三方分享延伸功能，要在選單的「編輯延伸功能⋯」或「系統設定 → 一般 → 登入項目與延伸功能 → 分享」勾選。維護者勾選後，LINE 出現在選單中，可以正常分享；感想是「可以用，只是不太習慣」。
 - → 文章：選單內容由使用者決定，介面不要承諾「分享到 LINE」。
 
+## 查證：分享選單沒有縮圖（2026-11-25）
+
+維護者在 macOS Safari 的分享選單只看到指南針圖示、沒有文章縮圖。文章頁有 `og:image`（1200×600）和 favicon，問題不在網站。讀原始碼確認：
+
+- WebKit [`WKShareSheet.mm`](https://github.com/WebKit/WebKit/blob/main/Source/WebKit/UIProcess/Cocoa/WKShareSheet.mm)：`presentWithParameters` 對 `ShareDataOriginator::Web` 的網址，用 `placeholderMetadataWithURLAndTitle()` 建 `LPLinkMetadata`，只設 `originalURL`、`URL`、`title`，`_setIncomplete:YES`，沒有圖片、圖示。macOS 用 `NSPreviewRepresentingActivityItem`，iOS 用 `WKShareSheetURLItemProvider`，都是同一份 placeholder。只有 `files` 會用 `LPMetadataProvider` 抓檔案的預覽。
+- Chromium [`render_widget_host_ns_view_bridge.mm`](https://chromium.googlesource.com/chromium/src/+/main/content/app_shim_remote_cocoa/render_widget_host_ns_view_bridge.mm)：`ShowSharingServicePicker` 用 `NSPreviewRepresentingActivityItem initWithItem:url title:… image:nil icon:nil`。
+- → 網頁不能讓分享選單顯示縮圖。之前 AX 讀到的圖示名稱「safari」也是這個原因（沒有圖示時的預設）。
+- 收件端 App（LINE 等）的連結預覽是 App 自己抓 `og:image`，與分享選單無關。
+- 唯一辦法是 `files` 附圖片，但會改變分享內容（有些 App 只送圖片），圖片要在點擊前下載好。不採用。
+
 ## 待實測（維護者）
 
 - [x] macOS Chrome + VoiceOver（正式站，維護者）：按「分享這一頁」，在選單選 LINE，可以正常分享。
