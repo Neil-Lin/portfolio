@@ -13,7 +13,7 @@ category: accessibility
 draft: true
 ---
 
-> Up front: these notes were researched and tested with AI assistance, then rewritten by me. I tested the API in Chrome 158 on macOS (with real clicks simulated through DevTools) and in Electron (Chromium 156). I read the real share sheet on macOS through the system accessibility API, but **I haven't actually listened to it with VoiceOver or tested on phones yet**; I'll add that once I have. If I've gotten something wrong, corrections welcome.
+> Up front: these notes were researched and tested with AI assistance, then rewritten by me. I tested the API in Chrome 158 on macOS (with real clicks simulated through DevTools) and in Electron (Chromium 156). I read the real share sheet on macOS through the system accessibility API, and actually shared from the live site in Safari and in LINE's in-app browser. **I haven't listened to it with VoiceOver yet**; I'll add that once I have. If I've gotten something wrong, corrections welcome.
 
 ## Intro
 
@@ -186,18 +186,20 @@ async function copy() {
 | No Web Share and clipboard blocked (Electron) | Shows the URL for the user to copy, focus stays on the button |
 | 320px-wide screen | Long URLs wrap, no horizontal scrolling |
 
-## 7. Testing the share sheet: macOS Chrome
+## 7. Testing the share sheet
+
+### macOS Chrome: reading the accessibility API
 
 What VoiceOver speaks comes from the operating system's accessibility API (on macOS, the AX API). So I opened a real Chrome 158 on macOS, pressed the share button to bring up the system share sheet, and read the AX API directly to see what's in the sheet and where focus is. That isn't quite the same as listening to VoiceOver, but the role, name and focus information screen readers rely on is all there.
 
-### Opening the sheet
+#### Opening the sheet
 
 - The button on the page: role "button", name "Share this page".
 - Either a mouse click, or tabbing to the button and pressing Enter, opens the sheet.
 - The sheet is a popover attached to the Chrome window, and **focus moves into it automatically**, landing on the first item.
 - On the page side, the button gets `focusout` and the window gets `blur`, but `document.activeElement` is still the button.
 
-### What's in the sheet
+#### What's in the sheet
 
 In order:
 
@@ -210,7 +212,7 @@ Every item is a named button. That's the payoff of handing this to the OS: I did
 
 There are two small issues, though: the sheet itself and its outer group **have no name**, so a screen reader may not say "Share" first and just read the first item; and the icon's name is wrong. How much these matter needs a real listen with VoiceOver, and both are up to the browser and OS. The page can't fix them.
 
-### Keyboard
+#### Keyboard
 
 | Key | Result |
 |---|---|
@@ -219,19 +221,44 @@ There are two small issues, though: the sheet itself and its outer group **have 
 | → | No movement |
 | Esc | Close the sheet |
 
-### After closing
+#### After closing
 
 - After closing with Esc, **system focus returns to the "Share this page" button**, `share()` gets `AbortError: Share canceled`, and the page shows no message, as expected.
 - After picking an item in the sheet, `share()` resolved only then (about 10 seconds after opening, i.e. when the item was chosen), not as soon as the sheet opened. MDN says Windows resolves as soon as it opens, so the timing differs by platform, and the "don't say shared successfully" rule still holds.
 - In this combination `document.activeElement` stayed on the button throughout, so the "move focus back if it fell to body" step from section 6 never kicked in. I'm keeping it as a safety net for other platforms.
 
-<!-- TODO (after testing): listen with VoiceOver (macOS Chrome, Safari), iOS Safari + VoiceOver, Android Chrome + TalkBack; which mode the LINE in-app browser shows. -->
+### Live site: Safari and LINE
+
+Once the button was live, I tried it on the real site:
+
+- In Safari, and in the in-app browser you get when opening a link from LINE, the share sheet opened and the share actually went through.
+- Checking the live site with curl and a `Sec-Fetch-Dest: document` header, Cloudflare doesn't add a `Permissions-Policy: web-share=()` that would block sharing.
+
+### Why isn't LINE in the Mac share sheet?
+
+While testing I noticed something: LINE is installed on my Mac, yet it wasn't in the share sheet.
+
+Checking the share extensions the system has registered (`pluginkit -m -p com.apple.share-services`) explained it: LINE for Mac does ship a share extension, but it's **off by default**. macOS only enables its built-in items by default; third-party apps have to be turned on by the user:
+
+- At the bottom of the share sheet, choose "Edit Extensions…" and tick LINE.
+- Or go to System Settings → General → Login Items & Extensions → Sharing and tick it there.
+
+Once enabled, LINE shows up in the sheet and sharing works.
+
+This captures what Web Share really is: **which apps appear in the sheet is decided by the user's system and settings. The page can't control it and never finds out.**
+
+- The upside: the sheet only lists apps the user actually uses and chose to enable.
+- The cost: it's unfamiliar. Someone used to seeing a LINE icon on web pages may not find LINE in the sheet the first time and assume "I can't share to LINE". That's exactly what happened to me.
+
+So don't put promises like "Share to LINE" in the UI that the page can't keep. And the sheet always has "Copy", so even when the app someone wants isn't there, they can still copy the link.
+
+<!-- TODO (after testing): listen with VoiceOver (macOS Chrome, Safari, iOS Safari), Android Chrome + TalkBack; whether LINE's in-app browser differs between iOS and Android. -->
 
 ### Not tested yet
 
 - Actually listening with VoiceOver: what's announced the moment the unnamed sheet opens.
-- macOS Safari and iOS Safari with VoiceOver, Android Chrome with TalkBack.
-- Which button the LINE in-app browser shows on Android and on iOS.
+- Android Chrome with TalkBack.
+- Whether LINE's in-app browser differs between iOS and Android. From the compatibility data, Android WebView lacks this API, so it should show "Copy link to this page".
 
 ## Conclusion
 
@@ -239,6 +266,7 @@ There are two small issues, though: the sheet itself and its outer group **have 
 - Support has many gaps: Firefox desktop, Chrome on Linux and Android WebView (including in-app browsers) don't have it, so you need a fallback.
 - `canShare()` doesn't guarantee success, one click allows one share attempt, and `AbortError` isn't an error.
 - Give the button visible text, report results, don't claim "shared successfully", and offer a next step when it fails.
+- Which apps are in the sheet is up to the user: on a Mac, LINE has to be enabled in settings, so a page can't promise "Share to LINE".
 
 Scroll to the bottom of this page and try "Share this page", or open it in an unsupported browser and see what it turns into. Is your site still using a row of social icons? Let's talk about it!
 

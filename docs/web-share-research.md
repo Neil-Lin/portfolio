@@ -92,13 +92,20 @@ Chrome 158 headless 把 `navigator.share` 換成記錄參數的假函式（headl
 - 選了一個項目：`share()` 在選下去時 resolve（打開後約 10 秒），不是打開就 resolve。實測時誤觸了一個項目，Safari 被叫到最前面，推測是「加入閱讀列表」。
 - `restoreFocus()` 在這個組合沒有作用（`activeElement` 一直是按鈕），保留當其他平台的保險。
 
+## 實測：正式站（2026-11-25，維護者）
+
+- `curl -sI -H "Sec-Fetch-Dest: document" -H "Sec-Fetch-Mode: navigate" https://neillin.com/ | grep -i permissions-policy`：沒有輸出 → Cloudflare 沒有擋 `web-share`。
+- Safari、LINE App 內瀏覽器：都能叫出分享選單並成功分享（平台未記錄）。
+- macOS 分享選單沒有 LINE：`pluginkit -m -A -v -p com.apple.share-services` 顯示 `jp.naver.line.mac.ShareExt`（26.6.0）已註冊但前面沒有 `+`，也就是沒有啟用（書籍、捷徑同樣沒有 `+`，選單裡也沒有）。macOS 預設不啟用第三方分享延伸功能，要在選單的「編輯延伸功能⋯」或「系統設定 → 一般 → 登入項目與延伸功能 → 分享」勾選。維護者勾選後，LINE 出現在選單中，可以正常分享；感想是「可以用，只是不太習慣」。
+- → 文章：選單內容由使用者決定，介面不要承諾「分享到 LINE」。
+
 ## 待實測（維護者）
 
 - [ ] macOS Chrome、Safari 開 VoiceOver 實際聽：沒有名稱的選單打開時念什麼。
 - [ ] iOS Safari + VoiceOver、Android Chrome + TalkBack。
-- [ ] LINE App 內瀏覽器：預期 Android 顯示「複製連結」、iOS 顯示「分享」。
+- [ ] LINE App 內瀏覽器：已確認能分享（平台未記錄）；還要確認 iOS 與 Android 是否不同，預期 Android 顯示「複製連結」。
 - [ ] DevCheck 掃頁尾附近。
-- [ ] 上線後用帶 `Sec-Fetch-Dest: document`、`Sec-Fetch-Mode: navigate` 的 curl 確認回應沒有 `Permissions-Policy: web-share=()`。
+- [x] 上線後用帶 `Sec-Fetch-Dest: document`、`Sec-Fetch-Mode: navigate` 的 curl 確認回應沒有 `Permissions-Policy: web-share=()`。
 
 實測後要同步更新文章的「報讀軟體實測」一節（目前標示尚未實測），再把 `draft` 改成 `false`。
 
