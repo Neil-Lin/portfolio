@@ -1,7 +1,7 @@
 ---
 title: 幫網頁上的國字加注音：ruby 和注音字型怎麼選，按一下就出現注音要注意什麼
 description: "網頁上標注音有兩種做法：HTML ruby 把注音寫成文字，注音字型（bpmfvs）把注音畫在字型裡。這篇實測書寫方向、報讀軟體、頁內搜尋與破音字的差異，整理「按一下才出現注音」的做法，以及什麼情況該用哪一種。"
-date: 2026-11-25
+date: 2026-11-26
 tags:
   - HTML
   - CSS
@@ -11,7 +11,7 @@ tags:
   - 字型
 translationKey: zhuyin-ruby-font
 category: accessibility
-draft: true
+draft: false
 ---
 
 > 話說在前頭：這篇由 AI 協助收集資料、整理與實測，我再閱讀確認。文中的行為是在 macOS 的 Chrome 158（headless）實測的，VoiceOver 搭配 Chrome 由我自己實際聽；規格、官方說法與支援度以文末連結的 W3C 文件、MDN、WebKit Bugzilla 與 bpmfvs 專案說明為依據。Firefox 與 Safari 我沒有實測。有講錯的地方歡迎指正。

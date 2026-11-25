@@ -149,7 +149,7 @@ Browsers without `symbols()` ignore the whole declaration and the list falls bac
 ## Further reading
 
 - [Building a Custom Player with :playing and :paused: the Icon Follows the State, but Screen Readers Don't Know](/en/blog/css-media-state-pseudos/)
-- [Modern CSS & HTML Cheat Sheet: 117 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 118 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 
 ## Related links
 

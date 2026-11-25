@@ -131,7 +131,7 @@ u {
 
 ## 延伸閱讀
 
-- [現代 CSS 與 HTML 技巧整理清單：117 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
+- [現代 CSS 與 HTML 技巧整理清單：118 個特性、支援度與實驗優先序](/blog/css-techniques-checklist/)
 - [iframe 高度自動跟著內容：frame-sizing 只在載入時量，使用者調整文字後要靠你](/blog/css-frame-sizing/)
 
 ## 相關連結

@@ -1,8 +1,8 @@
 ---
-title: 現代 CSS 與 HTML 技巧整理清單：117 個特性、支援度與實驗優先序
+title: 現代 CSS 與 HTML 技巧整理清單：118 個特性、支援度與實驗優先序
 description: "一份可快速掃描的現代 CSS 與 HTML 特性清單，依版面、選擇器、色彩、文字、動畫等分類，另收錄 `<geolocation>`、`focusgroup`、Invoker Commands 等宣告式 HTML 新特性，逐條整理用途、範例與瀏覽器支援度。"
 date: 2026-07-06
-updatedAt: 2026-11-25
+updatedAt: 2026-11-26
 tags:
   - CSS
   - HTML
@@ -93,6 +93,7 @@ draft: false
 | `text-combine-upright` | 直排文中把數字／英文橫置（「縱中橫」），中日文長文常用 | `text-combine-upright: all;` | 🟡 | ✅ |
 | `text-emphasis` | 文字強調點／圈（跟著字中心），中日文標註常用 | `text-emphasis: dot;` | 🟢 | ✅ |
 | `ruby-align` | 注音／拼音等 ruby 註記的對齊方式 | `ruby-align: center;` | 🟡 | ✅ |
+| `ruby-position: inter-character` | 讓注音直排在每個字的右側（課本格式），規格上是專為注音設計的值。Chrome、Edge、Firefox 不支援，Safari 18.2 起部分支援但調號位置不對；要做「按一下出現注音」，目前注音字型（bpmfvs）比較實際（ruby 與注音字型的實測比較見[這篇](/blog/zhuyin-ruby-font/)） | `ruby-position: inter-character;` | 🟠 | ✅ |
 | `paint-order` | 控制文字填色與外框繪製順序（做描邊字） | `paint-order: stroke fill;` | 🟢 | ✅ |
 | `box-decoration-break: clone` | 斷行／換頁時每段各自套用邊框圓角背景，連結 focus 特別有感 | `box-decoration-break: clone;` | 🟡 | ✅ |
 | `text-box-trim` | 裁掉字體上下的多餘留白，做精準垂直對齊（Chrome 133、Safari 18.2、Firefox 154 起，三大瀏覽器都支援） | `text-box: trim-both cap alphabetic;` | 🟡 | ✅ |

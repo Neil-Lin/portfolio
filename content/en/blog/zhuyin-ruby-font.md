@@ -1,7 +1,7 @@
 ---
 title: "Adding Zhuyin to Chinese Text on the Web: Ruby vs. Zhuyin Fonts, and Getting a Show-Zhuyin Toggle Right"
 description: "There are two ways to annotate Chinese characters with Zhuyin (Bopomofo) on the web: HTML ruby writes the Zhuyin as text, while a Zhuyin font (bpmfvs) draws it inside the glyphs. This post tests how they differ in writing direction, screen reader output, in-page search and polyphonic characters, and covers how to build a press-to-show toggle and when to use which."
-date: 2026-11-25
+date: 2026-11-26
 tags:
   - HTML
   - CSS
@@ -11,7 +11,7 @@ tags:
   - Fonts
 translationKey: zhuyin-ruby-font
 category: accessibility
-draft: true
+draft: false
 ---
 
 > Up front: this post was researched, organized and tested with AI assistance, then reviewed by me. The behavior described was tested in Chrome 158 on macOS (headless), and I listened with VoiceOver in Chrome myself; specs, official statements and support data come from the W3C documents, MDN, WebKit Bugzilla and bpmfvs project pages linked at the end. I didn't test Firefox or Safari. If I've gotten something wrong, corrections welcome.

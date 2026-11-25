@@ -1,8 +1,8 @@
 ---
-title: "Modern CSS & HTML Cheat Sheet: 117 Features, Support & What to Try Next"
+title: "Modern CSS & HTML Cheat Sheet: 118 Features, Support & What to Try Next"
 description: "A scannable checklist of modern CSS and HTML features—grouped by layout, selectors, color, typography, animation and more, plus declarative HTML additions like `<geolocation>`, `focusgroup` and Invoker Commands—each with its purpose, an example, and browser support."
 date: 2026-07-06
-updatedAt: 2026-11-25
+updatedAt: 2026-11-26
 tags:
   - CSS
   - HTML
@@ -93,6 +93,7 @@ The last section (K) is HTML rather than CSS. It lives in the same checklist bec
 | `text-combine-upright` | Lay numbers/Latin horizontally within vertical text ("tate-chu-yoko"); common in CJK long-form | `text-combine-upright: all;` | 🟡 | ✅ |
 | `text-emphasis` | Emphasis dots/circles that track the character center; common CJK annotation | `text-emphasis: dot;` | 🟢 | ✅ |
 | `ruby-align` | Alignment of ruby annotations (bopomofo / pinyin, etc.) | `ruby-align: center;` | 🟡 | ✅ |
+| `ruby-position: inter-character` | Places Zhuyin (Bopomofo) vertically to the right of each character, textbook style; the spec designed this value specifically for Zhuyin. Chrome, Edge and Firefox don't support it, and Safari 18.2+ supports it only partially, with tone marks misplaced. For a press-to-show Zhuyin toggle, a Zhuyin font (bpmfvs) is more practical today (my tests comparing ruby with Zhuyin fonts: [this post](/en/blog/zhuyin-ruby-font/)) | `ruby-position: inter-character;` | 🟠 | ✅ |
 | `paint-order` | Control the paint order of text fill vs. stroke (for outlined text) | `paint-order: stroke fill;` | 🟢 | ✅ |
 | `box-decoration-break: clone` | On line/page breaks, apply border/radius/background to each fragment; especially nice for link focus | `box-decoration-break: clone;` | 🟡 | ✅ |
 | `text-box-trim` | Trim the extra space above/below a font for precise vertical alignment (Chrome 133, Safari 18.2, Firefox 154; all three major browsers) | `text-box: trim-both cap alphabetic;` | 🟡 | ✅ |

@@ -131,7 +131,7 @@ In my tests in Chromium 157 and 159 (40px text), two adjacent `<u>` elements sho
 
 ## Further reading
 
-- [Modern CSS & HTML Cheat Sheet: 117 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
+- [Modern CSS & HTML Cheat Sheet: 118 Features, Support & What to Try Next](/en/blog/css-techniques-checklist/)
 - [An iframe That Grows with Its Content: frame-sizing Only Measures at Load, So After Users Adjust Text It's Up to You](/en/blog/css-frame-sizing/)
 
 ## Related links
