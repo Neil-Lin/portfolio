@@ -79,6 +79,13 @@ export default {
     morning: "早安，",
     evening: "晚安，",
   },
+  share: {
+    share: "分享這一頁",
+    copy: "複製這一頁的連結",
+    copied: "已複製連結",
+    shareFailed: "無法開啟分享選單，請改用複製連結",
+    copyFailed: "無法自動複製，請手動複製網址：",
+  },
   intro: {
     greet: "我是 Neil 👋",
     des1: "UI/UX 前端設計師，{years} 年網頁與 App 設計與切版開發經驗，近年致力於無障礙網頁設計。",

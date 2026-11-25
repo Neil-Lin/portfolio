@@ -49,6 +49,10 @@
   dl {
     page-break-before: avoid;
   }
+  /* 分享按鈕在紙上沒有作用 */
+  .page-share {
+    display: none;
+  }
 }
 
 /*************************

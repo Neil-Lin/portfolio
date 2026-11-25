@@ -50,6 +50,7 @@
         </noscript> -->
         <TheHeader />
         <slot />
+        <ThePageShare />
         <TheFooter />
       </div>
       <button

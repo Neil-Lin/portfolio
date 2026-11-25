@@ -48,6 +48,43 @@
   z-index: 9999;
 } */
 
+/*************************
+  全站分享按鈕（ThePageShare.vue）
+*************************/
+
+.page-share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 4rem 2rem;
+  text-align: center;
+  @media screen and (width <= 768px) {
+    padding: 0 2rem 2rem;
+  }
+
+  /* 沒有 JavaScript、還沒掛載時先佔住按鈕的高度，掛載後版面不會跳動 */
+  .page-share__placeholder {
+    display: block;
+    min-block-size: 3rem;
+  }
+
+  .page-share__btn {
+    min-block-size: 3rem;
+  }
+
+  .page-share__status {
+    margin: 0;
+  }
+
+  /* 網址很長，窄螢幕要能斷行，不能撐出橫向捲軸 */
+  .page-share__url {
+    display: block;
+    overflow-wrap: anywhere;
+    user-select: all;
+  }
+}
+
 .btn-back-to-top {
   position: fixed;
   bottom: 2dvh;

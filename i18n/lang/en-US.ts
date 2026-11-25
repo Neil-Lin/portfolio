@@ -79,6 +79,13 @@ export default {
     morning: "Good Morning, ",
     evening: "Good Evening, ",
   },
+  share: {
+    share: "Share this page",
+    copy: "Copy link to this page",
+    copied: "Link copied",
+    shareFailed: "Couldn't open the share menu. Use copy link instead.",
+    copyFailed: "Couldn't copy automatically. Copy the URL yourself: ",
+  },
   intro: {
     greet: "I'm Neil. 👋",
     des1: "UI/UX Frontend Designer with {years} years of experience in web and app design and development. In recent years, I have been dedicated to accessible web design.",

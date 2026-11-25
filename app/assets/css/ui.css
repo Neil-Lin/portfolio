@@ -420,7 +420,8 @@ button[class^="btn"],
 .layout {
   min-height: 100dvh;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  /* 頁首、主要內容、分享按鈕、頁尾 */
+  grid-template-rows: auto 1fr auto auto;
   grid-template-columns: 100%;
 }
 

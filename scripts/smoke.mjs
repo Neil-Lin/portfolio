@@ -70,6 +70,7 @@ for (const page of pages) {
     fail(`${page}：<h1> 數量不是 1`);
   if (!html.includes('id="ak-jump"')) fail(`${page}：缺少「跳到主要內容」連結`);
   if (!html.includes("application/ld+json")) fail(`${page}：缺少結構化資料`);
+  if (!html.includes('class="page-share"')) fail(`${page}：缺少分享按鈕的區塊`);
 }
 
 // 3. 各功能頁的關鍵元素
