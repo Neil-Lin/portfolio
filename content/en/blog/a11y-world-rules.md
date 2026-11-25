@@ -253,7 +253,7 @@ These countries are highly uniform in structure: the public sector derives from 
 
 [DL 83/2018](https://www.acessibilidade.gov.pt/mudanca/dl-n-o-83-2018/ "Open new window"){target="_blank"}
 
-[DL 82/2022（EAA 轉化）AMA / acessibilidade.gov.pt](https://www.acessibilidade.gov.pt/ "Open new window"){target="_blank"}
+[DL 82/2022 (EAA transposition), AMA / acessibilidade.gov.pt](https://www.acessibilidade.gov.pt/ "Open new window"){target="_blank"}
 
 ### Austria
 

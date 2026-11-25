@@ -272,14 +272,14 @@ So don't put promises like "Share to LINE" in the UI that the page can't keep. A
 
 Finally, I turned on VoiceOver, pressed "Share this page" in Chrome on the live site, picked LINE in the share sheet, and the share went through normally.
 
-After pressing the button, VoiceOver says "expanded, pop-up menu" (in my Traditional Chinese setup, 「展開，彈出式選單」), not "Share". That matches what the accessibility API showed: the sheet itself has no name, so VoiceOver can only announce what kind of element it is. Since the user just pressed "Share this page", the context is clear enough, and in practice nothing got in the way.
+After pressing the button, VoiceOver says "expanded, pop-up menu" (in my Traditional Chinese setup, [「展開，彈出式選單」]{lang="zh-Hant-TW"}), not "Share". That matches what the accessibility API showed: the sheet itself has no name, so VoiceOver can only announce what kind of element it is. Since the user just pressed "Share this page", the context is clear enough, and in practice nothing got in the way.
 
-In Safari on macOS, pressing the button makes VoiceOver say "in pop-up item, n items" (「進入彈出式項目，n 個項目」), so it tells you how many items the sheet has, but again doesn't say "Share". The same system share sheet is announced differently by Chrome and Safari; that's also up to the browser, not the page.
+In Safari on macOS, pressing the button makes VoiceOver say "in pop-up item, n items" ([「進入彈出式項目，n 個項目」]{lang="zh-Hant-TW"}), so it tells you how many items the sheet has, but again doesn't say "Share". The same system share sheet is announced differently by Chrome and Safari; that's also up to the browser, not the page.
 
 | Browser | What VoiceOver says after pressing "Share this page" |
 |---|---|
-| Chrome | Expanded, pop-up menu (「展開，彈出式選單」) |
-| Safari | In pop-up item, n items (「進入彈出式項目，n 個項目」) |
+| Chrome | Expanded, pop-up menu ([「展開，彈出式選單」]{lang="zh-Hant-TW"}) |
+| Safari | In pop-up item, n items ([「進入彈出式項目，n 個項目」]{lang="zh-Hant-TW"}) |
 
 This matches what reading the accessibility API showed earlier: every item in the sheet is a named button, so screen reader users can find the app they want and finish sharing. I didn't write any code for this part; the operating system handles it.
 

@@ -87,11 +87,11 @@ This is the one Taiwanese sites are most likely to hit. The button's text follow
 
 | `lang` | Button text |
 |---|---|
-| `zh-TW` | 使用麥克風和攝影機 ✅ (Traditional) |
-| `zh-HK` | 使用麥克風和相機 ✅ (Traditional) |
-| `zh-Hant-TW` | 使用麦克风和摄像头 ❌ (Simplified) |
-| `zh-Hant` | 使用麦克风和摄像头 ❌ |
-| `zh-Hant-HK`, `zh-MO`, `zh` | 使用麦克风和摄像头 ❌ |
+| `zh-TW` | [使用麥克風和攝影機]{lang="zh-Hant-TW"} ✅ (Traditional) |
+| `zh-HK` | [使用麥克風和相機]{lang="zh-Hant-TW"} ✅ (Traditional) |
+| `zh-Hant-TW` | [使用麦克风和摄像头]{lang="zh-Hans"} ❌ (Simplified) |
+| `zh-Hant` | [使用麦克风和摄像头]{lang="zh-Hans"} ❌ |
+| `zh-Hant-HK`, `zh-MO`, `zh` | [使用麦克风和摄像头]{lang="zh-Hans"} ❌ |
 
 `zh-Hant-TW` is the form W3C recommends, and it's what this site uses, yet the button comes out in Simplified Chinese, and that's what screen readers announce too. Chromium currently only recognizes the exact strings `zh-TW` and `zh-HK`.
 
@@ -312,7 +312,7 @@ cameraToggle.addEventListener("click", () => {
 
 You can't change much about how `<usermedia>` looks, so designs have to work around it:
 
-- **The button text can't be customized, and its length varies:** "Use microphone and camera" in English, "使用麥克風和攝影機" in Chinese. At the same font size, the English version is about 30% wider. Leave room for the button's width to vary.
+- **The button text can't be customized, and its length varies:** "Use microphone and camera" in English, "[使用麥克風和攝影機]{lang="zh-Hant-TW"}" in Chinese. At the same font size, the English version is about 30% wider. Leave room for the button's width to vary.
 - **The icon comes from the browser**, and you can't swap in your own.
 - **Text-to-background contrast must be at least 3:1** (the browser only checks those two colors; background images don't count), or the button is disabled.
 - **The font size must be about 13px or more**, and no more than about 3× the user's default font size.

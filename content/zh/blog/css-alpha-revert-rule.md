@@ -200,7 +200,7 @@ CSS 已經有 `revert` 和 `revert-layer`，`revert-rule` 是同一家族的第�
 
 ## 相關連結
 
-- [CSS Color Module Level 5（alpha() 與相對色彩語法）](https://drafts.csswg.org/css-color-5/ "另開新視窗"){target="_blank"}
+- [CSS Color Module Level 5](https://drafts.csswg.org/css-color-5/ "另開新視窗"){target="_blank" lang="en"}（alpha() 與相對色彩語法）
 - [MDN — 相對色彩語法](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Relative_colors "另開新視窗"){target="_blank"}
 - [CSS Cascading and Inheritance（revert 系列關鍵字）](https://drafts.csswg.org/css-cascade/ "另開新視窗"){target="_blank"}
 - [WCAG 2.2 — 1.4.3 對比（最低）](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum "另開新視窗"){target="_blank"}

@@ -234,20 +234,20 @@ draft: false
 ## 相關連結
 
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}
-- [MDN Web Docs — CSS](https://developer.mozilla.org/zh-TW/docs/Web/CSS "另開新視窗"){target="_blank"}
-- [web.dev — Learn CSS](https://web.dev/learn/css "另開新視窗"){target="_blank"}
-- [Chrome for Developers — CSS](https://developer.chrome.com/tag/css "另開新視窗"){target="_blank"}
-- [New in Chrome 150（`text-fit`、`background-clip: border-area`、`focusgroup`）](https://developer.chrome.com/blog/new-in-chrome-150 "另開新視窗"){target="_blank"}
-- [CSS Gap Decorations Now Available（`row-rule`／`column-rule`／`rule`，CSS-Tricks）](https://css-tricks.com/css-gap-decorations-now-available/ "另開新視窗"){target="_blank"}
-- [New Things You Should Know About HTML Here in Mid 2026（本次 K 區新增項目的來源）](https://blog.master.dev/new-things-you-should-know-about-html-here-in-mid-2026 "另開新視窗"){target="_blank"}
+- [MDN Web Docs — CSS](https://developer.mozilla.org/zh-TW/docs/Web/CSS "另開新視窗"){target="_blank" lang="en"}
+- [web.dev — Learn CSS](https://web.dev/learn/css "另開新視窗"){target="_blank" lang="en"}
+- [Chrome for Developers — CSS](https://developer.chrome.com/tag/css "另開新視窗"){target="_blank" lang="en"}
+- [New in Chrome 150](https://developer.chrome.com/blog/new-in-chrome-150 "另開新視窗"){target="_blank" lang="en"}（`text-fit`、`background-clip: border-area`、`focusgroup`）
+- [CSS Gap Decorations Now Available](https://css-tricks.com/css-gap-decorations-now-available/ "另開新視窗"){target="_blank" lang="en"}（`row-rule`／`column-rule`／`rule`，CSS-Tricks）
+- [New Things You Should Know About HTML Here in Mid 2026](https://blog.master.dev/new-things-you-should-know-about-html-here-in-mid-2026 "另開新視窗"){target="_blank" lang="en"}（本次 K 區新增項目的來源）
 - [Chrome for Developers — `<geolocation>` 元素](https://developer.chrome.com/blog/geolocation-html-element "另開新視窗"){target="_blank"}
 - [Chrome for Developers — `<usermedia>` 元素](https://developer.chrome.com/blog/usermedia-html-element "另開新視窗"){target="_blank"}
 - [Chrome for Developers — `<install>` 元素（origin trial）](https://developer.chrome.com/blog/install-element-ot "另開新視窗"){target="_blank"}
 - [Apple WWDC26 — HTML Model 元素](https://developer.apple.com/videos/play/wwdc2026/215/ "另開新視窗"){target="_blank"}
-- [web.dev — New to the web platform in September 2026（本次 10 月更新的依據）](https://web.dev/blog/web-platform-09-2026 "另開新視窗"){target="_blank"}
-- [Safari 27 Release Notes（Apple，本次燈號更新依據之一）](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes "另開新視窗"){target="_blank"}
-- [Web platform features explorer（Baseline 狀態查詢）](https://web-platform-dx.github.io/web-features-explorer/ "另開新視窗"){target="_blank"}
+- [web.dev — New to the web platform in September 2026](https://web.dev/blog/web-platform-09-2026 "另開新視窗"){target="_blank" lang="en"}（本次 10 月更新的依據）
+- [Safari 27 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes "另開新視窗"){target="_blank" lang="en"}（Apple，本次燈號更新依據之一）
+- [Web platform features explorer](https://web-platform-dx.github.io/web-features-explorer/ "另開新視窗"){target="_blank" lang="en"}（Baseline 狀態查詢）
 - [CSS-Tricks](https://css-tricks.com "另開新視窗"){target="_blank"}
-- [WebKit Features for Safari 27.2（`::field-content`、`fit-tolerance`、`safe` 對齊）](https://webkit.org/blog/18515/webkit-features-for-safari-27-2/ "另開新視窗"){target="_blank"}
+- [WebKit Features for Safari 27.2](https://webkit.org/blog/18515/webkit-features-for-safari-27-2/ "另開新視窗"){target="_blank" lang="en"}（`::field-content`、`fit-tolerance`、`safe` 對齊）
 - [Chrome 157 的 HTML-in-Canvas（Chrome for Developers）](https://developer.chrome.com/blog/html-in-canvas?hl=zh-tw "另開新視窗"){target="_blank"}
 - [Useful @custom-media Presets（blog.master.dev）](https://blog.master.dev/useful-custom-media-presets/ "另開新視窗"){target="_blank"}

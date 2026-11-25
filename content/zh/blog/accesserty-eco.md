@@ -63,7 +63,7 @@ draft: false
 ::figure
   ![67％的無障礙問題來自於設計階段](/images/blog/41.webp)
   ::figcaption
-    [參考來源：Is Closing the Web Accessibility Design/Development Gap a Bridge Too Far?](https://www.deque.com/blog/is-closing-the-web-accessibility-design-development-gap-a-bridge-too-far/ "另開新視窗"){target="_blank"}
+    參考來源：[Is Closing the Web Accessibility Design/Development Gap a Bridge Too Far?](https://www.deque.com/blog/is-closing-the-web-accessibility-design-development-gap-a-bridge-too-far/ "另開新視窗"){target="_blank" lang="en"}
   ::
 ::
 
@@ -117,7 +117,7 @@ draft: false
 
 今年的 GAAD（Global Accessibility Awareness Day）這天(每年五月的第三個星期四)，在 Product Hunt 上發佈了：
 
-[Accesserty on Product Hunt](https://www.producthunt.com/posts/accesserty "另開新視窗"){target="_blank"}
+[Accesserty on Product Hunt](https://www.producthunt.com/posts/accesserty "另開新視窗"){target="_blank" lang="en"}
 
 希望讓更多人知道，改善無障礙，不一定需要複雜的團隊與大量預算。
 只要設計得當、工具使用得當，從搜尋、開發到回報，其實都可以是透明且正向的。

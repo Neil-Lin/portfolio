@@ -22,6 +22,6 @@ draft: false
 
 [a11yjobs](https://www.a11yjobs.com/ "另開新視窗"){target="_blank"} 這篇文章 中有一段話能跟我的想法不謀而合：
 
->"Much of the hiring activity is concentrated in a narrow band of roles, driven by compliance pressures rather than genuine organizational buy-in. Companies are hiring because they have to — not always because they want to build lasting accessibility practices."
+>"[Much of the hiring activity is concentrated in a narrow band of roles, driven by compliance pressures rather than genuine organizational buy-in. Companies are hiring because they have to — not always because they want to build lasting accessibility practices.]{lang="en"}"
 
 一樣都是做無障礙，但出發點不同會有什麼樣不同的結果，這將會成為我下一個階段研究的方向。

@@ -13,10 +13,12 @@
         <span v-for="loc in supportedLocales" :key="loc.code">
           <nuxt-link
             :to="resolve(loc.code)"
+            :hreflang="loc.language"
             :title="$t('action.switch') + loc.name"
           >
             <span class="visually-hidden">{{ $t("action.switch") }}</span>
-            {{ loc.name }}
+            <!-- 語言名稱用它自己的語言念（WCAG 3.1.2） -->
+            <span :lang="loc.language">{{ loc.name }}</span>
           </nuxt-link>
         </span>
       </template>

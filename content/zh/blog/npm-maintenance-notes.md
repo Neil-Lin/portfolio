@@ -91,7 +91,7 @@ npm outdated
 會列出目前版本（Current）、版本範圍內的最新版（Wanted）與 registry 上標記為 latest 的版本（Latest）。
 
 - **只升到版本範圍內的最新版**：`npm update`。
-- **升到最新的主版號**：用 [npm-check-updates](https://github.com/raineorshine/npm-check-updates) 的互動模式，逐一選擇：
+- **升到最新的主版號**：用 [npm-check-updates](https://github.com/raineorshine/npm-check-updates){lang="en"} 的互動模式，逐一選擇：
 
   ```bash
   npx npm-check-updates -i
@@ -284,15 +284,15 @@ npm config list -l   # 連預設值一起列出
 
 - [npm Docs — config（設定與優先順序）](https://docs.npmjs.com/cli/using-npm/config "另開新視窗"){target="_blank"}
 - [npm Docs — npm ci](https://docs.npmjs.com/cli/commands/npm-ci "另開新視窗"){target="_blank"}
-- [npm Docs — scripts](https://docs.npmjs.com/cli/using-npm/scripts "另開新視窗"){target="_blank"}
-- [npm Docs — npm cache](https://docs.npmjs.com/cli/commands/npm-cache "另開新視窗"){target="_blank"}
-- [npm Docs — npm audit](https://docs.npmjs.com/cli/commands/npm-audit "另開新視窗"){target="_blank"}
+- [npm Docs — scripts](https://docs.npmjs.com/cli/using-npm/scripts "另開新視窗"){target="_blank" lang="en"}
+- [npm Docs — npm cache](https://docs.npmjs.com/cli/commands/npm-cache "另開新視窗"){target="_blank" lang="en"}
+- [npm Docs — npm audit](https://docs.npmjs.com/cli/commands/npm-audit "另開新視窗"){target="_blank" lang="en"}
 - [npm Docs — package.json（devEngines、overrides）](https://docs.npmjs.com/cli/configuring-npm/package-json "另開新視窗"){target="_blank"}
 - [semver 規格](https://semver.org/lang/zh-TW/ "另開新視窗"){target="_blank"}
-- [npm Docs — npm install-scripts](https://docs.npmjs.com/cli/commands/npm-install-scripts "另開新視窗"){target="_blank"}
-- [npm Docs — npm outdated](https://docs.npmjs.com/cli/commands/npm-outdated "另開新視窗"){target="_blank"}
+- [npm Docs — npm install-scripts](https://docs.npmjs.com/cli/commands/npm-install-scripts "另開新視窗"){target="_blank" lang="en"}
+- [npm Docs — npm outdated](https://docs.npmjs.com/cli/commands/npm-outdated "另開新視窗"){target="_blank" lang="en"}
 - [npm Docs — npm exec（npx）](https://docs.npmjs.com/cli/commands/npm-exec "另開新視窗"){target="_blank"}
 - [Node.js 各版本內建的 npm 版本（官方 index.json）](https://nodejs.org/dist/index.json "另開新視窗"){target="_blank"}
 - [node-gyp — 安裝需求（macOS 需要 Xcode Command Line Tools）](https://github.com/nodejs/node-gyp#installation "另開新視窗"){target="_blank"}
 - [nvm](https://github.com/nvm-sh/nvm "另開新視窗"){target="_blank"}
-- [npm-check-updates](https://github.com/raineorshine/npm-check-updates "另開新視窗"){target="_blank"}
+- [npm-check-updates](https://github.com/raineorshine/npm-check-updates "另開新視窗"){target="_blank" lang="en"}

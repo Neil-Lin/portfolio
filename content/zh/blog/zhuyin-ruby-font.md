@@ -73,7 +73,7 @@ draft: false
 | 行 + U+E01E2 | ㄒㄧㄥˋ |
 | 行 + U+E01E3 | ㄏㄤˋ |
 
-選擇符本身是文字，所以複製貼上時讀音不會掉。用一般字型顯示時，選擇符看不見、只顯示國字，這是 Unicode 對變體序列的規定：不支援時「the base character is displayed as usual, and the variation selector is invisible」。我在 Chrome 158 用一般字型顯示同一段文字，畫面確實只有國字。
+選擇符本身是文字，所以複製貼上時讀音不會掉。用一般字型顯示時，選擇符看不見、只顯示國字，這是 Unicode 對變體序列的規定：不支援時「[the base character is displayed as usual, and the variation selector is invisible]{lang="en"}」。我在 Chrome 158 用一般字型顯示同一段文字，畫面確實只有國字。
 
 破音字要靠工具：bpmfvs 提供「讀音選擇工具」，把文章貼進去，它會自動預選讀音，再讓人手動修正，完成後複製出來使用。
 
@@ -133,7 +133,7 @@ btn.addEventListener("click", async () => {
 
 ## 五、實測：報讀軟體拿到什麼
 
-W3C 的 ruby 朗讀需求文件寫，很多實作（特別是報讀軟體）只支援國字和注音都念：「Many implementations (screen readers, in particular) support only this strategy.」所以我看了 Chrome 158 的無障礙樹。
+W3C 的 ruby 朗讀需求文件寫，很多實作（特別是報讀軟體）只支援國字和注音都念：「[Many implementations (screen readers, in particular) support only this strategy.]{lang="en"}」所以我看了 Chrome 158 的無障礙樹。
 
 結果跟我原本以為的不一樣：Chrome 不會把注音夾在國字中間，而是把 `<rt>` 從無障礙樹拿掉，改成整個 `<ruby>` 的**描述（description）**。
 
@@ -236,11 +236,11 @@ ruby 在注音顯示時，`<rt>` 的文字夾在字中間，連續的詞就搜�
 - [ButTaiwan — bpmfvs 注音 IVS 字型規格](https://github.com/ButTaiwan/bpmfvs "另開新視窗"){target="_blank"}
 - [Fontsource — Bpmf Huninn](https://fontsource.org/fonts/bpmf-huninn/about "另開新視窗"){target="_blank"}
 - [CodePen — 使用 ruby、rt 標注音符號（u00hyui）](https://codepen.io/u00hyui/pen/ZEXvrEZ "另開新視窗"){target="_blank"}
-- [W3C — Bopomofo on the Web（r12a）](https://r12a.github.io/scripts/bopomofo/ontheweb "另開新視窗"){target="_blank"}
+- [W3C — Bopomofo on the Web](https://r12a.github.io/scripts/bopomofo/ontheweb "另開新視窗"){target="_blank" lang="en"}（r12a）
 - [W3C — ruby 朗讀（text-to-speech）需求文件](https://w3c.github.io/ruby-tts-req/ "另開新視窗"){target="_blank"}
-- [MDN browser-compat-data — ruby-position](https://github.com/mdn/browser-compat-data/blob/main/css/properties/ruby-position.json "另開新視窗"){target="_blank"}
+- [MDN browser-compat-data — ruby-position](https://github.com/mdn/browser-compat-data/blob/main/css/properties/ruby-position.json "另開新視窗"){target="_blank" lang="en"}
 - [WebKit Bugzilla — ruby-position: inter-character 沒有正確支援注音](https://bugs.webkit.org/show_bug.cgi?id=285694 "另開新視窗"){target="_blank"}
 - [Unicode — Variation Sequences FAQ（不支援時顯示原字）](https://unicode.org/faq/vs.html "另開新視窗"){target="_blank"}
-- [MDN — aria-hidden](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden "另開新視窗"){target="_blank"}
+- [MDN — aria-hidden](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden "另開新視窗"){target="_blank" lang="en"}
 - [g2pW — 中文破音字判讀模型](https://github.com/GitYCC/g2pW "另開新視窗"){target="_blank"}
 - [justfont blog — 免費注音字型教學與讀音選擇工具](https://blog.justfont.com/?p=17053 "另開新視窗"){target="_blank"}

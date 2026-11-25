@@ -195,6 +195,6 @@ watch([sortorder, role, platform], async () => {
 
 - [MDN — Element.ariaNotify()](https://developer.mozilla.org/en-US/docs/Web/API/Element/ariaNotify "另開新視窗"){target="_blank"}
 - [MDN — Document.ariaNotify()](https://developer.mozilla.org/en-US/docs/Web/API/Document/ariaNotify "另開新視窗"){target="_blank"}
-- [Microsoft Edge Blog — Creating a more accessible web with Aria Notify](https://blogs.windows.com/msedgedev/2025/05/05/creating-a-more-accessible-web-with-aria-notify/ "另開新視窗"){target="_blank"}
+- [Microsoft Edge Blog — Creating a more accessible web with Aria Notify](https://blogs.windows.com/msedgedev/2025/05/05/creating-a-more-accessible-web-with-aria-notify/ "另開新視窗"){target="_blank" lang="en"}
 - [NVDA issue #20872 — priority "high" 沒有排到前面的回報](https://github.com/nvaccess/nvda/issues/20872 "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

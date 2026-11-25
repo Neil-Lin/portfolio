@@ -210,8 +210,8 @@ carousel.addEventListener("scrollsnapchange", (event) => {
 ## 相關連結
 
 - [Accesserty UI Kit（GitHub）](https://github.com/Accesserty/UI-Kit "另開新視窗"){target="_blank"}
-- [MDN — ::scroll-marker](https://developer.mozilla.org/en-US/docs/Web/CSS/::scroll-marker "另開新視窗"){target="_blank"}
-- [MDN — ::scroll-button()](https://developer.mozilla.org/en-US/docs/Web/CSS/::scroll-button "另開新視窗"){target="_blank"}
-- [Chrome for Developers — Carousels with CSS](https://developer.chrome.com/blog/carousels-with-css "另開新視窗"){target="_blank"}
+- [MDN — ::scroll-marker](https://developer.mozilla.org/en-US/docs/Web/CSS/::scroll-marker "另開新視窗"){target="_blank" lang="en"}
+- [MDN — ::scroll-button()](https://developer.mozilla.org/en-US/docs/Web/CSS/::scroll-button "另開新視窗"){target="_blank" lang="en"}
+- [Chrome for Developers — Carousels with CSS](https://developer.chrome.com/blog/carousels-with-css "另開新視窗"){target="_blank" lang="en"}
 - [WAI-ARIA APG — Carousel Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/ "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

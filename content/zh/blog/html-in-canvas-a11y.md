@@ -90,7 +90,7 @@ Chrome 文件說，沒畫出來的元素仍在無障礙樹裡，讓報讀軟體�
 | `inert` | **是** | 否 | 否 |
 | `hidden` | 否 | 否 | 否 |
 
-- **`aria-hidden` 擋不住 Tab**。W3C〈ARIA in HTML〉規格寫明，`aria-hidden` 不能用在可聚焦的元素上。Chrome 在焦點移進去時會忽略 `aria-hidden`，並在主控台警告「Blocked aria-hidden on an element because its descendant retained focus」，所以報讀軟體最後還是會讀到，等於沒隱藏。
+- **`aria-hidden` 擋不住 Tab**。W3C〈ARIA in HTML〉規格寫明，`aria-hidden` 不能用在可聚焦的元素上。Chrome 在焦點移進去時會忽略 `aria-hidden`，並在主控台警告「[Blocked aria-hidden on an element because its descendant retained focus]{lang="en"}」，所以報讀軟體最後還是會讀到，等於沒隱藏。
 - **`inert` 在 canvas 裡沒有從無障礙樹移除**：同樣的 `inert` 放在 canvas 外面就會移除。這跟 Chrome 文件的說法不同，可能是 Chrome 的問題。
 - **`hidden` 最乾淨**，三項都擋住。沒畫的內容用 `hidden`，或直接從 DOM 移除。
 - **但 `hidden` 會被 CSS 蓋掉**：`hidden` 靠的是瀏覽器預設的 `display: none`，元素只要寫了 `display: grid` 之類的樣式，`hidden` 就失效，Tab 還是進得去。我做範例時就踩到了，要補上 `[hidden] { display: none; }`。在 canvas 裡更難發現，因為元素本來就看不到。
@@ -166,11 +166,11 @@ WICG 說明文件列出一些**不會畫進 canvas** 的資訊，避免網頁讀
 - [Chrome for Developers — Chrome 157 的 HTML-in-Canvas](https://developer.chrome.com/blog/html-in-canvas?hl=zh-tw "另開新視窗"){target="_blank"}
 - [Chrome for Developers — HTML-in-Canvas 技術概念](https://developer.chrome.com/docs/web-platform/html-in-canvas/concepts?hl=zh-tw "另開新視窗"){target="_blank"}
 - [Chrome for Developers — 將 HTML 算繪至 2D 畫布](https://developer.chrome.com/docs/web-platform/html-in-canvas/2d?hl=zh-tw "另開新視窗"){target="_blank"}
-- [Modern Web Guidance — Expose canvas content to browser features](https://developer.chrome.com/docs/modern-web-guidance/guides/visual-design/expose-canvas-content-to-browser-features "另開新視窗"){target="_blank"}
+- [Modern Web Guidance — Expose canvas content to browser features](https://developer.chrome.com/docs/modern-web-guidance/guides/visual-design/expose-canvas-content-to-browser-features "另開新視窗"){target="_blank" lang="en"}
 - [WICG — 破壞性變更公告（#174）](https://github.com/WICG/html-in-canvas/issues/174 "另開新視窗"){target="_blank"}
-- [W3C — ARIA in HTML（aria-hidden 不能用在可聚焦元素）](https://www.w3.org/TR/html-aria/ "另開新視窗"){target="_blank"}
+- [W3C — ARIA in HTML](https://www.w3.org/TR/html-aria/ "另開新視窗"){target="_blank" lang="en"}（aria-hidden 不能用在可聚焦元素）
 - [WCAG 2.2 說明文件 — 2.4.7 焦點可見](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html "另開新視窗"){target="_blank"}
 - [MDN browser-compat-data — HTMLCanvasElement](https://github.com/mdn/browser-compat-data/blob/main/api/HTMLCanvasElement.json "另開新視窗"){target="_blank"}
 - [WebKit 標準立場 — html-in-canvas（#630）](https://github.com/WebKit/standards-positions/issues/630 "另開新視窗"){target="_blank"}
 - [Mozilla 標準立場 — HTML-in-Canvas（#1076）](https://github.com/mozilla/standards-positions/issues/1076 "另開新視窗"){target="_blank"}
-- [WHATWG HTML — Add HTML-in-Canvas APIs（#11588）](https://github.com/whatwg/html/pull/11588 "另開新視窗"){target="_blank"}
+- [WHATWG HTML — Add HTML-in-Canvas APIs](https://github.com/whatwg/html/pull/11588 "另開新視窗"){target="_blank" lang="en"}（#11588）

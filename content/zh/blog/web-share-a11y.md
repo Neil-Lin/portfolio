@@ -330,11 +330,11 @@ VoiceOver 念的內容，來自作業系統的無障礙 API（macOS 是 AX API�
 
 ## 相關連結
 
-- [W3C — Web Share API](https://www.w3.org/TR/web-share/ "另開新視窗"){target="_blank"}
-- [MDN — Navigator.share()](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share "另開新視窗"){target="_blank"}
+- [W3C — Web Share API](https://www.w3.org/TR/web-share/ "另開新視窗"){target="_blank" lang="en"}
+- [MDN — Navigator.share()](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share "另開新視窗"){target="_blank" lang="en"}
 - [MDN — Navigator.canShare()](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/canShare "另開新視窗"){target="_blank"}
-- [web.dev — Integrate with the OS sharing UI with the Web Share API](https://web.dev/articles/web-share "另開新視窗"){target="_blank"}
-- [Can I use — Web Share API](https://caniuse.com/web-share "另開新視窗"){target="_blank"}
+- [web.dev — Integrate with the OS sharing UI with the Web Share API](https://web.dev/articles/web-share "另開新視窗"){target="_blank" lang="en"}
+- [Can I use — Web Share API](https://caniuse.com/web-share "另開新視窗"){target="_blank" lang="en"}
 - [WebKit 原始碼 — WKShareSheet.mm](https://github.com/WebKit/WebKit/blob/main/Source/WebKit/UIProcess/Cocoa/WKShareSheet.mm "另開新視窗"){target="_blank"}
 - [Chromium 原始碼 — render_widget_host_ns_view_bridge.mm](https://chromium.googlesource.com/chromium/src/+/main/content/app_shim_remote_cocoa/render_widget_host_ns_view_bridge.mm "另開新視窗"){target="_blank"}
 - [Chromium 原始碼 — chrome_content_renderer_client.cc](https://chromium.googlesource.com/chromium/src/+/main/chrome/renderer/chrome_content_renderer_client.cc "另開新視窗"){target="_blank"}

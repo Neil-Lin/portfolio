@@ -69,7 +69,7 @@ With "double the default font size" ticked, the headline with plain `grow` stays
 
 ### 1. Zooming makes the text smaller
 
-I tested a full-width campaign headline (the Chinese "週年慶全館五折", "Anniversary sale, 50% off"): the container is as wide as the viewport and the font size is `2rem`. The table shows the text's actual height on screen:
+I tested a full-width campaign headline (the Chinese "[週年慶全館五折]{lang="zh-Hant-TW"}", "Anniversary sale, 50% off"): the container is as wide as the viewport and the font size is `2rem`. The table shows the text's actual height on screen:
 
 | Code | 100% zoom | 200% zoom | 400% zoom |
 |---|---|---|---|
@@ -100,7 +100,7 @@ With plain `grow`, the text always ends up scaled to the same width whatever the
 
 This one is a bug I ran into. When a headline wraps on a narrow screen, the default `consistent` should use the factor of the widest line, per the spec, so no line overflows. At certain widths, though, Chromium 153 uses the factor of a shorter line instead:
 
-- "週年慶全館商品五折起限時三天" in a 320px container: **the first line grew to 800px wide**, and the page scrolled horizontally.
+- "[週年慶全館商品五折起限時三天]{lang="zh-Hant-TW"}" in a 320px container: **the first line grew to 800px wide**, and the page scrolled horizontally.
 
 I tested 4 strings at every 10px from 200 to 700px, 204 cases in total:
 

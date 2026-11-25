@@ -221,14 +221,14 @@ th {
 
 ## 相關連結
 
-- [CSS Overflow Module Level 3 — 單軸捲動容器、overflow 的計算值](https://drafts.csswg.org/css-overflow-3/#overflow-control "另開新視窗"){target="_blank"}
-- [CSS Positioned Layout Module Level 3 — sticky 依方向找捲動容器](https://drafts.csswg.org/css-position-3/#stickypos-insets "另開新視窗"){target="_blank"}
-- [CSS Scroll Snap Module Level 1 — scroll-padding](https://drafts.csswg.org/css-scroll-snap-1/#scroll-padding "另開新視窗"){target="_blank"}
-- [CSS Conditional Rules Module Level 5 — named-feature()](https://drafts.csswg.org/css-conditional-5/#support-definition-named-features "另開新視窗"){target="_blank"}
-- [Single-Axis Scroll Containers 說明文件（Google）](https://github.com/explainers-by-googlers/single-axis-scroll-containers "另開新視窗"){target="_blank"}
+- [CSS Overflow Module Level 3](https://drafts.csswg.org/css-overflow-3/#overflow-control "另開新視窗"){target="_blank" lang="en"} — 單軸捲動容器、overflow 的計算值
+- [CSS Positioned Layout Module Level 3 — sticky](https://drafts.csswg.org/css-position-3/#stickypos-insets "另開新視窗"){target="_blank" lang="en"} 依方向找捲動容器
+- [CSS Scroll Snap Module Level 1 — scroll-padding](https://drafts.csswg.org/css-scroll-snap-1/#scroll-padding "另開新視窗"){target="_blank" lang="en"}
+- [CSS Conditional Rules Module Level 5 — named-feature()](https://drafts.csswg.org/css-conditional-5/#support-definition-named-features "另開新視窗"){target="_blank" lang="en"}
+- [Single-Axis Scroll Containers](https://github.com/explainers-by-googlers/single-axis-scroll-containers "另開新視窗"){target="_blank" lang="en"} 說明文件（Google）
 - [Chromium 原始碼 — runtime_enabled_features.json5（SingleAxisScrollContainers）](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/platform/runtime_enabled_features.json5 "另開新視窗"){target="_blank"}
 - [WCAG 2.2 說明文件 — 2.4.11 焦點不被遮蔽（最低）](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html "另開新視窗"){target="_blank"}
 - [WCAG 2.2 說明文件 — 1.4.10 重排](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html "另開新視窗"){target="_blank"}
 - [WCAG 2.2 說明文件 — 2.1.1 鍵盤](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html "另開新視窗"){target="_blank"}
 - [MDN — ARIA group 角色：可捲動的內容區](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/group_role#scrollable_content_areas "另開新視窗"){target="_blank"}
-- [Interop 提案 — Single-axis scroll containers（追蹤各瀏覽器進度）](https://github.com/web-platform-tests/interop/issues/1436 "另開新視窗"){target="_blank"}
+- Interop 提案 — [Single-axis scroll containers](https://github.com/web-platform-tests/interop/issues/1436 "另開新視窗"){target="_blank" lang="en"}（追蹤各瀏覽器進度）

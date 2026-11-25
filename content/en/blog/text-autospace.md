@@ -16,7 +16,7 @@ draft: false
 
 ## Intro
 
-Anyone writing technical posts in Chinese runs into this: "用Chrome測試" or "用 Chrome 測試"? That is, do you put a space between Chinese characters and an English word or a number?
+Anyone writing technical posts in Chinese runs into this: "[用Chrome測試]{lang="zh-Hant-TW"}" or "[用 Chrome 測試]{lang="zh-Hant-TW"}"? That is, do you put a space between Chinese characters and an English word or a number?
 
 People have argued about it for years. With spaces it's easier to read, since English words don't run into the Chinese text. But typing them by hand is easy to forget, and the spaces travel with the text wherever you copy it.
 
@@ -64,13 +64,13 @@ The spec has finer-grained values too, such as `ideograph-alpha` (only between C
 
 | Case | Example | Added? |
 |---|---|---|
-| Chinese next to English | 用Chrome | Yes |
-| Chinese next to a number | 共8個 | Yes |
-| Space already typed | 用 Chrome | Not added again |
+| Chinese next to English | [用Chrome]{lang="zh-Hant-TW"} | Yes |
+| Chinese next to a number | [共8個]{lang="zh-Hant-TW"} | Yes |
+| Space already typed | [用]{lang="zh-Hant-TW"} Chrome | Not added again |
 | Across HTML tags | Around `<strong>`, links and `<code>` | Yes |
-| Next to Chinese punctuation | Chrome，瀏覽 | No |
-| Full-width letters and numbers | 共８個 | No |
-| Some symbols | 用#標籤, 用@帳號 | Yes (but not `$`, `-`, `(`, `/` and others) |
+| Next to Chinese punctuation | [Chrome，瀏覽]{lang="zh-Hant-TW"} | No |
+| Full-width letters and numbers | [共８個]{lang="zh-Hant-TW"} | No |
+| Some symbols | [用#標籤]{lang="zh-Hant-TW"}, [用@帳號]{lang="zh-Hant-TW"} | Yes (but not `$`, `-`, `(`, `/` and others) |
 | At the start of a wrapped line | An English word that wraps to a new line | No (no extra gap at the line start) |
 
 Working across tags is especially handy: posts often have a `<code>` snippet or a link right after Chinese text, and those get the gap too.
@@ -79,7 +79,7 @@ Working across tags is especially handy: posts often have a `<code>` snippet or 
 
 This is the biggest difference from typed spaces: **it only affects rendering, not the text content.**
 
-In my tests, selecting "用Chrome瀏覽" gives the string "用Chrome瀏覽", and `innerText` is the same, with no extra spaces. There's a hint under the demo; try copying it into a text editor yourself.
+In my tests, selecting "[用Chrome瀏覽]{lang="zh-Hant-TW"}" gives the string "[用Chrome瀏覽]{lang="zh-Hant-TW"}", and `innerText` is the same, with no extra spaces. There's a hint under the demo; try copying it into a text editor yourself.
 
 That means:
 

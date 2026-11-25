@@ -145,7 +145,7 @@ window.addEventListener("message", (e) => {
 - **Chrome**：Chromium 原始碼裡，153 是實驗狀態，**154 起正式開啟**。MDN 相容性資料也標示 Chrome 154。
 - **Firefox、Safari**：MDN 相容性資料標示不支援，並標為實驗性。
 - **WebKit**：標準立場議題（#653）目前沒有立場，也還沒有討論。
-- **Mozilla**：標準立場議題（#1394）目前沒有立場。2026 年 10 月有參與者（GitHub 帳號 jakearchibald）提出質疑：「只在 DOMContentLoaded 和 load 時調整大小，看起來是很大的限制」（"It only resizing on domready + load seems like a huge limitation."）。
+- **Mozilla**：標準立場議題（#1394）目前沒有立場。2026 年 10 月有參與者（GitHub 帳號 jakearchibald）提出質疑：「只在 DOMContentLoaded 和 load 時調整大小，看起來是很大的限制」（"[It only resizing on domready + load seems like a huge limitation.]{lang="en"}"）。
 - **HTML 標準**：把 `<meta name="responsive-embedded-sizing">` 加進 HTML 標準的 PR（#12444）還沒合併，`allow-origins` 的寫法在討論中也改過。用之前最好再查一次最新寫法。
 
 所以目前它是 Chrome 專屬、寫法還在變的功能。要用的話，內嵌頁面記得加上 `requestResize()`，也保留舊的做法當備援。
@@ -157,16 +157,16 @@ window.addEventListener("message", (e) => {
 
 ## 相關連結
 
-- [W3C — CSS Box Sizing Module Level 4：Responsively-sized iframes](https://drafts.csswg.org/css-sizing-4/#responsive-iframes "另開新視窗"){target="_blank"}
-- [CSS 工作小組 — Responsively-sized iframes 說明文件](https://github.com/w3c/csswg-drafts/blob/main/css-sizing-4/responsive-iframes-explainer.md "另開新視窗"){target="_blank"}
+- [W3C — CSS Box Sizing Module Level 4](https://drafts.csswg.org/css-sizing-4/#responsive-iframes "另開新視窗"){target="_blank" lang="en"}：Responsively-sized iframes
+- CSS 工作小組 — [Responsively-sized iframes](https://github.com/w3c/csswg-drafts/blob/main/css-sizing-4/responsive-iframes-explainer.md "另開新視窗"){target="_blank" lang="en"} 說明文件
 - [WPT — responsive-iframe 測試（含 allow-origins）](https://github.com/web-platform-tests/wpt/tree/master/css/css-sizing/responsive-iframe "另開新視窗"){target="_blank"}
-- [MDN — frame-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/frame-sizing "另開新視窗"){target="_blank"}
+- [MDN — frame-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/frame-sizing "另開新視窗"){target="_blank" lang="en"}
 - [MDN — Window.requestResize()](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestResize "另開新視窗"){target="_blank"}
-- [MDN browser-compat-data — frame-sizing](https://github.com/mdn/browser-compat-data/blob/main/css/properties/frame-sizing.json "另開新視窗"){target="_blank"}
+- [MDN browser-compat-data — frame-sizing](https://github.com/mdn/browser-compat-data/blob/main/css/properties/frame-sizing.json "另開新視窗"){target="_blank" lang="en"}
 - [Chromium 原始碼 — html_meta_element.cc（allow-origins 的檢查）](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/html/html_meta_element.cc "另開新視窗"){target="_blank"}
 - [WHATWG HTML — Add `<meta name="responsive-embedded-sizing">`（#12444）](https://github.com/whatwg/html/pull/12444 "另開新視窗"){target="_blank"}
-- [WebKit 標準立場 — Responsively-sized iframes（#653）](https://github.com/WebKit/standards-positions/issues/653 "另開新視窗"){target="_blank"}
-- [Mozilla 標準立場 — Responsively-sized iframes（#1394）](https://github.com/mozilla/standards-positions/issues/1394 "另開新視窗"){target="_blank"}
+- WebKit 標準立場 — [Responsively-sized iframes](https://github.com/WebKit/standards-positions/issues/653 "另開新視窗"){target="_blank" lang="en"}（#653）
+- Mozilla 標準立場 — [Responsively-sized iframes](https://github.com/mozilla/standards-positions/issues/1394 "另開新視窗"){target="_blank" lang="en"}（#1394）
 - [WCAG 2.2 說明文件 — 1.4.10 重排](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html "另開新視窗"){target="_blank"}
 - [WCAG 2.2 說明文件 — 1.4.12 文字間距](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html "另開新視窗"){target="_blank"}
 - [WCAG 2.2 說明文件 — 1.4.4 調整文字大小](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html "另開新視窗"){target="_blank"}

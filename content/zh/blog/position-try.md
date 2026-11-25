@@ -207,8 +207,8 @@ draft: false
 
 ## 相關連結
 
-- [MDN — position-try-fallbacks](https://developer.mozilla.org/en-US/docs/Web/CSS/position-try-fallbacks "另開新視窗"){target="_blank"}
-- [MDN — @position-try](https://developer.mozilla.org/en-US/docs/Web/CSS/@position-try "另開新視窗"){target="_blank"}
+- [MDN — position-try-fallbacks](https://developer.mozilla.org/en-US/docs/Web/CSS/position-try-fallbacks "另開新視窗"){target="_blank" lang="en"}
+- [MDN — @position-try](https://developer.mozilla.org/en-US/docs/Web/CSS/@position-try "另開新視窗"){target="_blank" lang="en"}
 - [MDN — 錨點定位的備案與條件隱藏](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding "另開新視窗"){target="_blank"}
 - [WCAG 2.2 — 1.4.13 滑鼠移入或聚焦時出現的內容](https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

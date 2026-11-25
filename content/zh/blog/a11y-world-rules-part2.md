@@ -98,7 +98,7 @@ draft: false
 
 ### 香港
 
-[Digital Policy Office established today（香港政府新聞公報）](https://www.info.gov.hk/gia/general/202407/25/P2024072400394.htm "另開新視窗"){target="_blank"}
+[Digital Policy Office established today](https://www.info.gov.hk/gia/general/202407/25/P2024072400394.htm "另開新視窗"){target="_blank" lang="en"}（香港政府新聞公報）
 
 [Digital Policy Office 官網 About Us](https://www.digitalpolicy.gov.hk/en/about_us/ "另開新視窗"){target="_blank"}
 
@@ -106,7 +106,7 @@ draft: false
 
 [HKIRC — Digital Accessibility Recognition Scheme 官方介紹頁](https://www.hkirc.hk/en/public-mission/dars/dars/ "另開新視窗"){target="_blank"}
 
-[DARS 2024-2025 Guide to Application（PDF，評審級別標準）](https://www.digital-accessibility.hk/wp-content/uploads/2024/01/DARS_Application_Guide-1.pdf "另開新視窗"){target="_blank"}
+[DARS 2024-2025 Guide to Application](https://www.digital-accessibility.hk/wp-content/uploads/2024/01/DARS_Application_Guide-1.pdf "另開新視窗"){target="_blank" lang="en"}（PDF，評審級別標準）
 
 ### 卡達
 
@@ -114,9 +114,9 @@ draft: false
 
 [Mada — Policy 頁面（政府 Framework 要求 WCAG 2.0）](https://mada.org.qa/policy-advocacy/ "另開新視窗"){target="_blank"}
 
-[Crowell & Moring — Qatar Enacts Law No. (22) of 2025 on Persons with Disabilities](https://www.crowell.com/en/insights/client-alerts/qatar-enacts-law-no-22-of-2025-on-persons-with-disabilities "另開新視窗"){target="_blank"}
+[Crowell & Moring — Qatar Enacts Law No. (22) of 2025 on Persons with Disabilities](https://www.crowell.com/en/insights/client-alerts/qatar-enacts-law-no-22-of-2025-on-persons-with-disabilities "另開新視窗"){target="_blank" lang="en"}
 
-[MSDF — His Highness the Amir Issues Law No. (22) of 2025 on Persons with Disabilities](https://msdf.gov.qa/en/media-center/news-list/his-highness-amir-issues-law-no-22-2025-persons-disabilities "另開新視窗"){target="_blank"}
+[MSDF — His Highness the Amir Issues Law No. (22) of 2025 on Persons with Disabilities](https://msdf.gov.qa/en/media-center/news-list/his-highness-amir-issues-law-no-22-2025-persons-disabilities "另開新視窗"){target="_blank" lang="en"}
 
 [Qatar National e-Accessibility Policy 2011（PDF，MCIT）](https://www.mcit.gov.qa/sites/default/files/qatar_eaccessibility_policy_en_v4.pdf "另開新視窗"){target="_blank"}
 

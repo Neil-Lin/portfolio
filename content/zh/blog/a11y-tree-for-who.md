@@ -52,9 +52,9 @@ AI Agent 操作網站時，最怕的其實不是畫面醜，而是它不知道�
 
 ## 這會帶來什麼改變？
 
-No Hacks 在「[HOW AI AGENTS SEE YOUR WEBSITE (AND HOW TO BUILD FOR THEM)」](https://nohacks.co/blog/how-ai-agents-see-your-website "另開新視窗"){target="_blank"}:一文中提到：
+No Hacks 在「[HOW AI AGENTS SEE YOUR WEBSITE (AND HOW TO BUILD FOR THEM)](https://nohacks.co/blog/how-ai-agents-see-your-website "另開新視窗"){target="_blank" lang="en"}」:一文中提到：
 
-Last year, before the European Accessibility Act took effect, I half-joked that it would be ironic if the thing that finally got people to care about accessibility was AI agents, not the people accessibility was designed for. That's no longer a joke.
+[Last year, before the European Accessibility Act took effect, I half-joked that it would be ironic if the thing that finally got people to care about accessibility was AI agents, not the people accessibility was designed for. That's no longer a joke.]{lang="en"}
 
 這句話其實很有意思，因為它點出了一個現象：無障礙技術已經不只是服務人類，也開始幫助所有「非視覺型使用者」理解網站。
 

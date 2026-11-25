@@ -184,7 +184,7 @@ draft: false
 ## 相關連結
 
 - [MDN — align-items 的 safe 與 unsafe](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items#safe "另開新視窗"){target="_blank"}
-- [CSS Box Alignment Module Level 3 — 溢位對齊](https://drafts.csswg.org/css-align-3/#overflow-values "另開新視窗"){target="_blank"}
+- [CSS Box Alignment Module Level 3](https://drafts.csswg.org/css-align-3/#overflow-values "另開新視窗"){target="_blank" lang="en"} — 溢位對齊
 - [WCAG 2.2 — 1.4.10 重排](https://www.w3.org/WAI/WCAG22/Understanding/reflow "另開新視窗"){target="_blank"}
 - [WCAG 2.2 — 2.4.7 焦點可見](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

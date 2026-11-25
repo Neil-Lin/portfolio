@@ -134,7 +134,7 @@ npm 加上 `strict-allow-scripts=true`，有未核准的腳本時安裝會直接
 - [Yarn — .yarnrc.yml 設定](https://yarnpkg.com/configuration/yarnrc "另開新視窗"){target="_blank"}
 - [Node.js 24 文件 — Corepack（v25 起不再隨 Node 發布）](https://nodejs.org/docs/latest-v24.x/api/corepack.html "另開新視窗"){target="_blank"}
 - [Node.js 各版本內建的 npm 版本（官方 index.json）](https://nodejs.org/dist/index.json "另開新視窗"){target="_blank"}
-- [npm Docs — npm install-scripts](https://docs.npmjs.com/cli/commands/npm-install-scripts "另開新視窗"){target="_blank"}
+- [npm Docs — npm install-scripts](https://docs.npmjs.com/cli/commands/npm-install-scripts "另開新視窗"){target="_blank" lang="en"}
 - [pnpm 變更紀錄（GitHub Releases）](https://github.com/pnpm/pnpm/releases "另開新視窗"){target="_blank"}
 - [Yarn — 安裝](https://yarnpkg.com/getting-started/install "另開新視窗"){target="_blank"}
 - [Yarn 6 文件（預覽版）](https://v6.yarnpkg.com/concepts/yarn-6 "另開新視窗"){target="_blank"}

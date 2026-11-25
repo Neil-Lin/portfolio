@@ -186,8 +186,8 @@ window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
 
 ## 相關連結
 
-- [MDN — overflow-anchor](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor "另開新視窗"){target="_blank"}
-- [MDN — Guide to scroll anchoring](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor/Guide_to_scroll_anchoring "另開新視窗"){target="_blank"}
+- [MDN — overflow-anchor](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor "另開新視窗"){target="_blank" lang="en"}
+- [MDN — Guide to scroll anchoring](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor/Guide_to_scroll_anchoring "另開新視窗"){target="_blank" lang="en"}
 - [web.dev — Cumulative Layout Shift（CLS）](https://web.dev/articles/cls?hl=zh-tw "另開新視窗"){target="_blank"}
 - [WCAG 2.2 — 2.3.3 互動產生的動畫](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

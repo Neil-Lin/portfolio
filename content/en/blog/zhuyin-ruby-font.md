@@ -44,9 +44,9 @@ Here's your browser:
 ::feature-support{features="ruby-inter-character" notice="Your browser doesn't support ruby-position: inter-character, so ruby Zhuyin can only go above the characters."}
 ::
 
-Tone marks are another problem: the second, third and fourth tones go to the right of the last Zhuyin symbol, and the neutral tone goes on top. Browser ruby layout follows Japanese kana conventions. In vertical text in Chrome 158, the third-tone ˇ is rotated 90 degrees and placed below ㄤ, and there's a large gap between the neutral-tone dot and the following symbol.
+Tone marks are another problem: the second, third and fourth tones go to the right of the last Zhuyin symbol, and the neutral tone goes on top. Browser ruby layout follows Japanese kana conventions. In vertical text in Chrome 158, the third-tone [ˇ]{lang="zh-Hant-TW"} is rotated 90 degrees and placed below [ㄤ]{lang="zh-Hant-TW"}, and there's a large gap between the neutral-tone dot and the following symbol.
 
-So getting textbook formatting means fixing it yourself with CSS and JS. There's a complete demo on CodePen (u00hyui's "使用 ruby、rt 標注音符號"), which:
+So getting textbook formatting means fixing it yourself with CSS and JS. There's a complete demo on CodePen (u00hyui's "[使用 ruby、rt 標注音符號]{lang="zh-Hant-TW"}"), which:
 
 - Uses JS to wrap the trailing tone mark in each `<rt>` in `<span class="tone">`, with an extra class for the neutral tone.
 - Vertical text: rotates the tone mark back and moves it into place with `transform`.
@@ -63,21 +63,21 @@ ButTaiwan's bpmfvs is a specification for Zhuyin fonts. Every character in the f
 <p style="font-family: 'Bpmf Huninn'">銀行&#xE01E1;</p>
 ```
 
-I tested several selectors on 行 with Fontsource's Bpmf Huninn (`@fontsource/bpmf-huninn` 5.3.1):
+I tested several selectors on [行]{lang="zh-Hant-TW"} with Fontsource's Bpmf Huninn (`@fontsource/bpmf-huninn` 5.3.1):
 
 | Markup | Zhuyin shown |
 |---|---|
-| 行 | ㄒㄧㄥˊ (default reading) |
-| 行 + U+E01E0 | No Zhuyin |
-| 行 + U+E01E1 | ㄏㄤˊ |
-| 行 + U+E01E2 | ㄒㄧㄥˋ |
-| 行 + U+E01E3 | ㄏㄤˋ |
+| [行]{lang="zh-Hant-TW"} | [ㄒㄧㄥˊ]{lang="zh-Hant-TW"} (default reading) |
+| [行]{lang="zh-Hant-TW"} + U+E01E0 | No Zhuyin |
+| [行]{lang="zh-Hant-TW"} + U+E01E1 | [ㄏㄤˊ]{lang="zh-Hant-TW"} |
+| [行]{lang="zh-Hant-TW"} + U+E01E2 | [ㄒㄧㄥˋ]{lang="zh-Hant-TW"} |
+| [行]{lang="zh-Hant-TW"} + U+E01E3 | [ㄏㄤˋ]{lang="zh-Hant-TW"} |
 
 The selector is itself text, so the reading survives copy and paste. In an ordinary font, the selector is invisible and only the character shows, as Unicode specifies for variation sequences: when unsupported, "the base character is displayed as usual, and the variation selector is invisible". In Chrome 158 with an ordinary font, the same text indeed showed only the characters.
 
-Polyphonic characters need a tool: bpmfvs provides a "reading selection tool" (讀音選擇工具). Paste your text in, it pre-selects readings automatically, you correct them by hand, then copy the result out.
+Polyphonic characters need a tool: bpmfvs provides a "reading selection tool" ([讀音選擇工具]{lang="zh-Hant-TW"}). Paste your text in, it pre-selects readings automatically, you correct them by hand, then copy the result out.
 
-Open-source fonts that support bpmfvs include 源泉注音圓體, 源樣注音明體, 源流注音明體 and 黑體, 源雲注音明體, 源石注音黑體, plus 字嗨注音標楷, 宋體 and 黑體.
+Open-source fonts that support bpmfvs include [源泉注音圓體]{lang="zh-Hant-TW"}, [源樣注音明體]{lang="zh-Hant-TW"}, [源流注音明體]{lang="zh-Hant-TW"} and [黑體]{lang="zh-Hant-TW"}, [源雲注音明體]{lang="zh-Hant-TW"}, [源石注音黑體]{lang="zh-Hant-TW"}, plus [字嗨注音標楷]{lang="zh-Hant-TW"}, [宋體]{lang="zh-Hant-TW"} and [黑體]{lang="zh-Hant-TW"}.
 
 ## 3. Writing direction and Zhuyin position
 
@@ -139,11 +139,11 @@ It wasn't what I expected: Chrome doesn't put the Zhuyin between the characters.
 
 | Markup | Chrome 158 accessibility tree |
 |---|---|
-| One `<ruby>` wrapping the whole phrase, plain `<rt>` | Text "一", "行", "白"; the `<ruby>` description is "ㄧˋ", **only the first character's Zhuyin** |
-| One `<ruby>` per character, plain `<rt>` | Each `<ruby>` has its own description: "ㄧˋ", "ㄏㄤˊ", "ㄅㄞˊ" |
+| One `<ruby>` wrapping the whole phrase, plain `<rt>` | Text "[一]{lang="zh-Hant-TW"}", "[行]{lang="zh-Hant-TW"}", "[白]{lang="zh-Hant-TW"}"; the `<ruby>` description is "[ㄧˋ]{lang="zh-Hant-TW"}", **only the first character's Zhuyin** |
+| One `<ruby>` per character, plain `<rt>` | Each `<ruby>` has its own description: "[ㄧˋ]{lang="zh-Hant-TW"}", "[ㄏㄤˊ]{lang="zh-Hant-TW"}", "[ㄅㄞˊ]{lang="zh-Hant-TW"}" |
 | `<rt aria-hidden="true">` | Characters only; empty description |
 | `<rt>` hidden with `display: none` | Characters only; empty description |
-| Zhuyin font (with selector) | "一行白鷺"; the selector is in the text but invisible |
+| Zhuyin font (with selector) | "[一行白鷺]{lang="zh-Hant-TW"}"; the selector is in the text but invisible |
 
 - Ruby Zhuyin reaches screen readers as a description. With one `<ruby>` around a whole phrase, only the first annotation survives; with one `<ruby>` per character, every character keeps its Zhuyin.
 - A Zhuyin font's Zhuyin is part of the glyph, not text, so screen readers never get it. Listening with VoiceOver in Chrome, I heard only the characters, no Zhuyin.
@@ -151,11 +151,11 @@ It wasn't what I expected: Chrome doesn't put the Zhuyin between the characters.
 
 ## 6. Testing: in-page search
 
-I searched for "一行白" with Chrome 158's `window.find()`. `window.find()` isn't exactly the same as a user pressing Ctrl+F, so treat this as a reference only.
+I searched for "[一行白]{lang="zh-Hant-TW"}" with Chrome 158's `window.find()`. `window.find()` isn't exactly the same as a user pressing Ctrl+F, so treat this as a reference only.
 
-| Markup | Is "一行白" found? |
+| Markup | Is "[一行白]{lang="zh-Hant-TW"}" found? |
 |---|---|
-| Zhuyin font (selector after 行) | Yes |
+| Zhuyin font (selector after [行]{lang="zh-Hant-TW"}) | Yes |
 | Ruby, Zhuyin showing | No |
 | Ruby, `<rt>` hidden with `display: none` | Yes |
 
@@ -164,7 +164,7 @@ While ruby Zhuyin is showing, the `<rt>` text sits between the characters, so a 
 ## 7. Web font gotchas
 
 - **File size**: Fontsource's Bpmf Huninn Traditional Chinese woff2 is about 1.4 MB. The demo uses a subset of only the characters it needs, loaded on button press.
-- **The default `index.css` splits the font into many pieces**: version 5.3.1's `index.css` has 106 `@font-face` rules, each limited by `unicode-range`, and none of the ranges include the selector code points (from U+E0100). In Chrome 158, with the default `index.css`, 行 + U+E01E1 still correctly showed ㄏㄤˊ. I didn't test Firefox or Safari; to be safe, use `chinese-traditional.css`, which is one file.
+- **The default `index.css` splits the font into many pieces**: version 5.3.1's `index.css` has 106 `@font-face` rules, each limited by `unicode-range`, and none of the ranges include the selector code points (from U+E0100). In Chrome 158, with the default `index.css`, [行]{lang="zh-Hant-TW"} + U+E01E1 still correctly showed [ㄏㄤˊ]{lang="zh-Hant-TW"}. I didn't test Firefox or Safari; to be safe, use `chinese-traditional.css`, which is one file.
 - **The Fontsource build keeps only IVS**: checking the 5.3.1 Traditional Chinese woff2 with fontTools, `cmap` has a format 14 subtable (used for IVS, with 6 selectors), but GSUB only has `vert` and `vrt2`, without the stylistic sets (ss01 onward) from the bpmfvs spec. So on the web you can only pick readings with IVS, not `font-feature-settings`.
 - **When subsetting yourself**: make sure `cmap` format 14 survives, or every polyphonic character falls back to its default reading. When I cut the demo subset with `pyftsubset`, including the selector code points (U+E01E0–E01E5) in `--unicodes` kept format 14.
 
@@ -173,14 +173,14 @@ While ruby Zhuyin is showing, the `<rt>` text sits between the characters, so a 
 Both approaches need you to decide each polyphonic character's reading first:
 
 - **Zhuyin font**: use the bpmfvs reading selection tool, which pre-selects readings for you to confirm.
-- **Ruby**: generate them in bulk with g2pW, a model published by researchers at E.SUN Financial Holding and National Kaohsiung Normal University (INTERSPEECH 2022). It decides readings from the whole sentence and outputs Zhuyin, e.g. 行 in 銀行 is `ㄏㄤ2` and in 行動 is `ㄒㄧㄥ2`. Tones are digits, so you convert them to ˊ, ˇ, ˋ and ˙ yourself.
+- **Ruby**: generate them in bulk with g2pW, a model published by researchers at E.SUN Financial Holding and National Kaohsiung Normal University (INTERSPEECH 2022). It decides readings from the whole sentence and outputs Zhuyin, e.g. [行]{lang="zh-Hant-TW"} in [銀行]{lang="zh-Hant-TW"} is `ㄏㄤ2` and in [行動]{lang="zh-Hant-TW"} is `ㄒㄧㄥ2`. Tones are digits, so you convert them to [ˊ]{lang="zh-Hant-TW"}, [ˇ]{lang="zh-Hant-TW"}, [ˋ]{lang="zh-Hant-TW"} and [˙]{lang="zh-Hant-TW"} yourself.
 - g2pW's output can also be turned into IVS selectors for a Zhuyin font (you build the reading-to-selector mapping yourself).
 
 ## 9. Accessibility essentials
 
 ### 1. With ruby, add `aria-hidden="true"` to `<rt>`
 
-While Zhuyin is showing, Chrome passes it to screen readers as a description. For screen reader users the characters already carry the meaning, and Zhuyin is a pronunciation aid; hearing "ㄏ, ㄤ, second tone" doesn't help much. The W3C requirements document on reading ruby aloud also notes that Chinese Zhuyin (Taiwan) and pinyin (mainland China) are usually pronunciation aids, and reading only the base text is usually enough.
+While Zhuyin is showing, Chrome passes it to screen readers as a description. For screen reader users the characters already carry the meaning, and Zhuyin is a pronunciation aid; hearing "[ㄏ]{lang="zh-Hant-TW"}, [ㄤ]{lang="zh-Hant-TW"}, second tone" doesn't help much. The W3C requirements document on reading ruby aloud also notes that Chinese Zhuyin (Taiwan) and pinyin (mainland China) are usually pronunciation aids, and reading only the base text is usually enough.
 
 - Add it only to `<rt>`, not `<ruby>`, or you'll hide the characters too.
 - If you use `<rp>` parentheses, add it to those as well.
@@ -235,7 +235,7 @@ Both approaches still have untested parts: rendering in Firefox and Safari, what
 
 - [ButTaiwan — bpmfvs Bopomofo IVS font specification](https://github.com/ButTaiwan/bpmfvs "Open new window"){target="_blank"}
 - [Fontsource — Bpmf Huninn](https://fontsource.org/fonts/bpmf-huninn/about "Open new window"){target="_blank"}
-- [CodePen — 使用 ruby、rt 標注音符號 (u00hyui)](https://codepen.io/u00hyui/pen/ZEXvrEZ "Open new window"){target="_blank"}
+- CodePen — [使用 ruby、rt 標注音符號](https://codepen.io/u00hyui/pen/ZEXvrEZ "Open new window"){target="_blank" lang="zh-Hant-TW"} (u00hyui)
 - [W3C — Bopomofo on the Web (r12a)](https://r12a.github.io/scripts/bopomofo/ontheweb "Open new window"){target="_blank"}
 - [W3C — Ruby text-to-speech requirements](https://w3c.github.io/ruby-tts-req/ "Open new window"){target="_blank"}
 - [MDN browser-compat-data — ruby-position](https://github.com/mdn/browser-compat-data/blob/main/css/properties/ruby-position.json "Open new window"){target="_blank"}

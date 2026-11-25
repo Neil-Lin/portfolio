@@ -381,8 +381,8 @@ CSS.supports("corner-shape: bevel");
 
 ## 相關連結
 
-- [CSS Borders and Box Decorations Level 4（corner-shape）](https://drafts.csswg.org/css-borders-4/#corner-shaping "另開新視窗"){target="_blank"}
-- [MDN — corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape "另開新視窗"){target="_blank"}
+- [CSS Borders and Box Decorations Level 4](https://drafts.csswg.org/css-borders-4/#corner-shaping "另開新視窗"){target="_blank" lang="en"}（corner-shape）
+- [MDN — corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape "另開新視窗"){target="_blank" lang="en"}
 - [WCAG 2.2 — 2.4.7 焦點可見](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible "另開新視窗"){target="_blank"}
 - [WCAG 2.2 — 2.5.8 目標尺寸（最小）](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

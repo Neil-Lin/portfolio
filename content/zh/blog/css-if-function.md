@@ -369,8 +369,8 @@ CSS 的 `@supports at-rule(@function)` 也可以偵測 `@function`，但我實�
 
 ## 相關連結
 
-- [CSS Values and Units Level 5（if()）](https://drafts.csswg.org/css-values-5/#if-notation "另開新視窗"){target="_blank"}
-- [CSS Functions and Mixins（@function）](https://drafts.csswg.org/css-mixins-1/ "另開新視窗"){target="_blank"}
+- [CSS Values and Units Level 5](https://drafts.csswg.org/css-values-5/#if-notation "另開新視窗"){target="_blank" lang="en"}（if()）
+- [CSS Functions and Mixins](https://drafts.csswg.org/css-mixins-1/ "另開新視窗"){target="_blank" lang="en"}（@function）
 - [MDN — if()](https://developer.mozilla.org/en-US/docs/Web/CSS/if "另開新視窗"){target="_blank"}
 - [WCAG 2.2 — 2.3.3 互動動畫](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions "另開新視窗"){target="_blank"}
 - [WCAG 2.2 — 2.4.7 焦點可見](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible "另開新視窗"){target="_blank"}

@@ -194,9 +194,9 @@ draft: false
 
 [W3C WAI, Web Accessibility Laws & Policies](https://www.w3.org/WAI/policies/ "另開新視窗"){target="_blank"}
 
-[EU Web Accessibility Directive 2016/2102](https://eur-lex.europa.eu/eli/dir/2016/2102/oj "另開新視窗"){target="_blank"}
+[EU Web Accessibility Directive 2016/2102](https://eur-lex.europa.eu/eli/dir/2016/2102/oj "另開新視窗"){target="_blank" lang="en"}
 
-[European Accessibility Act, Directive 2019/882](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en "另開新視窗"){target="_blank"}
+[European Accessibility Act, Directive 2019/882](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en "另開新視窗"){target="_blank" lang="en"}
 
 [EN 301 549（Accessible EU Centre）](https://accessible-eu-centre.ec.europa.eu/ "另開新視窗"){target="_blank"}
 
@@ -224,15 +224,15 @@ draft: false
 
 ### 澳洲
 
-[Disability Discrimination Act 1992](https://www.legislation.gov.au/C2004A04426/latest "另開新視窗"){target="_blank"}
+[Disability Discrimination Act 1992](https://www.legislation.gov.au/C2004A04426/latest "另開新視窗"){target="_blank" lang="en"}
 
 [AHRC, World Wide Web Access: DDA Advisory Notes](https://humanrights.gov.au/our-work/disability-rights/world-wide-web-access-disability-discrimination-act-advisory-notes-ver "另開新視窗"){target="_blank"}
 
 ### 韓國
 
-[Act on Prohibition of Discrimination against Persons with Disabilities（KLRI 英譯）](https://elaw.klri.re.kr/eng_mobile/viewer.do?hseq=55535&type=part&key=38 "另開新視窗"){target="_blank"}
+[Act on Prohibition of Discrimination against Persons with Disabilities](https://elaw.klri.re.kr/eng_mobile/viewer.do?hseq=55535&type=part&key=38 "另開新視窗"){target="_blank" lang="en"}（KLRI 英譯）
 
-[Seoul, Web Accessibility Quality Mark](https://english.seoul.go.kr/web-accessibility-quality-mark/ "另開新視窗"){target="_blank"}
+[Seoul, Web Accessibility Quality Mark](https://english.seoul.go.kr/web-accessibility-quality-mark/ "另開新視窗"){target="_blank" lang="en"}
 
 ### 日本
 

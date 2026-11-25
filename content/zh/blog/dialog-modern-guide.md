@@ -280,6 +280,6 @@ dialog {
 
 - [MDN — `<dialog>` 對話框元素](https://developer.mozilla.org/zh-TW/docs/Web/HTML/Element/dialog "另開新視窗"){target="_blank"}
 - [MDN — HTMLDialogElement.closedBy](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/closedBy "另開新視窗"){target="_blank"}
-- [MDN — Invoker Commands API](https://developer.mozilla.org/zh-TW/docs/Web/API/Invoker_Commands_API "另開新視窗"){target="_blank"}
+- [MDN — Invoker Commands API](https://developer.mozilla.org/zh-TW/docs/Web/API/Invoker_Commands_API "另開新視窗"){target="_blank" lang="en"}
 - [W3C WAI-ARIA APG — Dialog (Modal) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/ "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

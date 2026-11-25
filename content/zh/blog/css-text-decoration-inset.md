@@ -72,7 +72,7 @@ a {
 
 WCAG 1.4.1「色彩的使用」要求不能只靠顏色傳達資訊。連結和周圍文字只差在顏色時，W3C 的失敗技術 F73 寫得很直接：
 
-> 「If the non-color cue only happens when the mouse hovers over the link or when the link receives focus, it is still a failure.」（非顏色的提示只在滑鼠移上去或取得焦點時才出現，仍然算失敗。）
+> 「[If the non-color cue only happens when the mouse hovers over the link or when the link receives focus, it is still a failure.]{lang="en"}」（非顏色的提示只在滑鼠移上去或取得焦點時才出現，仍然算失敗。）
 
 也就是說，用 `text-decoration-inset: 50%` 把底線藏起來、hover 才展開，**一般狀態下連結就只剩顏色可以辨識**。
 
@@ -136,10 +136,10 @@ u {
 
 ## 相關連結
 
-- [W3C — CSS Text Decoration Module Level 4：text-decoration-inset](https://drafts.csswg.org/css-text-decor-4/#text-decoration-inset-property "另開新視窗"){target="_blank"}
-- [MDN — text-decoration-inset](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-decoration-inset "另開新視窗"){target="_blank"}
+- [W3C — CSS Text Decoration Module Level 4](https://drafts.csswg.org/css-text-decor-4/#text-decoration-inset-property "另開新視窗"){target="_blank" lang="en"}：text-decoration-inset
+- [MDN — text-decoration-inset](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-decoration-inset "另開新視窗"){target="_blank" lang="en"}
 - [MDN — Firefox 146 版本說明](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/146 "另開新視窗"){target="_blank"}
-- [MDN browser-compat-data — text-decoration-inset](https://github.com/mdn/browser-compat-data/blob/main/css/properties/text-decoration-inset.json "另開新視窗"){target="_blank"}
+- [MDN browser-compat-data — text-decoration-inset](https://github.com/mdn/browser-compat-data/blob/main/css/properties/text-decoration-inset.json "另開新視窗"){target="_blank" lang="en"}
 - [Chromium 原始碼 — runtime_enabled_features.json5（CSSTextDecorationInset）](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/platform/runtime_enabled_features.json5 "另開新視窗"){target="_blank"}
 - [W3C — 中文排版需求（clreq）：專名號](https://www.w3.org/International/clreq/#id88 "另開新視窗"){target="_blank"}
 - [WCAG 2.2 說明文件 — 1.4.1 色彩的使用](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html "另開新視窗"){target="_blank"}

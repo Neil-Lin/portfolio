@@ -19,9 +19,13 @@ export async function useLocaleSwitch() {
     return code === "en" ? "/en/blog/" : "/blog/";
   };
 
-  // 語言選單（頁首、頁尾）共用的清單
+  // 語言選單（頁首、頁尾）共用的清單；language 給語言名稱的 lang／hreflang 用（WCAG 3.1.2）
   const supportedLocales = computed(() =>
-    locales.value.map(({ code, name }) => ({ code, name: name ?? code })),
+    locales.value.map(({ code, name, language }) => ({
+      code,
+      name: name ?? code,
+      language: language ?? code,
+    })),
   );
 
   return { resolve, supportedLocales };

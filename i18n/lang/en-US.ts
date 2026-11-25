@@ -41,6 +41,7 @@ export default {
     changeByFilter:
       "The content will change immediately to the new sorting and filtering criteria after the select are changed.",
     updateDay: "Update",
+    videoNotSupported: "Your browser does not support the video tag.",
     noscript: "Your browser does not support JavaScript!",
     relatedTags: "Related Tags",
     startToEnd: "Start to End",

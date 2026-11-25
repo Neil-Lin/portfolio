@@ -21,7 +21,7 @@ draft: false
 
 ### 1. 選擇當作基準的測試工具
 
-本來是想簡單一點用 Chrome Devtool 的 Lighthouse ，但會被 Grok 一直擋在機器人檢測的頁面，所以本次選擇 [IBM Equal Access Accessibility Checker](https://chromewebstore.google.com/detail/ibm-equal-access-accessib/lkcagbfjnkomcinoddgooolagloogehp "另開新視窗"){target="_blank"} 的 Chrome Extension 來測試，會選擇的原因是此款擴充程式一來持續在更新，再者可以根據需求選擇檢測規則。
+本來是想簡單一點用 Chrome Devtool 的 Lighthouse ，但會被 Grok 一直擋在機器人檢測的頁面，所以本次選擇 [IBM Equal Access Accessibility Checker](https://chromewebstore.google.com/detail/ibm-equal-access-accessib/lkcagbfjnkomcinoddgooolagloogehp "另開新視窗"){target="_blank" lang="en"} 的 Chrome Extension 來測試，會選擇的原因是此款擴充程式一來持續在更新，再者可以根據需求選擇檢測規則。
 
 ::figure
   ![共有五種選擇，其中三種為 WCAG 2.0, 2.1, 2.2 的 A 與 AA 級，其他兩種為 2.1 和 2.2 各自加上IBM 的額外補充。](/images/blog/35.webp)

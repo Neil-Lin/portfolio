@@ -180,7 +180,7 @@ JPEG 2000、JPEG XR 和 WebP 等圖片格式的壓縮效果通常優於 PNG 或 
 
 - Google 在 2018/7/25 星期三宣布停止公開提交網址索引的服務。
 - Bing 於 2018/9/18 公告停止公開提交網址索引服務
-- [Google Search Console](https://search.google.com/search-console/about "另開新視窗"){target=_blank}
+- [Google Search Console](https://search.google.com/search-console/about "另開新視窗"){target=_blank lang="en"}
 - [Bing網站管理工具](https://www.bing.com/toolbox/webmaster "另開新視窗"){target=_blank}
 
 ### 域名
@@ -249,7 +249,7 @@ JPEG 2000、JPEG XR 和 WebP 等圖片格式的壓縮效果通常優於 PNG 或 
 - 頁面只以賺錢為目的，google 會視為垃圾。 廣告別亂放，蓋全頁面會被降低排名。
 - 自動播放的影音廣告會降低排名 固定位置的大型廣告會降低排名 廣告在行動裝置大於30%高度會降低排名
 - 全螢幕的廣告 動畫廣告
-- [Sitelinks](https://www.searchenginewatch.com/2017/11/30/what-are-sitelinks-and-how-can-i-get-them/ "另開新視窗"){target="_blank"} and search box internal 語言沒設定好，也會影響。
+- [Sitelinks](https://www.searchenginewatch.com/2017/11/30/what-are-sitelinks-and-how-can-i-get-them/ "另開新視窗"){target="_blank" lang="en"} [and search box internal]{lang="en"} 語言沒設定好，也會影響。
 
 ::figure
   ![在搜尋結果出現站內搜尋框](/images/blog/10.webp)
@@ -264,7 +264,7 @@ JPEG 2000、JPEG XR 和 WebP 等圖片格式的壓縮效果通常優於 PNG 或 
 
 ### 工具整理
 
-- [Google Search Console](https://search.google.com/search-console/about "另開新視窗"){target="_blank"}
+- [Google Search Console](https://search.google.com/search-console/about "另開新視窗"){target="_blank" lang="en"}
 - [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=zh-TW "另開新視窗"){target="_blank"}
 - [Google Ads 關鍵字研究](https://ads.google.com/home/tools/keyword-planner/ "另開新視窗"){target="_blank"}
 - [Google結構化資料測試工具](https://search.google.com/structured-data/testing-tool/ "另開新視窗"){target="_blank"}
@@ -278,14 +278,14 @@ JPEG 2000、JPEG XR 和 WebP 等圖片格式的壓縮效果通常優於 PNG 或 
 ### 參考
 
 - [搜尋引擎最佳化](https://zh.wikipedia.org/wiki/%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E%E6%9C%80%E4%BD%B3%E5%8C%96#%E5%BD%93%E4%BB%A3%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E "另開新視窗"){target="_blank"}
-- [Google SEO Tutorial for Beginners | How To SEO A Website Step By Step (2020)](https://www.hobo-web.co.uk/seo-tutorial/?fbclid=IwAR0QKuD_RBGD-DdRr2vbj3brSjJ9H_50hqtLKE98_C4BfRvufcW0F0IvnJI#an-introduction-to-seo "另開新視窗"){target="_blank"}
-- [On-Page SEO: Anatomy of a Perfectly Optimized Page (2019 Update)](https://backlinko.com/on-page-seo "另開新視窗"){target="_blank"}
+- [Google SEO Tutorial for Beginners | How To SEO A Website Step By Step (2020)](https://www.hobo-web.co.uk/seo-tutorial/?fbclid=IwAR0QKuD_RBGD-DdRr2vbj3brSjJ9H_50hqtLKE98_C4BfRvufcW0F0IvnJI#an-introduction-to-seo "另開新視窗"){target="_blank" lang="en"}
+- [On-Page SEO: Anatomy of a Perfectly Optimized Page (2019 Update)](https://backlinko.com/on-page-seo "另開新視窗"){target="_blank" lang="en"}
 - [結構化資料 SEO 與 meta 標籤](https://www.oxxostudio.tw/articles/201406/social-meta.html "另開新視窗"){target="_blank"}
 - [01. Nuxt.js 小跑起步 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天](https://ithelp.ithome.com.tw/articles/10201762 "另開新視窗"){target="_blank"}
 - [08. Nuxt 客製《甜點電商》SEO 基本資訊 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天](https://ithelp.ithome.com.tw/articles/10204248 "另開新視窗"){target="_blank"}
 - [株式会社アンク：コピペ判定判定ソフト「コピペルナー」](http://www.ank.co.jp/works/products/copypelna/ "另開新視窗"){target="_blank"}
 - [重複コンテンツ・ミラーサイト・類似ページ判定ツール](http://sujiko.jp/ "另開新視窗"){target="_blank"}
-- [Mobile-Friendly Test - Google Search Console](https://search.google.com/test/mobile-friendly "另開新視窗"){target="_blank"}
+- [Mobile-Friendly Test - Google Search Console](https://search.google.com/test/mobile-friendly "另開新視窗"){target="_blank" lang="en"}
 - [SEOチェキ！無料で使えるSEOツール](http://seocheki.net/ "另開新視窗"){target="_blank"}
 - [Google / Yahoo 關鍵字排名查詢 | 陪您航向未來的好夥伴 - Allstars 星辰網站建置與網頁設計](https://the-allstars.com/tools/keyword/search "另開新視窗"){target="_blank"}
-- [Free Keyword Rank Checker Tool Online for Google, Yahoo, Bing](https://myrankaware.com/ "另開新視窗"){target="_blank"}
+- [Free Keyword Rank Checker Tool Online for Google, Yahoo, Bing](https://myrankaware.com/ "另開新視窗"){target="_blank" lang="en"}

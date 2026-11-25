@@ -176,6 +176,6 @@ lazy 的圖這樣寫沒問題。但我實測**沒有 `loading="lazy"` 的圖寫 
 
 - [MDN — `<img>` 的 sizes 屬性](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#sizes "另開新視窗"){target="_blank"}
 - [MDN — 響應式圖片](https://developer.mozilla.org/en-US/docs/Web/HTML/Responsive_images "另開新視窗"){target="_blank"}
-- [HTML Living Standard — sizes 屬性](https://html.spec.whatwg.org/multipage/images.html#sizes-attributes "另開新視窗"){target="_blank"}
+- [HTML Living Standard — sizes](https://html.spec.whatwg.org/multipage/images.html#sizes-attributes "另開新視窗"){target="_blank" lang="en"} 屬性
 - [sharp](https://sharp.pixelplumbing.com/ "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

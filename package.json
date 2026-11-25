@@ -21,7 +21,8 @@
     "images:sizes": "node scripts/imageSizes.mjs",
     "images:variants": "node scripts/imageVariants.mjs",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,html,css,scss,json,md}\"",
-    "test:smoke": "node scripts/smoke.mjs"
+    "test:smoke": "node scripts/smoke.mjs",
+    "check:lang": "node scripts/check-lang.mjs"
   },
   "dependencies": {
     "@nuxt/content": "^3.16.2",

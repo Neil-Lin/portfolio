@@ -12,6 +12,7 @@
         v-for="loc in supportedLocales"
         :key="loc.code"
         :value="loc.code"
+        :lang="loc.language"
         :selected="locale === loc.code"
       >
         {{ loc.name }}

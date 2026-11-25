@@ -245,6 +245,6 @@ if (!CSS.supports("width: attr(data-x type(<length>))")) {
 ## 相關連結
 
 - [MDN — attr()](https://developer.mozilla.org/en-US/docs/Web/CSS/attr "另開新視窗"){target="_blank"}
-- [Chrome for Developers — CSS attr() gets an upgrade](https://developer.chrome.com/blog/advanced-attr "另開新視窗"){target="_blank"}
+- [Chrome for Developers — CSS attr() gets an upgrade](https://developer.chrome.com/blog/advanced-attr "另開新視窗"){target="_blank" lang="en"}
 - [WAI-ARIA APG — Meter Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/meter/ "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

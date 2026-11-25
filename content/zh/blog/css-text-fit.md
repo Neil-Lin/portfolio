@@ -242,8 +242,8 @@ text-fit: shrink 80%;             /* 縮小，但不小於原本的 80% */
 
 ## 相關連結
 
-- [MDN — text-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-fit "另開新視窗"){target="_blank"}
-- [CSS fit-width text 說明文件（Google）](https://github.com/explainers-by-googlers/css-fit-text "另開新視窗"){target="_blank"}
+- [MDN — text-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-fit "另開新視窗"){target="_blank" lang="en"}
+- [CSS fit-width text](https://github.com/explainers-by-googlers/css-fit-text "另開新視窗"){target="_blank" lang="en"} 說明文件（Google）
 - [CSSWG issue #12886 — 預設縮放上限與無障礙](https://github.com/w3c/csswg-drafts/issues/12886 "另開新視窗"){target="_blank"}
 - [WCAG 2.2 — 1.4.4 調整文字大小](https://www.w3.org/WAI/WCAG22/Understanding/resize-text "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

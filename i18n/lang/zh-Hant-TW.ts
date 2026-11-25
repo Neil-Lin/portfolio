@@ -40,6 +40,7 @@ export default {
     current: "現職",
     changeByFilter: "下拉式選單變更後，內容會馬上改變成新的排序和篩選條件。",
     updateDay: "更新日期",
+    videoNotSupported: "你的瀏覽器不支援影片播放。",
     noscript:
       "您的瀏覽器不支援 JavaScript 功能，若網頁功能無法正常使用時，請開啟瀏覽器 JavaScript 狀態。",
     relatedTags: "相關標籤",

@@ -129,7 +129,7 @@ document.querySelectorAll(":is(article, aside, nav, section) h1");
 ## 相關連結
 
 - [MDN — `<h1>`–`<h6>`：標題元素](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements "另開新視窗"){target="_blank"}
-- [HTML Living Standard — 標題與大綱](https://html.spec.whatwg.org/multipage/sections.html#headings-and-outlines "另開新視窗"){target="_blank"}
+- [HTML Living Standard](https://html.spec.whatwg.org/multipage/sections.html#headings-and-outlines "另開新視窗"){target="_blank" lang="en"} — 標題與大綱
 - [WCAG 2.2 — 1.3.1 資訊與關係](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships "另開新視窗"){target="_blank"}
 - [WCAG 2.2 — 2.4.6 標題與標籤](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

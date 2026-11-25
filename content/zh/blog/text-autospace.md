@@ -138,6 +138,6 @@ pre {
 ## 相關連結
 
 - [MDN — text-autospace](https://developer.mozilla.org/en-US/docs/Web/CSS/text-autospace "另開新視窗"){target="_blank"}
-- [CSS Text Module Level 4 — text-autospace](https://drafts.csswg.org/css-text-4/#text-autospace-property "另開新視窗"){target="_blank"}
+- [CSS Text Module Level 4 — text-autospace](https://drafts.csswg.org/css-text-4/#text-autospace-property "另開新視窗"){target="_blank" lang="en"}
 - [W3C — 中文排版需求（clreq）](https://www.w3.org/TR/clreq/ "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

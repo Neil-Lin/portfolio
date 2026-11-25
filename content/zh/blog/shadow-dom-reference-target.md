@@ -210,6 +210,6 @@ if (!("referenceTarget" in ShadowRoot.prototype)) {
 
 - [MDN — ShadowRoot](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot "另開新視窗"){target="_blank"}
 - [Chrome 152 版本資訊](https://developer.chrome.com/release-notes/152 "另開新視窗"){target="_blank"}
-- [Eric Meyer — Targeting by Reference in the Shadow DOM](https://meyerweb.com/eric/thoughts/2025/12/19/targeting-by-reference-in-the-shadow-dom/ "另開新視窗"){target="_blank"}
-- [Nolan Lawson — Shadow DOM and accessibility: the trouble with ARIA](https://nolanlawson.com/2022/11/28/shadow-dom-and-accessibility-the-trouble-with-aria/ "另開新視窗"){target="_blank"}
+- [Eric Meyer — Targeting by Reference in the Shadow DOM](https://meyerweb.com/eric/thoughts/2025/12/19/targeting-by-reference-in-the-shadow-dom/ "另開新視窗"){target="_blank" lang="en"}
+- [Nolan Lawson — Shadow DOM and accessibility: the trouble with ARIA](https://nolanlawson.com/2022/11/28/shadow-dom-and-accessibility-the-trouble-with-aria/ "另開新視窗"){target="_blank" lang="en"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

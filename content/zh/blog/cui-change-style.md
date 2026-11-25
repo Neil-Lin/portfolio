@@ -85,7 +85,7 @@ CUI 出現方式
 
 對開發者可能的好處：
 
-- 不再需要維護多種版面，什麼 dark mode、multi style mode、圖片模式、圖文模式等，都給使用者決定就好。也就是NN Group 在「[Generative UI and Outcome-Oriented Design](https://www.nngroup.com/articles/generative-ui/ "另開新視窗"){target="_blank"}」提到的 Generative UI (GenUI) 概念
+- 不再需要維護多種版面，什麼 dark mode、multi style mode、圖片模式、圖文模式等，都給使用者決定就好。也就是NN Group 在「[Generative UI and Outcome-Oriented Design](https://www.nngroup.com/articles/generative-ui/ "另開新視窗"){target="_blank" lang="en"}」提到的 Generative UI (GenUI) 概念
 - 因為只做一種版面與風格，可以將重點放在資訊的傳遞、效能以及優化 CUI 有關於業務的對話邏輯和操作上。
 
 對開發者可能的壞處：
@@ -118,5 +118,5 @@ CUI 出現方式
 
 ## 參考來源
 
-- [Conversational user interface](https://en.wikipedia.org/wiki/Conversational_user_interface "另開新視窗"){target="_blank"}
+- [Conversational user interface](https://en.wikipedia.org/wiki/Conversational_user_interface "另開新視窗"){target="_blank" lang="en"}
 - [新趨勢！對話式設計的八種原則！](https://medium.com/uxeastmeetswest/59aa90c4322c "另開新視窗"){target="_blank"}

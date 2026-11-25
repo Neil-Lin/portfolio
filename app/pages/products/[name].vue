@@ -133,7 +133,7 @@
         <div v-for="(item, index) in product.videos[$i18n.locale]" :key="index">
           <video :title="item.title" controls preload="metadata">
             <source :src="`${item.src}`" type="video/mp4" />
-            您的瀏覽器沒有支援 / Your browser does not support the video tag.
+            {{ t("words.videoNotSupported") }}
           </video>
         </div>
       </div>

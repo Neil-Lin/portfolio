@@ -153,11 +153,11 @@ ul {
 
 ## 相關連結
 
-- [W3C — CSS Counter Styles Level 3：symbols()](https://drafts.csswg.org/css-counter-styles-3/#symbols-function "另開新視窗"){target="_blank"}
-- [W3C — CSS Counter Styles Level 3：speak-as](https://drafts.csswg.org/css-counter-styles-3/#counter-style-speak-as "另開新視窗"){target="_blank"}
+- [W3C — CSS Counter Styles Level 3](https://drafts.csswg.org/css-counter-styles-3/#symbols-function "另開新視窗"){target="_blank" lang="en"}：symbols()
+- [W3C — CSS Counter Styles Level 3](https://drafts.csswg.org/css-counter-styles-3/#counter-style-speak-as "另開新視窗"){target="_blank" lang="en"}：speak-as
 - [MDN — symbols()](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/symbols "另開新視窗"){target="_blank"}
 - [MDN — @counter-style 的 speak-as](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@counter-style/speak-as "另開新視窗"){target="_blank"}
-- [MDN browser-compat-data — list-style-type](https://github.com/mdn/browser-compat-data/blob/main/css/properties/list-style-type.json "另開新視窗"){target="_blank"}
+- [MDN browser-compat-data — list-style-type](https://github.com/mdn/browser-compat-data/blob/main/css/properties/list-style-type.json "另開新視窗"){target="_blank" lang="en"}
 - [Chromium 原始碼 — runtime_enabled_features.json5（CSSCounterStyleSymbolsFunction、CSSAtRuleCounterStyleSpeakAsDescriptor）](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/platform/runtime_enabled_features.json5 "另開新視窗"){target="_blank"}
 - [Chromium 原始碼 — ax_node_object.cc（清單標記與 speak-as）](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/modules/accessibility/ax_node_object.cc "另開新視窗"){target="_blank"}
 - [WCAG 2.2 說明文件 — 1.3.1 資訊與關係](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html "另開新視窗"){target="_blank"}

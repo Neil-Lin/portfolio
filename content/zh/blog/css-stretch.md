@@ -117,7 +117,7 @@ flex 那一列要特別注意：在橫排的 flex 裡想「吃掉剩下的空間
 我用 320×256 的視窗（模擬 1280×1024 的螢幕放大 400%），把這個網站的 83 個頁面跑過一次，找出會讓整頁出現橫向捲軸的元素。
 
 - **`width: 100%` 加 margin 的問題：沒有找到。** 網站在 reset 裡已經設定了 `box-sizing: border-box`，padding 和邊框不會撐破；有 margin 又寫 `width: 100%` 的元素，實測都沒有超出容器。
-- **找到一個別的問題**：英文版 [hidden="until-found" 那篇](/en/blog/hidden-until-found/)的範例裡，「Collapse all and try again」按鈕寫了 `white-space: nowrap`，英文字比較長，在 320px 寬時撐出畫面 30px。這跟 `stretch` 無關，我把 `nowrap` 拿掉，讓文字可以換行就修好了。
+- **找到一個別的問題**：英文版 [hidden="until-found" 那篇](/en/blog/hidden-until-found/)的範例裡，「[Collapse all and try again]{lang="en"}」按鈕寫了 `white-space: nowrap`，英文字比較長，在 320px 寬時撐出畫面 30px。這跟 `stretch` 無關，我把 `nowrap` 拿掉，讓文字可以換行就修好了。
 
 所以這次網站沒有需要改成 `stretch` 的地方。不過以後寫按鈕、輸入框要撐滿時，我會直接寫 `stretch`，不再寫 `100%` 加 `calc()`。
 
@@ -142,6 +142,6 @@ flex 那一列要特別注意：在橫排的 flex 裡想「吃掉剩下的空間
 ## 相關連結
 
 - [MDN — width](https://developer.mozilla.org/en-US/docs/Web/CSS/width "另開新視窗"){target="_blank"}
-- [CSS Box Sizing Module Level 4 — stretch](https://drafts.csswg.org/css-sizing-4/#sizing-values "另開新視窗"){target="_blank"}
+- [CSS Box Sizing Module Level 4 — stretch](https://drafts.csswg.org/css-sizing-4/#sizing-values "另開新視窗"){target="_blank" lang="en"}
 - [WCAG 2.2 — 1.4.10 重排](https://www.w3.org/WAI/WCAG22/Understanding/reflow "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}

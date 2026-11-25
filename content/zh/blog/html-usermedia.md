@@ -312,7 +312,7 @@ cameraToggle.addEventListener("click", () => {
 
 `<usermedia>` 的外觀能調整的範圍有限，設計稿要配合：
 
-- **按鈕文字不能自訂，長度也不固定：** 中文是「使用麥克風和攝影機」，英文是「Use microphone and camera」。同樣的字級下，英文版寬了約三成。按鈕的位置要預留彈性寬度。
+- **按鈕文字不能自訂，長度也不固定：** 中文是「使用麥克風和攝影機」，英文是「[Use microphone and camera]{lang="en"}」。同樣的字級下，英文版寬了約三成。按鈕的位置要預留彈性寬度。
 - **圖示由瀏覽器提供**，不能換成自己的圖示。
 - **文字和背景的對比至少 3:1**（瀏覽器只檢查這兩個顏色，背景圖片不算），否則按鈕會失效。
 - **字級約 13px 以上**，也不能大到超過使用者預設字級的 3 倍左右。
@@ -339,7 +339,7 @@ cameraToggle.addEventListener("click", () => {
 ## 相關連結
 
 - [Chrome for Developers — `<usermedia>` 元素介紹](https://developer.chrome.com/blog/usermedia-html-element "另開新視窗"){target="_blank"}
-- [W3C — Media capture HTML elements 規格](https://w3c.github.io/mediacapture-extensions/#media-capture-html-elements "另開新視窗"){target="_blank"}
-- [W3C — Media Capture Elements 說明文件](https://github.com/w3c/mediacapture-extensions/blob/main/media-capture-elements-explainer.md "另開新視窗"){target="_blank"}
+- [W3C — Media capture HTML elements](https://w3c.github.io/mediacapture-extensions/#media-capture-html-elements "另開新視窗"){target="_blank" lang="en"} 規格
+- [W3C — Media Capture Elements](https://github.com/w3c/mediacapture-extensions/blob/main/media-capture-elements-explainer.md "另開新視窗"){target="_blank" lang="en"} 說明文件
 - [WCAG 2.2 — 2.5.3 名稱包含標籤](https://www.w3.org/WAI/WCAG22/Understanding/label-in-name "另開新視窗"){target="_blank"}
 - [Can I use（瀏覽器支援度查詢）](https://caniuse.com "另開新視窗"){target="_blank"}
