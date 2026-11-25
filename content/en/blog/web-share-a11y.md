@@ -13,7 +13,7 @@ category: accessibility
 draft: false
 ---
 
-> Up front: these notes were researched and tested with AI assistance, then rewritten by me. I tested the API in Chrome 158 on macOS (with real clicks simulated through DevTools) and in Electron (Chromium 156). I read the real share sheet on macOS through the system accessibility API, and actually shared from the live site in Safari and in LINE's in-app browser on iPhone. **I haven't listened to it with VoiceOver yet**; I'll add that once I have. If I've gotten something wrong, corrections welcome.
+> Up front: these notes were researched and tested with AI assistance, then rewritten by me. I tested the API in Chrome 158 on macOS (with real clicks simulated through DevTools) and in Electron (Chromium 156). I read the real share sheet on macOS through the system accessibility API, and actually shared from the live site in Safari and in LINE's in-app browser on iPhone. I also turned on VoiceOver and shared to LINE from Chrome on macOS. **Android and TalkBack aren't tested yet**; I'll add those once I have. If I've gotten something wrong, corrections welcome.
 
 ## Intro
 
@@ -268,11 +268,18 @@ This captures what Web Share really is: **which apps appear in the sheet is deci
 
 So don't put promises like "Share to LINE" in the UI that the page can't keep. And the sheet always has "Copy", so even when the app someone wants isn't there, they can still copy the link.
 
-<!-- TODO (after testing): listen with VoiceOver (macOS Chrome, Safari, iOS Safari), Android Chrome + TalkBack; which button LINE's in-app browser shows on Android. -->
+### macOS Chrome + VoiceOver
+
+Finally, I turned on VoiceOver, pressed "Share this page" in Chrome on the live site, picked LINE in the share sheet, and the share went through normally.
+
+This matches what reading the accessibility API showed earlier: every item in the sheet is a named button, so screen reader users can find the app they want and finish sharing. I didn't write any code for this part; the operating system handles it.
+
+<!-- TODO (after testing): what VoiceOver announces the moment the sheet opens (the sheet itself has no name); macOS Safari, iOS Safari + VoiceOver; Android Chrome + TalkBack; which button LINE's in-app browser shows on Android. -->
 
 ### Not tested yet
 
-- Actually listening with VoiceOver: what's announced the moment the unnamed sheet opens.
+- What VoiceOver announces the moment the sheet opens: the sheet itself has no name, and I haven't written down word for word whether it says "Share" first.
+- macOS Safari and iOS Safari with VoiceOver.
 - Android Chrome with TalkBack.
 - LINE's in-app browser on Android. On iPhone it's confirmed to share; from the compatibility data, Android WebView lacks this API, so it should show "Copy link to this page".
 

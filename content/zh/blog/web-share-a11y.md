@@ -13,7 +13,7 @@ category: accessibility
 draft: false
 ---
 
-> 話說在前頭：這篇是 AI 協助整理研究與實測後，我再改寫的筆記。API 行為是在 macOS 的 Chrome 158（用 DevTools 模擬真的點擊）與 Electron（Chromium 156）實測的；真的分享選單是在 macOS 上用系統無障礙 API 讀出來的，另外在正式站用 Safari 和 iPhone 上 LINE 的 App 內瀏覽器實際分享過；**還沒有用 VoiceOver 實際聽過**，會在實測後補上。有講錯的地方歡迎指正。
+> 話說在前頭：這篇是 AI 協助整理研究與實測後，我再改寫的筆記。API 行為是在 macOS 的 Chrome 158（用 DevTools 模擬真的點擊）與 Electron（Chromium 156）實測的；真的分享選單是在 macOS 上用系統無障礙 API 讀出來的，另外在正式站用 Safari 和 iPhone 上 LINE 的 App 內瀏覽器實際分享過；也開了 VoiceOver，在 macOS 的 Chrome 實際分享到 LINE。**Android 和 TalkBack 還沒測**，會在實測後補上。有講錯的地方歡迎指正。
 
 ## 前言
 
@@ -268,11 +268,18 @@ VoiceOver 念的內容，來自作業系統的無障礙 API（macOS 是 AX API�
 
 所以介面上不要寫「分享到 LINE」這種網頁保證不了的文字。另外，選單裡一定有「拷貝」，找不到想要的 App 時，至少還能複製連結。
 
-<!-- TODO(實測後補上)：實際用 VoiceOver 聽（macOS Chrome、Safari、iOS Safari）、Android Chrome + TalkBack；Android 上 LINE App 內瀏覽器顯示哪一種按鈕。 -->
+### macOS Chrome + VoiceOver
+
+最後我打開 VoiceOver，在正式站用 Chrome 按「分享這一頁」，在分享選單裡選 LINE，可以正常分享出去。
+
+這也印證了前面讀無障礙 API 看到的結果：選單裡的每個項目都是有名稱的按鈕，報讀軟體使用者可以找到想要的 App 並完成分享。我自己沒寫任何程式碼，這部分是作業系統做好的。
+
+<!-- TODO(實測後補上)：VoiceOver 開啟選單那一刻念了什麼（選單本身沒有名稱）；macOS Safari、iOS Safari + VoiceOver；Android Chrome + TalkBack；Android 上 LINE App 內瀏覽器顯示哪一種按鈕。 -->
 
 ### 還沒測的
 
-- 實際打開 VoiceOver 聽：選單沒有名稱時，開啟的那一刻念了什麼。
+- VoiceOver 開啟選單那一刻念了什麼：選單本身沒有名稱，會不會先說「分享」，我還沒逐字記錄。
+- macOS Safari、iOS Safari 搭配 VoiceOver。
 - Android Chrome 搭配 TalkBack。
 - Android 上 LINE 的 App 內瀏覽器。iPhone 上已確認可以分享；依相容性資料推論，Android 的 WebView 沒有這個 API，應該會顯示「複製這一頁的連結」。
 
