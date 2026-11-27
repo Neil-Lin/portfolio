@@ -1,8 +1,8 @@
 ---
 title: 通過臺灣 AA 級無障礙網頁標章且美觀的網站
-description: "定期整理通過臺灣 AA 級無障礙網頁標章、同時兼顧美觀與 UI 的網站清單，證明無障礙與設計美感可以並存。"
+description: "收集通過臺灣 AA 級無障礙網頁標章、同時兼顧美觀與 UI 的網站，證明無障礙與設計美感可以並存。"
 date: 2022-06-10
-updatedAt: 2025-08-20
+updatedAt: 2026-11-27
 tags:
   - 無障礙網頁設計
   - 無障礙
@@ -12,9 +12,7 @@ category: accessibility
 draft: false
 ---
 
-收集至啟用日期 2025–08–20。
-
-大概每隔一段時間，就會去無障礙網頁設計規範網站，到啟用列表看看已經通過 AA 標章且 UI 也不錯的網站。
+這是我平常收集的網站：已經通過臺灣 AA 級無障礙網頁標章，UI 也做得不錯。清單是累積下來的，不是某一天的完整檢查結果，網站改版或標章過期也會有增有減。
 
 - [臺中市立美術館](https://www.tcam.museum "另開新視窗"){target="_blank"}
 - [桃園市立大溪木藝生態博物館大溪工藝之城](https://woodcraftdaxi.tycg.gov.tw/ "另開新視窗"){target="_blank"}
@@ -41,3 +39,15 @@ draft: false
 - [國家災害防救科技中心災害告警細胞廣播訊息網](https://cbs.tw/ "另開新視窗"){target="_blank"}
 - [國家發展委員會地方創生資訊共享交流平臺](https://www.twrr.ndc.gov.tw/ "另開新視窗"){target="_blank"}
 - [桃園觀光導覽網](https://travel.tycg.gov.tw/zh-tw "另開新視窗"){target="_blank"}
+- [基隆身障創新基地](https://kinnohub.klcg.gov.tw/ "另開新視窗"){target="_blank"}
+- [築學網 KnowledgeHub AI 智慧教案生成平臺](https://knowledgehub-ai.edu.tw/ "另開新視窗"){target="_blank"}
+- [教育部終身學習資源平臺](https://lle.moe.edu.tw/ "另開新視窗"){target="_blank"}
+- [國立成功大學機械數位博物館](https://museum.me.ncku.edu.tw/ "另開新視窗"){target="_blank"}
+- [臺東縣關山鎮公所](https://www.guanshan.gov.tw/ "另開新視窗"){target="_blank"}
+- [臺南市歸仁文化中心](https://gueirencultural.tainan.gov.tw/ "另開新視窗"){target="_blank"}
+- [慢遊雲林](https://tour.yunlin.gov.tw/mainssl/modules/MySpace/index.php "另開新視窗"){target="_blank"}
+- [國立臺北大學社會學系](https://sociology.ntpu.edu.tw/ "另開新視窗"){target="_blank"}
+- [a-We 臺灣主題特展：a～～～Ｗemoji！](https://awemoji.culture.tw/ "另開新視窗"){target="_blank"}
+- [教育部因材網植樹遊戲](https://adl.edu.tw/trees/ "另開新視窗"){target="_blank"}
+- [法鼓文理學院圖書資訊館](https://lic.dila.edu.tw/ "另開新視窗"){target="_blank"}
+- [觀光多媒體開放資料](https://media.taiwan.net.tw/zh-tw/portal "另開新視窗"){target="_blank"}
